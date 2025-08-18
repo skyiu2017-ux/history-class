@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세계 4대 문명</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1d1d1f;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .civilization-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .civilization-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .civilization-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-item {
+            background: rgba(103, 126, 234, 0.1);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-left: 4px solid #667eea;
+            opacity: 0;
+            transform: translateX(-50px) rotate(-3deg);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .info-item.animate {
+            opacity: 1;
+            transform: translateX(0) rotate(0deg);
+        }
+
+        .info-item.step-1 { transition-delay: 0.1s; }
+        .info-item.step-2 { transition-delay: 0.2s; }
+        .info-item.step-3 { transition-delay: 0.3s; }
+        .info-item.step-4 { transition-delay: 0.4s; }
+
+        .info-item h3 {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-table {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(103, 126, 234, 0.05);
+        }
+
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .quiz-question {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .quiz-question.active {
+            display: block;
+        }
+
+        .quiz-question h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(103, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .quiz-option:hover {
+            background: rgba(103, 126, 234, 0.1);
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(34, 197, 94, 0.15);
+            border-color: #22c55e;
+            color: #15803d;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: #ef4444;
+            color: #dc2626;
+        }
+
+        .quiz-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-result.show {
+            opacity: 1;
+        }
+
+        .quiz-result.correct {
+            background: rgba(34, 197, 94, 0.1);
+            color: #15803d;
+        }
+
+        .quiz-result.incorrect {
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .civilization-card {
+                padding: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🏛️ 세계 4대 문명</h1>
+            <p>인류 역사의 위대한 시작을 탐험해보세요</p>
+        </div>
+        <div class="scroll-indicator">
+            <div style="font-size: 2rem;">⬇️</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 1. 메소포타미아 문명 -->
+        <section class="section">
+            <div class="civilization-card">
+                <span class="emoji">🏺</span>
+                <h2>메소포타미아 문명</h2>
+                <div class="info-grid">
+                    <div class="info-item step-1">
+                        <h3>🌊 강·지리</h3>
+                        <p>티그리스강과 유프라테스강 사이 '비옥한 초승달 지대'. 범람 시기·양이 불규칙, 개방적 지형으로 외부 침입 잦음.</p>
+                    </div>
+                    <div class="info-item step-2">
+                        <h3>👑 정치</h3>
+                        <p>수메르 도시국가(우르, 라가시 등) → 아카드 제국 → 바빌로니아(함무라비 왕). 제정일치 체제, 왕이 신의 대리자로 통치.</p>
+                    </div>
+                    <div class="info-item step-3">
+                        <h3>🏛️ 사회</h3>
+                        <p>귀족–평민–노예의 신분제. 함무라비 법전에서 계층별 차등 처벌.</p>
+                    </div>
+                    <div class="info-item step-4">
+                        <h3>📜 문화</h3>
+                        <p>쐐기문자, 지구라트, 천문 관측, 육십진법, 태음력. <strong>함무라비 법전</strong>: '눈에는 눈, 이에는 이' 원칙, 재산권·직업 책임 규정, 왕권 강화 목적.</p>
+                    </div>
+                </div>
+                <div class="info-item" style="margin-top: 1.5rem; background: linear-gradient(135deg, rgba(103, 126, 234, 0.15), rgba(118, 75, 162, 0.15)); border-left: 4px solid #764ba2; opacity: 0; transform: translateY(30px) scale(0.9); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;">
+                    <h3>🌍 세계관 형성 이유</h3>
+                    <p><strong>현세 중시</strong> - 불규칙한 홍수 + 잦은 전쟁 → 불안정한 삶 → <strong>현재 생존과 질서 유지</strong> 중시.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 이집트 문명 -->
+        <section class="section">
+            <div class="civilization-card">
+                <span class="emoji">🔺</span>
+                <h2>이집트 문명</h2>
+                <div class="info-grid">
+                    <div class="info-item step-1">
+                        <h3>🌊 강·지리</h3>
+                        <p>나일강의 규칙적 범람, 비옥한 토지. 사막·바다로 둘러져 외침 적음.</p>
+                    </div>
+                    <div class="info-item step-2">
+                        <h3>👑 정치</h3>
+                        <p>파라오 절대권력, 제정일치. 통일 왕국 유지.</p>
+                    </div>
+                    <div class="info-item step-3">
+                        <h3>🏛️ 사회</h3>
+                        <p>왕족–귀족–사제–서기관–농민–노예. 미라 제작, '사자의 서' 사용.</p>
+                    </div>
+                    <div class="info-item step-4">
+                        <h3>📜 문화</h3>
+                        <p>상형문자, 피라미드·스핑크스, 태양력, 10진법, 측량·토목 기술 발달. <strong>천문 관측</strong>과 태양 주기 이해가 부활 신앙 강화에 기여.</p>
+                    </div>
+                </div>
+                <div class="info-item" style="margin-top: 1.5rem; background: linear-gradient(135deg, rgba(103, 126, 234, 0.15), rgba(118, 75, 162, 0.15)); border-left: 4px solid #764ba2; opacity: 0; transform: translateY(30px) scale(0.9); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;">
+                    <h3>🌍 세계관 형성 이유</h3>
+                    <p><strong>내세 중시</strong> - 안정된 환경 → 죽음 이후의 세계를 준비할 여유 → <strong>부활·영생 신앙</strong> 발달.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 인도(인더스) 문명 -->
+        <section class="section">
+            <div class="civilization-card">
+                <span class="emoji">🕉️</span>
+                <h2>인도(인더스) 문명</h2>
+                <div class="info-grid">
+                    <div class="info-item step-1">
+                        <h3>🌊 강·지리</h3>
+                        <p>인더스강 유역의 계획도시(모헨조다로, 하라파). 명확한 왕권 증거는 없고 <strong>평등 지향 사회 가능성</strong>.</p>
+                    </div>
+                    <div class="info-item step-2">
+                        <h3>👑 정치</h3>
+                        <p>통일된 도량형·도시 계획 → 중앙집권 추정. 후기 아리아인 침입 → 카스트 제도 확립.</p>
+                    </div>
+                    <div class="info-item step-3">
+                        <h3>🏛️ 사회</h3>
+                        <p>카스트 제도(브라만–크샤트리아–바이샤–수드라). 종교가 사회질서 유지에 영향.</p>
+                    </div>
+                    <div class="info-item step-4">
+                        <h3>📜 문화</h3>
+                        <p>인장, 하수도 시설, 브라만교·힌두교·불교 발상지. 간다라·굽타 미술, 0의 개념, 10진법.</p>
+                    </div>
+                </div>
+                <div class="info-item" style="margin-top: 1.5rem; background: linear-gradient(135deg, rgba(103, 126, 234, 0.15), rgba(118, 75, 162, 0.15)); border-left: 4px solid #764ba2; opacity: 0; transform: translateY(30px) scale(0.9); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;">
+                    <h3>🌍 세계관 형성 이유</h3>
+                    <p>안정된 도시 환경 → 질서·위생 중시. 후기 외침·변화 → 종교·계급 고착화.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 중국(황허) 문명 -->
+        <section class="section">
+            <div class="civilization-card">
+                <span class="emoji">🐉</span>
+                <h2>중국(황허) 문명</h2>
+                <div class="info-grid">
+                    <div class="info-item step-1">
+                        <h3>🌊 강·지리</h3>
+                        <p>황허강 유역, 비옥한 황토. 범람·외침 위협 큼.</p>
+                    </div>
+                    <div class="info-item step-2">
+                        <h3>👑 정치</h3>
+                        <p>기록상 최초 하 왕조(실존 논란) → 상(제정일치) → 주(봉건제). 춘추전국시대 제자백가 → 진(최초 통일, 법가) → 한(유교 국가이념).</p>
+                    </div>
+                    <div class="info-item step-3">
+                        <h3>🏛️ 사회</h3>
+                        <p>귀족 중심 씨족사회 → 철제 농기구·상공업 발달로 신분 유동성 증가.</p>
+                    </div>
+                    <div class="info-item step-4">
+                        <h3>📜 문화</h3>
+                        <p>갑골문(한자의 기원), 청동기, 제자백가, 만리장성, 도량형·문자 통일, 실크로드.</p>
+                    </div>
+                </div>
+                <div class="info-item" style="margin-top: 1.5rem; background: linear-gradient(135deg, rgba(103, 126, 234, 0.15), rgba(118, 75, 162, 0.15)); border-left: 4px solid #764ba2; opacity: 0; transform: translateY(30px) scale(0.9); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;">
+                    <h3>🌍 세계관 형성 이유</h3>
+                    <p>범람·외침 위협 → 질서·왕권 강화. 조상 숭배와 제사가 정치 정당성 부여.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 현세·내세 비교표 -->
+        <section class="section">
+            <div class="comparison-table">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">현세·내세 비교</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>문명</th>
+                            <th>중심 사상</th>
+                            <th>지리·환경</th>
+                            <th>형성 배경</th>
+                            <th>대표 문화</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>메소포타미아</strong></td>
+                            <td>현세 중시</td>
+                            <td>불규칙 범람, 개방적 지형, 침입 잦음</td>
+                            <td>불안정한 생존 환경</td>
+                            <td>함무라비 법전, 쐐기문자</td>
+                        </tr>
+                        <tr>
+                            <td><strong>이집트</strong></td>
+                            <td>내세 중시</td>
+                            <td>규칙적 범람, 폐쇄적 지형, 외침 적음</td>
+                            <td>안정된 생활, 천문 관측 발달</td>
+                            <td>미라, 사자의 서, 피라미드</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 6. 길가메시 서사시 -->
+        <section class="section">
+            <div class="civilization-card">
+                <span class="emoji">⚔️</span>
+                <h2>길가메시 서사시</h2>
+                
+                <div style="background: rgba(255, 215, 0, 0.1); border-left: 4px solid #ffd700; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                    <h3 style="color: #b8860b; margin-bottom: 1rem;">📖 줄거리</h3>
+                    <p><strong>1부 - 길가메시와 엔키두의 만남</strong><br>
+                    우루크의 왕 길가메시는 힘이 세고 용감했지만 포악했습니다. 신들은 길가메시를 견제하기 위해 야생인 엔키두를 만들어 보냈습니다. 처음엔 싸웠지만, 둘은 곧 절친한 친구가 되어 함께 모험을 떠납니다.</p>
+                    <br>
+                    <p><strong>2부 - 친구의 죽음</strong><br>
+                    길가메시와 엔키두는 삼나무 숲의 괴물 훔바바를 물리치고, 하늘의 황소를 죽이는 등 영웅적인 모험을 합니다. 하지만 신들의 노여움을 사 엔키두가 병들어 죽게 됩니다. 길가메시는 친구의 죽음에 깊은 슬픔에 빠집니다.</p>
+                    <br>
+                    <p><strong>3부 - 불멸을 찾아서</strong><br>
+                    엔키두의 죽음으로 자신도 언젠가 죽을 것을 깨달은 길가메시는 불멸을 찾아 위험한 여행을 떠납니다. 대홍수에서 살아남은 우트나피시팀을 만나 불멸의 비밀을 듣지만, 결국 불멸의 풀을 뱀에게 빼앗기고 맙니다.</p>
+                </div>
+
+                <p>고대 메소포타미아의 대표적 문학 작품으로, 길가메시가 결국 불멸을 얻지 못하고, 그 과정에서 <strong>현세의 삶을 소중히 여기고 도시를 발전시키는 것이 진정한 불멸</strong>임을 깨닫게 됩니다.</p>
+                <br>
+                <p>이 서사시에는 '대홍수 설화'가 등장하는데, 이는 성경의 노아의 방주 이야기와 매우 유사합니다. 이는 <strong>고대 인류 신화의 공통된 요소</strong>를 보여주며, 각 문명 간의 문화적 교류 가능성을 시사합니다.</p>
+                
+                <div style="background: rgba(103, 126, 234, 0.1); border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">💡 문학사적 의의</h3>
+                    <p>• 인류 최초의 영웅 서사시 (기원전 2700년경)<br>
+                    • 우정, 죽음, 인생의 의미 등 보편적 주제 다룸<br>
+                    • 메소포타미아의 현세 중심 세계관을 잘 보여줌<br>
+                    • 후대 그리스 신화와 성경에 영향을 미침</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. 함무라비 법전의 특징과 의의 -->
+        <section class="section">
+            <div class="civilization-card">
+                <span class="emoji">📜</span>
+                <h2>함무라비 법전의 특징과 의의</h2>
+                
+                <div style="background: rgba(255, 215, 0, 0.1); border-left: 4px solid #ffd700; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                    <h3 style="color: #b8860b; margin-bottom: 1rem;">📋 내용</h3>
+                    <p>• 보복법(동해보복주의), 계층별 차등, 재산·가족·직업 규정.</p>
+                </div>
+
+                <div style="background: rgba(103, 126, 234, 0.1); border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 12px;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">✨ 의의</h3>
+                    <p>• 사회질서 유지, 약자 보호, 왕권 강화 수단.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. 형성평가 -->
+        <section class="section">
+            <div class="quiz-container">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">📝 형성평가</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+                
+                <div class="quiz-question active" data-question="1">
+                    <h3>1. 메소포타미아 문명이 발달한 강 유역은?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-answer="wrong">① 나일강</button>
+                        <button class="quiz-option" data-answer="wrong">② 갠지스강</button>
+                        <button class="quiz-option" data-answer="wrong">③ 황허강</button>
+                        <button class="quiz-option" data-answer="correct">④ 티그리스강과 유프라테스강</button>
+                        <button class="quiz-option" data-answer="wrong">⑤ 인더스강</button>
+                    </div>
+                    <div class="quiz-result" id="result1"></div>
+                </div>
+
+                <div class="quiz-question" data-question="2">
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-answer="wrong">① 만리장성</button>
+                        <button class="quiz-option" data-answer="wrong">② 지구라트</button>
+                        <button class="quiz-option" data-answer="correct">③ 피라미드</button>
+                        <button class="quiz-option" data-answer="wrong">④ 판테온</button>
+                        <button class="quiz-option" data-answer="wrong">⑤ 콜로세움</button>
+                    </div>
+                    <div class="quiz-result" id="result2"></div>
+                </div>
+
+                <div class="quiz-question" data-question="3">
+                    <h3>3. 인도의 엄격한 신분제 이름은?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-answer="wrong">① 봉건제</button>
+                        <button class="quiz-option" data-answer="correct">② 카스트 제도</button>
+                        <button class="quiz-option" data-answer="wrong">③ 율령체제</button>
+                        <button class="quiz-option" data-answer="wrong">④ 신권정치</button>
+                        <button class="quiz-option" data-answer="wrong">⑤ 군현제</button>
+                    </div>
+                    <div class="quiz-result" id="result3"></div>
+                </div>
+
+                <div class="quiz-question" data-question="4">
+                    <h3>4. 진시황 통일 정책의 긍정적 영향이 아닌 것은?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-answer="wrong">① 화폐·도량형 통일</button>
+                        <button class="quiz-option" data-answer="wrong">② 문자 통일</button>
+                        <button class="quiz-option" data-answer="correct">③ 백성 불만 감소로 통치기간 연장</button>
+                        <button class="quiz-option" data-answer="wrong">④ 만리장성 축조</button>
+                        <button class="quiz-option" data-answer="wrong">⑤ 중앙집권 기반 확립</button>
+                    </div>
+                    <div class="quiz-result" id="result4"></div>
+                </div>
+
+                <div class="quiz-question" data-question="5">
+                    <h3>5. 메소포타미아와 이집트의 세계관 형성 배경 설명으로 옳은 것은?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-answer="wrong">① 산악·척박 vs 온화 기후</button>
+                        <button class="quiz-option" data-answer="wrong">② 규칙적 범람 vs 불규칙 범람</button>
+                        <button class="quiz-option" data-answer="wrong">③ 폐쇄적 vs 개방적 지형</button>
+                        <button class="quiz-option" data-answer="correct">④ 메소포타미아: 불규칙 범람·침입 잦음 → 현세 / 이집트: 규칙 범람·폐쇄 지형 → 내세</button>
+                        <button class="quiz-option" data-answer="wrong">⑤ 식량난 vs 식량 풍부</button>
+                    </div>
+                    <div class="quiz-result" id="result5"></div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;" id="completionMessage"></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let correctAnswers = 0;
+        const totalQuestions = 5;
+        let sectionStates = {};
+
+        function initQuiz() {
+            const questions = document.querySelectorAll('.quiz-question');
+            questions.forEach((question, index) => {
+                if (index === 0) {
+                    question.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    handleAnswer(this);
+                });
+            });
+        }
+
+        function handleAnswer(selectedOption) {
+            const questionDiv = selectedOption.closest('.quiz-question');
+            const questionNumber = parseInt(questionDiv.dataset.question);
+            const options = questionDiv.querySelectorAll('.quiz-option');
+            const result = document.getElementById(`result${questionNumber}`);
+            
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+
+            const isCorrect = selectedOption.dataset.answer === 'correct';
+            
+            if (isCorrect) {
+                selectedOption.classList.add('correct');
+                result.textContent = '✅ 맞았다!';
+                result.classList.add('correct');
+                correctAnswers++;
+            } else {
+                selectedOption.classList.add('incorrect');
+                result.textContent = '❌ 틀렸다.';
+                result.classList.add('incorrect');
+                
+                options.forEach(option => {
+                    if (option.dataset.answer === 'correct') {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+            
+            result.classList.add('show');
+            updateProgress();
+
+            setTimeout(() => {
+                if (currentQuestion < totalQuestions && isCorrect) {
+                    showNextQuestion();
+                } else if (currentQuestion === totalQuestions) {
+                    showCompletion();
+                }
+            }, 1500);
+        }
+
+        function showNextQuestion() {
+            const currentQ = document.querySelector(`.quiz-question[data-question="${currentQuestion}"]`);
+            currentQuestion++;
+            const nextQ = document.querySelector(`.quiz-question[data-question="${currentQuestion}"]`);
+            
+            if (nextQ) {
+                currentQ.classList.remove('active');
+                nextQ.classList.add('active');
+            }
+        }
+
+        function updateProgress() {
+            const progress = (correctAnswers / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function showCompletion() {
+            const message = document.getElementById('completionMessage');
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            
+            if (percentage === 100) {
+                message.innerHTML = `<h2 style="color: #22c55e;">🎉 완벽해요! ${correctAnswers}/${totalQuestions} 정답!</h2><p style="margin-top: 1rem; color: #666;">당신은 세계 4대 문명의 전문가입니다!</p>`;
+            } else if (percentage >= 80) {
+                message.innerHTML = `<h2 style="color: #3b82f6;">👏 훌륭해요! ${correctAnswers}/${totalQuestions} 정답!</h2><p style="margin-top: 1rem; color: #666;">거의 다 맞혔어요. 조금만 더 공부하면 완벽해질 거예요!</p>`;
+            } else if (percentage >= 60) {
+                message.innerHTML = `<h2 style="color: #f59e0b;">📚 좋아요! ${correctAnswers}/${totalQuestions} 정답!</h2><p style="margin-top: 1rem; color: #666;">기본기는 탄탄해요. 조금 더 자세히 공부해보세요!</p>`;
+            } else {
+                message.innerHTML = `<h2 style="color: #ef4444;">💪 다시 도전! ${correctAnswers}/${totalQuestions} 정답</h2><p style="margin-top: 1rem; color: #666;">위 내용을 다시 읽어보고 도전해보세요!</p>`;
+            }
+            
+            addResetButton();
+        }
+
+        function addResetButton() {
+            const completionDiv = document.getElementById('completionMessage');
+            if (completionDiv && currentQuestion === totalQuestions) {
+                setTimeout(() => {
+                    completionDiv.innerHTML += '<br><button onclick="resetQuiz()" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-size: 1rem; cursor: pointer; margin-top: 1rem; transition: all 0.3s ease;" onmouseover="this.style.transform=\'translateY(-2px)\'" onmouseout="this.style.transform=\'translateY(0)\'">🔄 다시 도전하기</button>';
+                }, 2000);
+            }
+        }
+
+        function resetQuiz() {
+            currentQuestion = 1;
+            correctAnswers = 0;
+            
+            document.querySelectorAll('.quiz-question').forEach((question, index) => {
+                question.classList.remove('active');
+                if (index === 0) {
+                    question.classList.add('active');
+                }
+                
+                question.querySelectorAll('.quiz-option').forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    option.style.pointerEvents = 'auto';
+                });
+                
+                const result = question.querySelector('.quiz-result');
+                result.classList.remove('show', 'correct', 'incorrect');
+                result.textContent = '';
+            });
+            
+            document.getElementById('progressBar').style.width = '0%';
+            document.getElementById('completionMessage').innerHTML = '';
+        }
+
+        // Enhanced scroll animations
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+            
+            const indicator = document.querySelector('.scroll-indicator');
+            if (indicator) {
+                const opacity = Math.max(1 - scrolled / 300, 0);
+                indicator.style.opacity = opacity;
+            }
+            
+            const cards = document.querySelectorAll('.civilization-card, .quiz-container, .comparison-table');
+            cards.forEach(card => {
+                const cardTop = card.offsetTop;
+                const windowHeight = window.innerHeight;
+                const scrollTop = window.scrollY;
+                
+                if (scrollTop > cardTop - windowHeight + 200) {
+                    card.style.transform = 'translateY(0) rotate(0deg)';
+                    card.style.opacity = '1';
+                }
+            });
+
+            // Handle animation for each civilization - ALL AT ONCE
+            const civilizationCards = document.querySelectorAll('.civilization-card');
+            civilizationCards.forEach((card, cardIndex) => {
+                const cardTop = card.offsetTop;
+                const windowHeight = window.innerHeight;
+                const scrollTop = window.scrollY;
+                
+                if (scrollTop > cardTop - windowHeight + 200) {
+                    if (!sectionStates[cardIndex]) {
+                        sectionStates[cardIndex] = { animated: true };
+                        
+                        const allSteps = card.querySelectorAll('.step-1, .step-2, .step-3, .step-4');
+                        allSteps.forEach(step => {
+                            step.classList.add('animate');
+                        });
+                        
+                        const worldview = card.querySelector('[style*="translateY(30px) scale(0.9)"]');
+                        if (worldview) {
+                            worldview.style.opacity = '1';
+                            worldview.style.transform = 'translateY(0) scale(1)';
+                        }
+                    }
+                }
+            });
+        });
+
+        // Initialize card animations with shake effect
+        document.addEventListener('DOMContentLoaded', () => {
+            initQuiz();
+            sectionStates = {};
+            
+            const cards = document.querySelectorAll('.civilization-card, .quiz-container, .comparison-table');
+            cards.forEach(card => {
+                card.style.transform = 'translateY(80px) rotate(-2deg)';
+                card.style.opacity = '0';
+                card.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            });
+        });
+
+        // Add glass morphism effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.civilization-card, .quiz-container');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const deltaX = (x - centerX) / centerX;
+                    const deltaY = (y - centerY) / centerY;
+                    
+                    card.style.transform = `perspective(1000px) rotateY(${deltaX * 5}deg) rotateX(${deltaY * -5}deg) translateZ(10px)`;
+                } else {
+                    card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+                }
+            });
+        });
+
+        function typeWriter(element, text, speed = 100) {
+            element.innerHTML = '';
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroP = document.querySelector('.hero p');
+            if (heroP) {
+                const originalText = heroP.textContent;
+                setTimeout(() => {
+                    typeWriter(heroP, originalText, 50);
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -436,7 +436,7 @@
             </div>
             
             <div class="cards-grid">
-                <div class="subject-card world-history animate-on-scroll" onclick="openLink('civilizations.html')">
+                <div class="subject-card world-history animate-on-scroll" onclick="openLink('4대 문명 정리.html')">
                     <span class="card-icon">🏛️</span>
                     <h3 class="card-title">세계 4대 문명</h3>
                     <p class="card-subtitle">메소포타미아 · 이집트 · 인도 · 중국</p>
@@ -445,28 +445,28 @@
                         각 문명의 강·지리, 정치, 사회, 문화를 체계적으로 정리했습니다.
                     </p>
                     <div class="card-links">
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('4대 문명 정리.html')">
                             <div class="topic-info">
                                 <span>🏺</span>
                                 <span>메소포타미아 문명</span>
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('4대 문명 정리.html')">
                             <div class="topic-info">
                                 <span>🔺</span>
                                 <span>이집트 문명</span>
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('4대 문명 정리.html')">
                             <div class="topic-info">
                                 <span>🕉️</span>
                                 <span>인도(인더스) 문명</span>
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('4대 문명 정리.html')">
                             <div class="topic-info">
                                 <span>🐉</span>
                                 <span>중국(황허) 문명</span>
@@ -515,7 +515,7 @@
             </div>
             
             <div class="cards-grid">
-                <div class="subject-card korean-history animate-on-scroll" onclick="openLink('goryeo.html')">
+                <div class="subject-card korean-history animate-on-scroll" onclick="openLink('고려의 통치체제.html')">
                     <span class="card-icon">🏰</span>
                     <h3 class="card-title">고려의 성립과 변천</h3>
                     <p class="card-subtitle">918년 ~ 1392년 (474년간)</p>
@@ -524,28 +524,28 @@
                         고려 왕조 474년의 역사를 인터랙티브하게 학습하세요.
                     </p>
                     <div class="card-links">
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('고려의 통치체제.html')">
                             <div class="topic-info">
                                 <span>⚔️</span>
                                 <span>고려 건국과 통일</span>
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('고려의 통치체제.html')">
                             <div class="topic-info">
                                 <span>🏛️</span>
                                 <span>통치 체제 정비</span>
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('고려의 통치체제.html')">
                             <div class="topic-info">
                                 <span>🌏</span>
                                 <span>대외 관계</span>
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('고려의 통치체제.html')">
                             <div class="topic-info">
                                 <span>🎨</span>
                                 <span>생활과 문화</span>
@@ -651,9 +651,14 @@
             });
         }
 
-        // 링크 열기 함수
+        // 링크 열기 함수 (같은 탭에서 열기로 수정)
         function openLink(url) {
-            window.open(url, '_blank');
+            window.location.href = url;
+        }
+
+        // 특정 섹션으로 이동하는 함수 추가
+        function openSection(url, sectionId) {
+            window.location.href = url + '#' + sectionId;
         }
 
         // 검색 기능

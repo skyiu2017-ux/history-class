@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 교과서 정리 | 세계사 & 한국사</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2d1b69 100%);
+            color: #1d1d1f;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2d1b69 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 60% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e0f2f1, #fff3e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2d1b69, #11998e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .subject-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .world-history { --accent-color: linear-gradient(135deg, #667eea, #764ba2); }
+        .korean-history { --accent-color: linear-gradient(135deg, #2d1b69, #11998e); }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--accent-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-description {
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .topic-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 1rem;
+            background: rgba(103, 126, 234, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #2d1b69;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(103, 126, 234, 0.2);
+        }
+
+        .topic-link:hover {
+            background: rgba(103, 126, 234, 0.2);
+            transform: translateX(4px);
+        }
+
+        .topic-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .topic-status {
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-complete {
+            background: rgba(34, 197, 94, 0.1);
+            color: #15803d;
+        }
+
+        .status-coming {
+            background: rgba(249, 115, 22, 0.1);
+            color: #ea580c;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-input:focus {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .coming-soon-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(2px);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .subject-card.coming-soon:hover .coming-soon-overlay {
+            opacity: 1;
+        }
+
+        .coming-soon-text {
+            background: rgba(249, 115, 22, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stats-container {
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                padding: 0.8rem 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* 스크롤 애니메이션 */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>📚 교과서 정리</h1>
+            <p>세계사와 한국사를 인터랙티브하게 학습하세요.<br>Apple 스타일의 현대적인 디자인으로 만나는 역사 공부</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">완성된 주제</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">예정된 주제</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">인터랙티브</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToContent()">
+            <div style="font-size: 2rem;">⬇️</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 검색 기능 -->
+        <div class="search-container">
+            <div class="search-icon">🔍</div>
+            <input type="text" class="search-input" placeholder="주제를 검색해보세요..." id="searchInput">
+        </div>
+
+        <!-- 세계사 섹션 -->
+        <section class="section">
+            <div class="section-title animate-on-scroll">
+                <h2>🌍 세계사</h2>
+                <p>인류 문명의 발전 과정과 주요 역사적 사건들을 학습합니다</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="subject-card world-history animate-on-scroll" onclick="openLink('civilizations.html')">
+                    <span class="card-icon">🏛️</span>
+                    <h3 class="card-title">세계 4대 문명</h3>
+                    <p class="card-subtitle">메소포타미아 · 이집트 · 인도 · 중국</p>
+                    <p class="card-description">
+                        인류 최초의 4대 문명을 Apple 스타일로 학습하세요. 
+                        각 문명의 강·지리, 정치, 사회, 문화를 체계적으로 정리했습니다.
+                    </p>
+                    <div class="card-links">
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🏺</span>
+                                <span>메소포타미아 문명</span>
+                            </div>
+                            <span class="topic-status status-complete">완료</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🔺</span>
+                                <span>이집트 문명</span>
+                            </div>
+                            <span class="topic-status status-complete">완료</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🕉️</span>
+                                <span>인도(인더스) 문명</span>
+                            </div>
+                            <span class="topic-status status-complete">완료</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🐉</span>
+                                <span>중국(황허) 문명</span>
+                            </div>
+                            <span class="topic-status status-complete">완료</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card world-history coming-soon animate-on-scroll">
+                    <span class="card-icon">🏛️</span>
+                    <h3 class="card-title">고대 그리스·로마</h3>
+                    <p class="card-subtitle">민주주의의 탄생과 제국의 번영</p>
+                    <p class="card-description">
+                        아테네 민주주의부터 로마 제국까지, 서양 문명의 기초를 
+                        이룬 고대 그리스·로마 문명을 학습합니다.
+                    </p>
+                    <div class="card-links">
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🏛️</span>
+                                <span>그리스 폴리스와 민주주의</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>⚔️</span>
+                                <span>로마 공화정과 제정</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                    </div>
+                    <div class="coming-soon-overlay">
+                        <div class="coming-soon-text">곧 업데이트됩니다</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 한국사 섹션 -->
+        <section class="section">
+            <div class="section-title animate-on-scroll">
+                <h2>🇰🇷 한국사</h2>
+                <p>고대부터 근현대까지 우리나라의 역사를 체계적으로 학습합니다</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="subject-card korean-history animate-on-scroll" onclick="openLink('goryeo.html')">
+                    <span class="card-icon">🏰</span>
+                    <h3 class="card-title">고려의 성립과 변천</h3>
+                    <p class="card-subtitle">918년 ~ 1392년 (474년간)</p>
+                    <p class="card-description">
+                        태조 왕건의 후삼국 통일부터 조선 건국까지, 
+                        고려 왕조 474년의 역사를 인터랙티브하게 학습하세요.
+                    </p>
+                    <div class="card-links">
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>⚔️</span>
+                                <span>고려 건국과 통일</span>
+                            </div>
+                            <span class="topic-status status-complete">완료</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🏛️</span>
+                                <span>통치 체제 정비</span>
+                            </div>
+                            <span class="topic-status status-complete">완료</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🌏</span>
+                                <span>대외 관계</span>
+                            </div>
+                            <span class="topic-status status-complete">완료</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🎨</span>
+                                <span>생활과 문화</span>
+                            </div>
+                            <span class="topic-status status-complete">완료</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card korean-history coming-soon animate-on-scroll">
+                    <span class="card-icon">🏯</span>
+                    <h3 class="card-title">조선의 건국과 발전</h3>
+                    <p class="card-subtitle">1392년 ~ 1598년</p>
+                    <p class="card-description">
+                        이성계의 조선 건국부터 임진왜란까지, 
+                        조선 전기의 정치·사회·문화를 학습합니다.
+                    </p>
+                    <div class="card-links">
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>👑</span>
+                                <span>조선 건국과 통치 체제</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🔬</span>
+                                <span>과학 기술과 문화</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                    </div>
+                    <div class="coming-soon-overlay">
+                        <div class="coming-soon-text">곧 업데이트됩니다</div>
+                    </div>
+                </div>
+
+                <div class="subject-card korean-history coming-soon animate-on-scroll">
+                    <span class="card-icon">⚡</span>
+                    <h3 class="card-title">조선 후기와 근대</h3>
+                    <p class="card-subtitle">1598년 ~ 1910년</p>
+                    <p class="card-description">
+                        임진왜란 이후부터 일제강점기까지, 
+                        조선 후기의 변화와 근대화 과정을 다룹니다.
+                    </p>
+                    <div class="card-links">
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>📚</span>
+                                <span>실학과 사회 변화</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🌏</span>
+                                <span>대한제국과 근대화</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                    </div>
+                    <div class="coming-soon-overlay">
+                        <div class="coming-soon-text">곧 업데이트됩니다</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>📚 교과서 정리 프로젝트 | Apple 스타일 인터랙티브 학습</p>
+            <a href="https://github.com/yourusername/textbook-summary" class="github-link">
+                <span>⭐</span>
+                <span>GitHub에서 보기</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // 스크롤 애니메이션
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // 스크롤 이벤트 리스너
+        window.addEventListener('scroll', animateOnScroll);
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+        // 스크롤 이동 함수
+        function scrollToContent() {
+            document.querySelector('.section').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // 링크 열기 함수
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+
+        // 검색 기능
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.subject-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const subtitle = card.querySelector('.card-subtitle').textContent.toLowerCase();
+                const description = card.querySelector('.card-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || subtitle.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = searchTerm === '' ? 'block' : 'none';
+                }
+            });
+        });
+
+        // 마우스 3D 효과
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.subject-card:not(.coming-soon)');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const deltaX = (x - centerX) / centerX;
+                    const deltaY = (y - centerY) / centerY;
+                    
+                    card.style.transform = `perspective(1000px) rotateY(${deltaX * 5}deg) rotateX(${deltaY * -5}deg) translateZ(10px) translateY(-8px)`;
+                } else {
+                    card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+                }
+            });
+        });
+
+        // 타이핑 효과
+        function typeWriter(element, text, speed = 50) {
+            element.innerHTML = '';
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // 페이지 로드 시 타이핑 효과
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroP = document.querySelector('.hero p');
+            if (heroP) {
+                const originalText = heroP.textContent;
+                setTimeout(() => {
+                    typeWriter(heroP, originalText, 30);
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

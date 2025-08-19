@@ -415,15 +415,6 @@
                     <span class="stat-label">인터랙티브</span>
                 </div>
             </div>
-            
-            <!-- 🚨 테스트 링크 추가 -->
-            <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
-                <p style="margin-bottom: 1rem; font-weight: bold;">🔧 테스트 링크:</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="civilizations.html" style="color: #ffeb3b; font-weight: bold; text-decoration: underline;">📚 4대문명 테스트</a>
-                    <a href="goryeo.html" style="color: #ffeb3b; font-weight: bold; text-decoration: underline;">🏰 고려 테스트</a>
-                </div>
-            </div>
         </div>
         <div class="scroll-indicator" onclick="scrollToContent()">
             <div style="font-size: 2rem;">⬇️</div>
@@ -524,49 +515,49 @@
             </div>
             
             <div class="cards-grid">
-                <div class="subject-card korean-history animate-on-scroll" onclick="openLink('goryeo.html')">
+                <div class="subject-card korean-history animate-on-scroll">
                     <span class="card-icon">🏰</span>
                     <h3 class="card-title">고려의 성립과 변천</h3>
                     <p class="card-subtitle">918년 ~ 1392년 (474년간)</p>
                     <p class="card-description">
                         태조 왕건의 후삼국 통일부터 조선 건국까지, 
-                        고려 왕조 474년의 역사를 인터랙티브하게 학습하세요.
+                        고려 왕조 474년의 역사를 체계적으로 학습하세요.
                     </p>
                     <div class="card-links">
                         <div class="topic-link" onclick="openLink('goryeo.html')">
                             <div class="topic-info">
-                                <span>⚔️</span>
-                                <span>고려 건국과 통일</span>
+                                <span>👑</span>
+                                <span>01. 고려의 건국과 정치 변화</span>
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link" onclick="openLink('goryeo.html')">
-                            <div class="topic-info">
-                                <span>🏛️</span>
-                                <span>통치 체제 정비</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLink('goryeo.html')">
+                        <div class="topic-link" onclick="openLink('goryeo-foreign-relations.html')">
                             <div class="topic-info">
                                 <span>🌏</span>
-                                <span>대외 관계</span>
+                                <span>02. 고려의 대외 관계</span>
                             </div>
-                            <span class="topic-status status-complete">완료</span>
+                            <span class="topic-status status-coming">예정</span>
                         </div>
-                        <div class="topic-link" onclick="openLink('goryeo.html')">
+                        <div class="topic-link" onclick="openLink('goryeo-mongol.html')">
+                            <div class="topic-info">
+                                <span>⛓️</span>
+                                <span>03. 몽골의 간섭과 고려의 개혁</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link" onclick="openLink('goryeo-culture.html')">
                             <div class="topic-info">
                                 <span>🎨</span>
-                                <span>생활과 문화</span>
+                                <span>04. 고려의 생활과 문화</span>
                             </div>
-                            <span class="topic-status status-complete">완료</span>
+                            <span class="topic-status status-coming">예정</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="subject-card korean-history coming-soon animate-on-scroll">
                     <span class="card-icon">🏯</span>
-                    <h3 class="card-title">조선의 건국과 발전</h3>
+                    <h3 class="card-title">조선의 성립과 발전</h3>
                     <p class="card-subtitle">1392년 ~ 1598년</p>
                     <p class="card-description">
                         이성계의 조선 건국부터 임진왜란까지, 
@@ -575,15 +566,29 @@
                     <div class="card-links">
                         <div class="topic-link">
                             <div class="topic-info">
-                                <span>👑</span>
-                                <span>조선 건국과 통치 체제</span>
+                                <span>🏛️</span>
+                                <span>01. 통치 체제와 대외 관계</span>
                             </div>
                             <span class="topic-status status-coming">예정</span>
                         </div>
                         <div class="topic-link">
                             <div class="topic-info">
-                                <span>🔬</span>
-                                <span>과학 기술과 문화</span>
+                                <span>📚</span>
+                                <span>02. 사림 세력과 정치변화</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🎭</span>
+                                <span>03. 문화의 발달과 사회 변화</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>⚔️</span>
+                                <span>04. 왜란, 호란의 발발과 영향</span>
                             </div>
                             <span class="topic-status status-coming">예정</span>
                         </div>
@@ -594,25 +599,82 @@
                 </div>
 
                 <div class="subject-card korean-history coming-soon animate-on-scroll">
-                    <span class="card-icon">⚡</span>
-                    <h3 class="card-title">조선 후기와 근대</h3>
-                    <p class="card-subtitle">1598년 ~ 1910년</p>
+                    <span class="card-icon">📚</span>
+                    <h3 class="card-title">조선 사회의 변동</h3>
+                    <p class="card-subtitle">17세기 ~ 19세기</p>
                     <p class="card-description">
-                        임진왜란 이후부터 일제강점기까지, 
-                        조선 후기의 변화와 근대화 과정을 다룹니다.
+                        임진왜란 이후 조선 후기의 정치적 변동과 
+                        사회·문화적 변화를 체계적으로 학습합니다.
                     </p>
                     <div class="card-links">
                         <div class="topic-link">
                             <div class="topic-info">
-                                <span>📚</span>
-                                <span>실학과 사회 변화</span>
+                                <span>👑</span>
+                                <span>01. 조선 후기의 정치 변동</span>
                             </div>
                             <span class="topic-status status-coming">예정</span>
                         </div>
                         <div class="topic-link">
                             <div class="topic-info">
-                                <span>🌏</span>
-                                <span>대한제국과 근대화</span>
+                                <span>🌾</span>
+                                <span>02. 사회 변화와 농민의 봉기</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>📖</span>
+                                <span>03. 학문과 예술의 새로운 경향</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🎭</span>
+                                <span>04. 생활과 문화의 새로운 양상</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                    </div>
+                    <div class="coming-soon-overlay">
+                        <div class="coming-soon-text">곧 업데이트됩니다</div>
+                    </div>
+                </div>
+
+                <div class="subject-card korean-history coming-soon animate-on-scroll">
+                    <span class="card-icon">🏛️</span>
+                    <h3 class="card-title">근현대 사회의 전개</h3>
+                    <p class="card-subtitle">19세기 말 ~ 현재</p>
+                    <p class="card-description">
+                        개항부터 현재까지 우리나라의 근현대사를 
+                        정치·경제·사회·문화 측면에서 종합적으로 학습합니다.
+                    </p>
+                    <div class="card-links">
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🇰🇷</span>
+                                <span>01. 국민 국가의 수립</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>💼</span>
+                                <span>02. 자본주의와 사회 변화</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🗳️</span>
+                                <span>03. 민주주의의 발전</span>
+                            </div>
+                            <span class="topic-status status-coming">예정</span>
+                        </div>
+                        <div class="topic-link">
+                            <div class="topic-info">
+                                <span>🕊️</span>
+                                <span>04. 평화 통일을 위한 노력</span>
                             </div>
                             <span class="topic-status status-coming">예정</span>
                         </div>

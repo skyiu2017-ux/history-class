@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고려의 대외 관계 (10~13세기)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1d1d1f;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* 리퀴드 글래스 효과 */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 네비게이션 */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-progress {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .progress-dot.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scale(1.5);
+        }
+
+        /* 섹션 공통 */
+        .section {
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: #6e6e73;
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s 0.2s forwards;
+        }
+
+        /* 국가별 관계 섹션 */
+        #relations {
+            background: linear-gradient(180deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .countries-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.8s 0.4s forwards;
+        }
+
+        .country-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .country-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-2));
+        }
+
+        .country-card.song::before { --accent-color: #FF6B6B; --accent-color-2: #FFE66D; }
+        .country-card.khitan::before { --accent-color: #4ECDC4; --accent-color-2: #44A08D; }
+        .country-card.jurchen::before { --accent-color: #764ba2; --accent-color-2: #667eea; }
+        .country-card.mongol::before { --accent-color: #f093fb; --accent-color-2: #f5576c; }
+        .country-card.japan::before { --accent-color: #4facfe; --accent-color-2: #00f2fe; }
+
+        .country-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .country-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .country-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-right: 20px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-color-2));
+        }
+
+        .country-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
+        .country-period {
+            font-size: 14px;
+            color: #86868b;
+            margin-top: 2px;
+        }
+
+        .relation-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .friendly { 
+            background: linear-gradient(135deg, #d4fc79, #96e6a1);
+            color: #2d6a4f;
+        }
+        .conflict { 
+            background: linear-gradient(135deg, #ffa8a8, #fcb69f);
+            color: #c92a2a;
+        }
+        .mixed { 
+            background: linear-gradient(135deg, #ffd93d, #ff6bcb);
+            color: #74306f;
+        }
+
+        .country-detail {
+            margin-top: 25px;
+        }
+
+        .detail-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+        }
+
+        .detail-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-list li {
+            padding: 8px 0;
+            color: #424245;
+            padding-left: 24px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        .detail-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .background-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .background-box h5 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .background-box p {
+            color: #424245;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 타임라인 섹션 */
+        #timeline {
+            background: linear-gradient(180deg, #c3cfe2 0%, #f5f7fa 100%);
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 60px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeInLeft 0.8s forwards;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            animation: fadeInRight 0.8s forwards;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1d1d1f;
+        }
+
+        .timeline-desc {
+            color: #6e6e73;
+            line-height: 1.6;
+        }
+
+        /* 핵심 정리 섹션 */
+        #summary {
+            background: linear-gradient(180deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            opacity: 0;
+            animation: scaleIn 0.5s forwards;
+        }
+
+        .summary-card:hover {
+            transform: scale(1.05) rotateZ(2deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .summary-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .summary-country {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .summary-relation {
+            color: #6e6e73;
+            font-size: 16px;
+        }
+
+        .importance-box {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            border-radius: 24px;
+            text-align: center;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s 0.6s forwards;
+        }
+
+        .importance-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 24px;
+            padding: 2px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .importance-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .importance-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .invasion-reasons {
+            margin-top: 50px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .invasion-reasons h3 {
+            font-size: 24px;
+            color: #1d1d1f;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .invasion-reasons ol {
+            list-style: none;
+            counter-reset: item;
+            padding-left: 0;
+        }
+
+        .invasion-reasons li {
+            counter-increment: item;
+            margin-bottom: 20px;
+            padding-left: 50px;
+            position: relative;
+            color: #424245;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .invasion-reasons li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* 퀴즈 섹션 */
+        #quiz {
+            background: linear-gradient(180deg, #c3cfe2 0%, #f5f7fa 100%);
+            min-height: 100vh;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-progress {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
+
+        .quiz-progress-dot {
+            width: 50px;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .quiz-progress-dot.active {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .quiz-progress-dot.completed {
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+        }
+
+        .quiz-progress-dot.failed {
+            background: linear-gradient(90deg, #f44336, #ff6b6b);
+        }
+
+        .question-block {
+            display: none;
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .question-block.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 35px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+            font-size: 19px;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 16px;
+        }
+
+        .quiz-option {
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 17px;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .quiz-option:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+            transform: translateX(10px);
+        }
+
+        .quiz-option.correct {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(139, 195, 74, 0.2));
+            border-color: #4caf50;
+        }
+
+        .quiz-option.incorrect {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(255, 107, 107, 0.2));
+            border-color: #f44336;
+        }
+
+        .quiz-feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 16px;
+            display: none;
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeInUp 0.3s;
+        }
+
+        .quiz-feedback.correct {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(139, 195, 74, 0.15));
+            color: #2d6a4f;
+        }
+
+        .quiz-feedback.incorrect {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.15), rgba(255, 107, 107, 0.15));
+            color: #c92a2a;
+        }
+
+        .quiz-result {
+            text-align: center;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            display: none;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-result.show {
+            display: block;
+            animation: scaleIn 0.5s;
+        }
+
+        .result-emoji {
+            font-size: 72px;
+            margin-bottom: 24px;
+        }
+
+        .result-text {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 36px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .retry-btn {
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .retry-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .countries-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .timeline-line {
+                left: 20px;
+            }
+            
+            .timeline-year {
+                left: 20px;
+                transform: translateX(0);
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="nav glass">
+        <div class="nav-content">
+            <div class="nav-title">📚 고려의 대외 관계 (10~13세기)</div>
+            <div class="nav-progress">
+                <div class="progress-dot active" onclick="scrollToSection('relations')"></div>
+                <div class="progress-dot" onclick="scrollToSection('timeline')"></div>
+                <div class="progress-dot" onclick="scrollToSection('summary')"></div>
+                <div class="progress-dot" onclick="scrollToSection('quiz')"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 국가별 관계 섹션 -->
+    <section id="relations" class="section">
+        <div class="section-content">
+            <h1 class="section-title">고려와 주변국의 관계</h1>
+            <p class="section-subtitle">10~13세기 동아시아 국제 질서 속의 고려</p>
+            
+            <div class="countries-container">
+                <!-- 송 -->
+                <div class="country-card song glass">
+                    <div class="country-header">
+                        <div class="country-icon">🏯</div>
+                        <div>
+                            <div class="country-name">송(宋)</div>
+                            <div class="country-period">960~1279년</div>
+                        </div>
+                    </div>
+                    <span class="relation-badge friendly">친선·교류 관계</span>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">🤝 관계를 맺은 이유</div>
+                        <ul class="detail-list">
+                            <li>송: 북방 유목민(거란, 여진) 압박으로 고려와 연합 필요</li>
+                            <li>고려: 선진 문물과 제도 수용으로 국가 발전 도모</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">📚 학문·문화 교류</div>
+                        <ul class="detail-list">
+                            <li>승려와 학자 상호 파견</li>
+                            <li>불교 경전 및 유교 서적 전래</li>
+                            <li>과거제, 삼사 제도 등 행정 제도 수용</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">💰 경제 교류</div>
+                        <ul class="detail-list">
+                            <li>고려 수출: 인삼, 삼베, 나전칠기, 청자</li>
+                            <li>송 수입: 비단, 서적, 차, 약재, 향료</li>
+                            <li>벽란도를 통한 활발한 무역</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 거란 -->
+                <div class="country-card khitan glass">
+                    <div class="country-header">
+                        <div class="country-icon">⚔️</div>
+                        <div>
+                            <div class="country-name">거란(요)</div>
+                            <div class="country-period">916~1125년</div>
+                        </div>
+                    </div>
+                    <span class="relation-badge conflict">전쟁 → 균형</span>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">🎯 침략 배경</div>
+                        <div class="background-box">
+                            <h5>근본 원인</h5>
+                            <p>유목민족의 영토 확장 욕구 + 송-고려 연합 견제</p>
+                        </div>
+                        <ul class="detail-list" style="margin-top: 15px;">
+                            <li>1차(993): 송과 고려의 친선 관계 차단 목적</li>
+                            <li>2차(1010): 강동 6주 문제와 고려의 송 접근 견제</li>
+                            <li>3차(1018): 고려 완전 정복 시도</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">⚔️ 전쟁 결과</div>
+                        <ul class="detail-list">
+                            <li>서희의 외교 담판 → 강동 6주 확보</li>
+                            <li>강감찬의 귀주 대첩(1019) → 거란 격퇴</li>
+                            <li>고려·송·거란 세력 균형 유지</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 여진(금) -->
+                <div class="country-card jurchen glass">
+                    <div class="country-header">
+                        <div class="country-icon">🏹</div>
+                        <div>
+                            <div class="country-name">여진(금)</div>
+                            <div class="country-period">1115~1234년</div>
+                        </div>
+                    </div>
+                    <span class="relation-badge mixed">충돌 → 굴복</span>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">📈 관계 변화 과정</div>
+                        <ul class="detail-list">
+                            <li>초기: 여진족이 고려에 조공 바침</li>
+                            <li>예종(1107): 윤관의 별무반, 동북 9성 축조</li>
+                            <li>금 건국(1115): 아구다가 여진 통합</li>
+                            <li>이후: 금이 고려에 군신 관계 강요</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">💪 금의 압박 이유</div>
+                        <div class="background-box">
+                            <h5>배경</h5>
+                            <p>거란과 송을 멸망시킨 후 동아시아 패권 장악. 고려까지 복속시켜 완전한 지배권 확립 시도</p>
+                        </div>
+                        <ul class="detail-list" style="margin-top: 15px;">
+                            <li>결과: 고려 굴복, 북진 정책 포기</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 몽골 -->
+                <div class="country-card mongol glass">
+                    <div class="country-header">
+                        <div class="country-icon">🐎</div>
+                        <div>
+                            <div class="country-name">몽골(원)</div>
+                            <div class="country-period">1206~1368년</div>
+                        </div>
+                    </div>
+                    <span class="relation-badge conflict">항전 → 간섭</span>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">🌍 침략 배경</div>
+                        <div class="background-box">
+                            <h5>세계 정복 야욕</h5>
+                            <p>칭기즈 칸의 몽골 제국 건설 → 유라시아 대륙 정복 과정에서 고려 침공</p>
+                        </div>
+                        <ul class="detail-list" style="margin-top: 15px;">
+                            <li>직접 원인: 고려가 과도한 공물 요구 거부</li>
+                            <li>몽골 사신 피살 사건을 구실로 침략 시작</li>
+                            <li>40여 년간 지속적인 침입(1231~1270)</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">🛡️ 고려의 항전</div>
+                        <ul class="detail-list">
+                            <li>강화도 천도(1232) - 해전에 약한 몽골군 특성 활용</li>
+                            <li>처인성 전투 - 김윤후가 살리타이 사살</li>
+                            <li>충주성 방어전 - 김윤후의 활약</li>
+                            <li>삼별초 항쟁 - 진도, 제주도까지 저항</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">⛓️ 원의 간섭기</div>
+                        <ul class="detail-list">
+                            <li>왕실 혼인과 왕위 계승 간섭</li>
+                            <li>정동행성, 쌍성총관부 등 설치</li>
+                            <li>공녀, 환관, 공물 수탈</li>
+                            <li>문화 교류: 성리학, 화약 제조법 전래</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 왜구 -->
+                <div class="country-card japan glass">
+                    <div class="country-header">
+                        <div class="country-icon">🏴‍☠️</div>
+                        <div>
+                            <div class="country-name">왜구</div>
+                            <div class="country-period">13~14세기</div>
+                        </div>
+                    </div>
+                    <span class="relation-badge conflict">약탈·침입</span>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">🌊 왜구 발생 배경</div>
+                        <div class="background-box">
+                            <h5>일본 내부 혼란</h5>
+                            <p>남북조 시대 혼란 + 무사 세력 통제 약화 → 해적 집단화</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">💥 주요 피해</div>
+                        <ul class="detail-list">
+                            <li>조운선 약탈로 국가 재정 타격</li>
+                            <li>해안 지역 마을 습격과 방화</li>
+                            <li>주민 납치와 노예 매매</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">⚔️ 고려의 대응</div>
+                        <ul class="detail-list">
+                            <li>최영·이성계 등의 적극적 토벌</li>
+                            <li>화포 개발과 해전 능력 강화</li>
+                            <li>신흥 무인 세력 성장의 계기</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 타임라인 섹션 -->
+    <section id="timeline" class="section">
+        <div class="section-content">
+            <h2 class="section-title">주요 사건 연표</h2>
+            <p class="section-subtitle">고려 대외 관계의 중요한 순간들</p>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">거란 1차 침입</div>
+                        <div class="timeline-desc">서희의 외교 담판으로 강동 6주 확보. 거란과 국교 수립 약속</div>
+                    </div>
+                    <div class="timeline-year">993년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">귀주 대첩</div>
+                        <div class="timeline-desc">강감찬이 거란군 10만 대군을 격파. 거란의 고려 침략 종료</div>
+                    </div>
+                    <div class="timeline-year">1019년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">동북 9성 축조</div>
+                        <div class="timeline-desc">윤관이 별무반으로 여진 정벌 후 9성 축조. 1년 후 반환</div>
+                    </div>
+                    <div class="timeline-year">1107년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">금 건국</div>
+                        <div class="timeline-desc">아구다가 여진 통합하여 금 건국. 이후 고려에 사대 요구</div>
+                    </div>
+                    <div class="timeline-year">1115년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">몽골 1차 침입</div>
+                        <div class="timeline-desc">몽골의 대대적 침략 시작. 이후 40여 년간 항쟁</div>
+                    </div>
+                    <div class="timeline-year">1231년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">강화도 천도</div>
+                        <div class="timeline-desc">최씨 무신 정권이 대몽 항쟁 위해 수도 이전</div>
+                    </div>
+                    <div class="timeline-year">1232년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">개경 환도</div>
+                        <div class="timeline-desc">원과 강화 체결 후 수도 복귀. 원 간섭기 시작</div>
+                    </div>
+                    <div class="timeline-year">1270년</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 핵심 정리 섹션 -->
+    <section id="summary" class="section">
+        <div class="section-content">
+            <h2 class="section-title">핵심 정리</h2>
+            <p class="section-subtitle">고려 대외 관계의 특징과 의미</p>
+            
+            <div class="summary-grid">
+                <div class="summary-card glass" style="animation-delay: 0.1s;">
+                    <div class="summary-icon">🏯</div>
+                    <div class="summary-country">송(宋)</div>
+                    <div class="summary-relation">친선·문화·경제 교류</div>
+                </div>
+                <div class="summary-card glass" style="animation-delay: 0.2s;">
+                    <div class="summary-icon">⚔️</div>
+                    <div class="summary-country">거란</div>
+                    <div class="summary-relation">전쟁 → 세력 균형</div>
+                </div>
+                <div class="summary-card glass" style="animation-delay: 0.3s;">
+                    <div class="summary-icon">🏹</div>
+                    <div class="summary-country">여진(금)</div>
+                    <div class="summary-relation">충돌 → 굴복</div>
+                </div>
+                <div class="summary-card glass" style="animation-delay: 0.4s;">
+                    <div class="summary-icon">🐎</div>
+                    <div class="summary-country">몽골(원)</div>
+                    <div class="summary-relation">항전 → 간섭</div>
+                </div>
+                <div class="summary-card glass" style="animation-delay: 0.5s;">
+                    <div class="summary-icon">🏴‍☠️</div>
+                    <div class="summary-country">왜구</div>
+                    <div class="summary-relation">약탈·침입</div>
+                </div>
+            </div>
+
+            <div class="importance-box">
+                <div class="importance-title">💡 고려 대외 관계가 중요한 이유</div>
+                <div class="importance-text">
+                    고려는 동아시아 국제 질서의 중심에서 독자적인 문화를 지키며 균형 외교를 펼쳐 한반도의 자주성을 유지했습니다.
+                </div>
+            </div>
+
+            <div class="invasion-reasons glass">
+                <h3>🎯 북방 유목민족의 침략 배경</h3>
+                <ol>
+                    <li><strong>생활 방식의 차이:</strong> 목축 생활로 인한 새로운 땅과 자원의 지속적 필요</li>
+                    <li><strong>중국 정복 과정:</strong> 중원 진출 과정에서 배후 위협 제거를 위한 고려 압박</li>
+                    <li><strong>외교적 견제:</strong> 송과 고려의 친선 관계를 차단하려는 전략적 목적</li>
+                    <li><strong>패권 경쟁:</strong> 동아시아 지배권 확립을 위한 한반도 장악 시도</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- 퀴즈 섹션 -->
+    <section id="quiz" class="section">
+        <div class="section-content">
+            <h2 class="section-title">학습 퀴즈</h2>
+            <p class="section-subtitle">배운 내용을 확인해보세요 (틀리면 처음부터 다시!)</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-dot active" id="progress-1"></div>
+                    <div class="quiz-progress-dot" id="progress-2"></div>
+                    <div class="quiz-progress-dot" id="progress-3"></div>
+                    <div class="quiz-progress-dot" id="progress-4"></div>
+                    <div class="quiz-progress-dot" id="progress-5"></div>
+                </div>
+
+                <!-- 문제 1 -->
+                <div id="question-1" class="question-block active">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★☆☆☆☆</span><br><br>
+                        <strong>Q1. [기초 이해]</strong><br>
+                        고려가 송나라와의 관계에서 주로 했던 일은 무엇인가?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(1, false)">A. 전쟁과 침략</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(1, true)">B. 문화와 경제 교류</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(1, false)">C. 군신 관계 강요</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(1, false)">D. 해적 활동</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-1"></div>
+                </div>
+
+                <!-- 문제 2 -->
+                <div id="question-2" class="question-block">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★★☆☆☆</span><br><br>
+                        <strong>Q2. [사건 이해]</strong><br>
+                        다음 중 거란의 3차 침입을 물리친 전투는 무엇인가?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(2, true)">A. 귀주 대첩</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(2, false)">B. 강동 6주 전투</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(2, false)">C. 충주성 전투</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(2, false)">D. 처인성 전투</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-2"></div>
+                </div>
+
+                <!-- 문제 3 -->
+                <div id="question-3" class="question-block">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★★★☆☆</span><br><br>
+                        <strong>Q3. [비교 이해]</strong><br>
+                        여진(금)과 몽골(원)의 공통점으로 옳은 것은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(3, false)">A. 고려와 친선 관계를 유지했다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(3, true)">B. 고려에 군신 관계를 강요했다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(3, false)">C. 고려의 수도를 공격하지 않았다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(3, false)">D. 고려의 북진 정책을 도왔다</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-3"></div>
+                </div>
+
+                <!-- 문제 4 -->
+                <div id="question-4" class="question-block">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★★★★☆</span><br><br>
+                        <strong>Q4. [원인 파악]</strong><br>
+                        유목 국가들이 고려를 침략한 주된 이유로 볼 수 없는 것은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(4, false)">A. 새로운 땅과 자원이 필요했기 때문</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(4, false)">B. 송과 고려의 우호 관계를 견제</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(4, true)">C. 불교 교리를 배우기 위해서</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(4, false)">D. 동아시아 패권 다툼</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-4"></div>
+                </div>
+
+                <!-- 문제 5 -->
+                <div id="question-5" class="question-block">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★★★★★</span><br><br>
+                        <strong>Q5. [사고 확장]</strong><br>
+                        고려가 유목민 국가들과 끊임없이 충돌한 사실이 고려 사회에 미친 영향은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(5, true)">A. 국력 약화와 백성들의 고통 증가</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(5, false)">B. 고려가 국제적 강국으로 성장</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(5, false)">C. 문화 교류로 긍정적 효과만 발생</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(5, false)">D. 왜구 침입까지 사회 안정에 기여</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-5"></div>
+                </div>
+
+                <!-- 퀴즈 결과 -->
+                <div id="quiz-result" class="quiz-result glass">
+                    <div class="result-emoji">🎉</div>
+                    <div class="result-text">축하합니다! 모든 문제를 맞추셨습니다!</div>
+                    <button class="retry-btn" onclick="resetQuiz()">다시 도전하기</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentQuestion = 1;
+        let questionAnswered = [false, false, false, false, false];
+
+        // 스크롤 감지하여 네비게이션 업데이트
+        window.addEventListener('scroll', () => {
+            const sections = ['relations', 'timeline', 'summary', 'quiz'];
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach((section, index) => {
+                const element = document.getElementById(section);
+                const dots = document.querySelectorAll('.progress-dot');
+                
+                if (element.offsetTop <= scrollPosition && 
+                    element.offsetTop + element.offsetHeight > scrollPosition) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+            });
+        });
+
+        // 섹션으로 스크롤
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 퀴즈 답 체크
+        function checkAnswer(questionNum, isCorrect) {
+            // 이미 답한 문제면 리턴
+            if (questionAnswered[questionNum - 1]) return;
+            
+            const options = document.querySelectorAll(`#question-${questionNum} .quiz-option`);
+            const feedback = document.getElementById(`feedback-${questionNum}`);
+            const progressDot = document.getElementById(`progress-${questionNum}`);
+            
+            // 옵션 비활성화
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                // 정답 처리
+                event.target.classList.add('correct');
+                feedback.classList.add('correct', 'show');
+                feedback.innerHTML = getCorrectFeedback(questionNum);
+                progressDot.classList.add('completed');
+                questionAnswered[questionNum - 1] = true;
+                
+                // 1.5초 후 다음 문제로
+                setTimeout(() => {
+                    if (questionNum < 5) {
+                        showQuestion(questionNum + 1);
+                    } else {
+                        // 모든 문제 완료
+                        showResult();
+                    }
+                }, 1500);
+            } else {
+                // 오답 처리
+                event.target.classList.add('incorrect');
+                feedback.classList.add('incorrect', 'show');
+                feedback.innerHTML = '❌ 틀렸습니다! 처음부터 다시 시작합니다...';
+                progressDot.classList.add('failed');
+                
+                // 2초 후 처음으로
+                setTimeout(() => {
+                    resetQuiz();
+                }, 2000);
+            }
+        }
+
+        // 정답 피드백
+        function getCorrectFeedback(num) {
+            const feedbacks = {
+                1: "✅ 정답! 고려와 송은 평화로운 문화·경제 교류를 이어갔습니다.",
+                2: "✅ 정답! 1019년 강감찬의 귀주 대첩으로 거란을 물리쳤습니다.",
+                3: "✅ 정답! 여진(금)과 몽골(원) 모두 고려에 군신 관계를 요구했습니다.",
+                4: "✅ 정답! 유목민들은 불교를 배우려는 목적이 아니라 영토와 자원을 위해 침략했습니다.",
+                5: "✅ 정답! 잦은 전쟁으로 고려의 국력이 소모되고 백성들이 고통받았습니다."
+            };
+            return feedbacks[num];
+        }
+
+        // 문제 표시
+        function showQuestion(num) {
+            // 모든 문제 숨기기
+            document.querySelectorAll('.question-block').forEach(block => {
+                block.classList.remove('active');
+            });
+            
+            // 해당 문제 표시
+            document.getElementById(`question-${num}`).classList.add('active');
+            currentQuestion = num;
+            
+            // 진행 상태 업데이트
+            for (let i = 1; i <= num; i++) {
+                document.getElementById(`progress-${i}`).classList.add('active');
+            }
+        }
+
+        // 결과 표시
+        function showResult() {
+            document.querySelectorAll('.question-block').forEach(block => {
+                block.classList.remove('active');
+            });
+            document.getElementById('quiz-result').classList.add('show');
+        }
+
+        // 퀴즈 초기화
+        function resetQuiz() {
+            currentQuestion = 1;
+            questionAnswered = [false, false, false, false, false];
+            
+            // 모든 문제 초기화
+            for (let i = 1; i <= 5; i++) {
+                const options = document.querySelectorAll(`#question-${i} .quiz-option`);
+                options.forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    option.style.pointerEvents = 'auto';
+                });
+                
+                const feedback = document.getElementById(`feedback-${i}`);
+                feedback.classList.remove('correct', 'incorrect', 'show');
+                feedback.innerHTML = '';
+                
+                const progressDot = document.getElementById(`progress-${i}`);
+                progressDot.classList.remove('active', 'completed', 'failed');
+            }
+            
+            // 첫 번째 진행 점만 활성화
+            document.getElementById('progress-1').classList.add('active');
+            
+            // 결과 숨기기
+            document.getElementById('quiz-result').classList.remove('show');
+            
+            // 첫 문제 표시
+            showQuestion(1);
+        }
+
+        // 페이지 로드 시 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.country-card, .timeline-item, .summary-card');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

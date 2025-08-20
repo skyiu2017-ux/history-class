@@ -272,42 +272,6 @@
             color: #ea580c;
         }
 
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1.5rem 1rem 3rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .search-input:focus {
-            border-color: rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
         .footer {
             background: rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
@@ -411,7 +375,7 @@
             
             <div class="stats-container">
                 <div class="stat-item">
-                    <span class="stat-number">2</span>
+                    <span class="stat-number">3</span>
                     <span class="stat-label">완성된 주제</span>
                 </div>
                 <div class="stat-item">
@@ -430,13 +394,6 @@
     </section>
 
     <div class="container">
-        <!-- 검색 기능 -->
-        <div class="search-container">
-            <div class="search-icon">🔍</div>
-            <input type="text" class="search-input" placeholder="주제를 검색해보세요..." id="searchInput">
-        </div>
-
-        <!-- 세계사 섹션 -->
         <section class="section">
             <div class="section-title animate-on-scroll">
                 <h2>🌍 세계사</h2>
@@ -515,7 +472,6 @@
             </div>
         </section>
 
-        <!-- 한국사 섹션 -->
         <section class="section">
             <div class="section-title animate-on-scroll">
                 <h2>🇰🇷 한국사</h2>
@@ -739,24 +695,6 @@
         function openSection(url, sectionId) {
             window.location.href = url + '#' + sectionId;
         }
-
-        // 검색 기능
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.subject-card');
-            
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const subtitle = card.querySelector('.card-subtitle').textContent.toLowerCase();
-                const description = card.querySelector('.card-description').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || subtitle.includes(searchTerm) || description.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = searchTerm === '' ? 'block' : 'none';
-                }
-            });
-        });
 
         // 마우스 3D 효과
         document.addEventListener('mousemove', (e) => {

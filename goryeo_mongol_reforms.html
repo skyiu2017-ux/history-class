@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고려 후기의 변화: 몽골 간섭과 개혁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1d1d1f;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* 리퀴드 글래스 효과 */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 네비게이션 */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-progress {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .progress-dot.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scale(1.5);
+        }
+
+        /* 섹션 공통 */
+        .section {
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(40px);
+            filter: blur(3px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .section-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: #6e6e73;
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(2px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition-delay: 0.2s;
+        }
+
+        .section-subtitle.animate {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        /* 메인 콘텐츠 섹션 */
+        #main-content {
+            background: linear-gradient(180deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .topics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .topic-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            filter: blur(5px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .topic-card.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-2));
+        }
+
+        .topic-card.mongol::before { --accent-color: #f093fb; --accent-color-2: #f5576c; }
+        .topic-card.aristocrats::before { --accent-color: #FF6B6B; --accent-color-2: #FFE66D; }
+        .topic-card.reforms::before { --accent-color: #4ECDC4; --accent-color-2: #44A08D; }
+        .topic-card.scholars::before { --accent-color: #667eea; --accent-color-2: #764ba2; }
+
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .topic-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-right: 20px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-color-2));
+        }
+
+        .topic-name {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
+        .topic-period {
+            font-size: 16px;
+            color: #86868b;
+            margin-top: 2px;
+        }
+
+        .topic-detail {
+            margin-top: 25px;
+        }
+
+        .detail-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+        }
+
+        .detail-title {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-list li {
+            padding: 8px 0;
+            color: #424245;
+            padding-left: 24px;
+            position: relative;
+            font-size: 17px;
+        }
+
+        .detail-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .emphasis-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .emphasis-box h5 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .emphasis-box p {
+            color: #424245;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* 타임라인 섹션 */
+        #timeline {
+            background: linear-gradient(180deg, #c3cfe2 0%, #f5f7fa 100%);
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 60px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateX(-60px);
+            filter: blur(3px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(60px);
+        }
+
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0px);
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1d1d1f;
+        }
+
+        .timeline-desc {
+            color: #6e6e73;
+            line-height: 1.6;
+            font-size: 17px;
+        }
+
+        /* 핵심 정리 섹션 */
+        #summary {
+            background: linear-gradient(180deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(40px) scale(0.9) rotateX(15deg);
+            filter: blur(3px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .summary-card.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1) rotateX(0deg);
+            filter: blur(0px);
+        }
+
+        .summary-card:hover {
+            transform: scale(1.05) rotateZ(2deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .summary-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .summary-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .summary-desc {
+            color: #6e6e73;
+            font-size: 18px;
+        }
+
+        .key-message {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            border-radius: 24px;
+            text-align: center;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            filter: blur(5px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .key-message.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+        }
+
+        .key-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 24px;
+            padding: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .key-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .key-text {
+            font-size: 22px;
+            line-height: 1.8;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        /* 퀴즈 섹션 */
+        #quiz {
+            background: linear-gradient(180deg, #c3cfe2 0%, #f5f7fa 100%);
+            min-height: 100vh;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-progress {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .quiz-progress.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quiz-progress-dot {
+            width: 50px;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .quiz-progress-dot.active {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .quiz-progress-dot.completed {
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+        }
+
+        .quiz-progress-dot.failed {
+            background: linear-gradient(90deg, #f44336, #ff6b6b);
+        }
+
+        .question-block {
+            display: none;
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .question-block.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 35px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+            font-size: 21px;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 16px;
+        }
+
+        .quiz-option {
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 19px;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .quiz-option:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+            transform: translateX(10px);
+        }
+
+        .quiz-option.correct {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(139, 195, 74, 0.2));
+            border-color: #4caf50;
+        }
+
+        .quiz-option.incorrect {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(255, 107, 107, 0.2));
+            border-color: #f44336;
+        }
+
+        .quiz-feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 16px;
+            display: none;
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeInUp 0.3s;
+        }
+
+        .quiz-feedback.correct {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(139, 195, 74, 0.15));
+            color: #2d6a4f;
+        }
+
+        .quiz-feedback.incorrect {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.15), rgba(255, 107, 107, 0.15));
+            color: #c92a2a;
+        }
+
+        .quiz-result {
+            text-align: center;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            display: none;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-result.show {
+            display: block;
+            animation: scaleIn 0.5s;
+        }
+
+        .result-emoji {
+            font-size: 72px;
+            margin-bottom: 24px;
+        }
+
+        .result-text {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 36px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .retry-btn {
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .retry-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 스크롤 애니메이션 추가 스타일 */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .topics-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                transform: translateY(40px) !important;
+            }
+            
+            .timeline-item.animate {
+                transform: translateY(0) !important;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .timeline-line {
+                left: 20px;
+            }
+            
+            .timeline-year {
+                left: 20px;
+                transform: translateX(0);
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* 모바일에서 애니메이션 단순화 */
+            .topic-card {
+                filter: none;
+                transform: translateY(30px);
+            }
+
+            .topic-card.animate {
+                filter: none;
+            }
+        }
+
+        /* 모션 감소 선호 사용자를 위한 처리 */
+        @media (prefers-reduced-motion: reduce) {
+            .topic-card,
+            .timeline-item,
+            .summary-card,
+            .key-message,
+            .section-title,
+            .section-subtitle {
+                transition: none !important;
+                animation: none !important;
+                transform: none !important;
+                filter: none !important;
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="nav glass">
+        <div class="nav-content">
+            <div class="nav-title">📚 고려 후기의 변화: 몽골 간섭과 개혁</div>
+            <div class="nav-progress">
+                <div class="progress-dot active" onclick="scrollToSection('main-content')"></div>
+                <div class="progress-dot" onclick="scrollToSection('timeline')"></div>
+                <div class="progress-dot" onclick="scrollToSection('summary')"></div>
+                <div class="progress-dot" onclick="scrollToSection('quiz')"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 섹션 -->
+    <section id="main-content" class="section">
+        <div class="section-content">
+            <h1 class="section-title">고려 후기의 변화</h1>
+            <p class="section-subtitle">몽골 간섭과 개혁의 시대 (13~14세기)</p>
+            
+            <div class="topics-container">
+                <!-- 몽골(원)의 간섭과 영향 -->
+                <div class="topic-card mongol glass">
+                    <div class="topic-header">
+                        <div class="topic-icon">🐎</div>
+                        <div>
+                            <div class="topic-name">몽골(원)의 간섭과 영향</div>
+                            <div class="topic-period">1270년~1356년</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">🏛️ 영토와 정치</div>
+                        <ul class="detail-list">
+                            <li>쌍성총관부, 동녕부 등 일부 영토 상실</li>
+                            <li>정동행성 설치로 내정 간섭</li>
+                            <li>왕실 혼인 강요 (원 공주와 결혼) → 고려가 부마국화</li>
+                            <li>왕세자는 원에 머물러야 함</li>
+                        </ul>
+                        <div class="emphasis-box">
+                            <h5>왕실 호칭과 관제 격하</h5>
+                            <p>조종→충*왕, 짐→고, 폐하→전하 / 중서문하성·상서성→첨의부, 6부→4사, 중추원→밀직사</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">💰 경제적 수탈</div>
+                        <ul class="detail-list">
+                            <li>금·은·인삼·매 등 특산물 요구</li>
+                            <li>공녀 제도 강요 (여성들을 바치는 제도)</li>
+                            <li>국가 재정 악화</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">🎭 문화적 영향</div>
+                        <div class="emphasis-box">
+                            <h5>양방향 문화 교류</h5>
+                            <p>몽골풍(변발, 몽골식 옷) 유행 ↔ 고려양 인기</p>
+                        </div>
+                        <ul class="detail-list" style="margin-top: 15px;">
+                            <li>성리학, 화약 제조법 전래</li>
+                            <li>고려의 물품과 문화가 원에서 인기</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 권문세족의 등장 -->
+                <div class="topic-card aristocrats glass">
+                    <div class="topic-header">
+                        <div class="topic-icon">👑</div>
+                        <div>
+                            <div class="topic-name">권문세족의 등장</div>
+                            <div class="topic-period">몽골 간섭기</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">📈 형성 배경</div>
+                        <ul class="detail-list">
+                            <li>원과 가까운 관계를 맺은 사람들</li>
+                            <li>몽골어에 능통한 사람들</li>
+                            <li>원의 과거에 합격한 사람들</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">⚠️ 주요 폐단</div>
+                        <div class="emphasis-box">
+                            <h5>토지 독점과 수탈</h5>
+                            <p>불법적으로 대규모 농장 소유 → 농민 몰락 → 노비화</p>
+                        </div>
+                        <ul class="detail-list" style="margin-top: 15px;">
+                            <li>농민을 심하게 수탈</li>
+                            <li>매관매직(관직 매매)으로 부패 확산</li>
+                            <li>국가 재정 약화</li>
+                            <li>사회 불안 증가</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">🚫 개혁 시도와 실패</div>
+                        <ul class="detail-list">
+                            <li>일부 왕의 개혁 시도</li>
+                            <li>원의 간섭으로 좌절</li>
+                            <li>권문세족의 반발</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 공민왕의 개혁 -->
+                <div class="topic-card reforms glass">
+                    <div class="topic-header">
+                        <div class="topic-icon">⚔️</div>
+                        <div>
+                            <div class="topic-name">공민왕의 개혁</div>
+                            <div class="topic-period">재위 1351~1374년</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">🎯 개혁 배경</div>
+                        <div class="emphasis-box">
+                            <h5>절호의 기회</h5>
+                            <p>원나라가 약해진 틈을 타서 자주성 회복 시도</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">🔧 주요 정책</div>
+                        <ul class="detail-list">
+                            <li>원의 간섭 기관(정동행성) 폐지</li>
+                            <li>친원파인 기철 일파 숙청</li>
+                            <li>몽골식 머리(변발)와 옷 금지</li>
+                            <li>전민변정도감 설치로 토지제도 개혁 시도 (신돈 등용)</li>
+                        </ul>
+                        <div class="emphasis-box">
+                            <h5>쌍성총관부 회복 (1356년)</h5>
+                            <p>이자춘의 협조로 빼앗긴 땅 수복. 이를 통해 이자춘의 아들 이성계가 성장할 수 있는 기반 마련</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">💡 의의와 한계</div>
+                        <ul class="detail-list">
+                            <li>고려의 자주성 회복 노력</li>
+                            <li>개혁 의지 표명</li>
+                            <li>완전한 성공은 달성하지 못함</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 신진사대부의 성장 -->
+                <div class="topic-card scholars glass">
+                    <div class="topic-header">
+                        <div class="topic-icon">📚</div>
+                        <div>
+                            <div class="topic-name">신진사대부의 성장</div>
+                            <div class="topic-period">13세기 말~14세기</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <div class="detail-title">🌱 등장 배경</div>
+                        <div class="emphasis-box">
+                            <h5>공민왕의 교육 개혁</h5>
+                            <p>성균관 정비와 과거제도 개혁으로 신진사대부 등장 촉진</p>
+                        </div>
+                        <ul class="detail-list" style="margin-top: 15px;">
+                            <li>지방(특히 삼남 지방) 출신</li>
+                            <li>과거 시험을 통해 중앙 정계 진출</li>
+                            <li>새로운 세력으로 성장</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">👥 주요 성격</div>
+                        <ul class="detail-list">
+                            <li>지방의 중소지주 출신</li>
+                            <li>향리 생활을 통한 지방 경험</li>
+                            <li>성리학을 학문적 기반으로 삼음</li>
+                            <li>공민왕의 개혁 정책으로 성장 기회 확보</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">📖 사상적 특징</div>
+                        <div class="emphasis-box">
+                            <h5>성리학의 수용</h5>
+                            <p>성리학을 통해 새로운 정치 이념과 개혁 사상 형성</p>
+                        </div>
+                        <ul class="detail-list" style="margin-top: 15px;">
+                            <li>권문세족의 부정과 불법 비판</li>
+                            <li>도덕 정치와 민본 사상 강조</li>
+                            <li>사회 개혁 의지 표출</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-title">🚀 역할과 영향</div>
+                        <ul class="detail-list">
+                            <li>고려 말 개혁의 주역</li>
+                            <li>조선 건국의 중심 세력</li>
+                            <li>새로운 시대의 주도</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 타임라인 섹션 -->
+    <section id="timeline" class="section">
+        <div class="section-content">
+            <h2 class="section-title">주요 사건 연표</h2>
+            <p class="section-subtitle">고려 후기 변화의 중요한 순간들</p>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">몽골 1차 침입</div>
+                        <div class="timeline-desc">몽골의 고려 침입 시작. 이후 40여 년간 계속된 침입의 시작점</div>
+                    </div>
+                    <div class="timeline-year">1231년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">강화도 천도</div>
+                        <div class="timeline-desc">최씨 무신 정권이 대몽 항쟁을 위해 수도를 강화도로 이전</div>
+                    </div>
+                    <div class="timeline-year">1232년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">개경 환도</div>
+                        <div class="timeline-desc">원과 강화 체결 후 수도 복귀. 원 간섭기 시작</div>
+                    </div>
+                    <div class="timeline-year">1270년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">공민왕 즉위</div>
+                        <div class="timeline-desc">개혁 군주 공민왕 즉위. 반원 자주화 정책 시작</div>
+                    </div>
+                    <div class="timeline-year">1351년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">기철 일파 숙청</div>
+                        <div class="timeline-desc">공민왕이 친원파 세력인 기철 일파를 제거하여 개혁 추진</div>
+                    </div>
+                    <div class="timeline-year">1356년</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content glass">
+                        <div class="timeline-title">쌍성총관부 회복</div>
+                        <div class="timeline-desc">몽골에게 빼앗겼던 쌍성총관부 지역을 되찾아 영토 회복</div>
+                    </div>
+                    <div class="timeline-year">1356년</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 핵심 정리 섹션 -->
+    <section id="summary" class="section">
+        <div class="section-content">
+            <h2 class="section-title">핵심 정리</h2>
+            <p class="section-subtitle">고려 후기 변화의 특징과 의미</p>
+            
+            <div class="summary-grid">
+                <div class="summary-card glass" style="animation-delay: 0.1s;">
+                    <div class="summary-icon">🐎</div>
+                    <div class="summary-title">원의 간섭</div>
+                    <div class="summary-desc">자주성 약화, 경제적·문화적 피해</div>
+                </div>
+                <div class="summary-card glass" style="animation-delay: 0.2s;">
+                    <div class="summary-icon">👑</div>
+                    <div class="summary-title">권문세족</div>
+                    <div class="summary-desc">토지 독점, 농민 몰락, 국가 재정 악화</div>
+                </div>
+                <div class="summary-card glass" style="animation-delay: 0.3s;">
+                    <div class="summary-icon">⚔️</div>
+                    <div class="summary-title">공민왕 개혁</div>
+                    <div class="summary-desc">자주성 회복 노력, 한계 존재</div>
+                </div>
+                <div class="summary-card glass" style="animation-delay: 0.4s;">
+                    <div class="summary-icon">📚</div>
+                    <div class="summary-title">신진사대부</div>
+                    <div class="summary-desc">성리학 바탕, 새로운 개혁 세력</div>
+                </div>
+            </div>
+
+            <div class="key-message">
+                <div class="key-title">✨ 고려 후기 변화의 의미</div>
+                <div class="key-text">
+                    몽골 간섭으로 시작된 고려 후기의 변화는 권문세족의 폐단과 공민왕의 개혁, 그리고 신진사대부의 성장으로 이어지며, 결국 조선 건국의 토대가 되었습니다.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 퀴즈 섹션 -->
+    <section id="quiz" class="section">
+        <div class="section-content">
+            <h2 class="section-title">학습 퀴즈</h2>
+            <p class="section-subtitle">배운 내용을 확인해보세요 (틀리면 처음부터 다시!)</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-dot active" id="progress-1"></div>
+                    <div class="quiz-progress-dot" id="progress-2"></div>
+                    <div class="quiz-progress-dot" id="progress-3"></div>
+                    <div class="quiz-progress-dot" id="progress-4"></div>
+                    <div class="quiz-progress-dot" id="progress-5"></div>
+                </div>
+
+                <!-- 문제 1 -->
+                <div id="question-1" class="question-block active">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★☆☆☆☆</span><br><br>
+                        <strong>Q1. [기초 이해]</strong><br>
+                        몽골이 고려의 내정을 간섭하기 위해 설치한 기구는 무엇인가요?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(1, false)">1. 동녕부</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(1, false)">2. 쌍성총관부</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(1, true)">3. 정동행성</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(1, false)">4. 응방</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-1"></div>
+                </div>
+
+                <!-- 문제 2 -->
+                <div id="question-2" class="question-block">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★★☆☆☆</span><br><br>
+                        <strong>Q2. [기초-중간]</strong><br>
+                        몽골 간섭기에 권문세족이 한 행위로 옳은 것은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(2, false)">1. 과거제를 강화하여 인재를 등용하였다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(2, true)">2. 대규모 농장을 불법적으로 운영하였다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(2, false)">3. 공민왕의 개혁을 적극적으로 도왔다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(2, false)">4. 농민에게 토지를 재분배하였다</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-2"></div>
+                </div>
+
+                <!-- 문제 3 -->
+                <div id="question-3" class="question-block">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★★★☆☆</span><br><br>
+                        <strong>Q3. [중간]</strong><br>
+                        다음 중 공민왕의 개혁 정책에 해당하지 않는 것은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(3, false)">1. 정동행성 폐지</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(3, false)">2. 쌍성총관부 회복</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(3, false)">3. 기철 일파 숙청</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(3, true)">4. 전시과 확대 시행</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-3"></div>
+                </div>
+
+                <!-- 문제 4 -->
+                <div id="question-4" class="question-block">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★★★★☆</span><br><br>
+                        <strong>Q4. [심화]</strong><br>
+                        권문세족과 신진사대부의 차이를 올바르게 설명한 것은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(4, false)">1. 권문세족은 성리학을 바탕으로 개혁을 추진했고, 신진사대부는 원과 연결되어 권력을 독점했다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(4, false)">2. 권문세족은 과거 시험으로 성장했고, 신진사대부는 불법 농장 운영으로 기반을 다졌다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(4, true)">3. 권문세족은 원과의 관계 속에서 권력을 유지했으며, 신진사대부는 성리학을 바탕으로 개혁을 주장했다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(4, false)">4. 권문세족은 농민을 보호했으며, 신진사대부는 농민을 수탈했다</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-4"></div>
+                </div>
+
+                <!-- 문제 5 -->
+                <div id="question-5" class="question-block">
+                    <div class="quiz-question glass">
+                        <span class="difficulty-badge">난이도 ★★★★★</span><br><br>
+                        <strong>Q5. [매우 어려움]</strong><br>
+                        몽골 간섭기를 겪은 고려의 상황과 공민왕·신진사대부의 대응을 올바르게 연결한 것은?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option glass" onclick="checkAnswer(5, false)">1. 몽골의 특산물 요구와 공녀 제도 → 공민왕은 이를 받아들이고 신진사대부는 권문세족과 연합했다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(5, true)">2. 왕권 격하와 영토 상실 → 공민왕은 정동행성을 폐지하고 영토를 되찾았으며, 신진사대부는 성리학을 통해 개혁을 추구했다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(5, false)">3. 몽골풍 유행과 고려양 유행 → 공민왕은 몽골 문화를 더 장려하고, 신진사대부는 불교를 강조했다</div>
+                        <div class="quiz-option glass" onclick="checkAnswer(5, false)">4. 권문세족의 농장 확대 → 공민왕과 신진사대부 모두 이를 방관하였다</div>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-5"></div>
+                </div>
+
+                <!-- 퀴즈 결과 -->
+                <div id="quiz-result" class="quiz-result glass">
+                    <div class="result-emoji">🎉</div>
+                    <div class="result-text">축하합니다! 모든 문제를 맞추셨습니다!</div>
+                    <button class="retry-btn" onclick="resetQuiz()">다시 도전하기</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentQuestion = 1;
+        let questionAnswered = [false, false, false, false, false];
+
+        // 스크롤 감지하여 네비게이션 업데이트
+        window.addEventListener('scroll', () => {
+            const sections = ['main-content', 'timeline', 'summary', 'quiz'];
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach((section, index) => {
+                const element = document.getElementById(section);
+                const dots = document.querySelectorAll('.progress-dot');
+                
+                if (element.offsetTop <= scrollPosition && 
+                    element.offsetTop + element.offsetHeight > scrollPosition) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+            });
+        });
+
+        // 섹션으로 스크롤
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 퀴즈 답 체크
+        function checkAnswer(questionNum, isCorrect) {
+            // 이미 답한 문제면 리턴
+            if (questionAnswered[questionNum - 1]) return;
+            
+            const options = document.querySelectorAll(`#question-${questionNum} .quiz-option`);
+            const feedback = document.getElementById(`feedback-${questionNum}`);
+            const progressDot = document.getElementById(`progress-${questionNum}`);
+            
+            // 옵션 비활성화
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                // 정답 처리
+                event.target.classList.add('correct');
+                feedback.classList.add('correct', 'show');
+                feedback.innerHTML = getCorrectFeedback(questionNum);
+                progressDot.classList.add('completed');
+                questionAnswered[questionNum - 1] = true;
+                
+                // 1.5초 후 다음 문제로
+                setTimeout(() => {
+                    if (questionNum < 5) {
+                        showQuestion(questionNum + 1);
+                    } else {
+                        // 모든 문제 완료
+                        showResult();
+                    }
+                }, 1500);
+            } else {
+                // 오답 처리
+                event.target.classList.add('incorrect');
+                feedback.classList.add('incorrect', 'show');
+                feedback.innerHTML = '❌ 틀렸습니다! 처음부터 다시 시작합니다...';
+                progressDot.classList.add('failed');
+                
+                // 2초 후 처음으로
+                setTimeout(() => {
+                    resetQuiz();
+                }, 2000);
+            }
+        }
+
+        // 정답 피드백
+        function getCorrectFeedback(num) {
+            const feedbacks = {
+                1: "✅ 정답! 몽골이 고려 내정 간섭을 위해 설치한 기구는 정동행성입니다.",
+                2: "✅ 정답! 권문세족은 대규모 농장을 불법적으로 운영하여 농민을 수탈했습니다.",
+                3: "✅ 정답! 전시과는 고려 전기 제도로 공민왕 개혁과는 관련이 없습니다.",
+                4: "✅ 정답! 권문세족은 원과 연결된 기득권층, 신진사대부는 성리학 기반 개혁 세력입니다.",
+                5: "✅ 정답! 공민왕의 자주화 정책과 신진사대부의 성리학적 개혁 정신이 잘 연결되었습니다."
+            };
+            return feedbacks[num];
+        }
+
+        // 문제 표시
+        function showQuestion(num) {
+            // 모든 문제 숨기기
+            document.querySelectorAll('.question-block').forEach(block => {
+                block.classList.remove('active');
+            });
+            
+            // 해당 문제 표시
+            document.getElementById(`question-${num}`).classList.add('active');
+            currentQuestion = num;
+            
+            // 진행 상태 업데이트
+            for (let i = 1; i <= num; i++) {
+                document.getElementById(`progress-${i}`).classList.add('active');
+            }
+        }
+
+        // 결과 표시
+        function showResult() {
+            document.querySelectorAll('.question-block').forEach(block => {
+                block.classList.remove('active');
+            });
+            document.getElementById('quiz-result').classList.add('show');
+        }
+
+        // 퀴즈 초기화
+        function resetQuiz() {
+            currentQuestion = 1;
+            questionAnswered = [false, false, false, false, false];
+            
+            // 모든 문제 초기화
+            for (let i = 1; i <= 5; i++) {
+                const options = document.querySelectorAll(`#question-${i} .quiz-option`);
+                options.forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    option.style.pointerEvents = 'auto';
+                });
+                
+                const feedback = document.getElementById(`feedback-${i}`);
+                feedback.classList.remove('correct', 'incorrect', 'show');
+                feedback.innerHTML = '';
+                
+                const progressDot = document.getElementById(`progress-${i}`);
+                progressDot.classList.remove('active', 'completed', 'failed');
+            }
+            
+            // 첫 번째 진행 점만 활성화
+            document.getElementById('progress-1').classList.add('active');
+            
+            // 결과 숨기기
+            document.getElementById('quiz-result').classList.remove('show');
+            
+            // 첫 문제 표시
+            showQuestion(1);
+        }
+
+        // 스크롤 애니메이션을 위한 throttle 함수
+        function throttle(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // 스크롤 애니메이션 관리
+        class ScrollAnimationManager {
+            constructor() {
+                this.elements = new Map();
+                this.init();
+            }
+
+            init() {
+                // 애니메이션할 요소들 등록
+                this.registerElements('.section-title', 0);
+                this.registerElements('.section-subtitle', 0);
+                this.registerElements('.topic-card', 150); // 순차적 등장
+                this.registerElements('.timeline-item', 100);
+                this.registerElements('.summary-card', 80); // 순차적 등장
+                this.registerElements('.key-message', 0);
+                this.registerElements('.quiz-progress', 0);
+
+                // 스크롤 이벤트 등록
+                window.addEventListener('scroll', throttle(() => {
+                    this.checkAnimations();
+                }, 16)); // 60fps
+
+                // 초기 체크
+                this.checkAnimations();
+            }
+
+            registerElements(selector, staggerDelay = 0) {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach((element, index) => {
+                    this.elements.set(element, {
+                        hasAnimated: false,
+                        staggerDelay: staggerDelay * index
+                    });
+                });
+            }
+
+            checkAnimations() {
+                const windowHeight = window.innerHeight;
+                const scrollTop = window.pageYOffset;
+
+                this.elements.forEach((data, element) => {
+                    if (data.hasAnimated) return;
+
+                    const elementTop = element.offsetTop;
+                    const elementHeight = element.offsetHeight;
+                    const revealPoint = 150;
+
+                    if (scrollTop + windowHeight - revealPoint > elementTop) {
+                        setTimeout(() => {
+                            element.classList.add('animate');
+                            data.hasAnimated = true;
+                        }, data.staggerDelay);
+                    }
+                });
+            }
+        }
+
+        // 페이지 로드 시 애니메이션 매니저 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            new ScrollAnimationManager();
+        });
+    </script>
+</body>
+</html>

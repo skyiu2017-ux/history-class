@@ -163,12 +163,15 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
             text-decoration: none;
             color: inherit;
         }
 
-        .subject-card:hover {
+        .subject-card[onclick] {
+            cursor: pointer;
+        }
+
+        .subject-card[onclick]:hover {
             transform: translateY(-8px);
             box-shadow: 
                 0 20px 40px rgba(0, 0, 0, 0.15),
@@ -529,14 +532,14 @@
                         고려 왕조 474년의 역사를 체계적으로 학습하세요.
                     </p>
                     <div class="card-links">
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('goryeo.html')">
                             <div class="topic-info">
                                 <span>👑</span>
                                 <span>01. 고려의 건국과 정치 변화</span>
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLink('goryeo-foreign-relations.html')">
                             <div class="topic-info">
                                 <span>🌏</span>
                                 <span>02. 고려의 대외 관계</span>

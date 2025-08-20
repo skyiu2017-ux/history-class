@@ -272,6 +272,42 @@
             color: #ea580c;
         }
 
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-input:focus {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         .footer {
             background: rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
@@ -375,7 +411,7 @@
             
             <div class="stats-container">
                 <div class="stat-item">
-                    <span class="stat-number">3</span>
+                    <span class="stat-number">4</span>
                     <span class="stat-label">완성된 주제</span>
                 </div>
                 <div class="stat-item">
@@ -394,6 +430,7 @@
     </section>
 
     <div class="container">
+        <!-- 세계사 섹션 -->
         <section class="section">
             <div class="section-title animate-on-scroll">
                 <h2>🌍 세계사</h2>
@@ -472,6 +509,7 @@
             </div>
         </section>
 
+        <!-- 한국사 섹션 -->
         <section class="section">
             <div class="section-title animate-on-scroll">
                 <h2>🇰🇷 한국사</h2>
@@ -488,7 +526,7 @@
                         고려 왕조 474년의 역사를 체계적으로 학습하세요.
                     </p>
                     <div class="card-links">
-                        <div class="topic-link" onclick="openLink('goryeo.HTML')">
+                        <div class="topic-link" onclick="openLink('goryeo.html')">
                             <div class="topic-info">
                                 <span>👑</span>
                                 <span>01. 고려의 건국과 정치 변화</span>
@@ -502,12 +540,12 @@
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link" onclick="openLink('goryeo-mongol.html')">
+                        <div class="topic-link" onclick="openLink('goryeo_mongol_reforms.html')">
                             <div class="topic-info">
                                 <span>⛓️</span>
                                 <span>03. 몽골의 간섭과 고려의 개혁</span>
                             </div>
-                            <span class="topic-status status-coming">예정</span>
+                            <span class="topic-status status-complete">완료</span>
                         </div>
                         <div class="topic-link" onclick="openLink('goryeo-culture.html')">
                             <div class="topic-info">
@@ -743,5 +781,4 @@
         });
     </script>
 </body>
-
 </html>

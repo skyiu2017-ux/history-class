@@ -253,6 +253,15 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .topic-info span:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .topic-status {
@@ -260,6 +269,10 @@
             border-radius: 12px;
             font-size: 0.8rem;
             font-weight: 500;
+            white-space: nowrap;
+            flex-shrink: 0;
+            min-width: 40px;
+            text-align: center;
         }
 
         .status-complete {
@@ -387,6 +400,42 @@
             
             .container {
                 padding: 0 1rem;
+            }
+
+            .topic-link {
+                padding: 1rem;
+                flex-wrap: nowrap;
+            }
+
+            .topic-info {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .topic-status {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.8rem;
+                min-width: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topic-link {
+                padding: 0.8rem;
+            }
+
+            .topic-info span:first-child {
+                font-size: 1rem;
+            }
+
+            .topic-info span:last-child {
+                font-size: 0.9rem;
+            }
+
+            .topic-status {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.6rem;
+                min-width: 40px;
             }
         }
 

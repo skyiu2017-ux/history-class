@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏰 고려의 생활과 문화</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2d1b69 100%);
+            min-height: 100vh;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2d1b69;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .nav-link.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.15);
+            font-weight: 600;
+        }
+
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding-top: 5rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e0f2f1, #fff3e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .scroll-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2d1b69, #11998e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(103, 126, 234, 0.2);
+        }
+
+        .topic-icon {
+            font-size: 2.5rem;
+        }
+
+        .topic-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d1b69;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-item {
+            background: rgba(103, 126, 234, 0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .content-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d1b69;
+            margin-bottom: 1rem;
+        }
+
+        .content-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-item li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .content-item li::before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .key-point {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .key-point h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #fff3e0;
+        }
+
+        .key-point p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.98);
+            margin-top: 3rem;
+        }
+
+        .question-card {
+            background: rgba(103, 126, 234, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(103, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #2d1b69;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid rgba(103, 126, 234, 0.2);
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .option:hover {
+            background: rgba(103, 126, 234, 0.1);
+            border-color: rgba(103, 126, 234, 0.4);
+            transform: translateX(4px);
+        }
+
+        .option.selected {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+        }
+
+        .option.correct {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: #22c55e;
+            color: #15803d;
+        }
+
+        .option.incorrect {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
+            color: #dc2626;
+        }
+
+        .option.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .option-label {
+            background: #667eea;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .option.correct .option-label {
+            background: #22c55e;
+        }
+
+        .option.incorrect .option-label {
+            background: #ef4444;
+        }
+
+        .feedback {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #15803d;
+        }
+
+        .feedback.incorrect {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #dc2626;
+        }
+
+        .feedback h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(103, 126, 234, 0.1);
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .score-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        #retryBtn {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        #retryBtn:hover {
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            height: 8px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            height: 100%;
+            border-radius: 50px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 0.5rem;
+            }
+            
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .nav-content {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-card {
+                padding: 2rem;
+            }
+            
+            .section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="nav-title">🏰 고려의 생활과 문화</div>
+            <div class="nav-links">
+                <a class="nav-link" data-section="learning">학습하기</a>
+                <a class="nav-link" data-section="summary">핵심정리</a>
+                <a class="nav-link" data-section="quiz">형성평가</a>
+                <a href="index.html" class="nav-link">메인으로</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🏰 고려의 생활과 문화</h1>
+            <p>고려 시대의 신분제도, 가족 관계, 그리고 불교 문화를<br>체계적으로 학습해보세요</p>
+            <button class="scroll-btn" id="startLearningBtn">학습 시작하기</button>
+        </div>
+    </section>
+
+    <section id="learning" class="section">
+        <div class="section-title animate-on-scroll">
+            <h2>📚 학습 내용</h2>
+            <p>고려 시대의 사회 구조와 문화적 특징을 자세히 알아봅시다</p>
+        </div>
+
+        <div class="content-card animate-on-scroll">
+            <div class="topic-header">
+                <span class="topic-icon">👥</span>
+                <h3 class="topic-title">고려의 신분과 사회</h3>
+            </div>
+            <div class="content-grid">
+                <div class="content-item">
+                    <h4>기본 신분 구조</h4>
+                    <ul>
+                        <li><strong>양인</strong>: 지배층과 일반 백성</li>
+                        <li><strong>천인</strong>: 주로 노비 계층</li>
+                        <li>신분 이동은 제한적이었으나 과거를 통한 상승 가능</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>지배층의 특징</h4>
+                    <ul>
+                        <li><strong>귀족·호족</strong>: 큰 땅과 군사력을 가진 지방 유력자</li>
+                        <li>태조 왕건은 혼인과 사성으로 이들을 포섭</li>
+                        <li>문벌 귀족이 중앙 정치를 주도</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>지방 행정</h4>
+                    <ul>
+                        <li><strong>향리</strong>: 지방 행정을 담당하는 계층</li>
+                        <li>일부는 과거를 통해 중앙으로 진출</li>
+                        <li>지방에서 중요한 역할 수행</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>특수 지역</h4>
+                    <ul>
+                        <li><strong>향·부곡·소</strong>: 국가 물품 생산 담당</li>
+                        <li>법적으로는 양인이지만 차별받음</li>
+                        <li>수공업과 농업에 종사</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card animate-on-scroll">
+            <div class="topic-header">
+                <span class="topic-icon">👪</span>
+                <h3 class="topic-title">고려의 가족 관계</h3>
+            </div>
+            <div class="content-grid">
+                <div class="content-item">
+                    <h4>혼인 제도</h4>
+                    <ul>
+                        <li><strong>남귀여가혼</strong>: 신랑이 처가에서 생활하는 관습</li>
+                        <li>왕실과 호족 간 정치적 혼인 동맹</li>
+                        <li>여성의 지위가 비교적 높았음</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>상속 제도</h4>
+                    <ul>
+                        <li><strong>균분 상속</strong>: 아들과 딸이 고르게 상속</li>
+                        <li>여성도 재산권을 가질 수 있었음</li>
+                        <li>조선과는 다른 특징</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>제사 문화</h4>
+                    <ul>
+                        <li>자녀가 돌아가며 제사를 지내는 모습</li>
+                        <li>특정 자녀에게만 집중되지 않음</li>
+                        <li>불교와 전통 신앙이 혼재</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>노비 제도</h4>
+                    <ul>
+                        <li><strong>종모법</strong>: 대체로 어머니 신분을 따름</li>
+                        <li>신분 세습이 원칙</li>
+                        <li>광종의 노비안검법(956년)으로 일부 해방</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card animate-on-scroll">
+            <div class="topic-header">
+                <span class="topic-icon">🙏</span>
+                <h3 class="topic-title">고려의 불교 문화</h3>
+            </div>
+            <div class="content-grid">
+                <div class="content-item">
+                    <h4>국가 차원의 후원</h4>
+                    <ul>
+                        <li><strong>연등회</strong>: 부처의 자비를 기원하는 행사</li>
+                        <li><strong>팔관회</strong>: 국가 안녕과 백성 화합을 위한 행사</li>
+                        <li>왕실과 귀족이 적극 후원</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>불교 사상의 발전</h4>
+                    <ul>
+                        <li><strong>의천</strong>: 교관겸수 - 교종과 선종의 융합</li>
+                        <li><strong>지눌</strong>: 돈오점수, 정혜쌍수 주장</li>
+                        <li>교종과 선종의 통합 추구</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>사회적 기능</h4>
+                    <ul>
+                        <li>백성들의 정신적 위안 제공</li>
+                        <li>사회 통합과 안정에 기여</li>
+                        <li>교육과 문화 발전에 역할</li>
+                    </ul>
+                </div>
+                <div class="content-item">
+                    <h4>말기의 문제점</h4>
+                    <ul>
+                        <li>사원 경제의 비대화</li>
+                        <li>승려들의 타락</li>
+                        <li>조선 건국의 배경이 됨</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="summary" class="section">
+        <div class="section-title animate-on-scroll">
+            <h2>🎯 핵심 정리</h2>
+            <p>중학교 2학년 눈높이에 맞춘 핵심 내용 요약</p>
+        </div>
+
+        <div class="content-card summary-section animate-on-scroll">
+            <h3 style="color: white; text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">
+                고려·조선의 신분제, 가족관계, 불교문화 한눈에 정리
+            </h3>
+            
+            <div class="key-points">
+                <div class="key-point">
+                    <h4>🏛️ 고려 신분제</h4>
+                    <p>양인(지배층·백성) / 천인(노비)<br>향·부곡·소는 법적 양인이지만 차별</p>
+                </div>
+                <div class="key-point">
+                    <h4>👪 고려 가족</h4>
+                    <p>남귀여가혼, 균분상속<br>여성 지위 비교적 높음</p>
+                </div>
+                <div class="key-point">
+                    <h4>🙏 고려 불교</h4>
+                    <p>연등회·팔관회로 사회 통합<br>의천·지눌의 교선 융합</p>
+                </div>
+                <div class="key-point">
+                    <h4>📚 조선과 비교</h4>
+                    <p>유교 질서 강화로<br>부계 중심, 적장자 상속</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; margin-top: 2rem; color: white;">
+                <h4 style="text-align: center; margin-bottom: 1rem; color: #fff3e0;">🔍 꼭 기억할 사실들</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #fbbf24;">•</span>
+                        <strong>노비안검법</strong>: 광종 7년, 956년 시행 (과거제는 958년)
+                    </li>
+                    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #fbbf24;">•</span>
+                        <strong>노비 신분</strong>: 대체로 어머니 신분을 따르는 '종모법'
+                    </li>
+                    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: #fbbf24;">•</span>
+                        <strong>여성 지위</strong>: 고려(높음) → 조선(낮아짐) → 현대(법적 평등)
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="section">
+        <div class="section-title animate-on-scroll">
+            <h2>📝 형성평가</h2>
+            <p>학습한 내용을 확인해보는 5지선다 문제</p>
+        </div>
+
+        <div class="content-card quiz-section animate-on-scroll">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <div id="currentQuestionCard" style="display: none;">
+                <div class="question-card">
+                    <div class="question-number" id="questionNumber">문제 1/5</div>
+                    <div class="question-text" id="questionText"></div>
+                    <div class="options" id="options"></div>
+                    <div class="feedback" id="feedback"></div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn" id="nextBtn" onclick="nextQuestion()" style="display: none;">다음 문제</button>
+                        <button class="btn" id="retryBtn" onclick="retryFromPrevious()" style="display: none;">이전 문제부터 다시</button>
+                        <button class="btn" id="finishBtn" onclick="showFinalScore()" style="display: none;">결과 확인</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay" style="display: none;">
+                <div class="score-number">🎉 완료!</div>
+                <h3>모든 문제를 정답으로 맞추셨습니다!</h3>
+                <p style="margin: 1rem 0; color: #2d1b69;">고려의 생활과 문화에 대한 이해가 완벽하시네요!</p>
+                <button class="btn" onclick="restartQuiz()">다시 도전하기</button>
+                <a href="index.html" class="btn">메인 페이지로</a>
+            </div>
+
+            <div id="startQuizSection" style="text-align: center; padding: 3rem;">
+                <h3 style="color: #2d1b69; margin-bottom: 1rem;">📝 형성평가를 시작해보세요!</h3>
+                <p style="color: #666; margin-bottom: 2rem;">
+                    • 총 5문제의 선택형 문제입니다.<br>
+                    • 정답을 맞추면 다음 문제로 진행됩니다.<br>
+                    • 틀리면 이전 문제부터 다시 풀어야 합니다.<br>
+                    • 모든 문제를 정답으로 맞춰야 완료됩니다.
+                </p>
+                <button class="btn" onclick="startQuiz()">형성평가 시작</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const questions = [
+            {
+                question: "고려 시대 가족 제도의 특징으로 옳은 것은?",
+                options: [
+                    "적장자가 재산을 모두 상속받았다.",
+                    "제사는 오직 장남만 지낼 수 있었다.",
+                    "딸도 아들과 동등하게 재산을 상속받았다.",
+                    "신부는 혼인 후 바로 시댁에서 생활했다.",
+                    "여성의 지위가 조선보다 낮았다."
+                ],
+                correct: 2,
+                explanation: "고려 시대에는 균분 상속제로 딸도 아들과 동등하게 재산을 상속받았습니다."
+            },
+            {
+                question: "고려 시대에 흔히 볼 수 있었던 혼인 풍습은 무엇인가?",
+                options: [
+                    "신랑이 혼인 후 신부 집에서 일정 기간 함께 생활하는 풍습",
+                    "신부가 혼인 후 바로 시댁으로 가는 풍습",
+                    "남자가 여러 명의 아내를 두는 풍습",
+                    "장남만 모든 재산을 물려받는 풍습",
+                    "여자가 여러 번 혼인할 수 있는 풍습"
+                ],
+                correct: 0,
+                explanation: "고려 시대에는 남귀여가혼이라 하여 신랑이 신부 집에서 생활하는 풍습이 있었습니다."
+            },
+            {
+                question: "고려 시대 불교 행사인 연등회와 팔관회의 공통된 목적은?",
+                options: [
+                    "왕권 강화를 위한 정치 행사",
+                    "백성들의 생활 안정과 사회 통합",
+                    "중국 불교와의 교류 확대",
+                    "귀족만을 위한 종교 행사",
+                    "승려들의 시험 제도 운영"
+                ],
+                correct: 1,
+                explanation: "연등회와 팔관회는 백성들의 화합과 국가 안녕을 기원하는 사회 통합 행사였습니다."
+            },
+            {
+                question: "고려 불교 사상에서 의천과 지눌이 주장한 공통점은?",
+                options: [
+                    "선종만 중시하였다.",
+                    "불교 교단의 폐단을 강화하였다.",
+                    "교종과 선종을 아울러 융합하려 했다.",
+                    "유교 사상과 불교를 결합하였다.",
+                    "불교보다는 도교를 강조하였다."
+                ],
+                correct: 2,
+                explanation: "의천과 지눌은 모두 교종과 선종의 융합을 통해 불교를 발전시키려 했습니다."
+            },
+            {
+                question: "다음 중 고려, 조선, 현대의 가족 관계를 올바르게 비교한 것은?",
+                options: [
+                    "고려는 균분 상속, 조선은 적장자 상속, 현대는 남녀 차별 상속",
+                    "고려는 적장자 상속, 조선은 균분 상속, 현대는 부계 상속",
+                    "고려는 균분 상속, 조선은 적장자 상속, 현대는 법적 균분 상속",
+                    "고려는 부계 중심, 조선은 남귀여가혼, 현대는 호주제 강화",
+                    "고려는 여성 지위 낮음, 조선은 여성 지위 높음, 현대는 여성 지위 약화"
+                ],
+                correct: 2,
+                explanation: "고려는 균분 상속, 조선은 점차 적장자 중심 상속, 현대는 법적으로 균분 상속이 원칙입니다."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let maxReachedQuestion = 0; // 도달한 최고 문제 번호
+        let selectedOption = null;
+
+        function startQuiz() {
+            document.getElementById('startQuizSection').style.display = 'none';
+            document.getElementById('currentQuestionCard').style.display = 'block';
+            currentQuestion = 0;
+            maxReachedQuestion = 0;
+            displayCurrentQuestion();
+        }
+
+        function displayCurrentQuestion() {
+            const question = questions[currentQuestion];
+            
+            document.getElementById('questionNumber').textContent = `문제 ${currentQuestion + 1}/5`;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.onclick = () => selectOption(index);
+                
+                optionDiv.innerHTML = `
+                    <div class="option-label">${String.fromCharCode(65 + index)}</div>
+                    <span>${option}</span>
+                `;
+                
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // 피드백 및 버튼 초기화
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('retryBtn').style.display = 'none';
+            document.getElementById('finishBtn').style.display = 'none';
+            
+            selectedOption = null;
+            updateProgress();
+        }
+
+        function selectOption(index) {
+            if (selectedOption !== null) return; // 이미 선택했으면 무시
+            
+            selectedOption = index;
+            const question = questions[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            const feedback = document.getElementById('feedback');
+            
+            // 모든 옵션 비활성화
+            options.forEach((option, i) => {
+                option.classList.add('disabled');
+                if (i === question.correct) {
+                    option.classList.add('correct');
+                } else if (i === index && i !== question.correct) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            const isCorrect = index === question.correct;
+            
+            if (isCorrect) {
+                // 정답인 경우
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = `
+                    <h4>✅ 정답입니다!</h4>
+                    <p>${question.explanation}</p>
+                `;
+                
+                // 다음 문제로 진행할 수 있도록 최고 도달 문제 업데이트
+                maxReachedQuestion = Math.max(maxReachedQuestion, currentQuestion + 1);
+                
+                if (currentQuestion === questions.length - 1) {
+                    // 마지막 문제였다면 완료
+                    document.getElementById('finishBtn').style.display = 'inline-block';
+                } else {
+                    // 다음 문제 버튼 표시
+                    document.getElementById('nextBtn').style.display = 'inline-block';
+                }
+            } else {
+                // 틀린 경우
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `
+                    <h4>❌ 틀렸습니다.</h4>
+                    <p>정답: ${String.fromCharCode(65 + question.correct)} ${question.options[question.correct]}</p>
+                    <p>${question.explanation}</p>
+                `;
+                
+                // 이전 문제부터 다시 풀기 버튼 표시
+                document.getElementById('retryBtn').style.display = 'inline-block';
+            }
+            
+            feedback.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                
+                // 애니메이션 효과
+                const questionCard = document.querySelector('.question-card');
+                questionCard.style.opacity = '0';
+                questionCard.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    displayCurrentQuestion();
+                    questionCard.style.opacity = '1';
+                    questionCard.style.transform = 'translateY(0)';
+                }, 300);
+            }
+        }
+
+        function retryFromPrevious() {
+            // 이전 문제로 돌아가기 (첫 번째 문제에서 틀리면 첫 번째 문제 다시)
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                maxReachedQuestion = currentQuestion; // 다시 풀어야 하므로 최고 도달 문제 재설정
+            }
+            
+            // 애니메이션 효과
+            const questionCard = document.querySelector('.question-card');
+            questionCard.style.opacity = '0';
+            questionCard.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                displayCurrentQuestion();
+                questionCard.style.opacity = '1';
+                questionCard.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        function updateProgress() {
+            // 현재까지 맞춘 문제 수를 기준으로 진행률 계산
+            const progress = (maxReachedQuestion / questions.length) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        function showFinalScore() {
+            document.getElementById('currentQuestionCard').style.display = 'none';
+            document.getElementById('scoreDisplay').style.display = 'block';
+            document.getElementById('progress').style.width = '100%';
+        }
+
+        function restartQuiz() {
+            document.getElementById('scoreDisplay').style.display = 'none';
+            document.getElementById('currentQuestionCard').style.display = 'none';
+            document.getElementById('startQuizSection').style.display = 'block';
+            currentQuestion = 0;
+            maxReachedQuestion = 0;
+            document.getElementById('progress').style.width = '0%';
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 스크롤에 따른 네비게이션 업데이트
+        function updateNavigationOnScroll() {
+            const sections = ['learning', 'summary', 'quiz'];
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navBar = document.querySelector('.nav-bar');
+            
+            // 스크롤에 따른 네비게이션 바 스타일 변경
+            if (window.scrollY > 100) {
+                navBar.classList.add('scrolled');
+            } else {
+                navBar.classList.remove('scrolled');
+            }
+            
+            // 현재 섹션 감지
+            let currentSection = '';
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    // 섹션이 화면 상단 근처에 있을 때 활성화
+                    if (rect.top <= 150 && rect.bottom >= 150) {
+                        currentSection = sectionId;
+                    }
+                }
+            });
+            
+            // 네비게이션 링크 업데이트
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                
+                // 현재 섹션에 해당하는 링크 활성화
+                if (currentSection === 'learning' && link.textContent === '학습하기') {
+                    link.classList.add('active');
+                } else if (currentSection === 'summary' && link.textContent === '핵심정리') {
+                    link.classList.add('active');
+                } else if (currentSection === 'quiz' && link.textContent === '형성평가') {
+                    link.classList.add('active');
+                }
+            });
+            
+            // 맨 위에 있을 때는 학습하기 활성화
+            if (window.scrollY < 200) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.textContent === '학습하기') {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        // Scroll animations and navigation update
+        function handleScroll() {
+            animateOnScroll();
+            updateNavigationOnScroll();
+        }
+
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('DOMContentLoaded', () => {
+            handleScroll();
+            
+            // 네비게이션 링크 클릭 이벤트
+            document.querySelectorAll('.nav-link[data-section]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    scrollToSection(sectionId);
+                });
+            });
+            
+            // 학습 시작 버튼 클릭 이벤트
+            document.getElementById('startLearningBtn').addEventListener('click', () => {
+                scrollToSection('learning');
+            });
+            
+            // 퀴즈는 시작 버튼을 눌러야 시작됨
+        });
+    </script>
+</body>
+</html>

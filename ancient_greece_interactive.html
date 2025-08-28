@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고대 그리스 문화</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            color: #5a67d8;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+        }
+
+        .objectives {
+            display: grid;
+            gap: 15px;
+        }
+
+        .objective-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .objective-item:hover {
+            transform: scale(1.02);
+        }
+
+        .content-section {
+            margin-bottom: 25px;
+        }
+
+        .content-section h3 {
+            color: #4c51bf;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .process-steps {
+            display: grid;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .step-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .step-content {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .step-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .step-result {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .think-time {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-style: italic;
+            font-size: 0.95rem;
+            border-left: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .reveal-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .reveal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .reveal-button:active {
+            transform: translateY(0);
+        }
+
+        .activity-answer {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            display: none;
+        }
+
+        .activity-answer.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .quiz-container {
+            display: grid;
+            gap: 20px;
+        }
+
+        .quiz-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid #5a67d8;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .quiz-item.active {
+            display: block;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        .quiz-item.completed {
+            opacity: 0.7;
+            border-left-color: #38a169;
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            padding: 10px 15px;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover {
+            background: #edf2f7;
+            border-color: #cbd5e0;
+        }
+
+        .quiz-option.correct {
+            background: #c6f6d5;
+            border-color: #38a169;
+            color: #2f855a;
+        }
+
+        .quiz-option.wrong {
+            background: #fed7d7;
+            border-color: #e53e3e;
+            color: #c53030;
+        }
+
+        .quiz-answer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-answer.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .next-button {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .next-button.show {
+            display: inline-block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .next-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.2);
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 3px;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .philosopher-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .philosopher-card:hover {
+            transform: scale(1.05);
+        }
+
+        .philosopher-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .philosopher-idea {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ff8a65;
+        }
+
+        .summary-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #d84315;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏛️ 고대 그리스 문화</h1>
+            <p>폴리스에서 헬레니즘까지</p>
+        </div>
+
+        <!-- 학습 목표 -->
+        <div class="card">
+            <h2><span class="emoji">🎯</span>학습 목표</h2>
+            <div class="objectives">
+                <div class="objective-item">
+                    그리스 폴리스의 성립 배경과 구조를 설명할 수 있다.
+                </div>
+                <div class="objective-item">
+                    아테네 민주정의 발전 과정과 특징을 이해할 수 있다.
+                </div>
+                <div class="objective-item">
+                    스파르타와 아테네의 정치·사회적 차이를 설명할 수 있다.
+                </div>
+                <div class="objective-item">
+                    그리스 문화가 '인간 중심적'이라는 의미와 그 한계를 이해할 수 있다.
+                </div>
+                <div class="objective-item">
+                    알렉산드로스 제국의 성립과 헬레니즘 문화의 특징을 설명할 수 있다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 그리스 폴리스와 아테네 민주 정치 정리 -->
+        <div class="card">
+            <h2><span class="emoji">📘</span>그리스 폴리스와 아테네 민주 정치</h2>
+            
+            <div class="content-section">
+                <h3>🏛️ 폴리스의 성립과 배경</h3>
+                <div class="highlight-box">
+                    <strong>성립 시기:</strong> 기원전 8세기경
+                </div>
+                <div class="content-section">
+                    <h4>배경</h4>
+                    <ul>
+                        <li>험준한 산악 지형, 복잡한 해안선 → 넓은 통일국가 형성 어려움</li>
+                        <li>소규모 독립 도시 국가(폴리스) 발달</li>
+                    </ul>
+                    <p><strong>대표적 폴리스:</strong> 아테네(상업·해상 무역 중심), 스파르타(군사 중심)</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>🏰 폴리스의 구조</h3>
+                <div class="philosophy-grid">
+                    <div class="philosopher-card">
+                        <div class="philosopher-name">아크로폴리스</div>
+                        <div class="philosopher-idea">신전·군사 시설이 위치한 언덕 요새</div>
+                    </div>
+                    <div class="philosopher-card">
+                        <div class="philosopher-name">아고라</div>
+                        <div class="philosopher-idea">시민들의 집회·토론, 상업 활동 광장</div>
+                    </div>
+                    <div class="philosopher-card">
+                        <div class="philosopher-name">주거지·농경지</div>
+                        <div class="philosopher-idea">성벽 주변에 분포</div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    👉 폴리스는 <strong>정치·경제·종교·군사</strong>의 중심 기능을 갖춘 작은 자치 공동체였다.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>🤝 헬레네스와 동족 의식</h3>
+                <p>그리스인들은 스스로를 <strong>헬레네스</strong>라 부름</p>
+                <div class="content-section">
+                    <h4>공통점</h4>
+                    <ul>
+                        <li>같은 언어(그리스어)</li>
+                        <li>종교(올림포스 신을 숭배)</li>
+                        <li>올림피아 제전 개최</li>
+                    </ul>
+                    <p>이러한 동족 의식은 폴리스 간 경쟁과 대립 속에서도 <strong>그리스인의 정체성</strong>을 유지하는 기반이 되었다.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>⚖️ 아테네 정치의 변화 과정</h3>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-header">(1) 솔론 (기원전 6세기 초)</div>
+                        <div class="step-content">
+                            <p><strong>개혁 배경:</strong> 귀족 중심의 정치, 농민의 빈부 격차 심화</p>
+                            <p><strong>개혁 내용:</strong></p>
+                            <ul>
+                                <li>빚으로 인한 노예 금지</li>
+                                <li>재산 정도에 따라 참정권 확대</li>
+                            </ul>
+                            <div class="step-result">
+                                👉 귀족 중심 정치 → <strong>평민 일부 참여 가능</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-header">(2) 클레이스테네스 (기원전 6세기 말)</div>
+                        <div class="step-content">
+                            <p><strong>개혁 배경:</strong> 귀족 세력의 독점 방지 필요</p>
+                            <p><strong>개혁 내용:</strong></p>
+                            <ul>
+                                <li>도편추방제 실시 (독재 가능 인물 추방)</li>
+                                <li>부족 개편 → 귀족 중심 세력 약화, 평민 정치 참여 확대</li>
+                            </ul>
+                            <div class="step-result">
+                                👉 <strong>민주정치의 기초 확립</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-header">(3) 페리클레스 (기원전 5세기 중엽, 아테네 황금기)</div>
+                        <div class="step-content">
+                            <p><strong>개혁 내용:</strong></p>
+                            <ul>
+                                <li>민회 권한 강화, 공직자 추첨제·급료 지급</li>
+                                <li>무역·식민지 확대 → 경제력 강화</li>
+                                <li>파르테논 신전 건축 등 문화 번영</li>
+                            </ul>
+                            <div class="step-result">
+                                👉 <strong>직접 민주정 완성</strong>, 아테네 전성기
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>⚖️ 아테네 민주 정치의 특징과 한계</h3>
+                <div class="philosophy-grid">
+                    <div class="philosopher-card" style="background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);">
+                        <div class="philosopher-name">특징</div>
+                        <div class="philosopher-idea">
+                            • 직접 민주정<br>
+                            • 추첨제<br>
+                            • 공직자 급료 지급
+                        </div>
+                    </div>
+                    <div class="philosopher-card" style="background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);">
+                        <div class="philosopher-name">한계</div>
+                        <div class="philosopher-idea">
+                            • 여성, 노예, 외국인 배제<br>
+                            • 소수의 성인 남성만 참여
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-title">✅ 정리</div>
+                그리스의 폴리스는 지리적 조건 속에서 형성된 소규모 도시 국가였으며, 아테네는 민주 정치로 발전하였다. 그러나 이 민주정은 시민의 자유와 참여를 확대했음에도 불구하고, 여성·노예·외국인을 배제한 제한적 민주정에 머물렀다.
+            </div>
+        </div>
+
+        <!-- 스파르타의 발전과 그리스 세계의 몰락 -->
+        <div class="card">
+            <h2><span class="emoji">⚔️</span>스파르타의 발전과 그리스 세계의 몰락</h2>
+            
+            <div class="content-section">
+                <h3>🛡️ 스파르타 특징</h3>
+                <div class="highlight-box">
+                    군사 중심 사회, 7세부터 훈련, 소수 정복민이 다수 피지배층(헤일로타이) 지배
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>⚡ 아테네와 대립</h3>
+                <p><strong>델로스 동맹(아테네)</strong> vs <strong>펠로폰네소스 동맹(스파르타)</strong></p>
+            </div>
+
+            <div class="content-section">
+                <h3>💥 펠로폰네소스 전쟁</h3>
+                <p>스파르타 승리 → 그러나 그리스 전체 쇠퇴</p>
+            </div>
+
+            <div class="content-section">
+                <h3>📉 결과</h3>
+                <div class="highlight-box">
+                    분열 심화, 기원전 4세기 마케도니아에 정복
+                </div>
+            </div>
+        </div>
+
+        <!-- 인간 중심의 합리적인 그리스 문화 -->
+        <div class="card">
+            <h2><span class="emoji">🧠</span>인간 중심의 합리적인 그리스 문화</h2>
+            
+            <div class="content-section">
+                <h3>🏛️ 민주정치 → 자유로운 사상</h3>
+            </div>
+
+            <div class="content-section">
+                <h3>📚 문학</h3>
+                <p>호메로스 『일리아드』, 『오디세이아』</p>
+            </div>
+
+            <div class="content-section">
+                <h3>🎨 예술</h3>
+                <p>파르테논 신전, 조화·균형미</p>
+            </div>
+
+            <div class="content-section">
+                <h3>📜 역사학</h3>
+                <p><strong>헤로도토스</strong>(역사의 아버지), <strong>투키디데스</strong>(사실적 기록)</p>
+            </div>
+
+            <div class="content-section">
+                <h3>🤔 철학</h3>
+                <div class="philosophy-grid">
+                    <div class="philosopher-card">
+                        <div class="philosopher-name">소피스트</div>
+                        <div class="philosopher-idea">진리의 상대성</div>
+                    </div>
+                    <div class="philosopher-card">
+                        <div class="philosopher-name">소크라테스</div>
+                        <div class="philosopher-idea">"너 자신을 알라"</div>
+                    </div>
+                    <div class="philosopher-card">
+                        <div class="philosopher-name">플라톤·아리스토텔레스</div>
+                        <div class="philosopher-idea">철학 체계 확립</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 알렉산드로스 제국과 헬레니즘 문화 -->
+        <div class="card">
+            <h2><span class="emoji">👑</span>알렉산드로스 제국과 헬레니즘 문화</h2>
+            
+            <div class="content-section">
+                <h3>🗺️ 알렉산드로스의 원정</h3>
+                <p>페르시아·이집트 정복, 인도 서북부 진출</p>
+            </div>
+
+            <div class="content-section">
+                <h3>🔄 제국 분열</h3>
+                <p>마케도니아·시리아·이집트로 3분할</p>
+            </div>
+
+            <div class="content-section">
+                <h3>🌍 헬레니즘 문화 특징</h3>
+                <div class="highlight-box">
+                    • 세계시민주의<br>
+                    • 동서 문화 융합 (그리스 + 오리엔트)<br>
+                    • 개인주의 철학 (스토아, 에피쿠로스)<br>
+                    • 예술: 라오콘상, 밀로의 비너스
+                </div>
+            </div>
+        </div>
+
+        <!-- 추가 설명거리 -->
+        <div class="card">
+            <h2><span class="emoji">💡</span>추가 설명거리</h2>
+            
+            <div class="content-section">
+                <h3>👩 스파르타 여성의 지위</h3>
+                <p>군사사회 특수성으로 상대적 자유와 재산권 보장</p>
+            </div>
+
+            <div class="content-section">
+                <h3>⚠️ 그리스 민주주의의 한계</h3>
+                <div class="highlight-box">
+                    여성·노예·외국인은 배제됨
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>🌐 헬레니즘 문화의 영향</h3>
+                <p>로마 문화에 계승, 인도 간다라 불상으로 확산</p>
+            </div>
+
+            <div class="content-section">
+                <h3>📖 역사적 교훈</h3>
+                <div class="highlight-box">
+                    내부 분열 → 외세 침입으로 이어짐
+                </div>
+            </div>
+        </div>
+
+        <!-- 학생 활동 -->
+        <div class="card">
+            <h2><span class="emoji">🎭</span>학생 활동</h2>
+            
+            <!-- 활동 1 -->
+            <div class="activity-card">
+                <h3>활동 ① 비교하기 (5분)</h3>
+                <div class="activity-question">
+                    👉 질문: "스파르타와 아테네의 차이는 무엇일까?"
+                </div>
+                <div class="think-time">
+                    💭 충분히 생각해보세요. 두 도시국가의 정치·사회·교육 제도를 비교해보세요.
+                </div>
+                <button class="reveal-button" onclick="revealAnswer('answer1')">모범답안 확인하기</button>
+                <div class="activity-answer" id="answer1">
+                    <strong>모범답안:</strong><br>
+                    • 스파르타는 군사 중심, 아테네는 민주 중심<br>
+                    • 스파르타는 소수 지배, 아테네는 시민 참여 확대
+                </div>
+            </div>
+
+            <!-- 활동 2 -->
+            <div class="activity-card">
+                <h3>활동 ② 철학 토론 (10분)</h3>
+                <div class="activity-question">
+                    👉 질문: "소피스트와 소크라테스의 사상 차이는 무엇일까?"
+                </div>
+                <div class="think-time">
+                    💭 각각의 철학자들이 '진리'에 대해 어떻게 생각했는지 고민해보세요.
+                </div>
+                <button class="reveal-button" onclick="revealAnswer('answer2')">모범답안 확인하기</button>
+                <div class="activity-answer" id="answer2">
+                    <strong>모범답안:</strong><br>
+                    • 소피스트: 진리는 상대적, 설득 중요<br>
+                    • 소크라테스: 보편적 진리 존재, 자기 성찰 중요
+                </div>
+            </div>
+
+            <!-- 활동 3 -->
+            <div class="activity-card">
+                <h3>활동 ③ 역사적 가정 질문 (10분)</h3>
+                <div class="activity-question">
+                    👉 질문: "만약 펠로폰네소스 전쟁이 없었다면 그리스 세계는 어떻게 되었을까?"
+                </div>
+                <div class="think-time">
+                    💭 내부 갈등이 없었다면 그리스의 발전 방향과 마케도니아 침입의 가능성을 생각해보세요.
+                </div>
+                <button class="reveal-button" onclick="revealAnswer('answer3')">모범답안 확인하기</button>
+                <div class="activity-answer" id="answer3">
+                    <strong>모범답안:</strong><br>
+                    • 내분이 줄어들고, 아테네 중심으로 강력한 통합 세력이 되었을 가능성이 크다<br>
+                    • 하지만 폴리스 구조상 완전한 통합은 어려웠을 것
+                </div>
+            </div>
+        </div>
+
+        <!-- 형성평가 -->
+        <div class="card">
+            <h2><span class="emoji">📝</span>형성평가</h2>
+            <div class="quiz-progress">
+                <div class="quiz-progress-bar" id="progressBar"></div>
+            </div>
+            <div class="quiz-container" id="quizContainer">
+                
+                <!-- 문제 1 -->
+                <div class="quiz-item active" data-question="1">
+                    <div class="quiz-question">1. 폴리스(polis)의 성립 배경으로 알맞은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 1)">① 기원전 2세기 무렵 알렉산드로스 제국의 정복 활동으로 인해</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 1)">② 험준한 산과 복잡한 해안선 때문에 통일 국가가 어려웠기 때문에</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 1)">③ 로마 제국의 지배를 피하기 위해</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 1)">④ 페르시아 전쟁에서 승리한 뒤 형성되었기 때문에</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 1)">⑤ 동방 정복으로 얻은 넓은 영토를 관리하기 위해</div>
+                    </div>
+                    <div class="quiz-answer">정답: ②</div>
+                    <button class="next-button" onclick="nextQuestion(2)">다음 문제</button>
+                </div>
+
+                <!-- 문제 2 -->
+                <div class="quiz-item" data-question="2">
+                    <div class="quiz-question">2. 폴리스의 구조에 대한 설명으로 옳은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 2)">① 아크로폴리스는 상업 활동이 이루어진 광장이다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 2)">② 아고라는 주거지와 농경지를 포함하는 성벽 지역이다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 2)">③ 아크로폴리스는 신전과 군사 시설이 있는 요새 역할을 했다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 2)">④ 아고라는 종교 의식을 치르는 신전으로 사용되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 2)">⑤ 폴리스는 언어와 종교가 서로 달라 동족 의식이 약했다.</div>
+                    </div>
+                    <div class="quiz-answer">정답: ③</div>
+                    <button class="next-button" onclick="nextQuestion(3)">다음 문제</button>
+                </div>
+
+                <!-- 문제 3 -->
+                <div class="quiz-item" data-question="3">
+                    <div class="quiz-question">3. 아테네 민주정 발전의 배경으로 알맞은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 3)">① 귀족들의 전쟁 수행 능력이 강화되었기 때문이다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 3)">② 평민이 해외 무역과 상업으로 부유해지고 군사 주력이 되었기 때문이다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 3)">③ 여성과 노예가 군사력을 담당했기 때문이다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 3)">④ 참주가 권력을 독점하여 반발이 일어났기 때문이다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 3)">⑤ 스파르타의 군사정치를 모방했기 때문이다.</div>
+                    </div>
+                    <div class="quiz-answer">정답: ②</div>
+                    <button class="next-button" onclick="nextQuestion(4)">다음 문제</button>
+                </div>
+
+                <!-- 문제 4 -->
+                <div class="quiz-item" data-question="4">
+                    <div class="quiz-question">4. 아테네 민주정 발전 과정으로 옳게 연결된 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 4)">① 클레이스테네스 → 솔론 → 페리클레스</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 4)">② 솔론 → 페리클레스 → 클레이스테네스</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 4)">③ 솔론 → 클레이스테네스 → 페리클레스</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 4)">④ 페리클레스 → 솔론 → 클레이스테네스</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 4)">⑤ 클레이스테네스 → 페리클레스 → 솔론</div>
+                    </div>
+                    <div class="quiz-answer">정답: ③</div>
+                    <button class="next-button" onclick="nextQuestion(5)">다음 문제</button>
+                </div>
+
+                <!-- 문제 5 -->
+                <div class="quiz-item" data-question="5">
+                    <div class="quiz-question">5. 아테네 민주정의 한계로 옳은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 5)">① 모든 계층이 평등하게 정치에 참여하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 5)">② 여성, 노예, 외국인에게도 참정권이 부여되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 5)">③ 직접 민주정으로 시민 모두가 참여하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 5)">④ 제한된 참정권에 기초한 소수 남성 시민만 참여하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 5)">⑤ 추첨제가 아닌 선거제만 사용하였다.</div>
+                    </div>
+                    <div class="quiz-answer">정답: ④</div>
+                    <button class="next-button" onclick="nextQuestion(6)">다음 문제</button>
+                </div>
+
+                <!-- 문제 6 -->
+                <div class="quiz-item" data-question="6">
+                    <div class="quiz-question">6. 스파르타 사회의 가장 큰 특징은 무엇인가?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 6)">① 민주정치 중심 사회</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 6)">② 상업과 무역을 중시한 사회</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 6)">③ 군사 중심의 폐쇄적 사회</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 6)">④ 철학과 학문을 중시한 사회</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 6)">⑤ 예술 활동이 활발한 사회</div>
+                    </div>
+                    <div class="quiz-answer">정답: ③</div>
+                    <button class="next-button" onclick="nextQuestion(7)">다음 문제</button>
+                </div>
+
+                <!-- 문제 7 -->
+                <div class="quiz-item" data-question="7">
+                    <div class="quiz-question">7. 아테네 민주정치가 그리스 문화에 끼친 영향으로 알맞은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 7)">① 시민들이 자유롭게 토론하며 철학과 학문이 발전하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 7)">② 여성과 노예도 정치 참여가 가능하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 7)">③ 국왕 중심의 절대 권력이 강화되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 7)">④ 강력한 군사력으로 페르시아를 정복하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 7)">⑤ 종교가 모든 정치 제도의 중심이 되었다.</div>
+                    </div>
+                    <div class="quiz-answer">정답: ①</div>
+                    <button class="next-button" onclick="nextQuestion(8)">다음 문제</button>
+                </div>
+
+                <!-- 문제 8 -->
+                <div class="quiz-item" data-question="8">
+                    <div class="quiz-question">8. '역사의 아버지'로 불리며 그리스-페르시아 전쟁을 기록한 인물은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 8)">① 투키디데스</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 8)">② 소크라테스</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 8)">③ 플라톤</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 8)">④ 헤로도토스</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 8)">⑤ 아리스토텔레스</div>
+                    </div>
+                    <div class="quiz-answer">정답: ④</div>
+                    <button class="next-button" onclick="nextQuestion(9)">다음 문제</button>
+                </div>
+
+                <!-- 문제 9 -->
+                <div class="quiz-item" data-question="9">
+                    <div class="quiz-question">9. 알렉산드로스 제국이 분열된 이후 형성된 헬레니즘 문화의 특징이 아닌 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 9)">① 세계시민주의의 확산</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 9)">② 개인의 행복과 내면 추구</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 9)">③ 동서 문화의 융합</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 9)">④ 민주정치의 부활과 강화</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 9)">⑤ 인간 감정을 생동감 있게 표현한 예술</div>
+                    </div>
+                    <div class="quiz-answer">정답: ④</div>
+                    <button class="next-button" onclick="nextQuestion(10)">다음 문제</button>
+                </div>
+
+                <!-- 문제 10 -->
+                <div class="quiz-item" data-question="10">
+                    <div class="quiz-question">10. 헬레니즘 철학과 관련된 설명으로 옳은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 10)">① 소피스트: 보편적 진리를 강조하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 10)">② 소크라테스: 진리의 상대성을 강조하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 10)">③ 스토아학파: 욕망 억제와 이성적 삶을 강조하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 10)">④ 에피쿠로스학파: 정치 참여를 통한 공동체 강화 추구하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 10)">⑤ 아리스토텔레스: 이상 국가론을 주장하였다.</div>
+                    </div>
+                    <div class="quiz-answer">정답: ③</div>
+                    <div class="quiz-completion" style="display: none;">
+                        <h3 style="color: #38a169; text-align: center; margin-top: 20px;">🎉 퀴즈 완료! 수고하셨습니다!</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 10;
+
+        // 카드 애니메이션
+        const cards = document.querySelectorAll('.card');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            cardObserver.observe(card);
+        });
+
+        // 학생 활동 답안 공개 (클릭 기반)
+        function revealAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            const button = event.target;
+            
+            // 버튼 비활성화
+            button.disabled = true;
+            button.textContent = '답안 확인됨 ✓';
+            button.style.opacity = '0.6';
+            
+            // 답안 공개
+            setTimeout(() => {
+                answer.style.display = 'block';
+                setTimeout(() => {
+                    answer.classList.add('revealed');
+                }, 50);
+            }, 300);
+        }
+
+        // 퀴즈 정답 선택
+        function selectAnswer(element, isCorrect, questionNum) {
+            const quizItem = element.closest('.quiz-item');
+            const options = quizItem.querySelectorAll('.quiz-option');
+            const answerDiv = quizItem.querySelector('.quiz-answer');
+            const nextButton = quizItem.querySelector('.next-button');
+            
+            // 모든 옵션 초기화
+            options.forEach(option => {
+                option.classList.remove('correct', 'wrong');
+                option.style.pointerEvents = 'none';
+            });
+            
+            // 정답/오답 표시
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+                // 정답 옵션도 표시
+                options.forEach(option => {
+                    if (option.onclick.toString().includes('true')) {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+            
+            // 정답 표시
+            answerDiv.classList.add('show');
+            
+            // 다음 버튼 표시 (마지막 문제가 아닌 경우)
+            if (questionNum < totalQuestions) {
+                nextButton.classList.add('show');
+            } else {
+                // 마지막 문제인 경우 완료 메시지 표시
+                setTimeout(() => {
+                    const completion = quizItem.querySelector('.quiz-completion');
+                    if (completion) {
+                        completion.style.display = 'block';
+                        completion.style.animation = 'fadeIn 1s ease-out';
+                    }
+                }, 500);
+            }
+
+            // 진행률 업데이트
+            updateProgress(questionNum);
+        }
+
+        // 다음 문제로 이동
+        function nextQuestion(nextNum) {
+            if (nextNum > totalQuestions) return;
+
+            // 현재 문제 숨기기
+            const currentQuizItem = document.querySelector(`[data-question="${currentQuestion}"]`);
+            currentQuizItem.classList.remove('active');
+            currentQuizItem.classList.add('completed');
+
+            // 다음 문제 보이기
+            const nextQuizItem = document.querySelector(`[data-question="${nextNum}"]`);
+            nextQuizItem.classList.add('active');
+
+            currentQuestion = nextNum;
+
+            // 스크롤을 다음 문제로 부드럽게 이동
+            nextQuizItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // 진행률 업데이트
+        function updateProgress(completedQuestions) {
+            const progressBar = document.getElementById('progressBar');
+            const percentage = (completedQuestions / totalQuestions) * 100;
+            progressBar.style.width = percentage + '%';
+        }
+
+        // 초기 카드 애니메이션 트리거
+        setTimeout(() => {
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 200);
+            });
+        }, 300);
+
+        // 스크롤 시 헤더 효과
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header h1');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            if (header) {
+                header.style.transform = `translate3d(0, ${rate}px, 0)`;
+            }
+        });
+    </script>
+</body>
+</html>

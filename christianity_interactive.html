@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크리스트교의 성립과 전파</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ffffff, #f093fb, #fff3e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .card-inner {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .objectives {
+            display: grid;
+            gap: 15px;
+        }
+
+        .objective-item {
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .objective-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .objective-item:hover::before {
+            left: 100%;
+        }
+
+        .objective-item:hover {
+            transform: translateX(4px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .content-section {
+            margin-bottom: 25px;
+        }
+
+        .content-section h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(102, 126, 234, 0.1));
+            padding: 20px;
+            border-radius: 16px;
+            margin: 15px 0;
+            font-weight: 500;
+            border-left: 4px solid #f093fb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(240, 147, 251, 0.2), transparent);
+            border-radius: 50%;
+        }
+
+        .timeline-container {
+            display: grid;
+            gap: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #f093fb);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            backdrop-filter: blur(10px);
+            color: #333;
+            padding: 24px;
+            border-radius: 16px;
+            position: relative;
+            margin-left: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-date {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #667eea;
+        }
+
+        .timeline-content {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .timeline-content ul {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .timeline-result {
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.2), rgba(102, 126, 234, 0.2));
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-weight: 600;
+            border-left: 3px solid #f093fb;
+        }
+
+        .propagation-map {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .region-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .region-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: spin 8s linear infinite;
+            pointer-events: none;
+        }
+
+        .region-card:hover {
+            transform: scale(1.08) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .region-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .region-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            z-index: 1;
+            position: relative;
+        }
+
+        .essay-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .essay-question {
+            background: linear-gradient(135deg, #f093fb, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .essay-answer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 16px;
+            line-height: 1.8;
+            border-left: 4px solid #667eea;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.2), rgba(102, 126, 234, 0.2));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .think-time {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-style: italic;
+            font-size: 0.95rem;
+            border-left: 3px solid rgba(102, 126, 234, 0.6);
+        }
+
+        .reveal-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .reveal-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .activity-answer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            display: none;
+        }
+
+        .activity-answer.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .quiz-container {
+            display: grid;
+            gap: 20px;
+        }
+
+        .quiz-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 24px;
+            border-left: 5px solid #667eea;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-item.active {
+            display: block;
+            animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .quiz-item.completed {
+            opacity: 0.7;
+            border-left-color: #38a169;
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            padding: 14px 18px;
+            background: rgba(247, 250, 252, 0.8);
+            border: 2px solid rgba(226, 232, 240, 0.8);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .quiz-option:hover::before {
+            left: 100%;
+        }
+
+        .quiz-option:hover {
+            background: rgba(237, 242, 247, 0.9);
+            border-color: rgba(203, 213, 224, 0.9);
+            transform: translateX(4px);
+        }
+
+        .quiz-option.correct {
+            background: linear-gradient(135deg, rgba(198, 246, 213, 0.8), rgba(187, 247, 208, 0.8));
+            border-color: rgba(56, 161, 105, 0.8);
+            color: #2f855a;
+            transform: scale(1.02);
+        }
+
+        .quiz-option.wrong {
+            background: linear-gradient(135deg, rgba(254, 215, 215, 0.8), rgba(252, 165, 165, 0.8));
+            border-color: rgba(229, 62, 62, 0.8);
+            color: #c53030;
+        }
+
+        .quiz-answer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-weight: 500;
+            margin-top: 12px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .quiz-answer.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .next-button {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: none;
+        }
+
+        .next-button.show {
+            display: inline-block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .next-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(56, 161, 105, 0.3);
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.3);
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .quiz-progress-bar {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(56, 161, 105, 0.3);
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, rgba(255, 236, 210, 0.9), rgba(252, 182, 159, 0.9));
+            padding: 24px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #ff8a65;
+            backdrop-filter: blur(10px);
+        }
+
+        .summary-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #d84315;
+            margin-bottom: 12px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+
+            .card-inner {
+                padding: 18px;
+            }
+
+            .propagation-map {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                margin-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: -25px;
+            }
+
+            .timeline-container::before {
+                left: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✝️ 크리스트교의 성립과 전파</h1>
+            <p>팔레스타인에서 세계 종교로</p>
+        </div>
+
+        <!-- 학습 목표 -->
+        <div class="card">
+            <div class="card-inner">
+                <h2><span class="emoji">🎯</span>학습 목표</h2>
+                <div class="objectives">
+                    <div class="objective-item">
+                        크리스트교의 성립 배경과 유대교의 영향을 설명할 수 있다.
+                    </div>
+                    <div class="objective-item">
+                        예수의 가르침과 초기 크리스트교의 전파 과정을 이해할 수 있다.
+                    </div>
+                    <div class="objective-item">
+                        로마 제국에서의 박해와 공인 과정을 설명할 수 있다.
+                    </div>
+                    <div class="objective-item">
+                        크리스트교의 국교화와 세계 종교로의 발전을 파악할 수 있다.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 성립과 발전 과정 -->
+        <div class="card">
+            <div class="card-inner">
+                <h2><span class="emoji">📜</span>성립과 발전 과정</h2>
+                
+                <div class="content-section">
+                    <h3>🌍 배경: 팔레스타인 지역과 유대교</h3>
+                    <div class="highlight-box">
+                        기원전 1세기경, 로마의 지배를 받던 팔레스타인 지역<br>
+                        <strong>유대교:</strong> 유일신 '야훼' 숭배, 메시아(구원자) 기다림
+                    </div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-date">예수의 등장 (기원전 4년경~기원후 30년경)</div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>사랑과 박애, 평등 강조</li>
+                                <li>당시 유대교의 율법주의 비판</li>
+                                <li>로마 총독에 의해 십자가형으로 처형</li>
+                            </ul>
+                            <div class="timeline-result">
+                                👉 제자들에 의해 <strong>부활 신앙</strong> 확산
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">초기 크리스트교의 전파</div>
+                        <div class="timeline-content">
+                            제자들과 사도 바울 → 소아시아, 그리스, 로마 등지 전도 활동
+                            <div class="timeline-result">
+                                👉 로마 제국 전역으로 확산, 박해를 받음
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">313년: 밀라노 칙령</div>
+                        <div class="timeline-content">
+                            콘스탄티누스 황제가 크리스트교 신앙의 자유 인정
+                            <div class="timeline-result">
+                                👉 공식적 종교 공인
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">392년: 크리스트교 국교화</div>
+                        <div class="timeline-content">
+                            테오도시우스 황제가 크리스트교를 국교로 선포
+                            <div class="timeline-result">
+                                👉 <strong>로마 제국과 유럽의 지배적 종교</strong>로 자리잡음
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 전파 과정 -->
+        <div class="card">
+            <div class="card-inner">
+                <h2><span class="emoji">🌐</span>크리스트교의 전파 과정</h2>
+                
+                <div class="propagation-map">
+                    <div class="region-card">
+                        <div class="region-title">🕊️ 팔레스타인</div>
+                        <div class="region-content">
+                            예수의 가르침과 초기 공동체 형성<br>
+                            제자들의 활동 중심지
+                        </div>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-title">⛵ 소아시아</div>
+                        <div class="region-content">
+                            사도 바울의 주요 전도 지역<br>
+                            에베소, 안티오크 등
+                        </div>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-title">🏛️ 그리스</div>
+                        <div class="region-content">
+                            아테네, 고린도 지역 전파<br>
+                            헬레니즘 문화와 결합
+                        </div>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-title">🏺 로마</div>
+                        <div class="region-content">
+                            제국의 수도로 전파<br>
+                            박해와 순교자 발생
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 논술 섹션 -->
+        <div class="card">
+            <div class="card-inner">
+                <h2><span class="emoji">✍️</span>논술형 문항</h2>
+                
+                <div class="activity-card">
+                    <div class="essay-question">
+                        "크리스트교는 어떻게 성립하여 로마 제국의 국교로 발전하게 되었는지, 그 과정을 설명하시오."
+                    </div>
+                    <div class="think-time">
+                        💭 성립 배경, 예수의 가르침, 전파 과정, 박해와 공인, 국교화 과정을 순서대로 생각해보세요.
+                    </div>
+                    <button class="reveal-button" onclick="revealAnswer('essayAnswer')">모범답안 확인하기</button>
+                    <div class="activity-answer" id="essayAnswer">
+                        <strong>모범답안:</strong><br><br>
+                        크리스트교는 로마 지배를 받던 팔레스타인에서 유대교의 전통 속에서 시작되었다. 예수는 사랑과 평등을 강조하며 등장했으나 로마 당국에 의해 처형되었다. 그러나 그의 제자들과 사도 바울의 전도 활동으로 크리스트교는 로마 제국 전역으로 퍼져나갔다. 초기에는 박해를 받았으나, 콘스탄티누스 황제가 313년 밀라노 칙령으로 신앙의 자유를 인정하면서 지위가 달라졌다. 이후 테오도시우스 황제가 392년에 크리스트교를 국교로 삼으면서, 크리스트교는 로마 제국의 정치·문화와 결합하여 세계 종교로 발전하였다.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 단원 핵심 요약 -->
+        <div class="card">
+            <div class="card-inner">
+                <h2><span class="emoji">📋</span>단원 핵심 요약</h2>
+                
+                <div class="propagation-map">
+                    <div class="region-card">
+                        <div class="region-title">유대교</div>
+                        <div class="region-content">
+                            유일신 사상<br>메시아 대망
+                        </div>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-title">예수</div>
+                        <div class="region-content">
+                            사랑과 평등 설교<br>십자가형 → 부활 신앙
+                        </div>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-title">전파</div>
+                        <div class="region-content">
+                            제자·사도 바울의 활동<br>지중해 세계 확산
+                        </div>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-title">박해와 공인</div>
+                        <div class="region-content">
+                            로마 제국의 탄압<br>313년 밀라노 칙령
+                        </div>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-title">국교화</div>
+                        <div class="region-content">
+                            392년 테오도시우스 황제<br>크리스트교 국교화
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-box">
+                    <div class="summary-title">✅ 정리</div>
+                    크리스트교 = 세계 종교로 발전, 중세 유럽 문화의 기초
+                </div>
+            </div>
+        </div>
+
+        <!-- 학생 활동 -->
+        <div class="card">
+            <div class="card-inner">
+                <h2><span class="emoji">🎭</span>학생 활동</h2>
+                
+                <!-- 활동 1 -->
+                <div class="activity-card">
+                    <h3>활동 ① 종교 비교 (5분)</h3>
+                    <div class="activity-question">
+                        👉 질문: "유대교와 크리스트교의 공통점과 차이점은 무엇일까?"
+                    </div>
+                    <div class="think-time">
+                        💭 두 종교의 신관, 경전, 메시아관을 비교해보세요.
+                    </div>
+                    <button class="reveal-button" onclick="revealAnswer('answer1')">모범답안 확인하기</button>
+                    <div class="activity-answer" id="answer1">
+                        <strong>모범답안:</strong><br>
+                        • 공통점: 유일신(야훼) 신앙, 구약성경 공유, 메시아 사상<br>
+                        • 차이점: 유대교는 메시아 대기, 크리스트교는 예수를 메시아로 인정<br>
+                        • 크리스트교는 사랑과 평등 강조, 보편적 구원 추구
+                    </div>
+                </div>
+
+                <!-- 활동 2 -->
+                <div class="activity-card">
+                    <h3>활동 ② 역사적 평가 (10분)</h3>
+                    <div class="activity-question">
+                        👉 질문: "크리스트교가 로마 제국에 미친 영향은 무엇일까?"
+                    </div>
+                    <div class="think-time">
+                        💭 정치, 사회, 문화적 변화를 종합적으로 생각해보세요.
+                    </div>
+                    <button class="reveal-button" onclick="revealAnswer('answer2')">모범답안 확인하기</button>
+                    <div class="activity-answer" id="answer2">
+                        <strong>모범답안:</strong><br>
+                        • 정치: 황제 권위의 종교적 정당화, 통치 이념 변화<br>
+                        • 사회: 평등 사상 확산, 노예제에 대한 인식 변화<br>
+                        • 문화: 그리스-로마 문화와 크리스트교 문화의 융합
+                    </div>
+                </div>
+
+                <!-- 활동 3 -->
+                <div class="activity-card">
+                    <h3>활동 ③ 역사적 가정 질문 (10분)</h3>
+                    <div class="activity-question">
+                        👉 질문: "만약 콘스탄티누스가 크리스트교를 공인하지 않았다면 어떻게 되었을까?"
+                    </div>
+                    <div class="think-time">
+                        💭 크리스트교의 전파 양상과 유럽사 전개에 미칠 영향을 생각해보세요.
+                    </div>
+                    <button class="reveal-button" onclick="revealAnswer('answer3')">모범답안 확인하기</button>
+                    <div class="activity-answer" id="answer3">
+                        <strong>모범답안:</strong><br>
+                        • 지하 종교로 더 오래 존재, 박해로 인한 순교자 증가<br>
+                        • 서유럽의 크리스트교화 지연, 다른 종교의 영향력 지속<br>
+                        • 중세 유럽 문화 형성에 근본적 변화, 이슬람과의 관계 달라짐
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 형성평가 -->
+        <div class="card">
+            <div class="card-inner">
+                <h2><span class="emoji">📝</span>형성평가</h2>
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="progressBar"></div>
+                </div>
+                <div class="quiz-container" id="quizContainer">
+                    
+                    <!-- 문제 1 -->
+                    <div class="quiz-item active" data-question="1">
+                        <div class="quiz-question">1. 크리스트교가 성립한 지역은 어디인가?</div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 1)">① 로마</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, true, 1)">② 팔레스타인</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 1)">③ 아테네</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 1)">④ 알렉산드리아</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 1)">⑤ 카르타고</div>
+                        </div>
+                        <div class="quiz-answer">정답: ②</div>
+                        <button class="next-button" onclick="nextQuestion(2)">다음 문제</button>
+                    </div>
+
+                    <!-- 문제 2 -->
+                    <div class="quiz-item" data-question="2">
+                        <div class="quiz-question">2. 예수의 가르침으로 알맞은 것은?</div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 2)">① 다신교 신앙 장려</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, true, 2)">② 사랑과 박애 강조</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 2)">③ 귀족 중심 정치 옹호</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 2)">④ 전쟁에서의 승리 강조</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 2)">⑤ 율법주의 강화</div>
+                        </div>
+                        <div class="quiz-answer">정답: ②</div>
+                        <button class="next-button" onclick="nextQuestion(3)">다음 문제</button>
+                    </div>
+
+                    <!-- 문제 3 -->
+                    <div class="quiz-item" data-question="3">
+                        <div class="quiz-question">3. 크리스트교의 전파에 크게 기여한 인물은 누구인가?</div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 3)">① 알렉산더</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, true, 3)">② 바울</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 3)">③ 아우구스투스</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 3)">④ 디오클레티아누스</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 3)">⑤ 테오도시우스</div>
+                        </div>
+                        <div class="quiz-answer">정답: ②</div>
+                        <button class="next-button" onclick="nextQuestion(4)">다음 문제</button>
+                    </div>
+
+                    <!-- 문제 4 -->
+                    <div class="quiz-item" data-question="4">
+                        <div class="quiz-question">4. 313년 콘스탄티누스 황제가 발표한 칙령으로, 크리스트교 신앙의 자유를 인정한 것은?</div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 4)">① 호르텐시우스 법</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 4)">② 니케아 칙령</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, true, 4)">③ 밀라노 칙령</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 4)">④ 만민법</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 4)">⑤ 12표법</div>
+                        </div>
+                        <div class="quiz-answer">정답: ③</div>
+                        <button class="next-button" onclick="nextQuestion(5)">다음 문제</button>
+                    </div>
+
+                    <!-- 문제 5 -->
+                    <div class="quiz-item" data-question="5">
+                        <div class="quiz-question">5. 다음 중 크리스트교가 로마 제국의 국교로 발전한 과정을 올바르게 나열한 것은?</div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 5)">① 예수의 가르침 → 밀라노 칙령 → 국교화 → 제자들의 전파</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, true, 5)">② 예수의 가르침 → 제자와 바울의 전파 → 박해 → 밀라노 칙령 → 국교화</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 5)">③ 제자와 바울의 전파 → 예수의 처형 → 박해 → 국교화 → 밀라노 칙령</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 5)">④ 예수의 가르침 → 국교화 → 제자와 바울의 전파 → 박해 → 밀라노 칙령</div>
+                            <div class="quiz-option" onclick="selectAnswer(this, false, 5)">⑤ 박해 → 예수의 가르침 → 밀라노 칙령 → 국교화 → 제자와 바울의 전파</div>
+                        </div>
+                        <div class="quiz-answer">정답: ②</div>
+                        <div class="quiz-completion" style="display: none;">
+                            <h3 style="color: #38a169; text-align: center; margin-top: 20px;">🎉 퀴즈 완료! 수고하셨습니다!</h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+
+        // 카드 애니메이션
+        const cards = document.querySelectorAll('.card');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            cardObserver.observe(card);
+        });
+
+        // 학생 활동 답안 공개
+        function revealAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            const button = event.target;
+            
+            button.disabled = true;
+            button.textContent = '답안 확인됨 ✓';
+            button.style.opacity = '0.6';
+            
+            setTimeout(() => {
+                answer.style.display = 'block';
+                setTimeout(() => {
+                    answer.classList.add('revealed');
+                }, 50);
+            }, 300);
+        }
+
+        // 퀴즈 정답 선택
+        function selectAnswer(element, isCorrect, questionNum) {
+            const quizItem = element.closest('.quiz-item');
+            const options = quizItem.querySelectorAll('.quiz-option');
+            const answerDiv = quizItem.querySelector('.quiz-answer');
+            const nextButton = quizItem.querySelector('.next-button');
+            
+            options.forEach(option => {
+                option.classList.remove('correct', 'wrong');
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+                options.forEach(option => {
+                    if (option.onclick.toString().includes('true')) {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+            
+            answerDiv.classList.add('show');
+            
+            if (questionNum < totalQuestions) {
+                nextButton.classList.add('show');
+            } else {
+                setTimeout(() => {
+                    const completion = quizItem.querySelector('.quiz-completion');
+                    if (completion) {
+                        completion.style.display = 'block';
+                        completion.style.animation = 'fadeIn 1s ease-out';
+                    }
+                }, 500);
+            }
+
+            updateProgress(questionNum);
+        }
+
+        // 다음 문제로 이동
+        function nextQuestion(nextNum) {
+            if (nextNum > totalQuestions) return;
+
+            const currentQuizItem = document.querySelector(`[data-question="${currentQuestion}"]`);
+            currentQuizItem.classList.remove('active');
+            currentQuizItem.classList.add('completed');
+
+            const nextQuizItem = document.querySelector(`[data-question="${nextNum}"]`);
+            nextQuizItem.classList.add('active');
+
+            currentQuestion = nextNum;
+
+            nextQuizItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // 진행률 업데이트
+        function updateProgress(completedQuestions) {
+            const progressBar = document.getElementById('progressBar');
+            const percentage = (completedQuestions / totalQuestions) * 100;
+            progressBar.style.width = percentage + '%';
+        }
+
+        // 초기 카드 애니메이션 트리거
+        setTimeout(() => {
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 200);
+            });
+        }, 300);
+
+        // 페이지 로드 시 부드러운 스크롤 효과
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header h1');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.3;
+            
+            if (header) {
+                header.style.transform = `translate3d(0, ${rate}px, 0)`;
+            }
+        });
+
+        // 리퀴드 마우스 효과
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.region-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const deltaX = (x - centerX) / centerX;
+                    const deltaY = (y - centerY) / centerY;
+                    
+                    card.style.transform = `perspective(1000px) rotateY(${deltaX * 10}deg) rotateX(${deltaY * -10}deg) scale(1.08)`;
+                } else {
+                    card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로마 제국의 형성과 발전</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            color: #c31432;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+        }
+
+        .objectives {
+            display: grid;
+            gap: 15px;
+        }
+
+        .objective-item {
+            background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .objective-item:hover {
+            transform: scale(1.02);
+        }
+
+        .content-section {
+            margin-bottom: 25px;
+        }
+
+        .content-section h3 {
+            color: #c31432;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .timeline-container {
+            display: grid;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .timeline-date {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fecfef;
+        }
+
+        .timeline-content {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .timeline-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .timeline-result {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: scale(1.05);
+        }
+
+        .comparison-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .comparison-content {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .think-time {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-style: italic;
+            font-size: 0.95rem;
+            border-left: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .reveal-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .reveal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .activity-answer {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            display: none;
+        }
+
+        .activity-answer.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .quiz-container {
+            display: grid;
+            gap: 20px;
+        }
+
+        .quiz-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid #c31432;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .quiz-item.active {
+            display: block;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        .quiz-item.completed {
+            opacity: 0.7;
+            border-left-color: #38a169;
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            padding: 10px 15px;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover {
+            background: #edf2f7;
+            border-color: #cbd5e0;
+        }
+
+        .quiz-option.correct {
+            background: #c6f6d5;
+            border-color: #38a169;
+            color: #2f855a;
+        }
+
+        .quiz-option.wrong {
+            background: #fed7d7;
+            border-color: #e53e3e;
+            color: #c53030;
+        }
+
+        .quiz-answer {
+            background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-answer.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .next-button {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .next-button.show {
+            display: inline-block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .next-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.2);
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 3px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ff8a65;
+        }
+
+        .summary-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #d84315;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚔️ 로마 제국의 형성과 발전</h1>
+            <p>공화정에서 제정까지, 실용적 문화의 특징</p>
+        </div>
+
+        <!-- 학습 목표 -->
+        <div class="card">
+            <h2><span class="emoji">🎯</span>학습 목표</h2>
+            <div class="objectives">
+                <div class="objective-item">
+                    로마 공화정의 성립과 평민들의 참정권 확대 과정을 설명할 수 있다.
+                </div>
+                <div class="objective-item">
+                    포에니 전쟁의 결과와 로마 제정 성립 과정을 이해할 수 있다.
+                </div>
+                <div class="objective-item">
+                    로마 제국의 동서 분열 과정과 배경을 설명할 수 있다.
+                </div>
+                <div class="objective-item">
+                    로마 문화의 실용적 특징을 법률과 건축·토목 분야에서 파악할 수 있다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 로마 공화정의 성립과 발전 -->
+        <div class="card">
+            <h2><span class="emoji">🏛️</span>로마 공화정의 성립과 발전</h2>
+            
+            <div class="content-section">
+                <h3>⚖️ 기원전 509년: 공화정 수립</h3>
+                <div class="highlight-box">
+                    왕정 붕괴 → 귀족(파트리키) 중심의 공화정 수립
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>🏛️ 정치 구조</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-title">원로원</div>
+                        <div class="comparison-content">귀족 중심<br>국가 중대사 결정</div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-title">집정관(콘술)</div>
+                        <div class="comparison-content">최고 집행권<br>1년 임기, 2명 선출</div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-title">호민관</div>
+                        <div class="comparison-content">평민 보호<br>거부권 행사</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 평민들의 참정권 확대 과정 -->
+        <div class="card">
+            <h2><span class="emoji">⚡</span>평민들의 참정권 확대 과정</h2>
+            
+            <div class="content-section">
+                <h3>📚 배경</h3>
+                <p>정복 전쟁에서 군사력의 주축이 된 평민들이 정치적 권리 확대 요구</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date">기원전 494년: 성산 사건</div>
+                    <div class="timeline-content">
+                        평민, 도시 떠나 집단 항거
+                        <div class="timeline-result">
+                            👉 <strong>호민관 제도</strong> 마련 (평민 보호 권리)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">기원전 451년: 12표법 제정</div>
+                    <div class="timeline-content">
+                        최초의 성문법
+                        <div class="timeline-result">
+                            👉 귀족의 법 독점 완화
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">기원전 367년: 리키니우스-섹스티우스 법</div>
+                    <div class="timeline-content">
+                        평민도 집정관(콘술) 진출 가능
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">기원전 287년: 호르텐시우스 법</div>
+                    <div class="timeline-content">
+                        평민회 결의가 법적 구속력 획득
+                        <div class="timeline-result">
+                            👉 <strong>귀족과 평민이 법적으로 동등한 권리 획득</strong> → 로마 공화정의 토대 강화
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 로마의 팽창과 포에니 전쟁 -->
+        <div class="card">
+            <h2><span class="emoji">⚔️</span>로마의 팽창과 포에니 전쟁</h2>
+            
+            <div class="content-section">
+                <h3>🌊 포에니 전쟁 (기원전 264~146년)</h3>
+                <p><strong>로마 vs 카르타고</strong></p>
+                <ul>
+                    <li><strong>1차:</strong> 시칠리아 확보</li>
+                    <li><strong>2차:</strong> 한니발 침공(칸나에 전투) → 로마의 스키피오가 자마 전투 승리</li>
+                    <li><strong>3차:</strong> 카르타고 멸망, 로마 지중해 패권 확립</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>📈 결과</h3>
+                <div class="highlight-box">
+                    • 지중해 세계 장악 → 세계 제국으로 팽창<br>
+                    • 라티푼디움 확대, 중소 농민 몰락<br>
+                    • 빈부 격차 심화, 사회 불안 증대
+                </div>
+            </div>
+        </div>
+
+        <!-- 공화정의 위기와 제정의 성립 -->
+        <div class="card">
+            <h2><span class="emoji">👑</span>공화정의 위기와 제정의 성립</h2>
+            
+            <div class="content-section">
+                <h3>⚡ 내부 갈등 심화</h3>
+                <p>군대가 장군 개인에게 충성, 정치 불안 심화</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date">그라쿠스 형제</div>
+                    <div class="timeline-content">
+                        토지 재분배 주장, 귀족 반발로 암살 → 사회 혼란 가속
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">카이사르</div>
+                    <div class="timeline-content">
+                        제1차 삼두정치 → 갈리아 정복, 종신 독재관 → 기원전 44년 암살
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">옥타비아누스(아우구스투스)</div>
+                    <div class="timeline-content">
+                        악티움 해전 승리 → 원로원에서 '아우구스투스' 칭호 (기원전 27년)
+                        <div class="timeline-result">
+                            👉 <strong>제정(원수정) 시작</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 로마 제정의 특징과 발전 -->
+        <div class="card">
+            <h2><span class="emoji">✨</span>로마 제정의 특징과 발전</h2>
+            
+            <div class="content-section">
+                <h3>🕊️ 팍스 로마나 (기원전 27년 ~ 기원후 180년)</h3>
+                <div class="highlight-box">
+                    • 아우구스투스 ~ 5현제 시대 → 번영과 안정<br>
+                    • 도로·수도 시설 정비, 법 발달(로마법 → 서양 법의 기초)<br>
+                    • 콜로세움 등 문화·건축 발전
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>⚡ 제정 로마의 위기와 분열</h3>
+                <ul>
+                    <li><strong>3세기 위기:</strong> 경제 불안, 게르만족 침입, 황제 교체 빈번</li>
+                    <li><strong>디오클레티아누스:</strong> 전제 군주제, 제국 동서 분할 통치</li>
+                    <li><strong>콘스탄티누스 대제:</strong> 기독교 공인(313), 콘스탄티노폴리스 천도(330)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 로마 제국의 동서 분열 -->
+        <div class="card">
+            <h2><span class="emoji">🌍</span>로마 제국의 동서 분열 (395년)</h2>
+            
+            <div class="content-section">
+                <h3>📍 테오도시우스 1세 사후</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-title">서로마</div>
+                        <div class="comparison-content">로마·라벤나 중심<br>(476년 멸망)</div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-title">동로마</div>
+                        <div class="comparison-content">콘스탄티노폴리스 중심<br>(1453년 멸망)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-title">✅ 정리</div>
+                로마는 왕정을 무너뜨리고 공화정을 수립하여 귀족 중심 정치에서 평민들의 투쟁과 법 제정을 통해 <strong>참정권이 확대</strong>되었다. 그러나 포에니 전쟁 이후 빈부 격차와 사회 혼란이 심화되면서 내전이 일어나고, 결국 카이사르와 아우구스투스를 거쳐 <strong>제정</strong>이 성립하였다. 제정 로마는 팍스 로마나의 번영기를 맞이했으나, 3세기 이후 위기와 개혁을 거쳐 결국 <strong>395년 동서 분열</strong>에 이르렀다.
+            </div>
+        </div>
+
+        <!-- 로마 문화의 실용적 특징 -->
+        <div class="card">
+            <h2><span class="emoji">🏗️</span>로마 문화의 실용적 특징</h2>
+            
+            <div class="content-section">
+                <h3>📋 기본 성격</h3>
+                <div class="highlight-box">
+                    <strong>실용성 중시:</strong> 그리스 문화가 철학·예술에서 이상적·이론적 성격을 강조했다면, 로마는 실용적이고 현실 생활에 도움이 되는 문화를 발전시킴
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-title">⚖️ 법률</div>
+                    <div class="comparison-content">
+                        • 12표법: 최초의 성문법<br>
+                        • 만민법: 보편적 법 체계<br>
+                        • 유스티니아누스 법전: 근대 민법의 원형
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-title">🏛️ 건축·토목</div>
+                    <div class="comparison-content">
+                        • 콜로세움: 대중 오락<br>
+                        • 수도교: 도시 위생<br>
+                        • 도로망: 제국 통합
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-title">✅ 정리</div>
+                로마 문화는 철학적 사변이나 이상보다는 <strong>현실에 필요한 것</strong>을 중시하였다. <strong>법률</strong>에서는 평민 보호와 제국 통합을 위한 실용적 법 체계를 발전시켰고, <strong>건축·토목</strong>에서는 콜로세움, 수도교, 도로망처럼 대중 생활과 제국 통치에 직접 도움을 주는 시설을 발전시켰다.
+            </div>
+        </div>
+
+        <!-- 학생 활동 -->
+        <div class="card">
+            <h2><span class="emoji">🎭</span>학생 활동</h2>
+            
+            <!-- 활동 1 -->
+            <div class="activity-card">
+                <h3>활동 ① 비교하기 (5분)</h3>
+                <div class="activity-question">
+                    👉 질문: "로마 공화정과 아테네 민주정의 차이는 무엇일까?"
+                </div>
+                <div class="think-time">
+                    💭 두 정치 제도의 참여 계층, 권력 구조, 발전 과정을 비교해보세요.
+                </div>
+                <button class="reveal-button" onclick="revealAnswer('answer1')">모범답안 확인하기</button>
+                <div class="activity-answer" id="answer1">
+                    <strong>모범답안:</strong><br>
+                    • 로마는 귀족 중심에서 평민 투쟁을 통한 점진적 확대, 아테네는 시민 직접 참여<br>
+                    • 로마는 대표제적 성격, 아테네는 직접 민주제<br>
+                    • 로마는 제국 운영에 적합한 체계적 구조 발달
+                </div>
+            </div>
+
+            <!-- 활동 2 -->
+            <div class="activity-card">
+                <h3>활동 ② 역사적 평가 (10분)</h3>
+                <div class="activity-question">
+                    👉 질문: "로마 문화의 '실용성'이 현대 사회에 미친 영향은 무엇일까?"
+                </div>
+                <div class="think-time">
+                    💭 로마법, 건축 기술, 도시 계획 등이 현재까지 어떻게 계승되고 있는지 생각해보세요.
+                </div>
+                <button class="reveal-button" onclick="revealAnswer('answer2')">모범답안 확인하기</button>
+                <div class="activity-answer" id="answer2">
+                    <strong>모범답안:</strong><br>
+                    • 법률: 현대 서구 법체계의 기초, 법치주의 원칙<br>
+                    • 건축: 돔, 아치 구조, 콘크리트 사용법<br>
+                    • 도시: 상하수도, 도로망, 공공시설 개념
+                </div>
+            </div>
+
+            <!-- 활동 3 -->
+            <div class="activity-card">
+                <h3>활동 ③ 역사적 가정 질문 (10분)</h3>
+                <div class="activity-question">
+                    👉 질문: "만약 로마가 동서 분열하지 않았다면 어떻게 되었을까?"
+                </div>
+                <div class="think-time">
+                    💭 통일 제국 유지의 장점과 한계, 이후 유럽사 전개에 미칠 영향을 생각해보세요.
+                </div>
+                <button class="reveal-button" onclick="revealAnswer('answer3')">모범답안 확인하기</button>
+                <div class="activity-answer" id="answer3">
+                    <strong>모범답안:</strong><br>
+                    • 장점: 더 강력한 중앙집권, 게르만족 침입 효과적 방어<br>
+                    • 한계: 광대한 영토 통치의 어려움, 경제·문화적 차이 심화<br>
+                    • 영향: 서유럽 봉건제 성립 지연, 동서 문명 교류 지속 가능성
+                </div>
+            </div>
+        </div>
+
+        <!-- 형성평가 -->
+        <div class="card">
+            <h2><span class="emoji">📝</span>형성평가</h2>
+            <div class="quiz-progress">
+                <div class="quiz-progress-bar" id="progressBar"></div>
+            </div>
+            <div class="quiz-container" id="quizContainer">
+                
+                <!-- 문제 1 -->
+                <div class="quiz-item active" data-question="1">
+                    <div class="quiz-question">1. 로마 공화정의 성립과 관련된 설명으로 옳은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 1)">① 기원전 753년, 로마 건국과 동시에 시작되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 1)">② 기원전 509년, 왕정을 무너뜨리고 귀족 중심의 정치가 시작되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 1)">③ 기원전 451년, 12표법 제정으로 공화정이 시작되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 1)">④ 기원전 287년, 호르텐시우스 법 제정으로 제정이 시작되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 1)">⑤ 기원전 27년, 아우구스투스가 원수정 체제를 시작하며 공화정이 열렸다.</div>
+                    </div>
+                    <div class="quiz-answer">정답: ②</div>
+                    <button class="next-button" onclick="nextQuestion(2)">다음 문제</button>
+                </div>
+
+                <!-- 문제 2 -->
+                <div class="quiz-item" data-question="2">
+                    <div class="quiz-question">2. 평민들이 참정권 확대를 위해 투쟁하며 얻은 성과로 알맞지 않은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 2)">① 호민관 제도 마련 (기원전 494년)</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 2)">② 12표법 제정 (기원전 451년)</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 2)">③ 평민의 집정관 진출 허용 (리키니우스-섹스티우스 법, 기원전 367년)</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 2)">④ 평민회 결의가 법적 효력을 갖게 됨 (호르텐시우스 법, 기원전 287년)</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 2)">⑤ 만민법 제정으로 로마 시민만 법의 보호를 받게 됨</div>
+                    </div>
+                    <div class="quiz-answer">정답: ⑤ (만민법은 로마 시민뿐 아니라 피지배민까지 적용)</div>
+                    <button class="next-button" onclick="nextQuestion(3)">다음 문제</button>
+                </div>
+
+                <!-- 문제 3 -->
+                <div class="quiz-item" data-question="3">
+                    <div class="quiz-question">3. 포에니 전쟁의 결과로 나타난 변화로 옳은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 3)">① 로마가 카르타고에 패배하여 시칠리아를 잃었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 3)">② 로마는 동방 원정을 통해 페르시아 제국을 멸망시켰다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 3)">③ 로마는 지중해 패권을 장악했으나, 중소 농민 몰락과 사회 불안이 심화되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 3)">④ 카르타고의 한니발이 자마 전투에서 승리하여 로마를 지배하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 3)">⑤ 포에니 전쟁 이후 로마는 귀족 정치에서 민주정으로 전환되었다.</div>
+                    </div>
+                    <div class="quiz-answer">정답: ③</div>
+                    <button class="next-button" onclick="nextQuestion(4)">다음 문제</button>
+                </div>
+
+                <!-- 문제 4 -->
+                <div class="quiz-item" data-question="4">
+                    <div class="quiz-question">4. 다음 인물과 업적이 옳게 연결되지 않은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 4)">① 카이사르 – 루비콘 강 도하, 종신 독재관</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 4)">② 아우구스투스 – 원수정(프린키파투스) 시작</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 4)">③ 디오클레티아누스 – 제국 동서 분할, 전제 군주제 강화</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 4)">④ 콘스탄티누스 – 기독교 공인, 콘스탄티노폴리스 천도</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 4)">⑤ 테오도시우스 – 서로마 멸망, 동로마 제국 건국</div>
+                    </div>
+                    <div class="quiz-answer">정답: ⑤ (테오도시우스는 395년 동서 분할, 서로마 멸망은 476년)</div>
+                    <button class="next-button" onclick="nextQuestion(5)">다음 문제</button>
+                </div>
+
+                <!-- 문제 5 -->
+                <div class="quiz-item" data-question="5">
+                    <div class="quiz-question">5. 로마 문화의 실용적 성격을 보여주는 설명으로 가장 적절하지 않은 것은?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 5)">① 12표법, 만민법, 유스티니아누스 법전은 법 체계의 발전을 통해 사회 질서를 유지하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 5)">② 콜로세움과 공중목욕탕은 대중 오락과 생활 편의를 제공하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 5)">③ 수도교와 도로망은 제국 통치와 군사·경제 활동을 원활하게 하였다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, false, 5)">④ 개선문은 황제의 승리를 기념하고 정치적 선전에 활용되었다.</div>
+                        <div class="quiz-option" onclick="selectAnswer(this, true, 5)">⑤ 파르테논 신전은 로마 제국의 실용적 건축 양식을 대표하였다.</div>
+                    </div>
+                    <div class="quiz-answer">정답: ⑤ (파르테논 신전은 아테네의 그리스 건축물)</div>
+                    <div class="quiz-completion" style="display: none;">
+                        <h3 style="color: #38a169; text-align: center; margin-top: 20px;">🎉 퀴즈 완료! 수고하셨습니다!</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+
+        // 카드 애니메이션
+        const cards = document.querySelectorAll('.card');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            cardObserver.observe(card);
+        });
+
+        // 학생 활동 답안 공개
+        function revealAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            const button = event.target;
+            
+            button.disabled = true;
+            button.textContent = '답안 확인됨 ✓';
+            button.style.opacity = '0.6';
+            
+            setTimeout(() => {
+                answer.style.display = 'block';
+                setTimeout(() => {
+                    answer.classList.add('revealed');
+                }, 50);
+            }, 300);
+        }
+
+        // 퀴즈 정답 선택
+        function selectAnswer(element, isCorrect, questionNum) {
+            const quizItem = element.closest('.quiz-item');
+            const options = quizItem.querySelectorAll('.quiz-option');
+            const answerDiv = quizItem.querySelector('.quiz-answer');
+            const nextButton = quizItem.querySelector('.next-button');
+            
+            options.forEach(option => {
+                option.classList.remove('correct', 'wrong');
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+                options.forEach(option => {
+                    if (option.onclick.toString().includes('true')) {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+            
+            answerDiv.classList.add('show');
+            
+            if (questionNum < totalQuestions) {
+                nextButton.classList.add('show');
+            } else {
+                setTimeout(() => {
+                    const completion = quizItem.querySelector('.quiz-completion');
+                    if (completion) {
+                        completion.style.display = 'block';
+                        completion.style.animation = 'fadeIn 1s ease-out';
+                    }
+                }, 500);
+            }
+
+            updateProgress(questionNum);
+        }
+
+        // 다음 문제로 이동
+        function nextQuestion(nextNum) {
+            if (nextNum > totalQuestions) return;
+
+            const currentQuizItem = document.querySelector(`[data-question="${currentQuestion}"]`);
+            currentQuizItem.classList.remove('active');
+            currentQuizItem.classList.add('completed');
+
+            const nextQuizItem = document.querySelector(`[data-question="${nextNum}"]`);
+            nextQuizItem.classList.add('active');
+
+            currentQuestion = nextNum;
+
+            nextQuizItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // 진행률 업데이트
+        function updateProgress(completedQuestions) {
+            const progressBar = document.getElementById('progressBar');
+            const percentage = (completedQuestions / totalQuestions) * 100;
+            progressBar.style.width = percentage + '%';
+        }
+
+        // 초기 카드 애니메이션 트리거
+        setTimeout(() => {
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 200);
+            });
+        }, 300);
+
+        // 스크롤 시 헤더 효과
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header h1');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            if (header) {
+                header.style.transform = `translate3d(0, ${rate}px, 0)`;
+            }
+        });
+    </script>
+</body>
+</html>

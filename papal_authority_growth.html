@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교황권의 성장과 크리스트교 문화 확산</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            margin: 40px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            margin-right: 0;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            z-index: 10;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-content {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .key-concepts {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .key-concepts h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .timeline-year {
+            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(254, 202, 87, 0.3);
+        }
+
+        .expandable {
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .expandable.expanded {
+            max-height: 1000px;
+        }
+
+        .expand-btn {
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .expand-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .important-note {
+            background: rgba(150, 206, 180, 0.2);
+            border: 1px solid rgba(150, 206, 180, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #96ceb4;
+        }
+
+        .correction {
+            background: rgba(255, 159, 243, 0.2);
+            border: 1px solid rgba(255, 159, 243, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9ff3;
+        }
+
+        /* 형성평가 스타일 */
+        .assessment-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .assessment-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .assessment-header h2 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1, #96ceb4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .assessment-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 600px;
+            position: relative;
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ecdc4, #45b7d1, #96ceb4);
+            border-radius: 12px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+
+        .progress-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            border-radius: 35px;
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            animation: cardSlideIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s;
+        }
+
+        .quiz-card:hover::before {
+            left: 100%;
+        }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .difficulty.basic {
+            background: linear-gradient(135deg, #96ceb4, #85d4a4);
+            color: white;
+        }
+
+        .difficulty.intermediate {
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: white;
+        }
+
+        .difficulty.advanced {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .difficulty.expert {
+            background: linear-gradient(135deg, #a55eea, #8854d0);
+            color: white;
+        }
+
+        .difficulty.application {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+        }
+
+        .quiz-question h3 {
+            color: #fff;
+            margin-bottom: 35px;
+            font-size: 1.5em;
+            line-height: 1.6;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 35px;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 20px 30px;
+            margin-bottom: 18px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.6s;
+        }
+
+        .quiz-option:hover::before {
+            left: 100%;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .quiz-option.selected {
+            background: rgba(78, 205, 196, 0.3);
+            border-color: #4ecdc4;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(78, 205, 196, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(150, 206, 180, 0.35);
+            border-color: #96ceb4;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(150, 206, 180, 0.5);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(255, 107, 107, 0.35);
+            border-color: #ff6b6b;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .quiz-explanation {
+            background: rgba(254, 202, 87, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(254, 202, 87, 0.4);
+            border-radius: 25px;
+            padding: 25px;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.95);
+            display: none;
+            box-shadow: 0 12px 35px rgba(254, 202, 87, 0.3);
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .quiz-explanation.show {
+            display: block;
+            animation: fadeInScale 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .quiz-btn:hover::before {
+            left: 100%;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(78, 205, 196, 0.5);
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.2);
+        }
+
+        .quiz-btn.secondary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .quiz-btn.secondary:hover {
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
+        }
+
+        .score-display {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 40px;
+            color: #fff;
+            font-size: 1.3em;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#4ecdc4 0deg, #4ecdc4 var(--score-deg), rgba(255,255,255,0.2) var(--score-deg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2em;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-breakdown {
+            margin-top: 30px;
+        }
+
+        .score-breakdown h4 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .navigation {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #4ecdc4;
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+            transform: scale(1.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .quiz-card {
+                padding: 30px;
+            }
+
+            .quiz-option {
+                padding: 15px 20px;
+                font-size: 0.95em;
+            }
+
+            .quiz-btn {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+
+            .quiz-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .score-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .score-circle::before {
+                width: 95px;
+                height: 95px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>교황권의 성장과 크리스트교 문화 확산</h1>
+            <p>서로마 제국 붕괴부터 중세 서유럽 문화 형성까지</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-section="1">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">476년 - 서로마 붕괴</div>
+                    <h3 class="section-title">서로마 붕괴와 '교회'의 대체적 역할</h3>
+                    <div class="expandable" id="section1">
+                        <div class="section-content">
+                            <strong>연표:</strong> B.C.E. 27 제정 시작 → 313 밀라노 칙령(공인) → 392 국교화 → 395 동서 분열 → 476 서로마 멸망(오도아케르)
+                        </div>
+                        <div class="key-concepts">
+                            <h4>🏛️ 핵심 개념</h4>
+                            <p>제국 행정 붕괴 뒤, <strong>도시·농촌의 실질적 질서 유지자 = 교회(주교·성직자)</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>빈민구제·문서관리·분쟁조정 등으로 <strong>'사회적 안전망'</strong> 기능 수행</li>
+                                <li><strong>주교좌(로마 교회)</strong>의 위상 상승 → <strong>교황권</strong>의 권위 기반 형성</li>
+                            </ul>
+                        </div>
+                        <div class="correction">
+                            <h4>⚠️ 놓치기 쉬운 부분</h4>
+                            <p>"성상 파괴 금지령 때문에 1054년 분열"은 부정확. 동서 분열(1054)은 <strong>교황 수위권과 '필리오케' 등 교리·권위 문제</strong>가 근본 원인.</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section1', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="2">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">5-8세기 - 프랑크 왕국 부상</div>
+                    <h3 class="section-title">프랑크 왕국이 서유럽을 주도한 배경</h3>
+                    <div class="expandable" id="section2">
+                        <div class="section-content">
+                            <strong>빠른 크리스트교 수용</strong>(클로비스의 개종)과 <strong>로마인과의 융합</strong>
+                        </div>
+                        <div class="key-concepts">
+                            <h4>⚔️ 군사적 방위</h4>
+                            <p><strong>카롤루스 마르텔</strong>(732 투르-푸아티에 전투)로 이슬람 세력 격퇴</p>
+                        </div>
+                        <div class="key-concepts">
+                            <h4>👑 카롤루스(샤를마뉴) 대제의 통치·문화 부흥</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>관습법의 정리</strong>, 지방 백작·주교 통제(순시관)로 거버넌스 강화</li>
+                                <li><strong>궁정학교(알쿠인)</strong>, 성직자 교육, 사본 정리·<strong>카롤루스 소문자</strong> 도입</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>📚 필수 문장</h4>
+                            <p><strong>"카롤루스의 문화 부흥"은 로마 문화와 크리스트교, 그리고 게르만 문화가 융합되어 중세 서유럽 문화의 기틀을 마련</strong>했다.</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section2', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="3">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">800년 - 황제 대관식</div>
+                    <h3 class="section-title">프랑크 왕국과 로마 교회의 결합</h3>
+                    <div class="expandable" id="section3">
+                        <div class="key-concepts">
+                            <h4>👑 800년 대관식</h4>
+                            <p>교황 <strong>레오 3세</strong>, 카롤루스에게 <strong>'로마 황제관'</strong> 수여</p>
+                            <p>→ <strong>정교 결합의 상징</strong>(서방 세계의 정치·문화적 통일 표상)</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section3', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="4">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1054년 - 대분열</div>
+                    <h3 class="section-title">크리스트교의 분화</h3>
+                    <div class="expandable" id="section4">
+                        <div class="key-concepts">
+                            <h4>⛪ 상호 파문과 분립</h4>
+                            <p><strong>로마 가톨릭–그리스 정교</strong> 분립</p>
+                            <p><strong>쟁점:</strong> 교황 수위권, 필리오케, 전례·규율 차이 등</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section4', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="5">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">843년 - 베르됭 조약</div>
+                    <h3 class="section-title">프랑크 왕국의 분열과 지역 세계의 태동</h3>
+                    <div class="expandable" id="section5">
+                        <div class="key-concepts">
+                            <h4>🗺️ 843 베르됭 조약</h4>
+                            <p><strong>서·중·동 프랑크</strong>로 분할</p>
+                            <p>→ 오늘날 <strong>프랑스·이탈리아(중부 축)·독일</strong>의 역사적 기원</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section5', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="6">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">9-10세기 - 봉건제 성립</div>
+                    <h3 class="section-title">봉건 사회의 성립</h3>
+                    <div class="expandable" id="section6">
+                        <div class="section-content">
+                            <strong>주종 관계 + 장원제</strong>(두 축)
+                        </div>
+                        <div class="key-concepts">
+                            <h4>🏰 배경</h4>
+                            <p>9–10세기 <strong>바이킹·마자르·무슬림</strong>의 잦은 침입 → <strong>지역 자력 방위</strong></p>
+                        </div>
+                        <div class="key-concepts">
+                            <h4>🤝 주종 관계(봉신제)</h4>
+                            <p><strong>충성 ↔ 봉토(토지 사용권)</strong>, 복층적 맹약(왕–제후–기사)</p>
+                        </div>
+                        <div class="key-concepts">
+                            <h4>🌾 장원제(영주제)</h4>
+                            <p>성·교회·대장간·방앗간을 갖춘 <strong>자급자족 공동체</strong>, <strong>농노</strong>의 예속</p>
+                        </div>
+                        <div class="important-note">
+                            <h4>📊 결과</h4>
+                            <p><strong>지방 분권 심화</strong>, 왕권 상대적 약화</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section6', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="7">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">11-13세기 - 교황권 전성기</div>
+                    <h3 class="section-title">교황권의 성장과 '그리스도교 중심' 서유럽 문화</h3>
+                    <div class="expandable" id="section7">
+                        <div class="key-concepts">
+                            <h4>👑 신성 로마 제국</h4>
+                            <p><strong>오토 1세</strong>(동프랑크) 이민족 격퇴 → 교황이 황제 임명</p>
+                        </div>
+                        <div class="key-concepts">
+                            <h4>⚔️ 서임권 투쟁</h4>
+                            <p>교황 <strong>그레고리우스 7세</strong> vs 황제 <strong>하인리히 4세</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>카노사의 굴욕(1077)</strong> → 교황권 상징적 승리</li>
+                                <li><strong>보름스 협약(1122)</strong>: 성직자 선출은 교회, 세속권은 군주가 인정</li>
+                            </ul>
+                        </div>
+                        <div class="correction">
+                            <h4>⚠️ 놓치기 쉬운 부분</h4>
+                            <p>"성직자 임명권은 교황만"은 과장. <strong>선출 주도권은 교회</strong>, <strong>세속군주는 영지·세속권 승인</strong>을 부여하는 형태로 <strong>타협</strong>됨.</p>
+                        </div>
+                        <div class="key-concepts">
+                            <h4>📚 스콜라 철학</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>신앙과 이성의 조화</strong>('믿기 위해 이해한다')</li>
+                                <li><strong>변증(질의–반론–해결) 방식</strong>으로 진리에 접근</li>
+                                <li><strong>아퀴나스</strong> 『신학대전』: 아리스토텔레스 철학과 기독교 신학의 체계적 종합</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts">
+                            <h4>🏛️ 대학과 예술</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>자치 대학</strong>(볼로냐·파리·옥스퍼드 등) → 학문 공동체의 탄생</li>
+                                <li><strong>고딕 건축</strong>: 첨두 아치·리브 볼트·비상하는 첨탑, 스테인드글라스</li>
+                                <li><strong>대표적 고딕 건축물</strong>: 파리 노트르담 대성당, 샤르트르 대성당, 쾰른 대성당, 웨스트민스터 사원</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section7', this)">자세히 보기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 형성평가 섹션 -->
+        <div class="assessment-section">
+            <div class="assessment-header">
+                <h2>🎯 형성평가</h2>
+                <p>학습한 내용을 확인해보세요!</p>
+            </div>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-controls">
+                    <button class="quiz-btn" onclick="startQuiz()">평가 시작</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="nav-dot active" onclick="scrollToSection(1)"></div>
+        <div class="nav-dot" onclick="scrollToSection(2)"></div>
+        <div class="nav-dot" onclick="scrollToSection(3)"></div>
+        <div class="nav-dot" onclick="scrollToSection(4)"></div>
+        <div class="nav-dot" onclick="scrollToSection(5)"></div>
+        <div class="nav-dot" onclick="scrollToSection(6)"></div>
+        <div class="nav-dot" onclick="scrollToSection(7)"></div>
+        <div class="nav-dot" onclick="scrollToSection(8)"></div>
+    </div>
+
+    <script>
+        // 형성평가 문제 데이터
+        const quizData = [
+            {
+                id: 1,
+                difficulty: "basic",
+                difficultyText: "기본",
+                question: "다음 중 서로마 제국 멸망 이후 교회가 수행한 역할로 옳은 것은?",
+                options: [
+                    "군사력을 바탕으로 이민족을 정복하였다",
+                    "빈민구제와 분쟁조정 등 사회적 안전망 역할을 하였다",
+                    "황제를 직접 임명하여 정치권력을 독점하였다",
+                    "상업 활동을 주도하여 경제 발전을 이끌었다"
+                ],
+                correct: 1,
+                explanation: "서로마 제국 붕괴 후 교회는 빈민구제, 문서관리, 분쟁조정 등을 통해 사회적 안전망 역할을 수행하며 실질적인 질서 유지자가 되었습니다."
+            },
+            {
+                id: 2,
+                difficulty: "intermediate",
+                difficultyText: "보통",
+                question: "프랑크 왕국이 서유럽의 주도권을 장악할 수 있었던 요인으로 가장 적절한 것은?",
+                options: [
+                    "동로마 제국과의 군사 동맹을 통한 영토 확장",
+                    "이슬람 세력과의 적극적인 교역을 통한 경제력 증대",
+                    "빠른 크리스트교 수용과 로마인과의 융합, 그리고 이슬람 세력 격퇴",
+                    "게르만족 전통 문화만을 고수하여 민족적 결속력 강화"
+                ],
+                correct: 2,
+                explanation: "프랑크 왕국은 클로비스의 개종을 통한 빠른 크리스트교 수용, 로마인과의 융합, 그리고 카롤루스 마르텔의 투르-푸아티에 전투(732년)에서 이슬람 세력을 격퇴함으로써 서유럽의 주도권을 확립했습니다."
+            },
+            {
+                id: 3,
+                difficulty: "advanced",
+                difficultyText: "심화",
+                question: "서임권 투쟁의 결과인 보름스 협약(1122)의 내용으로 가장 적절한 것은?",
+                options: [
+                    "성직자 임명권을 교황이 완전히 독점하게 되었다",
+                    "세속 군주가 성직자의 영적 권한까지 통제하게 되었다",
+                    "성직자 선출은 교회가, 세속권 승인은 군주가 담당하는 절충안이 성립되었다",
+                    "교황과 황제가 번갈아 가며 성직자를 임명하기로 합의하였다"
+                ],
+                correct: 2,
+                explanation: "보름스 협약은 성직자 선출 주도권은 교회가 갖되, 세속군주는 영지와 세속권에 대한 승인을 부여하는 형태로 영적 권한과 세속 권한을 분리하는 절충안이었습니다."
+            },
+            {
+                id: 4,
+                difficulty: "expert",
+                difficultyText: "최고",
+                question: "카롤루스 대제의 문화 부흥이 중세 서유럽 문화 형성에 미친 영향을 종합적으로 평가할 때 가장 적절한 것은?",
+                options: [
+                    "로마 문화만을 부활시켜 게르만 문화는 완전히 소멸되었다",
+                    "크리스트교 문화만을 강조하여 세속 학문은 발달하지 못했다",
+                    "로마 문화, 크리스트교, 게르만 문화가 융합되어 중세 서유럽 문화의 기틀을 마련했다",
+                    "그리스 철학만을 중시하여 실용적 지식은 등한시되었다"
+                ],
+                correct: 2,
+                explanation: "카롤루스의 문화 부흥은 로마 문화의 전통, 크리스트교의 정신적 가치, 그리고 게르만 문화의 요소들이 조화롭게 융합되어 중세 서유럽 문화의 독특한 기틀을 마련한 것이 가장 중요한 의의입니다."
+            },
+            {
+                id: 5,
+                difficulty: "application",
+                difficultyText: "응용",
+                question: "스콜라 철학의 '신앙과 이성의 조화' 원리가 현대 사회에 주는 시사점으로 가장 적절한 것은?",
+                options: [
+                    "종교와 과학은 완전히 분리되어야 한다는 원칙의 확립",
+                    "서로 다른 관점이나 가치체계도 대화와 논증을 통해 조화점을 찾을 수 있다는 가능성",
+                    "한 가지 진리만이 옳다는 절대주의적 사고의 정당성",
+                    "전통적 지혜보다는 새로운 기술만을 추구해야 한다는 혁신주의"
+                ],
+                correct: 1,
+                explanation: "스콜라 철학의 '신앙과 이성의 조화' 시도는 서로 다른 관점(종교적 신앙과 합리적 사고)도 변증적 대화를 통해 조화점을 찾을 수 있다는 현대적 시사점을 제공합니다. 이는 다원화된 현대 사회에서 다양한 가치관의 대화 가능성을 보여줍니다."
+            }
+        ];
+
+        let quizState = {
+            started: false,
+            currentQuestion: 0,
+            answers: [],
+            showingResults: false,
+            selectedAnswer: null,
+            answeredCurrent: false
+        };
+
+        function startQuiz() {
+            quizState = {
+                started: true,
+                currentQuestion: 0,
+                answers: [],
+                showingResults: false,
+                selectedAnswer: null,
+                answeredCurrent: false
+            };
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const container = document.getElementById('quizContainer');
+            const question = quizData[quizState.currentQuestion];
+            const progress = ((quizState.currentQuestion) / quizData.length) * 100;
+
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                    <div class="progress-text">문제 ${quizState.currentQuestion + 1} / ${quizData.length}</div>
+                </div>
+                
+                <div class="quiz-card" id="questionCard">
+                    <div class="difficulty ${question.difficulty}">${question.difficultyText} 수준</div>
+                    <div class="quiz-question">
+                        <h3>${question.id}. ${question.question}</h3>
+                        <ul class="quiz-options">
+                            ${question.options.map((option, index) => `
+                                <li class="quiz-option" onclick="selectAnswer(${index})" id="option-${index}">
+                                    ${index + 1}. ${option}
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <div class="quiz-explanation" id="explanation">
+                            <strong>💡 해설:</strong> ${question.explanation}
+                        </div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+                            ${quizState.currentQuestion === quizData.length - 1 ? '결과 보기' : '다음 문제'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Reset state for current question
+            quizState.selectedAnswer = null;
+            quizState.answeredCurrent = false;
+        }
+
+        function selectAnswer(answerIndex) {
+            if (quizState.answeredCurrent) return;
+
+            const question = quizData[quizState.currentQuestion];
+            quizState.selectedAnswer = answerIndex;
+            quizState.answeredCurrent = true;
+            quizState.answers[quizState.currentQuestion] = answerIndex;
+
+            // Update option styles
+            document.querySelectorAll('.quiz-option').forEach((option, index) => {
+                option.style.pointerEvents = 'none';
+                
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                } else if (index === answerIndex) {
+                    option.classList.add('selected');
+                }
+            });
+
+            // Show explanation
+            document.getElementById('explanation').classList.add('show');
+            
+            // Enable next button after a delay
+            setTimeout(() => {
+                document.getElementById('nextBtn').disabled = false;
+                document.getElementById('nextBtn').style.opacity = '1';
+            }, 1000);
+        }
+
+        function nextQuestion() {
+            if (!quizState.answeredCurrent) return;
+
+            quizState.currentQuestion++;
+            
+            if (quizState.currentQuestion >= quizData.length) {
+                showResults();
+            } else {
+                showQuestion();
+            }
+        }
+
+        function showResults() {
+            quizState.showingResults = true;
+            const correctCount = quizState.answers.reduce((count, answer, index) => {
+                return count + (answer === quizData[index].correct ? 1 : 0);
+            }, 0);
+            
+            const percentage = Math.round((correctCount / quizData.length) * 100);
+            const scoreDegrees = (percentage / 100) * 360;
+
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="progress-text">평가 완료!</div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="score-display">
+                        <h3>🎯 형성평가 결과</h3>
+                        <div class="score-circle" style="--score-deg: ${scoreDegrees}deg">
+                            <div class="score-text">${percentage}%</div>
+                        </div>
+                        <p><strong>정답: ${correctCount}/${quizData.length}문제</strong></p>
+                        <p>${getScoreMessage(percentage)}</p>
+                        
+                        <div class="score-breakdown">
+                            <h4>📊 문제별 결과</h4>
+                            ${quizData.map((q, index) => {
+                                const isCorrect = quizState.answers[index] === q.correct;
+                                return `
+                                    <div class="result-item">
+                                        <span>문제 ${index + 1} (${q.difficultyText})</span>
+                                        <span style="color: ${isCorrect ? '#96ceb4' : '#ff6b6b'}; font-weight: bold;">
+                                            ${isCorrect ? '✓ 정답' : '✗ 오답'}
+                                        </span>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn secondary" onclick="resetQuiz()">다시 풀기</button>
+                        <button class="quiz-btn" onclick="scrollToTop()">학습 내용으로</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getScoreMessage(percentage) {
+            if (percentage >= 90) return "🏆 우수! 교황권의 성장 과정을 완벽하게 이해하고 있습니다!";
+            if (percentage >= 80) return "👍 좋음! 대부분의 내용을 잘 이해하고 있습니다!";
+            if (percentage >= 70) return "📚 보통! 조금 더 복습하면 완벽해질 것 같아요!";
+            if (percentage >= 60) return "💪 노력! 기본 개념은 이해했으니 심화 학습을 해보세요!";
+            return "📖 재학습! 다시 한 번 내용을 차근차근 읽어보세요!";
+        }
+
+        function resetQuiz() {
+            quizState = {
+                started: false,
+                currentQuestion: 0,
+                answers: [],
+                showingResults: false,
+                selectedAnswer: null,
+                answeredCurrent: false
+            };
+
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-controls">
+                    <button class="quiz-btn" onclick="startQuiz()">평가 시작</button>
+                </div>
+            `;
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleExpand(sectionId, button) {
+            const section = document.getElementById(sectionId);
+            const isExpanded = section.classList.contains('expanded');
+            
+            if (isExpanded) {
+                section.classList.remove('expanded');
+                button.textContent = '자세히 보기';
+            } else {
+                section.classList.add('expanded');
+                button.textContent = '접기';
+            }
+        }
+
+        function scrollToSection(sectionNum) {
+            if (sectionNum === 8) {
+                // 형성평가 섹션으로 스크롤
+                document.querySelector('.assessment-section').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                const section = document.querySelector(`[data-section="${sectionNum}"]`);
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === sectionNum);
+            });
+        }
+
+        // Auto-update navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.timeline-item');
+            const assessmentSection = document.querySelector('.assessment-section');
+            let currentSection = 1;
+            
+            // Check if assessment section is in view
+            if (assessmentSection) {
+                const assessmentRect = assessmentSection.getBoundingClientRect();
+                if (assessmentRect.top <= window.innerHeight / 2) {
+                    currentSection = 8;
+                }
+            }
+            
+            // Check timeline sections
+            if (currentSection !== 8) {
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentSection = index + 1;
+                    }
+                });
+            }
+            
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === currentSection);
+            });
+        });
+
+        // Add hover effects to timeline items
+        document.querySelectorAll('.timeline-content').forEach(content => {
+            content.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            content.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click animation to buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('expand-btn') || e.target.classList.contains('quiz-btn')) {
+                e.target.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    e.target.style.transform = 'scale(1)';
+                }, 150);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비잔티움 제국의 발전과 문화적 영향</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #a55eea);
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            margin: 40px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            margin-right: 0;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            z-index: 10;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-content {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .key-concepts {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .key-concepts.political {
+            background: rgba(78, 205, 196, 0.2);
+            border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+
+        .key-concepts.cultural {
+            background: rgba(150, 206, 180, 0.2);
+            border: 1px solid rgba(150, 206, 180, 0.3);
+        }
+
+        .key-concepts.religious {
+            background: rgba(254, 202, 87, 0.2);
+            border: 1px solid rgba(254, 202, 87, 0.3);
+        }
+
+        .key-concepts.economic {
+            background: rgba(165, 94, 234, 0.2);
+            border: 1px solid rgba(165, 94, 234, 0.3);
+        }
+
+        .key-concepts h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .timeline-year {
+            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(254, 202, 87, 0.3);
+        }
+
+        .expandable {
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .expandable.expanded {
+            max-height: 1500px;
+        }
+
+        .expand-btn {
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .expand-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .important-note {
+            background: rgba(150, 206, 180, 0.2);
+            border: 1px solid rgba(150, 206, 180, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #96ceb4;
+        }
+
+        .correction {
+            background: rgba(255, 159, 243, 0.2);
+            border: 1px solid rgba(255, 159, 243, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9ff3;
+        }
+
+        /* 형성평가 스타일 */
+        .assessment-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .assessment-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .assessment-header h2 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1, #96ceb4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .assessment-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 600px;
+            position: relative;
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ecdc4, #45b7d1, #96ceb4);
+            border-radius: 12px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+
+        .progress-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            border-radius: 35px;
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            animation: cardSlideIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s;
+        }
+
+        .quiz-card:hover::before {
+            left: 100%;
+        }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .difficulty.basic {
+            background: linear-gradient(135deg, #96ceb4, #85d4a4);
+            color: white;
+        }
+
+        .difficulty.intermediate {
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: white;
+        }
+
+        .difficulty.advanced {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .difficulty.expert {
+            background: linear-gradient(135deg, #a55eea, #8854d0);
+            color: white;
+        }
+
+        .difficulty.application {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+        }
+
+        .quiz-question h3 {
+            color: #fff;
+            margin-bottom: 35px;
+            font-size: 1.5em;
+            line-height: 1.6;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 35px;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 20px 30px;
+            margin-bottom: 18px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.6s;
+        }
+
+        .quiz-option:hover::before {
+            left: 100%;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .quiz-option.selected {
+            background: rgba(78, 205, 196, 0.3);
+            border-color: #4ecdc4;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(78, 205, 196, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(150, 206, 180, 0.35);
+            border-color: #96ceb4;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(150, 206, 180, 0.5);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(255, 107, 107, 0.35);
+            border-color: #ff6b6b;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .quiz-explanation {
+            background: rgba(254, 202, 87, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(254, 202, 87, 0.4);
+            border-radius: 25px;
+            padding: 25px;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.95);
+            display: none;
+            box-shadow: 0 12px 35px rgba(254, 202, 87, 0.3);
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .quiz-explanation.show {
+            display: block;
+            animation: fadeInScale 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .quiz-btn:hover::before {
+            left: 100%;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(78, 205, 196, 0.5);
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.2);
+        }
+
+        .quiz-btn.secondary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .quiz-btn.secondary:hover {
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
+        }
+
+        .score-display {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 40px;
+            color: #fff;
+            font-size: 1.3em;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#4ecdc4 0deg, #4ecdc4 var(--score-deg), rgba(255,255,255,0.2) var(--score-deg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2em;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-breakdown {
+            margin-top: 30px;
+        }
+
+        .score-breakdown h4 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .navigation {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #4ecdc4;
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+            transform: scale(1.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+        .timeline-item:nth-child(8) { animation-delay: 0.8s; }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .quiz-card {
+                padding: 30px;
+            }
+
+            .quiz-option {
+                padding: 15px 20px;
+                font-size: 0.95em;
+            }
+
+            .quiz-btn {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+
+            .quiz-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .score-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .score-circle::before {
+                width: 95px;
+                height: 95px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>비잔티움 제국의 발전과 문화적 영향</h1>
+            <p>동로마 제국에서 비잔티움 제국까지, 1000년의 찬란한 역사</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-section="1">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">330년 - 콘스탄티노플 건설</div>
+                    <h3 class="section-title">비잔티움 제국의 기원</h3>
+                    <div class="expandable" id="section1">
+                        <div class="section-content">
+                            <strong>콘스탄티누스 대제</strong>, 보스포루스 해협의 전략적 요충지 <strong>비잔티온</strong>을 재건하여 <strong>콘스탄티노플</strong>로 명명
+                        </div>
+                        <div class="key-concepts political">
+                            <h4>🏛️ 지리적 우위</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>유럽과 아시아를 잇는 가교</strong> 역할</li>
+                                <li><strong>흑해와 지중해</strong>를 연결하는 해상 교통의 요지</li>
+                                <li><strong>실크로드의 서쪽 종착점</strong>으로 동서 무역 독점</li>
+                                <li><strong>천연 요새</strong>: 삼면이 바다로 둘러싸인 방어 지형</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts cultural">
+                            <h4>⛪ 기독교 제국의 토대</h4>
+                            <p><strong>'새로운 로마(Nova Roma)'</strong>로 구상, 기독교 중심의 제국 건설</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section1', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="2">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">527-565년 - 유스티니아누스 시대</div>
+                    <h3 class="section-title">유스티니아누스 대제의 치세</h3>
+                    <div class="expandable" id="section2">
+                        <div class="section-content">
+                            비잔티움 제국의 <strong>황금기</strong>를 연 유스티니아누스 1세의 위대한 업적들
+                        </div>
+                        <div class="key-concepts political">
+                            <h4>⚔️ 서로마 영토 회복 (레콘키스타)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>벨리사리우스</strong> 장군의 활약으로 <strong>북아프리카</strong> 반달족 정복</li>
+                                <li><strong>이탈리아 반도</strong> 동고트족으로부터 탈환</li>
+                                <li><strong>이베리아 반도 남부</strong> 서고트족으로부터 일부 수복</li>
+                                <li>지중해를 다시 <strong>'로마의 호수'</strong>로 만들고자 시도</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts">
+                            <h4>📜 유스티니아누스 법전 (Corpus Juris Civilis)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>『법학제요』</strong>: 법학 교육용 개론서</li>
+                                <li><strong>『학설휘찬』</strong>: 로마 법학자들의 견해 집성</li>
+                                <li><strong>『칙법집』</strong>: 유스티니아누스의 새로운 법령</li>
+                                <li><strong>근대 유럽 대륙법의 모태</strong>가 되어 현재까지 영향</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts cultural">
+                            <h4>👸 테오도라 황후의 역할</h4>
+                            <p>유스티니아누스의 정치적 동반자로서 <strong>니카 폭동(532)</strong> 진압에 결정적 역할, 여성의 지위 향상 정책 추진</p>
+                        </div>
+                        <div class="important-note">
+                            <h4>🏗️ 대규모 건설 사업</h4>
+                            <p><strong>성 소피아 성당</strong> 재건축, 도시 인프라 확충, 요새 건설 등 제국 전역의 대규모 건설</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section2', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="3">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">537년 - 성 소피아 성당</div>
+                    <h3 class="section-title">비잔티움 건축의 걸작</h3>
+                    <div class="expandable" id="section3">
+                        <div class="key-concepts cultural">
+                            <h4>🏛️ 건축적 혁신</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>직경 31m의 거대한 돔</strong>: 당시 세계 최대 규모</li>
+                                <li><strong>펜던티브 구조</strong>: 원형 돔을 사각형 기둥 위에 올리는 혁신 기법</li>
+                                <li><strong>빛의 건축</strong>: 40개의 창을 통해 돔이 공중에 떠 있는 듯한 효과</li>
+                                <li><strong>음향 설계</strong>: 완벽한 반향 효과로 신비로운 음향 공간 창조</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts religious">
+                            <h4>✨ 예술적 장식</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>황금 모자이크</strong>: 수백만 개의 금박 조각으로 장식</li>
+                                <li><strong>대리석 상감</strong>: 다양한 색상의 대리석으로 기하학적 패턴</li>
+                                <li><strong>상징적 의미</strong>: 하늘과 땅, 신과 인간을 연결하는 우주적 공간</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🌍 역사적 의미</h4>
+                            <p>1453년 오스만 제국 정복 후 모스크로 개조, 현재는 <strong>하기아 소피아 박물관</strong>으로 동서 문명의 만남을 상징</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section3', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="4">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">7-9세기 - 이슬람 압박과 개혁</div>
+                    <h3 class="section-title">생존을 위한 변화와 혁신</h3>
+                    <div class="expandable" id="section4">
+                        <div class="key-concepts political">
+                            <h4>⚔️ 테마 제도 (Theme System)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>군관구제</strong>: 행정구역과 군사구역 통합</li>
+                                <li><strong>농민 병사</strong>: 토지를 받는 대신 군사 복무 의무</li>
+                                <li><strong>지방 자치 강화</strong>: 중앙 집권에서 지방 분권으로 전환</li>
+                                <li><strong>경제적 효율성</strong>: 군사비 절약과 방어력 강화 동시 달성</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts religious">
+                            <h4>🖼️ 성상 파괴령 (726-843)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>레오 3세</strong>의 성상 숭배 금지 정책</li>
+                                <li><strong>이슬람의 영향</strong>: 우상 숭배 금지 사상과 유사</li>
+                                <li><strong>사회적 갈등</strong>: 황제 vs 수도원, 동방 vs 서방 교회</li>
+                                <li><strong>843년 종료</strong>: 테오도라 황후의 성상 복원</li>
+                            </ul>
+                        </div>
+                        <div class="correction">
+                            <h4>⚠️ 놓치기 쉬운 부분</h4>
+                            <p>성상 파괴는 <strong>종교적 이유만이 아닌 정치적·경제적 동기</strong>도 컸음. 수도원의 경제력 견제와 황제권 강화 의도</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section4', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="5">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">9-11세기 - 마케도니아 왕조</div>
+                    <h3 class="section-title">비잔티움 제국의 재부상</h3>
+                    <div class="expandable" id="section5">
+                        <div class="key-concepts political">
+                            <h4>👑 바실리우스 2세 (976-1025)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>'불가리아 살해자'</strong>: 불가리아 제국 완전 정복</li>
+                                <li><strong>발칸 반도 재통합</strong>: 다뉴브 강까지 영토 확장</li>
+                                <li><strong>아르메니아 병합</strong>: 동방 국경 안정화</li>
+                                <li><strong>경제 번영</strong>: 무역로 통제로 막대한 부 축적</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts economic">
+                            <h4>💰 경제적 전성기</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>베지오스 (베잔트 금화)</strong>: 지중해 국제 통화</li>
+                                <li><strong>비단 독점</strong>: 6세기 누에 밀수로 시작된 비단 산업</li>
+                                <li><strong>향료 무역</strong>: 인도양-지중해 연결 루트 독점</li>
+                                <li><strong>수공업 발달</strong>: 길드 제도와 품질 관리</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts cultural">
+                            <h4>📚 마케도니아 르네상스</h4>
+                            <p><strong>고전 그리스 문헌 보존</strong>과 재연구, 대학 설립, 학문 부흥으로 후일 서유럽 르네상스의 토대 마련</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section5', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="6">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">988년 - 키이우 루스의 개종</div>
+                    <h3 class="section-title">슬라브 세계로의 문화 전파</h3>
+                    <div class="expandable" id="section6">
+                        <div class="key-concepts cultural">
+                            <h4>📝 키릴 문자의 전파</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>키릴과 메토디우스</strong> 형제의 선교 활동</li>
+                                <li><strong>슬라브어 성경</strong> 번역과 전례 확산</li>
+                                <li><strong>문자 체계</strong>: 그리스 문자 기반 키릴 문자 개발</li>
+                                <li><strong>문화적 자립</strong>: 라틴어 대신 자국어 전례 허용</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts religious">
+                            <h4>⛪ 블라디미르 1세의 개종 (988년)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>정치적 선택</strong>: 이슬람, 유대교, 서방 기독교, 동방 정교 중 선택</li>
+                                <li><strong>성 소피아 성당의 인상</strong>: 사절단이 본 비잔티움의 웅장함</li>
+                                <li><strong>집단 세례</strong>: 키이우 시민 전체의 강제 개종</li>
+                                <li><strong>정치적 동맹</strong>: 바실리우스 2세와의 혼인 동맹</li>
+                                <li><strong>문자 문화 수용</strong>: 이미 불가리아를 통해 전해진 키릴 문자와 슬라브 전례 활용</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🌍 역사적 영향</h4>
+                            <p><strong>러시아, 불가리아, 세르비아</strong> 등 동유럽 국가들의 <strong>정교회 문화권</strong> 형성의 출발점</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section6', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="7">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1054년 - 동서 교회 대분열</div>
+                    <h3 class="section-title">기독교 세계의 분리</h3>
+                    <div class="expandable" id="section7">
+                        <div class="key-concepts religious">
+                            <h4>⛪ 분열의 원인</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>필리오케 논쟁</strong>: 성령이 성부와 성자에게서 나오는가?</li>
+                                <li><strong>교황 수위권</strong>: 로마 교황의 전 교회 수장 권한 인정 여부</li>
+                                <li><strong>성직자 결혼</strong>: 동방은 허용, 서방은 금지</li>
+                                <li><strong>무교병 vs 유교병</strong>: 미사용 빵의 종류 차이</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts political">
+                            <h4>👑 정치적 배경</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>카롤루스 대제의 대관</strong>: 서방의 독자적 황제 주장</li>
+                                <li><strong>남이탈리아 지배권</strong> 갈등</li>
+                                <li><strong>콘스탄티노플 vs 로마</strong>: 두 권력 중심지의 경쟁</li>
+                            </ul>
+                        </div>
+                        <div class="correction">
+                            <h4>⚠️ 놓치기 쉬운 부분</h4>
+                            <p>1054년 상호 파문은 <strong>즉각적인 완전 분열이 아님</strong>. 실제 완전한 분리는 <strong>1204년 제4차 십자군</strong> 이후</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section7', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="8">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1453년 - 제국의 종말과 유산</div>
+                    <h3 class="section-title">비잔티움의 몰락과 문화적 유산</h3>
+                    <div class="expandable" id="section8">
+                        <div class="key-concepts political">
+                            <h4>⚔️ 콘스탄티노플 함락</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>메흐메트 2세</strong>의 오스만 군대</strong></li>
+                                <li><strong>대포의 활용</strong>: 테오도시우스 성벽 파괴</li>
+                                <li><strong>콘스탄티누스 11세</strong>의 최후의 저항</li>
+                                <li><strong>1000년 제국의 종료</strong></li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts cultural">
+                            <h4>📚 르네상스에 미친 영향</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>그리스 학자들의 서방 이주</strong>: 플레톤, 베사리온 등</li>
+                                <li><strong>고전 그리스 문헌</strong>의 대량 유입</li>
+                                <li><strong>그리스어 교육</strong> 확산</li>
+                                <li><strong>플라톤 철학</strong> 재발견의 촉매</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🌍 비잔티움의 유산</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>로마법</strong>: 유스티니아누스 법전의 현대적 영향</li>
+                                <li><strong>정교회</strong>: 러시아, 그리스, 동유럽의 종교 문화</li>
+                                <li><strong>예술</strong>: 이콘, 모자이크, 돔 건축의 전통</li>
+                                <li><strong>학문</strong>: 고전 보존과 전승의 교량 역할</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section8', this)">자세히 보기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 형성평가 섹션 -->
+        <div class="assessment-section">
+            <div class="assessment-header">
+                <h2>🎯 형성평가</h2>
+                <p>비잔티움 제국에 대한 이해도를 확인해보세요!</p>
+            </div>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-controls">
+                    <button class="quiz-btn" onclick="startQuiz()">평가 시작</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="nav-dot active" onclick="scrollToSection(1)"></div>
+        <div class="nav-dot" onclick="scrollToSection(2)"></div>
+        <div class="nav-dot" onclick="scrollToSection(3)"></div>
+        <div class="nav-dot" onclick="scrollToSection(4)"></div>
+        <div class="nav-dot" onclick="scrollToSection(5)"></div>
+        <div class="nav-dot" onclick="scrollToSection(6)"></div>
+        <div class="nav-dot" onclick="scrollToSection(7)"></div>
+        <div class="nav-dot" onclick="scrollToSection(8)"></div>
+        <div class="nav-dot" onclick="scrollToSection(9)"></div>
+    </div>
+
+    <script>
+        // 형성평가 문제 데이터
+        const quizData = [
+            {
+                id: 1,
+                difficulty: "basic",
+                difficultyText: "기본",
+                question: "콘스탄티노플의 지리적 위치가 비잔티움 제국에 미친 영향으로 옳은 것은?",
+                options: [
+                    "사막 지역에 위치하여 농업 발달에 유리했다",
+                    "유럽과 아시아를 잇는 가교 역할로 동서 무역을 독점할 수 있었다",
+                    "대서양에 인접하여 서유럽과의 교류가 활발했다",
+                    "내륙 깊숙이 위치하여 외침으로부터 안전했다"
+                ],
+                correct: 1,
+                explanation: "콘스탄티노플은 보스포루스 해협에 위치하여 유럽과 아시아, 흑해와 지중해를 연결하는 교통의 요지였습니다. 이로 인해 동서 무역을 독점하고 막대한 부를 축적할 수 있었습니다."
+            },
+            {
+                id: 2,
+                difficulty: "intermediate",
+                difficultyText: "보통",
+                question: "유스티니아누스 법전이 후세에 미친 영향으로 가장 적절한 것은?",
+                options: [
+                    "이슬람 법의 기초가 되어 중동 지역 법체계를 확립했다",
+                    "게르만족의 관습법과 융합되어 봉건법을 형성했다",
+                    "근대 유럽 대륙법 체계의 토대가 되어 현재까지 영향을 미치고 있다",
+                    "영미법의 기원이 되어 판례법 전통을 확립했다"
+                ],
+                correct: 2,
+                explanation: "유스티니아누스 법전(Corpus Juris Civilis)은 로마법을 체계적으로 정리한 것으로, 중세를 거쳐 근대 유럽의 대륙법 체계의 기초가 되었으며, 현재 많은 국가의 민법에 영향을 미치고 있습니다."
+            },
+            {
+                id: 3,
+                difficulty: "advanced",
+                difficultyText: "심화",
+                question: "성상 파괴령(726-843)이 시행된 배경을 종합적으로 분석할 때 가장 적절한 것은?",
+                options: [
+                    "순수한 종교적 동기로 우상 숭배를 금지하기 위해서였다",
+                    "이슬람의 영향과 함께 수도원의 경제력 견제, 황제권 강화 등 복합적 목적이 있었다",
+                    "서방 교회와의 통합을 위해 로마 교황의 요구에 따른 것이었다",
+                    "민중 봉기를 진압하기 위한 종교 정책의 일환이었다"
+                ],
+                correct: 1,
+                explanation: "성상 파괴령은 이슬람의 우상 숭배 금지 사상의 영향과 함께, 막대한 부를 축적한 수도원 세력을 견제하고 황제권을 강화하려는 정치적·경제적 목적이 복합적으로 작용한 정책이었습니다."
+            },
+            {
+                id: 4,
+                difficulty: "expert",
+                difficultyText: "최고",
+                question: "키이우 루스의 988년 개종이 동유럽 역사에 미친 장기적 영향을 평가할 때 가장 적절한 것은?",
+                options: [
+                    "라틴 문화권에 편입되어 서유럽 문명의 일부가 되었다",
+                    "이슬람 문화와 융합되어 독특한 혼합 문명을 형성했다",
+                    "정교회 문화권을 형성하여 러시아를 비롯한 동유럽의 종교·문화적 정체성을 결정했다",
+                    "중국 문명의 영향을 받아 동아시아적 특성을 갖게 되었다"
+                ],
+                correct: 2,
+                explanation: "블라디미르 1세의 988년 개종은 키이우 루스가 비잔티움의 정교회를 수용하게 하여, 이후 러시아, 불가리아, 세르비아 등 동유럽 국가들이 정교회 문화권을 형성하는 출발점이 되었습니다. 이는 현재까지도 이 지역의 종교·문화적 정체성에 결정적 영향을 미치고 있습니다."
+            },
+            {
+                id: 5,
+                difficulty: "application",
+                difficultyText: "응용",
+                question: "비잔티움 제국의 '테마 제도'가 현대 행정 체계에 주는 시사점으로 가장 적절한 것은?",
+                options: [
+                    "중앙집권체제가 모든 상황에서 최선의 통치 방식이라는 점",
+                    "위기 상황에서는 지방분권을 통한 효율적 자원 배분과 자치권 강화가 필요하다는 점",
+                    "군사와 행정을 완전히 분리해야 민주주의가 발전한다는 점",
+                    "전통적 제도는 절대 변경하지 않는 것이 안정에 도움이 된다는 점"
+                ],
+                correct: 1,
+                explanation: "테마 제도는 이슬람의 압박이라는 위기 상황에서 중앙집권적 행정을 지방분권적 군관구제로 바꾸어 효율적 방어와 자원 배분을 달성한 제도입니다. 이는 현대에도 위기 상황에서 지방의 자율성과 책임을 강화하는 것이 효과적일 수 있음을 시사합니다."
+            }
+        ];
+
+        let quizState = {
+            started: false,
+            currentQuestion: 0,
+            answers: [],
+            showingResults: false,
+            selectedAnswer: null,
+            answeredCurrent: false
+        };
+
+        function startQuiz() {
+            quizState = {
+                started: true,
+                currentQuestion: 0,
+                answers: [],
+                showingResults: false,
+                selectedAnswer: null,
+                answeredCurrent: false
+            };
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const container = document.getElementById('quizContainer');
+            const question = quizData[quizState.currentQuestion];
+            const progress = ((quizState.currentQuestion) / quizData.length) * 100;
+
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                    <div class="progress-text">문제 ${quizState.currentQuestion + 1} / ${quizData.length}</div>
+                </div>
+                
+                <div class="quiz-card" id="questionCard">
+                    <div class="difficulty ${question.difficulty}">${question.difficultyText} 수준</div>
+                    <div class="quiz-question">
+                        <h3>${question.id}. ${question.question}</h3>
+                        <ul class="quiz-options">
+                            ${question.options.map((option, index) => `
+                                <li class="quiz-option" onclick="selectAnswer(${index})" id="option-${index}">
+                                    ${index + 1}. ${option}
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <div class="quiz-explanation" id="explanation">
+                            <strong>💡 해설:</strong> ${question.explanation}
+                        </div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+                            ${quizState.currentQuestion === quizData.length - 1 ? '결과 보기' : '다음 문제'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Reset state for current question
+            quizState.selectedAnswer = null;
+            quizState.answeredCurrent = false;
+        }
+
+        function selectAnswer(answerIndex) {
+            if (quizState.answeredCurrent) return;
+
+            const question = quizData[quizState.currentQuestion];
+            quizState.selectedAnswer = answerIndex;
+            quizState.answeredCurrent = true;
+            quizState.answers[quizState.currentQuestion] = answerIndex;
+
+            // Update option styles
+            document.querySelectorAll('.quiz-option').forEach((option, index) => {
+                option.style.pointerEvents = 'none';
+                
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                } else if (index === answerIndex) {
+                    option.classList.add('selected');
+                }
+            });
+
+            // Show explanation
+            document.getElementById('explanation').classList.add('show');
+            
+            // Enable next button after a delay
+            setTimeout(() => {
+                document.getElementById('nextBtn').disabled = false;
+                document.getElementById('nextBtn').style.opacity = '1';
+            }, 1000);
+        }
+
+        function nextQuestion() {
+            if (!quizState.answeredCurrent) return;
+
+            quizState.currentQuestion++;
+            
+            if (quizState.currentQuestion >= quizData.length) {
+                showResults();
+            } else {
+                showQuestion();
+            }
+        }
+
+        function showResults() {
+            quizState.showingResults = true;
+            const correctCount = quizState.answers.reduce((count, answer, index) => {
+                return count + (answer === quizData[index].correct ? 1 : 0);
+            }, 0);
+            
+            const percentage = Math.round((correctCount / quizData.length) * 100);
+            const scoreDegrees = (percentage / 100) * 360;
+
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="progress-text">평가 완료!</div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="score-display">
+                        <h3>🎯 형성평가 결과</h3>
+                        <div class="score-circle" style="--score-deg: ${scoreDegrees}deg">
+                            <div class="score-text">${percentage}%</div>
+                        </div>
+                        <p><strong>정답: ${correctCount}/${quizData.length}문제</strong></p>
+                        <p>${getScoreMessage(percentage)}</p>
+                        
+                        <div class="score-breakdown">
+                            <h4>📊 문제별 결과</h4>
+                            ${quizData.map((q, index) => {
+                                const isCorrect = quizState.answers[index] === q.correct;
+                                return `
+                                    <div class="result-item">
+                                        <span>문제 ${index + 1} (${q.difficultyText})</span>
+                                        <span style="color: ${isCorrect ? '#96ceb4' : '#ff6b6b'}; font-weight: bold;">
+                                            ${isCorrect ? '✓ 정답' : '✗ 오답'}
+                                        </span>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn secondary" onclick="resetQuiz()">다시 풀기</button>
+                        <button class="quiz-btn" onclick="scrollToTop()">학습 내용으로</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getScoreMessage(percentage) {
+            if (percentage >= 90) return "🏆 우수! 비잔티움 제국에 대해 완벽하게 이해하고 있습니다!";
+            if (percentage >= 80) return "👍 좋음! 대부분의 내용을 잘 이해하고 있습니다!";
+            if (percentage >= 70) return "📚 보통! 조금 더 복습하면 완벽해질 것 같아요!";
+            if (percentage >= 60) return "💪 노력! 기본 개념은 이해했으니 심화 학습을 해보세요!";
+            return "📖 재학습! 다시 한 번 내용을 차근차근 읽어보세요!";
+        }
+
+        function resetQuiz() {
+            quizState = {
+                started: false,
+                currentQuestion: 0,
+                answers: [],
+                showingResults: false,
+                selectedAnswer: null,
+                answeredCurrent: false
+            };
+
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-controls">
+                    <button class="quiz-btn" onclick="startQuiz()">평가 시작</button>
+                </div>
+            `;
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleExpand(sectionId, button) {
+            const section = document.getElementById(sectionId);
+            const isExpanded = section.classList.contains('expanded');
+            
+            if (isExpanded) {
+                section.classList.remove('expanded');
+                button.textContent = '자세히 보기';
+            } else {
+                section.classList.add('expanded');
+                button.textContent = '접기';
+            }
+        }
+
+        function scrollToSection(sectionNum) {
+            if (sectionNum === 9) {
+                // 형성평가 섹션으로 스크롤
+                document.querySelector('.assessment-section').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                const section = document.querySelector(`[data-section="${sectionNum}"]`);
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === sectionNum);
+            });
+        }
+
+        // Auto-update navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.timeline-item');
+            const assessmentSection = document.querySelector('.assessment-section');
+            let currentSection = 1;
+            
+            // Check if assessment section is in view
+            if (assessmentSection) {
+                const assessmentRect = assessmentSection.getBoundingClientRect();
+                if (assessmentRect.top <= window.innerHeight / 2) {
+                    currentSection = 9;
+                }
+            }
+            
+            // Check timeline sections
+            if (currentSection !== 9) {
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentSection = index + 1;
+                    }
+                });
+            }
+            
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === currentSection);
+            });
+        });
+
+        // Add hover effects to timeline items
+        document.querySelectorAll('.timeline-content').forEach(content => {
+            content.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            content.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click animation to buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('expand-btn') || e.target.classList.contains('quiz-btn')) {
+                e.target.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    e.target.style.transform = 'scale(1)';
+                }, 150);
+            }
+        });
+    </script>
+</body>
+</html>

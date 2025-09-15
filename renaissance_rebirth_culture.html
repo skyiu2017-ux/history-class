@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>르네상스: 인간 중심 문화의 부활</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #a55eea, #ff6b6b, #4ecdc4);
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            margin: 40px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            margin-right: 0;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            z-index: 10;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-content {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .key-concepts {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .key-concepts.humanist {
+            background: rgba(78, 205, 196, 0.2);
+            border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+
+        .key-concepts.artistic {
+            background: rgba(150, 206, 180, 0.2);
+            border: 1px solid rgba(150, 206, 180, 0.3);
+        }
+
+        .key-concepts.literary {
+            background: rgba(254, 202, 87, 0.2);
+            border: 1px solid rgba(254, 202, 87, 0.3);
+        }
+
+        .key-concepts.political {
+            background: rgba(165, 94, 234, 0.2);
+            border: 1px solid rgba(165, 94, 234, 0.3);
+        }
+
+        .key-concepts.technological {
+            background: rgba(255, 159, 243, 0.2);
+            border: 1px solid rgba(255, 159, 243, 0.3);
+        }
+
+        .key-concepts.patronage {
+            background: rgba(255, 182, 193, 0.2);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .key-concepts h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .timeline-year {
+            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(254, 202, 87, 0.3);
+        }
+
+        .expandable {
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .expandable.expanded {
+            max-height: 2000px;
+        }
+
+        .expand-btn {
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .expand-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .important-note {
+            background: rgba(150, 206, 180, 0.2);
+            border: 1px solid rgba(150, 206, 180, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #96ceb4;
+        }
+
+        .correction {
+            background: rgba(255, 159, 243, 0.2);
+            border: 1px solid rgba(255, 159, 243, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9ff3;
+        }
+
+        .masterpiece {
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffd700;
+        }
+
+        /* 형성평가 스타일 */
+        .assessment-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .assessment-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .assessment-header h2 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1, #96ceb4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .assessment-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 600px;
+            position: relative;
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ecdc4, #45b7d1, #96ceb4);
+            border-radius: 12px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+
+        .progress-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            border-radius: 35px;
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            animation: cardSlideIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s;
+        }
+
+        .quiz-card:hover::before {
+            left: 100%;
+        }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .difficulty.basic {
+            background: linear-gradient(135deg, #96ceb4, #85d4a4);
+            color: white;
+        }
+
+        .difficulty.intermediate {
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: white;
+        }
+
+        .difficulty.advanced {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .difficulty.expert {
+            background: linear-gradient(135deg, #a55eea, #8854d0);
+            color: white;
+        }
+
+        .difficulty.application {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+        }
+
+        .quiz-question h3 {
+            color: #fff;
+            margin-bottom: 35px;
+            font-size: 1.5em;
+            line-height: 1.6;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 35px;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 20px 30px;
+            margin-bottom: 18px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.6s;
+        }
+
+        .quiz-option:hover::before {
+            left: 100%;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .quiz-option.selected {
+            background: rgba(78, 205, 196, 0.3);
+            border-color: #4ecdc4;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(78, 205, 196, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(150, 206, 180, 0.35);
+            border-color: #96ceb4;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(150, 206, 180, 0.5);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(255, 107, 107, 0.35);
+            border-color: #ff6b6b;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .quiz-explanation {
+            background: rgba(254, 202, 87, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(254, 202, 87, 0.4);
+            border-radius: 25px;
+            padding: 25px;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.95);
+            display: none;
+            box-shadow: 0 12px 35px rgba(254, 202, 87, 0.3);
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .quiz-explanation.show {
+            display: block;
+            animation: fadeInScale 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .quiz-btn:hover::before {
+            left: 100%;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(78, 205, 196, 0.5);
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.2);
+        }
+
+        .quiz-btn.secondary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .quiz-btn.secondary:hover {
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
+        }
+
+        .score-display {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 40px;
+            color: #fff;
+            font-size: 1.3em;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#4ecdc4 0deg, #4ecdc4 var(--score-deg), rgba(255,255,255,0.2) var(--score-deg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2em;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-breakdown {
+            margin-top: 30px;
+        }
+
+        .score-breakdown h4 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .navigation {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #4ecdc4;
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+            transform: scale(1.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+        .timeline-item:nth-child(8) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(9) { animation-delay: 0.9s; }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .quiz-card {
+                padding: 30px;
+            }
+
+            .quiz-option {
+                padding: 15px 20px;
+                font-size: 0.95em;
+            }
+
+            .quiz-btn {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+
+            .quiz-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .score-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .score-circle::before {
+                width: 95px;
+                height: 95px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>르네상스: 인간 중심 문화의 부활</h1>
+            <p>14-16세기, 그리스·로마 고전의 재발견을 통한 문예부흥 운동</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-section="1">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">14-16세기 - 문예부흥</div>
+                    <h3 class="section-title">르네상스의 의미와 배경</h3>
+                    <div class="expandable" id="section1">
+                        <div class="section-content">
+                            <strong>'부활(Renaissance)'</strong>이라는 이름으로 불린 거대한 문화 운동. 그리스·로마 <strong>'고전'</strong>의 재발견을 통해 인간 중심의 새로운 문화를 창조
+                        </div>
+                        <div class="key-concepts humanist">
+                            <h4>🎭 핵심 사상: 인문주의 (Humanism)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>인간의 개성·능력·존엄</strong> 강조</li>
+                                <li><strong>개인의 자유 의지</strong>와 가능성 믿음</li>
+                                <li><strong>현세적 가치</strong>와 현실 세계에 대한 관심</li>
+                                <li><strong>교양 있는 시민</strong>(Humanitas) 이상</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts humanist">
+                            <h4>📚 고전 재발견의 의미</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>원전 연구</strong>: 라틴어·그리스어 원문 직접 연구</li>
+                                <li><strong>문헌학 발달</strong>: 정확한 텍스트 복원과 해석</li>
+                                <li><strong>고전 모방과 창조</strong>: 과거에서 배워 새것 창조</li>
+                                <li><strong>중세적 해석 탈피</strong>: 직접적이고 인간적 이해</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🔄 중세와의 차이점</h4>
+                            <p><strong>신 중심 → 인간 중심</strong>, <strong>내세 지향 → 현세 긍정</strong>, <strong>권위 의존 → 개인 판단</strong>, <strong>금욕 → 조화로운 삶</strong></p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section1', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="2">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">14세기 말 - 이탈리아에서 시작</div>
+                    <h3 class="section-title">왜 이탈리아였을까?</h3>
+                    <div class="expandable" id="section2">
+                        <div class="key-concepts political">
+                            <h4>🏛️ 로마 문화유산의 풍부한 잔존</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>고대 로마 유적</strong>: 콜로세움, 판테온 등 일상 속 고전</li>
+                                <li><strong>라틴어 전통</strong>: 교회와 학문의 언어로 지속</li>
+                                <li><strong>법률 전통</strong>: 로마법의 연속성</li>
+                                <li><strong>문화적 자부심</strong>: 과거 영광에 대한 기억</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts humanist">
+                            <h4>📖 비잔티움 학자들의 이주</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>1453년 콘스탄티노플 함락</strong> 이후 대량 이주</li>
+                                <li><strong>그리스어 원전</strong> 직접 전수</li>
+                                <li><strong>플라톤 철학</strong> 재소개</li>
+                                <li><strong>동방 정교회 전통</strong>과 서방의 만남</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts patronage">
+                            <h4>💰 지중해 무역의 부와 후원 문화</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>도시국가 번영</strong>: 베네치아, 제노바, 피렌체</li>
+                                <li><strong>은행업 발달</strong>: 메디치, 푸거 가문 등</li>
+                                <li><strong>상인-예술가 후원</strong>: 경제력의 문화적 투자</li>
+                                <li><strong>경쟁적 후원</strong>: 도시 간 문화적 경쟁</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section2', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="3">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">15세기 - 메디치 황금기</div>
+                    <h3 class="section-title">메디치 가문과 후원 문화</h3>
+                    <div class="expandable" id="section3">
+                        <div class="key-concepts patronage">
+                            <h4>🏦 메디치 은행의 부상</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>조반니 데 메디치</strong>: 은행 제국의 기초</li>
+                                <li><strong>코시모 데 메디치</strong>: '피렌체의 아버지'</li>
+                                <li><strong>로렌초 데 메디치</strong>: '위대한(Magnifico)' 후원자</li>
+                                <li><strong>교황 가문</strong>: 레오 10세, 클레멘스 7세 배출</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts artistic">
+                            <h4>🎨 예술 후원의 혁신</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>개인 후원</strong>: 교회가 아닌 개인·가문 중심</li>
+                                <li><strong>예술가 지위 향상</strong>: 장인에서 창조적 개인으로</li>
+                                <li><strong>다양한 분야</strong>: 회화, 조각, 건축, 문학, 철학</li>
+                                <li><strong>인문주의 아카데미</strong>: 플라톤 아카데미 운영</li>
+                            </ul>
+                        </div>
+                        <div class="masterpiece">
+                            <h4>✨ 대표적 후원 작품</h4>
+                            <p><strong>보티첼리</strong> 『비너스의 탄생』, <strong>미켈란젤로</strong> 『다비드』, <strong>브루넬레스키</strong> 산타 마리아 델 피오레 대성당 돔</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section3', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="4">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">15-16세기 - 예술 혁명</div>
+                    <h3 class="section-title">예술의 혁신: 레오나르도와 미켈란젤로</h3>
+                    <div class="expandable" id="section4">
+                        <div class="key-concepts artistic">
+                            <h4>🎨 회화 기법의 혁명</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>원근법</strong>: 수학적 정확성으로 3차원 공간 표현</li>
+                                <li><strong>명암법(키아로스쿠로)</strong>: 빛과 그림자의 극적 대비</li>
+                                <li><strong>스푸마토</strong>: 레오나르도의 부드러운 경계선 기법</li>
+                                <li><strong>인체 해부학</strong>: 정확한 인체 구조와 비례</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts artistic">
+                            <h4>👨‍🎨 레오나르도 다 빈치 (1452-1519)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>만능의 천재</strong>: 화가, 조각가, 발명가, 과학자</li>
+                                <li><strong>관찰과 실험</strong>: 자연 현상의 과학적 탐구</li>
+                                <li><strong>『모나리자』</strong>: 신비로운 미소와 스푸마토 기법</li>
+                                <li><strong>『최후의 만찬』</strong>: 심리적 표현과 구성의 완성</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts artistic">
+                            <h4>🗿 미켈란젤로 부오나로티 (1475-1564)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>조각의 거장</strong>: 『다비드』, 『피에타』</li>
+                                <li><strong>시스티나 성당 천장화</strong>: 4년간의 대작업</li>
+                                <li><strong>인간의 역동성</strong>: 근육과 움직임의 완벽한 표현</li>
+                                <li><strong>테리빌리타</strong>: 숭고하고 위압적인 미적 감각</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🔬 예술과 과학의 결합</h4>
+                            <p>르네상스 예술가들은 <strong>관찰·측정·실험</strong>을 통해 자연을 이해하고 재현. 이는 근대 과학적 사고의 출발점이 됨</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section4', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="5">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">15세기 - 새로운 인간관</div>
+                    <h3 class="section-title">인문주의와 새로운 인간관</h3>
+                    <div class="expandable" id="section5">
+                        <div class="key-concepts humanist">
+                            <h4>🧠 피코 델라 미란돌라의 인간관</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>"인간의 존엄에 대하여"</strong> (1486)</li>
+                                <li><strong>"자유 의지로 스스로의 본질을 규정한다"</strong></li>
+                                <li><strong>무한한 가능성</strong>: 천사도 짐승도 될 수 있는 존재</li>
+                                <li><strong>자기 결정권</strong>: 운명을 스스로 개척하는 주체</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts humanist">
+                            <h4>📚 인문 교육의 중시</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>인문학(Studia Humanitatis)</strong>: 문법, 수사, 역사, 시, 도덕철학</li>
+                                <li><strong>시민적 교양</strong>: 공동체 참여를 위한 지적 능력</li>
+                                <li><strong>비판적 사고</strong>: 권위에 의존하지 않는 독립적 판단</li>
+                                <li><strong>언어의 중시</strong>: 표현과 소통의 도구로서 언어</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts humanist">
+                            <h4>🌍 르네상스적 인간상</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>우니베르살 인간</strong>: 다방면에 능통한 만능인</li>
+                                <li><strong>개성의 발견</strong>: 개인의 독특함과 창조성 강조</li>
+                                <li><strong>현세적 성공</strong>: 종교적 금욕보다 현실적 성취</li>
+                                <li><strong>조화로운 삶</strong>: 정신과 육체, 개인과 사회의 균형</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section5', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="6">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">15-16세기 - 정치사상과 문학</div>
+                    <h3 class="section-title">마키아벨리와 르네상스 문학</h3>
+                    <div class="expandable" id="section6">
+                        <div class="key-concepts political">
+                            <h4>👑 마키아벨리의 정치사상</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>『군주론』(1513)</strong>: 현실적 정치 이론</li>
+                                <li><strong>정치의 자율성</strong>: 도덕·종교에서 독립된 정치</li>
+                                <li><strong>"목적이 수단을 정당화한다"</strong>: 실용주의적 접근</li>
+                                <li><strong>인간 본성의 현실적 이해</strong>: 선악이 혼재된 존재</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts literary">
+                            <h4>📖 르네상스 문학의 아버지들</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>페트라르카</strong>: 소네트 형식, 개인적 감정 표현</li>
+                                <li><strong>보카치오</strong>: 『데카메론』, 세속적 즐거움</li>
+                                <li><strong>단테</strong>: 『신곡』, 라틴어가 아닌 이탈리아어 사용</li>
+                                <li><strong>차서의 개념</strong>: 인간의 현실적 모습 묘사</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts literary">
+                            <h4>🎭 문학의 새로운 특징</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>개인의 내면</strong>: 심리적 갈등과 감정 탐구</li>
+                                <li><strong>모국어 사용</strong>: 라틴어에서 각국 언어로</li>
+                                <li><strong>현실적 묘사</strong>: 이상화된 인물보다 실제적 인물</li>
+                                <li><strong>세속적 주제</strong>: 종교적 주제에서 인간사로 확장</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section6', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="7">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">16세기 - 북유럽 전파</div>
+                    <h3 class="section-title">알프스 이북 르네상스</h3>
+                    <div class="expandable" id="section7">
+                        <div class="key-concepts humanist">
+                            <h4>🌍 북유럽으로의 확산 (16세기)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>알프스 이북</strong>: 독일, 네덜란드, 프랑스, 영국</li>
+                                <li><strong>대학과 인쇄소</strong>를 통한 확산</li>
+                                <li><strong>이탈리아 유학</strong>: 북유럽 지식인들의 학습</li>
+                                <li><strong>상업 네트워크</strong>: 한자동맹과 상인들의 역할</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts humanist">
+                            <h4>📚 에라스무스 (1466-1536)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>『우신예찬』(1511)</strong>: 교회와 사회 비판</li>
+                                <li><strong>그리스어 신약성경</strong> 편찬</li>
+                                <li><strong>관용과 평화</strong> 사상</li>
+                                <li><strong>"인문주의의 왕자"</strong>: 유럽 지식인 네트워크 중심</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts political">
+                            <h4>🏛️ 토머스 모어 (1478-1535)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>『유토피아』(1516)</strong>: 이상 사회 구상</li>
+                                <li><strong>사회 비판</strong>: 사유재산제와 불평등 문제</li>
+                                <li><strong>실용적 개혁</strong>: 현실 정치에의 참여</li>
+                                <li><strong>순교</strong>: 헨리 8세와의 갈등으로 처형</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>⛪ 북유럽 르네상스의 특징</h4>
+                            <p><strong>종교 개혁의 전조</strong>: 교회 비판과 사회 개혁 의식이 강했으며, 이는 곧 종교 개혁으로 이어지는 지적 분위기를 조성</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section7', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="8">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1440년대 - 구텐베르크 혁명</div>
+                    <h3 class="section-title">활판인쇄술: 지식 혁명의 엔진</h3>
+                    <div class="expandable" id="section8">
+                        <div class="key-concepts technological">
+                            <h4>🖨️ 구텐베르크의 혁신</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>활자 조판술</strong>: 납 활자를 조합한 인쇄</li>
+                                <li><strong>첫 인쇄서</strong>: 42행 성경 (1455년경)</li>
+                                <li><strong>대량 생산</strong>: 수제 필사에서 기계 복제로</li>
+                                <li><strong>비용 절감</strong>: 책값의 급격한 하락</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts technological">
+                            <h4>📈 급속한 확산 (15세기 중엽~1500년)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>유럽 전역 확산</strong>: 50년 만에 유럽 전체</li>
+                                <li><strong>인쇄소 급증</strong>: 1500년까지 1000여 개 도시</li>
+                                <li><strong>출판량 폭증</strong>: 15세기 말까지 2000만 권</li>
+                                <li><strong>문해율 상승</strong>: 읽을 거리 증가로 교육 확산</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts humanist">
+                            <h4>🌐 사회적 영향</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>지식의 민주화</strong>: 지식 독점 체제 붕괴</li>
+                                <li><strong>텍스트 정확성</strong>: 필사 오류 감소</li>
+                                <li><strong>표준화</strong>: 언어와 철자의 통일</li>
+                                <li><strong>비판적 사고</strong>: 다양한 견해 비교 가능</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🔗 르네상스·종교개혁의 촉매</h4>
+                            <p>활판인쇄술은 <strong>인문주의 사상과 종교 개혁 이념의 급속한 확산</strong>을 가능하게 한 가장 중요한 기술적 혁신</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section8', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="9">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">현재까지 - 지속되는 영향</div>
+                    <h3 class="section-title">현대와의 연결: 르네상스의 유산</h3>
+                    <div class="expandable" id="section9">
+                        <div class="key-concepts humanist">
+                            <h4>🏛️ 민주주의와 인권의 뿌리</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>개인의 존엄</strong>: 현대 인권 사상의 출발점</li>
+                                <li><strong>자유 의지</strong>: 개인 선택권과 자기 결정권</li>
+                                <li><strong>비판적 사고</strong>: 권위에 의존하지 않는 독립적 판단</li>
+                                <li><strong>시민적 교양</strong>: 민주 사회 참여를 위한 교육</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts artistic">
+                            <h4>🔬 과학적 사고의 기원</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>관찰과 실험</strong>: 레오나르도의 자연 탐구 방법</li>
+                                <li><strong>수학적 정확성</strong>: 원근법과 비례의 과학</li>
+                                <li><strong>경험적 지식</strong>: 직접 체험을 통한 학습</li>
+                                <li><strong>통합적 사고</strong>: 예술과 과학의 융합</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts technological">
+                            <h4>💻 정보화 시대와의 유사성</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>미디어 혁명</strong>: 인쇄술 → 인터넷</li>
+                                <li><strong>지식 접근성</strong>: 정보의 민주화</li>
+                                <li><strong>창작자 지위</strong>: 예술가 → 크리에이터</li>
+                                <li><strong>글로벌 문화</strong>: 지역에서 세계로 확산</li>
+                            </ul>
+                        </div>
+                        <div class="masterpiece">
+                            <h4>🌟 르네상스가 남긴 것</h4>
+                            <p><strong>개인의 가능성에 대한 믿음</strong>, <strong>창조적 상상력</strong>, <strong>현실을 탐구하는 과학적 정신</strong>, <strong>다양성을 인정하는 관용</strong> - 이 모든 것이 현대 문명의 토대</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section9', this)">자세히 보기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 형성평가 섹션 -->
+        <div class="assessment-section">
+            <div class="assessment-header">
+                <h2>🎯 형성평가</h2>
+                <p>르네상스 인문주의와 문화 혁신에 대한 이해도를 확인해보세요!</p>
+            </div>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-controls">
+                    <button class="quiz-btn" onclick="startQuiz()">평가 시작</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="nav-dot active" onclick="scrollToSection(1)"></div>
+        <div class="nav-dot" onclick="scrollToSection(2)"></div>
+        <div class="nav-dot" onclick="scrollToSection(3)"></div>
+        <div class="nav-dot" onclick="scrollToSection(4)"></div>
+        <div class="nav-dot" onclick="scrollToSection(5)"></div>
+        <div class="nav-dot" onclick="scrollToSection(6)"></div>
+        <div class="nav-dot" onclick="scrollToSection(7)"></div>
+        <div class="nav-dot" onclick="scrollToSection(8)"></div>
+        <div class="nav-dot" onclick="scrollToSection(9)"></div>
+        <div class="nav-dot" onclick="scrollToSection(10)"></div>
+    </div>
+
+    <script>
+        // 형성평가 문제 데이터
+        const quizData = [
+            {
+                id: 1,
+                difficulty: "basic",
+                difficultyText: "기본",
+                question: "르네상스가 이탈리아에서 먼저 시작된 이유로 옳은 것은?",
+                options: [
+                    "프랑스와의 전쟁에서 승리하여 경제적으로 풍요로워졌기 때문이다",
+                    "로마 문화유산의 잔존, 비잔티움 학자 유입, 지중해 무역의 부가 결합되었기 때문이다",
+                    "교황이 이탈리아 통일을 지원했기 때문이다",
+                    "이슬람 세력을 완전히 축출했기 때문이다"
+                ],
+                correct: 1,
+                explanation: "이탈리아는 고대 로마 문화유산이 풍부하게 남아있었고, 1453년 콘스탄티노플 함락 후 비잔티움 학자들이 그리스어 원전을 가지고 이주했으며, 지중해 무역으로 부유해진 메디치 같은 상인들이 예술과 학문을 후원했기 때문에 르네상스가 먼저 시작될 수 있었습니다."
+            },
+            {
+                id: 2,
+                difficulty: "intermediate",
+                difficultyText: "보통",
+                question: "피코 델라 미란돌라가 말한 '자유 의지로 스스로의 본질을 규정한다'는 인간관이 갖는 의미로 가장 적절한 것은?",
+                options: [
+                    "인간은 태어날 때부터 정해진 운명을 따라야 한다는 숙명론",
+                    "인간은 무한한 가능성을 가지고 스스로 존재를 창조할 수 있다는 자율성 강조",
+                    "인간은 신의 뜻에만 따라야 한다는 절대적 의존성",
+                    "인간은 사회적 신분에 따라 역할이 정해진다는 계급론"
+                ],
+                correct: 1,
+                explanation: "피코 델라 미란돌라의 인간관은 인간이 천사도 짐승도 될 수 있는 무한한 가능성을 가진 존재이며, 자유 의지를 통해 스스로 어떤 존재가 될지 결정할 수 있다는 자율성과 존엄성을 강조합니다. 이는 중세의 신 중심적 세계관에서 벗어나 인간 중심적 사고의 핵심을 보여줍니다."
+            },
+            {
+                id: 3,
+                difficulty: "advanced",
+                difficultyText: "심화",
+                question: "알프스 이북 르네상스가 이탈리아 르네상스와 구별되는 특징으로 가장 적절한 것은?",
+                options: [
+                    "고전 연구보다는 예술 창작에만 집중했다",
+                    "교회의 형식주의와 사회 부패를 비판하는 경향이 강하여 종교개혁의 지적 분위기를 조성했다",
+                    "세속적 주제보다는 종교적 주제만을 다뤘다",
+                    "이탈리아의 영향을 전혀 받지 않고 독자적으로 발전했다"
+                ],
+                correct: 1,
+                explanation: "알프스 이북 르네상스는 에라스무스의 『우신예찬』, 토머스 모어의 『유토피아』에서 보듯이 교회의 형식주의와 사회 부패에 대한 비판 의식이 강했습니다. 이러한 비판적 성향은 곧 종교개혁으로 이어지는 지적 분위기를 조성하는 중요한 역할을 했습니다."
+            },
+            {
+                id: 4,
+                difficulty: "expert",
+                difficultyText: "최고",
+                question: "활판인쇄술이 르네상스와 종교개혁에 미친 영향을 종합적으로 평가할 때 가장 적절한 것은?",
+                options: [
+                    "단순히 책의 생산량만 늘렸을 뿐 사상의 확산에는 별다른 영향을 주지 못했다",
+                    "지식의 민주화, 텍스트 정확성 향상, 비판적 사고 촉진을 통해 인문주의와 종교개혁 사상의 급속한 확산을 가능하게 했다",
+                    "오히려 잘못된 정보의 확산을 증가시켜 사회 혼란을 야기했다",
+                    "교회의 권위만 강화시키고 개인의 사고는 억압했다"
+                ],
+                correct: 1,
+                explanation: "활판인쇄술은 15세기 중엽부터 1500년경까지 급속히 확산되면서 지식의 독점 체제를 붕괴시키고, 필사 오류를 줄여 텍스트의 정확성을 높였으며, 다양한 견해의 비교를 통해 비판적 사고를 촉진했습니다. 이는 인문주의 사상과 종교개혁 이념이 유럽 전역에 빠르게 확산될 수 있게 한 가장 중요한 기술적 혁신이었습니다."
+            },
+            {
+                id: 5,
+                difficulty: "application",
+                difficultyText: "응용",
+                question: "르네상스의 인문주의 정신이 현대 사회에 주는 시사점으로 가장 적절한 것은?",
+                options: [
+                    "과거의 전통만을 따라야 하므로 새로운 변화는 거부해야 한다",
+                    "권위에 의존하기보다는 개인의 비판적 사고와 창조적 능력을 발휘하는 것이 중요하다",
+                    "예술과 과학은 완전히 분리되어야 하므로 융합적 사고는 불필요하다",
+                    "개인보다는 집단의 이익만을 우선시해야 한다"
+                ],
+                correct: 1,
+                explanation: "르네상스 인문주의는 개인의 존엄성과 자율성, 비판적 사고, 창조적 가능성을 강조했습니다. 이는 현대 사회에서도 권위나 관습에 맹목적으로 의존하기보다는 개인이 스스로 판단하고 창조하는 능력을 발휘하는 것이 중요함을 시사합니다. 또한 레오나르도 다 빈치처럼 예술과 과학의 융합적 사고는 현대의 통섭적 접근과도 연결됩니다."
+            }
+        ];
+
+        let quizState = {
+            started: false,
+            currentQuestion: 0,
+            answers: [],
+            showingResults: false,
+            selectedAnswer: null,
+            answeredCurrent: false
+        };
+
+        function startQuiz() {
+            quizState = {
+                started: true,
+                currentQuestion: 0,
+                answers: [],
+                showingResults: false,
+                selectedAnswer: null,
+                answeredCurrent: false
+            };
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const container = document.getElementById('quizContainer');
+            const question = quizData[quizState.currentQuestion];
+            const progress = ((quizState.currentQuestion) / quizData.length) * 100;
+
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                    <div class="progress-text">문제 ${quizState.currentQuestion + 1} / ${quizData.length}</div>
+                </div>
+                
+                <div class="quiz-card" id="questionCard">
+                    <div class="difficulty ${question.difficulty}">${question.difficultyText} 수준</div>
+                    <div class="quiz-question">
+                        <h3>${question.id}. ${question.question}</h3>
+                        <ul class="quiz-options">
+                            ${question.options.map((option, index) => `
+                                <li class="quiz-option" onclick="selectAnswer(${index})" id="option-${index}">
+                                    ${index + 1}. ${option}
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <div class="quiz-explanation" id="explanation">
+                            <strong>💡 해설:</strong> ${question.explanation}
+                        </div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+                            ${quizState.currentQuestion === quizData.length - 1 ? '결과 보기' : '다음 문제'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Reset state for current question
+            quizState.selectedAnswer = null;
+            quizState.answeredCurrent = false;
+        }
+
+        function selectAnswer(answerIndex) {
+            if (quizState.answeredCurrent) return;
+
+            const question = quizData[quizState.currentQuestion];
+            quizState.selectedAnswer = answerIndex;
+            quizState.answeredCurrent = true;
+            quizState.answers[quizState.currentQuestion] = answerIndex;
+
+            // Update option styles
+            document.querySelectorAll('.quiz-option').forEach((option, index) => {
+                option.style.pointerEvents = 'none';
+                
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                } else if (index === answerIndex) {
+                    option.classList.add('selected');
+                }
+            });
+
+            // Show explanation
+            document.getElementById('explanation').classList.add('show');
+            
+            // Enable next button after a delay
+            setTimeout(() => {
+                document.getElementById('nextBtn').disabled = false;
+                document.getElementById('nextBtn').style.opacity = '1';
+            }, 1000);
+        }
+
+        function nextQuestion() {
+            if (!quizState.answeredCurrent) return;
+
+            quizState.currentQuestion++;
+            
+            if (quizState.currentQuestion >= quizData.length) {
+                showResults();
+            } else {
+                showQuestion();
+            }
+        }
+
+        function showResults() {
+            quizState.showingResults = true;
+            const correctCount = quizState.answers.reduce((count, answer, index) => {
+                return count + (answer === quizData[index].correct ? 1 : 0);
+            }, 0);
+            
+            const percentage = Math.round((correctCount / quizData.length) * 100);
+            const scoreDegrees = (percentage / 100) * 360;
+
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="progress-text">평가 완료!</div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="score-display">
+                        <h3>🎯 형성평가 결과</h3>
+                        <div class="score-circle" style="--score-deg: ${scoreDegrees}deg">
+                            <div class="score-text">${percentage}%</div>
+                        </div>
+                        <p><strong>정답: ${correctCount}/${quizData.length}문제</strong></p>
+                        <p>${getScoreMessage(percentage)}</p>
+                        
+                        <div class="score-breakdown">
+                            <h4>📊 문제별 결과</h4>
+                            ${quizData.map((q, index) => {
+                                const isCorrect = quizState.answers[index] === q.correct;
+                                return `
+                                    <div class="result-item">
+                                        <span>문제 ${index + 1} (${q.difficultyText})</span>
+                                        <span style="color: ${isCorrect ? '#96ceb4' : '#ff6b6b'}; font-weight: bold;">
+                                            ${isCorrect ? '✓ 정답' : '✗ 오답'}
+                                        </span>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn secondary" onclick="resetQuiz()">다시 풀기</button>
+                        <button class="quiz-btn" onclick="scrollToTop()">학습 내용으로</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getScoreMessage(percentage) {
+            if (percentage >= 90) return "🏆 우수! 르네상스 인문주의를 완벽하게 이해하고 있습니다!";
+            if (percentage >= 80) return "👍 좋음! 대부분의 내용을 잘 이해하고 있습니다!";
+            if (percentage >= 70) return "📚 보통! 조금 더 복습하면 완벽해질 것 같아요!";
+            if (percentage >= 60) return "💪 노력! 기본 개념은 이해했으니 심화 학습을 해보세요!";
+            return "📖 재학습! 다시 한 번 내용을 차근차근 읽어보세요!";
+        }
+
+        function resetQuiz() {
+            quizState = {
+                started: false,
+                currentQuestion: 0,
+                answers: [],
+                showingResults: false,
+                selectedAnswer: null,
+                answeredCurrent: false
+            };
+
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-controls">
+                    <button class="quiz-btn" onclick="startQuiz()">평가 시작</button>
+                </div>
+            `;
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleExpand(sectionId, button) {
+            const section = document.getElementById(sectionId);
+            const isExpanded = section.classList.contains('expanded');
+            
+            if (isExpanded) {
+                section.classList.remove('expanded');
+                button.textContent = '자세히 보기';
+            } else {
+                section.classList.add('expanded');
+                button.textContent = '접기';
+            }
+        }
+
+        function scrollToSection(sectionNum) {
+            if (sectionNum === 10) {
+                // 형성평가 섹션으로 스크롤
+                document.querySelector('.assessment-section').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                const section = document.querySelector(`[data-section="${sectionNum}"]`);
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === sectionNum);
+            });
+        }
+
+        // Auto-update navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.timeline-item');
+            const assessmentSection = document.querySelector('.assessment-section');
+            let currentSection = 1;
+            
+            // Check if assessment section is in view
+            if (assessmentSection) {
+                const assessmentRect = assessmentSection.getBoundingClientRect();
+                if (assessmentRect.top <= window.innerHeight / 2) {
+                    currentSection = 10;
+                }
+            }
+            
+            // Check timeline sections
+            if (currentSection !== 10) {
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentSection = index + 1;
+                    }
+                });
+            }
+            
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === currentSection);
+            });
+        });
+
+        // Add hover effects to timeline items
+        document.querySelectorAll('.timeline-content').forEach(content => {
+            content.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            content.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click animation to buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('expand-btn') || e.target.classList.contains('quiz-btn')) {
+                e.target.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    e.target.style.transform = 'scale(1)';
+                }, 150);
+            }
+        });
+    </script>
+</body>
+</html>

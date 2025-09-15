@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>십자군 원정과 중세 후기의 대변화</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #a55eea, #ff6b6b);
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            margin: 40px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            margin-right: 0;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            z-index: 10;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-content {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .key-concepts {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .key-concepts.political {
+            background: rgba(78, 205, 196, 0.2);
+            border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+
+        .key-concepts.economic {
+            background: rgba(150, 206, 180, 0.2);
+            border: 1px solid rgba(150, 206, 180, 0.3);
+        }
+
+        .key-concepts.religious {
+            background: rgba(254, 202, 87, 0.2);
+            border: 1px solid rgba(254, 202, 87, 0.3);
+        }
+
+        .key-concepts.social {
+            background: rgba(165, 94, 234, 0.2);
+            border: 1px solid rgba(165, 94, 234, 0.3);
+        }
+
+        .key-concepts.military {
+            background: rgba(255, 159, 243, 0.2);
+            border: 1px solid rgba(255, 159, 243, 0.3);
+        }
+
+        .key-concepts h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .timeline-year {
+            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(254, 202, 87, 0.3);
+        }
+
+        .expandable {
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .expandable.expanded {
+            max-height: 2000px;
+        }
+
+        .expand-btn {
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .expand-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .important-note {
+            background: rgba(150, 206, 180, 0.2);
+            border: 1px solid rgba(150, 206, 180, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #96ceb4;
+        }
+
+        .correction {
+            background: rgba(255, 159, 243, 0.2);
+            border: 1px solid rgba(255, 159, 243, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9ff3;
+        }
+
+        /* 형성평가 스타일 */
+        .assessment-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .assessment-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .assessment-header h2 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1, #96ceb4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .assessment-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 600px;
+            position: relative;
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ecdc4, #45b7d1, #96ceb4);
+            border-radius: 12px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+
+        .progress-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            border-radius: 35px;
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            animation: cardSlideIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s;
+        }
+
+        .quiz-card:hover::before {
+            left: 100%;
+        }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .difficulty.basic {
+            background: linear-gradient(135deg, #96ceb4, #85d4a4);
+            color: white;
+        }
+
+        .difficulty.intermediate {
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: white;
+        }
+
+        .difficulty.advanced {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .difficulty.expert {
+            background: linear-gradient(135deg, #a55eea, #8854d0);
+            color: white;
+        }
+
+        .difficulty.application {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+        }
+
+        .quiz-question h3 {
+            color: #fff;
+            margin-bottom: 35px;
+            font-size: 1.5em;
+            line-height: 1.6;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 35px;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 20px 30px;
+            margin-bottom: 18px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.6s;
+        }
+
+        .quiz-option:hover::before {
+            left: 100%;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .quiz-option.selected {
+            background: rgba(78, 205, 196, 0.3);
+            border-color: #4ecdc4;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(78, 205, 196, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(150, 206, 180, 0.35);
+            border-color: #96ceb4;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(150, 206, 180, 0.5);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(255, 107, 107, 0.35);
+            border-color: #ff6b6b;
+            color: #fff;
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .quiz-explanation {
+            background: rgba(254, 202, 87, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(254, 202, 87, 0.4);
+            border-radius: 25px;
+            padding: 25px;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.95);
+            display: none;
+            box-shadow: 0 12px 35px rgba(254, 202, 87, 0.3);
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .quiz-explanation.show {
+            display: block;
+            animation: fadeInScale 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .quiz-btn:hover::before {
+            left: 100%;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(78, 205, 196, 0.5);
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.2);
+        }
+
+        .quiz-btn.secondary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .quiz-btn.secondary:hover {
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
+        }
+
+        .score-display {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 40px;
+            color: #fff;
+            font-size: 1.3em;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#4ecdc4 0deg, #4ecdc4 var(--score-deg), rgba(255,255,255,0.2) var(--score-deg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2em;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-breakdown {
+            margin-top: 30px;
+        }
+
+        .score-breakdown h4 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .navigation {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #4ecdc4;
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+            transform: scale(1.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+        .timeline-item:nth-child(8) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(9) { animation-delay: 0.9s; }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .quiz-card {
+                padding: 30px;
+            }
+
+            .quiz-option {
+                padding: 15px 20px;
+                font-size: 0.95em;
+            }
+
+            .quiz-btn {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+
+            .quiz-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .score-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .score-circle::before {
+                width: 95px;
+                height: 95px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>십자군 원정과 중세 후기의 대변화</h1>
+            <p>1096년부터 200년간 이어진 원정이 유럽에 미친 거대한 변화</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-section="1">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1095년 - 클레르몽 공의회</div>
+                    <h3 class="section-title">십자군 원정의 배경과 계기</h3>
+                    <div class="expandable" id="section1">
+                        <div class="section-content">
+                            <strong>셀주크 튀르크의 팽창</strong>으로 예루살렘 점령, 비잔티움 제국 압박. 비잔티움 황제의 군사 지원 요청에 교황 <strong>우르바누스 2세</strong>가 응답
+                        </div>
+                        <div class="key-concepts religious">
+                            <h4>⛪ 클레르몽 공의회 (1095년)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>"하나님이 그것을 원한다!"</strong> - 성지 회복 호소</li>
+                                <li><strong>면죄부 약속</strong>: 원정 참가자의 모든 죄 사면</li>
+                                <li><strong>성전(聖戰) 개념</strong>: 기독교도의 의무로서 전쟁 정당화</li>
+                                <li><strong>순례와 전쟁의 결합</strong>: 종교적 열정과 군사 행동 통합</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts political">
+                            <h4>🏛️ 다층적 참여 동기</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>교황</strong>: 교황권 강화, 동서 교회 재통합 시도</li>
+                                <li><strong>제후·기사</strong>: 새로운 영지 획득, 봉토 확대</li>
+                                <li><strong>상인</strong>: 지중해 무역로 장악, 동방 시장 개척</li>
+                                <li><strong>농민·시민</strong>: 경제적 고통 탈출, 종교적 구원</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts social">
+                            <h4>🌍 사회적 배경</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>인구 증가</strong>와 농업 생산력 한계</li>
+                                <li><strong>차남·삼남 문제</strong>: 상속받지 못한 기사들의 출로</li>
+                                <li><strong>봉건 사회의 폭력성</strong>: 전쟁 에너지의 외부 전환</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section1', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="2">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1096-1099년 - 제1차 십자군</div>
+                    <h3 class="section-title">성지 회복의 성공</h3>
+                    <div class="expandable" id="section2">
+                        <div class="key-concepts military">
+                            <h4>⚔️ 원정의 전개</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>민중 십자군</strong>: 피터 수도사의 무질서한 선발대</li>
+                                <li><strong>제후 십자군</strong>: 고드프루아 등 조직적 원정</li>
+                                <li><strong>안티오크 공방전</strong> (1097-1098): 8개월간 치열한 공성전</li>
+                                <li><strong>예루살렘 점령</strong> (1099.7.15): 대학살과 약탈</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts political">
+                            <h4>🏰 십자군 국가들 건설</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>예루살렘 왕국</strong>: 고드프루아 드 부용(왕 칭호 거부)</li>
+                                <li><strong>안티오크 공국</strong>: 보에몽</li>
+                                <li><strong>에데사 백국</strong>: 볼드윈</li>
+                                <li><strong>트리폴리 백국</strong>: 레이몽</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🗂️ 십자군 국가의 한계</h4>
+                            <p><strong>소수 지배층</strong>: 유럽계 기사 소수가 현지 다수 무슬림·동방 기독교도 지배. <strong>지속 가능성 의문</strong></p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section2', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="3">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1202-1204년 - 제4차 십자군</div>
+                    <h3 class="section-title">목적의 변질과 콘스탄티노플 점령</h3>
+                    <div class="expandable" id="section3">
+                        <div class="key-concepts political">
+                            <h4>💰 베네치아의 개입</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>운송비 미지급</strong>: 십자군의 재정 부족</li>
+                                <li><strong>베네치아 도제 단돌로</strong>의 정치적 계산</li>
+                                <li><strong>자라 공격</strong>: 베네치아 경쟁 도시 타격</li>
+                                <li><strong>비잔티움 내정 개입</strong>: 왕위 계승 분쟁 이용</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts military">
+                            <h4>🏛️ 콘스탄티노플 함락 (1204)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>3일간 대약탈</strong>: 1000년 축적된 부의 파괴</li>
+                                <li><strong>라틴 제국</b> 수립 (1204-1261)</li>
+                                <li><strong>베네치아의 이익</strong>: 동지중해 무역권 독점</li>
+                                <li><strong>비잔티움 분열</strong>: 니케아, 트라페준트 제국 분립</li>
+                            </ul>
+                        </div>
+                        <div class="correction">
+                            <h4>⚠️ 놓치기 쉬운 부분</h4>
+                            <p>제4차 십자군은 <strong>상업적 이익이 종교적 목적을 압도</strong>한 사례. 베네치아는 무역 경쟁자 제거와 동방 시장 독점이 진짜 목적</p>
+                        </div>
+                        <div class="important-note">
+                            <h4>🔄 십자군 운동의 변질</h4>
+                            <p><strong>성지 회복 → 경제적 이익</strong>. 이후 십자군의 종교적 권위와 참여 동기 크게 약화</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section3', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="4">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">13-14세기 - 경제·사회 변화</div>
+                    <h3 class="section-title">화폐경제와 도시 성장</h3>
+                    <div class="expandable" id="section4">
+                        <div class="key-concepts economic">
+                            <h4>💰 화폐경제의 확산</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>동방 무역 활성화</strong>: 향료, 비단, 보석 등 고부가가치 상품</li>
+                                <li><strong>이탈리아 도시 부상</strong>: 베네치아, 제노바, 피사 등</li>
+                                <li><strong>한자 동맹</strong>: 북유럽 상업 네트워크 발달</li>
+                                <li><strong>은행업 발달</strong>: 메디치 은행, 환어음 시스템</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts social">
+                            <h4>🏘️ 도시 성장과 농노 해방</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>"도시의 공기는 자유롭다"</strong>: 1년 1일 거주 시 농노 신분 해제</li>
+                                <li><strong>지대의 화폐화</strong>: 현물 지대에서 화폐 지대로 변화</li>
+                                <li><strong>길드 발달</strong>: 수공업자 조합과 기술 발전</li>
+                                <li><strong>상인 계층 대두</strong>: 부르주아지의 정치적 영향력 증대</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts social">
+                            <h4>💀 흑사병의 충격 (1347-1351)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>인구 1/3 감소</strong>: 유럽 전역 7500만→5000만명</li>
+                                <li><strong>노동력 부족</strong> → <strong>임금 상승</strong></li>
+                                <li><strong>농노 지위 향상</strong>: 자영농민 증가</li>
+                                <li><strong>영주 권한 약화</strong>: 장원제 해체 가속화</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section4', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="5">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1309-1377년 - 아비뇽 유수</div>
+                    <h3 class="section-title">교황권의 몰락</h3>
+                    <div class="expandable" id="section5">
+                        <div class="key-concepts political">
+                            <h4>👑 프랑스 왕권 vs 교황권</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>필리프 4세</strong>의 교회 과세 시도</li>
+                                <li><strong>보니파키우스 8세</strong>의 저항</li>
+                                <li><strong>아나니 사건</strong> (1303): 교황 체포 굴욕</li>
+                                <li><strong>클레멘스 5세</strong>의 아비뇽 이주 (1309)</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts religious">
+                            <h4>⛪ 교황권 위신 실추</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>프랑스 왕의 꼭둑각시</strong> 인식 확산</li>
+                                <li><strong>대분열</strong> (1378-1417): 교황 2-3명 동시 존재</li>
+                                <li><strong>공의회주의 대두</strong>: 교황 절대권 도전</li>
+                                <li><strong>세속 권력의 우위</strong> 확립</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🔄 권력 구조의 변화</h4>
+                            <p>십자군 실패 → 교황권 약화 → 왕권 강화. <strong>중세적 교황 중심 질서에서 근대적 주권 국가 체제로 전환</strong>의 출발점</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section5', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="6">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1337-1453년 - 백년전쟁</div>
+                    <h3 class="section-title">프랑스 왕권의 강화</h3>
+                    <div class="expandable" id="section6">
+                        <div class="key-concepts military">
+                            <h4>⚔️ 전쟁의 전개</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>크레시 전투</strong> (1346): 장궁 vs 기사 기병</li>
+                                <li><strong>푸아티에 전투</strong> (1356): 프랑스 왕 포로</li>
+                                <li><strong>아쟁쿠르 전투</strong> (1415): 기사 몰락 상징</li>
+                                <li><strong>잔 다르크</strong> (1429-1431): 프랑스 반격의 전환점</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts political">
+                            <h4>🏛️ 군사·행정 혁신</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>상비군 창설</strong>: 용병에서 직업 군인으로</li>
+                                <li><strong>화기 도입</strong>: 대포, 총기의 전술적 활용</li>
+                                <li><strong>조세 제도 정비</strong>: 정기적 세금 징수 체계</li>
+                                <li><strong>관료제 발달</strong>: 왕실 중심의 행정 체계</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts economic">
+                            <h4>💰 경제적 변화</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>전쟁 경제</strong>: 무기 제조업, 용병업 발달</li>
+                                <li><strong>국채 발행</strong>: 전쟁 자금 조달 방식 혁신</li>
+                                <li><strong>민족 의식</strong>: 프랑스 vs 영국 정체성 강화</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section6', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="7">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1455-1487년 - 장미전쟁</div>
+                    <h3 class="section-title">영국 왕권의 안정화</h3>
+                    <div class="expandable" id="section7">
+                        <div class="key-concepts political">
+                            <h4>🌹 요크 vs 랭커스터</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>백년전쟁 패배</strong>의 후유증과 왕위 계승 분쟁</li>
+                                <li><strong>보스워스 전투</strong> (1485): 리처드 3세 전사</li>
+                                <li><strong>헨리 7세</strong> 즉위: 튜더 왕조 시작</li>
+                                <li><strong>요크-랭커스터 연합</strong>: 혼인을 통한 통합</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts social">
+                            <h4>🏰 귀족 세력 약화</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>구 귀족 몰락</strong>: 전쟁으로 기존 대가문 소멸</li>
+                                <li><strong>신흥 세력 등장</strong>: 왕실 중심의 새로운 귀족</li>
+                                <li><strong>의회 권한 확대</strong>: 왕권 견제 장치 발달</li>
+                                <li><strong>젠트리 계층</strong>: 중간 지주층의 정치 참여</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🔄 영국적 특수성</h4>
+                            <p><strong>절대왕정</strong>이 아닌 <strong>의회와 균형 잡힌 왕정</strong> 발달. 헨리 8세 종교개혁의 토대 마련</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section7', this)">자세히 보기</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-section="8">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">15세기 - 중앙집권국가의 등장</div>
+                    <h3 class="section-title">근대 국가 체제의 기원</h3>
+                    <div class="expandable" id="section8">
+                        <div class="key-concepts political">
+                            <h4>🏛️ 중앙집권화 완성</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>프랑스</strong>: 루이 11세의 강력한 왕권 확립</li>
+                                <li><strong>영국</strong>: 헨리 7세의 튜더 절대왕정</li>
+                                <li><strong>스페인</strong>: 이사벨라-페르난도 통합 왕국</li>
+                                <li><strong>신성로마제국 분열</strong>: 독일의 정치적 분산 지속</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts economic">
+                            <h4>💰 근대적 국가 기능</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>상비군</strong>: 왕권의 물리적 기반</li>
+                                <li><strong>관료제</strong>: 효율적 행정 체계</li>
+                                <li><strong>정기 조세</strong>: 안정적 재정 확보</li>
+                                <li><strong>법 통일</strong>: 왕실법이 지방법 압도</li>
+                            </ul>
+                        </div>
+                        <div class="key-concepts social">
+                            <h4>🌍 문화적 변화</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>국어 발달</strong>: 라틴어에서 각국 언어로</li>
+                                <li><strong>민족 의식</strong>: 종교적 정체성에서 국가적 정체성으로</li>
+                                <li><strong>르네상스 후원</strong>: 왕실의 문화 정책</li>
+                                <li><strong>대항해시대</strong> 준비: 국가 주도 해외 진출</li>
+                            </ul>
+                        </div>
+                        <div class="important-note">
+                            <h4>🔗 역사적 연결고리</h4>
+                            <p><strong>십자군 → 교황권 약화 → 왕권 강화 → 중앙집권국가 → 절대왕정 → 근대 국민국가</strong>로 이어지는 거대한 전환</p>
+                        </div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleExpand('section8', this)">자세히 보기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 형성평가 섹션 -->
+        <div class="assessment-section">
+            <div class="assessment-header">
+                <h2>🎯 형성평가</h2>
+                <p>십자군 원정과 중세 후기 변화에 대한 이해도를 확인해보세요!</p>
+            </div>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-controls">
+                    <button class="quiz-btn" onclick="startQuiz()">평가 시작</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="nav-dot active" onclick="scrollToSection(1)"></div>
+        <div class="nav-dot" onclick="scrollToSection(2)"></div>
+        <div class="nav-dot" onclick="scrollToSection(3)"></div>
+        <div class="nav-dot" onclick="scrollToSection(4)"></div>
+        <div class="nav-dot" onclick="scrollToSection(5)"></div>
+        <div class="nav-dot" onclick="scrollToSection(6)"></div>
+        <div class="nav-dot" onclick="scrollToSection(7)"></div>
+        <div class="nav-dot" onclick="scrollToSection(8)"></div>
+        <div class="nav-dot" onclick="scrollToSection(9)"></div>
+    </div>
+
+    <script>
+        // 형성평가 문제 데이터
+        const quizData = [
+            {
+                id: 1,
+                difficulty: "basic",
+                difficultyText: "기본",
+                question: "1095년 클레르몽 공의회에서 교황 우르바누스 2세가 십자군 원정을 호소한 직접적 계기로 옳은 것은?",
+                options: [
+                    "이슬람 세력이 로마를 공격했기 때문이다",
+                    "셀주크 튀르크가 예루살렘을 점령하고 비잔티움 제국이 군사 지원을 요청했기 때문이다",
+                    "몽골이 유럽을 침입했기 때문이다",
+                    "바이킹이 지중해를 장악했기 때문이다"
+                ],
+                correct: 1,
+                explanation: "셀주크 튀르크의 팽창으로 예루살렘이 점령되고, 비잔티움 제국이 압박을 받자 황제가 로마 교황에게 군사 지원을 요청했습니다. 이에 교황 우르바누스 2세가 클레르몽 공의회에서 성지 회복을 위한 십자군 원정을 호소했습니다."
+            },
+            {
+                id: 2,
+                difficulty: "intermediate",
+                difficultyText: "보통",
+                question: "제4차 십자군 원정(1202-1204)이 십자군 운동사에서 갖는 의미로 가장 적절한 것은?",
+                options: [
+                    "가장 성공적인 성지 회복을 달성하여 십자군의 목적을 완수했다",
+                    "성지 대신 콘스탄티노플을 점령하여 십자군 목적의 변질을 보여주었다",
+                    "이슬람과의 평화 협정을 체결하여 종교 갈등을 해결했다",
+                    "교황권이 절정에 달하여 유럽 전체를 통합했다"
+                ],
+                correct: 1,
+                explanation: "제4차 십자군은 베네치아의 상업적 이익에 이용되어 성지가 아닌 콘스탄티노플을 점령하고 라틴 제국을 수립했습니다. 이는 십자군 운동이 종교적 목적에서 경제적 이익 추구로 변질되었음을 보여주는 상징적 사건입니다."
+            },
+            {
+                id: 3,
+                difficulty: "advanced",
+                difficultyText: "심화",
+                question: "십자군 원정이 중세 후기 유럽 사회 변화에 미친 영향을 종합적으로 분석할 때 가장 적절한 것은?",
+                options: [
+                    "교황권이 강화되고 봉건제가 더욱 견고해졌다",
+                    "동방 무역 활성화로 화폐경제가 발달하고 도시가 성장하여 장원제 해체가 가속화되었다",
+                    "이슬람 문화의 유입이 차단되어 유럽 문화가 순수하게 보존되었다",
+                    "농업 기술이 발달하여 농촌 사회가 더욱 강화되었다"
+                ],
+                correct: 1,
+                explanation: "십자군 원정은 동방과의 교역을 활성화시켜 화폐경제 발달, 도시 성장, 상업의 부흥을 가져왔습니다. 이는 '도시의 공기는 자유롭다'는 말처럼 농노 해방을 촉진하고 장원제 해체를 가속화했으며, 근대 유럽 사회로의 전환 기반을 마련했습니다."
+            },
+            {
+                id: 4,
+                difficulty: "expert",
+                difficultyText: "최고",
+                question: "아비뇽 유수(1309-1377)가 중세 후기 정치 구조 변화에서 갖는 역사적 의의를 평가할 때 가장 적절한 것은?",
+                options: [
+                    "교황권이 절정에 달하여 세속 권력을 완전히 장악했다",
+                    "교황권 약화로 왕권이 상대적으로 강화되어 중앙집권국가 형성의 토대가 마련되었다",
+                    "종교개혁이 본격적으로 시작되어 프로테스탄트가 등장했다",
+                    "봉건제가 부활하여 중세적 질서가 복원되었다"
+                ],
+                correct: 1,
+                explanation: "아비뇽 유수는 교황이 프랑스 왕의 영향권 하에 놓이면서 교황권의 권위가 크게 실추된 사건입니다. 이로 인해 중세적 교황 중심 질서가 무너지고 세속 권력, 특히 왕권이 상대적으로 강화되어 근대적 중앙집권국가 형성의 중요한 전환점이 되었습니다."
+            },
+            {
+                id: 5,
+                difficulty: "application",
+                difficultyText: "응용",
+                question: "십자군 원정에서 나타난 '다층적 참여 동기'가 현대 국제 분쟁이나 개입에 주는 교훈으로 가장 적절한 것은?",
+                options: [
+                    "종교적 명분만 있다면 모든 개입이 정당화될 수 있다",
+                    "경제적 이익은 고려하지 않고 순수한 목적만 추구해야 한다",
+                    "표면적 명분과 실제 동기가 다를 수 있으므로 다각적 분석이 필요하다",
+                    "과거의 역사는 현재와 무관하므로 참고할 필요가 없다"
+                ],
+                correct: 2,
+                explanation: "십자군 원정은 종교적 명분(성지 회복) 뒤에 교황권 강화, 영지 확대, 무역권 장악 등 다양한 정치적·경제적 동기가 숨어있었습니다. 이는 현대에도 국제 개입이나 분쟁에서 공식적 명분과 실제 동기가 다를 수 있음을 보여주며, 사건을 다각도로 분석하는 비판적 사고의 중요성을 일깨워줍니다."
+            }
+        ];
+
+        let quizState = {
+            started: false,
+            currentQuestion: 0,
+            answers: [],
+            showingResults: false,
+            selectedAnswer: null,
+            answeredCurrent: false
+        };
+
+        function startQuiz() {
+            quizState = {
+                started: true,
+                currentQuestion: 0,
+                answers: [],
+                showingResults: false,
+                selectedAnswer: null,
+                answeredCurrent: false
+            };
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const container = document.getElementById('quizContainer');
+            const question = quizData[quizState.currentQuestion];
+            const progress = ((quizState.currentQuestion) / quizData.length) * 100;
+
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                    <div class="progress-text">문제 ${quizState.currentQuestion + 1} / ${quizData.length}</div>
+                </div>
+                
+                <div class="quiz-card" id="questionCard">
+                    <div class="difficulty ${question.difficulty}">${question.difficultyText} 수준</div>
+                    <div class="quiz-question">
+                        <h3>${question.id}. ${question.question}</h3>
+                        <ul class="quiz-options">
+                            ${question.options.map((option, index) => `
+                                <li class="quiz-option" onclick="selectAnswer(${index})" id="option-${index}">
+                                    ${index + 1}. ${option}
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <div class="quiz-explanation" id="explanation">
+                            <strong>💡 해설:</strong> ${question.explanation}
+                        </div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+                            ${quizState.currentQuestion === quizData.length - 1 ? '결과 보기' : '다음 문제'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Reset state for current question
+            quizState.selectedAnswer = null;
+            quizState.answeredCurrent = false;
+        }
+
+        function selectAnswer(answerIndex) {
+            if (quizState.answeredCurrent) return;
+
+            const question = quizData[quizState.currentQuestion];
+            quizState.selectedAnswer = answerIndex;
+            quizState.answeredCurrent = true;
+            quizState.answers[quizState.currentQuestion] = answerIndex;
+
+            // Update option styles
+            document.querySelectorAll('.quiz-option').forEach((option, index) => {
+                option.style.pointerEvents = 'none';
+                
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                } else if (index === answerIndex) {
+                    option.classList.add('selected');
+                }
+            });
+
+            // Show explanation
+            document.getElementById('explanation').classList.add('show');
+            
+            // Enable next button after a delay
+            setTimeout(() => {
+                document.getElementById('nextBtn').disabled = false;
+                document.getElementById('nextBtn').style.opacity = '1';
+            }, 1000);
+        }
+
+        function nextQuestion() {
+            if (!quizState.answeredCurrent) return;
+
+            quizState.currentQuestion++;
+            
+            if (quizState.currentQuestion >= quizData.length) {
+                showResults();
+            } else {
+                showQuestion();
+            }
+        }
+
+        function showResults() {
+            quizState.showingResults = true;
+            const correctCount = quizState.answers.reduce((count, answer, index) => {
+                return count + (answer === quizData[index].correct ? 1 : 0);
+            }, 0);
+            
+            const percentage = Math.round((correctCount / quizData.length) * 100);
+            const scoreDegrees = (percentage / 100) * 360;
+
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="progress-text">평가 완료!</div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="score-display">
+                        <h3>🎯 형성평가 결과</h3>
+                        <div class="score-circle" style="--score-deg: ${scoreDegrees}deg">
+                            <div class="score-text">${percentage}%</div>
+                        </div>
+                        <p><strong>정답: ${correctCount}/${quizData.length}문제</strong></p>
+                        <p>${getScoreMessage(percentage)}</p>
+                        
+                        <div class="score-breakdown">
+                            <h4>📊 문제별 결과</h4>
+                            ${quizData.map((q, index) => {
+                                const isCorrect = quizState.answers[index] === q.correct;
+                                return `
+                                    <div class="result-item">
+                                        <span>문제 ${index + 1} (${q.difficultyText})</span>
+                                        <span style="color: ${isCorrect ? '#96ceb4' : '#ff6b6b'}; font-weight: bold;">
+                                            ${isCorrect ? '✓ 정답' : '✗ 오답'}
+                                        </span>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn secondary" onclick="resetQuiz()">다시 풀기</button>
+                        <button class="quiz-btn" onclick="scrollToTop()">학습 내용으로</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getScoreMessage(percentage) {
+            if (percentage >= 90) return "🏆 우수! 십자군 원정의 복합적 영향을 완벽하게 이해하고 있습니다!";
+            if (percentage >= 80) return "👍 좋음! 대부분의 내용을 잘 이해하고 있습니다!";
+            if (percentage >= 70) return "📚 보통! 조금 더 복습하면 완벽해질 것 같아요!";
+            if (percentage >= 60) return "💪 노력! 기본 개념은 이해했으니 심화 학습을 해보세요!";
+            return "📖 재학습! 다시 한 번 내용을 차근차근 읽어보세요!";
+        }
+
+        function resetQuiz() {
+            quizState = {
+                started: false,
+                currentQuestion: 0,
+                answers: [],
+                showingResults: false,
+                selectedAnswer: null,
+                answeredCurrent: false
+            };
+
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = `
+                <div class="quiz-controls">
+                    <button class="quiz-btn" onclick="startQuiz()">평가 시작</button>
+                </div>
+            `;
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleExpand(sectionId, button) {
+            const section = document.getElementById(sectionId);
+            const isExpanded = section.classList.contains('expanded');
+            
+            if (isExpanded) {
+                section.classList.remove('expanded');
+                button.textContent = '자세히 보기';
+            } else {
+                section.classList.add('expanded');
+                button.textContent = '접기';
+            }
+        }
+
+        function scrollToSection(sectionNum) {
+            if (sectionNum === 9) {
+                // 형성평가 섹션으로 스크롤
+                document.querySelector('.assessment-section').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                const section = document.querySelector(`[data-section="${sectionNum}"]`);
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === sectionNum);
+            });
+        }
+
+        // Auto-update navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.timeline-item');
+            const assessmentSection = document.querySelector('.assessment-section');
+            let currentSection = 1;
+            
+            // Check if assessment section is in view
+            if (assessmentSection) {
+                const assessmentRect = assessmentSection.getBoundingClientRect();
+                if (assessmentRect.top <= window.innerHeight / 2) {
+                    currentSection = 9;
+                }
+            }
+            
+            // Check timeline sections
+            if (currentSection !== 9) {
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentSection = index + 1;
+                    }
+                });
+            }
+            
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === currentSection);
+            });
+        });
+
+        // Add hover effects to timeline items
+        document.querySelectorAll('.timeline-content').forEach(content => {
+            content.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            content.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click animation to buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('expand-btn') || e.target.classList.contains('quiz-btn')) {
+                e.target.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    e.target.style.transform = 'scale(1)';
+                }, 150);
+            }
+        });
+    </script>
+</body>
+</html>

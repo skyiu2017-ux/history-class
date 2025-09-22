@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>절대왕정과 계몽사상 - 단계별 학습</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .level-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .level-btn {
+            background: linear-gradient(135deg, #fdbb2d, #ffa500);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(253, 187, 45, 0.3);
+        }
+
+        .level-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(253, 187, 45, 0.5);
+        }
+
+        .level-btn.active {
+            background: linear-gradient(135deg, #FFD700, #FF8C00);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #fdbb2d;
+        }
+
+        .content-box h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .content-box p, .content-box li {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .content-box ul {
+            padding-left: 20px;
+        }
+
+        .quiz-section {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .quiz-title {
+            color: #fff;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .quiz-options {
+            list-style: none;
+        }
+
+        .quiz-options li {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .quiz-options li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .quiz-options li.correct {
+            background: rgba(76, 175, 80, 0.4);
+            border: 2px solid #4CAF50;
+        }
+
+        .quiz-options li.incorrect {
+            background: rgba(244, 67, 54, 0.4);
+            border: 2px solid #f44336;
+        }
+
+        .quiz-result {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        .quiz-result h3 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .quiz-result p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .quiz-controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #fdbb2d, #ffa500);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(253, 187, 45, 0.4);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #fdbb2d, #ffa500);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .highlight {
+            background: rgba(255, 215, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #fdbb2d;
+        }
+
+        .timeline-year {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 20px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .timeline-content {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .level-selector {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-year {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👑 절대왕정과 계몽사상 💡</h1>
+            <p>17~18세기 유럽의 정치 변화와 새로운 사상의 등장을 단계별로 학습해보세요</p>
+        </div>
+
+        <div class="level-selector">
+            <button class="level-btn active" data-level="basic">🌱 기초</button>
+            <button class="level-btn" data-level="standard">📚 표준</button>
+            <button class="level-btn" data-level="advanced">🎓 심화</button>
+        </div>
+
+        <!-- 기초 단계 -->
+        <div class="content-section active" id="basic">
+            <h2 class="section-title">🌱 기초 단계 - 절대왕정과 계몽사상의 기초</h2>
+            
+            <div class="content-box">
+                <h3>📚 절대왕정의 기반</h3>
+                <p>절대왕정을 가능하게 한 네 가지 핵심 요소</p>
+                <ul>
+                    <li><span class="highlight">관료제</span> - 국왕이 직접 임명한 관리들이 전국의 행정과 재정을 담당했습니다</li>
+                    <li><span class="highlight">상비군</span> - 평상시에도 유지되는 군대를 통해 왕은 귀족의 군사력을 억제하고 왕권을 강화했습니다</li>
+                    <li><span class="highlight">왕권신수설</span> - 왕의 권력이 신으로부터 받은 것이라는 이론으로 신성한 권위를 부여받았습니다</li>
+                    <li><span class="highlight">중상주의</span> - 수출을 장려하고 수입을 억제하며 국가의 부를 축적했습니다</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>👑 절대왕정의 대표 군주들</h3>
+                <p>유럽 각국의 절대군주와 그들의 업적</p>
+                <ul>
+                    <li><strong>펠리페 2세(에스파냐):</strong> '해가 지지 않는 제국'을 통치했으나 무적함대가 패배하며 쇠퇴</li>
+                    <li><strong>엘리자베스 1세(영국):</strong> 무적함대 격파 후 해상권 장악, 동인도회사 설립</li>
+                    <li><strong>루이 14세(프랑스):</strong> "짐이 곧 국가다"라는 말로 유명, 베르사유 궁전 건설</li>
+                    <li><strong>표트르 대제(러시아):</strong> 서구화 개혁 단행, 상트페테르부르크 건설</li>
+                    <li><strong>프리드리히 2세(프로이센):</strong> 계몽 전제군주로서 종교 관용 정책 실시</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>🔬 과학혁명의 시작</h3>
+                <p>중세 세계관을 뒤흔든 과학적 발견들</p>
+                <ul>
+                    <li><span class="highlight">갈릴레이</span> - 망원경으로 천체 관측, 지동설 지지</li>
+                    <li><span class="highlight">뉴턴</span> - 만유인력의 법칙 발견, 우주의 운동을 수학적으로 설명</li>
+                    <li>과학혁명은 자연 현상에도 법칙이 있다는 인식을 확산시켰고, 계몽사상으로 이어졌습니다</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>💡 계몽사상가들의 핵심 주장</h3>
+                <p>근대 민주주의의 사상적 토대</p>
+                <ul>
+                    <li><strong>로크:</strong> 생명, 자유, 재산이라는 자연권과 저항권 주장</li>
+                    <li><strong>루소:</strong> 일반의지에 기반한 주권재민 강조</li>
+                    <li><strong>몽테스키외:</strong> 권력 남용을 막기 위한 삼권분립 주장</li>
+                    <li><strong>볼테르:</strong> 표현의 자유와 종교의 자유 옹호</li>
+                </ul>
+            </div>
+
+            <!-- 기초 퀴즈 -->
+            <div class="quiz-section">
+                <h3 class="quiz-title">🎯 기초 단계 확인 퀴즈</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="basic-progress"></div>
+                </div>
+                
+                <div class="quiz-question" id="basic-q1">
+                    <h4>1. 절대왕정 시기 왕권 강화에 가장 직접적으로 기여한 요소는?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">의회의 협력과 지지</li>
+                        <li data-answer="1">상비군과 관료제의 확립</li>
+                        <li data-answer="2">교회의 종교적 권위</li>
+                        <li data-answer="3">시민 계급의 자발적 동의</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="basic-q2" style="display:none;">
+                    <h4>2. "짐이 곧 국가다"라는 말로 유명한 절대군주는?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">펠리페 2세</li>
+                        <li data-answer="1">프리드리히 2세</li>
+                        <li data-answer="2">루이 14세</li>
+                        <li data-answer="3">표트르 대제</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="basic-q3" style="display:none;">
+                    <h4>3. 중상주의 정책의 핵심 내용으로 옳은 것은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">자유무역을 통한 국제 교류 확대</li>
+                        <li data-answer="1">수출 장려와 수입 억제로 국부 축적</li>
+                        <li data-answer="2">농업 중심의 자급자족 경제</li>
+                        <li data-answer="3">상인들의 자율적 경제 활동 보장</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="basic-q4" style="display:none;">
+                    <h4>4. 갈릴레이가 지지한 우주관은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">천동설</li>
+                        <li data-answer="1">지동설</li>
+                        <li data-answer="2">우주 무한설</li>
+                        <li data-answer="3">조화의 법칙</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="basic-q5" style="display:none;">
+                    <h4>5. 자연권(생명, 자유, 재산)과 저항권을 주장한 계몽사상가는?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">볼테르</li>
+                        <li data-answer="1">루소</li>
+                        <li data-answer="2">로크</li>
+                        <li data-answer="3">몽테스키외</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-result" id="basic-result">
+                    <h3>결과</h3>
+                    <p id="basic-score"></p>
+                </div>
+
+                <div class="quiz-controls">
+                    <button class="quiz-btn" data-action="reset" data-level="basic">다시 풀기</button>
+                    <button class="quiz-btn" data-action="navigate" data-target="standard">표준 단계로</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 표준 단계 -->
+        <div class="content-section" id="standard">
+            <h2 class="section-title">📚 표준 단계 - 절대왕정에서 계몽사상으로</h2>
+            
+            <div class="content-box">
+                <h3>🌍 절대왕정 등장의 배경</h3>
+                <p>신항로 개척에서 중앙집권 국가로의 전환 과정</p>
+                <ul>
+                    <li><span class="highlight">원인:</span> 15-16세기 신항로 개척으로 무역 확대, 국가 간 경쟁 심화, 강력한 중앙집권적 국가 필요</li>
+                    <li><span class="highlight">과정:</span> 왕들이 귀족의 군사력 약화, 관료제 구축, 상비군 창설, 왕권신수설로 정당성 확보</li>
+                    <li><span class="highlight">결과:</span> 17세기 유럽에 강력한 절대왕정 국가 등장</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>⚖️ 동유럽과 서유럽의 차이</h3>
+                <p>절대왕정의 두 가지 발전 경로</p>
+                <ul>
+                    <li><strong>서유럽:</strong> 상업 발달, 부유한 시민 계급 성장, 영국은 입헌군주제로 전환</li>
+                    <li><strong>동유럽:</strong> 농업 중심, 귀족 세력 강함, 군사력과 관료제로 중앙집권 강화</li>
+                    <li>이러한 차이는 근대 유럽의 정치 발전에 큰 영향</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>🔭 과학혁명에서 계몽사상으로</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1687</div>
+                        <div class="timeline-content">
+                            <strong>뉴턴의 프린키피아</strong> - 만유인력 법칙 발표, "자연에는 보편적 법칙이 존재"
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1689</div>
+                        <div class="timeline-content">
+                            <strong>로크의 통치론</strong> - 자연권과 저항권 이론 제시
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1748</div>
+                        <div class="timeline-content">
+                            <strong>몽테스키외 법의 정신</strong> - 삼권분립 이론
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1762</div>
+                        <div class="timeline-content">
+                            <strong>루소 사회계약론</strong> - 주권재민과 일반의지
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <h3>🗽 혁명으로의 연결고리</h3>
+                <ul>
+                    <li><strong>미국 독립혁명(1776):</strong> "대표 없이 과세 없다" - 로크의 자연권과 저항권 이론 반영</li>
+                    <li><strong>프랑스 혁명(1789):</strong> 루소의 주권재민, 몽테스키외의 삼권분립, 볼테르의 자유 사상 결합</li>
+                    <li>계몽사상이 현실을 변혁하는 강력한 힘으로 증명</li>
+                </ul>
+            </div>
+
+            <!-- 표준 퀴즈 -->
+            <div class="quiz-section">
+                <h3 class="quiz-title">🎯 표준 단계 확인 퀴즈</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="standard-progress"></div>
+                </div>
+                
+                <div class="quiz-question" id="standard-q1">
+                    <h4>1. 신항로 개척이 절대왕정 등장에 미친 영향은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">무역 확대로 시민 계급이 왕권을 견제했다</li>
+                        <li data-answer="1">국가 간 경쟁 심화로 강력한 중앙집권이 필요해졌다</li>
+                        <li data-answer="2">종교 갈등이 줄어들어 왕권이 약화되었다</li>
+                        <li data-answer="3">농노제가 확대되어 귀족의 권력이 강해졌다</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="standard-q2" style="display:none;">
+                    <h4>2. 서유럽과 동유럽의 절대왕정 발전 차이로 옳은 것은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">서유럽은 농노제, 동유럽은 상업이 발달했다</li>
+                        <li data-answer="1">서유럽은 시민 계급 성장, 동유럽은 귀족 의존이 강했다</li>
+                        <li data-answer="2">서유럽은 왕권신수설, 동유럽은 입헌군주제였다</li>
+                        <li data-answer="3">서유럽은 관료제 미발달, 동유럽은 의회가 강했다</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="standard-q3" style="display:none;">
+                    <h4>3. 과학혁명이 계몽사상에 미친 영향은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">종교적 믿음이 더욱 강화되었다</li>
+                        <li data-answer="1">자연 법칙의 발견이 정치·사회에도 법칙이 있다는 믿음을 주었다</li>
+                        <li data-answer="2">왕권신수설의 정당성이 과학적으로 증명되었다</li>
+                        <li data-answer="3">실험 방법이 경제 정책에 직접 적용되었다</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="standard-q4" style="display:none;">
+                    <h4>4. 미국 독립선언서에 가장 큰 영향을 준 계몽사상가는?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">루소 - 일반의지</li>
+                        <li data-answer="1">볼테르 - 종교 자유</li>
+                        <li data-answer="2">로크 - 자연권과 저항권</li>
+                        <li data-answer="3">몽테스키외 - 삼권분립</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="standard-q5" style="display:none;">
+                    <h4>5. 프랑스 인권선언의 핵심 내용에 포함되지 않은 것은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">주권은 국민에게 있다</li>
+                        <li data-answer="1">자유와 평등은 인간의 권리이다</li>
+                        <li data-answer="2">왕은 신으로부터 권력을 받았다</li>
+                        <li data-answer="3">법 앞의 평등을 보장한다</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-result" id="standard-result">
+                    <h3>결과</h3>
+                    <p id="standard-score"></p>
+                </div>
+
+                <div class="quiz-controls">
+                    <button class="quiz-btn" data-action="reset" data-level="standard">다시 풀기</button>
+                    <button class="quiz-btn" data-action="navigate" data-target="advanced">심화 단계로</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 심화 단계 -->
+        <div class="content-section" id="advanced">
+            <h2 class="section-title">🎓 심화 단계 - 비판적으로 다시 생각하기</h2>
+            
+            <div class="content-box">
+                <h3>⚖️ 절대왕정의 명암</h3>
+                <p><strong>긍정적 측면:</strong></p>
+                <ul>
+                    <li>분열된 봉건 사회를 통합하여 근대적 국가 체제 확립</li>
+                    <li>통일된 법 체계, 효율적인 행정 조직, 상비군 제도 구축</li>
+                    <li>예술과 문화를 후원하여 바로크 시대의 화려한 문화유산</li>
+                </ul>
+                <p><strong>부정적 측면:</strong></p>
+                <ul>
+                    <li>끊임없는 전쟁과 왕실의 사치로 재정 파탄</li>
+                    <li>부담은 농민과 시민에게 전가</li>
+                    <li>식민지 건설 과정에서 원주민 학살과 노예무역</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>🔬 과학혁명과 계몽사상의 패러다임 전환</h3>
+                <p>신 중심에서 인간 중심으로</p>
+                <ul>
+                    <li><span class="highlight">세계관의 변화:</span> 신의 계시가 아닌 인간의 이성과 관찰·실험으로 진리 발견</li>
+                    <li><span class="highlight">정치 이론의 변화:</span> 왕권신수설 부정, 권력의 정당성을 인간의 합의와 계약에서 찾음</li>
+                    <li><span class="highlight">근대성의 토대:</span> 개인의 자유와 권리를 강조하는 근대 시민사회의 철학적 기초</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>💭 계몽사상 내부의 쟁점</h3>
+                <p>자유와 평등, 개인과 공동체의 긴장</p>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                    <h4 style="color: #FFD700;">관점 A - 로크와 개인주의</h4>
+                    <p>개인의 재산권과 자유를 최우선. 정부는 개인의 권리 보호가 역할. 자유주의와 자본주의의 기초.</p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                    <h4 style="color: #FFD700;">관점 B - 루소와 공동체주의</h4>
+                    <p>개인의 이익 추구가 불평등과 부패를 낳음. 일반의지(공동선)를 추구하는 집단적 의지 강조.</p>
+                </div>
+                <p>현대 민주주의는 이 두 가치의 균형을 모색</p>
+            </div>
+
+            <div class="content-box">
+                <h3>🌐 오늘날의 의미와 과제</h3>
+                <ul>
+                    <li><span class="highlight">긍정적 유산:</span> 민주주의, 인권, 법치주의라는 보편적 가치 확립</li>
+                    <li><span class="highlight">비판과 한계:</span> '인간'이 실제로는 백인 남성 유산자를 의미. 여성, 유색인종, 가난한 사람 배제</li>
+                    <li><span class="highlight">현대적 과제:</span> 성별, 인종, 계급, 국적에 관계없이 모든 사람의 존엄과 권리 보장</li>
+                </ul>
+            </div>
+
+            <!-- 심화 퀴즈 -->
+            <div class="quiz-section">
+                <h3 class="quiz-title">🎯 심화 단계 확인 퀴즈</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="advanced-progress"></div>
+                </div>
+                
+                <div class="quiz-question" id="advanced-q1">
+                    <h4>1. 절대왕정이 근대 국가 형성에 기여한 점은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">의회 민주주의 제도를 확립했다</li>
+                        <li data-answer="1">봉건적 분열을 극복하고 통일된 행정·법 체계를 구축했다</li>
+                        <li data-answer="2">신분제를 폐지하고 평등 사회를 실현했다</li>
+                        <li data-answer="3">종교의 자유를 보장하여 관용을 확산시켰다</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="advanced-q2" style="display:none;">
+                    <h4>2. 과학혁명이 가져온 세계관의 변화는?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">신 중심에서 인간 이성 중심으로 전환</li>
+                        <li data-answer="1">개인보다 공동체를 우선시하는 사고</li>
+                        <li data-answer="2">경험보다 종교적 믿음을 중시</li>
+                        <li data-answer="3">왕권신수설의 과학적 증명</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="advanced-q3" style="display:none;">
+                    <h4>3. 로크와 루소의 사상적 차이점은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">로크는 군주제, 루소는 공화제를 지지했다</li>
+                        <li data-answer="1">로크는 개인의 재산권 강조, 루소는 공동선과 평등 강조</li>
+                        <li data-answer="2">로크는 혁명 반대, 루소는 혁명 찬성</li>
+                        <li data-answer="3">로크는 이성 중시, 루소는 감정 중시</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="advanced-q4" style="display:none;">
+                    <h4>4. 계몽사상의 한계로 지적되는 점은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">종교적 관용을 지나치게 강조했다</li>
+                        <li data-answer="1">'인간'의 범위를 백인 남성 유산자로 제한했다</li>
+                        <li data-answer="2">왕권을 너무 약화시켜 무정부 상태를 초래했다</li>
+                        <li data-answer="3">과학기술의 발전을 억제했다</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-question" id="advanced-q5" style="display:none;">
+                    <h4>5. 다음 중 계몽사상의 현대적 의의로 가장 적절한 것은?</h4>
+                    <ul class="quiz-options">
+                        <li data-answer="0">왕정 복고를 통한 안정적 통치의 근거 제공</li>
+                        <li data-answer="1">민주주의·인권·법치주의의 사상적 토대 마련</li>
+                        <li data-answer="2">중상주의 정책의 이론적 정당화</li>
+                        <li data-answer="3">종교적 신앙의 절대적 우위 확립</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-result" id="advanced-result">
+                    <h3>결과</h3>
+                    <p id="advanced-score"></p>
+                </div>
+
+                <div class="quiz-controls">
+                    <button class="quiz-btn" data-action="reset" data-level="advanced">다시 풀기</button>
+                    <button class="quiz-btn" data-action="navigate" data-target="basic">기초로 돌아가기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if (typeof window.absolutismData === 'undefined') {
+            window.absolutismData = {
+                quizData: {
+                    basic: {
+                        answers: [1, 2, 1, 1, 2],
+                        explanations: [
+                            "상비군은 왕이 귀족의 군사력을 견제할 수 있게 했고, 관료제는 왕이 직접 임명한 관리들을 통해 전국을 통치할 수 있게 했습니다.",
+                            "루이 14세는 프랑스의 태양왕으로, 이 말을 통해 왕권의 절대성을 상징적으로 표현했습니다.",
+                            "중상주의는 수출을 늘리고 수입을 줄여 금과 은을 축적하는 보호무역 정책입니다.",
+                            "갈릴레이는 망원경 관측을 통해 코페르니쿠스의 지동설이 옳다는 것을 확인했습니다.",
+                            "로크는 '통치론'에서 인간의 자연권과 정부가 이를 침해할 때의 저항권을 주장했습니다."
+                        ]
+                    },
+                    standard: {
+                        answers: [1, 1, 1, 2, 2],
+                        explanations: [
+                            "신항로 개척으로 무역이 확대되고 국가 간 경쟁이 치열해지면서, 강력한 군사력과 재정을 갖춘 중앙집권 국가가 필요해졌습니다.",
+                            "서유럽은 상업 발달로 시민 계급이 성장하여 의회가 왕권을 견제했고, 동유럽은 농업 중심으로 왕이 귀족에 의존하며 권위주의적 통치를 했습니다.",
+                            "뉴턴의 법칙처럼 자연에 보편 법칙이 있다면, 정치와 사회에도 이성을 통해 발견할 수 있는 합리적 질서가 있을 것이라는 생각이 계몽사상의 출발점입니다.",
+                            "독립선언서는 로크의 자연권(생명, 자유, 행복추구)과 정부가 이를 침해할 때 저항할 권리가 있다는 이론을 직접 명시했습니다.",
+                            "왕권신수설은 절대왕정의 이론이며, 인권선언은 이를 부정하고 주권재민, 자유, 평등을 선언했습니다."
+                        ]
+                    },
+                    advanced: {
+                        answers: [1, 0, 1, 1, 1],
+                        explanations: [
+                            "절대왕정은 문제도 많았지만, 분열된 봉건 사회를 통합하고 중앙집권적 행정·법·군사 체계를 만들어 근대 국가의 기본 틀을 마련했습니다.",
+                            "과학혁명은 신의 계시나 교회의 권위가 아니라, 인간의 이성과 관찰·실험을 통해 진리를 발견할 수 있다는 근대적 세계관을 확립했습니다.",
+                            "로크는 개인의 자유와 재산권을 최우선 가치로 본 반면, 루소는 일반의지와 공동체의 평등을 더 중시했습니다.",
+                            "계몽사상은 보편적 인간의 권리를 주장했지만, 실제로는 여성, 유색인종, 가난한 사람들을 '이성적 존재'로 인정하지 않았습니다.",
+                            "계몽사상은 국민주권, 기본권 보장, 권력분립 등 현대 민주주의와 인권의 핵심 원리를 확립했습니다."
+                        ]
+                    }
+                },
+                currentQuizState: {
+                    basic: { currentQuestion: 1, answers: [], completed: false },
+                    standard: { currentQuestion: 1, answers: [], completed: false },
+                    advanced: { currentQuestion: 1, answers: [], completed: false }
+                }
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const levelButtons = document.querySelectorAll('.level-btn');
+            levelButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const level = this.getAttribute('data-level');
+                    showLevel(level);
+                });
+            });
+
+            const quizOptions = document.querySelectorAll('.quiz-options li');
+            quizOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionElement = this.closest('.quiz-question');
+                    const questionId = questionElement.id;
+                    const level = questionId.split('-')[0];
+                    const questionNum = parseInt(questionId.split('-q')[1]);
+                    const answerIndex = parseInt(this.getAttribute('data-answer'));
+                    
+                    selectAnswer(level, questionNum, answerIndex);
+                });
+            });
+
+            const controlButtons = document.querySelectorAll('.quiz-btn');
+            controlButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.getAttribute('data-action');
+                    
+                    if (action === 'reset') {
+                        const level = this.getAttribute('data-level');
+                        resetQuiz(level);
+                    } else if (action === 'navigate') {
+                        const target = this.getAttribute('data-target');
+                        showLevel(target);
+                    }
+                });
+            });
+
+            showLevel('basic');
+        });
+
+        function showLevel(level) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.level-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const targetSection = document.getElementById(level);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            const targetButton = document.querySelector(`[data-level="${level}"]`);
+            if (targetButton) {
+                targetButton.classList.add('active');
+            }
+        }
+
+        function selectAnswer(level, questionNum, answerIndex) {
+            const questionId = `${level}-q${questionNum}`;
+            const options = document.querySelector(`#${questionId} .quiz-options`).children;
+            
+            if (window.absolutismData.currentQuizState[level].answers[questionNum - 1] !== undefined) {
+                return;
+            }
+            
+            window.absolutismData.currentQuizState[level].answers[questionNum - 1] = answerIndex;
+            
+            const correctAnswer = window.absolutismData.quizData[level].answers[questionNum - 1];
+            
+            Array.from(options).forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            Array.from(options).forEach((option, index) => {
+                if (index === correctAnswer) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== correctAnswer) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            setTimeout(() => {
+                const explanation = window.absolutismData.quizData[level].explanations[questionNum - 1];
+                const explanationDiv = document.createElement('div');
+                explanationDiv.style.cssText = `
+                    background: rgba(253, 187, 45, 0.2);
+                    border: 1px solid rgba(253, 187, 45, 0.4);
+                    border-radius: 15px;
+                    padding: 15px;
+                    margin-top: 15px;
+                    color: rgba(255, 255, 255, 0.9);
+                    line-height: 1.6;
+                `;
+                explanationDiv.innerHTML = `<strong>💡 설명:</strong> ${explanation}`;
+                document.getElementById(questionId).appendChild(explanationDiv);
+                
+                setTimeout(() => {
+                    if (questionNum < 5) {
+                        showNextQuestion(level, questionNum + 1);
+                    } else {
+                        showQuizResult(level);
+                    }
+                }, 3000);
+            }, 1000);
+            
+            updateProgress(level, questionNum);
+        }
+
+        function showNextQuestion(level, nextQuestionNum) {
+            document.getElementById(`${level}-q${nextQuestionNum - 1}`).style.display = 'none';
+            document.getElementById(`${level}-q${nextQuestionNum}`).style.display = 'block';
+            window.absolutismData.currentQuizState[level].currentQuestion = nextQuestionNum;
+        }
+
+        function updateProgress(level, questionNum) {
+            const progress = (questionNum / 5) * 100;
+            const progressElement = document.getElementById(`${level}-progress`);
+            if (progressElement) {
+                progressElement.style.width = `${progress}%`;
+            }
+        }
+
+        function showQuizResult(level) {
+            const answers = window.absolutismData.currentQuizState[level].answers;
+            const correctAnswers = window.absolutismData.quizData[level].answers;
+            let score = 0;
+            
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            
+            const percentage = Math.round((score / 5) * 100);
+            let message = '';
+            
+            if (percentage >= 90) {
+                message = "🏆 완벽해요! 이 단계를 완전히 마스터했네요!";
+            } else if (percentage >= 70) {
+                message = "👏 잘했어요! 대부분의 내용을 잘 이해했어요!";
+            } else if (percentage >= 50) {
+                message = "📚 보통이에요! 조금 더 복습하면 완벽할 거예요!";
+            } else {
+                message = "💪 다시 도전해보세요! 내용을 천천히 다시 읽어보면 도움이 될 거예요!";
+            }
+            
+            const resultElement = document.getElementById(`${level}-result`);
+            if (resultElement) {
+                resultElement.innerHTML = `
+                    <h3>📊 결과</h3>
+                    <p><strong>점수: ${score}/5 (${percentage}%)</strong></p>
+                    <p>${message}</p>
+                `;
+                resultElement.classList.add('show');
+            }
+            
+            window.absolutismData.currentQuizState[level].completed = true;
+        }
+
+        function resetQuiz(level) {
+            window.absolutismData.currentQuizState[level] = { currentQuestion: 1, answers: [], completed: false };
+            
+            for (let i = 2; i <= 5; i++) {
+                const questionElement = document.getElementById(`${level}-q${i}`);
+                if (questionElement) {
+                    questionElement.style.display = 'none';
+                }
+            }
+            
+            const firstQuestion = document.getElementById(`${level}-q1`);
+            if (firstQuestion) {
+                firstQuestion.style.display = 'block';
+            }
+            
+            for (let i = 1; i <= 5; i++) {
+                const questionElement = document.getElementById(`${level}-q${i}`);
+                if (questionElement) {
+                    const options = questionElement.querySelectorAll('.quiz-options li');
+                    options.forEach(option => {
+                        option.classList.remove('correct', 'incorrect');
+                        option.style.pointerEvents = 'auto';
+                    });
+                    
+                    const explanation = questionElement.querySelector('div[style*="background: rgba(253, 187, 45, 0.2)"]');
+                    if (explanation) {
+                        explanation.remove();
+                    }
+                }
+            }
+            
+            const progressElement = document.getElementById(`${level}-progress`);
+            if (progressElement) {
+                progressElement.style.width = '0%';
+            }
+            
+            const resultElement = document.getElementById(`${level}-result`);
+            if (resultElement) {
+                resultElement.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>

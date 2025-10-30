@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1815-1871 유럽의 자유주의와 민족주의</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+            background: linear-gradient(135deg, 
+                #FF6B9D 0%, 
+                #C44569 15%,
+                #8B5CF6 30%,
+                #3B82F6 45%,
+                #06B6D4 60%,
+                #10B981 75%,
+                #FBBF24 90%,
+                #F59E0B 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            background-attachment: fixed;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            line-height: 1.8;
+            font-size: 18px;
+            text-shadow: 
+                1px 1px 3px rgba(0, 0, 0, 0.9),
+                -1px -1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        strong {
+            color: #FFD700;
+            font-weight: 700;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.9),
+                0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            color: #FFFFFF;
+            animation: fadeInUp 1s ease forwards;
+            text-shadow: 
+                3px 3px 6px rgba(0,0,0,1),
+                -2px -2px 4px rgba(0,0,0,0.8),
+                0 0 25px rgba(255, 215, 0, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.9),
+                -1px -1px 2px rgba(0,0,0,0.7),
+                0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-period {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.35), 
+                rgba(255,255,255,0.2));
+            padding: 1rem 2.5rem;
+            border-radius: 35px;
+            backdrop-filter: blur(15px);
+            display: inline-block;
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.8),
+                0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 4rem 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.5s;
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .glass-card:nth-child(1) {
+            border-left: 5px solid #FF6B9D;
+        }
+
+        .glass-card:nth-child(2) {
+            border-left: 5px solid #8B5CF6;
+        }
+
+        .glass-card:nth-child(3) {
+            border-left: 5px solid #3B82F6;
+        }
+
+        .glass-card:nth-child(4) {
+            border-left: 5px solid #06B6D4;
+        }
+
+        .glass-card:nth-child(5) {
+            border-left: 5px solid #10B981;
+        }
+
+        .glass-card:nth-child(6) {
+            border-left: 5px solid #FBBF24;
+        }
+
+        .glass-card:nth-child(7) {
+            border-left: 5px solid #F59E0B;
+        }
+
+        .glass-card:nth-child(8) {
+            border-left: 5px solid #EF4444;
+        }
+
+        .glass-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.4), 
+                rgba(255,255,255,0.2));
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .glass-card:nth-child(1) .section-number {
+            background: linear-gradient(135deg, #FF6B9D, #C44569);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .glass-card:nth-child(2) .section-number {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .glass-card:nth-child(3) .section-number {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .glass-card:nth-child(4) .section-number {
+            background: linear-gradient(135deg, #06B6D4, #0891B2);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .glass-card:nth-child(5) .section-number {
+            background: linear-gradient(135deg, #10B981, #059669);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .glass-card:nth-child(6) .section-number {
+            background: linear-gradient(135deg, #FBBF24, #F59E0B);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .glass-card:nth-child(7) .section-number {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .glass-card:nth-child(8) .section-number {
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.9),
+                -1px -1px 2px rgba(0,0,0,0.7),
+                0 0 20px rgba(255, 215, 0, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes titleShimmer {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        @keyframes titleShimmer {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .section-period {
+            font-size: 1.3rem;
+            opacity: 1;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #FFF8DC;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.8),
+                -1px -1px 2px rgba(0,0,0,0.6);
+        }
+
+        .content-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid;
+            border-image: linear-gradient(135deg, #F59E0B, #FBBF24) 1;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateX(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-box:nth-child(odd) {
+            border-image: linear-gradient(135deg, #8B5CF6, #A78BFA) 1;
+        }
+
+        .info-box:nth-child(even) {
+            border-image: linear-gradient(135deg, #06B6D4, #67E8F9) 1;
+        }
+
+        .info-label {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            color: #FFFACD;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.9),
+                -1px -1px 2px rgba(0,0,0,0.7);
+        }
+
+        .info-label::before {
+            content: '▸';
+            margin-right: 0.7rem;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.4rem;
+        }
+
+        .info-content {
+            opacity: 1;
+            line-height: 1.9;
+            font-size: 1.1rem;
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 2px rgba(0,0,0,0.8),
+                -1px -1px 1px rgba(0,0,0,0.6);
+        }
+
+        .info-content ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .info-content li {
+            margin: 0.7rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 2px rgba(0,0,0,0.8),
+                -1px -1px 1px rgba(0,0,0,0.6);
+        }
+
+        .info-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.3rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.25), 
+                rgba(255,255,255,0.1));
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 2px solid rgba(255,255,255,0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            color: #FFF8DC;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
+                         -1px -1px 2px rgba(0,0,0,0.6);
+        }
+
+        .highlight-title::before {
+            content: '✦';
+            margin-right: 0.8rem;
+            font-size: 1.7rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, 
+                rgba(255,255,255,0.5),
+                rgba(255,255,255,0.2),
+                rgba(255,255,255,0.5)
+            );
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, #FBBF24, #F59E0B);
+            border-radius: 50%;
+            box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.3),
+                        0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2); }
+            50% { box-shadow: 0 0 0 10px rgba(251, 191, 36, 0.1), 0 4px 10px rgba(0, 0, 0, 0.2); }
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            background: linear-gradient(135deg, #10B981, #059669);
+            box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, 
+                rgba(255, 107, 157, 0.2),
+                rgba(139, 92, 246, 0.2),
+                rgba(59, 130, 246, 0.2),
+                rgba(16, 185, 129, 0.2));
+            padding: 4rem;
+            border-radius: 30px;
+            margin: 4rem 0;
+            text-align: center;
+            border: 3px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .summary-section h2,
+        .summary-section h3 {
+            color: #FFFFFF;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.9),
+                -1px -1px 2px rgba(0,0,0,0.7),
+                0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .summary-section h3 {
+            margin-top: 3rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .summary-section .section-title {
+            color: #FFFFFF;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .keyword {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+            padding: 1rem 2.2rem;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+
+        .keyword:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .keyword:nth-child(1) { border-color: #FF6B9D; color: #FF6B9D; }
+        .keyword:nth-child(2) { border-color: #8B5CF6; color: #E9D5FF; }
+        .keyword:nth-child(3) { border-color: #3B82F6; color: #BFDBFE; }
+        .keyword:nth-child(4) { border-color: #06B6D4; color: #A5F3FC; }
+        .keyword:nth-child(5) { border-color: #10B981; color: #A7F3D0; }
+        .keyword:nth-child(6) { border-color: #FBBF24; color: #FEF3C7; }
+        .keyword:nth-child(7) { border-color: #F59E0B; color: #FED7AA; }
+        .keyword:nth-child(8) { border-color: #EF4444; color: #FECACA; }
+        .keyword:nth-child(9) { border-color: #EC4899; color: #FBCFE8; }
+
+        .final-quote {
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 2;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            border-left: 5px solid rgba(255,255,255,0.6);
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.9),
+                -1px -1px 2px rgba(0,0,0,0.7);
+        }
+
+        .final-quote.bottom-quote {
+            margin-top: 3rem;
+            background: rgba(255,255,255,0.12);
+        }
+
+        /* 형성평가 스타일 */
+        .assessment-section {
+            margin-top: 6rem;
+        }
+
+        .quiz-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2.5rem;
+            border-radius: 25px;
+            margin: 2rem 0;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .quiz-item.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quiz-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .quiz-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #FFD700;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,1),
+                -1px -1px 2px rgba(0,0,0,0.8),
+                0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        .quiz-question {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: #FFFFFF;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.9),
+                -1px -1px 2px rgba(0,0,0,0.7),
+                0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-option {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            padding: 1.5rem 2rem;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.9),
+                -1px -1px 2px rgba(0,0,0,0.7);
+        }
+
+        .quiz-option:hover:not(.disabled) {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+            transform: translateX(15px);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .quiz-option.selected {
+            border-color: #60A5FA;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.5), rgba(59, 130, 246, 0.4));
+        }
+
+        .quiz-option.correct {
+            border-color: #10B981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(5, 150, 105, 0.4));
+            animation: correctPulse 0.6s ease;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #EF4444;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.5), rgba(220, 38, 38, 0.4));
+            animation: shake 0.6s ease;
+        }
+
+        .quiz-option.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .quiz-explanation {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 15px;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border-left: 5px solid #8B5CF6;
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 2px rgba(0,0,0,0.8),
+                0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        .quiz-explanation.show {
+            opacity: 1;
+            max-height: 300px;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-next-button {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            margin-top: 1.5rem;
+            display: none;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+
+        .quiz-next-button.show {
+            display: inline-block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .quiz-next-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6);
+        }
+
+        .quiz-progress {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.9),
+                0 0 10px rgba(255, 215, 0, 0.4);
+        }
+
+        .quiz-result {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(5, 150, 105, 0.3));
+            padding: 3.5rem;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 3rem;
+            border: 4px solid rgba(16, 185, 129, 0.6);
+        }
+
+        .quiz-result h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.9),
+                -1px -1px 2px rgba(0,0,0,0.7),
+                0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .result-score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, #FCD34D, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 3px 10px rgba(0,0,0,0.5));
+        }
+
+        .result-feedback {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 2.5rem 0;
+            line-height: 2;
+            color: #FFFFFF;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.8),
+                0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .retry-button {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            color: white;
+            border: none;
+            padding: 1.2rem 3.5rem;
+            border-radius: 35px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+
+        .retry-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.7);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, 
+                rgba(0,0,0,0.3), 
+                rgba(139, 92, 246, 0.2));
+            margin-top: 4rem;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .footer p {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
+                         -1px -1px 2px rgba(0,0,0,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+
+            .timeline-dot {
+                left: 5px;
+            }
+
+            .keywords {
+                gap: 0.5rem;
+            }
+
+            .keyword {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .fade-in-left {
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>자유주의와 민족주의의 확산</h1>
+            <div class="hero-subtitle">복고에서 혁명으로, 억압에서 독립으로</div>
+            <div class="hero-period">1815 — 1871</div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="50" viewBox="0 0 30 50">
+                <rect x="5" y="5" width="20" height="40" rx="10" fill="none" stroke="white" stroke-width="2"/>
+                <circle cx="15" cy="15" r="3" fill="white" opacity="0.8">
+                    <animate attributeName="cy" from="15" to="30" dur="1.5s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 빈체제 -->
+        <div class="glass-card">
+            <div class="section-number">1</div>
+            <h2 class="section-title">빈체제</h2>
+            <div class="section-period">1814 — 1815</div>
+            
+            <div class="content-grid">
+                <div class="info-box">
+                    <div class="info-label">배경</div>
+                    <div class="info-content">
+                        프랑스혁명과 나폴레옹 전쟁으로 유럽의 전통적 질서가 완전히 붕괴되었습니다. 각국은 안정과 평화를 회복하기 위해 빈 회의를 개최했습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">주요 인물</div>
+                    <div class="info-content">
+                        <ul>
+                            <li><strong>메테르니히</strong> (오스트리아) - 회의 주도</li>
+                            <li><strong>알렉산드르 1세</strong> (러시아)</li>
+                            <li><strong>탈레랑</strong> (프랑스)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">핵심 원리</div>
+                    <div class="info-content">
+                        <ul>
+                            <li><strong>정통주의</strong>: 혁명 이전 정통 왕조의 복귀</li>
+                            <li><strong>세력균형</strong>: 강대국 간의 힘의 균형 유지</li>
+                            <li><strong>보상의 원칙</strong>: 나폴레옹 전쟁 승전국에 대한 보상</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">신성동맹과 4국동맹</div>
+                <div class="info-content">
+                    러시아, 오스트리아, 프로이센이 결성한 <strong>신성동맹</strong>과 영국, 오스트리아, 러시아, 프로이센의 <strong>4국동맹</strong>(후에 프랑스 포함)을 통해 자유주의와 민족주의 운동을 억압했습니다.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">결과와 의의</div>
+                <div class="info-content">
+                    일정 기간 유럽의 평화를 유지했으나, 자유주의와 민족주의에 대한 억압은 오히려 1830년과 1848년 혁명의 불씨가 되었습니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 그리스 독립전쟁 -->
+        <div class="glass-card">
+            <div class="section-number">2</div>
+            <h2 class="section-title">그리스 독립전쟁</h2>
+            <div class="section-period">1821 — 1829</div>
+            
+            <div class="content-grid">
+                <div class="info-box">
+                    <div class="info-label">배경</div>
+                    <div class="info-content">
+                        400년간 오스만 제국의 지배를 받던 그리스인들이 민족주의와 정교회 신앙을 바탕으로 독립을 추구했습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">필헬레니즘의 확산</div>
+                    <div class="info-content">
+                        고대 그리스 문명에 대한 유럽인들의 동경심(필헬레니즘)이 확산되어 바이런 같은 지식인들이 그리스 독립운동을 적극 지원했습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">결정적 전환점</div>
+                    <div class="info-content">
+                        <strong>1827년 나바리노 해전</strong>에서 영국, 프랑스, 러시아 연합 함대가 오스만-이집트 연합군을 격파하면서 전세가 역전되었습니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">역사적 의의</div>
+                <div class="info-content">
+                    1830년 <strong>런던 의정서</strong>로 그리스의 독립이 승인되었고, 이는 발칸 지역 민족주의 운동의 출발점이 되었습니다. 빈체제 하에서도 민족자결주의가 승리한 첫 사례입니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 러시아 데카브리스트 봉기 -->
+        <div class="glass-card">
+            <div class="section-number">3</div>
+            <h2 class="section-title">데카브리스트 봉기</h2>
+            <div class="section-period">1825년 12월</div>
+            
+            <div class="content-grid">
+                <div class="info-box">
+                    <div class="info-label">배경</div>
+                    <div class="info-content">
+                        나폴레옹 전쟁에 참전했던 러시아 장교들이 서유럽의 자유주의 사상을 접하고, 농노제와 전제정을 개혁하고자 했습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">전개</div>
+                    <div class="info-content">
+                        1825년 12월, 알렉산드르 1세 사망 후 니콜라이 1세의 즉위를 반대하며 상트페테르부르크에서 봉기했으나 실패로 끝났습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">역사적 의의</div>
+                    <div class="info-content">
+                        비록 실패했지만 러시아 최초의 자유주의 운동으로, 이후 지식인 중심의 개혁 논의가 확산되는 계기가 되었습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프랑스 7월 혁명 -->
+        <div class="glass-card">
+            <div class="section-number">4</div>
+            <h2 class="section-title">프랑스 7월 혁명</h2>
+            <div class="section-period">1830년 7월</div>
+            
+            <div class="content-grid">
+                <div class="info-box">
+                    <div class="info-label">배경</div>
+                    <div class="info-content">
+                        부르봉 왕조를 복원한 샤를 10세가 언론을 탄압하고 의회를 해산하자, 파리 시민들이 반발했습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">영광의 3일</div>
+                    <div class="info-content">
+                        1830년 7월 27~29일, 파리 시민들이 봉기하여 바리케이드를 치고 샤를 10세를 퇴위시켰습니다. "영광의 3일(Les Trois Glorieuses)"로 불립니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">결과</div>
+                    <div class="info-content">
+                        <strong>루이 필리프</strong>가 '시민왕'으로 즉위하며 입헌군주제가 부활했습니다. 자유주의 부르주아 계급의 정치적 승리였습니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">유럽으로의 확산</div>
+                <div class="info-content">
+                    7월 혁명은 유럽 전역에 영향을 미쳐 <strong>벨기에 독립</strong>(1830), 폴란드 봉기, 이탈리아 카르보나리 운동 등이 연쇄적으로 발생했습니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 영국의 자유주의 개혁 -->
+        <div class="glass-card">
+            <div class="section-number">5</div>
+            <h2 class="section-title">영국의 자유주의 개혁</h2>
+            <div class="section-period">1832 — 1849</div>
+            
+            <div class="content-grid">
+                <div class="info-box">
+                    <div class="info-label">배경</div>
+                    <div class="info-content">
+                        산업혁명으로 성장한 중산층이 정치 참여를 요구했으나, 구선거구제는 귀족 중심의 낡은 제도였습니다.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1832년 선거법 개정</div>
+                        <div class="info-content">
+                            부패 선거구를 폐지하고 신흥 산업도시에 의석을 배분하여 <strong>산업 자본가와 중산층의 참정권</strong>을 확대했습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1846년 곡물법 폐지</div>
+                        <div class="info-content">
+                            곡물 수입을 규제하던 법을 폐지하여 <strong>자유무역 체제</strong>를 확립하고 식료품 가격을 안정시켰습니다. 영국 자유주의 경제의 상징적 조치입니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1849년 항해법 폐지</div>
+                        <div class="info-content">
+                            자국 선박만 무역을 할 수 있도록 규제하던 법을 폐지하여 세계무역 중심 국가로 도약했습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">혁명 없는 개혁의 모델</div>
+                <div class="info-content">
+                    영국은 프랑스와 달리 혁명이 아닌 <strong>점진적 제도 개혁</strong>으로 자유주의를 실현했으며, 의회 민주주의를 심화시킨 모범 사례가 되었습니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 프랑스 2월 혁명 -->
+        <div class="glass-card">
+            <div class="section-number">6</div>
+            <h2 class="section-title">프랑스 2월 혁명</h2>
+            <div class="section-period">1848년 2월</div>
+            
+            <div class="content-grid">
+                <div class="info-box">
+                    <div class="info-label">배경</div>
+                    <div class="info-content">
+                        경제 불황, 사회 불평등 심화, 루이 필리프 정권의 부패와 선거권 제한에 대한 불만이 폭발했습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">전개</div>
+                    <div class="info-content">
+                        1848년 2월, 파리에서 노동자와 시민들이 봉기하여 루이 필리프를 퇴위시키고 <strong>제2공화국</strong>을 수립했습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">혁명적 성과</div>
+                    <div class="info-content">
+                        <ul>
+                            <li><strong>남성 보통선거</strong> 실시</li>
+                            <li>국립작업장 설립 등 사회주의적 실험</li>
+                            <li>루이 블랑 등 사회주의자들의 정치 참여</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">1848년 혁명의 유럽 확산</div>
+                <div class="info-content">
+                    2월 혁명은 빈, 베를린, 밀라노, 부다페스트 등 유럽 전역으로 확산되어 "<strong>민족의 봄</strong>"이라 불렸습니다. 자유주의와 민족주의가 동시에 폭발한 시기였습니다.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">역사적 의의</div>
+                <div class="info-content">
+                    자유(정치적 권리)와 평등(사회적 권리)을 동시에 추구한 최초의 혁명으로, 시민 계급과 노동 계급이 연대한 사회 혁명의 성격을 띠었습니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 이탈리아 통일 -->
+        <div class="glass-card">
+            <div class="section-number">7</div>
+            <h2 class="section-title">이탈리아 통일</h2>
+            <div class="section-period">1859 — 1870</div>
+            
+            <div class="content-grid">
+                <div class="info-box">
+                    <div class="info-label">배경</div>
+                    <div class="info-content">
+                        이탈리아는 오스트리아의 지배를 받으며 여러 소국으로 분열되어 있었습니다. 민족주의 열망이 높아졌습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">주도 세력</div>
+                    <div class="info-content">
+                        <ul>
+                            <li><strong>사르데냐 왕국</strong>의 재상 <strong>카보우르</strong>: 외교적 통일 추진</li>
+                            <li><strong>가리발디</strong>: 천인대를 이끌고 남부 시칠리아와 나폴리 정복</li>
+                            <li><strong>마치니</strong>: 청년 이탈리아당으로 민족주의 사상 전파</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1859년</div>
+                        <div class="info-content">
+                            카보우르가 나폴레옹 3세와 동맹을 맺고 오스트리아를 격퇴하여 북부 이탈리아를 통합했습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1860년</div>
+                        <div class="info-content">
+                            가리발디의 <strong>천인대(붉은 셔츠단)</strong>가 시칠리아와 나폴리를 점령하고 사르데냐 왕에게 헌납했습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1861년</div>
+                        <div class="info-content">
+                            비토리오 에마누엘레 2세를 국왕으로 <strong>이탈리아 왕국</strong> 수립
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1866년</div>
+                        <div class="info-content">
+                            프로이센-오스트리아 전쟁에 참전하여 베네치아 획득
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1870년</div>
+                        <div class="info-content">
+                            프랑스-프로이센 전쟁 중 로마를 병합하여 통일 완성. 로마를 수도로 정했습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">의의와 과제</div>
+                <div class="info-content">
+                    유럽 최초의 민족 통일 국가가 성립했으나, 남북 간 경제·문화적 격차는 여전히 남아있었습니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 독일 통일 -->
+        <div class="glass-card">
+            <div class="section-number">8</div>
+            <h2 class="section-title">독일 통일</h2>
+            <div class="section-period">1862 — 1871</div>
+            
+            <div class="content-grid">
+                <div class="info-box">
+                    <div class="info-label">배경</div>
+                    <div class="info-content">
+                        1848년 혁명 실패 후 민족주의가 더욱 고조되었고, <strong>관세동맹(촐페라인)</strong>을 통해 경제적 결속이 강화되었습니다.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">주도 세력</div>
+                    <div class="info-content">
+                        <ul>
+                            <li><strong>프로이센 왕국</strong>의 재상 <strong>비스마르크</strong></li>
+                            <li><strong>빌헬름 1세</strong> 국왕</li>
+                            <li>프로이센 군대의 강력한 군사력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1864년 대 덴마크 전쟁</div>
+                        <div class="info-content">
+                            오스트리아와 연합하여 덴마크를 격파하고 슐레스비히-홀슈타인을 획득
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1866년 대 오스트리아 전쟁 (보오전쟁)</div>
+                        <div class="info-content">
+                            독일 내 패권 경쟁에서 오스트리아를 물리치고 <strong>북독일 연방</strong> 결성. 오스트리아를 독일 통일 과정에서 배제하는 '<strong>소독일주의</strong>' 확립
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="info-box">
+                        <div class="info-label">1870~1871년 대 프랑스 전쟁 (보불전쟁)</div>
+                        <div class="info-content">
+                            프랑스를 격파하고 남부 독일 국가들도 통일에 합류. 1871년 1월 18일 베르사유 궁전에서 <strong>독일 제국</strong> 선포
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">철혈정책 (Blut und Eisen)</div>
+                <div class="info-content">
+                    비스마르크는 "큰 문제는 연설이나 다수결이 아니라 <strong>피와 쇠(무력)</strong>로 해결된다"며 현실주의적 무력 통일을 추진했습니다.
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">역사적 의의</div>
+                <div class="info-content">
+                    독일 통일로 유럽의 세력 균형이 크게 변화했습니다. 독일은 강력한 산업력과 군사력을 바탕으로 유럽의 새로운 강대국으로 급부상했습니다.
+                </div>
+            </div>
+        </div>
+
+        <!-- 형성평가 -->
+        <div class="assessment-section glass-card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2)); border-left: 5px solid #8B5CF6;">
+            <div class="section-number">🧩</div>
+            <h2 class="section-title">형성평가: 자유주의와 민족주의의 확산</h2>
+            <div class="section-period">10문항 / 난이도: 중3 기준</div>
+
+            <div class="quiz-progress" id="quizProgress">문제 1 / 10</div>
+
+            <!-- 문항 1 -->
+            <div class="quiz-item active" data-question="1">
+                <div class="quiz-number">1️⃣</div>
+                <div class="quiz-question">빈체제의 기본 원리로 옳지 않은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 복고주의</div>
+                    <div class="quiz-option" data-answer="false">B. 세력균형</div>
+                    <div class="quiz-option" data-answer="false">C. 정통주의</div>
+                    <div class="quiz-option" data-answer="true">D. 자유주의 확대</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 빈체제는 자유주의를 억압하고 왕정 질서를 복원하는 것을 목표로 했습니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 2 -->
+            <div class="quiz-item" data-question="2">
+                <div class="quiz-number">2️⃣</div>
+                <div class="quiz-question">그리스 독립이 가능했던 가장 큰 국제적 요인은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 신성동맹의 군사 개입</div>
+                    <div class="quiz-option" data-answer="true">B. 필헬레니즘(그리스 사랑) 여론과 열강의 지원</div>
+                    <div class="quiz-option" data-answer="false">C. 나폴레옹의 원조</div>
+                    <div class="quiz-option" data-answer="false">D. 오스만 제국의 허락</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 유럽 지식인층의 공감 여론과 영·프·러의 연합이 결정적 역할을 했습니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 3 -->
+            <div class="quiz-item" data-question="3">
+                <div class="quiz-number">3️⃣</div>
+                <div class="quiz-question">데카브리스트 봉기의 특징으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 농민 중심의 반란</div>
+                    <div class="quiz-option" data-answer="true">B. 자유주의 사상을 수용한 장교단의 봉기</div>
+                    <div class="quiz-option" data-answer="false">C. 노동자 파업</div>
+                    <div class="quiz-option" data-answer="false">D. 프랑스 침략군 반란</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 서유럽 사상에 영향을 받은 장교들이 전제정 폐지를 요구한 첫 자유주의 운동입니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 4 -->
+            <div class="quiz-item" data-question="4">
+                <div class="quiz-number">4️⃣</div>
+                <div class="quiz-question">1830년 프랑스 7월 혁명의 결과로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 루이 16세 즉위</div>
+                    <div class="quiz-option" data-answer="true">B. 루이 필리프 즉위와 입헌군주제 회복</div>
+                    <div class="quiz-option" data-answer="false">C. 제2공화국 수립</div>
+                    <div class="quiz-option" data-answer="false">D. 나폴레옹 제정 부활</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 시민 계급이 주도하여 입헌군주제를 부활시킨 자유주의 혁명입니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 5 -->
+            <div class="quiz-item" data-question="5">
+                <div class="quiz-number">5️⃣</div>
+                <div class="quiz-question">1832년 영국 선거법 개정의 결과로 가장 알맞은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 귀족 중심 정치 강화</div>
+                    <div class="quiz-option" data-answer="true">B. 산업도시 중산층의 참정권 확대</div>
+                    <div class="quiz-option" data-answer="false">C. 왕권 강화</div>
+                    <div class="quiz-option" data-answer="false">D. 보통선거 실시</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 산업혁명으로 성장한 중산층이 정치에 참여할 수 있게 되었습니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 6 -->
+            <div class="quiz-item" data-question="6">
+                <div class="quiz-number">6️⃣</div>
+                <div class="quiz-question">1846년 곡물법 폐지의 의미로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 보호무역 강화</div>
+                    <div class="quiz-option" data-answer="true">B. 자유무역 체제 확립</div>
+                    <div class="quiz-option" data-answer="false">C. 농민 보호 정책 강화</div>
+                    <div class="quiz-option" data-answer="false">D. 식민지 독점 강화</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 영국 자유주의 경제의 상징적 조치로 세계무역 중심 국가로 도약했습니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 7 -->
+            <div class="quiz-item" data-question="7">
+                <div class="quiz-number">7️⃣</div>
+                <div class="quiz-question">1848년 2월 혁명으로 수립된 정권 형태는?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 입헌군주제</div>
+                    <div class="quiz-option" data-answer="true">B. 제2공화국</div>
+                    <div class="quiz-option" data-answer="false">C. 제2제정</div>
+                    <div class="quiz-option" data-answer="false">D. 왕정복고</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 루이 필리프 왕정이 무너지고, 남성 보통선거를 실시한 공화정이 수립되었습니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 8 -->
+            <div class="quiz-item" data-question="8">
+                <div class="quiz-number">8️⃣</div>
+                <div class="quiz-question">2월 혁명의 확산 결과로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="true">A. 유럽 전역에서 자유·민족운동 확산</div>
+                    <div class="quiz-option" data-answer="false">B. 신성동맹 강화</div>
+                    <div class="quiz-option" data-answer="false">C. 나폴레옹 제정 부활</div>
+                    <div class="quiz-option" data-answer="false">D. 빈체제 강화</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 1848 혁명은 빈, 베를린, 밀라노 등 유럽 각지로 번져 자유주의의 절정이 되었습니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 9 -->
+            <div class="quiz-item" data-question="9">
+                <div class="quiz-number">9️⃣</div>
+                <div class="quiz-question">이탈리아 통일의 주도 세력과 방식으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 오스트리아의 군사 통합</div>
+                    <div class="quiz-option" data-answer="true">B. 사르데냐 왕국의 외교와 가리발디의 남부 원정</div>
+                    <div class="quiz-option" data-answer="false">C. 교황령의 통일 운동</div>
+                    <div class="quiz-option" data-answer="false">D. 나폴레옹 3세의 직접 통치</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 카보우르의 외교력 + 가리발디의 민중운동이 결합한 통일이 성공했습니다.
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">다음 문제 →</button>
+            </div>
+
+            <!-- 문항 10 -->
+            <div class="quiz-item" data-question="10">
+                <div class="quiz-number">🔟</div>
+                <div class="quiz-question">비스마르크의 통일 정책을 가장 잘 나타낸 말은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-answer="false">A. 자유와 평등</div>
+                    <div class="quiz-option" data-answer="true">B. 철혈정책(무력과 외교의 병행)</div>
+                    <div class="quiz-option" data-answer="false">C. 보통선거</div>
+                    <div class="quiz-option" data-answer="false">D. 복고주의</div>
+                </div>
+                <div class="quiz-explanation">
+                    📘 <strong>해설:</strong> 비스마르크는 전쟁을 통해 실질적 통일을 달성했습니다(소독일안).
+                </div>
+                <button class="quiz-next-button" onclick="nextQuestion()">결과 보기 🎉</button>
+            </div>
+
+            <div class="quiz-result" id="quizResult" style="display: none;">
+                <h3>🎉 평가 결과</h3>
+                <div class="result-score" id="resultScore"></div>
+                <div class="result-feedback" id="resultFeedback"></div>
+                <button class="retry-button" onclick="retryQuiz()">다시 풀기</button>
+            </div>
+        </div>
+
+        <!-- 총정리 -->
+        <div class="summary-section">
+            <h2 class="section-title">🌍 역사의 흐름</h2>
+            <div class="final-quote">
+                빈체제의 억압 → 자유주의와 민족주의의 확산 →<br>
+                각국의 혁명과 개혁 → 민족 통일 국가의 탄생
+            </div>
+
+            <h3>💬 핵심 키워드</h3>
+            <div class="keywords">
+                <span class="keyword">복고주의</span>
+                <span class="keyword">세력균형</span>
+                <span class="keyword">자유주의</span>
+                <span class="keyword">민족주의</span>
+                <span class="keyword">입헌군주제</span>
+                <span class="keyword">보통선거</span>
+                <span class="keyword">자유무역</span>
+                <span class="keyword">민족 통일</span>
+                <span class="keyword">철혈정책</span>
+            </div>
+
+            <div class="final-quote bottom-quote">
+                19세기 유럽은 '<strong>복고의 시대</strong>'로 출발했지만,<br>
+                자유와 민족의 열망이 점차 폭발하며<br>
+                새로운 <strong>국민국가의 시대</strong>(이탈리아·독일 통일)로 나아갔다.
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="font-size: 0.9rem; opacity: 0.8;">1815 — 1871 유럽의 자유주의와 민족주의</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.6;">역사는 자유를 향한 인간의 끊임없는 투쟁이다</p>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+
+        // Floating animation for keywords
+        document.querySelectorAll('.keyword').forEach((keyword, index) => {
+            keyword.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Quiz functionality - One question at a time
+        let currentQuestion = 1;
+        let correctAnswers = 0;
+        let totalQuestions = 10;
+
+        // Initialize quiz
+        function initQuiz() {
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', handleAnswer);
+            });
+        }
+
+        function handleAnswer(e) {
+            const option = e.currentTarget;
+            const quizItem = option.closest('.quiz-item');
+            const options = quizItem.querySelectorAll('.quiz-option');
+            const explanation = quizItem.querySelector('.quiz-explanation');
+            const nextButton = quizItem.querySelector('.quiz-next-button');
+            
+            // 이미 답한 문제는 클릭 무시
+            if (option.classList.contains('disabled')) {
+                return;
+            }
+
+            // 모든 선택지 비활성화
+            options.forEach(opt => {
+                opt.classList.add('disabled');
+                opt.style.cursor = 'not-allowed';
+            });
+            
+            // 현재 선택지 선택 상태로 변경
+            option.classList.add('selected');
+            
+            // 정답 체크
+            const isCorrect = option.getAttribute('data-answer') === 'true';
+            
+            setTimeout(() => {
+                if (isCorrect) {
+                    option.classList.add('correct');
+                    correctAnswers++;
+                } else {
+                    option.classList.add('incorrect');
+                    // 정답 표시
+                    options.forEach(opt => {
+                        if (opt.getAttribute('data-answer') === 'true') {
+                            opt.classList.add('correct');
+                        }
+                    });
+                }
+                
+                // 해설 표시
+                explanation.classList.add('show');
+                
+                // 다음 버튼 표시
+                nextButton.classList.add('show');
+                
+            }, 300);
+        }
+
+        function nextQuestion() {
+            const currentItem = document.querySelector(`.quiz-item[data-question="${currentQuestion}"]`);
+            
+            if (currentQuestion < totalQuestions) {
+                // 현재 문제 숨기기
+                currentItem.classList.remove('active');
+                
+                // 다음 문제로 이동
+                currentQuestion++;
+                const nextItem = document.querySelector(`.quiz-item[data-question="${currentQuestion}"]`);
+                nextItem.classList.add('active');
+                
+                // 진행 상황 업데이트
+                document.getElementById('quizProgress').textContent = `문제 ${currentQuestion} / ${totalQuestions}`;
+                
+                // 다음 문제로 스크롤
+                nextItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                // 마지막 문제면 결과 표시
+                showResult();
+            }
+        }
+
+        function showResult() {
+            // 현재 문제 숨기기
+            const currentItem = document.querySelector(`.quiz-item[data-question="${currentQuestion}"]`);
+            currentItem.style.display = 'none';
+            
+            // 진행 상황 숨기기
+            document.getElementById('quizProgress').style.display = 'none';
+            
+            const resultSection = document.getElementById('quizResult');
+            const resultScore = document.getElementById('resultScore');
+            const resultFeedback = document.getElementById('resultFeedback');
+            
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            
+            resultScore.textContent = `${correctAnswers} / ${totalQuestions}점 (${percentage}%)`;
+            
+            let feedback = '';
+            if (percentage === 100) {
+                feedback = '🏆 완벽합니다! 역사의 달인이시네요!';
+            } else if (percentage >= 80) {
+                feedback = '🎯 훌륭합니다! 핵심 내용을 잘 이해하셨어요!';
+            } else if (percentage >= 60) {
+                feedback = '👍 좋아요! 조금만 더 복습하면 완벽해요!';
+            } else {
+                feedback = '💪 다시 한 번 내용을 복습해보세요!';
+            }
+            
+            resultFeedback.textContent = feedback;
+            
+            resultSection.style.display = 'block';
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function retryQuiz() {
+            // 초기화
+            currentQuestion = 1;
+            correctAnswers = 0;
+            
+            // 모든 문제 초기화
+            document.querySelectorAll('.quiz-item').forEach((item, index) => {
+                item.style.display = 'block';
+                item.classList.remove('active');
+                
+                // 첫 번째 문제만 활성화
+                if (index === 0) {
+                    item.classList.add('active');
+                }
+                
+                // 선택지 초기화
+                item.querySelectorAll('.quiz-option').forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect', 'disabled');
+                    option.style.cursor = 'pointer';
+                });
+                
+                // 해설과 버튼 숨기기
+                item.querySelector('.quiz-explanation').classList.remove('show');
+                item.querySelector('.quiz-next-button').classList.remove('show');
+            });
+            
+            // 진행 상황 표시
+            document.getElementById('quizProgress').style.display = 'block';
+            document.getElementById('quizProgress').textContent = '문제 1 / 10';
+            
+            // 결과 숨기기
+            document.getElementById('quizResult').style.display = 'none';
+            
+            // 첫 번째 문제로 스크롤
+            document.querySelector('.quiz-item').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

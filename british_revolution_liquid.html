@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영국 시민혁명</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: white;
+            margin: 20px 0 15px;
+        }
+
+        p, li {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        ul li::before {
+            content: "▸";
+            color: #ffd700;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .timeline-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffd700;
+            min-width: 50px;
+        }
+
+        .timeline-content h4 {
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .person-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .person-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .person-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .person-card h4 {
+            color: #ffd700;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .quiz-section {
+            margin-top: 40px;
+        }
+
+        .question {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .question.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .feedback.correct {
+            background: rgba(74, 222, 128, 0.2);
+            border: 2px solid #4ade80;
+            color: #4ade80;
+        }
+
+        .feedback.wrong {
+            background: rgba(248, 113, 113, 0.2);
+            border: 2px solid #f87171;
+            color: #f87171;
+        }
+
+        .question h4 {
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            color: white;
+            font-size: 1.05em;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .option.correct {
+            border-color: #4ade80;
+            background: rgba(74, 222, 128, 0.2);
+        }
+
+        .option.wrong {
+            border-color: #f87171;
+            background: rgba(248, 113, 113, 0.2);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .result {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 16px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            color: white;
+            font-weight: 600;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 5px solid #ffd700;
+            margin: 20px 0;
+        }
+
+        .key-point p {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: white;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .glass {
+                padding: 20px;
+            }
+            
+            .person-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🕰️ 영국 시민혁명의 전개</h1>
+        <p class="subtitle">근대 민주주의의 기틀을 마련한 역사적 변혁</p>
+
+        <div class="glass">
+            <h2>1️⃣ 배경</h2>
+            <ul>
+                <li>17세기 초 영국에서는 왕권신수설을 내세운 절대왕정이 강화됨</li>
+                <li>제임스 1세와 찰스 1세가 의회의 동의 없이 세금을 부과하고, 국교회 중심의 종교정책을 강요함</li>
+                <li>이에 청교도(칼뱅파) 세력이 중심이 되어 의회의 권리와 국민의 자유를 지키려는 움직임이 나타남</li>
+            </ul>
+        </div>
+
+        <div class="glass">
+            <h2>📜 주요 사건 타임라인</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">①</div>
+                    <div class="timeline-content">
+                        <h4>권리청원 (1628)</h4>
+                        <p>의회가 찰스 1세에게 제출. "의회의 동의 없이 세금을 거둘 수 없고, 불법 체포 금지" 등을 요구. 왕이 이를 무시하면서 갈등이 심화됨.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">②</div>
+                    <div class="timeline-content">
+                        <h4>청교도 혁명 (1642~1649)</h4>
+                        <p>찰스 1세가 의회를 해산하고 군대를 동원해 강제로 진압하려 함 → 의회파와 왕당파의 내전 발발. 올리버 크롬웰이 이끈 의회군이 승리, 찰스 1세 처형(1649) → 공화국 수립.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">③</div>
+                    <div class="timeline-content">
+                        <h4>왕정 복고 (1660)</h4>
+                        <p>크롬웰 사후 혼란 속에 왕정 복귀 → 찰스 2세 즉위. 그러나 왕권 강화 시도, 가톨릭 정책 재개로 다시 의회와 충돌.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">④</div>
+                    <div class="timeline-content">
+                        <h4>명예혁명 (1688)</h4>
+                        <p>제임스 2세가 가톨릭 신앙을 공공연히 드러내자 의회가 반발. 의회는 네덜란드의 윌리엄 3세와 메리 2세 부부를 초청해 평화적으로 왕위를 교체함. 유혈사태 없이 혁명이 성공.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">⑤</div>
+                    <div class="timeline-content">
+                        <h4>권리장전 (1689)</h4>
+                        <p>윌리엄 3세와 메리가 왕위에 오르며 승인한 문서. "의회의 동의 없이 법을 정하거나 세금을 부과할 수 없음", "국민의 언론·청원 자유 보장". 입헌군주제 확립.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass">
+            <h2>👥 주요 인물</h2>
+            <div class="person-grid">
+                <div class="person-card">
+                    <h4>찰스 1세</h4>
+                    <p>절대왕정 강화, 청교도 혁명으로 처형됨</p>
+                </div>
+                <div class="person-card">
+                    <h4>올리버 크롬웰</h4>
+                    <p>의회군 이끌어 공화정 수립, 후엔 독재화</p>
+                </div>
+                <div class="person-card">
+                    <h4>제임스 2세</h4>
+                    <p>가톨릭 부활 시도, 명예혁명으로 폐위</p>
+                </div>
+                <div class="person-card">
+                    <h4>윌리엄 3세 & 메리 2세</h4>
+                    <p>명예혁명으로 즉위, 권리장전 승인</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass">
+            <h2>🌍 혁명의 의의와 영향</h2>
+            <h3>영국 내</h3>
+            <p>의회 중심의 입헌군주제 확립, 국민의 자유와 권리 보장</p>
+            
+            <h3>세계사적 의의</h3>
+            <ul>
+                <li>근대 민주주의의 기틀 마련</li>
+                <li>이후 미국 독립혁명(1776)과 프랑스 혁명(1789)의 사상적 기반이 됨</li>
+                <li>"왕이 아니라 법이 다스리는 나라(Law, not king)"라는 입헌주의 원리 확립</li>
+            </ul>
+        </div>
+
+        <div class="glass">
+            <div class="key-point">
+                <p><strong>🏁 핵심 정리:</strong> 청교도 혁명은 절대왕정을 무너뜨리고 시민이 정치의 주체로 등장한 사건이며, 명예혁명은 피를 흘리지 않고 왕의 권력을 법으로 제한한 혁명이다.</p>
+            </div>
+        </div>
+
+        <div class="glass quiz-section">
+            <h2>📝 형성평가</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px;">문제를 풀고 정답을 확인하세요.</p>
+
+            <div class="progress-bar" style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; margin-bottom: 30px; overflow: hidden;">
+                <div id="progressFill" style="background: linear-gradient(90deg, #ffd700, #ffa500); height: 100%; width: 0%; transition: width 0.5s ease;"></div>
+            </div>
+
+            <div id="quizContainer">
+                <div class="question active" data-answer="1">
+                    <h4>1. 1628년 영국 의회가 찰스 1세에게 제출하여 의회의 동의 없이 세금을 부과할 수 없음을 요구한 문서는?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 권리청원</div>
+                        <div class="option" data-value="2">② 권리장전</div>
+                        <div class="option" data-value="3">③ 마그나 카르타</div>
+                        <div class="option" data-value="4">④ 독립선언서</div>
+                        <div class="option" data-value="5">⑤ 인권선언</div>
+                    </div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+
+                <div class="question" data-answer="2" style="display: none;">
+                    <h4>2. 청교도 혁명에서 의회군(뉴모델군)을 이끌고 공화정을 수립한 인물은?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 찰스 1세</div>
+                        <div class="option" data-value="2">② 올리버 크롬웰</div>
+                        <div class="option" data-value="3">③ 제임스 2세</div>
+                        <div class="option" data-value="4">④ 윌리엄 3세</div>
+                        <div class="option" data-value="5">⑤ 찰스 2세</div>
+                    </div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+
+                <div class="question" data-answer="3" style="display: none;">
+                    <h4>3. 명예혁명이 일어난 연도와 이 혁명의 특징으로 옳은 것은?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 1628년, 왕이 처형되었다</div>
+                        <div class="option" data-value="2">② 1649년, 크롬웰이 독재를 시작했다</div>
+                        <div class="option" data-value="3">③ 1688년, 유혈사태 없이 평화롭게 진행되었다</div>
+                        <div class="option" data-value="4">④ 1660년, 공화정이 수립되었다</div>
+                        <div class="option" data-value="5">⑤ 1776년, 미국이 독립했다</div>
+                    </div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+
+                <div class="question" data-answer="4" style="display: none;">
+                    <h4>4. 명예혁명 이후 1689년에 제정되어 입헌군주제를 확립한 문서는?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 권리청원</div>
+                        <div class="option" data-value="2">② 마그나 카르타</div>
+                        <div class="option" data-value="3">③ 독립선언서</div>
+                        <div class="option" data-value="4">④ 권리장전</div>
+                        <div class="option" data-value="5">⑤ 인권선언</div>
+                    </div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+
+                <div class="question" data-answer="5" style="display: none;">
+                    <h4>5. 영국 시민혁명이 세계사에 끼친 영향으로 가장 적절한 것은?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 절대왕정이 더욱 강화되었다</div>
+                        <div class="option" data-value="2">② 봉건제도가 부활하였다</div>
+                        <div class="option" data-value="3">③ 교황의 권력이 강화되었다</div>
+                        <div class="option" data-value="4">④ 식민지 확장이 중단되었다</div>
+                        <div class="option" data-value="5">⑤ 미국 독립혁명과 프랑스 혁명의 사상적 기반이 되었다</div>
+                    </div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+            </div>
+
+            <button class="submit-btn" id="nextBtn" style="display: none;">다음 문제</button>
+            <div class="result" id="finalResult"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = document.querySelectorAll('.question');
+        const nextBtn = document.getElementById('nextBtn');
+        const finalResult = document.getElementById('finalResult');
+        const progressFill = document.getElementById('progressFill');
+        
+        let currentQuestion = 0;
+        let correctCount = 0;
+
+        // 진행률 업데이트
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressFill.style.width = progress + '%';
+        }
+
+        // 정답 확인 처리
+        function checkAnswer(question, selectedAnswer) {
+            const correctAnswer = parseInt(question.dataset.answer);
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+
+            // 정답/오답 표시
+            options.forEach(option => {
+                const optionValue = parseInt(option.dataset.value);
+                
+                if (optionValue === correctAnswer) {
+                    option.classList.add('correct');
+                }
+                
+                if (optionValue === selectedAnswer && selectedAnswer !== correctAnswer) {
+                    option.classList.add('wrong');
+                }
+                
+                option.style.pointerEvents = 'none';
+            });
+
+            // 피드백 표시
+            if (selectedAnswer === correctAnswer) {
+                correctCount++;
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ 정답입니다!';
+            } else {
+                feedback.className = 'feedback wrong';
+                feedback.innerHTML = '✗ 틀렸습니다. 정답은 ' + correctAnswer + '번입니다.';
+            }
+            feedback.style.display = 'block';
+
+            question.classList.add('answered');
+            
+            // 마지막 문제인지 확인
+            if (currentQuestion < questions.length - 1) {
+                setTimeout(() => {
+                    nextBtn.style.display = 'block';
+                }, 300);
+            } else {
+                setTimeout(() => {
+                    showFinalResult();
+                }, 800);
+            }
+        }
+
+        // 옵션 선택 시 바로 정답 확인
+        questions.forEach((question, qIndex) => {
+            const options = question.querySelectorAll('.option');
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    if (qIndex !== currentQuestion) return;
+                    
+                    // 이미 확인한 문제는 선택 불가
+                    if (question.classList.contains('answered')) return;
+                    
+                    // 다른 옵션에서 selected 제거
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // 선택한 옵션에 selected 추가
+                    this.classList.add('selected');
+                    const selectedAnswer = parseInt(this.dataset.value);
+                    
+                    // 바로 정답 확인
+                    checkAnswer(question, selectedAnswer);
+                });
+            });
+        });
+
+        // 다음 문제
+        nextBtn.addEventListener('click', function() {
+            // 현재 문제 숨기기
+            questions[currentQuestion].style.display = 'none';
+            questions[currentQuestion].classList.remove('active');
+            
+            // 다음 문제로 이동
+            currentQuestion++;
+            
+            // 다음 문제 보이기
+            questions[currentQuestion].style.display = 'block';
+            questions[currentQuestion].classList.add('active');
+            
+            // 버튼 숨기기
+            nextBtn.style.display = 'none';
+            
+            // 진행률 업데이트
+            updateProgress();
+        });
+
+        // 최종 결과 표시
+        function showFinalResult() {
+            const percentage = (correctCount / questions.length * 100).toFixed(0);
+            let emoji = '🎉';
+            let message = '수고하셨습니다!';
+            
+            if (percentage == 100) {
+                emoji = '🏆';
+                message = '완벽합니다!';
+            } else if (percentage >= 80) {
+                emoji = '🎉';
+                message = '잘했어요!';
+            } else if (percentage >= 60) {
+                emoji = '👍';
+                message = '좋아요!';
+            } else {
+                emoji = '📚';
+                message = '다시 한 번 복습해보세요!';
+            }
+            
+            finalResult.innerHTML = `
+                <div style="font-size: 1.5em; margin-bottom: 10px;">${emoji} ${message}</div>
+                <div>총 ${questions.length}문제 중 ${correctCount}문제 정답</div>
+                <div style="font-size: 2em; margin-top: 10px; color: #ffd700;">${percentage}점</div>
+            `;
+            finalResult.classList.add('show');
+            
+            progressFill.style.width = '100%';
+        }
+
+        // 초기 설정
+        questions[0].style.display = 'block';
+        updateProgress();
+    </script>
+</body>
+</html>

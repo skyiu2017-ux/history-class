@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프랑스 혁명</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.4em;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: white;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            font-size: 1.7em;
+            color: white;
+            margin: 25px 0 20px;
+        }
+
+        p, li {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.9;
+            font-size: 1.2em;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        ul li::before {
+            content: "▸";
+            color: #ffd700;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* 타임라인 스타일 */
+        .timeline-container {
+            position: relative;
+            padding: 50px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #ffd700, #ffa500);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 70px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .timeline-year {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .timeline-title {
+            font-size: 1.6em;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-desc {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            font-size: 1.15em;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            background: #ffd700;
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            z-index: 10;
+        }
+
+        /* 형성평가 스타일 */
+        .quiz-section {
+            margin-top: 40px;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.1);
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        #progressFill {
+            background: linear-gradient(90deg, #ffd700, #ffa500);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .question {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .question.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .question h4 {
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .option.correct {
+            border-color: #4ade80;
+            background: rgba(74, 222, 128, 0.3);
+            animation: correctPulse 0.5s ease;
+        }
+
+        .option.wrong {
+            border-color: #f87171;
+            background: rgba(248, 113, 113, 0.3);
+            animation: wrongShake 0.5s ease;
+        }
+
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes wrongShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .feedback {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .feedback.correct {
+            background: rgba(74, 222, 128, 0.2);
+            border: 2px solid #4ade80;
+            color: #4ade80;
+        }
+
+        .feedback.wrong {
+            background: rgba(248, 113, 113, 0.2);
+            border: 2px solid #f87171;
+            color: #f87171;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .result {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.4em;
+            color: white;
+            font-weight: 600;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 5px solid #ffd700;
+            margin: 25px 0;
+        }
+
+        .key-point p {
+            font-size: 1.3em;
+            font-weight: 500;
+            color: white;
+            line-height: 1.9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.15em;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .glass {
+                padding: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            p, li, th, td {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇫🇷 프랑스 혁명</h1>
+        <p class="subtitle">자유, 평등, 박애를 외친 역사의 대전환</p>
+
+        <div class="glass">
+            <h2>🏰 구체제(앙시앵 레짐)</h2>
+            <table>
+                <tr>
+                    <th>구분</th>
+                    <th>내용</th>
+                </tr>
+                <tr>
+                    <td>정치</td>
+                    <td>왕이 모든 권력을 가진 <strong>절대왕정</strong> (루이 16세)</td>
+                </tr>
+                <tr>
+                    <td>사회</td>
+                    <td><strong>신분제 사회</strong> → 성직자(1신분)·귀족(2신분)·평민(3신분)으로 나뉨</td>
+                </tr>
+                <tr>
+                    <td>경제</td>
+                    <td>왕실과 귀족의 사치로 <strong>재정 파탄</strong>, 전쟁 부담, 세금 불공평 (평민만 세금 부담)</td>
+                </tr>
+                <tr>
+                    <td>사상</td>
+                    <td><strong>계몽사상</strong>의 확산 – 루소(국민주권), 몽테스키외(삼권분립), 볼테르(사상·언론의 자유)</td>
+                </tr>
+                <tr>
+                    <td>결과</td>
+                    <td>평민들의 불만 폭발, "국민이 나라의 주인이다"라는 인식 확산</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="glass">
+            <h2>⏰ 프랑스 혁명 연표</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1789년 6월</div>
+                        <div class="timeline-title">국민의회 결성</div>
+                        <div class="timeline-desc">3신분 대표들이 스스로를 "국민의회"라 선언 → 국민주권의 시작. 테니스코트에서 헌법 제정 전까지 결코 해산하지 않겠다고 서약.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1789년 7월 14일</div>
+                        <div class="timeline-title">바스티유 감옥 습격</div>
+                        <div class="timeline-desc">혁명의 상징적 시작, 절대왕정 붕괴의 서막. 시민들이 무기를 얻기 위해 감옥을 습격하며 혁명이 본격화됨.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1789년 8월</div>
+                        <div class="timeline-title">인간과 시민의 권리선언</div>
+                        <div class="timeline-desc">자유·평등·주권의 원리 천명 → 근대 인권사상의 출발. "모든 인간은 자유롭고 평등하게 태어났다" 선언.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1791년</div>
+                        <div class="timeline-title">헌법 제정 & 바렌느 사건</div>
+                        <div class="timeline-desc">입헌군주제 도입, 국민이 법 제정에 참여. 루이 16세가 탈출을 시도했으나 체포되어 왕에 대한 신뢰 상실, 공화정 요구 확산.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1792년 8월</div>
+                        <div class="timeline-title">튈르리궁 습격</div>
+                        <div class="timeline-desc">시민들이 왕궁 습격 → 왕권 완전 붕괴. 혁명의 과격화가 시작됨.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1792년 9월</div>
+                        <div class="timeline-title">국민공회 수립 & 공화정 선포</div>
+                        <div class="timeline-desc">입법의회 해산 후 국민공회 수립. 왕정을 폐지하고 공화정을 선포함.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1793년 1월</div>
+                        <div class="timeline-title">루이 16세 처형</div>
+                        <div class="timeline-desc">절대왕정의 종말. 유럽 군주국들의 위기감 고조되어 대불전쟁 발발.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1793~1794년</div>
+                        <div class="timeline-title">로베스피에르의 공포정치</div>
+                        <div class="timeline-desc">자코뱅파가 권력 장악. 반대파를 단두대로 처형하며 자유를 억압. 공포와 폭력의 시대.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1794년</div>
+                        <div class="timeline-title">열월의 쿠데타</div>
+                        <div class="timeline-desc">로베스피에르 실각 및 처형. 공포정치 종식되고 혁명의 안정기로 접어듦.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1795년</div>
+                        <div class="timeline-title">총재정부 성립</div>
+                        <div class="timeline-desc">새로운 정부 구성. 그러나 부패와 혼란이 지속됨.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1799년</div>
+                        <div class="timeline-title">나폴레옹 쿠데타</div>
+                        <div class="timeline-desc">나폴레옹이 총재정부를 무너뜨리고 통령정부 수립. 권력 장악의 시작.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1804년</div>
+                        <div class="timeline-title">나폴레옹 법전 & 황제 즉위</div>
+                        <div class="timeline-desc">나폴레옹 법전 제정으로 법 앞의 평등·재산권 보장. 나폴레옹 1세로 황제 즉위하여 유럽 제패 시도.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1812~1815년</div>
+                        <div class="timeline-title">나폴레옹의 몰락</div>
+                        <div class="timeline-desc">러시아 원정 실패 → 라이프치히 전투 패배 → 워털루 전투에서 최종 패배 및 실각. 혁명 시대의 종결.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass">
+            <h2>🌍 프랑스 혁명의 의의</h2>
+            <table>
+                <tr>
+                    <th>구분</th>
+                    <th>내용</th>
+                </tr>
+                <tr>
+                    <td>정치</td>
+                    <td>절대왕정 붕괴 → 국민주권의 원리 확립</td>
+                </tr>
+                <tr>
+                    <td>사회</td>
+                    <td>신분제 폐지, 법 앞의 평등 실현</td>
+                </tr>
+                <tr>
+                    <td>사상</td>
+                    <td>자유·평등·박애의 가치 확산</td>
+                </tr>
+                <tr>
+                    <td>세계사적 영향</td>
+                    <td>라틴아메리카 독립, 유럽 민주주의 운동 촉진</td>
+                </tr>
+                <tr>
+                    <td>종합</td>
+                    <td><strong>근대 시민 사회의 출발점</strong>이자 <strong>민주주의의 기초 확립</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="glass">
+            <div class="key-point">
+                <p><strong>🏁 핵심 정리:</strong> 프랑스 혁명은 불평등한 구체제를 무너뜨리고, 국민이 정치의 주인이 되는 근대 민주주의의 문을 연 사건이었다.</p>
+            </div>
+        </div>
+
+        <div class="glass quiz-section">
+            <h2>📝 형성평가</h2>
+            <p style="color: rgba(255,255,255,0.95); margin-bottom: 30px; font-size: 1.2em;">답을 선택하면 바로 정답이 확인됩니다!</p>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+            <div id="quizContainer">
+                <div class="question active" data-answer="4">
+                    <h4>1. 프랑스 혁명 이전, 성직자·귀족·평민으로 나뉜 불평등한 사회 체제를 무엇이라 하는가?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 봉건제</div>
+                        <div class="option" data-value="2">② 삼권분립</div>
+                        <div class="option" data-value="3">③ 국민공회</div>
+                        <div class="option" data-value="4">④ 구체제(앙시앵 레짐)</div>
+                        <div class="option" data-value="5">⑤ 인권선언</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-answer="2" style="display: none;">
+                    <h4>2. 1789년 7월 14일, 프랑스 시민들이 혁명의 상징으로 공격한 장소는?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 튈르리궁</div>
+                        <div class="option" data-value="2">② 바스티유 감옥</div>
+                        <div class="option" data-value="3">③ 베르사유 궁전</div>
+                        <div class="option" data-value="4">④ 루브르 박물관</div>
+                        <div class="option" data-value="5">⑤ 엘리제 궁</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-answer="2" style="display: none;">
+                    <h4>3. 프랑스 혁명 시기, 공포정치를 주도했던 인물은 누구인가?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 루이 16세</div>
+                        <div class="option" data-value="2">② 로베스피에르</div>
+                        <div class="option" data-value="3">③ 나폴레옹</div>
+                        <div class="option" data-value="4">④ 마라</div>
+                        <div class="option" data-value="5">⑤ 라파예트</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-answer="2" style="display: none;">
+                    <h4>4. 프랑스 혁명이 일어나게 된 가장 큰 사회적 원인은 무엇인가?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 군주제 강화와 군비 확충</div>
+                        <div class="option" data-value="2">② 세금 부담의 불평등과 신분제</div>
+                        <div class="option" data-value="3">③ 외국과의 전쟁 패배</div>
+                        <div class="option" data-value="4">④ 영국 산업혁명의 영향</div>
+                        <div class="option" data-value="5">⑤ 루이 16세의 개혁 정책</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" data-answer="3" style="display: none;">
+                    <h4>5. 프랑스 혁명의 가장 중요한 역사적 의의로 옳은 것은?</h4>
+                    <div class="options">
+                        <div class="option" data-value="1">① 왕권 강화와 절대왕정의 부활</div>
+                        <div class="option" data-value="2">② 식민지 확장과 자본주의 발전</div>
+                        <div class="option" data-value="3">③ 국민주권 확립과 신분제 폐지</div>
+                        <div class="option" data-value="4">④ 교황권 강화와 종교개혁</div>
+                        <div class="option" data-value="5">⑤ 자유무역의 확산과 제국주의 강화</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+
+            <button class="submit-btn" id="nextBtn">다음 문제</button>
+            <div class="result" id="finalResult"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = document.querySelectorAll('.question');
+        const nextBtn = document.getElementById('nextBtn');
+        const finalResult = document.getElementById('finalResult');
+        const progressFill = document.getElementById('progressFill');
+        
+        let currentQuestion = 0;
+        let correctCount = 0;
+
+        // 진행률 업데이트
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressFill.style.width = progress + '%';
+        }
+
+        // 정답 확인 처리
+        function checkAnswer(question, selectedAnswer) {
+            const correctAnswer = parseInt(question.dataset.answer);
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+
+            // 정답/오답 표시
+            options.forEach(option => {
+                const optionValue = parseInt(option.dataset.value);
+                
+                if (optionValue === correctAnswer) {
+                    option.classList.add('correct');
+                }
+                
+                if (optionValue === selectedAnswer && selectedAnswer !== correctAnswer) {
+                    option.classList.add('wrong');
+                }
+                
+                option.style.pointerEvents = 'none';
+            });
+
+            // 피드백 표시
+            if (selectedAnswer === correctAnswer) {
+                correctCount++;
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ 정답입니다!';
+            } else {
+                feedback.className = 'feedback wrong';
+                feedback.innerHTML = '✗ 틀렸습니다. 정답은 ' + correctAnswer + '번입니다.';
+            }
+            feedback.style.display = 'block';
+
+            question.classList.add('answered');
+            
+            // 마지막 문제인지 확인
+            if (currentQuestion < questions.length - 1) {
+                setTimeout(() => {
+                    nextBtn.style.display = 'block';
+                }, 300);
+            } else {
+                setTimeout(() => {
+                    showFinalResult();
+                }, 800);
+            }
+        }
+
+        // 옵션 선택 시 바로 정답 확인
+        questions.forEach((question, qIndex) => {
+            const options = question.querySelectorAll('.option');
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    if (qIndex !== currentQuestion) return;
+                    
+                    // 이미 확인한 문제는 선택 불가
+                    if (question.classList.contains('answered')) return;
+                    
+                    // 다른 옵션에서 selected 제거
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // 선택한 옵션에 selected 추가
+                    this.classList.add('selected');
+                    const selectedAnswer = parseInt(this.dataset.value);
+                    
+                    // 바로 정답 확인
+                    checkAnswer(question, selectedAnswer);
+                });
+            });
+        });
+
+        // 다음 문제
+        nextBtn.addEventListener('click', function() {
+            // 현재 문제 숨기기
+            questions[currentQuestion].style.display = 'none';
+            questions[currentQuestion].classList.remove('active');
+            
+            // 다음 문제로 이동
+            currentQuestion++;
+            
+            // 다음 문제 보이기
+            questions[currentQuestion].style.display = 'block';
+            questions[currentQuestion].classList.add('active');
+            
+            // 버튼 숨기기
+            nextBtn.style.display = 'none';
+            
+            // 진행률 업데이트
+            updateProgress();
+        });
+
+        // 최종 결과 표시
+        function showFinalResult() {
+            const percentage = (correctCount / questions.length * 100).toFixed(0);
+            let emoji = '🎉';
+            let message = '수고하셨습니다!';
+            
+            if (percentage == 100) {
+                emoji = '🏆';
+                message = '완벽합니다!';
+            } else if (percentage >= 80) {
+                emoji = '🎉';
+                message = '잘했어요!';
+            } else if (percentage >= 60) {
+                emoji = '👍';
+                message = '좋아요!';
+            } else {
+                emoji = '📚';
+                message = '다시 한 번 복습해보세요!';
+            }
+            
+            finalResult.innerHTML = `
+                <div style="font-size: 1.8em; margin-bottom: 15px;">${emoji} ${message}</div>
+                <div style="font-size: 1.3em;">총 ${questions.length}문제 중 ${correctCount}문제 정답</div>
+                <div style="font-size: 2.5em; margin-top: 15px; color: #ffd700;">${percentage}점</div>
+            `;
+            finalResult.classList.add('show');
+            
+            progressFill.style.width = '100%';
+        }
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        // 타임라인 아이템 관찰
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // 초기 설정
+        questions[0].style.display = 'block';
+        updateProgress();
+    </script>
+</body>
+</html>

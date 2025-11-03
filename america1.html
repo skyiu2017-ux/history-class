@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미국 남북전쟁과 라틴아메리카의 독립</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #1d1d1f;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #e5e5e5;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.8rem;
+            color: #86868b;
+            font-weight: 400;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 20px 50px;
+            font-size: 2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin: 50px 0 30px 0;
+            padding-left: 20px;
+            border-left: 6px solid #667eea;
+        }
+
+        .subsection-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #333;
+            margin: 40px 0 25px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .content-card {
+            background: #f9f9f9;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-text {
+            font-size: 1.9rem;
+            line-height: 2;
+            color: #1d1d1f;
+            margin: 20px 0;
+        }
+
+        .content-text strong {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 1.9rem;
+            line-height: 2;
+            margin: 20px 0;
+            padding-left: 40px;
+            position: relative;
+            color: #1d1d1f;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #667eea;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .comparison-table td {
+            background: white;
+            font-size: 1.8rem;
+            padding: 30px 20px;
+            border-bottom: 1px solid #e5e5e5;
+            text-align: center;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 5px solid #667eea;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            font-size: 2.2rem;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .emoji {
+            font-size: 2.5rem;
+            margin-right: 10px;
+        }
+
+        /* 형성평가 스타일 */
+        .quiz-progress {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin: 30px 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .quiz-question {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-option {
+            padding: 30px 40px;
+            font-size: 2rem;
+            background: #f5f5f7;
+            border: 3px solid transparent;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            background: #e8e8ed;
+            transform: translateX(10px);
+        }
+
+        .quiz-option.selected {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            animation: correctPulse 0.5s ease;
+        }
+
+        .quiz-option.wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .feedback-message {
+            font-size: 2.2rem;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback-message.correct {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .feedback-message.wrong {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        .next-btn {
+            padding: 20px 60px;
+            font-size: 2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            display: none;
+            margin: 30px auto 0;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .next-btn.show {
+            display: inline-block;
+        }
+
+        /* 서술형 문제 스타일 */
+        .essay-textarea {
+            width: 100%;
+            min-height: 300px;
+            font-size: 1.9rem;
+            padding: 30px;
+            border: 3px solid #e5e5e5;
+            border-radius: 15px;
+            font-family: inherit;
+            line-height: 1.8;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .essay-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .essay-submit-btn {
+            padding: 20px 60px;
+            font-size: 2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            margin: 30px auto 0;
+            display: block;
+        }
+
+        .essay-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .essay-feedback {
+            display: none;
+            margin-top: 40px;
+        }
+
+        .essay-feedback.show {
+            display: block;
+        }
+
+        .keyword-analysis {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .keyword-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .keyword-item {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 8px;
+            border-radius: 25px;
+            font-size: 1.7rem;
+        }
+
+        .keyword-item.found {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .keyword-item.missing {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 30px 0;
+        }
+
+        .model-answer {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 5px solid #667eea;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .model-answer-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .model-answer-text {
+            font-size: 1.9rem;
+            line-height: 1.8;
+            color: #1d1d1f;
+        }
+
+        .final-result {
+            display: none;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .final-result.show {
+            display: block;
+        }
+
+        .final-score {
+            font-size: 5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 30px 0;
+        }
+
+        .restart-btn {
+            padding: 20px 60px;
+            font-size: 2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .tab-btn {
+                padding: 15px 30px;
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .quiz-question {
+                font-size: 1.8rem;
+            }
+
+            .quiz-option {
+                font-size: 1.5rem;
+                padding: 20px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗽 미국 남북전쟁과 라틴아메리카의 독립</h1>
+            <p class="subtitle">제국주의 침략과 국민 국가 건설 운동</p>
+        </div>
+
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab('basic')">📘 기본 내용</button>
+            <button class="tab-btn" onclick="showTab('advanced')">📚 심화 내용</button>
+            <button class="tab-btn" onclick="showTab('assessment')">✍️ 형성평가</button>
+        </div>
+
+        <!-- 기본 내용 -->
+        <div id="basic" class="content-section active">
+            <div class="section-title">1️⃣ 미국 남북전쟁 (1861~1865)</div>
+            
+            <div class="content-card">
+                <div class="subsection-title">📍 배경</div>
+                <ul>
+                    <li><strong>북부:</strong> 공업 중심, 자유노동 기반의 자본주의 경제</li>
+                    <li><strong>남부:</strong> 농업 중심, 노예노동 기반의 대농장 경제</li>
+                    <li>→ <strong>노예제 유지 여부</strong>를 둘러싼 갈등 심화</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">⚡ 계기</div>
+                <ul>
+                    <li>링컨의 대통령 당선(1860)</li>
+                    <li>남부 여러 주의 연방 탈퇴</li>
+                    <li>남부연합 결성</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">✨ 전개와 결과</div>
+                <ul>
+                    <li>북부의 승리로 전쟁 종결, <strong>노예 해방 선언(1863)</strong> 발표</li>
+                    <li><strong>미국의 통일 유지</strong></li>
+                    <li><strong>노예제 폐지</strong></li>
+                    <li><strong>산업자본주의 발전 기반 마련</strong></li>
+                </ul>
+            </div>
+
+            <div class="section-title">2️⃣ 라틴아메리카의 독립 (19세기 초)</div>
+            
+            <div class="content-card">
+                <div class="subsection-title">📍 배경</div>
+                <ul>
+                    <li>오랜 식민 지배로 인한 사회적 불평등</li>
+                    <li>크리오요(식민지 출신 유럽계 백인)의 정치 참여 제한</li>
+                    <li><strong>미국 독립(1776)</strong>·<strong>프랑스 혁명(1789)</strong>의 자유와 평등 사상 확산</li>
+                    <li><strong>나폴레옹 전쟁</strong>으로 스페인·포르투갈의 통치력 약화</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">⚡ 전개</div>
+                <ul>
+                    <li><strong>멕시코:</strong> 이달고 신부가 독립을 외침(1810) → 1821년 독립</li>
+                    <li><strong>남아메리카:</strong> 볼리바르·산마르틴 등의 활약 → 다수 공화국 성립</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">✨ 결과</div>
+                <ul>
+                    <li>대부분 지역이 1820~1830년대에 독립</li>
+                    <li>그러나 <strong>정치적 혼란</strong>과 <strong>경제적 종속</strong>이 지속됨</li>
+                </ul>
+            </div>
+
+            <div class="section-title">3️⃣ 라틴아메리카가 민주 공화국으로 발전하지 못한 이유</div>
+            
+            <div class="content-card">
+                <ul>
+                    <li>식민지 잔재로 <strong>사회적 불평등</strong> 심화</li>
+                    <li><strong>지배층(크리오요)</strong>이 정치·경제권 독점</li>
+                    <li><strong>군벌(카우디요)</strong>이 쿠데타로 정권 장악</li>
+                    <li><strong>외세(특히 영국·미국)</strong>의 경제적 영향력 강화</li>
+                    <li>교육 수준과 시민 참여 부족 → <strong>민주주의 기반 약함</strong></li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <span class="emoji">💡</span> <strong>한 줄로 정리:</strong> "미국은 남북전쟁을 통해 민주주의를 심화했지만, 라틴아메리카는 식민지 구조의 잔재와 외세 영향으로 진정한 민주주의로 나아가지 못했다."
+            </div>
+        </div>
+
+        <!-- 심화 내용 -->
+        <div id="advanced" class="content-section">
+            <div class="section-title">🇺🇸 미국 남북전쟁의 심화 이해</div>
+
+            <div class="content-card">
+                <div class="subsection-title">(1) 경제적 이해관계의 구조</div>
+                <p class="content-text">
+                    북부는 관세를 높여 자국 산업 보호를 원했지만, 남부는 면화 수출을 위해 <strong>자유무역을 선호</strong>했습니다. 
+                    즉, 단순한 노예제 문제가 아니라 <strong>산업자본주의 vs 농업자본주의의 충돌</strong>이었습니다.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">(2) 링컨의 정치적 선택</div>
+                <p class="content-text">
+                    초반에는 "노예제 폐지가 아닌 연방의 보존"이 목표였지만, 전쟁이 길어지며 노예해방을 <strong>도덕적 명분으로 전환</strong>했습니다. 
+                    이를 통해 유럽(특히 영국·프랑스)의 남부 지원을 차단했습니다.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">(3) 전쟁 이후의 변화</div>
+                <p class="content-text">
+                    13·14·15차 수정헌법 제정으로 <strong>시민권과 참정권 확대</strong>가 이루어졌습니다. 
+                    하지만 <strong>흑인 차별(인종분리법, KKK 등장)</strong>로 완전한 평등은 달성되지 못했습니다.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">(4) 세계사적 의의</div>
+                <p class="content-text">
+                    미국은 이후 <strong>세계 최대의 산업국가</strong>로 성장하며 
+                    <strong>"민주주의와 인권의 이상"</strong>을 상징하는 국가로 자리잡았습니다.
+                </p>
+            </div>
+
+            <div class="section-title">🇲🇽 라틴아메리카 독립과 민주주의 한계의 심화 이해</div>
+
+            <div class="content-card">
+                <div class="subsection-title">(1) 독립 후의 정치적 불안정</div>
+                <p class="content-text">
+                    새로 탄생한 나라들이 곧바로 <strong>카우디요(군벌 지도자)</strong>들의 경쟁 무대로 전락했습니다. 
+                    쿠데타와 내전이 빈발하며 <strong>헌정 질서가 제대로 정착되지 못했습니다</strong>.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">(2) 경제적 종속 구조</div>
+                <p class="content-text">
+                    식민지 시절과 동일하게 <strong>원료(커피·설탕·광물)</strong>를 수출하고 <strong>공산품을 수입</strong>하는 구조가 지속되었습니다. 
+                    이는 <strong>신(新)제국주의적 경제 종속</strong>으로 이어졌습니다.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">(3) 사회 구조의 폐쇄성</div>
+                <p class="content-text">
+                    토지는 여전히 <strong>소수 지주층의 대농장(hacienda)</strong>에 집중되어 농민의 생활은 악화되었습니다. 
+                    원주민과 메스티소(혼혈 인구)는 <strong>정치적 발언권이 거의 없었습니다</strong>.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">(4) 외교와 미국의 간섭</div>
+                <p class="content-text">
+                    <strong>몬로주의("미주 대륙은 미국의 영향권")</strong>에 따라 미국이 라틴아메리카 정치에 적극 개입했습니다. 
+                    대표 사례로는 멕시코 내전, 쿠바·파나마 간섭이 있습니다.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <div class="subsection-title">(5) 결과적 의의</div>
+                <p class="content-text">
+                    라틴아메리카는 형식적 공화국이었으나 실질적으로는 <strong>"경제 식민지형 사회"</strong>로 고착되었습니다. 
+                    20세기 초까지 <strong>민주주의보다는 군사 독재가 반복</strong>되었습니다.
+                </p>
+            </div>
+
+            <div class="section-title">📊 비교표</div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>미국 남북전쟁</th>
+                        <th>라틴아메리카 독립</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>시기</strong></td>
+                        <td>1861~1865</td>
+                        <td>1810~1830년대</td>
+                    </tr>
+                    <tr>
+                        <td><strong>주도 세력</strong></td>
+                        <td>북부 자본가, 자유농민</td>
+                        <td>크리오요(식민지 유럽계 백인)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>주요 인물</strong></td>
+                        <td>링컨</td>
+                        <td>이달고, 볼리바르, 산마르틴</td>
+                    </tr>
+                    <tr>
+                        <td><strong>이념</strong></td>
+                        <td>자유, 평등, 통합</td>
+                        <td>민족 자결, 공화주의</td>
+                    </tr>
+                    <tr>
+                        <td><strong>결과</strong></td>
+                        <td>노예제 폐지, 민주주의 강화</td>
+                        <td>정치 혼란, 군벌 통치</td>
+                    </tr>
+                    <tr>
+                        <td><strong>문제점</strong></td>
+                        <td>인종차별 잔존</td>
+                        <td>사회 불평등, 외세 의존</td>
+                    </tr>
+                    <tr>
+                        <td><strong>세계사적 의미</strong></td>
+                        <td>근대 민주주의 확립</td>
+                        <td>식민지 해방의 시작</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <span class="emoji">🧭</span> <strong>핵심 메시지:</strong> "미국은 남북전쟁을 통해 민주주의를 심화했지만, 라틴아메리카는 식민지 구조의 잔재와 외세 영향으로 진정한 민주주의로 나아가지 못했다."
+            </div>
+        </div>
+
+        <!-- 형성평가 -->
+        <div id="assessment" class="content-section">
+            <div class="section-title">✍️ 형성평가</div>
+            
+            <div class="quiz-progress" id="quizProgress">문제 1 / 8</div>
+
+            <div id="quizContainer">
+                <!-- 퀴즈 문제들이 여기에 동적으로 표시됨 -->
+            </div>
+
+            <div class="final-result" id="finalResult">
+                <h2 style="font-size: 3.5rem; margin-bottom: 30px;">🎉 형성평가 완료!</h2>
+                <div class="final-score" id="finalScore">100점</div>
+                <p style="font-size: 2rem; color: #86868b; margin: 20px 0;">수고하셨습니다!</p>
+                <button class="restart-btn" onclick="restartQuiz()">🔄 다시 풀기</button>
+                <button class="restart-btn" onclick="showTab('basic')">📘 기본 내용 보기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        let score = 0;
+        let answeredCorrectly = false;
+
+        const questions = [
+            {
+                type: 'multiple',
+                question: '미국 남북전쟁의 근본적인 원인은 무엇이었나요?',
+                options: [
+                    '종교적 차이',
+                    '언어적 차이',
+                    '노예제 유지 여부를 둘러싼 북부와 남부의 경제적 갈등',
+                    '영국과의 독립 전쟁'
+                ],
+                correct: 2,
+                explanation: '북부는 공업 중심의 자유노동 경제였고, 남부는 농업 중심의 노예노동 경제였습니다.'
+            },
+            {
+                type: 'multiple',
+                question: '링컨이 노예 해방 선언을 발표한 연도는?',
+                options: [
+                    '1860년',
+                    '1861년',
+                    '1863년',
+                    '1865년'
+                ],
+                correct: 2,
+                explanation: '링컨은 1863년에 노예 해방 선언을 발표했습니다.'
+            },
+            {
+                type: 'multiple',
+                question: '라틴아메리카 독립에 영향을 준 역사적 사건이 아닌 것은?',
+                options: [
+                    '미국 독립 (1776)',
+                    '프랑스 혁명 (1789)',
+                    '나폴레옹 전쟁',
+                    '청일전쟁'
+                ],
+                correct: 3,
+                explanation: '청일전쟁은 동아시아에서 일어난 전쟁으로 라틴아메리카 독립과는 무관합니다.'
+            },
+            {
+                type: 'multiple',
+                question: '크리오요(Criollo)는 누구를 말하나요?',
+                options: [
+                    '원주민',
+                    '식민지 출신 유럽계 백인',
+                    '아프리카 출신 노예',
+                    '스페인 본국에서 온 관리'
+                ],
+                correct: 1,
+                explanation: '크리오요는 식민지에서 태어난 유럽계 백인으로, 정치 참여에 제한을 받았습니다.'
+            },
+            {
+                type: 'multiple',
+                question: '라틴아메리카가 독립 후에도 민주 공화국으로 발전하지 못한 이유가 아닌 것은?',
+                options: [
+                    '군벌(카우디요)이 쿠데타로 정권을 장악했다',
+                    '경제적으로 외세에 종속되었다',
+                    '사회적 불평등이 심화되었다',
+                    '인구가 너무 많아서 통치가 어려웠다'
+                ],
+                correct: 3,
+                explanation: '인구 문제가 아니라 식민지 잔재, 군벌 통치, 외세 종속 등이 주요 원인이었습니다.'
+            },
+            {
+                type: 'multiple',
+                question: '멕시코 독립을 주도한 인물은?',
+                options: [
+                    '볼리바르',
+                    '산마르틴',
+                    '이달고 신부',
+                    '링컨'
+                ],
+                correct: 2,
+                explanation: '이달고 신부는 1810년 멕시코의 독립을 선언하며 독립운동을 이끌었습니다.'
+            },
+            {
+                type: 'multiple',
+                question: '미국 남북전쟁에서 북부의 경제적 특징은?',
+                options: [
+                    '공업 중심, 자유노동 기반',
+                    '농업 중심, 노예노동 기반',
+                    '무역 중심, 상업 자본주의',
+                    '광업 중심, 원료 수출 경제'
+                ],
+                correct: 0,
+                explanation: '북부는 공업이 발달했고 자유노동을 기반으로 한 자본주의 경제였습니다.'
+            },
+            {
+                type: 'essay',
+                question: '미국 남북전쟁과 라틴아메리카 독립의 가장 큰 차이점은 무엇일까요? (독립 후 민주주의 발전 측면에서 서술해보세요)',
+                keywords: [
+                    { word: '미국', required: true },
+                    { word: '남북전쟁', required: true },
+                    { word: '라틴아메리카', required: true },
+                    { word: '민주주의', required: true },
+                    { word: '노예제 폐지', required: false },
+                    { word: '산업자본주의', required: false },
+                    { word: '심화', required: false },
+                    { word: '식민지', required: false },
+                    { word: '불평등', required: false },
+                    { word: '군벌', required: false },
+                    { word: '카우디요', required: false },
+                    { word: '외세', required: false },
+                    { word: '종속', required: false },
+                    { word: '정치적 혼란', required: false }
+                ],
+                modelAnswer: '미국은 남북전쟁을 통해 노예제를 폐지하고 산업자본주의를 발전시켜 민주주의를 심화시켰습니다. 반면 라틴아메리카는 독립 후에도 식민지 시대의 사회적 불평등 구조가 남아있고, 군벌(카우디요)의 쿠데타와 외세(영국, 미국)의 경제적 간섭으로 인해 민주주의가 제대로 발전하지 못하고 정치적 혼란이 지속되었습니다.'
+            }
+        ];
+
+        function showTab(tabName) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            if (tabName === 'assessment') {
+                startQuiz();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function startQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            answeredCorrectly = false;
+            document.getElementById('finalResult').classList.remove('show');
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const container = document.getElementById('quizContainer');
+            const progress = document.getElementById('quizProgress');
+            const question = questions[currentQuestion];
+
+            progress.textContent = `문제 ${currentQuestion + 1} / ${questions.length}`;
+
+            if (question.type === 'multiple') {
+                displayMultipleChoice(container, question);
+            } else if (question.type === 'essay') {
+                displayEssay(container, question);
+            }
+        }
+
+        function displayMultipleChoice(container, question) {
+            let html = `
+                <div class="quiz-card">
+                    <div class="quiz-question">
+                        <span class="emoji">❓</span> ${question.question}
+                    </div>
+                    <div class="quiz-options">
+            `;
+
+            question.options.forEach((option, index) => {
+                html += `<div class="quiz-option" onclick="selectAnswer(${index})">${index + 1}. ${option}</div>`;
+            });
+
+            html += `
+                    </div>
+                    <div class="feedback-message" id="feedbackMessage"></div>
+                    <button class="next-btn" id="nextBtn" onclick="nextQuestion()">다음 문제 ➡️</button>
+                </div>
+            `;
+
+            container.innerHTML = html;
+            answeredCorrectly = false;
+        }
+
+        function selectAnswer(index) {
+            if (answeredCorrectly) return;
+
+            const question = questions[currentQuestion];
+            const options = document.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById('feedbackMessage');
+            const nextBtn = document.getElementById('nextBtn');
+
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+
+            if (index === question.correct) {
+                options[index].classList.add('correct');
+                options[index].innerHTML = '✓ ' + options[index].innerHTML;
+                feedback.className = 'feedback-message correct';
+                feedback.textContent = '🎉 정답입니다! ' + question.explanation;
+                answeredCorrectly = true;
+                score += (100 / questions.length);
+                nextBtn.classList.add('show');
+            } else {
+                options[index].classList.add('wrong');
+                options[index].innerHTML = '✗ ' + options[index].innerHTML;
+                options[question.correct].classList.add('correct');
+                options[question.correct].innerHTML = '✓ ' + options[question.correct].innerHTML;
+                feedback.className = 'feedback-message wrong';
+                feedback.textContent = '❌ 아쉽습니다. ' + question.explanation;
+                nextBtn.classList.add('show');
+            }
+        }
+
+        function displayEssay(container, question) {
+            let html = `
+                <div class="quiz-card">
+                    <div class="quiz-question">
+                        <span class="emoji">💭</span> ${question.question}
+                    </div>
+                    <textarea class="essay-textarea" id="essayAnswer" placeholder="여기에 답을 작성하세요..."></textarea>
+                    <button class="essay-submit-btn" onclick="gradeEssay()">📝 제출하고 채점받기</button>
+                    <div class="essay-feedback" id="essayFeedback"></div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function gradeEssay() {
+            const answer = document.getElementById('essayAnswer').value.trim();
+            const question = questions[currentQuestion];
+            const feedbackDiv = document.getElementById('essayFeedback');
+
+            if (!answer) {
+                alert('답을 작성해주세요!');
+                return;
+            }
+
+            // 키워드 분석
+            const foundKeywords = [];
+            const missingKeywords = [];
+            let requiredFound = 0;
+            let requiredTotal = 0;
+
+            question.keywords.forEach(keyword => {
+                if (keyword.required) requiredTotal++;
+
+                if (answer.includes(keyword.word)) {
+                    foundKeywords.push(keyword.word);
+                    if (keyword.required) requiredFound++;
+                } else {
+                    missingKeywords.push(keyword.word);
+                }
+            });
+
+            // 점수 계산 (필수 키워드 기준)
+            const essayScore = Math.round((requiredFound / requiredTotal) * 100);
+            score += (essayScore / questions.length);
+
+            // 피드백 생성
+            let feedbackHTML = `
+                <div class="score-display">
+                    ${essayScore}점 / 100점
+                </div>
+                <div class="keyword-analysis">
+                    <div class="keyword-title">✅ 포함된 키워드 (${foundKeywords.length}개)</div>
+                    ${foundKeywords.map(kw => `<span class="keyword-item found">${kw}</span>`).join('')}
+                </div>
+            `;
+
+            if (missingKeywords.length > 0) {
+                feedbackHTML += `
+                    <div class="keyword-analysis">
+                        <div class="keyword-title">💡 추가하면 좋은 키워드 (${missingKeywords.length}개)</div>
+                        ${missingKeywords.map(kw => `<span class="keyword-item missing">${kw}</span>`).join('')}
+                    </div>
+                `;
+            }
+
+            let feedbackMessage = '';
+            if (essayScore >= 80) {
+                feedbackMessage = '🎉 훌륭합니다! 핵심 내용을 잘 이해하고 있습니다.';
+            } else if (essayScore >= 60) {
+                feedbackMessage = '👍 좋습니다! 조금 더 보완하면 완벽할 것 같아요.';
+            } else if (essayScore >= 40) {
+                feedbackMessage = '💪 괜찮습니다! 누락된 키워드들을 추가해보세요.';
+            } else {
+                feedbackMessage = '📚 다시 한번 내용을 복습해보세요.';
+            }
+
+            feedbackHTML += `
+                <div class="content-card" style="margin-top: 30px;">
+                    <p style="font-size: 2rem; text-align: center; margin-bottom: 20px;">${feedbackMessage}</p>
+                </div>
+                <div class="model-answer">
+                    <div class="model-answer-title">📖 모범 답안</div>
+                    <div class="model-answer-text">${question.modelAnswer}</div>
+                </div>
+                <button class="next-btn show" onclick="finishQuiz()">✅ 평가 완료</button>
+            `;
+
+            feedbackDiv.innerHTML = feedbackHTML;
+            feedbackDiv.classList.add('show');
+
+            // 제출 버튼 숨기기
+            document.querySelector('.essay-submit-btn').style.display = 'none';
+            document.getElementById('essayAnswer').disabled = true;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                displayQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('quizProgress').style.display = 'none';
+            const finalResult = document.getElementById('finalResult');
+            const finalScore = document.getElementById('finalScore');
+
+            const roundedScore = Math.round(score);
+            finalScore.textContent = `${roundedScore}점`;
+
+            let message = '';
+            if (roundedScore >= 90) {
+                message = '🏆 완벽합니다!';
+            } else if (roundedScore >= 80) {
+                message = '🎉 우수합니다!';
+            } else if (roundedScore >= 70) {
+                message = '👍 잘했습니다!';
+            } else if (roundedScore >= 60) {
+                message = '💪 좋습니다!';
+            } else {
+                message = '📚 조금 더 복습이 필요해요!';
+            }
+
+            finalResult.querySelector('h2').textContent = message;
+            finalResult.classList.add('show');
+        }
+
+        function restartQuiz() {
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('quizProgress').style.display = 'block';
+            startQuiz();
+        }
+
+        // 초기 로드 시 퀴즈 준비
+        if (document.getElementById('assessment').classList.contains('active')) {
+            startQuiz();
+        }
+    </script>
+</body>
+</html>

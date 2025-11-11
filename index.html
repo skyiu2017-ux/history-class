@@ -85,6 +85,12 @@
             padding: 1rem 2rem;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
         }
 
         .stat-number {
@@ -285,42 +291,6 @@
             color: #ea580c;
         }
 
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1.5rem 1rem 3rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .search-input:focus {
-            border-color: rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
         .footer {
             background: rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
@@ -328,24 +298,6 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.8);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .github-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .github-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
         }
 
         .coming-soon-overlay {
@@ -419,27 +371,6 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .topic-link {
-                padding: 0.8rem;
-            }
-
-            .topic-info span:first-child {
-                font-size: 1rem;
-            }
-
-            .topic-info span:last-child {
-                font-size: 0.9rem;
-            }
-
-            .topic-status {
-                font-size: 0.7rem;
-                padding: 0.25rem 0.6rem;
-                min-width: 40px;
-            }
-        }
-
-        /* 스크롤 애니메이션 */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -460,7 +391,7 @@
             
             <div class="stats-container">
                 <div class="stat-item">
-                    <span class="stat-number">25</span>
+                    <span class="stat-number">26</span>
                     <span class="stat-label">완성된 주제</span>
                 </div>
                 <div class="stat-item">
@@ -470,6 +401,10 @@
                 <div class="stat-item">
                     <span class="stat-number">100%</span>
                     <span class="stat-label">인터랙티브</span>
+                </div>
+                <div class="stat-item" onclick="openLink('quiz.html')" style="cursor: pointer;">
+                    <span class="stat-number">📝</span>
+                    <span class="stat-label">종합 학습 퀴즈</span>
                 </div>
             </div>
         </div>
@@ -753,12 +688,12 @@
                             </div>
                             <span class="topic-status status-complete">완료</span>
                         </div>
-                        <div class="topic-link">
+                        <div class="topic-link" onclick="openLinkWithStop(event, 'salim.html')">
                             <div class="topic-info">
                                 <span>📚</span>
                                 <span>02. 사림 세력과 정치변화</span>
                             </div>
-                            <span class="topic-status status-coming">예정</span>
+                            <span class="topic-status status-complete">완료</span>
                         </div>
                         <div class="topic-link">
                             <div class="topic-info">
@@ -869,15 +804,10 @@
     <footer class="footer">
         <div class="container">
             <p>📚 교과서 정리 프로젝트 | Apple 스타일 인터랙티브 학습</p>
-            <a href="https://github.com/yourusername/textbook-summary" class="github-link">
-                <span>⭐</span>
-                <span>GitHub에서 보기</span>
-            </a>
         </div>
     </footer>
 
     <script>
-        // 스크롤 애니메이션
         function animateOnScroll() {
             const elements = document.querySelectorAll('.animate-on-scroll');
             elements.forEach(element => {
@@ -890,34 +820,24 @@
             });
         }
 
-        // 스크롤 이벤트 리스너
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', animateOnScroll);
 
-        // 스크롤 이동 함수
         function scrollToContent() {
             document.querySelector('.section').scrollIntoView({ 
                 behavior: 'smooth' 
             });
         }
 
-        // 링크 열기 함수 (같은 탭에서 열기로 수정)
         function openLink(url) {
             window.location.href = url;
         }
 
-        // 이벤트 버블링을 방지하는 링크 열기 함수
         function openLinkWithStop(event, url) {
             event.stopPropagation();
             window.location.href = url;
         }
 
-        // 특정 섹션으로 이동하는 함수 추가
-        function openSection(url, sectionId) {
-            window.location.href = url + '#' + sectionId;
-        }
-
-        // 마우스 3D 효과
         document.addEventListener('mousemove', (e) => {
             const cards = document.querySelectorAll('.subject-card:not(.coming-soon)');
             cards.forEach(card => {
@@ -936,31 +856,6 @@
                     card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
                 }
             });
-        });
-
-        // 타이핑 효과
-        function typeWriter(element, text, speed = 50) {
-            element.innerHTML = '';
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // 페이지 로드 시 타이핑 효과
-        document.addEventListener('DOMContentLoaded', () => {
-            const heroP = document.querySelector('.hero p');
-            if (heroP) {
-                const originalText = heroP.textContent;
-                setTimeout(() => {
-                    typeWriter(heroP, originalText, 30);
-                }, 1000);
-            }
         });
     </script>
 </body>

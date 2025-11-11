@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사림 세력과 정치 변화</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header .subtitle {
+            font-size: 1.4em;
+            color: rgba(255,255,255,0.95);
+            font-weight: 500;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-box p {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .content-box h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin: 30px 0 20px 0;
+            font-weight: 600;
+        }
+
+        .content-box ul {
+            margin-left: 25px;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        .content-box ul li {
+            margin-bottom: 10px;
+        }
+
+        .difficulty-selector {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-btn {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 15px 35px;
+            border-radius: 12px;
+            font-size: 1.15em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .difficulty-btn:hover {
+            background: #f5f7ff;
+            transform: translateY(-2px);
+        }
+
+        .difficulty-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .level-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .level-content.active {
+            display: block;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+
+        .highlight-box p {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1.05em;
+        }
+
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #5568d3;
+        }
+
+        .comparison-table td {
+            background: white;
+            padding: 15px;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            background: #f5f7ff;
+            color: #667eea;
+        }
+
+        .timeline-section {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-box {
+            background: white;
+            border-left: 5px solid #667eea;
+            padding: 20px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .timeline-year {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .reform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .reform-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+
+        .reform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .reform-card h4 {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .reform-card p {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        .core-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .core-summary p {
+            color: white;
+            font-size: 1.15em;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .core-summary p:last-child {
+            margin-bottom: 0;
+        }
+
+        .arrow {
+            color: #667eea;
+            font-weight: 700;
+            margin: 0 8px;
+        }
+
+        .quiz-progress {
+            text-align: center;
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .quiz-single-container {
+            min-height: 350px;
+        }
+
+        .quiz-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .quiz-question {
+            font-size: 1.25em;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            color: #333;
+            font-size: 1.05em;
+        }
+
+        .quiz-option:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .quiz-option.selected {
+            border-color: #667eea;
+            background: #f5f7ff;
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-option.wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .quiz-option.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .quiz-explanation {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f5f7ff;
+            border-radius: 10px;
+            color: #333;
+            display: none;
+            line-height: 1.8;
+            border-left: 4px solid #667eea;
+        }
+
+        .quiz-explanation.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        .nav-btn {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 1.05em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #f5f7ff;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.primary {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .nav-btn.primary:hover:not(:disabled) {
+            background: #5568d3;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .quiz-score {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            margin-top: 25px;
+            display: none;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .quiz-score.show {
+            display: block;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .quiz-score h3 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .quiz-score p {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .content-box {
+                padding: 25px;
+            }
+
+            .reform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.95em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+            }
+
+            .difficulty-selector {
+                flex-direction: column;
+            }
+
+            .difficulty-btn {
+                width: 100%;
+            }
+
+            .quiz-navigation {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏛 조선의 성립과 발전</h1>
+            <p class="subtitle">사림 세력과 정치 변화</p>
+        </div>
+
+        <div class="content-box" style="text-align: center;">
+            <h2 style="color: #667eea; margin-bottom: 20px;">📚 학습 난이도 선택</h2>
+            <p style="margin-bottom: 30px; color: #555;">자신의 수준에 맞는 난이도를 선택하세요</p>
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" onclick="showLevel('basic')" id="level-btn-basic">
+                    📘 기초
+                </button>
+                <button class="difficulty-btn" onclick="showLevel('standard')" id="level-btn-standard">
+                    📗 표준
+                </button>
+                <button class="difficulty-btn" onclick="showLevel('advanced')" id="level-btn-advanced">
+                    📕 심화
+                </button>
+            </div>
+        </div>
+
+        <!-- 기초 레벨 -->
+        <div id="level-basic" class="level-content active">
+            <div class="content-box">
+                <h3>🔑 핵심 개념</h3>
+                <p>조선 건국 이후 공신인 <strong>훈구 세력</strong>이 권력을 독점하자, 성종은 이를 견제하기 위해 지방의 유학자인 <strong>사림</strong>을 등용했습니다.</p>
+
+                <div class="highlight-box">
+                    <p><strong>훈구:</strong> 공신 중심, 권력 세습, 실리 추구</p>
+                    <p><strong>사림:</strong> 성리학 중심, 도덕 정치, 향촌 기반</p>
+                </div>
+
+                <h3>📌 주요 인물: 조광조</h3>
+                <p>중종 때 조광조는 성리학적 이상 정치를 실현하기 위해 세 가지 개혁을 추진했습니다:</p>
+                <ul>
+                    <li><strong>현량과:</strong> 도덕성과 학문으로 인재 선발</li>
+                    <li><strong>소격서 폐지:</strong> 도교 기관 폐지</li>
+                    <li><strong>위훈 삭제:</strong> 훈구의 특권 제한</li>
+                </ul>
+                <p><span class="arrow">→</span> 하지만 훈구의 반발로 <strong>기묘사화</strong>가 일어나 조광조와 사림이 축출되었습니다.</p>
+
+                <h3>📜 사화 (네 차례)</h3>
+                <div class="timeline-section">
+                    <div class="timeline-item visible">
+                        <div class="timeline-box">
+                            <div class="timeline-year">1498년 - 무오사화</div>
+                            <div class="timeline-desc">김종직의 글이 세조 비판으로 해석되어 사림 탄압</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item visible">
+                        <div class="timeline-box">
+                            <div class="timeline-year">1504년 - 갑자사화</div>
+                            <div class="timeline-desc">연산군의 생모 사건으로 인한 대규모 숙청</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item visible">
+                        <div class="timeline-box">
+                            <div class="timeline-year">1519년 - 기묘사화</div>
+                            <div class="timeline-desc">조광조의 개혁에 반발한 훈구의 공격</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item visible">
+                        <div class="timeline-box">
+                            <div class="timeline-year">1545년 - 을사사화</div>
+                            <div class="timeline-desc">외척 간의 권력 다툼</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🏫 사림의 재건</h3>
+                <p>사화로 중앙에서 쫓겨난 사림은 <strong>서원</strong>과 <strong>향약</strong>을 통해 지방 사회에 뿌리내렸습니다.</p>
+                <ul>
+                    <li><strong>서원:</strong> 유학 교육과 선현 제사</li>
+                    <li><strong>향약:</strong> 마을 자치 규약으로 도덕 공동체 형성</li>
+                </ul>
+                <p><span class="arrow">→</span> 이후 선조 때 중앙 정치에 복귀하여 <strong>사림 중심 정치</strong>를 확립했습니다.</p>
+
+                <div class="core-summary">
+                    <p>📌 <strong>핵심 정리</strong></p>
+                    <p>훈구의 부패 → 사림 등용 → 사화로 탄압 → 서원·향약으로 재건 → 사림 중심 정치 확립</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 표준 레벨 -->
+        <div id="level-standard" class="level-content">
+            <div class="content-box">
+                <h3>⚔️ 훈구와 사림의 대립</h3>
+                <p>조선 건국 이후 훈구 세력이 권력을 독점하며 부패가 심화되자, 성종은 이를 견제하기 위해 사림을 등용했습니다.</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>훈구 세력</th>
+                            <th>사림 세력</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>출신</td>
+                            <td>조선 건국 공신</td>
+                            <td>지방 유학자</td>
+                        </tr>
+                        <tr>
+                            <td>기반</td>
+                            <td>왕실 혼인, 토지·노비</td>
+                            <td>향촌 사회, 서원·향약</td>
+                        </tr>
+                        <tr>
+                            <td>이념</td>
+                            <td>실리 중심</td>
+                            <td>성리학적 도덕 정치</td>
+                        </tr>
+                        <tr>
+                            <td>정치 방식</td>
+                            <td>권력과 부 독점</td>
+                            <td>3사를 통한 견제</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🌿 조광조의 개혁 정치</h3>
+                <p>중종 때 조광조는 성리학적 이상 정치를 실현하기 위해 다음과 같은 개혁을 추진했습니다.</p>
+
+                <div class="reform-grid">
+                    <div class="reform-card">
+                        <h4>📚 현량과</h4>
+                        <p>과거 시험이 아닌 도덕성과 학문을 기준으로 인재를 천거하여 등용하는 제도입니다.</p>
+                    </div>
+                    <div class="reform-card">
+                        <h4>🚫 소격서 폐지</h4>
+                        <p>도교적 제사와 주술을 담당하던 기관을 폐지하여 유교 중심의 합리적 정치를 추구했습니다.</p>
+                    </div>
+                    <div class="reform-card">
+                        <h4>✂️ 위훈 삭제</h4>
+                        <p>공신들이 받은 과도한 훈공을 삭제하여 훈구의 특권을 제한하고자 했습니다.</p>
+                    </div>
+                </div>
+
+                <p><span class="arrow">→</span> 이러한 개혁은 훈구의 기득권을 직접 위협했기 때문에 <strong>기묘사화</strong>를 불러왔고, 조광조는 사약을 받았습니다.</p>
+
+                <h3>📜 사화의 전개와 원인</h3>
+                <p>사화는 단순한 권력 다툼이 아니라 <strong>실리 정치와 도덕 정치</strong>라는 이념적 충돌이 원인이었습니다.</p>
+
+                <div class="timeline-section">
+                    <div class="timeline-item">
+                        <div class="timeline-box">
+                            <div class="timeline-year">1498년 (연산군) - 무오사화</div>
+                            <div class="timeline-title">김종직, 김일손</div>
+                            <div class="timeline-desc">김종직의 '조의제문'이 세조의 왕위 찬탈을 비판한 것으로 해석되어 훈구의 모함으로 사림이 탄압받았습니다.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-box">
+                            <div class="timeline-year">1504년 (연산군) - 갑자사화</div>
+                            <div class="timeline-title">연산군</div>
+                            <div class="timeline-desc">연산군의 생모 윤씨 폐비 사건과 관련된 인사들이 대거 처형되었으며, 사림도 많은 피해를 입었습니다.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-box">
+                            <div class="timeline-year">1519년 (중종) - 기묘사화</div>
+                            <div class="timeline-title">조광조</div>
+                            <div class="timeline-desc">조광조의 급진적 개혁에 위협을 느낀 훈구가 중종을 설득하여 사림을 제거했습니다. 현량과·소격서 폐지·위훈 삭제 등의 개혁이 좌절되었습니다.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-box">
+                            <div class="timeline-year">1545년 (명종) - 을사사화</div>
+                            <div class="timeline-title">윤임(대윤)·윤원형(소윤)</div>
+                            <div class="timeline-desc">명종의 외척인 윤씨 가문 내부의 권력 다툼이 발생하며 사림이 휘말려 피해를 입었습니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🏫 서원과 향약을 통한 재건</h3>
+                <p>사화로 중앙에서 쫓겨난 사림은 지방으로 낙향하여 <strong>서원</strong>과 <strong>향약</strong>을 기반으로 세력을 재건했습니다.</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>서원</th>
+                            <th>향약</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>성격</td>
+                            <td>지방 유교 교육 기관</td>
+                            <td>마을 자치 규약</td>
+                        </tr>
+                        <tr>
+                            <td>기능</td>
+                            <td>유학 교육, 선현 제사, 인재 양성</td>
+                            <td>덕업상권, 과실상규, 예속상교, 환난상휼</td>
+                        </tr>
+                        <tr>
+                            <td>사례</td>
+                            <td>백운동서원(소수서원)</td>
+                            <td>이황·이이가 보급</td>
+                        </tr>
+                        <tr>
+                            <td>의의</td>
+                            <td>사림의 학문적·도덕적 중심지</td>
+                            <td>향촌 질서 유지와 민심 장악</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><span class="arrow">→</span> 이를 통해 사림은 지방 사회에 뿌리내리며 인재를 양성하고 여론을 형성했고, 선조 때 중앙 정치에 복귀하여 훈구를 몰아내고 <strong>사림 중심 정치 체제</strong>를 확립했습니다.</p>
+
+                <div class="core-summary">
+                    <p>📌 <strong>핵심 정리</strong></p>
+                    <p>성종 때 등장한 사림은 훈구의 부패를 비판하고 성리학적 왕도 정치를 실현하려 했습니다.</p>
+                    <p>그러나 훈구와의 대립으로 사화가 일어나며 많은 사림이 희생되었습니다.</p>
+                    <p>사림은 지방으로 물러나 서원과 향약을 통해 세력을 다졌고, 이후 다시 중앙 정치에 복귀해 도덕 정치와 붕당 정치의 토대를 마련했습니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 심화 레벨 -->
+        <div id="level-advanced" class="level-content">
+            <div class="content-box">
+                <h3>💭 사림 등장의 역사적 배경</h3>
+                <p>사림의 등장은 단순히 성종의 정책적 선택이 아니라, 조선 사회의 구조적 변화와 맞물린 필연적 현상이었습니다.</p>
+                <p>고려 말 성리학이 도입된 이후, 향촌의 지식인들은 성리학적 세계관을 바탕으로 자신들의 정체성을 형성했습니다. 이들은 조선 건국에 참여하지 않았지만, 향촌 사회에서 유교 윤리를 확산시키며 도덕적 권위를 축적했습니다. 반면 훈구는 건국 공신으로서 정치적·경제적 특권을 누리며 권력을 세습했지만, 도덕적 정당성은 약했습니다.</p>
+                <p>성종은 이러한 구조적 긴장을 활용하여 사림을 등용함으로써 <strong>왕권 강화</strong>와 <strong>정치적 균형</strong>을 동시에 추구했습니다.</p>
+
+                <h3>🔍 조광조 개혁의 본질과 한계</h3>
+                <p>조광조의 개혁은 단순한 정책 변화가 아니라 <strong>정치 질서의 근본적 재편</strong>을 시도한 것이었습니다.</p>
+
+                <div class="reform-grid">
+                    <div class="reform-card">
+                        <h4>📚 현량과의 의미</h4>
+                        <p>현량과는 과거제를 부정하는 것이 아니라, 성리학적 덕성을 우선시하는 새로운 인재 선발 체계를 제시했습니다. 이는 훈구의 음서 특권과 대비되는 능력 중심 체제였지만, 객관성 부족으로 훈구의 반발을 샀습니다.</p>
+                    </div>
+                    <div class="reform-card">
+                        <h4>🚫 소격서 폐지의 함의</h4>
+                        <p>소격서 폐지는 도교 배척을 넘어 <strong>합리적 정치</strong>를 지향한 것입니다. 조광조는 왕이 제사와 주술에 의존하는 것을 비판하며, 성리학적 수기치인(修己治人)을 강조했습니다.</p>
+                    </div>
+                    <div class="reform-card">
+                        <h4>✂️ 위훈 삭제의 충격</h4>
+                        <p>위훈 삭제는 훈구의 정치적·경제적 기반을 직접 타격한 개혁이었습니다. 이는 공신 체제의 해체를 의미했고, 훈구에게는 생존의 문제였기에 격렬한 저항을 불러왔습니다.</p>
+                    </div>
+                </div>
+
+                <p><strong>한계:</strong> 조광조는 이상주의적 개혁을 단기간에 밀어붙이며 현실 정치의 역학을 간과했습니다. 중종의 지지가 약화되자 훈구의 공격에 무너졌고, 이는 사림에게 <strong>점진적 변화</strong>의 필요성을 깨닫게 했습니다.</p>
+
+                <h3>📊 사화의 심층 분석</h3>
+                <p>사화는 표면적으로는 권력 투쟁이지만, 그 이면에는 세 가지 차원의 갈등이 있었습니다.</p>
+
+                <div class="highlight-box">
+                    <p><strong>1. 이념적 갈등:</strong> 실리 정치(훈구) vs 도덕 정치(사림)</p>
+                    <p><strong>2. 사회적 갈등:</strong> 기득권 세력(훈구) vs 신진 세력(사림)</p>
+                    <p><strong>3. 구조적 갈등:</strong> 왕권 vs 신권의 균형 문제</p>
+                </div>
+
+                <div class="timeline-section">
+                    <div class="timeline-item">
+                        <div class="timeline-box">
+                            <div class="timeline-year">무오사화 (1498)</div>
+                            <div class="timeline-title">역사 인식의 충돌</div>
+                            <div class="timeline-desc">김종직의 '조의제문'은 세조의 왕위 찬탈을 우회적으로 비판한 글이었습니다. 이는 역사를 도덕적 기준으로 평가하려는 사림의 사관과, 현실 정치를 중시하는 훈구의 사관이 충돌한 사건입니다. 사림의 역사 의식은 단순한 기록이 아니라 도덕적 심판의 도구였습니다.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-box">
+                            <div class="timeline-year">갑자사화 (1504)</div>
+                            <div class="timeline-title">왕권의 폭주</div>
+                            <div class="timeline-desc">연산군의 폭정은 왕권이 제도적 견제를 벗어날 때의 위험성을 보여줍니다. 사림이 추구한 '신권을 통한 왕권 견제'의 필요성이 역설적으로 입증된 사건입니다.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-box">
+                            <div class="timeline-year">기묘사화 (1519)</div>
+                            <div class="timeline-title">개혁의 좌절</div>
+                            <div class="timeline-desc">기묘사화는 조선 정치사에서 가장 중요한 사건 중 하나입니다. 조광조의 실패는 사림에게 두 가지 교훈을 남겼습니다: (1) 급진적 개혁은 실패한다, (2) 지방 기반 강화가 필수적이다. 이후 사림은 서원과 향약을 통해 '아래로부터의 변화'를 추구했습니다.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-box">
+                            <div class="timeline-year">을사사화 (1545)</div>
+                            <div class="timeline-title">외척 정치의 폐해</div>
+                            <div class="timeline-desc">을사사화는 외척의 권력 투쟁에 사림이 희생된 사건으로, 왕권이 약할 때 외척이 권력을 장악하는 구조적 문제를 드러냈습니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🏛️ 서원과 향약: 대안적 권력 기반의 구축</h3>
+                <p>사림이 서원과 향약을 통해 이룬 것은 단순한 '세력 재건'이 아니라 <strong>새로운 정치 모델의 창출</strong>이었습니다.</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>서원의 역할</th>
+                            <th>향약의 역할</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>교육</td>
+                            <td>성리학 교육을 통한 인재 양성</td>
+                            <td>유교 윤리의 일상화</td>
+                        </tr>
+                        <tr>
+                            <td>의례</td>
+                            <td>선현 제사로 도덕적 정당성 확보</td>
+                            <td>관혼상제를 통한 공동체 결속</td>
+                        </tr>
+                        <tr>
+                            <td>정치</td>
+                            <td>지역 여론 형성의 중심지</td>
+                            <td>향촌 자치로 사림의 영향력 확대</td>
+                        </tr>
+                        <tr>
+                            <td>사회</td>
+                            <td>신분 상승의 통로 제공</td>
+                            <td>사회 질서 유지와 통제</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>역사적 의의:</strong></p>
+                <ul>
+                    <li>사림은 중앙 권력에서 배제되었지만, 향촌 사회를 장악함으로써 <strong>풀뿌리 권력</strong>을 구축했습니다.</li>
+                    <li>서원은 단순한 교육 기관이 아니라 <strong>이념적 재생산 장치</strong>이자 <strong>정치적 네트워크</strong>였습니다.</li>
+                    <li>향약은 국가 법률이 미치지 못하는 영역에서 <strong>사회 통제</strong>를 실현했고, 이는 사림의 도덕적 권위를 강화했습니다.</li>
+                    <li>이러한 기반 위에서 사림은 선조 때 중앙 정치에 복귀하여 <strong>붕당 정치</strong>라는 새로운 정치 문화를 만들어냈습니다.</li>
+                </ul>
+
+                <h3>🔮 사림 정치의 역사적 평가</h3>
+                <p>사림의 등장과 성장은 조선 정치사에서 어떤 의미를 가질까요?</p>
+
+                <div class="core-summary">
+                    <p><strong>긍정적 측면:</strong></p>
+                    <p>• 도덕 정치의 이상을 제시하여 부패한 권력에 대한 견제 기능을 수행</p>
+                    <p>• 성리학을 통한 사회 통합과 유교 윤리의 일상화에 기여</p>
+                    <p>• 3사를 통한 왕권 견제로 전제 정치 방지</p>
+                    <p>• 교육과 학문을 중시하는 문화 형성</p>
+                    
+                    <p style="margin-top: 20px;"><strong>비판적 측면:</strong></p>
+                    <p>• 이념적 순수성을 강조하다 정치적 유연성을 잃음</p>
+                    <p>• 붕당 정치가 극심한 당쟁으로 변질되어 국력 낭비</p>
+                    <p>• 양반 중심 사회 구조 강화로 신분제 고착화</p>
+                    <p>• 지나친 명분론으로 실리 외교에 한계</p>
+                </div>
+
+                <p style="margin-top: 30px;"><strong>결론:</strong> 사림 정치는 조선이 <strong>유교 이념 국가</strong>로 완성되는 데 결정적 역할을 했습니다. 비록 당쟁이라는 부작용을 낳았지만, 도덕과 명분을 중시하는 조선의 정치 문화를 형성했고, 이는 조선이 500년 이상 지속될 수 있었던 이유 중 하나였습니다.</p>
+            </div>
+        </div>
+
+        <!-- 형성평가 -->
+        <div class="content-box">
+            <h2 style="color: #667eea; margin-bottom: 25px; text-align: center;">🎯 형성평가</h2>
+            <p style="margin-bottom: 30px; color: #555; text-align: center;">학습한 내용을 확인해보세요!</p>
+
+            <div class="quiz-progress" id="quizProgress">
+                <span id="currentQuestion">1</span> / <span id="totalQuestions">4</span>
+            </div>
+
+            <div class="quiz-single-container" id="quizSingleContainer"></div>
+
+            <div class="quiz-navigation">
+                <button class="nav-btn" id="prevBtn" onclick="previousQuestion()" disabled>
+                    ← 이전 문제
+                </button>
+                <button class="nav-btn primary" id="nextBtn" onclick="nextQuestion()">
+                    다음 문제 →
+                </button>
+            </div>
+
+            <div class="quiz-score" id="quizScore">
+                <h3>🎉 결과</h3>
+                <p id="scoreText"></p>
+                <button class="nav-btn primary" onclick="restartQuiz()" style="margin-top: 20px;">
+                    다시 풀기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLevel(level) {
+            document.querySelectorAll('.level-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`level-${level}`).classList.add('active');
+            document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`level-btn-${level}`).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(handleScroll, 100);
+        }
+
+        const quizData = [
+            {
+                question: "성종이 사림을 등용한 가장 큰 이유는?",
+                options: ["① 훈구 세력의 부패 견제", "② 왕권 강화", "③ 불교 장려", "④ 상공업 육성"],
+                answer: 0,
+                explanation: "성종은 훈구의 부패를 막기 위해 도덕 정치를 강조한 사림을 등용하였습니다."
+            },
+            {
+                question: "다음 중 사림 세력의 정치적 성격으로 옳은 것은?",
+                options: ["① 공신 중심 세력", "② 성리학에 따라 왕도 정치 실현 추구", "③ 왕권 강화 우선", "④ 무신 중심 군정 강화"],
+                answer: 1,
+                explanation: "사림은 성리학적 도덕 정치를 실현하고 훈구의 부패를 비판하였습니다."
+            },
+            {
+                question: "조광조의 현량과 제도 시행 목적은?",
+                options: ["① 군사 인재 등용", "② 혈연 중심 관직 세습", "③ 도덕성과 학문을 기준으로 인재 선발", "④ 지방 호족 우대"],
+                answer: 2,
+                explanation: "조광조는 성리학적 덕성을 중시해 인재를 추천·등용하는 현량과를 실시했습니다."
+            },
+            {
+                question: "다음 중 훈구 세력의 특징으로 옳지 않은 것은?",
+                options: ["① 왕실과 혼인", "② 공신 중심", "③ 대규모 토지와 노비 소유", "④ 도덕 정치 중시"],
+                answer: 3,
+                explanation: "훈구는 실리를 중시했으며 도덕 정치보다는 권력 유지에 치중하였습니다."
+            },
+            {
+                question: "조광조의 개혁 중 '위훈 삭제'는 무엇을 의미하는가?",
+                options: ["① 왕의 명령 취소", "② 사림의 반역 사건 정리", "③ 불교 사찰 철거", "④ 훈구 세력의 공신 기록을 삭제하여 특권 제한"],
+                answer: 3,
+                explanation: "위훈 삭제는 훈구의 과도한 공신 기록을 없애 그들의 특권을 제한한 조치였습니다."
+            },
+            {
+                question: "조광조의 개혁 내용으로 옳은 것은?",
+                options: ["① 훈구 강화", "② 서원 철폐", "③ 향약 폐지", "④ 소격서 폐지"],
+                answer: 3,
+                explanation: "조광조는 도교적 제사를 담당한 소격서를 폐지하고 합리적 유교 정치를 추진했습니다."
+            },
+            {
+                question: "사화의 공통 원인으로 옳은 것은?",
+                options: ["① 사림과 훈구의 정치적 대립", "② 왕권 약화와 무신 반란", "③ 외적 침입", "④ 상공업 정책 실패"],
+                answer: 0,
+                explanation: "사화는 사림이 훈구를 비판하면서 일어난 정치적·이념적 대립이 핵심 원인입니다."
+            },
+            {
+                question: "사화의 결과로 옳지 않은 것은?",
+                options: ["① 사림이 지방으로 낙향했다", "② 서원과 향약을 통해 세력을 재건했다", "③ 훈구의 권력이 약화되었다", "④ 사림이 영구히 몰락하였다"],
+                answer: 3,
+                explanation: "사림은 지방에서 세력을 재건해 결국 조선 정치의 주류로 복귀하였습니다."
+            },
+            {
+                question: "서원과 향약이 사림의 세력 확장에 기여한 이유로 옳은 것은?",
+                options: ["① 지방 사회의 도덕 질서 유지와 여론 형성", "② 농민 반란 조직", "③ 상업 자본 축적", "④ 불교 교리 전파"],
+                answer: 0,
+                explanation: "서원과 향약은 사림이 향촌 사회를 통제하며 세력 기반을 다지는 수단이었습니다."
+            },
+            {
+                question: "사림의 정치 참여 방식으로 옳은 것은?",
+                options: ["① 무력으로 정권 탈취", "② 3사를 통해 왕에게 간언하고 정치 감시", "③ 왕족과 혼인하여 권력 유지", "④ 상공업 발전 정책 주도"],
+                answer: 1,
+                explanation: "사림은 삼사(사헌부·사간원·홍문관)를 통해 왕에게 간언하고 감찰 활동을 하였습니다."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+
+        function initQuiz() {
+            document.getElementById('totalQuestions').textContent = quizData.length;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const container = document.getElementById('quizSingleContainer');
+            const quiz = quizData[currentQuestionIndex];
+            
+            container.innerHTML = `
+                <div class="quiz-item">
+                    <div class="quiz-question">${currentQuestionIndex + 1}. ${quiz.question}</div>
+                    <div class="quiz-options">
+                        ${quiz.options.map((option, index) => `
+                            <div class="quiz-option" onclick="selectAnswer(${index})" id="option-${index}">
+                                ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="quiz-explanation" id="explanation">
+                        ${quiz.explanation}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === quizData.length - 1) {
+                document.getElementById('nextBtn').textContent = '결과 보기';
+            } else {
+                document.getElementById('nextBtn').textContent = '다음 문제 →';
+            }
+
+            if (userAnswers[currentQuestionIndex] !== undefined) {
+                showAnswerFeedback(userAnswers[currentQuestionIndex]);
+            }
+        }
+
+        function selectAnswer(optionIndex) {
+            if (userAnswers[currentQuestionIndex] !== undefined) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            showAnswerFeedback(optionIndex);
+        }
+
+        function showAnswerFeedback(selectedIndex) {
+            const quiz = quizData[currentQuestionIndex];
+            const options = document.querySelectorAll('.quiz-option');
+            const explanation = document.getElementById('explanation');
+
+            options.forEach((option, index) => {
+                option.classList.add('disabled');
+                if (index === quiz.answer) {
+                    option.classList.add('correct');
+                } else if (index === selectedIndex) {
+                    option.classList.add('wrong');
+                }
+                if (index === selectedIndex) {
+                    option.classList.add('selected');
+                }
+            });
+
+            explanation.classList.add('show');
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            let correct = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizData[index].answer) correct++;
+            });
+
+            const percentage = Math.round((correct / quizData.length) * 100);
+            let message = '', emoji = '';
+            
+            if (percentage >= 90) { message = '훌륭합니다!'; emoji = '🎉'; }
+            else if (percentage >= 70) { message = '잘했습니다!'; emoji = '👏'; }
+            else if (percentage >= 50) { message = '조금 더 공부해봐요!'; emoji = '📚'; }
+            else { message = '다시 한 번 복습해보세요!'; emoji = '💪'; }
+
+            document.getElementById('scoreText').innerHTML = `
+                <div style="font-size: 3em; margin-bottom: 20px;">${emoji}</div>
+                <div style="font-size: 1.5em; margin-bottom: 15px;">${correct}/${quizData.length}문제 정답</div>
+                <div style="font-size: 1.3em; color: #667eea; font-weight: 700; margin-bottom: 10px;">${percentage}점</div>
+                <div style="font-size: 1.1em; color: #555;">${message}</div>
+            `;
+
+            document.getElementById('quizSingleContainer').style.display = 'none';
+            document.getElementById('quizProgress').style.display = 'none';
+            document.querySelector('.quiz-navigation').style.display = 'none';
+            document.getElementById('quizScore').classList.add('show');
+            document.getElementById('quizScore').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            document.getElementById('quizSingleContainer').style.display = 'block';
+            document.getElementById('quizProgress').style.display = 'block';
+            document.querySelector('.quiz-navigation').style.display = 'flex';
+            document.getElementById('quizScore').classList.remove('show');
+            showQuestion();
+        }
+
+        function handleScroll() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => {
+            initQuiz();
+            handleScroll();
+        });
+    </script>
+</body>
+</html>

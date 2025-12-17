@@ -328,6 +328,210 @@
             cursor: pointer;
             font-weight: 600;
         }
+
+        /* 모바일 최적화 (768px 이하) */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                line-height: 1.5;
+            }
+
+            .container {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+                margin-bottom: 15px;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .tab-buttons {
+                gap: 10px;
+                margin-bottom: 30px;
+            }
+
+            .tab-btn {
+                padding: 12px 25px;
+                font-size: 1.4rem;
+            }
+
+            .content-box {
+                padding: 25px 20px;
+                margin-bottom: 20px;
+                border-radius: 15px;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                font-size: 1.8rem;
+                margin: 20px 0 15px 0;
+            }
+
+            p, li {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+
+            ul {
+                margin-left: 25px;
+                margin-bottom: 15px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            /* 심화 탐구 모바일 */
+            .inquiry-box {
+                padding: 25px 20px;
+                margin-bottom: 20px;
+            }
+
+            .inquiry-question {
+                font-size: 1.7rem;
+                margin-bottom: 15px;
+            }
+
+            .answer-textarea {
+                min-height: 150px;
+                font-size: 1.4rem;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .submit-btn {
+                padding: 14px 30px;
+                font-size: 1.4rem;
+            }
+
+            .keyword-result {
+                padding: 20px;
+                font-size: 1.4rem;
+                margin-top: 15px;
+            }
+
+            .model-answer {
+                padding: 20px;
+                margin-top: 15px;
+            }
+
+            .model-answer h4 {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+
+            .model-answer p {
+                font-size: 1.4rem;
+                line-height: 1.6;
+            }
+
+            .keywords {
+                padding: 12px;
+                font-size: 1.3rem;
+            }
+
+            /* 형성평가 모바일 */
+            .quiz-box {
+                padding: 30px 20px;
+                margin-bottom: 20px;
+            }
+
+            .quiz-question {
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+            }
+
+            .quiz-options {
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .quiz-option {
+                padding: 15px 20px;
+                font-size: 1.4rem;
+            }
+
+            .quiz-feedback {
+                font-size: 1.5rem;
+                margin-top: 15px;
+            }
+
+            .next-btn {
+                margin: 20px auto 0;
+                padding: 14px 35px;
+                font-size: 1.4rem;
+            }
+
+            .quiz-complete {
+                padding: 30px 20px;
+            }
+
+            .quiz-complete h2 {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .quiz-complete p {
+                font-size: 1.5rem;
+            }
+
+            .score-display {
+                font-size: 2rem;
+                margin: 15px 0;
+            }
+
+            .continue-btn {
+                margin-top: 20px;
+                padding: 15px 35px;
+                font-size: 1.4rem;
+            }
+
+            /* 테이블 모바일 최적화 */
+            table {
+                font-size: 1.3rem !important;
+            }
+
+            th, td {
+                padding: 10px !important;
+            }
+        }
+
+        /* 태블릿 중간 크기 (768px ~ 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 45px;
+            }
+
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.7rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+            }
+
+            p, li {
+                font-size: 1.6rem;
+            }
+        }
     </style>
 </head>
 <body>

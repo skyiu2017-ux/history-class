@@ -4,1197 +4,865 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>조선의 문화 발달과 사회 변화</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-strong: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --glass-shadow-hover: 0 12px 48px rgba(31, 38, 135, 0.2);
+            --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            --accent-green: #2d5016;
+            --accent-teal: #4a7c2e;
+            --accent-lime: #6fa852;
+            --accent-purple: #af52de;
+            --accent-indigo: #5856d6;
+            --accent-blue: #007aff;
+            --accent-orange: #ff9500;
+            --accent-pink: #ff2d55;
         }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c2e 50%, #6fa852 100%);
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 25%, #e0f2f1 50%, #e8f4fc 75%, #f5f5f5 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.8;
             min-height: 100vh;
-            padding: 40px 20px;
-            line-height: 1.8;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .header h1 {
-            font-size: 3em;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .header .subtitle {
-            font-size: 1.5em;
-            color: rgba(255,255,255,0.95);
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-
-        .header .chapter {
-            font-size: 1.1em;
-            color: rgba(255,255,255,0.85);
-            font-weight: 400;
-        }
-
-        .content-box {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .content-box h2 {
-            color: #2d5016;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 700;
-            border-left: 5px solid #4a7c2e;
-            padding-left: 15px;
-        }
-
-        .content-box h3 {
-            color: #4a7c2e;
-            font-size: 1.4em;
-            margin: 25px 0 15px 0;
-            font-weight: 600;
-        }
-
-        .content-box p {
-            color: #333;
-            font-size: 1.1em;
-            line-height: 1.9;
-            margin-bottom: 15px;
-        }
-
-        .content-box ul {
-            margin-left: 25px;
-            color: #555;
-            line-height: 1.9;
-        }
-
-        .content-box ul li {
-            margin-bottom: 10px;
-        }
-
-        .content-box strong {
-            color: #2d5016;
-            font-weight: 600;
-        }
-
-        .goal-box {
-            background: linear-gradient(135deg, rgba(74, 124, 46, 0.15) 0%, rgba(111, 168, 82, 0.15) 100%);
-            border: 3px solid #4a7c2e;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .goal-box h2 {
-            color: #2d5016;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border: none;
-            padding: 0;
-            text-align: center;
-        }
-
-        .goal-box ul {
-            list-style: none;
-            margin: 0;
-        }
-
-        .goal-box ul li {
-            padding-left: 30px;
             position: relative;
-            font-size: 1.1em;
-            margin-bottom: 12px;
+            overflow-x: hidden;
         }
-
-        .goal-box ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4a7c2e;
-            font-weight: bold;
-            font-size: 1.3em;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 30px 0 30px 40px;
-            margin: 30px 0;
-        }
-
-        .timeline::before {
+        body::before {
             content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(180deg, #4a7c2e, #6fa852);
-            border-radius: 2px;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 60% at 10% 20%, rgba(45, 80, 22, 0.2), transparent 50%),
+                radial-gradient(ellipse 60% 80% at 90% 80%, rgba(74, 124, 46, 0.15), transparent 50%),
+                radial-gradient(ellipse 70% 50% at 50% 50%, rgba(111, 168, 82, 0.1), transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 25px;
-            padding-left: 30px;
-            opacity: 0;
-            transform: translateX(-30px);
-            animation: slideInLeft 0.6s ease-out forwards;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -29px;
-            top: 8px;
-            width: 16px;
-            height: 16px;
-            background: #4a7c2e;
-            border: 3px solid white;
+        .orb {
+            position: fixed;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(74, 124, 46, 0.5);
-        }
-
-        .timeline-year {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #2d5016;
-            margin-bottom: 5px;
-        }
-
-        .timeline-desc {
-            color: #555;
-            font-size: 1.05em;
-            line-height: 1.7;
-        }
-
-        .highlight {
-            background: linear-gradient(180deg, transparent 60%, #ffeb3b 60%);
-            padding: 2px 4px;
-            font-weight: 600;
-            color: #2d5016;
-        }
-
-        .card {
-            background: #f8f9fa;
-            border-left: 5px solid #4a7c2e;
-            border-radius: 10px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-        }
-
-        .card h4 {
-            color: #2d5016;
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .card p, .card ul {
-            color: #555;
-            font-size: 1.05em;
-            line-height: 1.7;
-        }
-
-        .evaluation-box {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 25px 0;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-        }
-
-        .evaluation-box h4 {
-            color: #2d5016;
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .evaluation-box ul {
-            margin-left: 25px;
-        }
-
-        .arrow {
-            color: #4a7c2e;
-            font-weight: 700;
-            margin: 0 8px;
-        }
-
-        .level-selector {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .level-btn {
-            background: white;
-            color: #4a7c2e;
-            border: 2px solid #4a7c2e;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 1.15em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .level-btn:hover {
-            background: #f5f9f3;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .level-btn.active {
-            background: linear-gradient(135deg, #4a7c2e, #6fa852);
-            color: white;
-            border-color: #4a7c2e;
-        }
-
-        .level-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .level-content.active {
-            display: block;
-        }
-
-        .summary-box {
-            background: linear-gradient(135deg, #4a7c2e 0%, #6fa852 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            box-shadow: 0 5px 20px rgba(74, 124, 46, 0.3);
-        }
-
-        .summary-box p {
-            color: white;
-            font-size: 1.15em;
-            line-height: 1.9;
-            margin-bottom: 12px;
-        }
-
-        .summary-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .quiz-section {
-            margin-top: 40px;
-        }
-
-        .quiz-progress {
-            text-align: center;
-            font-size: 1.3em;
-            color: #2d5016;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-
-        .quiz-item {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            min-height: 400px;
-        }
-
-        .quiz-item:hover {
-            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
-        }
-
-        .quiz-question {
-            font-size: 1.2em;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 600;
-            line-height: 1.7;
-        }
-
-        .quiz-options {
-            margin: 20px 0;
-        }
-
-        .quiz-option {
-            background: #f8f9fa;
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            font-size: 1.05em;
-            color: #333;
-        }
-
-        .quiz-option:hover:not(.disabled) {
-            background: #e9f5e6;
-            transform: translateX(5px);
-        }
-
-        .quiz-option.selected {
-            border-color: #4a7c2e;
-            background: #e9f5e6;
-        }
-
-        .quiz-option.correct {
-            background: #d4edda;
-            border-color: #28a745;
-            color: #155724;
-        }
-
-        .quiz-option.incorrect {
-            background: #f8d7da;
-            border-color: #dc3545;
-            color: #721c24;
-        }
-
-        .quiz-option.disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
-        .quiz-controls {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 25px;
-        }
-
-        .check-btn {
-            background: linear-gradient(135deg, #4a7c2e, #6fa852);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 1.05em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(74, 124, 46, 0.3);
-        }
-
-        .check-btn:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 124, 46, 0.4);
-        }
-
-        .check-btn:disabled {
+            filter: blur(60px);
             opacity: 0.5;
-            cursor: not-allowed;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
         }
-
-        .quiz-answer {
-            margin-top: 20px;
-            padding: 20px;
-            background: #e9f5e6;
-            border-radius: 10px;
-            border-left: 4px solid #4a7c2e;
-            display: none;
+        .orb-1 { width: 400px; height: 400px; background: linear-gradient(135deg, rgba(45, 80, 22, 0.4), rgba(74, 124, 46, 0.3)); top: -100px; left: -100px; }
+        .orb-2 { width: 300px; height: 300px; background: linear-gradient(135deg, rgba(111, 168, 82, 0.3), rgba(45, 80, 22, 0.3)); bottom: 10%; right: -50px; animation-delay: -5s; }
+        .orb-3 { width: 250px; height: 250px; background: linear-gradient(135deg, rgba(74, 124, 46, 0.3), rgba(111, 168, 82, 0.3)); top: 50%; left: 10%; animation-delay: -10s; }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 30px) scale(1.02); }
         }
-
-        .quiz-answer.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .quiz-answer strong {
-            color: #2d5016;
-            font-size: 1.1em;
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
         }
-
-        .quiz-result {
-            text-align: center;
-            padding: 40px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            display: none;
-        }
-
-        .quiz-result.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .quiz-result h3 {
-            font-size: 2em;
-            color: #2d5016;
-            margin-bottom: 20px;
-        }
-
-        .quiz-result .score {
-            font-size: 3em;
-            color: #4a7c2e;
-            font-weight: 700;
-            margin: 20px 0;
-        }
-
-        .quiz-result p {
-            font-size: 1.2em;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .restart-btn {
-            background: linear-gradient(135deg, #4a7c2e, #6fa852);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .restart-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 124, 46, 0.4);
-        }
-
-        .writing-section {
-            background: linear-gradient(135deg, rgba(74, 124, 46, 0.1) 0%, rgba(111, 168, 82, 0.1) 100%);
-            border: 2px solid #4a7c2e;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-
-        .writing-section h4 {
-            color: #2d5016;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .writing-question {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            line-height: 1.8;
-            color: #333;
-            font-size: 1.1em;
-        }
-
-        .writing-textarea {
-            width: 100%;
-            min-height: 300px;
-            padding: 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1.05em;
-            font-family: inherit;
-            line-height: 1.8;
-            resize: vertical;
-            transition: all 0.3s ease;
-        }
-
-        .writing-textarea:focus {
-            outline: none;
-            border-color: #4a7c2e;
-            box-shadow: 0 0 15px rgba(74, 124, 46, 0.2);
-        }
-
-        .writing-info {
+        .hero {
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            margin-top: 10px;
-            font-size: 0.95em;
-            color: #666;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
         }
-
-        .char-count {
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 13px;
             font-weight: 600;
-            color: #4a7c2e;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            animation: fadeInUp 0.8s ease-out;
         }
-
-        .copy-btn {
-            background: linear-gradient(135deg, #4a7c2e, #6fa852);
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 50%, var(--accent-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        .hero-subtitle {
+            max-width: 720px;
+            font-size: clamp(15px, 2.2vw, 18px);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        .hero-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        .hero-nav a {
+            padding: 14px 24px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .hero-nav a:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow);
+        }
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-number {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-teal);
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(74, 124, 46, 0.15), rgba(111, 168, 82, 0.1));
+            border-radius: 100px;
+        }
+        .section-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-desc { color: var(--text-secondary); font-size: 17px; max-width: 600px; margin: 0 auto; }
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow); }
+        .card-icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .card-icon.green { background: linear-gradient(135deg, rgba(74, 124, 46, 0.2), rgba(111, 168, 82, 0.15)); box-shadow: 0 4px 16px rgba(74, 124, 46, 0.2); }
+        .card-icon.blue { background: linear-gradient(135deg, rgba(0, 122, 255, 0.2), rgba(90, 200, 250, 0.15)); box-shadow: 0 4px 16px rgba(0, 122, 255, 0.2); }
+        .card-icon.orange { background: linear-gradient(135deg, rgba(255, 149, 0, 0.2), rgba(255, 204, 0, 0.15)); box-shadow: 0 4px 16px rgba(255, 149, 0, 0.2); }
+        .card-icon.purple { background: linear-gradient(135deg, rgba(175, 82, 222, 0.2), rgba(88, 86, 214, 0.15)); box-shadow: 0 4px 16px rgba(175, 82, 222, 0.2); }
+        .card-title { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+        .card-content { color: var(--text-secondary); font-size: 15px; line-height: 1.9; }
+        .card-content p { margin-bottom: 12px; }
+        .card-content strong { color: var(--text-primary); font-weight: 600; }
+        .card-content ul { list-style: none; padding: 0; margin: 16px 0; }
+        .card-content li { padding: 8px 0 8px 24px; position: relative; }
+        .card-content li::before { content: '•'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(74, 124, 46, 0.08), rgba(111, 168, 82, 0.08));
+            border: 1px solid rgba(74, 124, 46, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .highlight-box h4 { font-size: 14px; font-weight: 700; color: var(--accent-teal); margin-bottom: 12px; }
+        .highlight-box p { color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+        .item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 32px; }
+        .item-card {
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 28px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.4s ease;
+        }
+        .item-card:hover { transform: translateY(-6px); box-shadow: var(--glass-shadow-hover); }
+        .item-card h4 { font-size: 17px; font-weight: 700; color: var(--accent-green); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .item-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+        .item-card .tag { display: inline-block; padding: 4px 12px; background: linear-gradient(135deg, rgba(74, 124, 46, 0.15), rgba(111, 168, 82, 0.1)); border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--accent-teal); margin-bottom: 12px; }
+        .timeline-container { position: relative; padding-left: 40px; margin: 32px 0; }
+        .timeline-container::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent-green), var(--accent-lime)); border-radius: 2px; }
+        .timeline-item { position: relative; padding: 20px 0 20px 30px; }
+        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 24px; width: 14px; height: 14px; background: var(--accent-teal); border: 3px solid white; border-radius: 50%; box-shadow: 0 0 10px rgba(74, 124, 46, 0.4); }
+        .timeline-year { font-size: 14px; font-weight: 700; color: var(--accent-teal); margin-bottom: 4px; }
+        .timeline-desc { color: var(--text-secondary); font-size: 15px; }
+        .comparison-wrapper { overflow-x: auto; margin-top: 32px; }
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+        }
+        .comparison-table th {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(74, 124, 46, 0.15), rgba(111, 168, 82, 0.1));
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            font-size: 15px;
+        }
+        .comparison-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: var(--text-primary); background: rgba(255, 255, 255, 0.3); }
+        .summary-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .summary-box h3 { font-size: 20px; font-weight: 700; color: var(--accent-green); margin-bottom: 24px; }
+        .summary-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .summary-item:last-child { border-bottom: none; }
+        .summary-num {
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border-radius: 10px;
             color: white;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .summary-text { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+        .quiz-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        .quiz-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(74, 124, 46, 0.3);
+        }
+        .quiz-question { font-size: 18px; font-weight: 600; margin-bottom: 24px; line-height: 1.6; color: var(--text-primary); }
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+        .quiz-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 22px;
+            background: var(--glass-bg-strong);
+            border: 2px solid var(--glass-border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+        .quiz-option:hover { background: rgba(255, 255, 255, 0.7); border-color: rgba(74, 124, 46, 0.3); transform: translateX(4px); }
+        .quiz-option.correct { border-color: var(--accent-teal); background: rgba(74, 124, 46, 0.15); }
+        .quiz-option.incorrect { border-color: var(--accent-pink); background: rgba(255, 45, 85, 0.1); }
+        .option-number {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(74, 124, 46, 0.1), rgba(111, 168, 82, 0.1));
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-teal);
+        }
+        .quiz-feedback { margin-top: 24px; padding: 24px; border-radius: 18px; display: none; }
+        .quiz-feedback.show { display: block; animation: fadeInUp 0.4s ease-out; }
+        .quiz-feedback.correct { background: linear-gradient(135deg, rgba(74, 124, 46, 0.15), rgba(111, 168, 82, 0.1)); border: 1px solid rgba(74, 124, 46, 0.3); }
+        .quiz-feedback.incorrect { background: linear-gradient(135deg, rgba(255, 45, 85, 0.1), rgba(255, 149, 0, 0.08)); border: 1px solid rgba(255, 45, 85, 0.3); }
+        .feedback-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .quiz-feedback.correct .feedback-title { color: var(--accent-teal); }
+        .quiz-feedback.incorrect .feedback-title { color: var(--accent-pink); }
+        .feedback-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .score-display {
+            text-align: center;
+            padding: 56px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            margin-top: 40px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            display: none;
+        }
+        .score-display.show { display: block; animation: fadeInUp 0.6s ease-out; }
+        .score-number {
+            font-size: 80px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal), var(--accent-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .score-label { font-size: 18px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; }
+        .score-message { font-size: 16px; color: var(--text-tertiary); margin-top: 16px; }
+        .btn-reset {
+            margin-top: 28px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
             border: none;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.1em;
+            border-radius: 16px;
+            color: white;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(74, 124, 46, 0.3);
-            display: block;
-            width: 100%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 24px rgba(74, 124, 46, 0.3);
         }
-
-        .copy-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 124, 46, 0.4);
-        }
-
-        .copy-btn:active {
-            transform: translateY(0);
-        }
-
-        .copy-feedback {
-            text-align: center;
-            margin-top: 15px;
-            padding: 15px;
-            background: #d4edda;
-            border: 1px solid #28a745;
-            border-radius: 10px;
-            color: #155724;
-            font-weight: 600;
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .copy-feedback.show {
-            display: block;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
+        .btn-reset:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 12px 32px rgba(74, 124, 46, 0.4); }
+        footer { text-align: center; padding: 60px 24px; color: var(--text-tertiary); font-size: 14px; position: relative; z-index: 1; }
+        .animate-on-scroll { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
         @media (max-width: 768px) {
-            body {
-                padding: 20px 10px;
-            }
-
-            .header h1 {
-                font-size: 2.2em;
-            }
-
-            .header .subtitle {
-                font-size: 1.2em;
-            }
-
-            .content-box {
-                padding: 25px;
-            }
-
-            .content-box h2 {
-                font-size: 1.5em;
-            }
-
-            .level-selector {
-                flex-direction: column;
-            }
-
-            .level-btn {
-                width: 100%;
-            }
-
-            .timeline {
-                padding-left: 30px;
-            }
-
-            .timeline-item {
-                padding-left: 20px;
-            }
-
-            .writing-section {
-                padding: 20px;
-            }
-
-            .writing-section h4 {
-                font-size: 1.2em;
-            }
-
-            .writing-question {
-                font-size: 1em;
-                padding: 15px;
-            }
-
-            .writing-textarea {
-                min-height: 250px;
-                padding: 15px;
-                font-size: 1em;
-            }
-
-            .writing-info {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
-            }
-
-            .copy-btn {
-                font-size: 1em;
-                padding: 12px 30px;
-            }
+            section { padding: 60px 20px; }
+            .glass-card, .quiz-card { padding: 28px; border-radius: 24px; }
+            .item-grid { grid-template-columns: 1fr; }
+            .orb { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📜 조선의 문화 발달과 사회 변화</h1>
-            <p class="subtitle">문화의 발달과 사회 변화</p>
-            <p class="chapter">Ⅳ. 조선의 성립과 발전 - 03</p>
-        </div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-        <!-- 학습 목표 -->
-        <div class="content-box">
-            <div class="goal-box">
-                <h2>🎯 학습 목표</h2>
-                <ul>
-                    <li>조선 전기에 시행된 문화 정책과 과학 기술 발달의 역사적 사실을 설명할 수 있다.</li>
-                    <li>조선이 유교를 선택하여 보급한 이유와 그 의미를 이해한다.</li>
-                    <li>조선 전기 문화 정책의 성격을 비판적으로 평가할 수 있다.</li>
-                </ul>
-            </div>
-        </div>
+    <header class="hero">
+        <div class="hero-badge">중학교 3학년 한국사</div>
+        <h1>조선의 문화 발달과<br>사회 변화</h1>
+        <p class="hero-subtitle">조선은 유교를 국가 이념으로 삼아 백성들에게 유교 윤리를 보급하고, 훈민정음을 창제하여 백성이 쉽게 글을 읽고 쓸 수 있게 하였다. 또한 농업과 과학 기술을 발전시켜 민생을 안정시키고 국가 운영을 체계화하였다.</p>
+        <nav class="hero-nav">
+            <a href="#confucianism">유교 윤리 보급</a>
+            <a href="#hunmin">훈민정음 창제</a>
+            <a href="#science">과학 기술 발달</a>
+            <a href="#meaning">역사적 의의</a>
+            <a href="#quiz">형성평가</a>
+        </nav>
+    </header>
 
-        <!-- 연표 -->
-        <div class="content-box">
-            <h2>📅 연표 및 시대 흐름</h2>
-            <div class="timeline">
-                <div class="timeline-item" style="animation-delay: 0.1s;">
+    <section id="timeline">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">OVERVIEW</span>
+            <h2 class="section-title">조선 전기 문화 연표</h2>
+            <p class="section-desc">주요 사건의 흐름을 살펴봅시다</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="timeline-container">
+                <div class="timeline-item">
                     <div class="timeline-year">1392년</div>
-                    <div class="timeline-desc">조선 건국</div>
+                    <div class="timeline-desc">조선 건국 - 유교를 국가 이념으로 채택</div>
                 </div>
-                <div class="timeline-item" style="animation-delay: 0.2s;">
+                <div class="timeline-item">
                     <div class="timeline-year">15세기 전반</div>
-                    <div class="timeline-desc">유교 중심 통치 질서 확립</div>
+                    <div class="timeline-desc">유교 중심 통치 질서 확립, 삼강행실도 편찬</div>
                 </div>
-                <div class="timeline-item" style="animation-delay: 0.3s;">
+                <div class="timeline-item">
+                    <div class="timeline-year">1429년</div>
+                    <div class="timeline-desc">농사직설 편찬 - 우리 실정에 맞는 농서</div>
+                </div>
+                <div class="timeline-item">
                     <div class="timeline-year">1443년</div>
                     <div class="timeline-desc">훈민정음 창제</div>
                 </div>
-                <div class="timeline-item" style="animation-delay: 0.4s;">
+                <div class="timeline-item">
                     <div class="timeline-year">1446년</div>
                     <div class="timeline-desc">훈민정음 반포</div>
                 </div>
-                <div class="timeline-item" style="animation-delay: 0.5s;">
+                <div class="timeline-item">
                     <div class="timeline-year">세종 대</div>
-                    <div class="timeline-desc">과학·기술·농업·의학 발달</div>
+                    <div class="timeline-desc">앙부일구, 자격루, 측우기 등 과학 기구 발명</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- 난이도 선택 -->
-        <div class="content-box" style="text-align: center;">
-            <h2 style="border: none; padding: 0;">📚 학습 난이도 선택</h2>
-            <p style="margin: 20px 0; color: #555;">자신의 수준에 맞는 난이도를 선택하세요</p>
-            <div class="level-selector">
-                <button class="level-btn active" onclick="showLevel('basic')">📘 기초</button>
-                <button class="level-btn" onclick="showLevel('standard')">📗 표준</button>
-                <button class="level-btn" onclick="showLevel('advanced')">📕 심화</button>
+    <section id="confucianism">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 01</span>
+            <h2 class="section-title">유교 윤리의 보급</h2>
+            <p class="section-desc">조선의 사회 질서를 세우다</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon green">📜</div>
+            <h3 class="card-title">왜 유교를 선택했을까?</h3>
+            <div class="card-content">
+                <p>새로 세워진 조선은 <strong>사회 질서와 통치 기준</strong>이 필요했습니다. 유교는 이런 점에서 적합했습니다.</p>
+                <ul>
+                    <li><strong>군신(임금과 신하)</strong>, <strong>부자(아버지와 자식)</strong>, <strong>부부</strong> 관계를 명확히 하여 질서 유지에 유리</li>
+                    <li>왕을 <strong>도덕적 통치자</strong>로 규정하여 왕권을 정당화</li>
+                    <li>법과 처벌보다 <strong>도덕 규범</strong>으로 사회를 다스릴 수 있음</li>
+                </ul>
+            </div>
+            <div class="highlight-box">
+                <h4>💡 쉽게 이해하기</h4>
+                <p>유교는 '어떻게 살아야 하는가'를 알려주는 생활 지침서 같은 것이에요. 조선은 이 지침서를 따라 나라를 운영했습니다.</p>
             </div>
         </div>
+        <div class="item-grid animate-on-scroll">
+            <div class="item-card">
+                <span class="tag">유교 교재</span>
+                <h4>📚 삼강행실도</h4>
+                <p>충신, 효자, 열녀의 <strong>실제 사례</strong>를 그림과 함께 엮은 책</p>
+                <p>글을 모르는 백성도 그림을 보고 이해할 수 있었음</p>
+                <p><strong>목적:</strong> 유교 윤리를 백성에게 쉽게 전달</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">마을 규약</span>
+                <h4>🏘️ 향약</h4>
+                <p>마을에서 지켜야 할 <strong>생활 규범</strong>을 정한 약속</p>
+                <p>서로 돕고(상부상조), 좋은 일은 권하고(권선), 나쁜 일은 경계함(징악)</p>
+                <p><strong>목적:</strong> 유교 윤리를 일상생활에서 실천</p>
+            </div>
+        </div>
+        <div class="highlight-box animate-on-scroll" style="margin-top: 32px;">
+            <h4>📌 핵심 정리</h4>
+            <p><strong>삼강행실도</strong>는 '이렇게 살면 칭찬받아요'를 보여주는 <strong>모범 사례집</strong>이고, <strong>향약</strong>은 '우리 마을에서 이렇게 살자'는 <strong>마을 약속</strong>입니다.</p>
+        </div>
+    </section>
 
-        <!-- 기초 레벨 -->
-        <div id="level-basic" class="level-content active">
-            <div class="content-box">
-                <h2>📘 Ⅰ. 기초 (교과서 내 역사적 사실)</h2>
-
-                <h3>1️⃣ 유교 윤리의 보급</h3>
-                <p>조선은 <span class="highlight">유교를 국가의 기본 이념</span>으로 삼았습니다.</p>
-                <p>유교 윤리를 백성에게 알리기 위해:</p>
+    <section id="hunmin">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 02</span>
+            <h2 class="section-title">훈민정음의 창제</h2>
+            <p class="section-desc">백성을 가르치는 바른 소리</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon blue">🔤</div>
+            <h3 class="card-title">훈민정음이란?</h3>
+            <div class="card-content">
+                <p><strong>세종대왕</strong>이 1443년에 만들고, 1446년에 반포한 우리 고유의 문자입니다.</p>
+                <p>'훈민정음(訓民正音)'은 <strong>'백성을 가르치는 바른 소리'</strong>라는 뜻입니다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>📖 훈민정음 서문</h4>
+                <p>"나랏말이 중국과 달라 문자로 서로 통하지 아니하므로, 어리석은 백성이 말하고자 하는 바가 있어도 마침내 제 뜻을 펴지 못하는 사람이 많다. 내가 이를 불쌍히 여겨 새로 스물여덟 자를 만드니, 사람마다 쉽게 익혀 날마다 쓰는 데 편하게 하고자 할 따름이다."</p>
+            </div>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon orange">✨</div>
+            <h3 class="card-title">훈민정음의 특징</h3>
+            <div class="card-content">
                 <ul>
-                    <li><strong>삼강행실도</strong> 편찬</li>
-                    <li><strong>향약</strong> 시행</li>
-                </ul>
-
-                <h3>2️⃣ 훈민정음의 창제</h3>
-                <ul>
-                    <li><strong>세종</strong>이 창제</li>
-                    <li><strong>1446년</strong> 반포</li>
-                    <li>백성이 쉽게 배우고 사용할 수 있도록 만든 문자</li>
-                </ul>
-
-                <h3>3️⃣ 과학·기술의 발달</h3>
-                <ul>
-                    <li><strong>농사직설:</strong> 조선 실정에 맞는 농서</li>
-                    <li><strong>앙부일구, 자격루:</strong> 시간 측정</li>
-                    <li><strong>측우기:</strong> 강우량 측정</li>
-                    <li><strong>향약집성방:</strong> 의학서</li>
+                    <li><strong>과학적 원리:</strong> 발음 기관의 모양을 본떠 자음을 만듦</li>
+                    <li><strong>체계적 구성:</strong> 초성, 중성, 종성을 조합하여 글자 완성</li>
+                    <li><strong>배우기 쉬움:</strong> 똑똑한 사람은 아침나절에, 어리석은 사람도 열흘이면 배울 수 있음</li>
+                    <li><strong>표현력:</strong> 모든 소리를 적을 수 있음</li>
                 </ul>
             </div>
         </div>
+        <div class="comparison-wrapper animate-on-scroll">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>훈민정음 창제 전</th>
+                        <th>훈민정음 창제 후</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>문자</td>
+                        <td>한자만 사용</td>
+                        <td>한글 + 한자 사용</td>
+                    </tr>
+                    <tr>
+                        <td>문자 사용층</td>
+                        <td>양반 중심</td>
+                        <td>백성까지 확대</td>
+                    </tr>
+                    <tr>
+                        <td>의사 표현</td>
+                        <td>글로 표현 어려움</td>
+                        <td>누구나 글로 표현 가능</td>
+                    </tr>
+                    <tr>
+                        <td>정책 전달</td>
+                        <td>통역·해석 필요</td>
+                        <td>직접 전달 가능</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="highlight-box animate-on-scroll" style="margin-top: 32px;">
+            <h4>🎯 훈민정음의 두 가지 의미</h4>
+            <p><strong>백성에게:</strong> 자신의 생각을 글로 표현할 수 있는 <strong>의사소통의 수단</strong></p>
+            <p><strong>국가에게:</strong> 정책과 법령을 백성에게 직접 전달할 수 있는 <strong>통치의 도구</strong></p>
+        </div>
+    </section>
 
-        <!-- 표준 레벨 -->
-        <div id="level-standard" class="level-content">
-            <div class="content-box">
-                <h2>📗 Ⅱ. 표준 (역사적 사실의 의미)</h2>
-
-                <h3>1️⃣ 유교를 선택한 이유와 의미</h3>
-                <p>새 왕조였던 조선은 <span class="highlight">사회 질서와 통치 기준</span>이 필요했습니다.</p>
-                
-                <div class="card">
-                    <h4>유교의 특징</h4>
-                    <ul>
-                        <li>군신·부자·부부 관계를 명확히 하여 질서 유지에 유리</li>
-                        <li>왕을 도덕적 통치자로 규정</li>
-                    </ul>
-                </div>
-
-                <p><span class="arrow">→</span> <strong>유교는 조선의 통치 이념이자 사회 운영의 기준이었다.</strong></p>
-
-                <h3>2️⃣ 삼강행실도와 향약의 의미</h3>
-                <ul>
-                    <li><strong>삼강행실도:</strong> 사례 중심으로 유교 윤리를 전달</li>
-                    <li><strong>향약:</strong> 향촌 사회에서 유교 윤리를 생활 속에서 실천</li>
-                </ul>
-                <p><span class="arrow">→</span> <strong>법과 처벌보다 도덕 규범을 통해 사회 질서를 유지하려는 시도였다.</strong></p>
-
-                <h3>3️⃣ 훈민정음의 의미</h3>
-                <div class="card">
-                    <h4>훈민정음의 영향</h4>
-                    <ul>
-                        <li>문자 사용 계층 확대</li>
-                        <li>백성의 의사 표현 가능</li>
-                        <li>국가 정책과 사상 전달이 쉬워짐</li>
-                    </ul>
-                </div>
-                <p><span class="arrow">→</span> <strong>훈민정음은 문화 향유 확대와 국가 운영 효율화에 기여하였다.</strong></p>
-
-                <h3>4️⃣ 과학·기술 발달의 의미</h3>
-                <ul>
-                    <li>농업 생산력 향상</li>
-                    <li>행정과 정책 운영의 체계화</li>
-                </ul>
-                <p><span class="arrow">→</span> <strong>과학 기술은 학문적 성취가 아니라 민생과 행정을 위한 실용 기술이었다.</strong></p>
+    <section id="science">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 03</span>
+            <h2 class="section-title">과학 기술의 발달</h2>
+            <p class="section-desc">백성의 삶을 위한 실용 기술</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon purple">🔬</div>
+            <h3 class="card-title">과학 기술 발달의 목적</h3>
+            <div class="card-content">
+                <p>세종 대의 과학 기술은 <strong>순수한 학문 연구가 아니라</strong>, 백성의 생활을 돕고 국가를 효율적으로 운영하기 위한 <strong>실용 기술</strong>이었습니다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>💡 핵심 발상</h4>
+                <p>"과학 기술은 백성을 잘 살게 하고, 나라를 잘 다스리는 데 쓰여야 한다"</p>
             </div>
         </div>
-
-        <!-- 심화 레벨 -->
-        <div id="level-advanced" class="level-content">
-            <div class="content-box">
-                <h2>📕 Ⅲ. 심화 (비판·평가적 사고)</h2>
-
-                <h3>1️⃣ 유교 보급 정책에 대한 평가</h3>
-                
-                <div class="evaluation-box">
-                    <h4>✅ 긍정적 측면</h4>
-                    <ul>
-                        <li>사회 질서 안정</li>
-                        <li>왕권과 관료 체제 강화</li>
-                    </ul>
-                </div>
-
-                <div class="evaluation-box">
-                    <h4>⚠️ 한계와 문제점</h4>
-                    <ul>
-                        <li>신분 질서 고착</li>
-                        <li>개인의 선택과 다양성 제한</li>
-                    </ul>
-                </div>
-
-                <div class="summary-box">
-                    <p><strong>💡 평가:</strong> 유교 보급은 조선 사회 안정에 기여했지만, 사회 구조를 경직시키는 결과도 낳았다.</p>
-                </div>
-
-                <h3>2️⃣ 훈민정음의 이중적 성격</h3>
-                <div class="card">
-                    <ul>
-                        <li>백성에게는 <strong>의사 표현의 수단</strong></li>
-                        <li>국가에는 <strong>정책 전달과 백성 관리의 도구</strong></li>
-                    </ul>
-                </div>
-                <p><span class="arrow">→</span> <strong>훈민정음은 애민 정책이면서 동시에 통치 수단이었다.</strong></p>
-
-                <h3>3️⃣ 세종 대 과학 정책의 평가</h3>
-                <ul>
-                    <li>백성의 생활 안정에 기여</li>
-                    <li>자연과 시간을 국가가 체계적으로 관리 가능</li>
-                </ul>
-
-                <div class="summary-box">
-                    <p><strong>💡 평가:</strong> 과학 기술은 중립적인 발전이 아니라 국가 운영 목적이 분명한 정책이었다.</p>
-                </div>
-
-                <h3>4️⃣ 종합 서술 과제</h3>
-                <div class="writing-section">
-                    <h4>✍️ 서술형 문제</h4>
-                    <div class="writing-question">
-                        <strong>Q.</strong> 조선은 유교 보급, 훈민정음 창제, 과학 기술 발전을 통해 어떤 사회를 만들고자 했을까?<br>
-                        이 정책들이 <strong>백성의 삶</strong>과 <strong>국가 통치</strong>에 각각 어떤 의미를 가졌는지를 중심으로 서술하시오.
-                    </div>
-                    
-                    <textarea 
-                        class="writing-textarea" 
-                        id="essayAnswer" 
-                        placeholder="여기에 답안을 작성하세요...&#10;&#10;💡 작성 가이드:&#10;1. 유교 보급 → 백성/국가에 어떤 의미?&#10;2. 훈민정음 창제 → 백성/국가에 어떤 의미?&#10;3. 과학 기술 발전 → 백성/국가에 어떤 의미?&#10;4. 종합: 조선이 지향한 사회상"
-                        oninput="updateCharCount()"
-                    ></textarea>
-                    
-                    <div class="writing-info">
-                        <span>💾 작성한 내용은 자동 저장되지 않습니다. 반드시 복사해서 보관하세요!</span>
-                        <span class="char-count" id="charCount">0자</span>
-                    </div>
-                    
-                    <button class="copy-btn" onclick="copyAnswer()">
-                        📋 답안 복사하기
-                    </button>
-                    
-                    <div class="copy-feedback" id="copyFeedback">
-                        ✅ 답안이 클립보드에 복사되었습니다!
-                    </div>
-                </div>
+        <div class="item-grid animate-on-scroll">
+            <div class="item-card">
+                <span class="tag">농업</span>
+                <h4>🌾 농사직설</h4>
+                <p>우리나라 실정에 맞게 편찬한 <strong>농업 기술서</strong></p>
+                <p>중국 농서를 그대로 따르지 않고, 조선의 기후와 토양에 맞는 농법을 정리</p>
+                <p><strong>효과:</strong> 농업 생산력 향상</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">시간 측정</span>
+                <h4>☀️ 앙부일구</h4>
+                <p>해시계 - 해 그림자로 시간을 측정</p>
+                <p>오목한 반구 모양으로, 계절에 따른 시간 변화도 알 수 있음</p>
+                <p><strong>효과:</strong> 백성들이 시간을 알 수 있게 함</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">시간 측정</span>
+                <h4>💧 자격루</h4>
+                <p>물시계 - 물의 흐름으로 시간을 측정</p>
+                <p>밤에도, 흐린 날에도 시간을 알 수 있음</p>
+                <p><strong>효과:</strong> 정확한 시간 관리, 행정 효율화</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">기상 관측</span>
+                <h4>🌧️ 측우기</h4>
+                <p>강우량을 측정하는 기구 - <strong>세계 최초</strong></p>
+                <p>비가 얼마나 왔는지 정확히 측정</p>
+                <p><strong>효과:</strong> 농사 계획 수립, 세금 조정의 근거</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">의학</span>
+                <h4>💊 향약집성방</h4>
+                <p>우리나라에서 나는 약재로 병을 치료하는 <strong>의학서</strong></p>
+                <p>중국 약재가 아닌 국산 약재 사용법 정리</p>
+                <p><strong>효과:</strong> 의료 접근성 향상</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">천문</span>
+                <h4>⭐ 천문 관측 기구</h4>
+                <p>혼천의, 간의 등 별과 하늘을 관측하는 기구</p>
+                <p>하늘의 변화를 통해 농사 시기 결정</p>
+                <p><strong>효과:</strong> 역법 제정, 농사 계획</p>
             </div>
         </div>
+    </section>
 
-        <!-- 형성평가 -->
-        <div class="content-box">
-            <h2 style="text-align: center;">🎯 형성평가</h2>
-            <p style="text-align: center; color: #555; margin-bottom: 30px;">학습한 내용을 확인해보세요!</p>
-
-            <div class="quiz-progress" id="quizProgress">
-                문제 <span id="currentQ">1</span> / <span id="totalQ">5</span>
-            </div>
-
-            <div class="quiz-section">
-                <div class="quiz-item" id="quizContainer">
-                    <!-- 문제가 여기에 동적으로 표시됩니다 -->
-                </div>
-
-                <div class="quiz-result" id="quizResult">
-                    <h3>🎉 형성평가 완료!</h3>
-                    <div class="score" id="finalScore"></div>
-                    <p id="resultMessage"></p>
-                    <button class="restart-btn" onclick="restartQuiz()">다시 풀기</button>
-                </div>
+    <section id="meaning">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 04</span>
+            <h2 class="section-title">조선 전기 문화 정책의 의의</h2>
+            <p class="section-desc">역사적으로 어떤 의미가 있을까?</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon green">⚖️</div>
+            <h3 class="card-title">문화 정책의 성격</h3>
+            <div class="card-content">
+                <p>조선 전기의 문화 정책은 모두 <strong>국가가 주도</strong>하여 <strong>통치 목적</strong>을 달성하기 위한 것이었습니다.</p>
             </div>
         </div>
+        <div class="comparison-wrapper animate-on-scroll">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>정책</th>
+                        <th>백성에게</th>
+                        <th>국가에게</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>유교 보급</td>
+                        <td>삶의 기준과 도덕 규범 제공</td>
+                        <td>사회 질서 안정, 통치 정당화</td>
+                    </tr>
+                    <tr>
+                        <td>훈민정음</td>
+                        <td>의사소통과 문화 향유 확대</td>
+                        <td>정책 전달, 백성 관리 용이</td>
+                    </tr>
+                    <tr>
+                        <td>과학 기술</td>
+                        <td>생활 안정, 의료 혜택</td>
+                        <td>행정 체계화, 세금 관리</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="item-grid animate-on-scroll">
+            <div class="item-card">
+                <h4>✅ 긍정적 측면</h4>
+                <p>• 사회 질서 안정</p>
+                <p>• 왕권과 관료 체제 강화</p>
+                <p>• 백성의 생활 향상</p>
+                <p>• 문화 발전의 토대 마련</p>
+            </div>
+            <div class="item-card">
+                <h4>⚠️ 한계점</h4>
+                <p>• 신분 질서 고착화</p>
+                <p>• 개인의 다양성 제한</p>
+                <p>• 유교 외 사상 억압</p>
+                <p>• 여성 지위 하락</p>
+            </div>
+        </div>
+        <div class="highlight-box animate-on-scroll" style="margin-top: 32px;">
+            <h4>📌 종합 평가</h4>
+            <p>조선 전기 문화 정책은 <strong>백성을 위한 애민 정책</strong>이면서 동시에 <strong>국가 운영을 위한 통치 수단</strong>이었습니다. 사회 안정에 기여했지만, 사회 구조를 경직시키는 결과도 낳았습니다.</p>
+        </div>
+    </section>
 
-    </div>
+    <section id="summary">
+        <div class="summary-box animate-on-scroll">
+            <h3>📝 3줄 요약</h3>
+            <div class="summary-item">
+                <div class="summary-num">1</div>
+                <div class="summary-text">조선은 <strong>유교</strong>를 국가 이념으로 삼고, 삼강행실도·향약으로 백성에게 유교 윤리를 보급하였다.</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">2</div>
+                <div class="summary-text">세종은 <strong>훈민정음</strong>을 창제하여 백성이 쉽게 글을 읽고 쓸 수 있게 하였다.</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">3</div>
+                <div class="summary-text"><strong>과학 기술</strong>(농사직설, 측우기 등)을 발전시켜 백성의 생활을 돕고 국가 운영을 체계화하였다.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">ASSESSMENT</span>
+            <h2 class="section-title">형성평가</h2>
+            <p class="section-desc">학습 내용을 확인해 봅시다</p>
+        </div>
+        <div class="quiz-container">
+            <div class="quiz-card animate-on-scroll" data-correct="1">
+                <div class="quiz-number">1</div>
+                <div class="quiz-question">조선이 유교를 국가의 기본 이념으로 선택한 이유로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>새 왕조의 통치 질서와 사회 규범을 확립하기 위해</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>상업 활동을 활성화하기 위해</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>불교 신앙을 완전히 배제하기 위해</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>외국 문물을 적극적으로 수용하기 위해</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>군사력 강화를 우선하기 위해</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">새 왕조였던 조선은 사회 질서와 통치 기준이 필요했습니다. 유교는 군신·부자·부부 관계를 명확히 하여 질서 유지에 유리했고, 왕을 도덕적 통치자로 규정하여 왕권을 정당화할 수 있었습니다.</div></div>
+            </div>
+            <div class="quiz-card animate-on-scroll" data-correct="2">
+                <div class="quiz-number">2</div>
+                <div class="quiz-question">삼강행실도와 향약의 공통된 목적은 무엇인가?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>법률 체계를 강화하기 위해</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>유교 윤리를 생활 속에서 실천하게 하기 위해</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>신분 질서를 폐지하기 위해</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>지방 자치를 확대하기 위해</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>왕권을 제한하기 위해</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">삼강행실도는 충신·효자·열녀의 사례를 통해 유교 윤리를 전달했고, 향약은 마을에서 유교 윤리를 실천하게 했습니다. 두 가지 모두 법과 처벌보다 도덕 규범으로 사회 질서를 유지하려는 방법이었습니다.</div></div>
+            </div>
+            <div class="quiz-card animate-on-scroll" data-correct="2">
+                <div class="quiz-number">3</div>
+                <div class="quiz-question">훈민정음 창제의 의의로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>불교 경전 번역을 주된 목적으로 하였다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>백성의 의사 표현과 문화 참여를 확대하였다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>한자 사용을 전면 금지하였다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>왕권을 약화시키는 결과를 낳았다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>양반만 사용할 수 있었다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">훈민정음은 문자 사용 계층을 확대하고 백성의 의사 표현을 가능하게 했습니다. 국가 정책과 사상 전달이 쉬워져 문화 향유 확대와 국가 운영 효율화에 기여하였습니다.</div></div>
+            </div>
+            <div class="quiz-card animate-on-scroll" data-correct="4">
+                <div class="quiz-number">4</div>
+                <div class="quiz-question">세종 대 과학 기술의 특징으로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>귀족 중심의 학문 연구</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>종교 의식 강화를 위한 기술</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>외국 기술의 단순 모방</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>실생활과 행정에 활용된 실용 기술</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>상업 이익을 우선한 발전</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">농사직설, 앙부일구, 자격루, 측우기, 향약집성방 등은 모두 농업 생산력 향상과 행정·정책 운영의 체계화를 위한 것이었습니다. 과학 기술은 학문적 성취가 아니라 민생과 행정을 위한 실용 기술이었습니다.</div></div>
+            </div>
+            <div class="quiz-card animate-on-scroll" data-correct="5">
+                <div class="quiz-number">5</div>
+                <div class="quiz-question">조선 전기 문화 정책의 성격을 가장 잘 설명한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>민간 주도의 자율적 문화 발전</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>상업 계층 중심의 문화 형성</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>외래 문화 수용 중심 정책</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>예술 활동 중심 정책</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>국가 주도의 통치 목적 정책</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">조선 전기 문화 정책은 유교 윤리 보급, 훈민정음 창제, 과학 기술 발달 등 모두 국가가 주도하여 통치 목적을 달성하기 위한 정책이었습니다.</div></div>
+            </div>
+        </div>
+        <div class="score-display" id="scoreDisplay">
+            <div class="score-number" id="scoreNumber">0/5</div>
+            <div class="score-label">정답 개수</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="btn-reset" onclick="resetQuiz()">다시 풀기</button>
+        </div>
+    </section>
+
+    <footer><p>중학교 3학년 한국사 · 조선의 문화 발달과 사회 변화</p></footer>
 
     <script>
-        // 퀴즈 데이터
-        const quizData = [
-            {
-                question: "조선이 유교를 국가의 기본 이념으로 선택한 이유로 가장 적절한 것은?",
-                options: [
-                    "① 새 왕조의 통치 질서와 사회 규범을 확립하기 위해",
-                    "② 상업 활동을 활성화하기 위해",
-                    "③ 불교 신앙을 국가에서 완전히 배제하기 위해",
-                    "④ 외국 문물을 적극적으로 수용하기 위해",
-                    "⑤ 군사력 강화를 우선하기 위해"
-                ],
-                answer: 0,
-                explanation: "새 왕조였던 조선은 사회 질서와 통치 기준이 필요했으며, 유교는 군신·부자·부부 관계를 명확히 하여 질서 유지에 유리했고 왕을 도덕적 통치자로 규정했습니다."
-            },
-            {
-                question: "삼강행실도와 향약의 공통된 목적은 무엇인가?",
-                options: [
-                    "① 법률 체계를 강화하기 위해",
-                    "② 유교 윤리를 생활 속에서 실천하게 하기 위해",
-                    "③ 신분 질서를 폐지하기 위해",
-                    "④ 지방 자치를 확대하기 위해",
-                    "⑤ 왕권을 제한하기 위해"
-                ],
-                answer: 1,
-                explanation: "삼강행실도는 사례 중심으로 유교 윤리를 전달했고, 향약은 향촌 사회에서 유교 윤리를 생활 속에서 실천하게 했습니다. 법과 처벌보다 도덕 규범을 통해 사회 질서를 유지하려는 시도였습니다."
-            },
-            {
-                question: "훈민정음 창제의 의의로 옳은 것은?",
-                options: [
-                    "① 불교 경전 번역을 목적으로 하였다",
-                    "② 백성의 의사 표현과 문화 참여를 확대하였다",
-                    "③ 한자 사용을 전면 금지하였다",
-                    "④ 왕권을 약화시키는 결과를 낳았다",
-                    "⑤ 상업 활동을 억제하였다"
-                ],
-                answer: 1,
-                explanation: "훈민정음은 문자 사용 계층을 확대하고 백성의 의사 표현을 가능하게 했으며, 국가 정책과 사상 전달이 쉬워졌습니다. 문화 향유 확대와 국가 운영 효율화에 기여하였습니다."
-            },
-            {
-                question: "세종 대 과학 기술의 특징으로 가장 적절한 것은?",
-                options: [
-                    "① 귀족 중심의 학문 연구",
-                    "② 종교 의식 강화를 위한 기술",
-                    "③ 외국 기술의 단순 모방",
-                    "④ 실생활과 행정에 활용된 기술",
-                    "⑤ 상업 이익을 우선한 발전"
-                ],
-                answer: 3,
-                explanation: "농사직설, 앙부일구, 자격루, 측우기, 향약집성방 등은 모두 농업 생산력 향상과 행정·정책 운영의 체계화를 위한 것이었습니다. 과학 기술은 학문적 성취가 아니라 민생과 행정을 위한 실용 기술이었습니다."
-            },
-            {
-                question: "조선 전기 문화 정책의 성격을 가장 잘 설명한 것은?",
-                options: [
-                    "① 민간 주도의 자율적 문화 발전",
-                    "② 상업 계층 중심의 문화 형성",
-                    "③ 외래 문화 수용 중심 정책",
-                    "④ 예술 활동 중심 정책",
-                    "⑤ 국가 주도의 통치 정책"
-                ],
-                answer: 4,
-                explanation: "조선 전기 문화 정책은 유교 윤리 보급, 훈민정음 창제, 과학 기술 발달 등 모두 국가가 주도하여 통치 목적을 달성하기 위한 정책이었습니다."
-            }
-        ];
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-        let currentQuestion = 0;
-        let selectedAnswer = null;
-        let score = 0;
-        let answered = false;
+        let answeredQuestions = new Set();
+        let correctAnswers = 0;
 
-        // 페이지 로드 시 첫 문제 표시
-        document.addEventListener('DOMContentLoaded', function() {
-            showQuestion();
-            
-            // 타임라인 아이템 순차 애니메이션
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            timelineItems.forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.1}s`;
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const card = this.closest('.quiz-card');
+                const cardIndex = Array.from(document.querySelectorAll('.quiz-card')).indexOf(card);
+                if (answeredQuestions.has(cardIndex)) return;
+                const correctAnswer = parseInt(card.dataset.correct);
+                const selectedAnswer = parseInt(this.dataset.option);
+                const feedback = card.querySelector('.quiz-feedback');
+                card.querySelectorAll('.quiz-option').forEach(opt => opt.style.pointerEvents = 'none');
+                if (selectedAnswer === correctAnswer) {
+                    this.classList.add('correct');
+                    feedback.classList.add('correct');
+                    correctAnswers++;
+                } else {
+                    this.classList.add('incorrect');
+                    feedback.classList.add('incorrect');
+                    card.querySelector('[data-option="' + correctAnswer + '"]').classList.add('correct');
+                }
+                feedback.classList.add('show');
+                answeredQuestions.add(cardIndex);
+                if (answeredQuestions.size === 5) showScore();
             });
         });
 
-        function showQuestion() {
-            const quiz = quizData[currentQuestion];
-            const container = document.getElementById('quizContainer');
-            
-            container.innerHTML = `
-                <div class="quiz-question">
-                    <strong>문제 ${currentQuestion + 1}.</strong> ${quiz.question}
-                </div>
-                <div class="quiz-options" id="options">
-                    ${quiz.options.map((option, index) => `
-                        <div class="quiz-option" onclick="selectOption(${index})" id="option-${index}">
-                            ${option}
-                        </div>
-                    `).join('')}
-                </div>
-                <div class="quiz-controls">
-                    <button class="check-btn" id="checkBtn" onclick="checkAnswer()" disabled>정답 확인</button>
-                </div>
-                <div class="quiz-answer" id="answer"></div>
-            `;
-
-            // 진행도 업데이트
-            document.getElementById('currentQ').textContent = currentQuestion + 1;
-            
-            // 상태 초기화
-            selectedAnswer = null;
-            answered = false;
+        function showScore() {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            document.getElementById('scoreNumber').textContent = correctAnswers + '/5';
+            if (correctAnswers === 5) document.getElementById('scoreMessage').textContent = '🎉 완벽해요! 조선 전기 문화를 잘 이해했습니다.';
+            else if (correctAnswers >= 3) document.getElementById('scoreMessage').textContent = '👍 잘했어요! 틀린 문제를 다시 확인해 보세요.';
+            else document.getElementById('scoreMessage').textContent = '📚 학습 내용을 다시 복습해 보세요.';
+            scoreDisplay.classList.add('show');
+            scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        function selectOption(index) {
-            if (answered) return;
-            
-            selectedAnswer = index;
-            
-            // 모든 옵션 선택 해제
-            document.querySelectorAll('.quiz-option').forEach(opt => {
-                opt.classList.remove('selected');
+        function resetQuiz() {
+            answeredQuestions.clear();
+            correctAnswers = 0;
+            document.querySelectorAll('.quiz-card').forEach(card => {
+                card.querySelectorAll('.quiz-option').forEach(opt => { opt.classList.remove('correct', 'incorrect'); opt.style.pointerEvents = 'auto'; });
+                card.querySelector('.quiz-feedback').classList.remove('show', 'correct', 'incorrect');
             });
-            
-            // 선택한 옵션 강조
-            document.getElementById(`option-${index}`).classList.add('selected');
-            
-            // 정답 확인 버튼 활성화
-            document.getElementById('checkBtn').disabled = false;
+            document.getElementById('scoreDisplay').classList.remove('show');
+            document.querySelector('#quiz').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function checkAnswer() {
-            if (answered || selectedAnswer === null) return;
-            
-            answered = true;
-            const quiz = quizData[currentQuestion];
-            const isCorrect = selectedAnswer === quiz.answer;
-            
-            if (isCorrect) {
-                score++;
-            }
-            
-            // 모든 옵션 비활성화
-            document.querySelectorAll('.quiz-option').forEach((opt, index) => {
-                opt.classList.add('disabled');
-                opt.onclick = null;
-                
-                if (index === quiz.answer) {
-                    opt.classList.add('correct');
-                } else if (index === selectedAnswer) {
-                    opt.classList.add('incorrect');
-                }
-            });
-            
-            // 해설 표시
-            const answerDiv = document.getElementById('answer');
-            answerDiv.innerHTML = `
-                <strong>${isCorrect ? '✅ 정답입니다!' : '❌ 오답입니다.'}</strong><br>
-                <strong>정답: ${quiz.options[quiz.answer]}</strong><br><br>
-                ${quiz.explanation}
-            `;
-            answerDiv.classList.add('show');
-            
-            // 버튼 변경
-            const checkBtn = document.getElementById('checkBtn');
-            if (currentQuestion < quizData.length - 1) {
-                checkBtn.textContent = '다음 문제';
-                checkBtn.onclick = nextQuestion;
-                checkBtn.disabled = false;
-            } else {
-                checkBtn.textContent = '결과 확인';
-                checkBtn.onclick = showResult;
-                checkBtn.disabled = false;
-            }
-        }
-
-        function nextQuestion() {
-            currentQuestion++;
-            showQuestion();
-        }
-
-        function showResult() {
-            document.getElementById('quizContainer').style.display = 'none';
-            document.getElementById('quizProgress').style.display = 'none';
-            
-            const resultDiv = document.getElementById('quizResult');
-            const percentage = Math.round((score / quizData.length) * 100);
-            
-            let message = '';
-            if (percentage >= 90) {
-                message = '🏆 훌륭합니다! 완벽하게 이해하셨네요!';
-            } else if (percentage >= 70) {
-                message = '👍 잘했습니다! 대부분 이해하셨어요!';
-            } else if (percentage >= 50) {
-                message = '📚 괜찮아요! 조금만 더 복습하면 완벽할 거예요!';
-            } else {
-                message = '💪 다시 한번 도전해보세요!';
-            }
-            
-            document.getElementById('finalScore').textContent = `${score} / ${quizData.length}`;
-            document.getElementById('resultMessage').textContent = message;
-            
-            resultDiv.classList.add('show');
-        }
-
-        function restartQuiz() {
-            currentQuestion = 0;
-            score = 0;
-            
-            document.getElementById('quizContainer').style.display = 'block';
-            document.getElementById('quizProgress').style.display = 'block';
-            document.getElementById('quizResult').classList.remove('show');
-            
-            showQuestion();
-        }
-
-        function showLevel(level) {
-            // 모든 레벨 콘텐츠 숨기기
-            document.querySelectorAll('.level-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // 선택된 레벨 콘텐츠 보이기
-            document.getElementById(`level-${level}`).classList.add('active');
-            
-            // 버튼 활성화 상태 변경
-            document.querySelectorAll('.level-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            // 해당 섹션으로 부드럽게 스크롤
-            document.getElementById(`level-${level}`).scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        }
-
-        // 글자 수 카운트
-        function updateCharCount() {
-            const textarea = document.getElementById('essayAnswer');
-            const charCount = document.getElementById('charCount');
-            const count = textarea.value.length;
-            charCount.textContent = `${count}자`;
-            
-            // 글자 수에 따라 색상 변경
-            if (count === 0) {
-                charCount.style.color = '#666';
-            } else if (count < 200) {
-                charCount.style.color = '#ff6b6b';
-            } else if (count < 400) {
-                charCount.style.color = '#ffa500';
-            } else {
-                charCount.style.color = '#4a7c2e';
-            }
-        }
-
-        // 답안 복사 기능
-        function copyAnswer() {
-            const textarea = document.getElementById('essayAnswer');
-            const text = textarea.value.trim();
-            
-            if (text.length === 0) {
-                alert('답안을 먼저 작성해주세요!');
-                textarea.focus();
-                return;
-            }
-            
-            // 클립보드에 복사
-            navigator.clipboard.writeText(text).then(function() {
-                // 성공 피드백 표시
-                const feedback = document.getElementById('copyFeedback');
-                feedback.classList.add('show');
-                
-                // 3초 후 피드백 숨기기
-                setTimeout(function() {
-                    feedback.classList.remove('show');
-                }, 3000);
-            }).catch(function(err) {
-                // 복사 실패 시 대체 방법
-                textarea.select();
-                document.execCommand('copy');
-                
-                const feedback = document.getElementById('copyFeedback');
-                feedback.classList.add('show');
-                
-                setTimeout(function() {
-                    feedback.classList.remove('show');
-                }, 3000);
-            });
-        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) { e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        });
     </script>
 </body>
 </html>

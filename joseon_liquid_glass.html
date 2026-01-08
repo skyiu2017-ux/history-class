@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조선 후기의 정치 변동</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-strong: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --glass-shadow-hover: 0 12px 48px rgba(31, 38, 135, 0.2);
+            --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            
+            --accent-blue: #007aff;
+            --accent-purple: #af52de;
+            --accent-pink: #ff2d55;
+            --accent-orange: #ff9500;
+            --accent-green: #34c759;
+            --accent-teal: #5ac8fa;
+            --accent-indigo: #5856d6;
+            
+            --gradient-mesh-1: radial-gradient(ellipse 80% 60% at 10% 20%, rgba(175, 82, 222, 0.25), transparent 50%);
+            --gradient-mesh-2: radial-gradient(ellipse 60% 80% at 90% 80%, rgba(0, 122, 255, 0.2), transparent 50%);
+            --gradient-mesh-3: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(255, 45, 85, 0.15), transparent 50%);
+            --gradient-mesh-4: radial-gradient(ellipse 50% 70% at 80% 20%, rgba(90, 200, 250, 0.2), transparent 50%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #e8f4fc 0%, #f5e6f3 25%, #fef3e8 50%, #e6f7f0 75%, #eef4ff 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                var(--gradient-mesh-1),
+                var(--gradient-mesh-2),
+                var(--gradient-mesh-3),
+                var(--gradient-mesh-4);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating Orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(175, 82, 222, 0.4), rgba(0, 122, 255, 0.3));
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(255, 149, 0, 0.3), rgba(255, 45, 85, 0.3));
+            bottom: 10%;
+            right: -50px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.3), rgba(90, 200, 250, 0.3));
+            top: 50%;
+            left: 10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 30px) scale(1.02); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+
+        .hero h1 {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(36px, 7vw, 72px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-indigo) 50%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .hero-subtitle {
+            max-width: 680px;
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-nav a {
+            padding: 14px 24px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+
+        .hero-nav a:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow);
+            background: var(--glass-bg-strong);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-number {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-purple);
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(175, 82, 222, 0.15), rgba(0, 122, 255, 0.1));
+            border-radius: 100px;
+        }
+
+        .section-title {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 17px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-icon.blue { 
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.2), rgba(90, 200, 250, 0.15));
+            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.2);
+        }
+        .card-icon.purple { 
+            background: linear-gradient(135deg, rgba(175, 82, 222, 0.2), rgba(88, 86, 214, 0.15));
+            box-shadow: 0 4px 16px rgba(175, 82, 222, 0.2);
+        }
+        .card-icon.orange { 
+            background: linear-gradient(135deg, rgba(255, 149, 0, 0.2), rgba(255, 45, 85, 0.15));
+            box-shadow: 0 4px 16px rgba(255, 149, 0, 0.2);
+        }
+        .card-icon.red { 
+            background: linear-gradient(135deg, rgba(255, 45, 85, 0.2), rgba(255, 149, 0, 0.15));
+            box-shadow: 0 4px 16px rgba(255, 45, 85, 0.2);
+        }
+        .card-icon.green { 
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.2), rgba(90, 200, 250, 0.15));
+            box-shadow: 0 4px 16px rgba(52, 199, 89, 0.2);
+        }
+        .card-icon.teal { 
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.2), rgba(0, 122, 255, 0.15));
+            box-shadow: 0 4px 16px rgba(90, 200, 250, 0.2);
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content p {
+            margin-bottom: 12px;
+        }
+
+        .card-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.08), rgba(175, 82, 222, 0.08));
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-box h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .comparison-item {
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.4s ease;
+        }
+
+        .comparison-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow);
+        }
+
+        .comparison-item h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .comparison-item .year {
+            font-size: 13px;
+            color: var(--accent-teal);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .comparison-item .relation {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .comparison-item .relation.brother {
+            background: linear-gradient(135deg, rgba(255, 149, 0, 0.2), rgba(255, 204, 0, 0.15));
+            color: var(--accent-orange);
+        }
+
+        .comparison-item .relation.subject {
+            background: linear-gradient(135deg, rgba(255, 45, 85, 0.2), rgba(255, 149, 0, 0.15));
+            color: var(--accent-pink);
+        }
+
+        .comparison-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 48px;
+            margin-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 8px;
+            bottom: 8px;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), var(--accent-orange), var(--accent-green));
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 6px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid var(--accent-blue);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+        }
+
+        .timeline-item:nth-child(2)::before { border-color: var(--accent-purple); box-shadow: 0 4px 12px rgba(175, 82, 222, 0.3); }
+        .timeline-item:nth-child(3)::before { border-color: var(--accent-orange); box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3); }
+        .timeline-item:nth-child(4)::before { border-color: var(--accent-green); box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3); }
+
+        .timeline-year {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item:nth-child(2) .timeline-year { color: var(--accent-purple); }
+        .timeline-item:nth-child(3) .timeline-year { color: var(--accent-orange); }
+        .timeline-item:nth-child(4) .timeline-year { color: var(--accent-green); }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Flow Chart */
+        .flow-chart {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 36px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            margin-top: 32px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-item {
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 18px 24px;
+            text-align: center;
+            min-width: 130px;
+            box-shadow: 0 4px 16px rgba(31, 38, 135, 0.1);
+        }
+
+        .flow-item h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .flow-item p {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .flow-arrow {
+            color: var(--accent-purple);
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            counter-reset: quiz-counter;
+        }
+
+        .quiz-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+
+        .quiz-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+        }
+
+        .quiz-question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 22px;
+            background: var(--glass-bg-strong);
+            border: 2px solid var(--glass-border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(0, 122, 255, 0.3);
+            transform: translateX(4px);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--accent-blue);
+            background: rgba(0, 122, 255, 0.1);
+        }
+
+        .quiz-option.correct {
+            border-color: var(--accent-green);
+            background: rgba(52, 199, 89, 0.15);
+        }
+
+        .quiz-option.incorrect {
+            border-color: var(--accent-pink);
+            background: rgba(255, 45, 85, 0.1);
+        }
+
+        .option-number {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.1), rgba(175, 82, 222, 0.1));
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-indigo);
+        }
+
+        .quiz-feedback {
+            margin-top: 24px;
+            padding: 24px;
+            border-radius: 18px;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .quiz-feedback.correct {
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.15), rgba(90, 200, 250, 0.1));
+            border: 1px solid rgba(52, 199, 89, 0.3);
+        }
+
+        .quiz-feedback.incorrect {
+            background: linear-gradient(135deg, rgba(255, 45, 85, 0.1), rgba(255, 149, 0, 0.08));
+            border: 1px solid rgba(255, 45, 85, 0.3);
+        }
+
+        .feedback-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quiz-feedback.correct .feedback-title {
+            color: var(--accent-green);
+        }
+
+        .quiz-feedback.incorrect .feedback-title {
+            color: var(--accent-pink);
+        }
+
+        .feedback-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Score Display */
+        .score-display {
+            text-align: center;
+            padding: 56px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            margin-top: 40px;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .score-display::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 122, 255, 0.1), transparent 40%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .score-display.show {
+            display: block;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .score-number {
+            font-size: 80px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-label {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-message {
+            font-size: 16px;
+            color: var(--text-tertiary);
+            margin-top: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-reset {
+            margin-top: 28px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-reset:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 122, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 24px;
+            color: var(--text-tertiary);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 20px;
+            }
+
+            .glass-card, .quiz-card {
+                padding: 28px;
+                border-radius: 24px;
+            }
+
+            .flow-chart {
+                flex-direction: column;
+                padding: 24px;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .timeline {
+                padding-left: 40px;
+            }
+
+            .timeline-item::before {
+                left: -34px;
+                width: 16px;
+                height: 16px;
+            }
+
+            .orb {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-badge">
+            중학교 3학년 한국사
+        </div>
+        <h1>조선 후기의<br>정치 변동</h1>
+        <p class="hero-subtitle">
+            임진왜란과 병자호란 이후 조선은 전후 복구와 외교 정책의 전환, 통치 체제의 재편을 겪었다. 
+            광해군의 중립 외교에서 인조반정과 호란, 영조·정조의 개혁 정치와 19세기 세도 정치로 이어지는 
+            흐름 속에서 조선 후기 정치 질서가 형성되었다.
+        </p>
+        <nav class="hero-nav">
+            <a href="#gwanghaegun">광해군의 정치</a>
+            <a href="#injo">인조반정과 호란</a>
+            <a href="#bukbeol">북벌 운동</a>
+            <a href="#reform">영조·정조의 개혁</a>
+            <a href="#sedo">세도 정치</a>
+            <a href="#quiz">형성평가</a>
+        </nav>
+    </header>
+
+    <!-- Section 1: 광해군의 정치 -->
+    <section id="gwanghaegun">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 01</span>
+            <h2 class="section-title">광해군의 정치와 중립 외교</h2>
+            <p class="section-desc">전후 복구와 실리적 외교, 그리고 정치적 갈등</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon blue">🏗️</div>
+            <h3 class="card-title">전후 복구 정책</h3>
+            <div class="card-content">
+                <p>임진왜란 이후 국토가 황폐화되고 재정난이 심화되자, 광해군은 토지 대장과 호적을 정비하고 성곽과 무기를 수리하는 전후 복구 정책을 추진하였다.</p>
+                <p>이러한 정책은 전쟁으로 피폐해진 국가 재정과 민생을 회복하기 위한 것이었다.</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon purple">⚖️</div>
+            <h3 class="card-title">실리적 중립 외교</h3>
+            <div class="card-content">
+                <p>대외적으로 광해군은 쇠퇴하는 명과 성장하는 후금 사이에서 실리적인 중립 외교를 펼쳐 전쟁을 피하고자 하였다.</p>
+                <p>명의 원군 요청에 강홍립을 파견하면서도 상황을 관망하도록 지시하는 등 유연한 외교를 추진하였다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>💡 핵심 포인트</h4>
+                <p>광해군의 중립 외교는 '실리'를 중시한 정책이었으나, 명에 대한 의리를 중시하는 신료들에게는 도덕적으로 비판받았다.</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon red">⚔️</div>
+            <h3 class="card-title">인조반정의 배경</h3>
+            <div class="card-content">
+                <p>그러나 광해군의 폐모살제(인목대비 유폐, 영창대군 사사)와 강압적 통치는 유교적 도덕 규범을 어긴 것으로 여겨졌다.</p>
+                <p>서인 세력은 이러한 도덕적 문제와 명분 정치의 논리를 결합하여 광해군을 몰아내는 인조반정의 명분으로 삼았다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>🔍 정책 vs 명분</h4>
+                <p><strong>광해군의 정책 자체</strong>는 국익을 위한 실리적 선택이었으나, <strong>정치적 명분</strong>의 관점에서는 유교적 도덕성과 명에 대한 의리를 저버린 것으로 해석되었다. 이 둘의 차이를 이해하는 것이 중요하다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: 인조반정과 호란 -->
+    <section id="injo">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 02</span>
+            <h2 class="section-title">인조반정과 호란의 전개</h2>
+            <p class="section-desc">친명배금 정책과 두 차례 호란의 발생</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon orange">👑</div>
+            <h3 class="card-title">인조반정과 외교 정책의 전환</h3>
+            <div class="card-content">
+                <p>1623년, 서인 세력은 광해군의 정치적 문제를 이유로 인조반정을 일으켜 정권을 장악하였다.</p>
+                <p>인조 즉위 이후 조선은 명에 대한 의리를 중시하는 <strong>친명배금 정책</strong>을 추진하였다. 이로 인해 후금·청과의 관계가 급격히 악화되었다.</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon teal">📊</div>
+            <h3 class="card-title">정묘호란 vs 병자호란 비교</h3>
+            <div class="card-content">
+                <p>두 차례의 호란은 발생 원인은 유사하나, <strong>결과와 성격</strong>에서 중요한 차이가 있다.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h4>정묘호란</h4>
+                    <div class="year">1627년</div>
+                    <div class="relation brother">형제 관계</div>
+                    <p>후금의 침략으로 조선이 후금과 <strong>형제 관계</strong>를 맺음. 상대적으로 대등한 위치</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>병자호란</h4>
+                    <div class="year">1636년</div>
+                    <div class="relation subject">군신 관계</div>
+                    <p>청의 침략으로 인조가 삼전도에서 항복. <strong>군신 관계</strong>를 맺고 왕자가 인질로 끌려감</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>⚔️ 주화론 vs 주전론</h4>
+                <p>병자호란 당시 조정은 <strong>주화론</strong>(화친을 통해 전쟁을 피하자)과 <strong>주전론</strong>(명에 대한 의리를 지키며 끝까지 싸우자)으로 나뉘어 대립하였다. 결국 주전론이 우세했으나, 전쟁에서 패배하여 굴욕적인 결과를 맞이하게 되었다.</p>
+            </div>
+        </div>
+
+        <div class="timeline animate-on-scroll">
+            <div class="timeline-item">
+                <div class="timeline-year">1623년</div>
+                <div class="timeline-title">인조반정</div>
+                <div class="timeline-desc">서인 세력이 광해군을 몰아내고 인조를 왕으로 세움</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1627년</div>
+                <div class="timeline-title">정묘호란</div>
+                <div class="timeline-desc">후금의 침략 → 조선과 후금이 형제 관계 수용</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1636년</div>
+                <div class="timeline-title">병자호란</div>
+                <div class="timeline-desc">청의 침략 → 삼전도 항복, 군신 관계 체결, 왕자 인질 파견</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: 북벌 운동 -->
+    <section id="bukbeol">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 03</span>
+            <h2 class="section-title">효종의 북벌 운동</h2>
+            <p class="section-desc">치욕을 씻으려는 노력과 그 한계</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon green">🎯</div>
+            <h3 class="card-title">북벌 운동의 배경과 목적</h3>
+            <div class="card-content">
+                <p>병자호란의 굴욕을 경험한 효종은 청을 정벌하여 치욕을 씻고자 <strong>북벌 운동</strong>을 추진하였다.</p>
+                <p>군사력 강화를 위해 어영청을 확대하고 군비를 확충하는 등의 노력을 기울였다.</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon purple">❓</div>
+            <h3 class="card-title">실제 정책인가, 상징적 구호인가?</h3>
+            <div class="card-content">
+                <p>북벌 운동은 실제로 청을 정벌하기 위한 것이었을까? 결론적으로 북벌은 <strong>현실적으로 실행되지 못했다.</strong></p>
+                <p>당시 청은 중원을 장악한 강대국이었고, 전쟁 후 피폐해진 조선의 국력으로는 청을 상대하기 어려웠다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>📌 북벌 운동의 성격</h4>
+                <p><strong>상징적·정신적 의미:</strong> 북벌 운동은 병자호란의 치욕을 극복하고 민심을 결집시키려는 상징적 성격이 강했다. 실제 군사 작전보다는 국가적 자존심 회복과 왕권 강화의 명분으로 활용되었다.</p>
+            </div>
+        </div>
+
+        <div class="timeline animate-on-scroll">
+            <div class="timeline-item">
+                <div class="timeline-year">1650년대</div>
+                <div class="timeline-title">북벌 운동 추진</div>
+                <div class="timeline-desc">효종이 병자호란의 굴욕을 씻기 위해 군사력 강화를 추진함</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: 영조·정조의 개혁 -->
+    <section id="reform">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 04</span>
+            <h2 class="section-title">영조·정조의 탕평책과 개혁 정치</h2>
+            <p class="section-desc">붕당의 폐해를 극복하고 왕권을 강화하다</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon red">🔥</div>
+            <h3 class="card-title">왜 탕평책이 필요했는가?</h3>
+            <div class="card-content">
+                <p>17세기 후반, 예송과 환국을 거치면서 붕당 정치가 심하게 <strong>변질</strong>되었다.</p>
+                <p>붕당 간의 대립이 격화되어 정쟁이 반복되고, 상대 붕당을 완전히 제거하려는 일당 전제화 현상이 나타났다.</p>
+                <p>이러한 붕당 정치의 폐해를 해결하기 위해 영조와 정조는 <strong>탕평책</strong>을 추진하게 되었다.</p>
+            </div>
+        </div>
+
+        <div class="comparison-grid animate-on-scroll">
+            <div class="comparison-item">
+                <h4>영조</h4>
+                <div class="year">재위 1724~1776</div>
+                <div class="relation brother" style="background: linear-gradient(135deg, rgba(52, 199, 89, 0.2), rgba(90, 200, 250, 0.15)); color: var(--accent-green);">민생 안정 중심</div>
+                <p>서원 정리, 균역법 시행으로 백성의 부담 완화. 탕평비 건립으로 붕당 타파 의지 표명</p>
+            </div>
+            <div class="comparison-item">
+                <h4>정조</h4>
+                <div class="year">재위 1776~1800</div>
+                <div class="relation subject" style="background: linear-gradient(135deg, rgba(0, 122, 255, 0.2), rgba(88, 86, 214, 0.15)); color: var(--accent-blue);">왕권 강화 중심</div>
+                <p>규장각 설치, 장용영 창설로 왕권 뒷받침. 인재 등용과 제도 개혁 추진</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon teal">🎯</div>
+            <h3 class="card-title">영조와 정조의 공통점</h3>
+            <div class="card-content">
+                <p>영조와 정조는 정책의 방향은 달랐지만, <strong>공통된 목적</strong>을 가지고 있었다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>✅ 핵심 공통점</h4>
+                <p><strong>붕당의 폐해를 줄이고 왕권을 강화</strong>하려는 것이 두 왕의 공통된 목표였다. 탕평책을 통해 특정 붕당에 치우치지 않고 인재를 고르게 등용하여 정치적 균형을 추구하였다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: 세도 정치 -->
+    <section id="sedo">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 05</span>
+            <h2 class="section-title">세도 정치와 사회 문제</h2>
+            <p class="section-desc">왕권 약화와 농민 수탈의 구조적 원인</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon orange">👥</div>
+            <h3 class="card-title">세도 정치의 등장 배경</h3>
+            <div class="card-content">
+                <p>정조 사후 어린 순조가 즉위하면서 왕권이 약화되었다.</p>
+                <p>이 틈을 타 왕의 외척 가문(안동 김씨, 풍양 조씨 등)이 정치 권력을 장악하였다.</p>
+                <p>붕당 정치의 균형이 무너지면서 세도 정치가 본격적으로 전개되었다.</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon red">💰</div>
+            <h3 class="card-title">정치 기강의 해이</h3>
+            <div class="card-content">
+                <p>세도 가문은 주요 관직을 독점하고 <strong>매관매직</strong>을 일삼아 정치 기강을 문란하게 하였다.</p>
+                <p>관직이 사적으로 거래되면서 능력보다 가문과 재력이 중시되었다.</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon purple">🔗</div>
+            <h3 class="card-title">세도 정치와 농민 부담의 연결</h3>
+            <div class="card-content">
+                <p>세도 정치는 단순한 정치 문제가 아니라, <strong>사회 문제의 구조적 원인</strong>이 되었다.</p>
+            </div>
+
+            <div class="flow-chart">
+                <div class="flow-item">
+                    <h5>매관매직</h5>
+                    <p>관직 매매 성행</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">
+                    <h5>수령 수탈</h5>
+                    <p>투자금 회수 위해</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">
+                    <h5>행정 붕괴</h5>
+                    <p>공정성 상실</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">
+                    <h5>삼정 문란</h5>
+                    <p>전정·군정·환곡</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>📌 구조적 연결 이해하기</h4>
+                <p>돈을 주고 관직을 산 수령들은 투자금을 회수하기 위해 백성을 수탈하였다. 이로 인해 지방 행정이 붕괴되고, 전정·군정·환곡의 <strong>삼정 문란</strong>이 심화되어 농민의 부담이 극심해졌다. 이는 이후 농민 봉기의 직접적 원인이 되었다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: 형성평가 -->
+    <section id="quiz">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">ASSESSMENT</span>
+            <h2 class="section-title">형성평가</h2>
+            <p class="section-desc">학습 내용을 확인해 봅시다</p>
+        </div>
+
+        <div class="quiz-container">
+            <!-- Q1 -->
+            <div class="quiz-card animate-on-scroll" data-correct="1">
+                <div class="quiz-number">1</div>
+                <div class="quiz-question">광해군의 정치에 대한 설명으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1">
+                        <span class="option-number">①</span>
+                        <span>명과 후금 사이에서 전쟁을 피하기 위해 실리적인 중립 외교를 펼쳤다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="2">
+                        <span class="option-number">②</span>
+                        <span>친명배금 정책을 일관되게 추진하였다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="3">
+                        <span class="option-number">③</span>
+                        <span>병자호란 이후 북벌 운동을 주도하였다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="4">
+                        <span class="option-number">④</span>
+                        <span>세도 가문을 중심으로 정국을 운영하였다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="5">
+                        <span class="option-number">⑤</span>
+                        <span>탕평책을 통해 붕당을 완화하였다.</span>
+                    </div>
+                </div>
+                <div class="quiz-feedback">
+                    <div class="feedback-title"><span>✓</span> 정답 해설</div>
+                    <div class="feedback-text">광해군은 국제 정세의 변화를 고려하여 명과 후금 사이에서 중립 외교를 추진하였다.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="quiz-card animate-on-scroll" data-correct="5">
+                <div class="quiz-number">2</div>
+                <div class="quiz-question">인조반정 이후 조선의 외교 정책과 그 결과를 바르게 연결한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1">
+                        <span class="option-number">①</span>
+                        <span>중립 외교 → 국제적 신뢰 회복</span>
+                    </div>
+                    <div class="quiz-option" data-option="2">
+                        <span class="option-number">②</span>
+                        <span>친청 정책 → 전쟁 회피</span>
+                    </div>
+                    <div class="quiz-option" data-option="3">
+                        <span class="option-number">③</span>
+                        <span>북벌 정책 → 청 정벌 성공</span>
+                    </div>
+                    <div class="quiz-option" data-option="4">
+                        <span class="option-number">④</span>
+                        <span>실리 외교 → 형제 관계 유지</span>
+                    </div>
+                    <div class="quiz-option" data-option="5">
+                        <span class="option-number">⑤</span>
+                        <span>친명배금 정책 → 정묘호란·병자호란 발생</span>
+                    </div>
+                </div>
+                <div class="quiz-feedback">
+                    <div class="feedback-title"><span>✓</span> 정답 해설</div>
+                    <div class="feedback-text">인조반정 이후 친명배금 정책으로 후금·청과의 관계가 악화되어 두 차례의 호란이 발생하였다.</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="quiz-card animate-on-scroll" data-correct="2">
+                <div class="quiz-number">3</div>
+                <div class="quiz-question">병자호란의 결과로 나타난 사실로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1">
+                        <span class="option-number">①</span>
+                        <span>명과 군신 관계 체결</span>
+                    </div>
+                    <div class="quiz-option" data-option="2">
+                        <span class="option-number">②</span>
+                        <span>청과 군신 관계 체결 및 왕자 인질 파견</span>
+                    </div>
+                    <div class="quiz-option" data-option="3">
+                        <span class="option-number">③</span>
+                        <span>후금의 멸망</span>
+                    </div>
+                    <div class="quiz-option" data-option="4">
+                        <span class="option-number">④</span>
+                        <span>북벌 운동 즉각 실행</span>
+                    </div>
+                    <div class="quiz-option" data-option="5">
+                        <span class="option-number">⑤</span>
+                        <span>대동법 전국 시행</span>
+                    </div>
+                </div>
+                <div class="quiz-feedback">
+                    <div class="feedback-title"><span>✓</span> 정답 해설</div>
+                    <div class="feedback-text">병자호란 이후 조선은 청과 군신 관계를 맺고 왕자를 인질로 보냈다.</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="quiz-card animate-on-scroll" data-correct="4">
+                <div class="quiz-number">4</div>
+                <div class="quiz-question">효종의 북벌 운동에 대한 설명으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1">
+                        <span class="option-number">①</span>
+                        <span>실제로 청을 정벌하여 국력을 회복하였다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="2">
+                        <span class="option-number">②</span>
+                        <span>명의 요청으로 추진된 정책이었다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="3">
+                        <span class="option-number">③</span>
+                        <span>세도 정치의 대표적 정책이었다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="4">
+                        <span class="option-number">④</span>
+                        <span>병자호란의 굴욕을 씻고자 한 상징적 정책이었다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="5">
+                        <span class="option-number">⑤</span>
+                        <span>농민 부담을 줄이기 위한 개혁이었다.</span>
+                    </div>
+                </div>
+                <div class="quiz-feedback">
+                    <div class="feedback-title"><span>✓</span> 정답 해설</div>
+                    <div class="feedback-text">북벌 운동은 병자호란의 치욕을 극복하려는 상징적 성격이 강했으나 현실적으로 실행되지는 못했다.</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="quiz-card animate-on-scroll" data-correct="3">
+                <div class="quiz-number">5</div>
+                <div class="quiz-question">영조와 정조의 개혁 정치에 대한 설명으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1">
+                        <span class="option-number">①</span>
+                        <span>두 왕 모두 서인 세력만을 중용하였다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="2">
+                        <span class="option-number">②</span>
+                        <span>붕당 정치를 더욱 강화하였다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="3">
+                        <span class="option-number">③</span>
+                        <span>붕당의 폐해를 줄이고 왕권을 강화하려는 공통 목적을 지녔다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="4">
+                        <span class="option-number">④</span>
+                        <span>영조는 규장각을 설치하였다.</span>
+                    </div>
+                    <div class="quiz-option" data-option="5">
+                        <span class="option-number">⑤</span>
+                        <span>정조는 균역법을 시행하였다.</span>
+                    </div>
+                </div>
+                <div class="quiz-feedback">
+                    <div class="feedback-title"><span>✓</span> 정답 해설</div>
+                    <div class="feedback-text">영조와 정조는 붕당 정치의 폐해를 완화하고 왕권을 강화하기 위해 개혁 정치를 추진하였다.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="score-display" id="scoreDisplay">
+            <div class="score-number" id="scoreNumber">0/5</div>
+            <div class="score-label">정답 개수</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="btn-reset" onclick="resetQuiz()">다시 풀기</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>중학교 3학년 한국사 · 조선 후기의 정치 변동</p>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Quiz Logic
+        let answeredQuestions = new Set();
+        let correctAnswers = 0;
+
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const card = this.closest('.quiz-card');
+                const cardIndex = Array.from(document.querySelectorAll('.quiz-card')).indexOf(card);
+                
+                if (answeredQuestions.has(cardIndex)) return;
+                
+                const correctAnswer = parseInt(card.dataset.correct);
+                const selectedAnswer = parseInt(this.dataset.option);
+                const feedback = card.querySelector('.quiz-feedback');
+                
+                card.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.style.pointerEvents = 'none';
+                });
+                
+                this.classList.add('selected');
+                
+                if (selectedAnswer === correctAnswer) {
+                    this.classList.add('correct');
+                    feedback.classList.add('correct');
+                    correctAnswers++;
+                } else {
+                    this.classList.add('incorrect');
+                    feedback.classList.add('incorrect');
+                    card.querySelector(`[data-option="${correctAnswer}"]`).classList.add('correct');
+                }
+                
+                feedback.classList.add('show');
+                answeredQuestions.add(cardIndex);
+                
+                if (answeredQuestions.size === 5) {
+                    showScore();
+                }
+            });
+        });
+
+        function showScore() {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const scoreNumber = document.getElementById('scoreNumber');
+            const scoreMessage = document.getElementById('scoreMessage');
+            
+            scoreNumber.textContent = `${correctAnswers}/5`;
+            
+            if (correctAnswers === 5) {
+                scoreMessage.textContent = '🎉 완벽해요! 조선 후기 정치사를 잘 이해했습니다.';
+            } else if (correctAnswers >= 3) {
+                scoreMessage.textContent = '👍 잘했어요! 틀린 문제를 다시 확인해 보세요.';
+            } else {
+                scoreMessage.textContent = '📚 학습 내용을 다시 복습해 보세요.';
+            }
+            
+            scoreDisplay.classList.add('show');
+            scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            answeredQuestions.clear();
+            correctAnswers = 0;
+            
+            document.querySelectorAll('.quiz-card').forEach(card => {
+                card.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('selected', 'correct', 'incorrect');
+                    opt.style.pointerEvents = 'auto';
+                });
+                card.querySelector('.quiz-feedback').classList.remove('show', 'correct', 'incorrect');
+            });
+            
+            document.getElementById('scoreDisplay').classList.remove('show');
+            document.querySelector('#quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>

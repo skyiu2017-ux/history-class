@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학문과 예술의 새로운 경향</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-strong: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --glass-shadow-hover: 0 12px 48px rgba(31, 38, 135, 0.2);
+            --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            --accent-green: #34c759;
+            --accent-teal: #5ac8fa;
+            --accent-purple: #af52de;
+            --accent-indigo: #5856d6;
+            --accent-blue: #007aff;
+            --accent-orange: #ff9500;
+            --accent-pink: #ff2d55;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #e6f7f0 0%, #eef4ff 25%, #f5e6f3 50%, #e8f4fc 75%, #fef3e8 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 60% at 10% 20%, rgba(52, 199, 89, 0.25), transparent 50%),
+                radial-gradient(ellipse 60% 80% at 90% 80%, rgba(88, 86, 214, 0.2), transparent 50%),
+                radial-gradient(ellipse 70% 50% at 50% 50%, rgba(90, 200, 250, 0.15), transparent 50%),
+                radial-gradient(ellipse 50% 70% at 80% 20%, rgba(175, 82, 222, 0.2), transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
+        }
+        .orb-1 { width: 400px; height: 400px; background: linear-gradient(135deg, rgba(52, 199, 89, 0.4), rgba(88, 86, 214, 0.3)); top: -100px; left: -100px; }
+        .orb-2 { width: 300px; height: 300px; background: linear-gradient(135deg, rgba(175, 82, 222, 0.3), rgba(90, 200, 250, 0.3)); bottom: 10%; right: -50px; animation-delay: -5s; }
+        .orb-3 { width: 250px; height: 250px; background: linear-gradient(135deg, rgba(0, 122, 255, 0.3), rgba(52, 199, 89, 0.3)); top: 50%; left: 10%; animation-delay: -10s; }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 30px) scale(1.02); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 50%, var(--accent-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        .hero-subtitle {
+            max-width: 720px;
+            font-size: clamp(15px, 2.2vw, 18px);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        .hero-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        .hero-nav a {
+            padding: 14px 24px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .hero-nav a:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow);
+        }
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-number {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-green);
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.15), rgba(90, 200, 250, 0.1));
+            border-radius: 100px;
+        }
+        .section-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-desc { color: var(--text-secondary); font-size: 17px; max-width: 600px; margin: 0 auto; }
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow); }
+        .card-icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .card-icon.green { background: linear-gradient(135deg, rgba(52, 199, 89, 0.2), rgba(90, 200, 250, 0.15)); box-shadow: 0 4px 16px rgba(52, 199, 89, 0.2); }
+        .card-icon.purple { background: linear-gradient(135deg, rgba(175, 82, 222, 0.2), rgba(88, 86, 214, 0.15)); box-shadow: 0 4px 16px rgba(175, 82, 222, 0.2); }
+        .card-icon.blue { background: linear-gradient(135deg, rgba(0, 122, 255, 0.2), rgba(90, 200, 250, 0.15)); box-shadow: 0 4px 16px rgba(0, 122, 255, 0.2); }
+        .card-icon.orange { background: linear-gradient(135deg, rgba(255, 149, 0, 0.2), rgba(255, 45, 85, 0.15)); box-shadow: 0 4px 16px rgba(255, 149, 0, 0.2); }
+        .card-icon.teal { background: linear-gradient(135deg, rgba(90, 200, 250, 0.2), rgba(0, 122, 255, 0.15)); box-shadow: 0 4px 16px rgba(90, 200, 250, 0.2); }
+        .card-icon.indigo { background: linear-gradient(135deg, rgba(88, 86, 214, 0.2), rgba(175, 82, 222, 0.15)); box-shadow: 0 4px 16px rgba(88, 86, 214, 0.2); }
+        .card-title { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+        .card-content { color: var(--text-secondary); font-size: 15px; line-height: 1.9; }
+        .card-content p { margin-bottom: 12px; }
+        .card-content strong { color: var(--text-primary); font-weight: 600; }
+        .card-content ul { list-style: none; padding: 0; margin: 16px 0; }
+        .card-content li { padding: 8px 0 8px 24px; position: relative; }
+        .card-content li::before { content: '•'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.08), rgba(90, 200, 250, 0.08));
+            border: 1px solid rgba(52, 199, 89, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .highlight-box h4 { font-size: 14px; font-weight: 700; color: var(--accent-green); margin-bottom: 12px; }
+        .highlight-box p { color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+        .scholar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 32px; }
+        .scholar-card {
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.4s ease;
+        }
+        .scholar-card:hover { transform: translateY(-6px); box-shadow: var(--glass-shadow-hover); }
+        .scholar-name { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+        .scholar-theory { display: inline-block; padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+        .scholar-theory.green { background: linear-gradient(135deg, rgba(52, 199, 89, 0.15), rgba(90, 200, 250, 0.1)); color: var(--accent-green); }
+        .scholar-theory.purple { background: linear-gradient(135deg, rgba(175, 82, 222, 0.15), rgba(88, 86, 214, 0.1)); color: var(--accent-purple); }
+        .scholar-theory.indigo { background: linear-gradient(135deg, rgba(88, 86, 214, 0.15), rgba(175, 82, 222, 0.1)); color: var(--accent-indigo); }
+        .scholar-book { font-size: 13px; color: var(--text-tertiary); margin-bottom: 12px; }
+        .scholar-desc { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .comparison-wrapper { overflow-x: auto; margin-top: 32px; }
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+        }
+        .comparison-table th {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.15), rgba(88, 86, 214, 0.1));
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            font-size: 15px;
+        }
+        .comparison-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: var(--text-primary); background: rgba(255, 255, 255, 0.3); }
+        .culture-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 32px; }
+        .culture-card {
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 28px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.4s ease;
+        }
+        .culture-card:hover { transform: scale(1.02); }
+        .culture-card h4 { font-size: 17px; font-weight: 700; color: var(--accent-indigo); margin-bottom: 12px; }
+        .culture-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+        .summary-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .summary-box h3 { font-size: 20px; font-weight: 700; color: var(--accent-indigo); margin-bottom: 24px; }
+        .summary-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .summary-item:last-child { border-bottom: none; }
+        .summary-num {
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .summary-text { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+        .quiz-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        .quiz-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(52, 199, 89, 0.3);
+        }
+        .quiz-question { font-size: 18px; font-weight: 600; margin-bottom: 24px; line-height: 1.6; color: var(--text-primary); }
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+        .quiz-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 22px;
+            background: var(--glass-bg-strong);
+            border: 2px solid var(--glass-border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+        .quiz-option:hover { background: rgba(255, 255, 255, 0.7); border-color: rgba(52, 199, 89, 0.3); transform: translateX(4px); }
+        .quiz-option.correct { border-color: var(--accent-green); background: rgba(52, 199, 89, 0.15); }
+        .quiz-option.incorrect { border-color: var(--accent-pink); background: rgba(255, 45, 85, 0.1); }
+        .option-number {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.1), rgba(90, 200, 250, 0.1));
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+        .quiz-feedback { margin-top: 24px; padding: 24px; border-radius: 18px; display: none; }
+        .quiz-feedback.show { display: block; animation: fadeInUp 0.4s ease-out; }
+        .quiz-feedback.correct { background: linear-gradient(135deg, rgba(52, 199, 89, 0.15), rgba(90, 200, 250, 0.1)); border: 1px solid rgba(52, 199, 89, 0.3); }
+        .quiz-feedback.incorrect { background: linear-gradient(135deg, rgba(255, 45, 85, 0.1), rgba(255, 149, 0, 0.08)); border: 1px solid rgba(255, 45, 85, 0.3); }
+        .feedback-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .quiz-feedback.correct .feedback-title { color: var(--accent-green); }
+        .quiz-feedback.incorrect .feedback-title { color: var(--accent-pink); }
+        .feedback-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .score-display {
+            text-align: center;
+            padding: 56px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            margin-top: 40px;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .score-display.show { display: block; animation: fadeInUp 0.6s ease-out; }
+        .score-number {
+            font-size: 80px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .score-label { font-size: 18px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; }
+        .score-message { font-size: 16px; color: var(--text-tertiary); margin-top: 16px; }
+        .btn-reset {
+            margin-top: 28px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 24px rgba(52, 199, 89, 0.3);
+        }
+        .btn-reset:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 12px 32px rgba(52, 199, 89, 0.4); }
+        footer { text-align: center; padding: 60px 24px; color: var(--text-tertiary); font-size: 14px; position: relative; z-index: 1; }
+        .animate-on-scroll { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            .glass-card, .quiz-card { padding: 28px; border-radius: 24px; }
+            .scholar-grid, .culture-grid { grid-template-columns: 1fr; }
+            .orb { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <header class="hero">
+        <div class="hero-badge">중학교 3학년 한국사</div>
+        <h1>학문과 예술의<br>새로운 경향</h1>
+        <p class="hero-subtitle">성리학이 현실 문제를 해결하지 못하자, 실용과 실증을 추구하는 실학이 발달하였다. 또한 중국 중심 세계관에서 벗어나 우리 역사·지리·언어를 탐구하는 국학이 발달하고, 서민 문화가 확대되면서 문학·회화에서 새로운 흐름이 나타났다.</p>
+        <nav class="hero-nav">
+            <a href="#silhak">실학이란</a>
+            <a href="#nongup">농업 중심 개혁론</a>
+            <a href="#sanggong">상공업 중심 개혁론</a>
+            <a href="#gukhak">국학의 발달</a>
+            <a href="#culture">문화 교류와 변화</a>
+            <a href="#quiz">형성평가</a>
+        </nav>
+    </header>
+
+    <section id="silhak">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 01</span>
+            <h2 class="section-title">실학(實學)의 등장</h2>
+            <p class="section-desc">현실 개혁을 추구한 새로운 학문</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon green">📚</div>
+            <h3 class="card-title">실학이란 무엇인가?</h3>
+            <div class="card-content">
+                <p><strong>실학</strong>은 "성리학이 현실 문제(민생·경제·제도)를 해결하는 데 한계가 있다"는 문제의식에서 출발한 학문입니다.</p>
+                <p><strong>현실을 관찰(실증)</strong>하고 <strong>실제로 쓸 수 있는 방안(실용)</strong>을 찾으려 한 학문 흐름입니다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>💡 핵심 정의</h4>
+                <p>실학(實學) = 실용·실증 태도로 <strong>"현실 개혁"</strong>을 추구 (성리학 한계 보완)</p>
+            </div>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon teal">🔀</div>
+            <h3 class="card-title">실학의 두 갈래</h3>
+            <div class="card-content"><p>실학 내에서 개혁 방향이 크게 두 갈래로 갈렸습니다.</p></div>
+            <div class="comparison-wrapper">
+                <table class="comparison-table">
+                    <thead><tr><th>구분</th><th>경세치용 (농업 중심)</th><th>이용후생/북학 (상공업 중심)</th></tr></thead>
+                    <tbody>
+                        <tr><td>핵심 주장</td><td>토지·농촌을 바로잡자</td><td>상공업·유통·기술을 혁신하자</td></tr>
+                        <tr><td>목표</td><td>국가의 뿌리(농업) 튼튼하게</td><td>국가의 활력(경제) 키우기</td></tr>
+                        <tr><td>비유</td><td>🌳 뿌리를 고쳐 병든 나무 살리기</td><td>💧 물길을 내어 영양 돌게 하기</td></tr>
+                        <tr><td>대표 인물</td><td>유형원, 이익, 정약용</td><td>박지원, 박제가, 홍대용</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="nongup">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 02</span>
+            <h2 class="section-title">농업 중심 개혁론 (경세치용)</h2>
+            <p class="section-desc">토지 제도 개혁으로 자영농 육성</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon green">🌾</div>
+            <h3 class="card-title">공통 문제의식과 목표</h3>
+            <div class="card-content">
+                <p><strong>문제의식:</strong> 토지 편중, 농민 몰락, 농촌 붕괴 → 국가 재정·통치 기반까지 흔들림</p>
+                <p><strong>목표:</strong> 토지 제도 개혁으로 <strong>자영농을 늘리고</strong>, 농촌을 안정시켜 <strong>민생과 국가 운영을 함께 회복</strong></p>
+            </div>
+            <div class="highlight-box">
+                <h4>📌 핵심 발상</h4>
+                <p>"국가의 뿌리(농업·토지)를 바로잡아야 나라가 선다"</p>
+            </div>
+        </div>
+        <div class="scholar-grid animate-on-scroll">
+            <div class="scholar-card">
+                <div class="scholar-name">유형원</div>
+                <div class="scholar-theory green">균전제</div>
+                <div class="scholar-book">📖 『반계수록』</div>
+                <div class="scholar-desc"><strong>토지 국유</strong>를 전제로 국가가 토지 관리·배분. <strong>신분에 따라 차등 지급</strong> (농민 1경, 선비·관리 2~12경). 토지 편중을 막고 자영농 육성 목표.</div>
+            </div>
+            <div class="scholar-card">
+                <div class="scholar-name">이익</div>
+                <div class="scholar-theory green">한전제 (영업전)</div>
+                <div class="scholar-book">📖 『성호사설』, 『곽우록』</div>
+                <div class="scholar-desc">생존에 필요한 최소 토지를 <strong>영업전</strong>으로 정해 <strong>매매 금지</strong>. 나머지 토지는 거래 허용. 극단적 국유화보다 <strong>현실적</strong>인 방안.</div>
+            </div>
+            <div class="scholar-card">
+                <div class="scholar-name">정약용</div>
+                <div class="scholar-theory green">여전제 → 정전제</div>
+                <div class="scholar-book">📖 『경세유표』, 『목민심서』</div>
+                <div class="scholar-desc">초기: 마을 단위 <strong>공동 경작</strong>, 노동량에 따라 분배 (여전제). 이후: 토지 <strong>국유화</strong> + 정(井)자형 분배 (정전제). <strong>행정 개혁</strong>까지 포괄.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sanggong">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 03</span>
+            <h2 class="section-title">상공업 중심 개혁론 (이용후생/북학)</h2>
+            <p class="section-desc">유통·기술 혁신으로 부국 실현</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon purple">🏭</div>
+            <h3 class="card-title">공통 문제의식과 목표</h3>
+            <div class="card-content">
+                <p><strong>문제의식:</strong> 경제가 돌아가려면 생산만이 아니라 <strong>유통·기술·상업</strong>이 살아야 하는데, 조선은 이를 억제하거나 천시</p>
+                <p><strong>목표:</strong> 상공업 진흥, 기술 혁신, 활발한 유통으로 <strong>부국(富國)</strong>을 이루고 민생 개선</p>
+                <p><strong>특징:</strong> 청의 발전된 문물·기술을 "배울 건 배우자" → <strong>북학파</strong></p>
+            </div>
+            <div class="highlight-box">
+                <h4>📌 핵심 발상</h4>
+                <p>"물길(유통·기술)을 트면 나라가 커진다"</p>
+            </div>
+        </div>
+        <div class="scholar-grid animate-on-scroll">
+            <div class="scholar-card">
+                <div class="scholar-name">박제가</div>
+                <div class="scholar-theory purple">소비·유통 강조</div>
+                <div class="scholar-book">📖 『북학의』</div>
+                <div class="scholar-desc">"재물은 <strong>샘물</strong>과 같다" - 퍼내지 않으면 마른다. <strong>적절한 소비와 유통이 생산을 자극</strong>해 경제 성장. 절약만 강조하면 경제 정체된다고 비판.</div>
+            </div>
+            <div class="scholar-card">
+                <div class="scholar-name">홍대용</div>
+                <div class="scholar-theory indigo">지전설·세계관 비판</div>
+                <div class="scholar-book">📖 『의산문답』</div>
+                <div class="scholar-desc"><strong>지전설(지구 회전설)</strong>로 기존 우주관을 흔듦. "중국이 세계의 중심"이라는 <strong>화이론적 세계관 비판</strong>. 기술 혁신, 신분·문벌 질서 비판까지 연결.</div>
+            </div>
+            <div class="scholar-card">
+                <div class="scholar-name">박지원</div>
+                <div class="scholar-theory purple">상공업 진흥 + 풍자 문학</div>
+                <div class="scholar-book">📖 『열하일기』, 『양반전』, 『허생전』</div>
+                <div class="scholar-desc"><strong>수레·배 이용</strong>(물류 혁신), <strong>화폐 유통</strong>(상거래 활성화) 주장. 한문 소설로 양반 사회의 <strong>위선·무능을 풍자</strong>.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gukhak">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 04</span>
+            <h2 class="section-title">국학의 발달</h2>
+            <p class="section-desc">우리 역사·지리·언어의 재발견</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon blue">🗺️</div>
+            <h3 class="card-title">국학이란?</h3>
+            <div class="card-content">
+                <p>청의 성장과 명의 멸망을 목격한 조선 지식인들은 <strong>중국 중심의 세계관에서 벗어나</strong> 우리 것의 가치를 재발견하려 노력했습니다.</p>
+                <p>이는 역사, 지리, 언어 연구인 <strong>국학</strong>으로 이어졌습니다.</p>
+            </div>
+        </div>
+        <div class="culture-grid animate-on-scroll">
+            <div class="culture-card">
+                <h4>📜 역사 연구</h4>
+                <p><strong>유득공</strong>: 『발해고』 - 발해가 고구려를 계승한 우리 역사임을 밝힘</p>
+                <p><strong>안정복</strong>: 『동사강목』 - 우리 역사의 계보를 체계적으로 정리</p>
+            </div>
+            <div class="culture-card">
+                <h4>🗺️ 지리 연구</h4>
+                <p><strong>이중환</strong>: 『택리지』 - 각 지방의 생활 풍속을 담은 인문지리서</p>
+                <p><strong>김정호</strong>: 「대동여지도」 - 정밀한 지도 제작 기술의 정점</p>
+            </div>
+            <div class="culture-card">
+                <h4>🔤 언어 연구</h4>
+                <p><strong>신경준</strong>: 『훈민정음운해』 - 한글의 우수성을 학문적으로 입증</p>
+            </div>
+        </div>
+        <div class="highlight-box animate-on-scroll" style="margin-top:32px;">
+            <h4>📌 국학의 핵심</h4>
+            <p>국학(國學) = 우리 역사·지리·언어 연구로 <strong>"우리 것"의 가치 재발견</strong></p>
+        </div>
+    </section>
+
+    <section id="culture">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 05</span>
+            <h2 class="section-title">동아시아 문화 교류와 문화 변화</h2>
+            <p class="section-desc">연행사·통신사와 서민 문화의 성장</p>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon orange">🚢</div>
+            <h3 class="card-title">연행사와 서학의 전래</h3>
+            <div class="card-content">
+                <p>조선은 청에 <strong>연행사</strong>를 파견하여 조공 무역과 함께 활발한 학문적 교류를 가졌습니다.</p>
+                <ul>
+                    <li><strong>서양 문물 수입:</strong> 곤여만국전도, 자명종, 천리경, 화포 등 → 세계관 확대</li>
+                    <li><strong>서학(천주교) 전파:</strong> 학문으로 시작 → 신앙으로 발전 → 유교 질서 위협으로 탄압</li>
+                </ul>
+            </div>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon teal">🎌</div>
+            <h3 class="card-title">통신사의 파견</h3>
+            <div class="card-content">
+                <p>에도 막부의 요청으로 일본에 파견된 <strong>통신사</strong>는 외교 사절이자 문화 전파자였습니다.</p>
+                <ul>
+                    <li><strong>배경:</strong> 임진왜란 후 국교 재개, 에도 막부 쇼군의 권위 확립 필요</li>
+                    <li><strong>규모:</strong> 400~500명의 대규모 사절단</li>
+                    <li><strong>역할:</strong> 마상재 등 조선 예술·학문 전파, 일본 문화 발전에 기여</li>
+                </ul>
+            </div>
+            <div class="highlight-box">
+                <h4>💡 비유로 이해하기</h4>
+                <p>통신사 파견은 마치 '새로 취임한 마을 이장(쇼군)이 자신의 권위를 세우기 위해, 옆 마을의 존경받는 선비(조선 국왕)를 귀한 손님으로 초청해 잔치를 벌이는 것'과 같습니다.</p>
+            </div>
+        </div>
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon indigo">🎨</div>
+            <h3 class="card-title">조선 후기 문학과 회화의 변화</h3>
+            <div class="card-content">
+                <p>상품 화폐 경제의 발달과 서당 교육 보급으로 <strong>서민 의식이 성장</strong>하면서 문학과 예술의 주체가 양반에서 서민으로 확대되었습니다.</p>
+            </div>
+        </div>
+        <div class="culture-grid animate-on-scroll">
+            <div class="culture-card">
+                <h4>📖 문학의 새 양상</h4>
+                <p><strong>한글 소설:</strong> 『춘향전』, 『흥부전』 등 널리 읽힘</p>
+                <p><strong>사설시조:</strong> 형식 파괴, 솔직한 감정 표현</p>
+                <p><strong>한문 소설:</strong> 박지원 『양반전』 - 양반 사회 풍자</p>
+            </div>
+            <div class="culture-card">
+                <h4>🖼️ 회화의 혁신</h4>
+                <p><strong>진경산수화:</strong> 정선 - 우리 산천을 사실적으로 표현</p>
+                <p><strong>풍속화:</strong> 김홍도(서민 일상), 신윤복(도시민 유흥)</p>
+                <p><strong>민화:</strong> 서민의 소박한 바람 담음</p>
+            </div>
+            <div class="culture-card">
+                <h4>🏺 공예와 서예</h4>
+                <p><strong>백자:</strong> 양반들의 소박한 취향 반영</p>
+                <p><strong>추사체:</strong> 김정희 - 개성 넘치는 서예의 새 경지</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="summary">
+        <div class="summary-box animate-on-scroll">
+            <h3>📝 3줄 요약</h3>
+            <div class="summary-item">
+                <div class="summary-num">1</div>
+                <div class="summary-text">양난 이후 현실 문제를 해결하지 못한 성리학의 한계를 넘어서기 위해 <strong>실학</strong>이 발달 (농업·상공업 개혁론)</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">2</div>
+                <div class="summary-text">중국 중심 세계관에서 벗어나 우리 역사·지리·언어를 탐구하는 <strong>국학</strong>이 발달 (발해고·동사강목·택리지·대동여지도 등)</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">3</div>
+                <div class="summary-text"><strong>연행사·통신사</strong> 같은 교류 속에서 문학·미술도 서민 문화 확대, <strong>진경산수화·풍속화</strong> 등 새 흐름 나타남</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">ASSESSMENT</span>
+            <h2 class="section-title">형성평가</h2>
+            <p class="section-desc">학습 내용을 확인해 봅시다</p>
+        </div>
+        <div class="quiz-container">
+            <div class="quiz-card animate-on-scroll" data-correct="1">
+                <div class="quiz-number">1</div>
+                <div class="quiz-question">다음 설명에 해당하는 실학자는?<br><br>"토지를 국유로 하고, 신분에 따라 농민에게는 1경, 선비·관리에게는 2~12경을 차등 지급하는 균전제를 주장하였다."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>유형원</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>이익</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>정약용</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>박지원</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>박제가</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">유형원은 『반계수록』에서 토지 국유를 전제로 한 균전제를 주장하였습니다.</div></div>
+            </div>
+            <div class="quiz-card animate-on-scroll" data-correct="5">
+                <div class="quiz-number">2</div>
+                <div class="quiz-question">"재물은 샘물과 같아서 퍼내지 않으면 마른다"라며 소비와 유통의 중요성을 강조한 인물과 그의 저서는?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>홍대용 - 『의산문답』</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>박지원 - 『열하일기』</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>정약용 - 『목민심서』</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>이익 - 『성호사설』</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>박제가 - 『북학의』</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">박제가는 『북학의』에서 소비와 유통이 생산을 자극한다고 주장하며 상공업 발전을 강조했습니다.</div></div>
+            </div>
+            <div class="quiz-card animate-on-scroll" data-correct="2">
+                <div class="quiz-number">3</div>
+                <div class="quiz-question">발해가 고구려를 계승한 우리 역사임을 밝힌 저서와 저자는?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>안정복 - 『동사강목』</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>유득공 - 『발해고』</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>이중환 - 『택리지』</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>김정호 - 「대동여지도」</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>신경준 - 『훈민정음운해』</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">유득공은 『발해고』를 통해 발해가 고구려를 계승한 우리 역사임을 명확히 하였습니다.</div></div>
+            </div>
+            <div class="quiz-card animate-on-scroll" data-correct="4">
+                <div class="quiz-number">4</div>
+                <div class="quiz-question">조선 후기 회화의 변화에 대한 설명으로 옳지 않은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>정선은 우리 산천을 사실적으로 그리는 진경산수화를 발전시켰다.</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>김홍도는 서민의 일상을 소박하게 담은 풍속화를 그렸다.</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>신윤복은 도시민의 유흥을 해학적으로 표현하였다.</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>민화는 궁중 화가들이 왕실을 위해 그린 그림이다.</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>김정희는 개성 넘치는 추사체를 창안하였다.</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">민화는 이름 없는 화가들이 서민의 소박한 바람을 담아 그린 그림입니다.</div></div>
+            </div>
+            <div class="quiz-card animate-on-scroll" data-correct="3">
+                <div class="quiz-number">5</div>
+                <div class="quiz-question">경세치용 학파와 이용후생(북학) 학파의 차이점으로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>경세치용은 청의 문물 수용을, 이용후생은 명과의 교류를 강조했다.</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>경세치용은 상공업 발전을, 이용후생은 농촌 안정을 우선시했다.</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>경세치용은 토지 제도 개혁을, 이용후생은 상공업·기술 혁신을 강조했다.</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>두 학파 모두 성리학을 비판하지 않고 계승·발전시켰다.</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>두 학파 모두 서양 문물의 배척을 주장했다.</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">경세치용은 토지·농촌 개혁으로 국가의 뿌리를 튼튼히, 이용후생(북학)은 상공업·기술 혁신으로 국가의 활력을 키우려 했습니다.</div></div>
+            </div>
+        </div>
+        <div class="score-display" id="scoreDisplay">
+            <div class="score-number" id="scoreNumber">0/5</div>
+            <div class="score-label">정답 개수</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="btn-reset" onclick="resetQuiz()">다시 풀기</button>
+        </div>
+    </section>
+
+    <footer><p>중학교 3학년 한국사 · 학문과 예술의 새로운 경향</p></footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        let answeredQuestions = new Set();
+        let correctAnswers = 0;
+
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const card = this.closest('.quiz-card');
+                const cardIndex = Array.from(document.querySelectorAll('.quiz-card')).indexOf(card);
+                if (answeredQuestions.has(cardIndex)) return;
+                const correctAnswer = parseInt(card.dataset.correct);
+                const selectedAnswer = parseInt(this.dataset.option);
+                const feedback = card.querySelector('.quiz-feedback');
+                card.querySelectorAll('.quiz-option').forEach(opt => opt.style.pointerEvents = 'none');
+                if (selectedAnswer === correctAnswer) {
+                    this.classList.add('correct');
+                    feedback.classList.add('correct');
+                    correctAnswers++;
+                } else {
+                    this.classList.add('incorrect');
+                    feedback.classList.add('incorrect');
+                    card.querySelector('[data-option="' + correctAnswer + '"]').classList.add('correct');
+                }
+                feedback.classList.add('show');
+                answeredQuestions.add(cardIndex);
+                if (answeredQuestions.size === 5) showScore();
+            });
+        });
+
+        function showScore() {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            document.getElementById('scoreNumber').textContent = correctAnswers + '/5';
+            if (correctAnswers === 5) document.getElementById('scoreMessage').textContent = '🎉 완벽해요! 실학과 문화 변화를 잘 이해했습니다.';
+            else if (correctAnswers >= 3) document.getElementById('scoreMessage').textContent = '👍 잘했어요! 틀린 문제를 다시 확인해 보세요.';
+            else document.getElementById('scoreMessage').textContent = '📚 학습 내용을 다시 복습해 보세요.';
+            scoreDisplay.classList.add('show');
+            scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            answeredQuestions.clear();
+            correctAnswers = 0;
+            document.querySelectorAll('.quiz-card').forEach(card => {
+                card.querySelectorAll('.quiz-option').forEach(opt => { opt.classList.remove('correct', 'incorrect'); opt.style.pointerEvents = 'auto'; });
+                card.querySelector('.quiz-feedback').classList.remove('show', 'correct', 'incorrect');
+            });
+            document.getElementById('scoreDisplay').classList.remove('show');
+            document.querySelector('#quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) { e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>근·현대 사회의 전개</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-strong: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --glass-shadow-hover: 0 12px 48px rgba(31, 38, 135, 0.2);
+            --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            --accent-blue: #3b82f6;
+            --accent-indigo: #6366f1;
+            --accent-red: #ef4444;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-purple: #8b5cf6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 25%, #fae8ff 50%, #fce7f3 75%, #fee2e2 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 60% at 10% 20%, rgba(59, 130, 246, 0.15), transparent 50%),
+                radial-gradient(ellipse 60% 80% at 90% 80%, rgba(139, 92, 246, 0.12), transparent 50%),
+                radial-gradient(ellipse 70% 50% at 50% 50%, rgba(239, 68, 68, 0.08), transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
+        }
+        .orb-1 { width: 400px; height: 400px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.3)); top: -100px; left: -100px; }
+        .orb-2 { width: 300px; height: 300px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(16, 185, 129, 0.3)); bottom: 10%; right: -50px; animation-delay: -5s; }
+        .orb-3 { width: 250px; height: 250px; background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(245, 158, 11, 0.2)); top: 50%; left: 10%; animation-delay: -10s; }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 30px) scale(1.02); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-red));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 50%, var(--accent-red) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        .hero-subtitle {
+            max-width: 720px;
+            font-size: clamp(15px, 2.2vw, 18px);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        .hero-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        .hero-nav a {
+            padding: 14px 24px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .hero-nav a:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow);
+        }
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-number {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.1));
+            border-radius: 100px;
+        }
+        .section-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-desc { color: var(--text-secondary); font-size: 17px; max-width: 600px; margin: 0 auto; }
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow); }
+        .card-icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .card-icon.blue { background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.15)); box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2); }
+        .card-icon.red { background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(245, 158, 11, 0.15)); box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2); }
+        .card-icon.emerald { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(59, 130, 246, 0.15)); box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2); }
+        .card-icon.purple { background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(99, 102, 241, 0.15)); box-shadow: 0 4px 16px rgba(139, 92, 246, 0.2); }
+        .card-title { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+        .card-content { color: var(--text-secondary); font-size: 15px; line-height: 1.9; }
+        .card-content p { margin-bottom: 12px; }
+        .card-content strong { color: var(--text-primary); font-weight: 600; }
+        .card-content ul { list-style: none; padding: 0; margin: 16px 0; }
+        .card-content li { padding: 8px 0 8px 24px; position: relative; }
+        .card-content li::before { content: '→'; position: absolute; left: 0; color: var(--accent-blue); font-weight: bold; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.08));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .highlight-box h4 { font-size: 14px; font-weight: 700; color: var(--accent-blue); margin-bottom: 12px; }
+        .highlight-box p { color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+        .item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 32px; }
+        .item-card {
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 28px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.4s ease;
+        }
+        .item-card:hover { transform: translateY(-6px); box-shadow: var(--glass-shadow-hover); }
+        .item-card h4 { font-size: 17px; font-weight: 700; color: var(--accent-indigo); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .item-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+        .item-card .tag { display: inline-block; padding: 4px 12px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.1)); border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--accent-blue); margin-bottom: 12px; }
+        .flow-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            margin: 32px 0;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow);
+        }
+        .flow-title { font-size: 16px; font-weight: 700; color: var(--accent-blue); margin-bottom: 20px; text-align: center; }
+        .flow-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .flow-item {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.08));
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .flow-arrow { color: var(--accent-red); font-weight: bold; }
+        .timeline-container { position: relative; padding-left: 40px; margin: 32px 0; }
+        .timeline-container::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent-blue), var(--accent-indigo), var(--accent-red)); border-radius: 2px; }
+        .timeline-item { position: relative; padding: 20px 0 20px 30px; }
+        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 24px; width: 14px; height: 14px; background: var(--accent-blue); border: 3px solid white; border-radius: 50%; box-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+        .timeline-year { font-size: 14px; font-weight: 700; color: var(--accent-blue); margin-bottom: 4px; }
+        .timeline-desc { color: var(--text-secondary); font-size: 15px; }
+        .era-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            border-left: 4px solid var(--accent-blue);
+        }
+        .era-card.red { border-left-color: var(--accent-red); }
+        .era-card.emerald { border-left-color: var(--accent-emerald); }
+        .era-card.purple { border-left-color: var(--accent-purple); }
+        .era-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .era-badge { padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; color: white; }
+        .era-badge.blue { background: var(--accent-blue); }
+        .era-badge.red { background: var(--accent-red); }
+        .era-badge.emerald { background: var(--accent-emerald); }
+        .era-badge.purple { background: var(--accent-purple); }
+        .summary-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .summary-box h3 { font-size: 20px; font-weight: 700; color: var(--accent-indigo); margin-bottom: 24px; }
+        .summary-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .summary-item:last-child { border-bottom: none; }
+        .summary-num {
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .summary-text { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+        .quiz-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        .quiz-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+        }
+        .quiz-question { font-size: 18px; font-weight: 600; margin-bottom: 24px; line-height: 1.6; color: var(--text-primary); }
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+        .quiz-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 22px;
+            background: var(--glass-bg-strong);
+            border: 2px solid var(--glass-border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+        .quiz-option:hover { background: rgba(255, 255, 255, 0.7); border-color: rgba(59, 130, 246, 0.3); transform: translateX(4px); }
+        .quiz-option.correct { border-color: var(--accent-emerald); background: rgba(16, 185, 129, 0.15); }
+        .quiz-option.incorrect { border-color: var(--accent-red); background: rgba(239, 68, 68, 0.1); }
+        .option-number {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+        .quiz-feedback { margin-top: 24px; padding: 24px; border-radius: 18px; display: none; }
+        .quiz-feedback.show { display: block; animation: fadeInUp 0.4s ease-out; }
+        .quiz-feedback.correct { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.1)); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .quiz-feedback.incorrect { background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.08)); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .feedback-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .quiz-feedback.correct .feedback-title { color: var(--accent-emerald); }
+        .quiz-feedback.incorrect .feedback-title { color: var(--accent-red); }
+        .feedback-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .score-display {
+            text-align: center;
+            padding: 56px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            margin-top: 40px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            display: none;
+        }
+        .score-display.show { display: block; animation: fadeInUp 0.6s ease-out; }
+        .score-number {
+            font-size: 80px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo), var(--accent-emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .score-label { font-size: 18px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; }
+        .score-message { font-size: 16px; color: var(--text-tertiary); margin-top: 16px; }
+        .btn-reset {
+            margin-top: 28px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+        .btn-reset:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4); }
+        footer { text-align: center; padding: 60px 24px; color: var(--text-tertiary); font-size: 14px; position: relative; z-index: 1; }
+        .animate-on-scroll { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            .glass-card, .quiz-card { padding: 28px; border-radius: 24px; }
+            .item-grid { grid-template-columns: 1fr; }
+            .flow-content { flex-direction: column; }
+            .orb { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <header class="hero">
+        <div class="hero-badge">중학교 3학년 한국사</div>
+        <h1>근·현대 사회의 전개</h1>
+        <p class="hero-subtitle">개항부터 현재까지, 격동의 근현대사를 흐름으로 이해하자. 외세의 침탈에 맞선 저항, 식민 지배와 독립운동, 그리고 시민의 힘으로 쟁취한 민주주의까지 — 우리 역사의 가장 역동적인 시기를 살펴본다.</p>
+        <nav class="hero-nav">
+            <a href="#opening">개항~국권피탈</a>
+            <a href="#colonial">일제강점기</a>
+            <a href="#liberation">광복~한국전쟁</a>
+            <a href="#democracy">민주주의 발전</a>
+            <a href="#quiz">형성평가</a>
+        </nav>
+    </header>
+
+    <section id="overview">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">OVERVIEW</span>
+            <h2 class="section-title">전체 흐름 한눈에 보기</h2>
+            <p class="section-desc">근현대사의 큰 줄기를 먼저 잡아보자</p>
+        </div>
+        <div class="flow-box animate-on-scroll">
+            <div class="flow-title">🔄 근현대사 흐름도</div>
+            <div class="flow-content">
+                <span class="flow-item">개항 (문 열림)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">개혁 시도</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">침탈 심화</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">식민지 (국권 피탈)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">독립운동</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">광복 (분단)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">한국전쟁</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">민주주의 확장</span>
+            </div>
+        </div>
+        <div class="highlight-box animate-on-scroll">
+            <h4>💡 핵심 질문</h4>
+            <p>"왜 개항 뒤 조선이 흔들렸을까?" → <strong>외세 압박(불평등 조약·열강 각축)</strong> + <strong>내부 개혁의 분열(속도·방법 갈등)</strong></p>
+        </div>
+    </section>
+
+    <section id="opening">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 01</span>
+            <h2 class="section-title">개항에서 국권 피탈까지</h2>
+            <p class="section-desc">열강 각축 + 내부 개혁의 속도전</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon blue">🚢</div>
+            <h3 class="card-title">문호를 열게 된 배경</h3>
+            <div class="card-content">
+                <p><strong>신미양요</strong>(제너럴 셔먼호 사건을 구실) 이후 <strong>통상 수교 거부 정책</strong>을 강화(척화비)했지만, 결국 <strong>운요호 사건</strong> 뒤 일본이 강요한 <strong>강화도 조약(1876)</strong> 체결로 문이 열렸습니다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>⚠️ 강화도 조약의 불평등 조항</h4>
+                <p>• 개항 (부산, 원산, 인천) • 해안 측량권 • <strong>영사 재판권(치외법권)</strong> — 일본에 유리한 불평등 조약</p>
+            </div>
+        </div>
+
+        <div class="item-grid animate-on-scroll">
+            <div class="item-card">
+                <span class="tag">1882</span>
+                <h4>⚔️ 임오군란</h4>
+                <p><strong>원인:</strong> 구식 군인 차별 + 개항 이후 경제 어려움</p>
+                <p><strong>결과:</strong> 청군이 진압, 청의 내정 간섭 강화</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">1884</span>
+                <h4>🏛️ 갑신정변</h4>
+                <p><strong>주도:</strong> 급진 개화파 (김옥균 등)</p>
+                <p><strong>목표:</strong> 문벌 폐지, 평등권 등 근대 개혁</p>
+                <p><strong>결과:</strong> 청의 개입으로 3일 만에 실패</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">1894</span>
+                <h4>🌾 동학 농민 운동</h4>
+                <p><strong>지도자:</strong> 전봉준</p>
+                <p><strong>주장:</strong> 신분제 폐지, 조세 개혁, 외세 배격</p>
+                <p><strong>의의:</strong> 전주 화약 → 집강소 설치 (자치 실현)</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon emerald">📜</div>
+            <h3 class="card-title">갑오·을미개혁 (1894~1896)</h3>
+            <div class="card-content">
+                <p>동학 농민 운동의 영향 속에서, 일본의 간섭 하에 추진된 <strong>근대적 개혁</strong>입니다.</p>
+                <ul>
+                    <li><strong>갑오개혁:</strong> 신분제 폐지, 과거제 폐지 (능력에 따른 인재 등용), 재판소 설치</li>
+                    <li><strong>을미개혁:</strong> 단발령, 태양력 사용, 건양 연호 사용</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="era-card red animate-on-scroll">
+            <div class="era-title"><span class="era-badge red">침탈 심화</span> 을미사변과 아관파천</div>
+            <div class="card-content">
+                <p><strong>을미사변(1895):</strong> 일본이 명성황후를 시해한 사건 → 일본에 대한 반감 폭발</p>
+                <p><strong>아관파천(1896):</strong> 고종이 러시아 공사관으로 피신 → 러시아 내정 간섭, 열강의 이권 침탈 확대</p>
+                <p><strong>이 시기 저항:</strong> 독립협회 창설, 『독립신문』 발간, 만민공동회 개최 → 국권·민권 수호 운동</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon red">🔗</div>
+            <h3 class="card-title">국권 피탈의 단계</h3>
+            <div class="card-content">
+                <p><strong>러일 전쟁(1904~1905)</strong> 전후로 일본의 영향력이 급증하며 단계적으로 주권을 빼앗겼습니다.</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-year">1905년</div>
+                    <div class="timeline-desc"><strong>을사늑약</strong> — 외교권 박탈, 통감부 설치</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1907년</div>
+                    <div class="timeline-desc"><strong>헤이그 특사 파견</strong> → 실패 → 고종 강제 퇴위, 군대 해산</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1910년</div>
+                    <div class="timeline-desc"><strong>한일 병합 조약</strong> — 국권 피탈, 식민지화</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="colonial">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 02</span>
+            <h2 class="section-title">일제 강점기</h2>
+            <p class="section-desc">통치 방식은 바뀌어도 목표는 수탈·지배</p>
+        </div>
+
+        <div class="era-card animate-on-scroll">
+            <div class="era-title"><span class="era-badge blue">1910년대</span> 무단 통치 (공포 정치)</div>
+            <div class="card-content">
+                <p><strong>통치 방식:</strong> 헌병 경찰 중심의 강압 통치, 언론·집회·결사의 자유 박탈</p>
+                <p><strong>경제 수탈:</strong> 토지 조사 사업 (미신고 토지 몰수), 회사령 (기업 활동 통제)</p>
+                <p><strong>저항:</strong> 비밀결사 활동 (대한광복회 등) → <strong>3·1 운동(1919)</strong>으로 폭발</p>
+                <p><strong>결과:</strong> 대한민국 임시 정부 수립 (상하이, 1919)</p>
+            </div>
+        </div>
+
+        <div class="era-card purple animate-on-scroll">
+            <div class="era-title"><span class="era-badge purple">1920년대</span> 문화 통치 (겉은 유화, 속은 분열·탄압)</div>
+            <div class="card-content">
+                <p><strong>통치 방식:</strong> 겉으로는 일부 자유 허용, 실제로는 경찰력 강화·탄압 지속</p>
+                <p><strong>경제 수탈:</strong> 산미 증식 계획 (쌀 수탈 강화)</p>
+            </div>
+            <div class="item-grid" style="margin-top: 20px;">
+                <div class="item-card">
+                    <span class="tag">실력양성</span>
+                    <h4>📚 민족 실력 양성 운동</h4>
+                    <p>• 물산 장려 운동 ("조선 사람 조선 것")</p>
+                    <p>• 민립 대학 설립 운동</p>
+                </div>
+                <div class="item-card">
+                    <span class="tag">민족협동</span>
+                    <h4>🤝 신간회 (1927)</h4>
+                    <p>민족주의 + 사회주의 세력이 함께한 <strong>민족 협동 전선</strong></p>
+                </div>
+                <div class="item-card">
+                    <span class="tag">학생운동</span>
+                    <h4>✊ 학생 항일 운동</h4>
+                    <p>• 6·10 만세 운동 (1926)</p>
+                    <p>• 광주 학생 항일 운동 (1929)</p>
+                </div>
+                <div class="item-card">
+                    <span class="tag">무장투쟁</span>
+                    <h4>⚔️ 독립군 전투</h4>
+                    <p>• 봉오동 전투 (홍범도)</p>
+                    <p>• 청산리 대첩 (김좌진)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="era-card red animate-on-scroll">
+            <div class="era-title"><span class="era-badge red">1930~40년대</span> 민족 말살 통치 (전쟁 동원 체제)</div>
+            <div class="card-content">
+                <p><strong>황국 신민화 정책:</strong> 신사 참배 강요, 창씨개명 강요, 한글·한국사 교육 금지</p>
+                <p><strong>전쟁 동원:</strong> 국가 총동원법(1938), 징용·징병, 여성 근로 동원·일본군 '위안부' 강제 동원</p>
+                <p><strong>저항:</strong> 대한민국 임시 정부 재정비, <strong>한국 광복군 창설(1940)</strong>, 국내외 무장 투쟁 지속</p>
+            </div>
+        </div>
+
+        <div class="highlight-box animate-on-scroll">
+            <h4>⚠️ 학생들이 헷갈리는 포인트</h4>
+            <p><strong>문화 통치 ≠ '좋아짐'</strong> — 방식만 바뀐 것 (기만 + 분열 유도)</p>
+            <p><strong>민족 말살 통치</strong> — '전쟁 수행'이 목적이라 동원이 극대화됨</p>
+        </div>
+    </section>
+
+    <section id="liberation">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 03</span>
+            <h2 class="section-title">광복 이후</h2>
+            <p class="section-desc">분단 → 정부 수립 → 한국 전쟁</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon purple">🕊️</div>
+            <h3 class="card-title">광복은 "끝"이 아니라 "새 출발 + 냉전 충돌"</h3>
+            <div class="card-content">
+                <p><strong>1945년 광복</strong> 이후, 미·소에 의한 <strong>38도선 분할 점령</strong>이 시작되었습니다.</p>
+                <p><strong>신탁 통치 논쟁</strong>과 <strong>좌우 대립</strong>이 심화되었고, 이를 막기 위한 시도들이 있었습니다.</p>
+                <ul>
+                    <li><strong>좌우 합작 운동:</strong> 여운형·김규식 중심, 좌우 세력의 협력 시도</li>
+                    <li><strong>남북 협상:</strong> 김구·김규식이 북한을 방문하여 분단 저지 노력 → 성과 제한</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline-container animate-on-scroll">
+            <div class="timeline-item">
+                <div class="timeline-year">1945. 8. 15</div>
+                <div class="timeline-desc"><strong>광복</strong> — 일제로부터 해방</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1945. 9</div>
+                <div class="timeline-desc"><strong>38도선 분할 점령</strong> — 남쪽 미군, 북쪽 소련군</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1948. 5. 10</div>
+                <div class="timeline-desc"><strong>5·10 총선거</strong> — 남한 단독 선거 실시 → 제헌 국회 구성</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1948. 8. 15</div>
+                <div class="timeline-desc"><strong>대한민국 정부 수립</strong> — 초대 대통령 이승만</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1948. 9. 9</div>
+                <div class="timeline-desc"><strong>북한 정권 수립</strong> — 분단 고착화</div>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon red">💔</div>
+            <h3 class="card-title">한국 전쟁 (6·25 전쟁, 1950~1953)</h3>
+            <div class="card-content">
+                <p><strong>1950년 6월 25일:</strong> 북한의 남침으로 전쟁 발발</p>
+                <p><strong>전쟁 과정:</strong> 낙동강 방어선 → 인천 상륙 작전 → 중국군 개입 → 전선 교착</p>
+                <p><strong>1953년 7월 27일:</strong> 정전 협정 체결</p>
+                <p><strong>결과:</strong> 휴전선과 분단 구조의 장기화, 국토·인명 피해 심각, 이산가족 발생</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="democracy">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 04</span>
+            <h2 class="section-title">민주주의의 발전</h2>
+            <p class="section-desc">시민의 요구가 제도를 바꾸다</p>
+        </div>
+
+        <div class="highlight-box animate-on-scroll">
+            <h4>💡 핵심 포인트</h4>
+            <p>'정권 이름 암기'가 아니라, <strong>민주주의가 확장된 순간을 연결</strong>하는 것이 중요!</p>
+        </div>
+
+        <div class="item-grid animate-on-scroll">
+            <div class="item-card">
+                <span class="tag">1960</span>
+                <h4>✊ 4·19 혁명</h4>
+                <p><strong>원인:</strong> 이승만 정부의 장기 집권, 3·15 부정 선거</p>
+                <p><strong>결과:</strong> 이승만 하야, 민주주의 발전의 계기</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">1961</span>
+                <h4>⚔️ 5·16 군사 정변</h4>
+                <p>박정희 등 군부 세력이 정권 장악</p>
+                <p>이후 경제 개발 추진, 민주주의 후퇴</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">1972</span>
+                <h4>📜 유신 체제</h4>
+                <p>대통령 긴급조치권, 장기 집권 체제</p>
+                <p>민주주의 크게 억압</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">1980</span>
+                <h4>🕯️ 5·18 민주화 운동</h4>
+                <p><strong>장소:</strong> 광주</p>
+                <p>신군부의 폭력 진압에 맞선 시민 저항</p>
+                <p>민주화 운동의 상징</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon emerald">🎉</div>
+            <h3 class="card-title">결정적 전환: 6월 민주 항쟁 (1987)</h3>
+            <div class="card-content">
+                <p><strong>배경:</strong> 전두환 정부의 독재, 박종철 고문치사 사건, 이한열 피격 사건</p>
+                <p><strong>전개:</strong> 전국적인 시민 저항, "호헌 철폐, 독재 타도" 구호</p>
+                <p><strong>결과:</strong> <strong>6·29 민주화 선언</strong> → <strong>대통령 직선제</strong> 도입</p>
+            </div>
+            <div class="highlight-box">
+                <h4>🏆 민주주의의 확대</h4>
+                <p>6월 민주 항쟁 이후: 지방 자치 실시, 평화적 정권 교체 (1998 김대중 정부), 제도적 민주주의 정착</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon blue">🤝</div>
+            <h3 class="card-title">남북 관계의 변화</h3>
+            <div class="card-content">
+                <p>분단 이후에도 화해와 협력을 위한 노력이 이어졌습니다.</p>
+                <ul>
+                    <li><strong>1972년:</strong> 7·4 남북 공동 성명 (자주, 평화, 민족 대단결)</li>
+                    <li><strong>2000년:</strong> 남북 정상회담 (김대중-김정일) → 6·15 남북 공동 선언</li>
+                    <li><strong>2018년:</strong> 남북 정상회담 (문재인-김정은) → 판문점 선언</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="summary">
+        <div class="summary-box animate-on-scroll">
+            <h3>📝 핵심 요약</h3>
+            <div class="summary-item">
+                <div class="summary-num">1</div>
+                <div class="summary-text"><strong>개항~국권피탈:</strong> 강화도 조약(1876) → 갑오개혁 → 을사늑약(1905) → 한일 병합(1910)으로 식민지화</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">2</div>
+                <div class="summary-text"><strong>일제강점기:</strong> 무단통치 → 문화통치 → 민족말살통치로 수탈 강화, 3·1 운동 → 임시정부 → 독립군 무장투쟁으로 저항</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">3</div>
+                <div class="summary-text"><strong>광복 이후:</strong> 38도선 분단 → 5·10 총선거(1948) → 대한민국 정부 수립 → 한국 전쟁(1950~1953)</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">4</div>
+                <div class="summary-text"><strong>민주주의 발전:</strong> 4·19 혁명 → 5·18 민주화 운동 → <strong>6월 민주 항쟁(1987)</strong> → 대통령 직선제로 민주주의 확대</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">5</div>
+                <div class="summary-text"><strong>핵심 질문:</strong> 민주주의는 "선물"이 아니라 시민의 힘으로 "쟁취"한 것!</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">ASSESSMENT</span>
+            <h2 class="section-title">형성평가</h2>
+            <p class="section-desc">학습 내용을 확인해 봅시다</p>
+        </div>
+        <div class="quiz-container">
+            <div class="quiz-card animate-on-scroll" data-correct="2">
+                <div class="quiz-number">1</div>
+                <div class="quiz-question">강화도 조약(1876)에 대한 설명으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>조선이 러시아와 맺은 군사 동맹 조약이다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>일본에게 영사 재판권을 인정하는 등 불평등한 내용이 포함되었다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>토지 조사 사업을 실시하기로 한 조약이다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>조선이 신사 참배를 약속한 조약이다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>조선이 대통령 중심제를 채택한 조약이다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">강화도 조약은 일본에 유리한 불평등 조약으로, 영사 재판권(치외법권), 해안 측량권 등이 포함되어 있었습니다. 이는 조선이 외국과 맺은 최초의 근대적 조약이자 불평등 조약입니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="5">
+                <div class="quiz-number">2</div>
+                <div class="quiz-question">갑오개혁(1894~1896)의 내용으로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>창씨개명을 강요하였다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>한국 광복군을 창설하였다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>대통령 직선제를 도입하였다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>토지 조사 사업을 실시하였다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>신분제를 폐지하고 과거제를 없애는 등 근대적 개혁을 추진하였다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">갑오개혁은 신분제 폐지, 과거제 폐지(능력에 따른 인재 등용), 재판소 설치 등 근대적 개혁을 추진했습니다. ①창씨개명은 1930~40년대 민족말살정책, ④토지조사사업은 1910년대 일제 정책입니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="1">
+                <div class="quiz-number">3</div>
+                <div class="quiz-question">1920년대에 '민족 협동 전선'을 내세워 결성된 단체는?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>신간회</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>독립 협회</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>대한 광복회</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>한국 광복군</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>독립군(의병)</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">신간회(1927)는 민족주의 세력과 사회주의 세력이 함께한 대표적인 민족 협동 전선 단체입니다. ②독립협회는 1896년, ③대한광복회는 1910년대, ④한국광복군은 1940년에 결성되었습니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="4">
+                <div class="quiz-number">4</div>
+                <div class="quiz-question">광복 이후 대한민국 정부 수립과 관련한 설명으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>1919년 3·1 운동 직후 바로 대한민국 정부가 수립되었다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>러일 전쟁의 결과로 대한민국 정부가 수립되었다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>을사늑약 체결 후 제헌 국회가 열렸다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>1948년 5·10 총선거로 제헌 국회가 구성되고 대한민국 정부가 수립되었다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>1938년 국가 총동원법이 정부 수립의 직접 계기가 되었다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">1948년 5·10 총선거 → 제헌 국회 구성 → 헌법 제정 → 대한민국 정부 수립(1948. 8. 15)의 흐름이 핵심입니다. ①1919년에 수립된 것은 '대한민국 임시 정부'입니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="3">
+                <div class="quiz-number">5</div>
+                <div class="quiz-question">1987년 민주화 과정과 관련한 설명으로 가장 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>3·15 부정 선거에 대한 항의로 일어났다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>유신 헌법 제정을 위해 일어났다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>6월 민주 항쟁의 결과 대통령 직선제가 도입되었다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>남북 분단을 막기 위한 남북 협상으로 시작되었다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>한일 병합 조약에 대한 저항으로 시작되었다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">1987년 6월 민주 항쟁은 전두환 정부의 독재에 맞서 전국적으로 일어난 시민 저항이며, 그 결과 6·29 민주화 선언이 발표되고 대통령 직선제가 도입되었습니다. ①은 4·19 혁명(1960)에 대한 설명입니다.</div></div>
+            </div>
+        </div>
+
+        <div class="score-display" id="scoreDisplay">
+            <div class="score-number" id="scoreNumber">0/5</div>
+            <div class="score-label">정답 개수</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="btn-reset" onclick="resetQuiz()">다시 풀기</button>
+        </div>
+    </section>
+
+    <footer><p>중학교 3학년 한국사 · 근·현대 사회의 전개</p></footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        let answeredQuestions = new Set();
+        let correctAnswers = 0;
+
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const card = this.closest('.quiz-card');
+                const cardIndex = Array.from(document.querySelectorAll('.quiz-card')).indexOf(card);
+                if (answeredQuestions.has(cardIndex)) return;
+                const correctAnswer = parseInt(card.dataset.correct);
+                const selectedAnswer = parseInt(this.dataset.option);
+                const feedback = card.querySelector('.quiz-feedback');
+                card.querySelectorAll('.quiz-option').forEach(opt => opt.style.pointerEvents = 'none');
+                if (selectedAnswer === correctAnswer) {
+                    this.classList.add('correct');
+                    feedback.classList.add('correct');
+                    correctAnswers++;
+                } else {
+                    this.classList.add('incorrect');
+                    feedback.classList.add('incorrect');
+                    card.querySelector('[data-option="' + correctAnswer + '"]').classList.add('correct');
+                }
+                feedback.classList.add('show');
+                answeredQuestions.add(cardIndex);
+                if (answeredQuestions.size === 5) showScore();
+            });
+        });
+
+        function showScore() {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            document.getElementById('scoreNumber').textContent = correctAnswers + '/5';
+            if (correctAnswers === 5) document.getElementById('scoreMessage').textContent = '🎉 완벽해요! 근현대사의 흐름을 잘 이해했습니다.';
+            else if (correctAnswers >= 3) document.getElementById('scoreMessage').textContent = '👍 잘했어요! 틀린 문제를 다시 확인해 보세요.';
+            else document.getElementById('scoreMessage').textContent = '📚 학습 내용을 다시 복습해 보세요.';
+            scoreDisplay.classList.add('show');
+            scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            answeredQuestions.clear();
+            correctAnswers = 0;
+            document.querySelectorAll('.quiz-card').forEach(card => {
+                card.querySelectorAll('.quiz-option').forEach(opt => { opt.classList.remove('correct', 'incorrect'); opt.style.pointerEvents = 'auto'; });
+                card.querySelector('.quiz-feedback').classList.remove('show', 'correct', 'incorrect');
+            });
+            document.getElementById('scoreDisplay').classList.remove('show');
+            document.querySelector('#quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) { e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        });
+    </script>
+</body>
+</html>

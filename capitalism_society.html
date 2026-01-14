@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자본주의와 사회 변화</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-strong: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --glass-shadow-hover: 0 12px 48px rgba(31, 38, 135, 0.2);
+            --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --text-tertiary: #86868b;
+            --accent-emerald: #10b981;
+            --accent-teal: #14b8a6;
+            --accent-blue: #3b82f6;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-purple: #8b5cf6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #d1fae5 0%, #ccfbf1 20%, #e0f2fe 40%, #fef3c7 60%, #fce7f3 80%, #ede9fe 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 60% at 10% 20%, rgba(16, 185, 129, 0.15), transparent 50%),
+                radial-gradient(ellipse 60% 80% at 90% 80%, rgba(59, 130, 246, 0.12), transparent 50%),
+                radial-gradient(ellipse 70% 50% at 50% 50%, rgba(245, 158, 11, 0.1), transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
+        }
+        .orb-1 { width: 400px; height: 400px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(20, 184, 166, 0.3)); top: -100px; left: -100px; }
+        .orb-2 { width: 300px; height: 300px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3)); bottom: 10%; right: -50px; animation-delay: -5s; }
+        .orb-3 { width: 250px; height: 250px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(239, 68, 68, 0.2)); top: 50%; left: 10%; animation-delay: -10s; }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 30px) scale(1.02); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-amber));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-emerald) 50%, var(--accent-amber) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        .hero-subtitle {
+            max-width: 720px;
+            font-size: clamp(15px, 2.2vw, 18px);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        .hero-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        .hero-nav a {
+            padding: 14px 24px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .hero-nav a:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow);
+        }
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-number {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-emerald);
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(20, 184, 166, 0.1));
+            border-radius: 100px;
+        }
+        .section-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-desc { color: var(--text-secondary); font-size: 17px; max-width: 600px; margin: 0 auto; }
+        .flow-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            margin: 32px 0;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow);
+        }
+        .flow-title { font-size: 16px; font-weight: 700; color: var(--accent-emerald); margin-bottom: 20px; text-align: center; }
+        .flow-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .flow-item {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.08));
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .flow-arrow { color: var(--accent-amber); font-weight: bold; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; margin-top: 32px; }
+        .economy-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .economy-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        .economy-card:hover { transform: translateY(-8px); box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow); }
+        .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .card-num {
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .card-label { font-size: 13px; font-weight: 600; color: var(--accent-teal); }
+        .card-title { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; }
+        .card-section { margin-bottom: 16px; }
+        .card-section-title { font-size: 13px; font-weight: 700; color: var(--accent-emerald); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .card-section p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .think-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.08));
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+        .think-box p { font-size: 13px; color: var(--text-secondary); font-style: italic; }
+        .think-box strong { color: var(--accent-amber); }
+        .comparison-wrapper { overflow-x: auto; margin-top: 32px; }
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            font-size: 14px;
+        }
+        .comparison-table th {
+            padding: 18px 16px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(20, 184, 166, 0.1));
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+        }
+        .comparison-table td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: var(--text-primary); background: rgba(255, 255, 255, 0.3); }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.08));
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .highlight-box h4 { font-size: 14px; font-weight: 700; color: var(--accent-emerald); margin-bottom: 12px; }
+        .highlight-box p { color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+        .summary-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .summary-box h3 { font-size: 20px; font-weight: 700; color: var(--accent-teal); margin-bottom: 24px; }
+        .summary-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .summary-item:last-child { border-bottom: none; }
+        .summary-num {
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .summary-text { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+        .quiz-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        .quiz-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+        }
+        .quiz-question { font-size: 18px; font-weight: 600; margin-bottom: 24px; line-height: 1.6; color: var(--text-primary); }
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+        .quiz-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 22px;
+            background: var(--glass-bg-strong);
+            border: 2px solid var(--glass-border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+        .quiz-option:hover { background: rgba(255, 255, 255, 0.7); border-color: rgba(16, 185, 129, 0.3); transform: translateX(4px); }
+        .quiz-option.correct { border-color: var(--accent-emerald); background: rgba(16, 185, 129, 0.15); }
+        .quiz-option.incorrect { border-color: var(--accent-red); background: rgba(239, 68, 68, 0.1); }
+        .option-number {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.1));
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-emerald);
+        }
+        .quiz-feedback { margin-top: 24px; padding: 24px; border-radius: 18px; display: none; }
+        .quiz-feedback.show { display: block; animation: fadeInUp 0.4s ease-out; }
+        .quiz-feedback.correct { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(20, 184, 166, 0.1)); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .quiz-feedback.incorrect { background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.08)); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .feedback-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .quiz-feedback.correct .feedback-title { color: var(--accent-emerald); }
+        .quiz-feedback.incorrect .feedback-title { color: var(--accent-red); }
+        .feedback-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .score-display {
+            text-align: center;
+            padding: 56px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            margin-top: 40px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            display: none;
+        }
+        .score-display.show { display: block; animation: fadeInUp 0.6s ease-out; }
+        .score-number {
+            font-size: 80px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .score-label { font-size: 18px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; }
+        .score-message { font-size: 16px; color: var(--text-tertiary); margin-top: 16px; }
+        .btn-reset {
+            margin-top: 28px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+        }
+        .btn-reset:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4); }
+        footer { text-align: center; padding: 60px 24px; color: var(--text-tertiary); font-size: 14px; position: relative; z-index: 1; }
+        .animate-on-scroll { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            .economy-card, .quiz-card { padding: 28px; border-radius: 24px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .flow-content { flex-direction: column; }
+            .orb { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <header class="hero">
+        <div class="hero-badge">중학교 3학년 한국사</div>
+        <h1>자본주의와 사회 변화</h1>
+        <p class="hero-subtitle">개항 이후 한국 경제는 세계 시장과 연결되며 격동의 변화를 겪었다. 식민지 수탈, 국가 주도 성장, 세계화와 위기까지 — "성장"과 "불평등"이 함께 나타난 자본주의의 흐름을 이해해보자.</p>
+        <nav class="hero-nav">
+            <a href="#opening">개항과 세계 경제</a>
+            <a href="#colonial">식민지 경제</a>
+            <a href="#growth">국가 주도 성장</a>
+            <a href="#globalization">세계화와 위기</a>
+            <a href="#quiz">형성평가</a>
+        </nav>
+    </header>
+
+    <section id="overview">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">OVERVIEW</span>
+            <h2 class="section-title">한눈에 보는 경제사 흐름</h2>
+            <p class="section-desc">개항부터 오늘날까지 경제 변화의 큰 줄기</p>
+        </div>
+        <div class="flow-box animate-on-scroll">
+            <div class="flow-title">📈 경제사 흐름도</div>
+            <div class="flow-content">
+                <span class="flow-item">개항 (시장 연결)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">침투·수탈</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">전쟁 경제</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">전후 복구·원조</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">수출·공업화</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">세계화·위기</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">양극화·새 과제</span>
+            </div>
+        </div>
+        <div class="highlight-box animate-on-scroll">
+            <h4>💡 핵심 질문</h4>
+            <p>"성장 = 행복일까?" — 자본주의의 흐름은 <strong>'성장'만이 아니라, 분배·노동·삶의 안정 문제와 함께 봐야</strong> 합니다.</p>
+        </div>
+    </section>
+
+    <section id="opening">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 01</span>
+            <h2 class="section-title">개항과 세계 경제 체제로의 편입</h2>
+            <p class="section-desc">문호가 열리며 경제가 흔들리다</p>
+        </div>
+
+        <div class="card-grid animate-on-scroll">
+            <div class="economy-card">
+                <div class="card-header">
+                    <div class="card-num">1</div>
+                    <span class="card-label">개항의 충격</span>
+                </div>
+                <div class="card-title">"쌀은 나가고, 면직물은 들어오고"</div>
+                <div class="card-section">
+                    <div class="card-section-title">📌 팩트</div>
+                    <p>개항 이후 <strong>곡물(쌀·콩) 유출</strong>이 늘고, <strong>면직물 유입</strong>이 증가</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">❓ 왜?</div>
+                    <p>불평등 조약 + 세계 시장 가격에 휘둘리는 구조</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">👥 생활 변화</div>
+                    <p>• 곡물 가격 불안 → 서민 부담 증가<br>• 면직물 유입 → 가내 수공업 타격</p>
+                </div>
+                <div class="think-box">
+                    <p><strong>🤔 생각 질문:</strong> "싸고 좋은 물건이 들어오면 무조건 좋은 걸까?" (누가 이익/손해?)</p>
+                </div>
+            </div>
+
+            <div class="economy-card">
+                <div class="card-header">
+                    <div class="card-num">2</div>
+                    <span class="card-label">상권 침탈</span>
+                </div>
+                <div class="card-title">"가게 주인이 바뀌다"</div>
+                <div class="card-section">
+                    <div class="card-section-title">📌 팩트</div>
+                    <p><strong>청·일 상인</strong>의 내륙 진출로 조선 상인의 상권이 약해짐</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">❓ 왜?</div>
+                    <p>개항장 경제 + 자본/네트워크 차이</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">👥 생활 변화</div>
+                    <p>일부 상인은 몰락, 일부는 회사 설립·조합 등으로 대응</p>
+                </div>
+                <div class="think-box">
+                    <p><strong>🤔 생각 질문:</strong> "상권을 지키려면 무엇이 필요했을까?" (자본? 기술? 법?)</p>
+                </div>
+            </div>
+
+            <div class="economy-card">
+                <div class="card-header">
+                    <div class="card-num">3</div>
+                    <span class="card-label">금융 문제</span>
+                </div>
+                <div class="card-title">"돈의 주도권을 빼앗기다"</div>
+                <div class="card-section">
+                    <div class="card-section-title">📌 팩트</div>
+                    <p><strong>화폐 정리 사업</strong>으로 대한제국의 화폐 발행권이 일본에 장악됨</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">❓ 왜?</div>
+                    <p>근대 금융 질서 대응 부족 + 외세 개입</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">👥 생활 변화</div>
+                    <p>상인·농민 모두 거래가 흔들리고 경제 불안 확대</p>
+                </div>
+                <div class="think-box">
+                    <p><strong>🤔 생각 질문:</strong> "나라의 '돈(화폐)'을 누가 쥐면 어떤 일이 생길까?"</p>
+                </div>
+            </div>
+
+            <div class="economy-card">
+                <div class="card-header">
+                    <div class="card-num">4</div>
+                    <span class="card-label">경제적 구국 운동</span>
+                </div>
+                <div class="card-title">"빚을 갚아 나라를 지키자"</div>
+                <div class="card-section">
+                    <div class="card-section-title">📌 팩트</div>
+                    <p><strong>국채 보상 운동(1907)</strong>: 금주·금연 등으로 모금해 국채를 갚으려는 전국적 운동</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">❓ 왜?</div>
+                    <p>국권이 '군사'만 아니라 <strong>'경제'</strong>로도 흔들린다는 인식</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">👥 생활 변화</div>
+                    <p>'소비 절제·참여' 같은 시민 행동이 확산</p>
+                </div>
+                <div class="think-box">
+                    <p><strong>🤔 생각 질문:</strong> "국채를 갚으면 국권을 지킬 수 있었을까? 한계는?"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="colonial">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 02</span>
+            <h2 class="section-title">일제 강점기: 식민지 수탈 경제</h2>
+            <p class="section-desc">땅·기업·쌀·사람까지 장악하다</p>
+        </div>
+
+        <div class="card-grid animate-on-scroll">
+            <div class="economy-card">
+                <div class="card-header">
+                    <div class="card-num">5</div>
+                    <span class="card-label">1910년대</span>
+                </div>
+                <div class="card-title">"땅을 정리한다는 말의 의미"</div>
+                <div class="card-section">
+                    <div class="card-section-title">📌 팩트</div>
+                    <p>• <strong>토지 조사 사업</strong>: 신고 기반 토지 재정리 → 미신고 토지는 총독부 소유<br>• <strong>회사령</strong>: 한국인의 기업 설립 억제</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">❓ 왜?</div>
+                    <p>식민 지배의 안정적 수탈을 위해 <strong>생산 기반(땅·기업)</strong> 장악</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">👥 생활 변화</div>
+                    <p>소작농 증가, 농촌 빈곤 심화</p>
+                </div>
+                <div class="think-box">
+                    <p><strong>🤔 생각 질문:</strong> "토지를 장악하면 왜 지배가 쉬워질까?"</p>
+                </div>
+            </div>
+
+            <div class="economy-card">
+                <div class="card-header">
+                    <div class="card-num">6</div>
+                    <span class="card-label">1920년대</span>
+                </div>
+                <div class="card-title">"쌀을 더 생산했는데 왜 더 힘들어졌나"</div>
+                <div class="card-section">
+                    <div class="card-section-title">📌 팩트</div>
+                    <p><strong>산미 증식 계획</strong>: 생산 확대를 명분으로 농민 부담 증가, 쌀 반출 확대</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">❓ 왜?</div>
+                    <p><strong>일본의 식량 문제 해결</strong>이 목표 (조선 농민을 위한 정책이 아님)</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">👥 생활 변화</div>
+                    <p>소작료·비용 부담, 쌀 유출 체감 → 농민 생활 악화</p>
+                </div>
+                <div class="think-box">
+                    <p><strong>🤔 생각 질문:</strong> "생산량 증가 = 생활 개선일까?" (누가 과실을 가져가나)</p>
+                </div>
+            </div>
+
+            <div class="economy-card">
+                <div class="card-header">
+                    <div class="card-num">7</div>
+                    <span class="card-label">1930~40년대</span>
+                </div>
+                <div class="card-title">"전쟁이 경제를 바꾼다"</div>
+                <div class="card-section">
+                    <div class="card-section-title">📌 팩트</div>
+                    <p><strong>병참 기지화</strong>: 한반도는 전쟁 물자·노동력 공급지로 동원<br><strong>국가 총동원법(1938)</strong>으로 인력·물자 강제 동원</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">❓ 왜?</div>
+                    <p>일본의 대륙 침략 확대, 전쟁 수행 체제</p>
+                </div>
+                <div class="card-section">
+                    <div class="card-section-title">👥 생활 변화</div>
+                    <p>강제 동원(징용·징병), 산업 구조 왜곡(군수 중심)</p>
+                </div>
+                <div class="think-box">
+                    <p><strong>🤔 생각 질문:</strong> "전쟁 경제는 왜 '사람'까지 동원할까?"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="growth">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 03</span>
+            <h2 class="section-title">해방 이후: 국가 주도 성장과 그늘</h2>
+            <p class="section-desc">빠른 성장, 그러나 노동 문제도 함께</p>
+        </div>
+
+        <div class="economy-card animate-on-scroll">
+            <div class="card-header">
+                <div class="card-num">8</div>
+                <span class="card-label">해방 이후~현대</span>
+            </div>
+            <div class="card-title">"성장과 위기의 두 얼굴"</div>
+            <div class="card-section">
+                <div class="card-section-title">📌 전후 복구와 원조 경제</div>
+                <p>• <strong>삼백 산업(제분·방적·제당)</strong>이 등장<br>• 미국 원조가 식량 문제 해결에 도움, 그러나 수입 확대로 국내 농업 기반 약화</p>
+            </div>
+            <div class="card-section">
+                <div class="card-section-title">📌 1960~70년대: 경제 개발 5개년 계획</div>
+                <p>• <strong>1960년대:</strong> 경공업 중심 수출 (섬유, 신발 등)<br>• <strong>1970년대:</strong> 중화학 공업 집중 육성 (철강, 조선, 자동차)<br>• 결과: 높은 경제 성장률, 수출 급증</p>
+            </div>
+            <div class="card-section">
+                <div class="card-section-title">⚠️ 성장의 그늘: 노동 문제</div>
+                <p>• 낮은 임금, 장시간 노동, 열악한 환경<br>• <strong>전태일(1970)</strong>: "근로기준법을 준수하라!" 외치며 분신 → 노동 운동 본격화<br>• 이후 노동자들의 권리 의식 성장</p>
+            </div>
+        </div>
+
+        <div class="highlight-box animate-on-scroll">
+            <h4>💡 핵심 포인트</h4>
+            <p>빠른 성장은 생활 수준을 높였지만, <strong>노동 환경 문제</strong>도 함께 드러났습니다. "성장"과 "분배"는 왜 자주 충돌할까요?</p>
+        </div>
+    </section>
+
+    <section id="globalization">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 04</span>
+            <h2 class="section-title">세계화 시대: 기회와 위기</h2>
+            <p class="section-desc">1997년 외환 위기와 그 이후</p>
+        </div>
+
+        <div class="economy-card animate-on-scroll">
+            <div class="card-title">1990년대 세계화와 외환 위기 (IMF)</div>
+            <div class="card-section">
+                <div class="card-section-title">📌 배경</div>
+                <p>• 1990년대 시장 개방, 자본 자유화 확대<br>• 경상수지 적자 확대, 대기업 부도 → 대외 신뢰 하락</p>
+            </div>
+            <div class="card-section">
+                <div class="card-section-title">📌 위기 발생 (1997)</div>
+                <p>• 환율 급등, 외환 보유고 고갈<br>• <strong>IMF 구제 금융 요청</strong><br>• 대대적인 <strong>구조 조정</strong> (기업 퇴출, 정리 해고)</p>
+            </div>
+            <div class="card-section">
+                <div class="card-section-title">👥 사회 변화</div>
+                <p>• <strong>실업 급증</strong>, 가정 해체<br>• <strong>비정규직 노동자</strong> 증가<br>• <strong>사회적 양극화</strong> 심화</p>
+            </div>
+        </div>
+
+        <div class="economy-card animate-on-scroll">
+            <div class="card-title">위기 이후 ~ 오늘날의 과제</div>
+            <div class="card-section">
+                <div class="card-section-title">📌 현재 사회의 주요 문제</div>
+                <p>• <strong>비정규직 문제:</strong> 고용 불안정, 임금 격차<br>• <strong>청년 고용 문제:</strong> 취업난, 불안정 일자리<br>• <strong>양극화:</strong> 소득·자산 격차 확대</p>
+            </div>
+            <div class="think-box">
+                <p><strong>🤔 생각 질문:</strong> "성장(파이 키우기)과 분배(나누기)는 왜 자주 충돌할까?"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SUMMARY TABLE</span>
+            <h2 class="section-title">시대별 경제 비교표</h2>
+            <p class="section-desc">한눈에 보는 경제사 흐름</p>
+        </div>
+        <div class="comparison-wrapper animate-on-scroll">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>시기</th>
+                        <th>경제의 한 문장</th>
+                        <th>대표 키워드</th>
+                        <th>사람들의 체감</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>개항기</td>
+                        <td>세계 시장에 '갑자기' 연결</td>
+                        <td>불평등 조약, 곡물 유출, 면직물 유입</td>
+                        <td>물가 불안, 수공업 타격</td>
+                    </tr>
+                    <tr>
+                        <td>1910년대</td>
+                        <td>생산 기반 장악</td>
+                        <td>토지 조사 사업, 회사령</td>
+                        <td>농민 몰락, 기업 활동 제한</td>
+                    </tr>
+                    <tr>
+                        <td>1920년대</td>
+                        <td>식량 수탈 강화</td>
+                        <td>산미 증식 계획</td>
+                        <td>농민 부담 증가</td>
+                    </tr>
+                    <tr>
+                        <td>1930~40년대</td>
+                        <td>전쟁 경제</td>
+                        <td>병참 기지화, 강제 동원</td>
+                        <td>생활 파괴, 산업 왜곡</td>
+                    </tr>
+                    <tr>
+                        <td>1960~70년대</td>
+                        <td>국가 주도 성장</td>
+                        <td>경제 개발 계획, 수출·중화학</td>
+                        <td>성장 vs 노동 문제</td>
+                    </tr>
+                    <tr>
+                        <td>1990년대~현재</td>
+                        <td>세계화의 기회와 위기</td>
+                        <td>IMF, 구조 조정, 양극화</td>
+                        <td>고용 불안, 격차 문제</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="summary">
+        <div class="summary-box animate-on-scroll">
+            <h3>📝 핵심 요약</h3>
+            <div class="summary-item">
+                <div class="summary-num">1</div>
+                <div class="summary-text"><strong>개항 이후</strong> 조선은 세계 시장과 연결되며 곡물 유출·면직물 유입·상권 침탈·화폐 정리 사업 같은 충격을 겪었다.</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">2</div>
+                <div class="summary-text"><strong>일제</strong>는 토지 조사 사업·산미 증식 계획·병참 기지화로 한국을 식량·원료 공급지이자 상품 판매 시장으로 삼아 <strong>수탈 구조를 강화</strong>했다.</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">3</div>
+                <div class="summary-text"><strong>해방 이후</strong>엔 국가 주도 성장(경제 개발 5개년 계획)으로 산업이 고도화됐지만, <strong>노동 문제(저임금·장시간)</strong>도 함께 나타났다.</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">4</div>
+                <div class="summary-text"><strong>1997년 외환 위기</strong> 이후엔 구조 조정과 <strong>양극화·고용 불안</strong>이 중요한 과제로 남았다.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">ASSESSMENT</span>
+            <h2 class="section-title">형성평가</h2>
+            <p class="section-desc">학습 내용을 확인해 봅시다</p>
+        </div>
+        <div class="quiz-container">
+            <div class="quiz-card animate-on-scroll" data-correct="4">
+                <div class="quiz-number">1</div>
+                <div class="quiz-question"><strong>개항 직후(1876~1890년대)</strong> 조선 경제에서 나타난 변화로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>경제 개발 5개년 계획으로 수출이 급증했다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>국가 총동원법으로 물자 공출과 강제 동원이 확대되었다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>농지 개혁으로 지주제가 해체되고 자영농이 늘었다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>곡물 유출이 늘고 면직물 유입이 증가해 물가 불안과 수공업 타격이 나타났다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>토지 조사 사업으로 토지 소유권이 총독부 중심으로 재편되었다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">개항 직후에는 세계 시장과 연결되며 <strong>곡물(쌀·콩) 유출</strong>과 <strong>면직물 유입</strong>이 증가했습니다. 이로 인해 물가 불안과 가내 수공업 타격이 나타났습니다. ①은 1960년대, ②는 1930~40년대, ③은 해방 이후, ⑤는 1910년대에 해당합니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="2">
+                <div class="quiz-number">2</div>
+                <div class="quiz-question">일제가 <strong>1910년대</strong>에 '식민지 지배의 경제적 기반'을 다지기 위해 추진한 정책으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>산미 증식 계획</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>토지 조사 사업</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>경제 개발 5개년 계획</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>국채 보상 운동</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>중화학 공업 육성 정책</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text"><strong>1910년대</strong>에 일제는 <strong>토지 조사 사업</strong>을 실시하여 미신고 토지를 총독부 소유로 만들고, <strong>회사령</strong>으로 기업 활동을 제한했습니다. ①산미 증식 계획은 1920년대, ③경제 개발 계획은 1960년대, ④국채 보상 운동은 1907년(개항기) 조선인의 운동입니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="4">
+                <div class="quiz-number">3</div>
+                <div class="quiz-question">다음 설명에 해당하는 정책은?<br><br><em>"증산을 내세웠지만 농민 부담이 커졌고, 생산된 쌀의 반출이 늘어났다."</em></div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>화폐 정리 사업</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>회사령</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>국가 총동원법</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>산미 증식 계획</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>농지 개혁</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text"><strong>1920년대 산미 증식 계획</strong>은 일본의 식량 문제 해결을 목표로 쌀 생산 증대를 명분으로 내세웠지만, 실제로는 농민에게 비용 부담을 전가하고 생산된 쌀을 일본으로 반출하여 농민 생활을 악화시켰습니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="4">
+                <div class="quiz-number">4</div>
+                <div class="quiz-question"><strong>1930~40년대</strong> 일제의 '병참 기지화'와 가장 관련 깊은 모습은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>외환 위기(IMF)로 구조 조정이 대대적으로 이루어졌다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>경공업 수출 중심 성장으로 도시 중산층이 확대되었다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>토지 조사 사업으로 토지 소유권이 재편되었다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>전쟁 수행을 위해 인력·물자를 강제로 동원하고 군수 산업 중심으로 재편하였다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>국채 보상 운동으로 국민 모금이 확산되었다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text"><strong>1930~40년대</strong>는 일제가 전쟁(중일 전쟁, 태평양 전쟁)을 수행하면서 한반도를 <strong>병참 기지</strong>로 삼아 <strong>인력(징용·징병)과 물자를 강제 동원</strong>하고, 산업을 군수 중심으로 재편한 시기입니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="5">
+                <div class="quiz-number">5</div>
+                <div class="quiz-question"><strong>1997년 외환 위기 이후</strong> 한국 사회 변화로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>회사령이 시행되어 기업 설립이 크게 제한되었다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>신분제가 폐지되어 법적으로 양반·상민 구분이 사라졌다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>국가 총동원법으로 징용·징병이 본격화되었다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>산미 증식 계획으로 쌀 생산량이 크게 늘었다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>구조 조정 과정에서 실업·비정규직 증가와 양극화 문제가 확대되었다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text"><strong>1997년 외환 위기(IMF)</strong> 이후 대대적인 구조 조정이 이루어지면서 <strong>실업 급증, 비정규직 노동자 증가, 사회적 양극화</strong> 문제가 확대되었습니다. 이는 오늘날까지 이어지는 중요한 사회적 과제입니다.</div></div>
+            </div>
+        </div>
+
+        <div class="score-display" id="scoreDisplay">
+            <div class="score-number" id="scoreNumber">0/5</div>
+            <div class="score-label">정답 개수</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="btn-reset" onclick="resetQuiz()">다시 풀기</button>
+        </div>
+    </section>
+
+    <footer><p>중학교 3학년 한국사 · 자본주의와 사회 변화</p></footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        let answeredQuestions = new Set();
+        let correctAnswers = 0;
+
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const card = this.closest('.quiz-card');
+                const cardIndex = Array.from(document.querySelectorAll('.quiz-card')).indexOf(card);
+                if (answeredQuestions.has(cardIndex)) return;
+                const correctAnswer = parseInt(card.dataset.correct);
+                const selectedAnswer = parseInt(this.dataset.option);
+                const feedback = card.querySelector('.quiz-feedback');
+                card.querySelectorAll('.quiz-option').forEach(opt => opt.style.pointerEvents = 'none');
+                if (selectedAnswer === correctAnswer) {
+                    this.classList.add('correct');
+                    feedback.classList.add('correct');
+                    correctAnswers++;
+                } else {
+                    this.classList.add('incorrect');
+                    feedback.classList.add('incorrect');
+                    card.querySelector('[data-option="' + correctAnswer + '"]').classList.add('correct');
+                }
+                feedback.classList.add('show');
+                answeredQuestions.add(cardIndex);
+                if (answeredQuestions.size === 5) showScore();
+            });
+        });
+
+        function showScore() {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            document.getElementById('scoreNumber').textContent = correctAnswers + '/5';
+            if (correctAnswers === 5) document.getElementById('scoreMessage').textContent = '🎉 완벽해요! 경제사의 흐름을 잘 이해했습니다.';
+            else if (correctAnswers >= 3) document.getElementById('scoreMessage').textContent = '👍 잘했어요! 틀린 문제를 다시 확인해 보세요.';
+            else document.getElementById('scoreMessage').textContent = '📚 학습 내용을 다시 복습해 보세요.';
+            scoreDisplay.classList.add('show');
+            scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            answeredQuestions.clear();
+            correctAnswers = 0;
+            document.querySelectorAll('.quiz-card').forEach(card => {
+                card.querySelectorAll('.quiz-option').forEach(opt => { opt.classList.remove('correct', 'incorrect'); opt.style.pointerEvents = 'auto'; });
+                card.querySelector('.quiz-feedback').classList.remove('show', 'correct', 'incorrect');
+            });
+            document.getElementById('scoreDisplay').classList.remove('show');
+            document.querySelector('#quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) { e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        });
+    </script>
+</body>
+</html>

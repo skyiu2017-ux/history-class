@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>민주주의의 발전</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.5);
+            --glass-bg-strong: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px rgba(100, 116, 139, 0.12);
+            --glass-shadow-hover: 0 12px 48px rgba(100, 116, 139, 0.18);
+            --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-tertiary: #94a3b8;
+            --accent-slate: #64748b;
+            --accent-sky: #0ea5e9;
+            --accent-blue: #3b82f6;
+            --accent-indigo: #6366f1;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #f1f5f9 50%, #e0f2fe 75%, #f0f9ff 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 60% at 10% 20%, rgba(14, 165, 233, 0.08), transparent 50%),
+                radial-gradient(ellipse 60% 80% at 90% 80%, rgba(100, 116, 139, 0.06), transparent 50%),
+                radial-gradient(ellipse 70% 50% at 50% 50%, rgba(59, 130, 246, 0.04), transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 25s ease-in-out infinite;
+        }
+        .orb-1 { width: 350px; height: 350px; background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(100, 116, 139, 0.2)); top: -80px; left: -80px; }
+        .orb-2 { width: 280px; height: 280px; background: linear-gradient(135deg, rgba(100, 116, 139, 0.25), rgba(59, 130, 246, 0.2)); bottom: 10%; right: -60px; animation-delay: -8s; }
+        .orb-3 { width: 220px; height: 220px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(14, 165, 233, 0.15)); top: 45%; left: 8%; animation-delay: -15s; }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -20px) scale(1.03); }
+            50% { transform: translate(-15px, 15px) scale(0.97); }
+            75% { transform: translate(15px, 20px) scale(1.01); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--accent-sky), var(--accent-slate));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-slate) 50%, var(--accent-sky) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        .hero-subtitle {
+            max-width: 700px;
+            font-size: clamp(15px, 2.2vw, 17px);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        .hero-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        .hero-nav a {
+            padding: 14px 22px;
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .hero-nav a:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow);
+        }
+        section {
+            padding: 100px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-number {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-sky);
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(100, 116, 139, 0.08));
+            border-radius: 100px;
+        }
+        .section-title {
+            font-size: clamp(26px, 5vw, 40px);
+            font-weight: 700;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-slate));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-desc { color: var(--text-secondary); font-size: 16px; max-width: 550px; margin: 0 auto; }
+        .flow-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 28px;
+            margin: 28px 0;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow);
+        }
+        .flow-title { font-size: 15px; font-weight: 700; color: var(--accent-sky); margin-bottom: 18px; text-align: center; }
+        .flow-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .flow-item {
+            padding: 8px 14px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(100, 116, 139, 0.06));
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        .flow-arrow { color: var(--accent-slate); font-weight: bold; font-size: 12px; }
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 36px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+        }
+        .glass-card:hover { transform: translateY(-6px); box-shadow: var(--glass-shadow-hover), var(--glass-inner-shadow); }
+        .card-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(100, 116, 139, 0.08));
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+        }
+        .card-title { font-size: 20px; font-weight: 600; margin-bottom: 14px; color: var(--text-primary); }
+        .card-content { color: var(--text-secondary); font-size: 15px; line-height: 1.9; }
+        .card-content p { margin-bottom: 10px; }
+        .card-content strong { color: var(--text-primary); font-weight: 600; }
+        .item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 28px; }
+        .item-card {
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            transition: all 0.4s ease;
+        }
+        .item-card:hover { transform: translateY(-5px); box-shadow: var(--glass-shadow-hover); }
+        .item-card h4 { font-size: 16px; font-weight: 700; color: var(--accent-slate); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .item-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin-bottom: 6px; }
+        .item-card .tag { display: inline-block; padding: 4px 10px; background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(100, 116, 139, 0.08)); border-radius: 100px; font-size: 11px; font-weight: 600; color: var(--accent-sky); margin-bottom: 10px; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.06), rgba(59, 130, 246, 0.04));
+            border: 1px solid rgba(14, 165, 233, 0.15);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .highlight-box h4 { font-size: 13px; font-weight: 700; color: var(--accent-sky); margin-bottom: 10px; }
+        .highlight-box p { color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+        .timeline-section { position: relative; padding-left: 36px; margin: 28px 0; }
+        .timeline-section::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent-sky), var(--accent-slate), var(--accent-blue)); border-radius: 2px; }
+        .timeline-item { position: relative; padding: 16px 0 16px 24px; }
+        .timeline-item::before { content: ''; position: absolute; left: -30px; top: 20px; width: 12px; height: 12px; background: var(--accent-sky); border: 2px solid white; border-radius: 50%; box-shadow: 0 0 8px rgba(14, 165, 233, 0.3); }
+        .timeline-year { font-size: 13px; font-weight: 700; color: var(--accent-sky); margin-bottom: 4px; }
+        .timeline-title { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+        .timeline-desc { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .summary-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 22px;
+            padding: 36px;
+            margin: 36px 0;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+        }
+        .summary-box h3 { font-size: 18px; font-weight: 700; color: var(--accent-slate); margin-bottom: 22px; }
+        .summary-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
+        .summary-item:last-child { border-bottom: none; }
+        .summary-num {
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--accent-sky), var(--accent-slate));
+            border-radius: 8px;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .summary-text { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .quiz-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 36px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+        }
+        .quiz-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--accent-sky), var(--accent-slate));
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+        }
+        .quiz-question { font-size: 17px; font-weight: 600; margin-bottom: 22px; line-height: 1.6; color: var(--text-primary); }
+        .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+        .quiz-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--glass-bg-strong);
+            border: 2px solid var(--glass-border);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .quiz-option:hover { background: rgba(255, 255, 255, 0.8); border-color: rgba(14, 165, 233, 0.25); transform: translateX(4px); }
+        .quiz-option.correct { border-color: var(--accent-emerald); background: rgba(16, 185, 129, 0.12); }
+        .quiz-option.incorrect { border-color: var(--accent-red); background: rgba(239, 68, 68, 0.08); }
+        .option-number {
+            flex-shrink: 0;
+            width: 26px; height: 26px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(100, 116, 139, 0.08));
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-sky);
+        }
+        .quiz-feedback { margin-top: 22px; padding: 22px; border-radius: 16px; display: none; }
+        .quiz-feedback.show { display: block; animation: fadeInUp 0.4s ease-out; }
+        .quiz-feedback.correct { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(14, 165, 233, 0.06)); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .quiz-feedback.incorrect { background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(245, 158, 11, 0.05)); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .feedback-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+        .quiz-feedback.correct .feedback-title { color: var(--accent-emerald); }
+        .quiz-feedback.incorrect .feedback-title { color: var(--accent-red); }
+        .feedback-text { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+        .score-display {
+            text-align: center;
+            padding: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            margin-top: 36px;
+            backdrop-filter: blur(40px);
+            box-shadow: var(--glass-shadow), var(--glass-inner-shadow);
+            display: none;
+        }
+        .score-display.show { display: block; animation: fadeInUp 0.6s ease-out; }
+        .score-number {
+            font-size: 72px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-sky), var(--accent-slate), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .score-label { font-size: 17px; color: var(--text-secondary); margin-top: 6px; font-weight: 500; }
+        .score-message { font-size: 15px; color: var(--text-tertiary); margin-top: 14px; }
+        .btn-reset {
+            margin-top: 24px;
+            padding: 14px 36px;
+            background: linear-gradient(135deg, var(--accent-sky), var(--accent-slate));
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.25);
+        }
+        .btn-reset:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 10px 28px rgba(14, 165, 233, 0.35); }
+        footer { text-align: center; padding: 50px 24px; color: var(--text-tertiary); font-size: 13px; position: relative; z-index: 1; }
+        .animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            .glass-card, .quiz-card { padding: 26px; border-radius: 20px; }
+            .item-grid { grid-template-columns: 1fr; }
+            .flow-content { flex-direction: column; }
+            .orb { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <header class="hero">
+        <div class="hero-badge">중학교 3학년 한국사</div>
+        <h1>민주주의의 발전</h1>
+        <p class="hero-subtitle">민중의 자각에서 시작해 제도화, 민주화 운동, 시민 참여로 확장되어 온 한국 민주주의의 여정. 민주주의는 '완성품'이 아니라 계속 발전시켜 나가야 할 시스템이다.</p>
+        <nav class="hero-nav">
+            <a href="#awakening">민주 의식의 태동</a>
+            <a href="#march1st">3·1 운동과 임시 정부</a>
+            <a href="#institution">민주주의의 제도화</a>
+            <a href="#movement">민주화 운동</a>
+            <a href="#maturity">민주주의의 성숙</a>
+            <a href="#quiz">형성평가</a>
+        </nav>
+    </header>
+
+    <section id="overview">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">OVERVIEW</span>
+            <h2 class="section-title">한국 민주주의의 흐름</h2>
+            <p class="section-desc">민중의 자각에서 생활 속 민주주의까지</p>
+        </div>
+        <div class="flow-box animate-on-scroll">
+            <div class="flow-title">🗳️ 민주주의 발전 흐름도</div>
+            <div class="flow-content">
+                <span class="flow-item">임술 농민 봉기 (1862)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">동학 농민 운동 (1894)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">만민 공동회 (1898)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">3·1 운동 (1919)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">대한민국 임시 정부</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">제헌 헌법 (1948)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">4·19 혁명 (1960)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">5·18 민주화 운동 (1980)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">6월 민주 항쟁 (1987)</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-item">시민 사회 확장</span>
+            </div>
+        </div>
+        <div class="highlight-box animate-on-scroll">
+            <h4>💡 핵심 질문</h4>
+            <p>민주주의는 <strong>"선거"만으로 완성될까?</strong> 시민 참여는 왜 계속 필요할까?</p>
+        </div>
+    </section>
+
+    <section id="awakening">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 01</span>
+            <h2 class="section-title">민주 의식의 태동</h2>
+            <p class="section-desc">아래로부터의 개혁 요구</p>
+        </div>
+
+        <div class="item-grid animate-on-scroll">
+            <div class="item-card">
+                <span class="tag">1862</span>
+                <h4>🌾 임술 농민 봉기</h4>
+                <p><strong>배경:</strong> 삼정의 문란, 탐관오리 수탈</p>
+                <p><strong>요구:</strong> 세금·제도 개선</p>
+                <p><strong>의미:</strong> "백성도 부당함을 고칠 권리가 있다"는 권리 의식의 시작</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">1894</span>
+                <h4>⚔️ 동학 농민 운동</h4>
+                <p><strong>지도자:</strong> 전봉준</p>
+                <p><strong>주장:</strong> 폐정 개혁, 신분 차별 비판, 외세 배격</p>
+                <p><strong>의미:</strong> "백성이 나라의 주체"라는 생각이 확산</p>
+            </div>
+            <div class="item-card">
+                <span class="tag">1898</span>
+                <h4>📢 독립 협회·만민 공동회</h4>
+                <p><strong>활동:</strong> 자유 민권·자주 독립 주장, 공개 토론</p>
+                <p><strong>헌의 6조:</strong> 국정 개혁안 제시</p>
+                <p><strong>의미:</strong> 정치는 '공론(公論)'으로 만들어 간다는 경험</p>
+            </div>
+        </div>
+
+        <div class="highlight-box animate-on-scroll">
+            <h4>📌 핵심 포인트</h4>
+            <p>민주주의는 위에서 '주어진 것'이 아니라, <strong>민중 스스로 권리를 자각</strong>하면서 시작되었습니다.</p>
+        </div>
+    </section>
+
+    <section id="march1st">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 02</span>
+            <h2 class="section-title">3·1 운동과 임시 정부</h2>
+            <p class="section-desc">"민주 공화국"의 씨앗</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon">🇰🇷</div>
+            <h3 class="card-title">3·1 운동 (1919)</h3>
+            <div class="card-content">
+                <p><strong>특징:</strong> 계층·종교·지역을 넘어 참여한 <strong>대규모 항일 운동</strong></p>
+                <p><strong>의미:</strong> 민중이 결집하면 사회를 움직일 수 있다는 <strong>주권자(국민) 의식</strong>이 강화되었습니다.</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon">🏛️</div>
+            <h3 class="card-title">대한민국 임시 정부</h3>
+            <div class="card-content">
+                <p><strong>수립:</strong> 3·1 운동 정신을 계승하여 상하이에서 수립</p>
+                <p><strong>지향:</strong> <strong>민주 공화제</strong> — "왕이 나라의 주인"이 아니라 <strong>국민이 주인</strong>인 공화국</p>
+                <p><strong>의의:</strong> 대한민국이 민주 공화국으로 나아갈 방향을 분명히 제시</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="institution">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 03</span>
+            <h2 class="section-title">민주주의의 제도화</h2>
+            <p class="section-desc">헌법과 선거로 민주주의를 굳히다</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon">📜</div>
+            <h3 class="card-title">5·10 총선거와 제헌 헌법 (1948)</h3>
+            <div class="card-content">
+                <p><strong>5·10 총선거:</strong> 보통 선거로 <strong>제헌 국회</strong> 구성</p>
+                <p><strong>제헌 헌법:</strong> 대한민국이 <strong>민주 공화국</strong>임을 선언, 국민 주권 명시</p>
+                <p><strong>정부 수립:</strong> 1948년 8월 15일 대한민국 정부 수립</p>
+            </div>
+            <div class="highlight-box">
+                <h4>💡 제도화의 의미</h4>
+                <p>민주주의는 "좋은 마음"만으로 되지 않습니다. <strong>헌법(기본 규칙) + 선거(대표 뽑기) + 권력 분립(견제)</strong> 같은 제도로 굳혀야 안정됩니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="movement">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 04</span>
+            <h2 class="section-title">민주화 운동</h2>
+            <p class="section-desc">독재를 견제하고 제도를 되돌린 시민들</p>
+        </div>
+
+        <div class="timeline-section animate-on-scroll">
+            <div class="timeline-item">
+                <div class="timeline-year">1960년</div>
+                <div class="timeline-title">4·19 혁명</div>
+                <div class="timeline-desc"><strong>원인:</strong> 3·15 부정 선거에 항의 → 학생·시민 시위 확산<br><strong>결과:</strong> 이승만 대통령 하야<br><strong>의미:</strong> "선거가 공정하지 않으면 민주주의가 무너진다"는 사실 확인, 독재를 무너뜨린 경험</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1972년</div>
+                <div class="timeline-title">유신 체제 — 민주주의의 후퇴</div>
+                <div class="timeline-desc"><strong>내용:</strong> 대통령 권한 크게 강화, 정치적 자유 제한<br><strong>교훈:</strong> 권력이 한 곳에 몰리면 견제 장치가 약해져 민주주의가 흔들릴 수 있음</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1980년</div>
+                <div class="timeline-title">5·18 민주화 운동</div>
+                <div class="timeline-desc"><strong>장소:</strong> 광주<br><strong>요구:</strong> 계엄 철회, 민주주의 회복<br><strong>결과:</strong> 신군부의 강경 진압으로 큰 희생<br><strong>의미:</strong> "민주주의는 공짜로 주어지지 않는다"는 역사적 경험, 이후 민주화 운동의 정신적 기반</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1987년</div>
+                <div class="timeline-title">6월 민주 항쟁</div>
+                <div class="timeline-desc"><strong>배경:</strong> 전두환 정부의 독재, 박종철 고문치사 사건, 이한열 피격 사건<br><strong>전개:</strong> 전국적 시민 저항, "호헌 철폐, 독재 타도" 구호<br><strong>결과:</strong> <strong>6·29 민주화 선언 → 대통령 직선제 개헌</strong><br><strong>의의:</strong> 시민의 압력으로 제도가 바뀐 대표 사례</div>
+            </div>
+        </div>
+
+        <div class="highlight-box animate-on-scroll">
+            <h4>⚠️ 핵심 교훈</h4>
+            <p>민주주의가 독재로 흔들릴 때마다, <strong>시민들이 거리로 나와 제도를 되돌렸습니다.</strong> 4·19, 5·18, 6월 항쟁은 민주주의가 "쟁취"한 것임을 보여줍니다.</p>
+        </div>
+    </section>
+
+    <section id="maturity">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">SECTION 05</span>
+            <h2 class="section-title">민주주의의 성숙</h2>
+            <p class="section-desc">생활 속 민주주의와 시민 사회</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon">🌱</div>
+            <h3 class="card-title">6월 항쟁 이후의 변화</h3>
+            <div class="card-content">
+                <p><strong>선거를 통한 정권 교체:</strong> 1998년 김대중 정부 출범 등 평화적 정권 교체가 이어짐</p>
+                <p><strong>시민 단체 활동 확대:</strong> 인권, 노동, 환경, 성평등, 약자 보호 등 다양한 분야</p>
+                <p><strong>지방 자치 실시:</strong> 주민이 직접 지역 대표를 선출</p>
+            </div>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+            <div class="card-icon">🤔</div>
+            <h3 class="card-title">민주주의가 '완성'될 수 있을까?</h3>
+            <div class="card-content">
+                <p>선거가 있어도 <strong>가짜 뉴스, 혐오, 차별, 불평등</strong>이 심해지면 민주주의가 약해질 수 있습니다.</p>
+                <p>그래서 민주주의는 <strong>'완성품'이 아니라, 계속 고쳐 쓰는 시스템</strong>에 가깝습니다.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>💭 생각해보기</h4>
+                <p>"다수결"로 결정했지만 누군가의 권리를 크게 침해한다면, 그 결정은 정당할까요?</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="summary">
+        <div class="summary-box animate-on-scroll">
+            <h3>📝 핵심 요약</h3>
+            <div class="summary-item">
+                <div class="summary-num">1</div>
+                <div class="summary-text">한국 민주주의는 <strong>임술 봉기·동학 농민 운동</strong> 같은 민중의 권리 자각에서 출발했다.</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">2</div>
+                <div class="summary-text"><strong>3·1 운동과 임시 정부</strong>로 민주 공화국의 방향을 세웠다.</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">3</div>
+                <div class="summary-text">광복 후에는 <strong>선거·헌법</strong>으로 제도를 갖추었지만, 독재로 흔들릴 때마다 <strong>4·19, 5·18, 6월 항쟁</strong>으로 제도를 되돌렸다.</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-num">4</div>
+                <div class="summary-text">오늘날 민주주의는 선거를 넘어 <strong>시민 참여가 확장</strong>되며 생활 속 민주주의로 발전하고 있다.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <div class="section-header animate-on-scroll">
+            <span class="section-number">ASSESSMENT</span>
+            <h2 class="section-title">형성평가</h2>
+            <p class="section-desc">학습 내용을 확인해 봅시다</p>
+        </div>
+        <div class="quiz-container">
+            <div class="quiz-card animate-on-scroll" data-correct="2">
+                <div class="quiz-number">1</div>
+                <div class="quiz-question">다음 중 만민 공동회의 의의로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>왕권을 강화하여 국가 운영을 안정시켰다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>공개 토론을 통해 민중의 의견을 정치에 반영하려 했다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>외교권을 일본에 넘기는 조약을 체결했다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>강제 동원을 통해 전쟁 물자를 모았다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>대통령 직선제를 처음 실시했다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">만민 공동회는 민중이 <strong>공개적으로 의견을 모아 정치에 반영</strong>하려 한 '공론(公論)' 경험입니다. 정치는 위에서 내려오는 것이 아니라 공개 토론으로 만들어 간다는 민주적 경험을 남겼습니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="5">
+                <div class="quiz-number">2</div>
+                <div class="quiz-question"><strong>동학 농민 운동(1894)</strong>에 대한 설명으로 옳은 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>유신 헌법 제정에 반대하여 일어났다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>3·15 부정 선거에 항의하여 일어났다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>6·29 선언을 이끌어 냈다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>제헌 국회를 구성하기 위해 실시되었다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>폐정 개혁 요구와 평등 사회 지향을 내세운 민중 운동이었다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">동학 농민 운동은 전봉준 중심으로 <strong>폐정 개혁, 신분 차별 비판, 외세 배격</strong>을 주장한 민중 운동입니다. "백성이 나라의 주체"라는 생각이 확산되는 계기가 되었습니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="1">
+                <div class="quiz-number">3</div>
+                <div class="quiz-question">다음 사건을 시간 순서로 바르게 나열한 것은?<br><br>(가) 3·1 운동 &nbsp; (나) 6월 민주 항쟁 &nbsp; (다) 4·19 혁명</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>(가) → (다) → (나)</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>(다) → (가) → (나)</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>(나) → (다) → (가)</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>(가) → (나) → (다)</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>(다) → (나) → (가)</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">시간 순서: <strong>3·1 운동(1919) → 4·19 혁명(1960) → 6월 민주 항쟁(1987)</strong>입니다. 각 사건은 한국 민주주의 발전의 중요한 이정표입니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="5">
+                <div class="quiz-number">4</div>
+                <div class="quiz-question"><strong>6월 민주 항쟁(1987)</strong>의 결과로 가장 적절한 것은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>삼정의 문란이 해결되었다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>갑오개혁이 추진되었다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>임시 정부가 수립되었다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>유신 체제가 시작되었다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>대통령 직선제 개헌이 이루어졌다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">6월 민주 항쟁의 결과 <strong>6·29 민주화 선언</strong>이 발표되고, <strong>대통령 직선제 개헌</strong>이 이루어졌습니다. 시민의 압력으로 제도가 바뀐 대표적인 사례입니다.</div></div>
+            </div>
+
+            <div class="quiz-card animate-on-scroll" data-correct="3">
+                <div class="quiz-number">5</div>
+                <div class="quiz-question">다음 중 민주주의의 '성숙'과 가장 관련 깊은 모습은?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-option="1"><span class="option-number">①</span><span>외세 배격을 위해 통상 수교 거부 정책을 펼쳤다</span></div>
+                    <div class="quiz-option" data-option="2"><span class="option-number">②</span><span>토지 조사 사업으로 토지 소유권을 재편했다</span></div>
+                    <div class="quiz-option" data-option="3"><span class="option-number">③</span><span>노동·인권·환경 등 다양한 분야에서 시민 참여가 확대되었다</span></div>
+                    <div class="quiz-option" data-option="4"><span class="option-number">④</span><span>신분제가 강화되고 양반 수가 늘어났다</span></div>
+                    <div class="quiz-option" data-option="5"><span class="option-number">⑤</span><span>왕권 강화를 위해 경연을 확대했다</span></div>
+                </div>
+                <div class="quiz-feedback"><div class="feedback-title">✓ 정답 해설</div><div class="feedback-text">민주주의의 성숙은 선거만이 아니라 <strong>노동·인권·환경·성평등·약자 보호</strong> 등 삶의 영역에서 시민 참여가 확장되는 것을 의미합니다.</div></div>
+            </div>
+        </div>
+
+        <div class="score-display" id="scoreDisplay">
+            <div class="score-number" id="scoreNumber">0/5</div>
+            <div class="score-label">정답 개수</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="btn-reset" onclick="resetQuiz()">다시 풀기</button>
+        </div>
+    </section>
+
+    <footer><p>중학교 3학년 한국사 · 민주주의의 발전</p></footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        let answeredQuestions = new Set();
+        let correctAnswers = 0;
+
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const card = this.closest('.quiz-card');
+                const cardIndex = Array.from(document.querySelectorAll('.quiz-card')).indexOf(card);
+                if (answeredQuestions.has(cardIndex)) return;
+                const correctAnswer = parseInt(card.dataset.correct);
+                const selectedAnswer = parseInt(this.dataset.option);
+                const feedback = card.querySelector('.quiz-feedback');
+                card.querySelectorAll('.quiz-option').forEach(opt => opt.style.pointerEvents = 'none');
+                if (selectedAnswer === correctAnswer) {
+                    this.classList.add('correct');
+                    feedback.classList.add('correct');
+                    correctAnswers++;
+                } else {
+                    this.classList.add('incorrect');
+                    feedback.classList.add('incorrect');
+                    card.querySelector('[data-option="' + correctAnswer + '"]').classList.add('correct');
+                }
+                feedback.classList.add('show');
+                answeredQuestions.add(cardIndex);
+                if (answeredQuestions.size === 5) showScore();
+            });
+        });
+
+        function showScore() {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            document.getElementById('scoreNumber').textContent = correctAnswers + '/5';
+            if (correctAnswers === 5) document.getElementById('scoreMessage').textContent = '🎉 완벽해요! 민주주의의 발전 과정을 잘 이해했습니다.';
+            else if (correctAnswers >= 3) document.getElementById('scoreMessage').textContent = '👍 잘했어요! 틀린 문제를 다시 확인해 보세요.';
+            else document.getElementById('scoreMessage').textContent = '📚 학습 내용을 다시 복습해 보세요.';
+            scoreDisplay.classList.add('show');
+            scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            answeredQuestions.clear();
+            correctAnswers = 0;
+            document.querySelectorAll('.quiz-card').forEach(card => {
+                card.querySelectorAll('.quiz-option').forEach(opt => { opt.classList.remove('correct', 'incorrect'); opt.style.pointerEvents = 'auto'; });
+                card.querySelector('.quiz-feedback').classList.remove('show', 'correct', 'incorrect');
+            });
+            document.getElementById('scoreDisplay').classList.remove('show');
+            document.querySelector('#quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) { e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        });
+    </script>
+</body>
+</html>

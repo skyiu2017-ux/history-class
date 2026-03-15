@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시험 대비 | 문시중 역사 클래스</title>
+  <meta name="description" content="시험 범위 확인부터 핵심 개념 정리, 빈칸 학습지, 서술형 대비까지 한곳에서 정리하는 페이지입니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#F5F4F0;--bg-card:rgba(255,255,255,0.78);--bg-card-hover:rgba(255,255,255,0.94);--glass:rgba(255,255,255,0.55);--text:#1A1A1A;--sub:#555;--dim:#888;--blue:#2563EB;--blue-bg:#EFF6FF;--navy:#1E3A5F;--navy-bg:#F0F4F8;--orange:#D97706;--orange-bg:#FFFBEB;--purple:#7C3AED;--purple-bg:#F5F3FF;--green:#059669;--green-bg:#ECFDF5;--slate:#64748B;--slate-bg:#F8FAFC;--line:rgba(0,0,0,0.06);--max-w:920px;--r-sm:10px;--r-md:16px;--r-lg:22px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 14px rgba(0,0,0,0.06);--shadow-h:0 2px 8px rgba(0,0,0,0.06),0 10px 28px rgba(0,0,0,0.1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 18px}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(245,244,240,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:54px;max-width:var(--max-w);margin:0 auto;padding:0 18px}
+    .site-brand{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:-0.02em}
+    .back-link{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:rgba(255,255,255,0.82);border:1px solid rgba(0,0,0,0.06);border-radius:10px;font-size:0.84rem;font-weight:600;color:var(--sub)}
+    .back-link:hover{background:#fff}
+    .hero{background:linear-gradient(135deg,#1B2A4A 0%,#2C4A7C 50%,#3A5F90 100%);color:#fff;padding:42px 0 34px;position:relative;overflow:hidden}
+    .hero::after{content:'';position:absolute;top:-35%;right:-15%;width:340px;height:340px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+    .hero-inner{position:relative;z-index:1}
+    .hero-eye{display:inline-flex;align-items:center;gap:6px;font-size:0.76rem;font-weight:600;letter-spacing:0.04em;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,0.12);margin-bottom:12px}
+    .hero h1{font-size:clamp(1.55rem,4.8vw,2.05rem);font-weight:700;line-height:1.36;letter-spacing:-0.02em;margin-bottom:10px}
+    .hero-desc{font-size:0.92rem;opacity:0.84;max-width:620px;margin-bottom:22px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:11px 18px;border-radius:12px;font-size:0.88rem;font-weight:600;transition:transform .15s,box-shadow .15s;cursor:pointer;border:none}
+    .btn:active{transform:scale(.98)}
+    .btn-w{background:#fff;color:var(--navy)}
+    .btn-w:hover{box-shadow:0 4px 16px rgba(255,255,255,.25)}
+    .btn-g{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22)}
+    .btn-g:hover{background:rgba(255,255,255,.22)}
+    .sec{padding:34px 0 14px}
+    .sec-label{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:10px}
+    .sec-title{font-size:1.22rem;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+    .sec-desc{font-size:.85rem;color:var(--sub);margin-bottom:16px}
+    .card,.notice-box{background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass);box-shadow:var(--shadow)}
+    .card{border-radius:var(--r-md);padding:18px;transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+    .card-grid{display:grid;gap:10px;grid-template-columns:1fr}
+    @media(min-width:560px){.card-grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:760px){.card-grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .mini-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+    .card h3{font-size:.96rem;font-weight:700;margin-bottom:6px}
+    .card p{font-size:.84rem;color:var(--sub);line-height:1.58}
+    .card-link{display:inline-flex;align-items:center;gap:4px;font-size:.8rem;font-weight:700;margin-top:10px;color:var(--blue)}
+    .card-link::after{content:'→'}
+    .link-list{display:flex;flex-direction:column;gap:8px}
+    .link-item{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;border-radius:12px;background:var(--bg-card);border:1px solid var(--glass);box-shadow:var(--shadow);font-size:.86rem;font-weight:600}
+    .link-item:hover{background:var(--bg-card-hover)}
+    .link-arrow{color:var(--dim)}
+    .notice-box{border-radius:var(--r-md);padding:16px;background:var(--orange-bg);border-color:rgba(217,119,6,.10)}
+    .notice-box h3{font-size:.9rem;font-weight:700;color:var(--orange);margin-bottom:8px}
+    .notice-box ul{padding-left:18px;color:var(--text)}
+    .notice-box li{font-size:.84rem;line-height:1.6;margin:3px 0}
+    .related-grid{display:grid;gap:10px;grid-template-columns:1fr}
+    @media(min-width:560px){.related-grid{grid-template-columns:repeat(3,1fr)}}
+    .related-card{display:block;padding:15px 16px;border-radius:14px;background:var(--bg-card);border:1px solid var(--glass);box-shadow:var(--shadow);transition:transform .15s, box-shadow .15s}
+    .related-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+    .related-card strong{display:block;font-size:.9rem;margin-bottom:3px;color:var(--navy)}
+    .related-card span{display:block;font-size:.8rem;color:var(--sub)}
+    .site-footer{padding:30px 0 44px;text-align:center;font-size:.78rem;color:var(--dim)}
+    @media(prefers-reduced-motion:no-preference){.fade-in{opacity:0;transform:translateY(10px);animation:fadeUp .45s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="../">📘 문시중 역사 클래스</a>
+    <a class="back-link" href="../">← 포털 메인</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="hero-eye fade-in">📝 EXAM PREP</p>
+    <h1 class="fade-in d1">시험 대비</h1>
+    <p class="hero-desc fade-in d2">시험 범위 확인부터 핵심 개념 정리, 빈칸 학습지, 서술형 대비까지 한곳에서 정리하는 페이지입니다.</p>
+    <div class="hero-actions fade-in d3">
+      <a href="#summary" class="btn btn-w">📌 핵심 정리</a>
+      <a href="#materials" class="btn btn-g">📂 자료 보기</a>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="sec" id="summary">
+    <div class="container">
+      <span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">📝 시험 대비</span>
+      <h2 class="sec-title">시험 준비 핵심</h2>
+      <p class="sec-desc">단계별로 시험을 준비할 수 있게 범위, 핵심 개념, 서술형을 나누어 정리합니다.</p>
+      <div class="card-grid cols-3">
+        <article class="card fade-in">
+          <span class="mini-tag" style="background:var(--orange-bg);color:var(--orange);">핵심 1</span>
+          <h3>시험 범위 확인</h3>
+          <p>교과서 쪽수와 단원 범위, 꼭 볼 학습 요소를 정리하는 영역입니다.</p>
+        </article>
+        <article class="card fade-in d1">
+          <span class="mini-tag" style="background:var(--purple-bg);color:var(--purple);">핵심 2</span>
+          <h3>핵심 개념 정리</h3>
+          <p>시험 전에 꼭 봐야 할 핵심 개념을 짧게 정리하는 공간입니다.</p>
+        </article>
+        <article class="card fade-in d2">
+          <span class="mini-tag" style="background:var(--blue-bg);color:var(--blue);">핵심 3</span>
+          <h3>서술형 대비</h3>
+          <p>자주 나오는 서술형 유형과 답안 방향을 정리합니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="materials">
+    <div class="container">
+      <span class="sec-label" style="background:var(--slate-bg);color:var(--slate);">📂 MATERIALS</span>
+      <h2 class="sec-title">시험 자료</h2>
+      <p class="sec-desc">시험 범위표, 빈칸 학습지, 예상 문제, 서술형 대비 자료를 연결합니다.</p>
+      <div class="link-list">
+        <a class="link-item" href="#"><span>시험 범위표</span><span class="link-arrow">→</span></a>
+        <a class="link-item" href="#"><span>빈칸 학습지</span><span class="link-arrow">→</span></a>
+        <a class="link-item" href="#"><span>서술형 대비 자료</span><span class="link-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="guide">
+    <div class="container">
+      <span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">🔔 GUIDE</span>
+      <h2 class="sec-title">시험 전 체크</h2>
+      <p class="sec-desc">시험 직전에는 범위를 정확히 확인한 뒤, 개념과 서술형을 반복 점검하세요.</p>
+      <div class="notice-box">
+        <h3>시험 대비 안내</h3>
+        <ul>
+          <li>먼저 시험 범위를 정확히 확인하세요.</li>
+          <li>핵심 개념 정리 후 빈칸 학습지로 반복하세요.</li>
+          <li>서술형은 키워드와 근거를 함께 쓰는 연습이 중요합니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="related">
+    <div class="container">
+      <span class="sec-label" style="background:var(--navy-bg);color:var(--navy);">🧭 NEXT</span>
+      <h2 class="sec-title">바로가기</h2>
+      <p class="sec-desc">다른 단원이나 실전 메뉴로 바로 이동할 수 있도록 연결해 두었습니다.</p>
+      <div class="related-grid">
+        <a class="related-card" href="../"><strong>포털 메인으로</strong><span>이 페이지로 이동</span></a>
+        <a class="related-card" href="../performance/"><strong>수행평가로</strong><span>이 페이지로 이동</span></a>
+        <a class="related-card" href="../review/"><strong>복습/퀴즈로</strong><span>이 페이지로 이동</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><strong>문시중 역사 클래스</strong></p>
+    <p>시험 대비 페이지</p>
+  </div>
+</footer>
+</body>
+</html>

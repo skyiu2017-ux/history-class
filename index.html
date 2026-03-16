@@ -244,7 +244,7 @@ const CONFIG = {
       linkText:'범위 상세 보기', url:'javascript:openScope()' },
     { icon:'💡', title:'핵심 개념 정리',
       desc:'단원별 핵심 개념을 짧고 명확하게 정리했습니다.',
-      linkText:'정리 보기', url:'#' /* TODO: 핵심 개념 정리 페이지 경로 */ },
+      linkText:'정리 보기', url:'review_concepts.html' },
     { icon:'✏️', title:'빈칸 학습지',
       desc:'구글 클래스룸에서 빈칸 학습지를 확인합니다. 학교 계정 로그인 후 접속하세요.',
       linkText:'클래스룸 열기', url:'https://classroom.google.com/c/ODQ4MTY3OTIxOTc5', external:true },
@@ -304,18 +304,17 @@ const CONFIG = {
   performance: [
     { icon:'📌', title:'수행평가 안내 (1차)', desc:'1차 수행평가 활동 목적과 과제 내용을 확인합니다.', linkText:'안내 보기', url:'performance/task-1.html' },
     { icon:'📌', title:'수행평가 안내 (2차)', desc:'2차 수행평가 활동 안내입니다.', linkText:'안내 보기', url:'performance/task-2.html' },
-    { icon:'📤', title:'제출 방법', desc:'제출 형식, 마감일, 유의사항을 확인합니다.', linkText:'제출 방법 보기', url:'#' /* TODO: 제출 방법 페이지 경로 */ }
   ],
 
   /* ──────────────────────────────────────────
      복습
-     - 한국사 오리엔테이션 → korean_history_flow.html
+     - 한국사 흐름 파악하기 → korean_history_flow.html
   ────────────────────────────────────────── */
   review: [
     { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'#' /* TODO: 요약 페이지 경로 */ },
     { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'#' /* TODO: 사료 페이지 경로 */ },
     { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review/quiz.html' },
-    { icon:'📗', title:'한국사 오리엔테이션', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'korean_history_flow.html' }
+    { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'korean_history_flow.html' }
   ],
 
   /* ──────────────────────────────────────────
@@ -338,7 +337,7 @@ const CONFIG = {
     { date:'3.15', text:'임진왜란·병자호란 수업 페이지 업로드' },
     { date:'3.14', text:'중2 고려 건국과 발전 인터랙티브 자료 추가' },
     { date:'3.13', text:'수행평가 1차 안내문 공개' },
-    { date:'3.12', text:'한국사 오리엔테이션 흐름도 추가' }
+    { date:'3.12', text:'한국사 흐름 파악하기 흐름도 추가' }
   ]
 };
 </script>
@@ -375,7 +374,7 @@ const CONFIG = {
 
   <section class="sec" style="padding-top:0;"><div class="container"><div class="card-grid cg-2">
     <a class="quick-card fade-in" href="#exam"><div class="q-icon" style="background:var(--orange-bg);color:var(--orange);">📝</div><div class="q-text"><h3>시험 대비</h3><p>시험 범위 · 핵심 정리 · 빈칸 학습지</p></div></a>
-    <a class="quick-card fade-in d1" href="#performance"><div class="q-icon" style="background:var(--purple-bg);color:var(--purple);">📊</div><div class="q-text"><h3>수행평가</h3><p>안내 · 제출 방법</p></div></a>
+    <a class="quick-card fade-in d1" href="#performance"><div class="q-icon" style="background:var(--purple-bg);color:var(--purple);">📊</div><div class="q-text"><h3>수행평가</h3><p>안내</p></div></a>
     <a class="quick-card fade-in d2" href="#subjects"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">📚</div><div class="q-text"><h3>주제별 자료</h3><p>한국사 · 세계사</p></div></a>
     <a class="quick-card fade-in d3" href="#review"><div class="q-icon" style="background:var(--green-bg);color:var(--green);">🔄</div><div class="q-text"><h3>지난 수업 복습</h3><p>결석 보충 · 시험 전 복습</p></div></a>
   </div></div></section>

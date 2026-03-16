@@ -1,860 +1,500 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 교과서 정리 | 세계사 & 한국사</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2d1b69 100%);
-            color: #1d1d1f;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2d1b69 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
-                radial-gradient(circle at 60% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            z-index: 2;
-            position: relative;
-            max-width: 800px;
-            padding: 0 2rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #e0f2f1, #fff3e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            opacity: 0.9;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .stats-container {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #2d1b69, #11998e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-title p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .subject-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 2.5rem;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .subject-card[onclick] {
-            cursor: pointer;
-        }
-
-        .subject-card[onclick]:hover {
-            transform: translateY(-8px);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-        }
-
-        .subject-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: var(--accent-color);
-            border-radius: 24px 24px 0 0;
-        }
-
-        .world-history { --accent-color: linear-gradient(135deg, #667eea, #764ba2); }
-        .korean-history { --accent-color: linear-gradient(135deg, #2d1b69, #11998e); }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .card-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: var(--accent-color);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card-subtitle {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-description {
-            color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .card-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .topic-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.8rem 1rem;
-            background: rgba(103, 126, 234, 0.1);
-            border-radius: 12px;
-            text-decoration: none;
-            color: #2d1b69;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(103, 126, 234, 0.2);
-            cursor: default;
-        }
-
-        .topic-link[onclick] {
-            cursor: pointer;
-        }
-
-        .topic-link[onclick]:hover {
-            background: rgba(103, 126, 234, 0.2);
-            transform: translateX(4px);
-        }
-
-        .topic-info {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex: 1;
-            min-width: 0;
-            overflow: hidden;
-        }
-
-        .topic-info span:last-child {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .topic-status {
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            white-space: nowrap;
-            flex-shrink: 0;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .status-complete {
-            background: rgba(34, 197, 94, 0.1);
-            color: #15803d;
-        }
-
-        .status-coming {
-            background: rgba(249, 115, 22, 0.1);
-            color: #ea580c;
-        }
-
-        .footer {
-            background: rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem 0;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .coming-soon-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(2px);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .subject-card.coming-soon:hover .coming-soon-overlay {
-            opacity: 1;
-        }
-
-        .coming-soon-text {
-            background: rgba(249, 115, 22, 0.9);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .stats-container {
-                gap: 1rem;
-            }
-            
-            .stat-item {
-                padding: 0.8rem 1.5rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-
-            .topic-link {
-                padding: 1rem;
-                flex-wrap: nowrap;
-            }
-
-            .topic-info {
-                flex: 1;
-                min-width: 0;
-            }
-
-            .topic-status {
-                font-size: 0.75rem;
-                padding: 0.3rem 0.8rem;
-                min-width: 45px;
-            }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .animate-on-scroll.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문시중 역사 클래스</title>
+  <meta name="description" content="문시중학교 역사 수업 포털 — 수업 자료, 복습, 시험 대비, 수행평가를 한곳에서">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#F5F4F0;--bg-card:rgba(255,255,255,0.72);--bg-card-hover:rgba(255,255,255,0.92);--glass:rgba(255,255,255,0.55);--text:#1A1A1A;--sub:#555;--dim:#999;--blue:#2563EB;--blue-bg:#EFF6FF;--navy:#1E3A5F;--navy-bg:#F0F4F8;--orange:#D97706;--orange-bg:#FFFBEB;--purple:#7C3AED;--purple-bg:#F5F3FF;--green:#059669;--green-bg:#ECFDF5;--slate:#64748B;--slate-bg:#F8FAFC;--red:#DC2626;--red-bg:#FEF2F2;--max-w:820px;--r-sm:10px;--r-md:16px;--r-lg:22px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 14px rgba(0,0,0,0.06);--shadow-h:0 2px 8px rgba(0,0,0,0.06),0 10px 28px rgba(0,0,0,0.1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}ul{list-style:none}.container{max-width:var(--max-w);margin:0 auto;padding:0 18px}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(245,244,240,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.06)}.header-inner{display:flex;align-items:center;justify-content:space-between;height:54px;max-width:var(--max-w);margin:0 auto;padding:0 18px}.site-brand{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:-0.02em}
+    .nav-toggle{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:none;border:none;cursor:pointer;border-radius:8px}.nav-toggle:hover{background:rgba(0,0,0,0.05)}.nav-toggle svg{width:20px;height:20px;color:var(--text)}
+    .main-nav{display:none;position:absolute;top:54px;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.08);padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,0.08)}.main-nav.open{display:block}.main-nav ul{display:flex;flex-direction:column}.main-nav a{display:block;padding:11px 18px;font-size:0.92rem;font-weight:500;transition:background 0.15s}.main-nav a:hover{background:rgba(0,0,0,0.04)}
+    @media(min-width:700px){.nav-toggle{display:none}.main-nav{display:block!important;position:static;background:none;backdrop-filter:none;border:none;padding:0;box-shadow:none}.main-nav ul{flex-direction:row;gap:16px}.main-nav a{padding:5px 10px;font-size:0.85rem;border-radius:6px}}
+    .hero{background:linear-gradient(135deg,#1B2A4A 0%,#2C4A7C 50%,#3A5F90 100%);color:#fff;padding:44px 0 36px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:-35%;right:-15%;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}.hero-inner{position:relative;z-index:1}.hero-eye{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;opacity:0.65;margin-bottom:10px}.hero h1{font-size:clamp(1.35rem,4.5vw,1.9rem);font-weight:700;line-height:1.4;letter-spacing:-0.02em;margin-bottom:8px}.hero-desc{font-size:0.88rem;opacity:0.78;max-width:460px;margin-bottom:26px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:5px;padding:11px 20px;border-radius:12px;font-size:0.88rem;font-weight:600;transition:transform 0.15s,box-shadow 0.15s;cursor:pointer;border:none}.btn:active{transform:scale(0.97)}.btn-w{background:#fff;color:var(--navy)}.btn-w:hover{box-shadow:0 4px 16px rgba(255,255,255,0.25)}.btn-g{background:rgba(255,255,255,0.14);color:#fff;border:1px solid rgba(255,255,255,0.22)}.btn-g:hover{background:rgba(255,255,255,0.22)}
+    .sec{padding:42px 0 28px}.sec-label{display:inline-flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:10px}.sec-title{font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:3px}.sec-desc{font-size:0.85rem;color:var(--sub);margin-bottom:18px}
+    .card{background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s}.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}.card-grid{display:grid;gap:10px}.cg-2{grid-template-columns:1fr}.cg-3{grid-template-columns:1fr}.cg-4{grid-template-columns:1fr}@media(min-width:500px){.cg-2,.cg-3,.cg-4{grid-template-columns:repeat(2,1fr)}}@media(min-width:700px){.cg-3{grid-template-columns:repeat(3,1fr)}}
+    .card-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:10px}.card h3{font-size:0.95rem;font-weight:600;margin-bottom:3px}.card p{font-size:0.82rem;color:var(--sub);line-height:1.5}.card-link{display:inline-flex;align-items:center;gap:4px;font-size:0.8rem;font-weight:600;margin-top:10px;transition:gap 0.15s}.card-link:hover{gap:8px}.card-link::after{content:'→'}
+    .week-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow);border-left:4px solid var(--blue);margin-bottom:10px}.week-badge{display:inline-block;font-size:0.7rem;font-weight:600;padding:2px 10px;border-radius:20px;color:#fff;margin-bottom:8px}.week-card h3{font-size:1.05rem;font-weight:700;margin-bottom:3px}.week-card>p{font-size:0.84rem;color:var(--sub);margin-bottom:14px}.week-links{display:flex;flex-wrap:wrap;gap:7px}.week-links a{display:inline-flex;align-items:center;gap:3px;padding:7px 13px;border-radius:10px;font-size:0.8rem;font-weight:600;transition:background 0.15s}
+    .quick-card{display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-md);box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s}.quick-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}.q-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}.q-text h3{font-size:0.9rem;font-weight:600;margin-bottom:1px}.q-text p{font-size:0.76rem;color:var(--dim)}
+    .subject-tabs{display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap}.subject-tab{padding:7px 16px;border-radius:10px;font-size:0.85rem;font-weight:600;background:rgba(0,0,0,0.04);color:var(--sub);cursor:pointer;border:none;transition:all 0.15s}.subject-tab:hover{background:rgba(0,0,0,0.08)}.subject-tab.active{background:var(--navy);color:#fff}.subject-panel{display:none}.subject-panel.active{display:block}
+    .unit-list{display:flex;flex-direction:column;gap:6px}.unit-item{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-sm);box-shadow:var(--shadow);transition:transform 0.15s,background 0.15s}.unit-item:hover{transform:translateX(3px);background:var(--bg-card-hover)}.unit-name{font-size:0.88rem;font-weight:500}.unit-count{font-size:0.72rem;color:var(--dim);margin-left:auto;margin-right:8px}.arrow{color:var(--dim);font-size:0.82rem}
+    .era-label{font-size:0.72rem;font-weight:600;color:var(--navy);padding:16px 0 6px 2px;letter-spacing:0.03em;border-bottom:1px solid rgba(0,0,0,0.06);margin-bottom:6px}.era-label:first-child{padding-top:0}
+    .unit-details{display:flex;flex-direction:column;gap:0}.unit-details>summary{list-style:none;cursor:pointer}.unit-details>summary::-webkit-details-marker{display:none}.unit-details[open]>summary .arrow{transform:rotate(180deg)}.unit-details .arrow{transition:transform 0.2s;display:inline-block}.sub-list{display:flex;flex-direction:column;gap:4px;padding:4px 0}.sub-item{background:rgba(240,244,248,0.8);border-left:3px solid var(--navy)}.sub-item:hover{background:rgba(240,244,248,1)}
+    /* 중단원 레벨 스타일 */
+    .midunit-item{background:rgba(240,244,248,0.5);border-left:3px solid rgba(30,58,95,0.3)}.midunit-item .unit-name{font-size:0.85rem;padding-left:8px;color:var(--navy)}.midunit-details>summary{list-style:none;cursor:pointer}.midunit-details>summary::-webkit-details-marker{display:none}.midunit-details[open]>summary .arrow{transform:rotate(180deg)}.midunit-details .arrow{transition:transform 0.2s;display:inline-block}
+    .page-item{background:rgba(240,244,248,0.9);border-left:3px solid var(--blue)}.page-item .unit-name{font-size:0.83rem;padding-left:20px;color:var(--text)}.page-item:hover{background:rgba(219,234,254,0.6)}
+    .notice-box{background:var(--red-bg);border:1px solid rgba(220,38,38,0.15);border-radius:var(--r-md);padding:16px;margin-bottom:12px}.notice-box h3{font-size:0.88rem;font-weight:700;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-list{display:flex;flex-direction:column;gap:4px}.notice-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-list li::before{content:'•';position:absolute;left:0;color:var(--red)}
+    /* 공지 카드 분류 스타일 */
+    .notice-info-box{background:var(--blue-bg);border:1px solid rgba(37,99,235,0.12);border-radius:var(--r-md);padding:16px;margin-bottom:10px}.notice-info-box h3{font-size:0.88rem;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-info-list{display:flex;flex-direction:column;gap:4px}.notice-info-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-info-list li::before{content:'•';position:absolute;left:0;color:var(--blue)}
+    .notice-schedule-box{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);border-radius:var(--r-md);padding:16px;margin-bottom:10px}.notice-schedule-box h3{font-size:0.88rem;font-weight:700;color:var(--purple);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-schedule-list{display:flex;flex-direction:column;gap:4px}.notice-schedule-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-schedule-list li::before{content:'•';position:absolute;left:0;color:var(--purple)}
+    .update-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:0.84rem}.update-item:last-child{border-bottom:none}.update-date{color:var(--dim);font-size:0.78rem;font-weight:500;white-space:nowrap;min-width:60px}
+    .site-footer{padding:28px 0 48px;text-align:center;font-size:0.78rem;color:var(--dim);border-top:1px solid rgba(0,0,0,0.06)}.site-footer p+p{margin-top:3px}
+    /* 시험 범위 모달 */
+    .scope-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:200;align-items:center;justify-content:center;padding:16px}.scope-overlay.open{display:flex}.scope-modal{background:#fff;border-radius:var(--r-lg);max-width:600px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2);padding:0}.scope-modal-header{position:sticky;top:0;background:#fff;padding:18px 20px 12px;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;z-index:1}.scope-modal-header h2{font-size:1.05rem;font-weight:700}.scope-close{background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--dim);padding:4px 8px;border-radius:6px}.scope-close:hover{background:rgba(0,0,0,0.05)}.scope-body{padding:16px 20px 24px}.scope-note{font-size:0.82rem;color:var(--orange);background:var(--orange-bg);padding:10px 14px;border-radius:var(--r-sm);margin-bottom:16px;line-height:1.5;font-weight:500}.scope-unit{margin-bottom:16px}.scope-unit h3{font-size:0.92rem;font-weight:700;color:var(--navy);margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid var(--navy-bg)}.scope-unit ul{list-style:none;display:flex;flex-direction:column;gap:4px}.scope-unit li{font-size:0.83rem;color:var(--text);padding:6px 10px;background:var(--navy-bg);border-radius:6px;display:flex;justify-content:space-between;align-items:center}.scope-unit li .scope-pages{font-size:0.76rem;color:var(--dim);white-space:nowrap;margin-left:12px;flex-shrink:0}
+    @media(prefers-reduced-motion:no-preference){.fade-in{opacity:0;transform:translateY(10px);animation:fadeUp .45s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}}
+  </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>📚 교과서 정리</h1>
-            <p>세계사와 한국사를 인터랙티브하게 학습하세요. <br>Apple 스타일의 현대적인 디자인으로 만나는 역사 공부</p>
-            
-            <div class="stats-container">
-                <div class="stat-item">
-                    <span class="stat-number">36</span>
-                    <span class="stat-label">완성된 주제</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">예정된 주제</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">인터랙티브</span>
-                </div>
-                <div class="stat-item" onclick="openLink('https://skyiu2017-ux.github.io/training/')" style="cursor: pointer;">
-                    <span class="stat-number">📋</span>
-                    <span class="stat-label">2026학년도 1학기 수업 안내</span>
-                </div>
-                <div class="stat-item" onclick="openLink('quiz.html')" style="cursor: pointer;">
-                    <span class="stat-number">📝</span>
-                    <span class="stat-label">종합 학습 퀴즈</span>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator" onclick="scrollToContent()">
-            <div style="font-size: 2rem;">⬇️</div>
-        </div>
-    </section>
 
-    <div class="container">
-        <!-- 세계사 섹션 -->
-        <section class="section">
-            <div class="section-title animate-on-scroll">
-                <h2>🌍 세계사</h2>
-                <p>인류 문명의 발전 과정과 주요 역사적 사건들을 학습합니다</p>
-            </div>
-            
-            <div class="cards-grid">
-                <div class="subject-card world-history animate-on-scroll" onclick="openLink('civilizations.html')">
-                    <span class="card-icon">🏛️</span>
-                    <h3 class="card-title">세계 4대 문명</h3>
-                    <p class="card-subtitle">메소포타미아 · 이집트 · 인도 · 중국</p>
-                    <p class="card-description">
-                        인류 최초의 4대 문명을 Apple 스타일로 학습하세요. 
-                        각 문명의 강·지리, 정치, 사회, 문화를 체계적으로 정리했습니다.
-                    </p>
-                    <div class="card-links">
-                        <div class="topic-link">
-                            <div class="topic-info">
-                                <span>🏺</span>
-                                <span>메소포타미아 문명</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link">
-                            <div class="topic-info">
-                                <span>🔺</span>
-                                <span>이집트 문명</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link">
-                            <div class="topic-info">
-                                <span>🕉️</span>
-                                <span>인도(인더스) 문명</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link">
-                            <div class="topic-info">
-                                <span>🐉</span>
-                                <span>중국(황허) 문명</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                    </div>
-                </div>
+<script>
+const CONFIG = {
+  /* ──────────────────────────────────────────
+     이번 주 수업
+     - text: 실제 페이지 제목을 표시 (generic 금지)
+  ────────────────────────────────────────── */
+  thisWeek: [
+    { badge: '중3', color: '#2563EB', title: '임진왜란과 병자호란',
+      desc: '임진왜란의 전개 과정과 의병·수군의 활약을 정리합니다.',
+      links: [
+        { icon: '📄', text: '학습지', url: '#' },
+        { icon: '🖥️', text: '왜란과 호란 수업 페이지', url: 'korean/joseon-wars/wars.html' },
+        { icon: '✅', text: '복습 퀴즈', url: 'review/quiz.html' }
+      ]},
+    { badge: '중2', color: '#7C3AED', title: '고려의 성립과 발전',
+      desc: '고려의 건국과 후삼국 통일 과정을 학습합니다.',
+      links: [
+        { icon: '📄', text: '학습지', url: '#' },
+        { icon: '🖥️', text: '고려의 건국과 발전 수업 페이지', url: 'korean/goryeo/goryeo.html' },
+        { icon: '📋', text: '고려의 대외 관계 수업 페이지', url: 'korean/goryeo/foreign-relations.html' }
+      ]}
+  ],
 
-                <div class="subject-card world-history animate-on-scroll">
-                    <span class="card-icon">🏛️</span>
-                    <h3 class="card-title">고대 제국들의 특성과 주변 세계의 성장</h3>
-                    <p class="card-subtitle">페르시아 · 그리스 · 로마 · 크리스트교</p>
-                    <p class="card-description">
-                        고대 근동에서 지중해 세계까지, 거대한 제국들의 흥망성쇠와 
-                        종교·문화의 전파 과정을 학습합니다.
-                    </p>
-                    <div class="card-links">
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'west_asian_empires.html')">
-                            <div class="topic-info">
-                                <span>👑</span>
-                                <span>페르시아 제국</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'ancient_greece_interactive.html')">
-                            <div class="topic-info">
-                                <span>🏛️</span>
-                                <span>그리스 세계와 헬레니즘</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'roman_empire_interactive.html')">
-                            <div class="topic-info">
-                                <span>⚔️</span>
-                                <span>로마 제국</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'christianity_interactive.html')">
-                            <div class="topic-info">
-                                <span>✝️</span>
-                                <span>크리스트교의 성립과 전파</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                    </div>
-                </div>
+  /* ──────────────────────────────────────────
+     주제별 자료 — 4단계: 시대 → 대단원 → 중단원 → 페이지
+     구조: era > units > subunits > pages
+     - 페이지 제목/URL은 CONFIG만 수정하면 즉시 반영됨
+  ────────────────────────────────────────── */
+  korean: [
+    { era: '고려', units: [
+      { name: '고려의 성립과 변천', subunits: [
+        { name: '고려의 건국과 통치', pages: [
+          { name: '고려의 건국과 발전', url: 'korean/goryeo/goryeo.html' }
+        ]},
+        { name: '고려의 대외 관계', pages: [
+          { name: '고려의 대외 관계', url: 'korean/goryeo/foreign-relations.html' }
+        ]},
+        { name: '몽골 간섭과 자주 개혁', pages: [
+          { name: '몽골 간섭과 자주 개혁', url: 'korean/goryeo/mongol-reforms.html' }
+        ]},
+        { name: '고려의 사회와 문화', pages: [
+          { name: '고려의 사회와 문화', url: 'korean/goryeo/society-culture.html' }
+        ]}
+      ]}
+    ]},
+    { era: '조선 전기', units: [
+      { name: '조선의 성립과 발전', subunits: [
+        { name: '조선의 건국과 통치 체제', pages: [
+          { name: '조선의 건국', url: 'korean/joseon-early/founding.html' },
+          { name: '조선의 통치 체제', url: 'korean/joseon-early/governance.html' }
+        ]},
+        { name: '조선의 문화와 생활', pages: [
+          { name: '조선의 문화', url: 'korean/joseon-early/culture.html' },
+          { name: '조선의 생활과 문화', url: 'korean/joseon-early/life-culture.html' }
+        ]}
+      ]}
+    ]},
+    { era: '조선 중기 — 전쟁과 위기', units: [
+      { name: '조선의 성립과 발전', subunits: [
+        { name: '임진왜란과 병자호란', pages: [
+          { name: '왜란과 호란', url: 'korean/joseon-wars/wars.html' }
+        ]}
+      ]}
+    ]},
+    { era: '조선 후기', units: [
+      { name: '조선 사회의 변동', subunits: [
+        { name: '정치 변동과 세도 정치', pages: [
+          { name: '조선 역사 흐름도', url: 'korean/joseon-late/politics-flow.html' }
+        ]},
+        { name: '새로운 학문과 문화의 변화', pages: [
+          { name: '실학과 문화', url: 'korean/joseon-late/silhak-culture.html' }
+        ]},
+        { name: '사회 변화와 농민의 봉기', pages: [
+          { name: '경제 변화', url: 'korean/joseon-late/economy.html' },
+          { name: '사회 변동과 농민 봉기', url: 'korean/joseon-late/social-uprising.html' }
+        ]}
+      ]}
+    ]},
+    { era: '근·현대', units: [
+      { name: '근·현대 사회의 전개', subunits: [
+        { name: '개항과 근대 국가 수립 운동', pages: [
+          { name: '근현대사 개관', url: 'korean/modern/overview.html' }
+        ]},
+        { name: '분단과 평화 통일', pages: [
+          { name: '평화 통일', url: 'korean/modern/unification.html' }
+        ]}
+      ]}
+    ]}
+  ],
+  world: [
+    { era: '고대 문명', units: [
+      { name: '고대 문명과 제국', subunits: [
+        { name: '세계 4대 문명', pages: [
+          { name: '세계 4대 문명', url: 'world/ancient/civilizations.html' }
+        ]},
+        { name: '고대 그리스와 로마', pages: [
+          { name: '고대 그리스', url: 'world/ancient/greece.html' },
+          { name: '로마 제국', url: 'world/ancient/rome.html' }
+        ]},
+        { name: '서아시아 제국', pages: [
+          { name: '서아시아 제국', url: 'world/ancient/west-asia.html' }
+        ]}
+      ]}
+    ]},
+    { era: '세계 종교', units: [
+      { name: '세계 종교의 확산', subunits: [
+        { name: '크리스트교의 성립과 확산', pages: [
+          { name: '크리스트교', url: 'world/religion/christianity.html' }
+        ]}
+      ]}
+    ]},
+    { era: '중세 유럽', units: [
+      { name: '유럽 세계의 형성과 변화', subunits: [
+        { name: '비잔티움 제국과 교황권', pages: [
+          { name: '비잔티움 제국', url: 'world/medieval/byzantine.html' },
+          { name: '교황권의 성장', url: 'world/medieval/papal-authority.html' }
+        ]},
+        { name: '십자군과 중세의 변화', pages: [
+          { name: '십자군 전쟁', url: 'world/medieval/crusades.html' }
+        ]}
+      ]}
+    ]},
+    { era: '르네상스·종교 개혁', units: [
+      { name: '근대 의식의 성장', subunits: [
+        { name: '르네상스와 종교 개혁', pages: [
+          { name: '르네상스', url: 'world/renaissance/renaissance.html' },
+          { name: '종교 개혁', url: 'world/renaissance/reformation.html' }
+        ]}
+      ]}
+    ]},
+    { era: '신항로·절대 왕정', units: [
+      { name: '교역망의 확대와 절대 왕정', subunits: [
+        { name: '신항로 개척과 절대 왕정', pages: [
+          { name: '대항해시대', url: 'world/exploration/exploration.html' },
+          { name: '절대 왕정과 계몽사상', url: 'world/exploration/absolutism.html' }
+        ]}
+      ]}
+    ]},
+    { era: '시민 혁명·근대 사회', units: [
+      { name: '시민 혁명과 근대 국민 국가', subunits: [
+        { name: '시민 혁명', pages: [
+          { name: '영국 혁명', url: 'world/revolution/british.html' },
+          { name: '프랑스 혁명', url: 'world/revolution/french.html' },
+          { name: '미국 독립 혁명', url: 'world/revolution/american.html' }
+        ]},
+        { name: '근대 사회의 형성', pages: [
+          { name: '유럽의 자유주의·민족주의', url: 'world/revolution/european-liberalism.html' },
+          { name: '민주주의의 발전', url: 'world/revolution/democracy.html' },
+          { name: '자본주의 사회', url: 'world/revolution/capitalism.html' }
+        ]}
+      ]}
+    ]}
+  ],
 
-                <div class="subject-card world-history animate-on-scroll">
-                    <span class="card-icon">⛪</span>
-                    <h3 class="card-title">중세 유럽의 크리스트교 문화</h3>
-                    <p class="card-subtitle">5세기 ~ 15세기</p>
-                    <p class="card-description">
-                        서로마 제국 멸망 후부터 르네상스까지, 
-                        중세 유럽의 크리스트교 문화와 정치적 변화를 학습합니다.
-                    </p>
-                    <div class="card-links">
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'crusades_medieval_transformation.html')">
-                            <div class="topic-info">
-                                <span>👑</span>
-                                <span>01. 교황권의 성장과 크리스트교 문화 확산</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'byzantine_empire_development.html')">
-                            <div class="topic-info">
-                                <span>🏛️</span>
-                                <span>02. 비잔티움 제국 발전</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'papal_authority_growth.html')">
-                            <div class="topic-info">
-                                <span>⚔️</span>
-                                <span>03. 교황권의 쇠퇴와 십자군 전쟁</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'renaissance_rebirth_culture.html')">
-                            <div class="topic-info">
-                                <span>🎨</span>
-                                <span>04. 르네상스</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'religious-reformation-new.html')">
-                            <div class="topic-info">
-                                <span>⛪</span>
-                                <span>05. 종교개혁</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                    </div>
-                </div>
+  /* ──────────────────────────────────────────
+     시험 대비 카드
+     - 시험 범위표: 클릭 시 모달로 상세 범위 확인
+     - 빈칸 학습지: Google Classroom 링크 + 로그인 안내
+  ────────────────────────────────────────── */
+  exam: [
+    { icon:'📋', title:'시험 범위표',
+      desc:'교과서 126~209쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대 사회의 전개',
+      linkText:'범위 상세 보기', url:'javascript:openScope()' },
+    { icon:'💡', title:'핵심 개념 정리',
+      desc:'단원별 핵심 개념을 짧고 명확하게 정리했습니다.',
+      linkText:'정리 보기', url:'#' /* TODO: 핵심 개념 정리 페이지 경로 */ },
+    { icon:'✏️', title:'빈칸 학습지',
+      desc:'구글 클래스룸에서 빈칸 학습지를 확인합니다. 학교 계정 로그인 후 접속하세요.',
+      linkText:'클래스룸 열기', url:'https://classroom.google.com/c/ODQ4MTY3OTIxOTc5', external:true },
+    { icon:'📝', title:'서술형 대비',
+      desc:'자주 나오는 서술형 문제와 답변 방향을 확인하세요.',
+      linkText:'서술형 보기', url:'#' /* TODO: 서술형 대비 페이지 경로 */ }
+  ],
 
-                <div class="subject-card world-history animate-on-scroll">
-                    <span class="card-icon">🌊</span>
-                    <h3 class="card-title">신항로 개척과 유럽 지역 질서의 변화</h3>
-                    <p class="card-subtitle">15세기 ~ 17세기</p>
-                    <p class="card-description">
-                        대항해 시대의 신항로 개척과 이에 따른 
-                        유럽 정치·경제 질서의 변화를 학습합니다.
-                    </p>
-                    <div class="card-links">
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'exploration_learning_complete.html')">
-                            <div class="topic-info">
-                                <span>⛵</span>
-                                <span>01. 신항로가 개척되다</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'absolutism_enlightenment_learning.html')">
-                            <div class="topic-info">
-                                <span>👑</span>
-                                <span>02. 절대 왕정이 등장하다</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                    </div>
-                </div>
+  /* ──────────────────────────────────────────
+     시험 범위 상세 데이터 (모달에서 사용)
+  ────────────────────────────────────────── */
+  examScope: {
+    range: '교과서 126쪽 ~ 209쪽',
+    note: '수업 중 진도를 나가서 다룬 부분까지로 이후 시험 전 자세한 안내 예정',
+    sections: [
+      { title: '조선의 성립과 발전', items: [
+        { topic: '유교 윤리를 보급하기 위해 노력하다', pages: '126~127' },
+        { topic: '훈민정음이 창제되고 과학 기술이 발달하다', pages: '128~131' },
+        { topic: '임진왜란을 극복하다', pages: '132~135' },
+        { topic: '병자호란이 일어나고 동아시아 국제 질서가 바뀌다', pages: '136~139' },
+        { topic: '대단원 마무리', pages: '140~141' }
+      ]},
+      { title: '조선 사회의 변동', items: [
+        { topic: '양 난 이후 국가를 재건하다', pages: '144~148' },
+        { topic: '영조, 정조가 탕평 정치를 펼치다 / 세도 정치가 나라의 기강을 흔들다', pages: '149~153' },
+        { topic: '향촌 사회가 흔들리다', pages: '154~155' },
+        { topic: '농민 봉기가 일어나다', pages: '156~157' },
+        { topic: '새로운 학문적 경향이 나타나다', pages: '158~159' },
+        { topic: '동아시아, 문화를 교류하다', pages: '160~163' },
+        { topic: '상속 제도와 사회 풍속이 바뀌다', pages: '164~165' },
+        { topic: '사회·경제적 변동 속에서 서민 문화가 확산되다', pages: '166~169' },
+        { topic: '대단원 마무리', pages: '170~171' }
+      ]},
+      { title: '근·현대 사회의 전개', items: [
+        { topic: '문호를 개방하고 개화 정책을 펼치다', pages: '174~177' },
+        { topic: '국민 국가를 수립하기 위해 노력하다', pages: '178~179' },
+        { topic: '일제에 맞서 민족 운동을 전개하다', pages: '180~181' },
+        { topic: '대한민국 정부를 수립하다', pages: '182~185' },
+        { topic: '개항으로 세계 경제 체제에 편입되다', pages: '186~187' },
+        { topic: '식민지 경제 체제로 재편되다', pages: '188~189' },
+        { topic: '국가 주도의 경제 성장이 이루어지다', pages: '190~191' },
+        { topic: '신자유주의 경제 정책이 추진되다', pages: '192~193' },
+        { topic: '대중문화가 발전하다', pages: '194~195' },
+        { topic: '제헌 헌법, 민주주의를 지향하다', pages: '196~197' },
+        { topic: '4·19 혁명, 민주주의의 씨를 뿌리다', pages: '198~199' },
+        { topic: '민주주의, 시련을 겪다', pages: '200~201' },
+        { topic: '민주주의를 꽃피우다', pages: '202~203' },
+        { topic: '6·25 전쟁으로 분단이 고착되다 / 평화 통일을 위해 노력하다', pages: '204~207' },
+        { topic: '대단원 마무리', pages: '208~209' }
+      ]}
+    ]
+  },
 
-                <div class="subject-card world-history animate-on-scroll">
-                    <span class="card-icon">🗽</span>
-                    <h3 class="card-title">유럽과 아메리카의 국민 국가 체제</h3>
-                    <p class="card-subtitle">17세기 ~ 19세기</p>
-                    <p class="card-description">
-                        시민 혁명과 독립 운동을 통한 근대 국민 국가의 형성과 
-                        유럽·아메리카 지역의 정치적 변혁을 학습합니다.
-                    </p>
-                    <div class="card-links">
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'british_revolution_liquid.html')">
-                            <div class="topic-info">
-                                <span>🇬🇧</span>
-                                <span>01. 영국 혁명</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'american_independence_liquid.html')">
-                            <div class="topic-info">
-                                <span>🦅</span>
-                                <span>02. 미국 독립</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'french_revolution_liquid.html')">
-                            <div class="topic-info">
-                                <span>🇫🇷</span>
-                                <span>03. 프랑스 혁명</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'european-revolutions-1815-1871.html')">
-                            <div class="topic-info">
-                                <span>🏛️</span>
-                                <span>04. 국민 국가 발전 1 (빈 체제~독일 통일)</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'america1.html')">
-                            <div class="topic-info">
-                                <span>🌎</span>
-                                <span>05. 국민 국가 발전 2 (미국 남북전쟁~라틴아메리카)</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  /* ──────────────────────────────────────────
+     수행평가
+  ────────────────────────────────────────── */
+  performance: [
+    { icon:'📌', title:'수행평가 안내 (1차)', desc:'1차 수행평가 활동 목적과 과제 내용을 확인합니다.', linkText:'안내 보기', url:'performance/task-1.html' },
+    { icon:'📌', title:'수행평가 안내 (2차)', desc:'2차 수행평가 활동 안내입니다.', linkText:'안내 보기', url:'performance/task-2.html' },
+    { icon:'📤', title:'제출 방법', desc:'제출 형식, 마감일, 유의사항을 확인합니다.', linkText:'제출 방법 보기', url:'#' /* TODO: 제출 방법 페이지 경로 */ }
+  ],
 
-        <!-- 한국사 섹션 -->
-        <section class="section">
-            <div class="section-title animate-on-scroll">
-                <h2>🇰🇷 한국사</h2>
-                <p>고대부터 근현대까지 우리나라의 역사를 체계적으로 학습합니다</p>
-            </div>
-            
-            <div class="cards-grid">
-                <div class="subject-card korean-history animate-on-scroll">
-                    <span class="card-icon">🏰</span>
-                    <h3 class="card-title">고려의 성립과 변천</h3>
-                    <p class="card-subtitle">918년 ~ 1392년 (474년간)</p>
-                    <p class="card-description">
-                        태조 왕건의 후삼국 통일부터 조선 건국까지, 
-                        고려 왕조 474년의 역사를 체계적으로 학습하세요.
-                    </p>
-                    <div class="card-links">
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'goryeo.html')">
-                            <div class="topic-info">
-                                <span>👑</span>
-                                <span>01. 고려의 건국과 정치 변화</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'goryeo-foreign-relations.html')">
-                            <div class="topic-info">
-                                <span>🌏</span>
-                                <span>02. 고려의 대외 관계</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'goryeo_mongol_reforms.html')">
-                            <div class="topic-info">
-                                <span>⛓️</span>
-                                <span>03. 몽골의 간섭과 고려의 개혁</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'goryeo_society_culture_complete.html')">
-                            <div class="topic-info">
-                                <span>🎨</span>
-                                <span>04. 고려의 생활과 문화</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                    </div>
-                </div>
+  /* ──────────────────────────────────────────
+     복습
+     - 한국사 오리엔테이션 → korean_history_flow.html
+  ────────────────────────────────────────── */
+  review: [
+    { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'#' /* TODO: 요약 페이지 경로 */ },
+    { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'#' /* TODO: 사료 페이지 경로 */ },
+    { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review/quiz.html' },
+    { icon:'📗', title:'한국사 오리엔테이션', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'korean_history_flow.html' }
+  ],
 
-                <div class="subject-card korean-history animate-on-scroll">
-                    <span class="card-icon">🏯</span>
-                    <h3 class="card-title">조선의 성립과 발전</h3>
-                    <p class="card-subtitle">1392년 ~ 1598년</p>
-                    <p class="card-description">
-                        이성계의 조선 건국부터 임진왜란까지, 
-                        조선 전기의 정치·사회·문화를 학습합니다.
-                    </p>
-                    <div class="card-links">
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'jocheon1.html')">
-                            <div class="topic-info">
-                                <span>🏛️</span>
-                                <span>01. 통치 체제와 대외 관계</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'salim.html')">
-                            <div class="topic-info">
-                                <span>📚</span>
-                                <span>02. 사림 세력과 정치변화</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'joseon_culture.html')">
-                            <div class="topic-info">
-                                <span>🎭</span>
-                                <span>03. 문화의 발달과 사회 변화</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'joseon_wars.html')">
-                            <div class="topic-info">
-                                <span>⚔️</span>
-                                <span>04. 왜란, 호란의 발발과 영향</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                    </div>
-                </div>
+  /* ──────────────────────────────────────────
+     공지 및 업데이트 — 2축 구조
+     ① siteNotices: 페이지 구성 관련 안내
+     ② scheduleNotices: 수행평가/시험 일정 안내
+     ③ updates: 최근 변경사항 로그
+  ────────────────────────────────────────── */
+  siteNotices: [
+    '이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.',
+    '자료는 수업 진도에 맞춰 계속 추가·수정됩니다.',
+    '문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'
+  ],
+  scheduleNotices: [
+    '1학기 수행평가: 5~6월 실시 예정',
+    '수행평가 상세 일정 및 기준은 추후 별도 공지 예정',
+    '중간고사 시험 범위: 교과서 126~209쪽 (상세 범위는 시험 대비 > 시험 범위표 참고)'
+  ],
+  updates: [
+    { date:'3.15', text:'임진왜란·병자호란 수업 페이지 업로드' },
+    { date:'3.14', text:'중2 고려 건국과 발전 인터랙티브 자료 추가' },
+    { date:'3.13', text:'수행평가 1차 안내문 공개' },
+    { date:'3.12', text:'한국사 오리엔테이션 흐름도 추가' }
+  ]
+};
+</script>
 
-                <div class="subject-card korean-history animate-on-scroll">
-                    <span class="card-icon">📚</span>
-                    <h3 class="card-title">조선 사회의 변동</h3>
-                    <p class="card-subtitle">17세기 ~ 19세기</p>
-                    <p class="card-description">
-                        임진왜란 이후 조선 후기의 정치적 변동과 
-                        사회·문화적 변화를 체계적으로 학습합니다.
-                    </p>
-                    <div class="card-links">
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'joseon_liquid_glass.html')">
-                            <div class="topic-info">
-                                <span>👑</span>
-                                <span>01. 조선 후기의 정치 변동</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'social_change_uprising.html')">
-                            <div class="topic-info">
-                                <span>🌾</span>
-                                <span>02. 사회 변화와 농민의 봉기</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'silhak_culture.html')">
-                            <div class="topic-info">
-                                <span>📖</span>
-                                <span>03. 학문과 예술의 새로운 경향</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                        <div class="topic-link" onclick="openLinkWithStop(event, 'joseon_life_culture.html')">
-                            <div class="topic-info">
-                                <span>🎭</span>
-                                <span>04. 생활과 문화의 새로운 양상</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </div>
-                    </div>
-                </div>
+<header class="site-header"><div class="header-inner">
+  <a class="site-brand" href="./">📘 문시중 역사 클래스</a>
+  <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" onclick="toggleNav()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <nav class="main-nav" id="main-nav" aria-label="주요 메뉴"><ul>
+    <li><a href="#week" onclick="closeNav()">이번 주 수업</a></li>
+    <li><a href="#subjects" onclick="closeNav()">주제별 자료</a></li>
+    <li><a href="#exam" onclick="closeNav()">시험 대비</a></li>
+    <li><a href="#performance" onclick="closeNav()">수행평가</a></li>
+    <li><a href="#review" onclick="closeNav()">복습</a></li>
+  </ul></nav>
+</div></header>
 
-                <div class="subject-card korean-history animate-on-scroll">
-                    <span class="card-icon">🏛️</span>
-                    <h3 class="card-title">근현대 사회의 전개</h3>
-                    <p class="card-subtitle">19세기 말 ~ 현재</p>
-                    <p class="card-description">
-                        개항부터 현재까지 우리나라의 근현대사를 
-                        정치·경제·사회·문화 측면에서 종합적으로 학습합니다.
-                    </p>
-                    <div class="card-links">
-                        <a href="modern_history.html" class="topic-link">
-                            <div class="topic-info">
-                                <span>🇰🇷</span>
-                                <span>01. 근·현대 사회의 전개</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </a>
-                        <a href="capitalism_society.html" class="topic-link">
-                            <div class="topic-info">
-                                <span>💼</span>
-                                <span>02. 자본주의와 사회 변화</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </a>
-                        <a href="democracy_development.html" class="topic-link">
-                            <div class="topic-info">
-                                <span>🗳️</span>
-                                <span>03. 민주주의의 발전</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </a>
-                        <a href="peaceful_unification.html" class="topic-link">
-                            <div class="topic-info">
-                                <span>🕊️</span>
-                                <span>04. 평화 통일을 위한 노력</span>
-                            </div>
-                            <span class="topic-status status-complete">완료</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="hero"><div class="container hero-inner">
+  <p class="hero-eye fade-in">문시중학교 역사 수업 포털</p>
+  <h1 class="fade-in d1">수업 자료부터 시험 대비까지,<br>한곳에서 확인하세요</h1>
+  <p class="hero-desc fade-in d2">이번 주 수업 자료, 주제별 복습, 수행평가 안내를 빠르게 찾을 수 있습니다.</p>
+  <div class="hero-actions fade-in d3">
+    <a href="#week" class="btn btn-w">📌 이번 주 수업</a>
+    <a href="#exam" class="btn btn-g">📝 시험 대비</a>
+  </div>
+</div></section>
+
+<main>
+  <section class="sec" id="week"><div class="container">
+    <span class="sec-label" style="background:var(--blue-bg);color:var(--blue);">📌 THIS WEEK</span>
+    <h2 class="sec-title">이번 주 수업</h2>
+    <p class="sec-desc">이번 주 확인해야 할 수업 자료입니다.</p>
+    <div id="week-container"></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0;"><div class="container"><div class="card-grid cg-2">
+    <a class="quick-card fade-in" href="#exam"><div class="q-icon" style="background:var(--orange-bg);color:var(--orange);">📝</div><div class="q-text"><h3>시험 대비</h3><p>시험 범위 · 핵심 정리 · 빈칸 학습지</p></div></a>
+    <a class="quick-card fade-in d1" href="#performance"><div class="q-icon" style="background:var(--purple-bg);color:var(--purple);">📊</div><div class="q-text"><h3>수행평가</h3><p>안내 · 제출 방법</p></div></a>
+    <a class="quick-card fade-in d2" href="#subjects"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">📚</div><div class="q-text"><h3>주제별 자료</h3><p>한국사 · 세계사</p></div></a>
+    <a class="quick-card fade-in d3" href="#review"><div class="q-icon" style="background:var(--green-bg);color:var(--green);">🔄</div><div class="q-text"><h3>지난 수업 복습</h3><p>결석 보충 · 시험 전 복습</p></div></a>
+  </div></div></section>
+
+  <section class="sec" id="subjects"><div class="container">
+    <span class="sec-label" style="background:var(--navy-bg);color:var(--navy);">📚 주제별 자료</span>
+    <h2 class="sec-title">주제별 자료</h2>
+    <p class="sec-desc">한국사와 세계사, 시대별로 수업 자료를 찾아보세요.</p>
+    <div class="subject-tabs" id="subject-tabs"></div>
+    <div id="subject-panels"></div>
+  </div></section>
+
+  <section class="sec" id="exam"><div class="container">
+    <span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">📝 시험 대비</span>
+    <h2 class="sec-title">시험 대비</h2>
+    <p class="sec-desc">시험 범위 확인부터 서술형 연습까지, 단계별로 준비하세요.</p>
+    <div class="card-grid cg-4" id="exam-grid"></div>
+  </div></section>
+
+  <section class="sec" id="performance"><div class="container">
+    <span class="sec-label" style="background:var(--purple-bg);color:var(--purple);">📊 수행평가</span>
+    <h2 class="sec-title">수행평가</h2>
+    <p class="sec-desc">수행평가 안내와 제출 관련 정보를 확인하세요.</p>
+    <div class="card-grid cg-3" id="perform-grid"></div>
+  </div></section>
+
+  <section class="sec" id="review"><div class="container">
+    <span class="sec-label" style="background:var(--green-bg);color:var(--green);">🔄 복습</span>
+    <h2 class="sec-title">지난 수업 복습</h2>
+    <p class="sec-desc">결석 보충이나 시험 전 복습에 활용하세요.</p>
+    <div class="card-grid cg-4" id="review-grid"></div>
+  </div></section>
+
+  <section class="sec"><div class="container">
+    <span class="sec-label" style="background:var(--slate-bg);color:var(--slate);">🔔 공지</span>
+    <h2 class="sec-title">공지 및 업데이트</h2>
+    <p class="sec-desc">페이지 이용 안내와 주요 일정입니다.</p>
+    <div id="notice-container"></div>
+    <div class="card fade-in" id="updates-card" style="margin-top:10px;"></div>
+  </div></section>
+</main>
+
+<!-- 시험 범위 상세 모달 -->
+<div class="scope-overlay" id="scope-overlay" role="dialog" aria-modal="true" aria-label="시험 범위 상세">
+  <div class="scope-modal">
+    <div class="scope-modal-header">
+      <h2>📋 시험 범위 상세</h2>
+      <button class="scope-close" onclick="closeScope()" aria-label="닫기">✕</button>
     </div>
+    <div class="scope-body" id="scope-body"></div>
+  </div>
+</div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>📚 교과서 정리 프로젝트 | Apple 스타일 인터랙티브 학습</p>
-        </div>
-    </footer>
+<footer class="site-footer"><div class="container">
+  <p><strong>문시중 역사 클래스</strong></p>
+  <p>수업 자료는 계속 업데이트됩니다.</p>
+  <p id="last-update"></p>
+</div></footer>
 
-    <script>
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('animate');
-                }
-            });
-        }
+<script>
+/* ── 네비게이션 ── */
+function toggleNav(){const n=document.getElementById('main-nav'),b=document.querySelector('.nav-toggle'),o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+function closeNav(){document.getElementById('main-nav').classList.remove('open');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
+document.addEventListener('click',e=>{const n=document.getElementById('main-nav'),b=document.querySelector('.nav-toggle');if(n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target))closeNav()});
 
-        window.addEventListener('scroll', animateOnScroll);
-        document.addEventListener('DOMContentLoaded', animateOnScroll);
+/* ── 이번 주 수업 (실제 페이지 제목 표시) ── */
+function renderWeek(){
+  document.getElementById('week-container').innerHTML=CONFIG.thisWeek.map((w,i)=>{
+    const f=i===0,lBg=f?'var(--blue-bg)':'var(--purple-bg)',lC=f?'var(--blue)':'var(--purple)',hBg=f?'#DBEAFE':'#EDE9FE';
+    return`<div class="week-card fade-in ${i>0?'d1':''}" style="border-left-color:${w.color};"><span class="week-badge" style="background:${w.color};">${w.badge}</span><h3>${w.title}</h3><p>${w.desc}</p><div class="week-links">${w.links.map(l=>`<a href="${l.url}" style="background:${lBg};color:${lC};" onmouseover="this.style.background='${hBg}'" onmouseout="this.style.background='${lBg}'">${l.icon} ${l.text}</a>`).join('')}</div></div>`;
+  }).join('');
+}
 
-        function scrollToContent() {
-            document.querySelector('.section').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
+/* ── 주제별 자료: 4단계 렌더링 (시대 → 대단원 → 중단원 → 페이지) ── */
+function renderSubjects(){
+  const t=document.getElementById('subject-tabs'),p=document.getElementById('subject-panels'),
+  s=[{id:'korean',label:'🇰🇷 한국사',data:CONFIG.korean},{id:'world',label:'🌍 세계사',data:CONFIG.world}];
+  t.innerHTML=s.map((x,i)=>`<button class="subject-tab ${i===0?'active':''}" onclick="switchSubject('${x.id}',this)">${x.label}</button>`).join('');
+  p.innerHTML=s.map((x,i)=>`<div class="subject-panel ${i===0?'active':''}" id="panel-${x.id}">${renderEras(x.data)}</div>`).join('');
+}
+function renderEras(data){
+  return data.map(era=>{
+    const unitHtml=era.units.map(unit=>{
+      const totalPages=unit.subunits.reduce((sum,su)=>sum+su.pages.length,0);
+      // 대단원 — 접기/펼치기
+      return`<details class="unit-details"><summary class="unit-item"><span class="unit-name">${unit.name}</span><span class="unit-count">${totalPages}개</span><span class="arrow">▾</span></summary><div class="sub-list">${renderSubunits(unit.subunits)}</div></details>`;
+    }).join('');
+    return`<div class="era-label">${era.era}</div><div class="unit-list" style="margin-bottom:12px;">${unitHtml}</div>`;
+  }).join('');
+}
+function renderSubunits(subunits){
+  return subunits.map(su=>{
+    if(su.pages.length===1){
+      // 중단원 아래 페이지가 1개면 바로 링크
+      return`<a class="unit-item midunit-item" href="${su.pages[0].url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;
+    }
+    // 중단원 아래 페이지가 여러 개면 접기
+    return`<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>`<a class="unit-item page-item" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`).join('')}</div></details>`;
+  }).join('');
+}
+function switchSubject(id,btn){document.querySelectorAll('.subject-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.subject-panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active')}
 
-        function openLink(url) {
-            window.location.href = url;
-        }
+/* ── 카드 렌더링 (시험대비/수행평가/복습) ── */
+function renderCards(data,id,color,bg){
+  document.getElementById(id).innerHTML=data.map((c,i)=>{
+    const ext=c.external?` target="_blank" rel="noopener noreferrer"`:'';
+    return`<article class="card fade-in ${i>0?'d'+Math.min(i,4):''}"><div class="card-icon" style="background:${bg};color:${color};">${c.icon}</div><h3>${c.title}</h3><p>${c.desc}</p><a href="${c.url}" class="card-link" style="color:${color};"${ext}>${c.linkText}</a></article>`;
+  }).join('');
+}
 
-        function openLinkWithStop(event, url) {
-            event.stopPropagation();
-            window.location.href = url;
-        }
+/* ── 시험 범위 모달 ── */
+function openScope(){
+  const s=CONFIG.examScope, body=document.getElementById('scope-body');
+  body.innerHTML=`<div class="scope-note">⚠️ ${s.note}</div><p style="font-size:0.85rem;font-weight:600;margin-bottom:14px;">범위: ${s.range}</p>`+
+    s.sections.map(sec=>`<div class="scope-unit"><h3>${sec.title}</h3><ul>${sec.items.map(it=>`<li><span>${it.topic}</span><span class="scope-pages">${it.pages}쪽</span></li>`).join('')}</ul></div>`).join('');
+  document.getElementById('scope-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeScope(){
+  document.getElementById('scope-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('scope-overlay').addEventListener('click',function(e){if(e.target===this)closeScope()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeScope()});
 
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.subject-card:not(.coming-soon)');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const deltaX = (x - centerX) / centerX;
-                    const deltaY = (y - centerY) / centerY;
-                    
-                    card.style.transform = `perspective(1000px) rotateY(${deltaX * 5}deg) rotateX(${deltaY * -5}deg) translateZ(10px) translateY(-8px)`;
-                } else {
-                    card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
-                }
-            });
-        });
-    </script>
+/* ── 공지 렌더링 (2축 구조) ── */
+function renderNotice(){
+  const container=document.getElementById('notice-container');
+  let html='';
+  // ① 페이지 이용 안내
+  if(CONFIG.siteNotices&&CONFIG.siteNotices.length){
+    html+=`<div class="notice-info-box fade-in"><h3>📌 페이지 이용 안내</h3><ul class="notice-info-list">${CONFIG.siteNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
+  }
+  // ② 수행평가·시험 일정
+  if(CONFIG.scheduleNotices&&CONFIG.scheduleNotices.length){
+    html+=`<div class="notice-schedule-box fade-in"><h3>📅 주요 일정 안내</h3><ul class="notice-schedule-list">${CONFIG.scheduleNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
+  }
+  container.innerHTML=html;
+  // 업데이트 로그
+  document.getElementById('updates-card').innerHTML=`<h3 style="font-size:0.88rem;font-weight:700;margin-bottom:10px;">🔄 최근 변경</h3>`+
+    CONFIG.updates.map(u=>`<div class="update-item"><span class="update-date">${u.date}</span><span>${u.text}</span></div>`).join('');
+  document.getElementById('last-update').textContent='마지막 업데이트: 2026.'+CONFIG.updates[0].date;
+}
+
+/* ── 초기 렌더링 ── */
+renderWeek();
+renderSubjects();
+renderCards(CONFIG.exam,'exam-grid','var(--orange)','var(--orange-bg)');
+renderCards(CONFIG.performance,'perform-grid','var(--purple)','var(--purple-bg)');
+renderCards(CONFIG.review,'review-grid','var(--green)','var(--green-bg)');
+renderNotice();
+
+/* ── Intersection Observer 애니메이션 ── */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.animationPlayState='running';obs.unobserve(x.target)}})},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
+setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getComputedStyle(el).opacity==='0'){el.style.animationPlayState='paused';obs.observe(el)}})},100);
+</script>
 </body>
 </html>

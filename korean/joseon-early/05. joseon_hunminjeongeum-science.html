@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📖 훈민정음 창제와 과학 기술의 발달</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <span class="school">📚 문시중학교</span>
+  <span class="unit">훈민정음 창제와 과학 기술의 발달</span>
+  <span class="page-ref">한국사 Ⅳ</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">📖</span>
+  <h1>훈민정음 창제와 과학 기술의 발달</h1>
+  <p class="subtitle">조선의 문화와 과학은 백성의 삶을 돕는 일이면서,<br>동시에 나라를 다스리는 힘이기도 했다.</p>
+  <div class="hero-keywords">
+    <span>훈민정음</span><span>농사직설</span><span>측우기</span><span>칠정산</span><span>천상열차분야지도</span><span>혼일강리역대국도지도</span>
+  </div>
+</header>
+
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+  <div class="diff-tab basic">🔹 기초</div>
+  <div class="diff-tab standard">🔸 기본</div>
+  <div class="diff-tab advanced">💠 심화</div>
+</div>
+
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+  <div class="cq-card">
+    <h3>❓ 오늘의 핵심 질문</h3>
+    <ul class="cq-list">
+      <li><span class="cq-badge basic">기초</span> 세종은 왜 훈민정음을 만들었을까?</li>
+      <li><span class="cq-badge standard">표준</span> 조선 전기의 과학 기술은 어떤 문제를 해결하려 했을까?</li>
+      <li><span class="cq-badge advanced">심화</span> 조선의 과학 기술은 백성을 위한 것이었을까, 국가 통치를 위한 것이었을까?</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+  <h3>📅 흐름 한눈에 보기</h3>
+  <div class="tl-track">
+    <div class="tl-node"><div class="tl-dot">1441</div><div class="tl-label">측우기 제작</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">1446</div><div class="tl-label">훈민정음 반포</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">농사직설 편찬</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">칠정산 제작</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">지도·의학·천문 발달</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 1: 훈민정음 창제 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">1</div>
+  <span class="section-emoji">✍️</span>
+  <h2>훈민정음 창제 — 백성을 위한 문자</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 "나랏말이 중국과 달라…"</h4>
+  <p>조선 시대, 공식 문자는 <strong>한자</strong>였습니다. 법률도 한자, 공문서도 한자, 과거 시험도 한자. 그런데 문제가 있었습니다 — <strong>대부분의 백성은 한자를 읽지 못했습니다.</strong> 억울한 일을 당해도 글로 호소할 수 없고, 나라의 정책이 내려와도 정확히 이해하지 못하는 상황이 반복되었습니다.</p>
+  <p><strong>세종</strong>은 이 현실을 그냥 넘기지 않았습니다. 백성이 <strong>자기 뜻을 마음껏 표현할 수 있는 문자</strong>가 있어야 한다고 생각한 것입니다. 그래서 직접 연구를 주도하여 <strong>우리말의 소리를 정확히 적을 수 있는 새 문자</strong>를 만들었습니다. 이것이 바로 <strong>훈민정음(1446년 반포)</strong>입니다.</p>
+
+  <div class="highlight-box">
+    훈민정음은 발음 기관의 모양을 본떠 글자를 만든 <strong>과학적이고 독창적인 문자</strong>였습니다. 세종은 이를 통해 백성을 교화하고, 국가 정책을 쉽게 전달하며, 나아가 <strong>민족 고유 문화 발전의 기반</strong>을 마련하고자 했습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: 훈민정음을 둘러싼 찬반 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">2</div>
+  <span class="section-emoji">⚡</span>
+  <h2>훈민정음을 둘러싼 찬반 논쟁</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>🔍 모두가 환영한 것은 아니었다</h4>
+  <p>훈민정음 창제를 모든 사람이 기뻐했을까요? 사실 <strong>그렇지 않았습니다.</strong> 집현전의 학자 <strong>최만리</strong> 등 일부 신하들은 강하게 반대했습니다. 그들의 논리는 이러했습니다. "우리는 오래전부터 중국의 문자를 써 왔고, 이것이 문명국의 예의입니다. 지금 새 문자를 만들면 <strong>중국이 우리를 야만국</strong>으로 볼 수 있습니다."</p>
+  <p>이 반대에는 당시 조선 지배층이 가지고 있던 <strong>중국 중심의 세계관</strong>이 깊이 반영되어 있었습니다. 한자를 쓰는 것이 곧 '문명'이고, 그것을 버리는 것은 '퇴보'라고 여긴 것입니다.</p>
+
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <div class="label">찬성 — 세종의 뜻</div>
+      <div class="name">백성을 위한 문자</div>
+      <div class="desc">글을 모르는 백성이 자기 뜻을<br>자유롭게 표현할 수 있어야 한다</div>
+    </div>
+    <div class="compare-card red">
+      <div class="label">반대 — 최만리 등</div>
+      <div class="name">중화 질서 존중</div>
+      <div class="desc">중국 문자를 버리고 새 문자를<br>만드는 것은 옳지 않다</div>
+    </div>
+  </div>
+
+  <p>결국 세종은 반대를 물리치고 훈민정음을 반포했습니다. 이처럼 훈민정음은 단순한 문자 발명이 아니라, <strong>조선 사회의 문화 인식과 세계관이 충돌한 사건</strong>이기도 했습니다.</p>
+</div>
+
+<!-- ═══ SECTION 3: 천문학과 지리학의 발달 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">3</div>
+  <span class="section-emoji">🔭</span>
+  <h2>천문학과 지리학의 발달</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 하늘을 관측하는 것이 왜 중요했을까?</h4>
+  <p>오늘날 우리에게 천문학은 '우주 탐사'를 떠올리게 하지만, 조선 시대에 하늘을 관측하는 것은 <strong>정치적으로 매우 중대한 일</strong>이었습니다. 동양에서는 전통적으로 <strong>"하늘의 뜻(천명)을 받은 자가 왕이 된다"</strong>고 믿었기 때문입니다. 하늘의 움직임을 정확히 파악하고, 정확한 달력을 만드는 것은 곧 <strong>왕조의 정당성</strong>을 증명하는 일이었습니다.</p>
+  <p><strong>태조</strong> 때 제작된 <strong>천상열차분야지도</strong>는 돌에 새긴 별자리 지도로, 고구려의 천문학 전통을 계승하면서 조선 건국의 정당성을 하늘에 기대어 선언한 작품이었습니다. 이후 <strong>세종</strong> 때에는 천체 관측 기구인 <strong>간의(簡儀)</strong>와, 조선의 수도 한양을 기준으로 천체의 움직임을 계산한 역법서 <strong>칠정산</strong>이 만들어졌습니다.</p>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 혼일강리역대국도지도 — 조선이 본 세계</h4>
+  <p>또한 <strong>태종</strong> 때 제작된 <strong>혼일강리역대국도지도</strong>는 <strong>동양에 현존하는 가장 오래된 세계 지도</strong>입니다. 이 지도에는 조선뿐 아니라 중국, 아라비아, 아프리카, 유럽까지 그려져 있어 당시 조선이 <strong>세계를 어떻게 인식하고 있었는지</strong>를 생생하게 보여 줍니다.</p>
+
+  <div class="highlight-box gold">
+    <strong>핵심 포인트</strong><br>
+    조선이 천문학과 지리학을 중시한 것은 단순한 학문적 호기심 때문만이 아니었습니다. 하늘의 변화를 읽어 <strong>건국의 정당성을 뒷받침</strong>하고, 정확한 달력으로 <strong>농사 시기를 알려주며</strong>, 세계 지도로 <strong>국가의 위상을 확인</strong>하는 — 이 모든 것이 <strong>중앙 집권 체제 강화</strong>와 맞닿아 있었습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: 농업과 시간, 국가 운영 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">4</div>
+  <span class="section-emoji">🌾</span>
+  <h2>농업과 시간, 그리고 국가 운영</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 『농사직설』 — 우리 땅에 맞는 농사법</h4>
+  <p>조선은 <strong>농업</strong>을 나라의 근본으로 보았습니다. 백성이 잘 먹어야 나라가 안정되고, 세금도 걷히기 때문입니다. 그런데 문제가 하나 있었습니다 — 당시 참고하던 농서(농사 관련 책)는 대부분 <strong>중국 것</strong>이었습니다. 중국의 기후와 토양이 조선과 같을 리 없었죠.</p>
+  <p>그래서 세종은 전국 각지의 <strong>경험 많은 농부들에게 직접 의견을 묻고</strong>, 우리 풍토에 맞는 농사법을 정리한 <strong>『농사직설』</strong>을 편찬하였습니다. 이론이 아니라 <strong>현장의 경험</strong>을 바탕으로 만들어진 실용적인 농서였습니다.</p>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 측우기·자격루·앙부일구 — 시간과 날씨를 다스리다</h4>
+  <p>농사에서 가장 중요한 것 두 가지는 무엇일까요? 바로 <strong>비(강우량)</strong>와 <strong>시간</strong>입니다. 조선은 이 두 가지를 정밀하게 측정하기 위한 도구들을 개발했습니다.</p>
+  <p><strong>측우기</strong>는 세계 최초로 강우량을 <strong>표준화된 방식</strong>으로 측정한 기구였습니다. 비가 얼마나 왔는지를 정확히 파악하면 <strong>그해 농사의 풍흉을 예측</strong>할 수 있었고, 이는 곧 <strong>조세를 어떻게 정할지</strong>를 판단하는 근거가 되었습니다.</p>
+  <p>또한 물의 힘으로 스스로 시간을 알리는 물시계 <strong>자격루</strong>, 해의 그림자로 시간을 읽는 해시계 <strong>앙부일구</strong>도 만들어졌습니다. 이 도구들은 백성의 일상을 편리하게 해 주면서도, 동시에 국가 행정을 정확하게 운영하기 위한 <strong>통치 기술</strong>이기도 했습니다.</p>
+
+  <div class="highlight-box teal">
+    <strong>정리하면</strong><br>
+    농사직설·측우기·자격루·앙부일구는 모두 <strong>백성의 생활을 돕는 도구</strong>이면서, 동시에 <strong>풍흉 파악 → 조세 결정 → 국가 재정 운영</strong>으로 이어지는 <strong>통치의 핵심 인프라</strong>였습니다. 조선의 과학 기술은 '학문'과 '행정'이 하나로 연결되어 있었습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 5: 의학과 기록 문화 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">5</div>
+  <span class="section-emoji">🏥</span>
+  <h2>의학과 기록 문화</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <p>조선은 백성의 건강 문제에도 관심을 기울였습니다. 우리 땅에서 나는 약재와 치료법을 정리한 <strong>『향약집성방』</strong>, 동아시아 의학 지식을 망라한 백과사전급 의학서 <strong>『의방유취』</strong> 등이 편찬되었습니다. 중국 의서에만 의존하지 않고, <strong>조선 실정에 맞는 의학</strong>을 구축하려 한 것입니다.</p>
+  <p>또한 국가의 기록을 남기는 일에도 정성을 쏟았습니다. <strong>조선왕조실록</strong>은 왕의 재위 기간에 일어난 모든 중요한 사건을 기록한 역사서로, 왕조차 함부로 열어볼 수 없을 만큼 <strong>기록의 독립성</strong>이 철저하게 보장되었습니다.</p>
+
+  <div class="highlight-box">
+    <strong>핵심 의의</strong><br>
+    조선 전기의 과학과 문화는 학문적 성취에 그치지 않았습니다. 농업·의학·천문·행정·기록 — 이 모든 분야가 서로 연결되어 <strong>국가 운영 시스템의 일부</strong>로 작동했습니다. 조선은 과학과 문화를 통해 나라를 더 체계적으로 다스리고자 한 것입니다.
+  </div>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+  <h4>💡 생각해 보기</h4>
+  <p>측우기는 단순히 "비를 재는 기구"가 아닙니다. 강우량을 정확히 알면 그해 <strong>농사의 풍흉</strong>을 예측할 수 있고, 이는 <strong>조세를 얼마나 거둘지</strong>, <strong>국가 재정을 어떻게 운영할지</strong>에도 영향을 줍니다.</p>
+  <p>그렇다면 조선의 과학 기술은 <strong>'백성의 생활 편의'</strong>이면서 동시에 <strong>'국가 통치 기술'</strong>이기도 하지 않을까요? 이 두 가지는 서로 모순되는 것일까요, 아니면 함께 갈 수 있는 것일까요?</p>
+</div>
+
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+  <h3>📚 한눈에 정리</h3>
+  <ul>
+    <li><strong>훈민정음</strong>은 한자를 모르는 백성이 쉽게 뜻을 표현할 수 있도록 세종이 창제한 과학적이고 독창적인 문자였다.</li>
+    <li>조선 전기의 과학 기술은 <strong>천문(천상열차분야지도, 칠정산), 지리(혼일강리역대국도지도), 농업(농사직설), 시간 측정(측우기, 자격루, 앙부일구), 의학(향약집성방, 의방유취)</strong> 등 다양한 분야에서 발달하였다.</li>
+    <li>이 기술들은 <strong>백성의 삶을 돕는 동시에</strong>, 나라를 효율적으로 운영하기 위한 <strong>통치의 기반</strong>이 되었다.</li>
+  </ul>
+</div>
+
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">💠</div>
+  <h2>심화 탐구</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  다음 탐구 질문에 대해 여러분의 생각을 자유롭게 서술해보세요. 답변 제출 후 키워드 분석과 모범 답안을 확인할 수 있습니다.
+</p>
+
+<div class="inquiry-card fade-up" id="inq1">
+  <h4>📌 탐구. 조선의 과학 기술은 "백성을 위한 것"인가, "통치를 위한 것"인가?</h4>
+  <p class="question-text">조선 전기의 과학 기술(측우기, 농사직설, 자격루 등)은 백성의 생활을 돕기 위한 것이었을까요, 아니면 국가를 효율적으로 다스리기 위한 것이었을까요? 구체적 사례를 들어 자신의 입장을 서술해 보세요.</p>
+  <textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+  <button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+  <div class="keyword-result">
+    <h5>🔍 키워드 분석 결과</h5>
+    <div class="keywords-tags">
+      <span>측우기</span><span>농사직설</span><span>자격루</span><span>훈민정음</span><span>백성</span><span>통치</span><span>조세</span><span>풍흉</span><span>행정</span>
+    </div>
+  </div>
+  <div class="model-answer">
+    <h5>✅ 모범 답안</h5>
+    <p>조선 전기의 과학 기술은 <strong>'백성을 위한 것'과 '통치를 위한 것'이라는 두 가지 성격을 동시에</strong> 가지고 있었다. 예를 들어 측우기는 강우량을 측정하여 농민이 농사에 대비하게 도왔지만, 동시에 국가는 이 데이터를 바탕으로 풍흉을 예측하고 조세를 결정하는 데 활용하였다. 농사직설 역시 농민의 실생활을 돕는 농서이면서, 농업 생산력 증대를 통해 국가 재정을 안정시키는 역할을 했다.</p>
+    <p>따라서 "백성을 위한 것"과 "통치를 위한 것"은 <strong>서로 모순되는 것이 아니라, 하나의 기술이 두 가지 목적을 동시에 달성</strong>한 것이라고 볼 수 있다. 백성의 삶이 나아져야 나라도 안정되고, 나라가 체계적으로 운영되어야 백성도 보호받을 수 있었기 때문이다.</p>
+  </div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">📝</div>
+  <h2>형성평가</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  문제를 차례대로 풀어보세요!
+</p>
+
+<div class="quiz-container fade-up" id="quiz">
+  <div class="quiz-progress" id="quizProgress"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-question" data-correct="1" data-explain="세종은 한자를 모르는 백성이 자기 뜻을 제대로 표현하지 못하는 현실을 문제로 보고, 백성이 쉽게 익혀 쓸 수 있는 문자를 만들고자 훈민정음을 창제하였습니다. 불교 경전 번역, 외교, 과거 시험은 직접적 목적이 아닙니다.">
+    <h4>Q1. 세종이 훈민정음을 만든 가장 직접적인 이유는?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 불교 경전 번역만을 위해</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 백성이 쉽게 뜻을 표현하도록</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 일본과의 외교를 위해</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 과거 시험을 간단히 하기 위해</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-question" data-correct="2" data-explain="측우기는 빗물을 받아 강우량을 표준화된 방식으로 측정한 기구입니다. 이를 통해 농사의 풍흉을 예측하고 조세 결정에 활용하였습니다. 간의와 혼천의는 천체 관측 기구, 자격루는 물시계입니다.">
+    <h4>Q2. 강우량을 측정하여 풍흉에 대비하게 한 기구는?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 간의</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 혼천의</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 측우기</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 자격루</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-question" data-correct="1" data-explain="조선 전기의 과학 기술은 농사직설(농업), 측우기(기상·조세), 자격루(행정 시간 관리), 천상열차분야지도(천문·정당성) 등 농업·행정·국가 운영 전반과 긴밀히 연결되어 있었습니다.">
+    <h4>Q3. 조선 전기의 과학 기술에 대한 설명으로 가장 알맞은 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 왕실 장식용으로만 쓰였다</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 농업·행정·국가 운영과 연결되었다</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 백성은 전혀 사용할 수 없었다</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 오직 전쟁만을 위해 발전하였다</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quizResult">
+    <div class="score" id="quizScore">0/3</div>
+    <div class="score-label">맞힌 문제 수</div>
+    <button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

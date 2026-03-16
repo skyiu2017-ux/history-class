@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📜 유교 윤리 보급과 사회 변화</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <span class="school">📚 문시중학교</span>
+  <span class="unit">유교 윤리 보급과 사회 변화</span>
+  <span class="page-ref">한국사 Ⅳ</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">📜</span>
+  <h1>유교 윤리 보급과 사회 변화</h1>
+  <p class="subtitle">조선의 유교 이념은 궁궐 안에만 머물지 않았습니다.<br>그것은 어떻게 백성의 일상 속 질서가 되었을까?</p>
+  <div class="hero-keywords">
+    <span>국조오례의</span><span>삼강행실도</span><span>소학</span><span>주자가례</span><span>향약</span><span>신분 질서</span>
+  </div>
+</header>
+
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+  <div class="diff-tab basic">🔹 기초</div>
+  <div class="diff-tab standard">🔸 기본</div>
+  <div class="diff-tab advanced">💠 심화</div>
+</div>
+
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+  <div class="cq-card">
+    <h3>❓ 오늘의 핵심 질문</h3>
+    <ul class="cq-list">
+      <li><span class="cq-badge basic">기초</span> 유교 윤리를 퍼뜨리기 위해 국가가 만든 대표적인 책은 무엇일까?</li>
+      <li><span class="cq-badge standard">표준</span> 유교 윤리는 생활 방식과 향촌 질서를 어떻게 바꾸었을까?</li>
+      <li><span class="cq-badge advanced">심화</span> 유교 윤리의 확산은 도덕 교육이었을까, 국가 통치의 방식이었을까?</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+  <h3>📅 흐름 한눈에 보기</h3>
+  <div class="tl-track">
+    <div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">국조오례의 편찬</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">삼강행실도 간행</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">소학·주자가례 보급</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">향약 확산</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">생활 규범 변화</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 1: 국가가 먼저 유교 예법을 세우다 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">1</div>
+  <span class="section-emoji">🏛️</span>
+  <h2>국가가 먼저 유교 예법을 세우다</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 『국조오례의』 — 나라의 행사부터 바로잡다</h4>
+  <p>조선은 유교를 국가의 통치 이념으로 삼았습니다. 하지만 이념만 선포한다고 나라가 저절로 달라질까요? 조선의 지도자들은 <strong>"위에서부터 먼저 모범을 보여야 한다"</strong>고 생각했습니다. 왕실과 국가의 행사부터 유교 예법에 맞게 정리하지 않으면, 백성에게 유교 질서를 요구할 명분이 없었기 때문입니다.</p>
+  <p>이를 위해 편찬한 책이 바로 <strong>『국조오례의(國朝五禮儀)』</strong>입니다. 길례(제사), 가례(혼례 등 경사), 빈례(외교 의례), 군례(군사 의례), 흉례(장례) — 나라의 다섯 가지 주요 행사를 유교 예법에 따라 체계적으로 정리한 것입니다.</p>
+
+  <div class="highlight-box">
+    즉, 조선은 <strong>"나라가 먼저 유교적 모범을 보이고, 그 질서를 백성에게 확산한다"</strong>는 위에서 아래로(top-down)의 전략을 취했습니다. 국조오례의는 그 첫걸음이었습니다.
+  </div>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 『삼강행실도』 — 그림으로 배우는 유교 윤리</h4>
+  <p>그런데 한 가지 문제가 있었습니다. 당시 백성 대부분은 글을 읽지 못했습니다. 아무리 좋은 유교 경전이 있어도 한문을 모르는 농민에게는 그저 종이 위의 먹물일 뿐이었죠. 그래서 조선이 생각해 낸 방법이 바로 <strong>그림</strong>이었습니다.</p>
+  <p><strong>『삼강행실도』</strong>는 효자·충신·열녀의 감동적인 이야기를 <strong>그림과 함께</strong> 담은 책입니다. 부모에게 목숨을 바친 효자, 나라를 위해 희생한 충신, 절개를 지킨 열녀 — 이러한 이야기를 생생한 삽화로 보여주면서 백성이 유교의 핵심 가치인 <strong>효(孝)·충(忠)·열(烈)</strong>을 자연스럽게 배우도록 한 것입니다.</p>
+
+  <div class="highlight-box gold">
+    <strong>핵심 포인트</strong><br>
+    『국조오례의』가 <strong>국가 행사의 유교화</strong>였다면, 『삼강행실도』는 <strong>백성의 마음에 유교를 심는 작업</strong>이었습니다. 조선은 법과 제도뿐 아니라 <strong>교육과 감동</strong>으로도 유교 질서를 퍼뜨리려 했습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: 책과 제도를 통한 윤리 교육 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">2</div>
+  <span class="section-emoji">📖</span>
+  <h2>책과 제도를 통한 윤리 교육</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 『소학』과 『주자가례』 — 집안까지 파고든 유교</h4>
+  <p>국가 차원의 유교화가 진행되는 동안, 양반 사대부들은 자녀 교육의 방식까지 유교적으로 바꾸어 나갔습니다. 그 핵심에 있던 책이 <strong>『소학(小學)』</strong>입니다. 소학은 어린 시절부터 부모 공경, 어른 존중, 올바른 언행 같은 유교적 생활 규범을 가르치는 아동 교육서였습니다.</p>
+  <p>또한 <strong>『주자가례(朱子家禮)』</strong>가 널리 퍼지면서 집안의 <strong>관혼상제</strong>(관례·혼례·상례·제례) 전체가 유교 예법으로 통일되기 시작했습니다. 결혼식을 어떻게 치를 것인지, 장례는 어떤 절차를 따를 것인지, 제사는 어떻게 지낼 것인지 — 삶의 가장 중요한 순간들이 모두 유교의 규범 아래 놓이게 된 것입니다.</p>
+
+  <div class="highlight-box teal">
+    <strong>정리하면</strong><br>
+    유교 윤리는 이제 궁궐이나 관청만의 규범이 아니었습니다. 『소학』을 통해 <strong>어린이의 교육</strong>까지, 『주자가례』를 통해 <strong>집안의 혼례·장례·제사</strong>까지 — 유교는 조선인의 <strong>일상 그 자체</strong>를 바꾸어 나갔습니다. 조선의 유교화는 정치 제도의 변화이면서 동시에 <strong>생활 방식의 변화</strong>였습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: 향약과 향촌 통치 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">3</div>
+  <span class="section-emoji">🏘️</span>
+  <h2>향약과 향촌 통치</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>🔍 마을에도 유교 질서가 필요했을까?</h4>
+  <p>궁궐과 양반 가문에 유교 윤리가 자리 잡았다면, 전국 곳곳의 마을은 어떨까요? 조선은 <strong>향약(鄕約)</strong>을 보급하여 지방 마을 단위에서도 유교 윤리와 예법이 지켜지도록 했습니다.</p>
+  <p>향약은 겉으로는 마을 사람들이 서로 돕고 착한 행동을 권장하는 <strong>자치 규약</strong>처럼 보였습니다. 실제로 "어려울 때 서로 돕자(환난상휼)", "좋은 일은 함께 권하자(덕업상권)" 같은 아름다운 내용을 담고 있었죠.</p>
+  <p>그런데 이면을 들여다보면, 향약에는 또 다른 기능이 숨어 있었습니다. 마을 사람들의 행동을 감시하고, 규칙을 어기면 벌을 주며, 양반이 주도하는 향촌 질서를 강화하는 <strong>통제의 도구</strong>이기도 했던 것입니다.</p>
+
+  <div class="highlight-box gold">
+    <strong>향약의 두 얼굴</strong><br>
+    향약은 <strong>공동체를 돕는 따뜻한 규약</strong>이면서도, 동시에 <strong>지방민을 유교 질서 속에 묶어 두는 장치</strong>였습니다. "함께 잘 살자"는 이상과 "질서를 지켜라"는 통제가 하나의 제도 안에 공존했던 셈입니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: 생활 관습의 변화 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">4</div>
+  <span class="section-emoji">🔄</span>
+  <h2>생활 관습의 변화</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <p>유교 윤리가 사회 전반에 퍼지면서, 조선 사람들의 <strong>생활 풍속 자체</strong>가 달라지기 시작했습니다. 성인이 되는 <strong>관례</strong>, 유교식 <strong>혼례</strong>, 매장을 중시한 <strong>상례</strong>, 효를 강조한 <strong>제례</strong>가 점차 정착하였습니다.</p>
+  <p>고려 시대에 널리 행해지던 <strong>불교식 화장(火葬) 풍습</strong>은 점차 줄어들고, 부모가 돌아가시면 <strong>3년상</strong>을 치르는 것이 중시되었습니다. 또한 고려 때 흔했던 <strong>처가살이</strong>(혼인 뒤 신랑이 신부 집에서 사는 풍습)도 점차 줄어들었습니다.</p>
+
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <div class="label">고려 시대</div>
+      <div class="name">불교 영향 강함</div>
+      <div class="desc">화장 풍습 보편적<br>처가살이 일반적<br>생활 풍속 상대적으로 유연</div>
+    </div>
+    <div class="compare-card red">
+      <div class="label">조선 시대</div>
+      <div class="name">성리학 질서 강화</div>
+      <div class="desc">매장 중시 · 3년상 확산<br>시집살이로 변화<br>관혼상제 유교화</div>
+    </div>
+  </div>
+
+  <p>이처럼 유교 윤리의 확산은 단순히 "좋은 것을 가르치는 것"에 그치지 않았습니다. 결혼하는 법, 장례를 치르는 법, 제사를 지내는 법까지 — <strong>조선 사람들의 삶의 방식 전체가 유교적으로 재편</strong>된 것입니다.</p>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+  <h4>💡 생각해 보기</h4>
+  <p>조선은 왜 '효(孝)'를 그토록 강조했을까요? 단순히 부모님께 잘하라는 도덕적 가르침이었을까요?</p>
+  <p>잘 생각해 보면, <strong>부모에게 효도하는 질서</strong>를 강조하면 <strong>임금에게 충성하는 질서</strong>도 함께 정당화되기 쉽습니다. 집안에서 아버지에게 순종하는 것이 당연해지면, 나라에서 왕에게 순종하는 것도 당연해지기 때문입니다.</p>
+  <p>그렇다면 유교 윤리 보급은 단순한 도덕 교육이 아니라, <strong>왕조 질서를 안정시키는 정치적 장치</strong>로도 볼 수 있지 않을까요?</p>
+</div>
+
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+  <h3>📚 한눈에 정리</h3>
+  <ul>
+    <li>조선은 <strong>『국조오례의』</strong>를 편찬하여 국가 행사를 유교 예법으로 정비하고, <strong>『삼강행실도』</strong>를 간행하여 백성에게 효·충·열의 유교 윤리를 보급하였다.</li>
+    <li><strong>『소학』, 『주자가례』, 향약</strong>의 확산은 유교 윤리를 궁궐과 관청을 넘어 <strong>가정과 마을의 생활 규범</strong>으로까지 확장시켰다.</li>
+    <li>이 과정은 도덕 교육이면서도, <strong>향촌 통제와 신분 질서 강화</strong>를 수반한 정치적 변화이기도 했다.</li>
+  </ul>
+</div>
+
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">💠</div>
+  <h2>심화 탐구</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  다음 탐구 질문에 대해 여러분의 생각을 자유롭게 서술해보세요. 답변 제출 후 키워드 분석과 모범 답안을 확인할 수 있습니다.
+</p>
+
+<div class="inquiry-card fade-up" id="inq1">
+  <h4>📌 탐구. 유교 윤리 확산은 "도덕 교육"인가, "통치 방식"인가?</h4>
+  <p class="question-text">조선이 유교 윤리를 퍼뜨린 것은 백성을 올바르게 가르치려는 순수한 교육이었을까요, 아니면 왕조 질서를 유지하기 위한 정치적 전략이었을까요? 근거를 들어 자신의 입장을 서술해 보세요.</p>
+  <textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+  <button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+  <div class="keyword-result">
+    <h5>🔍 키워드 분석 결과</h5>
+    <div class="keywords-tags">
+      <span>삼강행실도</span><span>소학</span><span>주자가례</span><span>향약</span><span>효</span><span>충</span><span>통제</span><span>교화</span><span>신분 질서</span>
+    </div>
+  </div>
+  <div class="model-answer">
+    <h5>✅ 모범 답안</h5>
+    <p>조선의 유교 윤리 보급은 <strong>도덕 교육과 통치 방식이라는 두 가지 성격을 동시에</strong> 가지고 있었다. 『삼강행실도』와 『소학』은 효·충·열이라는 올바른 덕목을 가르치는 교육적 목적이 분명했다. 하지만 '효'의 강조는 곧 '충'의 정당화로 이어졌고, 향약을 통한 마을 교화는 양반 중심의 향촌 통제와 맞물려 있었다.</p>
+    <p>따라서 유교 윤리의 확산은 <strong>순수한 도덕 교육만이 아니라, 유교적 신분 질서를 안정시키고 왕조 체제를 유지하기 위한 정치적 장치</strong>로도 볼 수 있다. 어느 한 면만으로 설명하기보다, 두 측면이 공존했음을 이해하는 것이 중요하다.</p>
+  </div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">📝</div>
+  <h2>형성평가</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  문제를 차례대로 풀어보세요!
+</p>
+
+<div class="quiz-container fade-up" id="quiz">
+  <div class="quiz-progress" id="quizProgress"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-question" data-correct="2" data-explain="『국조오례의』는 길례·가례·빈례·군례·흉례 등 국가와 왕실의 다섯 가지 주요 행사를 유교 예법에 따라 정리한 책입니다. 동국통감은 역사서, 경국대전은 법전, 동문선은 문학 선집입니다.">
+    <h4>Q1. 국가와 왕실의 행사를 유교 예법에 따라 정리한 책은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 동국통감</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 경국대전</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 국조오례의</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 동문선</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-question" data-correct="1" data-explain="『삼강행실도』는 효자·충신·열녀의 이야기를 그림과 함께 담아 백성에게 유교의 핵심 가치인 효·충·열을 교육하기 위해 만든 책입니다. 농업 기술, 군사 제도, 지방 행정과는 관련이 없습니다.">
+    <h4>Q2. 『삼강행실도』의 목적에 가장 가까운 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 농업 기술 보급</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 유교 윤리 교육</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 군사 제도 정비</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 지방 행정 개편</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-question" data-correct="2" data-explain="향약은 향촌 사회에서 유교 윤리를 실천하고 마을 질서를 유지하기 위한 자치 규약이었습니다. 상부상조와 교화를 내세웠지만, 실질적으로는 양반 주도의 향촌 통제 기능도 수행하였습니다.">
+    <h4>Q3. 향약에 대한 설명으로 가장 알맞은 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 외국과의 조약문이다</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 중앙군 훈련 규정이다</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 향촌 사회의 교화와 통제를 위한 규약이다</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 과거 시험 준비서이다</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quizResult">
+    <div class="score" id="quizScore">0/3</div>
+    <div class="score-label">맞힌 문제 수</div>
+    <button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏛️ 사림의 성장과 붕당 형성</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <span class="school">📚 문시중학교</span>
+  <span class="unit">사림의 성장과 붕당 형성</span>
+  <span class="page-ref">한국사 Ⅳ</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">🏛️</span>
+  <h1>사림의 성장과 붕당 형성</h1>
+  <p class="subtitle">조선 중기 정치를 움직인 사림은 어떻게 성장했고,<br>왜 서로 나뉘어 붕당을 이루게 되었을까?</p>
+  <div class="hero-keywords">
+    <span>사림</span><span>김종직</span><span>사화</span><span>서원</span><span>향약</span><span>이조 전랑</span><span>붕당</span>
+  </div>
+</header>
+
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+  <div class="diff-tab basic">🔹 기초</div>
+  <div class="diff-tab standard">🔸 기본</div>
+  <div class="diff-tab advanced">💠 심화</div>
+</div>
+
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+  <div class="cq-card">
+    <h3>❓ 오늘의 핵심 질문</h3>
+    <ul class="cq-list">
+      <li><span class="cq-badge basic">기초</span> 사림은 어떤 배경에서 성장하였을까?</li>
+      <li><span class="cq-badge standard">표준</span> 사림은 왜 여러 차례 사화를 겪고도 다시 성장할 수 있었을까?</li>
+      <li><span class="cq-badge advanced">심화</span> 붕당 형성은 건전한 정치 경쟁이었을까, 분열의 시작이었을까?</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+  <h3>📅 흐름 한눈에 보기</h3>
+  <div class="tl-track">
+    <div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">성종 때 사림 진출</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">4대 사화 발생</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">지방에서 재성장</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">서원·향약 기반 확대</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">선조 때 중앙 장악</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">동인·서인 분화</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 1: 사림의 등장 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">1</div>
+  <span class="section-emoji">📜</span>
+  <h2>사림의 등장 — 지방에서 온 새로운 정치 세력</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 훈구와 사림, 무엇이 달랐을까?</h4>
+  <p>조선 건국 이후 약 100년간, 정치의 중심에는 <strong>훈구 세력</strong>이 있었습니다. 이들은 조선 건국과 세조의 왕위 찬탈에 공을 세우고, 그 대가로 막대한 권력과 토지를 차지한 관료 집단이었습니다. 시간이 흐르면서 훈구 세력은 점점 부패해갔고, 권력을 독점하며 정치를 사유화하기 시작했습니다.</p>
+  <p>한편, 지방에서는 이들과 전혀 다른 길을 걸어온 학자들이 있었습니다. 조선 건국에 직접 참여하지 않고, <strong>향촌에 머물며 성리학을 깊이 연구하던 사대부</strong> 계열 — 이들을 <strong>'사림(士林)'</strong>이라 부릅니다. 사림은 훈구와 달리 <strong>왕도 정치(임금이 도덕으로 다스리는 정치)</strong>와 <strong>향촌 자치</strong>를 이상으로 삼았습니다.</p>
+
+  <div class="highlight-box">
+    <strong>성종</strong>은 훈구 세력의 독주를 견제할 필요를 느꼈습니다. 그래서 지방에서 학문적 명성이 높은 <strong>김종직</strong>을 비롯한 사림 인사들을 3사(사헌부·사간원·홍문관)의 언론직에 등용하였습니다. 이것이 <strong>사림이 중앙 정치에 본격 진출하는 결정적 계기</strong>가 되었습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: 사화 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">2</div>
+  <span class="section-emoji">🔥</span>
+  <h2>사화 — 성장의 대가</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>🔍 사림은 왜 거듭 화를 당했을까?</h4>
+  <p>중앙 정계에 진출한 사림은 3사의 언론직을 기반으로 <strong>훈구 세력의 비리와 권력 독점을 날카롭게 비판</strong>하였습니다. "대의(大義)를 세우고 도덕 정치를 실현해야 한다" — 이것이 사림의 기치였습니다. 하지만 기득권을 뺏길 위기에 놓인 훈구 세력이 순순히 물러날 리 없었죠.</p>
+  <p>결국 사림은 네 차례에 걸쳐 큰 화를 입게 됩니다. <strong>무오사화(1498)</strong>, <strong>갑자사화(1504)</strong>, <strong>기묘사화(1519)</strong>, <strong>을사사화(1545)</strong> — 이 네 번의 사건을 합쳐 <strong>'4대 사화(士禍)'</strong>라고 부릅니다.</p>
+
+  <div class="highlight-box gold">
+    <strong>특히 주목할 인물 — 조광조</strong><br>
+    기묘사화의 중심에 있던 <strong>조광조</strong>는 사림의 이상을 가장 적극적으로 실천하려 한 개혁가였습니다. 그는 <strong>현량과</strong>(학덕이 뛰어난 인물을 추천으로 등용하는 제도) 실시, <strong>소격서 폐지</strong>(도교식 제사 기관 폐지), <strong>위훈 삭제</strong>(부당하게 받은 훈구의 공훈 취소) 등 파격적인 개혁을 추진했습니다. 하지만 기득권이 흔들린 훈구 세력의 반격으로 결국 제거당하고 말았습니다.
+  </div>
+
+  <p>사화는 단순한 사건의 나열이 아닙니다. <strong>새로운 정치 세력(사림)과 기존 권력(훈구) 사이의 치열한 충돌</strong> — 그것이 사화의 본질이었습니다.</p>
+</div>
+
+<!-- ═══ SECTION 3: 서원과 향약 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">3</div>
+  <span class="section-emoji">🏫</span>
+  <h2>서원과 향약 — 지방에서 다시 힘을 키우다</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 네 번이나 무너졌는데 어떻게 다시 일어섰을까?</h4>
+  <p>여기서 놀라운 점이 있습니다. 사림은 <strong>네 번의 사화</strong>를 겪으며 주요 인물들이 죽거나 유배를 당했는데, <strong>어떻게 사라지지 않고 오히려 더 강해질 수 있었을까요?</strong></p>
+  <p>비밀은 <strong>지방</strong>에 있었습니다. 중앙에서 밀려난 사림은 고향으로 돌아갔지만, 그대로 주저앉지 않았습니다. 이들은 <strong>서원(書院)</strong>을 세워 학문을 연구하고 제자를 길렀습니다. 서원은 단순한 학교가 아니라, <strong>선현을 제사 지내고 학문적 전통을 잇는 사림의 정신적 거점</strong>이었습니다.</p>
+  <p>또한 <strong>향약(鄕約)</strong>을 보급하여 마을의 도덕 교화와 자치를 이끌었습니다. 향약은 마을 사람들의 일상에 깊이 스며들었기에, 사림은 자연스럽게 <strong>향촌 여론의 주도자</strong>가 될 수 있었습니다.</p>
+
+  <div class="highlight-box teal">
+    <strong>핵심 포인트</strong><br>
+    서원은 <strong>학문적 기반</strong>을, 향약은 <strong>사회적 기반</strong>을 제공했습니다. 이 두 축 덕분에 사림은 지방에서 제자 양성과 여론 형성이라는 무기를 갖추었고, 시간이 흐르면서 중앙 정계에 다시 진출할 수 있는 <strong>인적·사회적 자원</strong>을 축적하게 됩니다. 즉, <strong>사림의 진짜 성장은 중앙 정계가 아니라 향촌 사회에서 이루어진 것</strong>입니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: 붕당의 형성 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">4</div>
+  <span class="section-emoji">⚡</span>
+  <h2>붕당의 형성 — 하나였던 사림이 갈라지다</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 드디어 중앙 정치의 주인이 된 사림, 그런데…</h4>
+  <p><strong>선조</strong> 때에 이르러, 훈구 세력은 거의 몰락하고 <strong>사림이 드디어 중앙 정치를 주도</strong>하게 됩니다. 그런데 뜻밖의 문제가 생겼습니다. 공동의 적이었던 훈구가 사라지자, 이번에는 <strong>사림 내부에서 의견 차이</strong>가 표면화되기 시작한 것입니다.</p>
+  <p>갈등이 터진 대표적 계기는 <strong>이조 전랑 임명 문제</strong>였습니다. 이조 전랑은 직급은 낮지만 <strong>관리 인사에 큰 영향력</strong>을 행사하는 자리여서, 누구를 이 자리에 앉히느냐를 두고 치열한 대립이 벌어졌습니다.</p>
+
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <div class="label">동인(東人)</div>
+      <div class="name">이황 학통 중심</div>
+      <div class="desc">주로 영남 지역 출신<br>이후 남인·북인으로 다시 분화</div>
+    </div>
+    <div class="compare-card red">
+      <div class="label">서인(西人)</div>
+      <div class="name">이이 학통 중심</div>
+      <div class="desc">주로 기호 지역 출신<br>이후 노론·소론으로 다시 분화</div>
+    </div>
+  </div>
+
+  <p>결국 사림은 <strong>동인</strong>과 <strong>서인</strong>으로 나뉘었고, 이후 동인은 다시 <strong>남인·북인</strong>으로, 서인은 훗날 <strong>노론·소론</strong>으로 분화합니다. 이것이 바로 조선 중·후기 정치를 이끈 <strong>붕당 정치</strong>의 시작입니다.</p>
+
+  <div class="highlight-box">
+    <strong>기억할 것</strong><br>
+    붕당은 단순히 감정적으로 사이가 나빠져서 갈라진 것이 아닙니다. <strong>학문적 계통(이황 vs 이이)</strong>과 <strong>정치 노선의 차이</strong>가 결합되어 형성된 <strong>정치 집단</strong>이었습니다. 이들은 서로 견제하고 비판하면서 정치를 운영했는데, 이것이 잘 작동할 때는 건전한 경쟁이 되었고, 극단으로 치달으면 정쟁(政爭)이 되었습니다.
+  </div>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+  <h4>💡 생각해 보기</h4>
+  <p>사림은 처음에 도덕 정치를 내세우며 훈구의 부패를 비판했습니다. "임금은 덕으로 다스리고, 신하는 의리로 보좌해야 한다" — 이것이 사림의 이상이었죠.</p>
+  <p>그러나 시간이 지나자 사림 내부에서도 학통과 정치 노선에 따라 분열이 일어났습니다. 결국 도덕 정치를 외치던 세력 안에서도 권력을 둘러싼 갈등은 피할 수 없었던 것입니다.</p>
+  <p>그렇다면 사림 정치는 <strong>'이상 정치의 실현'</strong>이었을까요, 아니면 <strong>'훈구를 대체한 새 권력 집단의 등장'</strong>에 불과했을까요?</p>
+</div>
+
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+  <h3>📚 한눈에 정리</h3>
+  <ul>
+    <li><strong>사림</strong>은 성종 때 중앙 정치에 진출했으나, 훈구와 충돌하며 <strong>4대 사화</strong>(무오·갑자·기묘·을사)를 겪어 큰 피해를 입었다.</li>
+    <li>그러나 사림은 지방에서 <strong>서원</strong>(학문·제자 양성)과 <strong>향약</strong>(향촌 교화·자치)을 기반으로 힘을 키워 다시 중앙 정치를 주도하게 되었다.</li>
+    <li>선조 때 사림이 중앙 정치를 장악한 뒤, <strong>이조 전랑 임명 문제</strong>를 계기로 <strong>동인과 서인</strong>으로 나뉘며 <strong>붕당 정치</strong>가 시작되었다.</li>
+    <li>붕당은 단순한 감정 싸움이 아니라, <strong>학문 계통과 정치 노선이 결합된 정치 집단</strong>이었다.</li>
+  </ul>
+</div>
+
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">💠</div>
+  <h2>심화 탐구</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  다음 탐구 질문에 대해 여러분의 생각을 자유롭게 서술해보세요. 답변 제출 후 키워드 분석과 모범 답안을 확인할 수 있습니다.
+</p>
+
+<div class="inquiry-card fade-up" id="inq1">
+  <h4>📌 탐구. 붕당 형성은 "건전한 경쟁"인가, "분열의 시작"인가?</h4>
+  <p class="question-text">사림이 동인과 서인으로 나뉜 것을 정치적 의견이 다른 집단 간의 건전한 경쟁으로 볼 수 있을까요, 아니면 갈등과 분열의 시작이었을까요? 근거를 들어 자신의 입장을 서술해 보세요.</p>
+  <textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+  <button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+  <div class="keyword-result">
+    <h5>🔍 키워드 분석 결과</h5>
+    <div class="keywords-tags">
+      <span>붕당</span><span>동인</span><span>서인</span><span>이조 전랑</span><span>견제</span><span>경쟁</span><span>분열</span><span>학통</span><span>정치 노선</span>
+    </div>
+  </div>
+  <div class="model-answer">
+    <h5>✅ 모범 답안</h5>
+    <p>붕당 형성은 <strong>"건전한 경쟁"과 "분열의 위험"이라는 두 측면을 모두</strong> 가지고 있었다. 붕당은 학문적 계통과 정치 노선이 다른 집단이 서로 견제하며 정치를 운영하는 구조였으므로, <strong>한쪽이 권력을 독점하지 못하게 막는 긍정적 기능</strong>이 있었다. 이는 훈구 세력 시절의 권력 독점보다 발전된 형태라고 볼 수 있다.</p>
+    <p>그러나 시간이 지나면서 정책 논쟁보다 <strong>권력 다툼이 중심</strong>이 되고, 상대 붕당을 배제하는 방향으로 흘러갈 위험도 있었다. 실제로 이후 <strong>예송 논쟁이나 환국</strong>에서 보듯, 붕당 정치는 점차 극단적 대립으로 치달았다. 따라서 붕당은 <strong>원래 의도는 건전한 경쟁이었지만, 운영 방식에 따라 분열로도 이어질 수 있는 양면적 제도</strong>였다고 평가할 수 있다.</p>
+  </div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">📝</div>
+  <h2>형성평가</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  문제를 차례대로 풀어보세요!
+</p>
+
+<div class="quiz-container fade-up" id="quiz">
+  <div class="quiz-progress" id="quizProgress"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-question" data-correct="1" data-explain="성종은 훈구 세력의 독주를 견제하기 위해 김종직을 비롯한 사림을 3사의 언론직에 등용하였습니다. 이것이 사림이 중앙 정치에 본격 진출한 시작점입니다. 태조는 건국기, 광해군과 숙종은 사림이 이미 중앙을 장악한 뒤의 시기입니다.">
+    <h4>Q1. 사림이 중앙 정치에 처음 본격 진출한 시기로 알맞은 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 태조</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 성종</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 광해군</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 숙종</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-question" data-correct="1" data-explain="사화로 중앙에서 밀려난 사림은 지방에서 서원을 세워 학문과 후학을 키우고, 향약으로 향촌 사회를 주도하였습니다. 이 두 기반이 사림 재성장의 핵심이었습니다. 훈련도감·비변사는 군사 기구, 균역법·대동법은 조선 후기 세금 제도, 5군영·속오군은 군제입니다.">
+    <h4>Q2. 사림이 지방에서 다시 성장할 수 있었던 기반으로 알맞은 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 훈련도감과 비변사</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 서원과 향약</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 균역법과 대동법</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 5군영과 속오군</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-question" data-correct="1" data-explain="선조 때 사림이 중앙 정치를 주도하게 된 이후, 이조 전랑 임명을 둘러싼 갈등이 격화되면서 사림은 동인과 서인으로 나뉘게 되었습니다. 이조 전랑은 직급은 낮지만 관리 인사에 큰 영향력을 가진 자리였습니다.">
+    <h4>Q3. 동인과 서인의 분화 계기로 자주 언급되는 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 왕위 계승 문제</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 이조 전랑 임명 문제</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 대동법 시행 문제</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 왜란 이후 포로 송환 문제</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quizResult">
+    <div class="score" id="quizScore">0/3</div>
+    <div class="score-label">맞힌 문제 수</div>
+    <button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

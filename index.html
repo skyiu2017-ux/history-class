@@ -60,7 +60,7 @@ const CONFIG = {
       desc: '임진왜란의 전개 과정과 의병·수군의 활약을 정리합니다.',
       links: [
         { icon: '📄', text: '학습지', url: '#' },
-        { icon: '🖥️', text: '왜란과 호란 수업 페이지', url: 'korean/joseon-wars/wars.html' },
+        { icon: '🖥️', text: '임진왜란 수업 페이지', url: 'korean/joseon-middle/06. joseon_imjin-war.html' },
         { icon: '✅', text: '복습 퀴즈', url: 'review/quiz.html' }
       ]},
     { badge: '중2', color: '#7C3AED', title: '고려의 성립과 발전',
@@ -97,43 +97,73 @@ const CONFIG = {
     { era: '조선 전기', units: [
       { name: '조선의 성립과 발전', subunits: [
         { name: '조선의 건국과 통치 체제', pages: [
-          { name: '조선의 건국', url: 'korean/joseon-early/founding.html' },
-          { name: '조선의 통치 체제', url: 'korean/joseon-early/governance.html' }
+          { name: '조선 건국과 한양 천도', url: 'korean/joseon-early/01. joseon_foundation.html' },
+          { name: '유교 통치 체제와 사대교린', url: 'korean/joseon-early/02. joseon_confucian-governance.html' }
         ]},
-        { name: '조선의 문화와 생활', pages: [
-          { name: '조선의 문화', url: 'korean/joseon-early/culture.html' },
-          { name: '조선의 생활과 문화', url: 'korean/joseon-early/life-culture.html' }
+        { name: '유교 문화와 과학 기술', pages: [
+          { name: '유교 윤리 보급과 사회 변화', url: 'korean/joseon-early/03. joseon_confucian-ethics-society.html' },
+          { name: '훈민정음 창제와 과학 기술의 발달', url: 'korean/joseon-early/05. joseon_hunminjeongeum-science.html' }
         ]}
       ]}
     ]},
     { era: '조선 중기 — 전쟁과 위기', units: [
-      { name: '조선의 성립과 발전', subunits: [
-        { name: '임진왜란과 병자호란', pages: [
-          { name: '왜란과 호란', url: 'korean/joseon-wars/wars.html' }
+      { name: '정치 변동과 대외 전쟁', subunits: [
+        { name: '사림과 붕당 정치', pages: [
+          { name: '사림의 성장과 붕당 형성', url: 'korean/joseon-middle/04. joseon_sarim-bungdang.html' }
+        ]},
+        { name: '임진왜란과 극복', pages: [
+          { name: '임진왜란의 발발과 극복', url: 'korean/joseon-middle/06. joseon_imjin-war.html' }
         ]}
       ]}
     ]},
     { era: '조선 후기', units: [
       { name: '조선 사회의 변동', subunits: [
-        { name: '정치 변동과 세도 정치', pages: [
-          { name: '조선 역사 흐름도', url: 'korean/joseon-late/politics-flow.html' }
+        { name: '전후 복구와 호란', pages: [
+          { name: '전후 복구와 광해군의 중립 외교', url: 'korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html' },
+          { name: '정묘호란·병자호란과 국제 질서의 변화', url: 'korean/joseon-late/08. joseon_horan-intl-order.html' }
         ]},
-        { name: '새로운 학문과 문화의 변화', pages: [
-          { name: '실학과 문화', url: 'korean/joseon-late/silhak-culture.html' }
+        { name: '제도 개편과 정치 변동', pages: [
+          { name: '양 난 이후 국가를 재건하다', url: 'korean/joseon-late/09. joseon_postwar_rebuild_edited.html' },
+          { name: '영조·정조의 탕평 정치와 세도 정치', url: 'korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html' }
         ]},
-        { name: '사회 변화와 농민의 봉기', pages: [
-          { name: '경제 변화', url: 'korean/joseon-late/economy.html' },
-          { name: '사회 변동과 농민 봉기', url: 'korean/joseon-late/social-uprising.html' }
+        { name: '사회 변화와 농민 봉기', pages: [
+          { name: '향촌 사회가 흔들리다', url: 'korean/joseon-late/11. joseon_hyangchon_change.html' },
+          { name: '삼정의 문란과 농민의 의식 성장', url: 'korean/joseon-late/12. joseon_samjeong_farmers.html' }
+        ]},
+        { name: '학문과 문화의 새 경향', pages: [
+          { name: '새로운 학문적 경향이 나타나다', url: 'korean/joseon-late/13. joseon_silhak_gukhak.html' },
+          { name: '동아시아, 문화를 교류하다', url: 'korean/joseon-late/14. joseon_eastasia_culture.html' },
+          { name: '생활과 문화의 새로운 양상', url: 'korean/joseon-late/15. joseon_life_culture.html' }
         ]}
       ]}
     ]},
     { era: '근·현대', units: [
       { name: '근·현대 사회의 전개', subunits: [
         { name: '개항과 근대 국가 수립 운동', pages: [
-          { name: '근현대사 개관', url: 'korean/modern/overview.html' }
+          { name: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html' },
+          { name: '국민 국가 수립을 위한 노력', url: 'korean/modern/17. korean_national_state.html' }
         ]},
-        { name: '분단과 평화 통일', pages: [
-          { name: '평화 통일', url: 'korean/modern/unification.html' }
+        { name: '일제 강점과 민족 운동', pages: [
+          { name: '일제에 맞선 민족 운동', url: 'korean/contemporary/18. anti_japanese_movements.html' },
+          { name: '독립 노력과 대한민국 정부 수립', url: 'korean/contemporary/19. independence_to_government.html' }
+        ]},
+        { name: '경제의 변화', pages: [
+          { name: '식민지 경제 체제로 재편되다', url: 'korean/contemporary/20. colonial-economy.html' },
+          { name: '국가 주도의 경제 성장', url: 'korean/contemporary/21. growth-economy.html' },
+          { name: '신자유주의 경제 정책과 노동 운동', url: 'korean/contemporary/22. neoliberalism-labor.html' }
+        ]},
+        { name: '민주주의의 발전', pages: [
+          { name: '제헌 헌법과 민주주의 지향', url: 'korean/contemporary/24. constitutional-democracy.html' },
+          { name: '4·19 혁명', url: 'korean/contemporary/25. april-revolution.html' },
+          { name: '민주주의, 시련을 겪다', url: 'korean/contemporary/26. dictatorship-and-resistance.html' },
+          { name: '6월 민주 항쟁', url: 'korean/contemporary/27. june-democracy.html' }
+        ]},
+        { name: '사회·문화의 변화', pages: [
+          { name: '대중문화가 발전하다', url: 'korean/contemporary/23. pop-culture.html' }
+        ]},
+        { name: '분단과 통일', pages: [
+          { name: '6·25 전쟁과 분단 고착', url: 'korean/contemporary/28. korean-war-division.html' },
+          { name: '평화 통일을 위한 노력', url: 'korean/contemporary/29. peaceful-unification.html' }
         ]}
       ]}
     ]}
@@ -510,35 +540,35 @@ setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getCompute
 
 /* ── 전체 검색 기능 ── */
 const SEARCH_DATA = [
-  { title: "🏯 조선 건국과 한양 천도", url: "01. joseon_foundation.html", keywords: ["조선건국", "이성계", "정도전", "위화도회군", "과전법", "한양천도", "경복궁", "신진사대부"] },
-  { title: "🏛️ 유교 통치 체제와 사대교린", url: "02. joseon_confucian-governance.html", keywords: ["경국대전", "의정부", "6조", "3사", "사헌부", "사간원", "홍문관", "8도", "관찰사", "사대교린"] },
-  { title: "📜 유교 윤리 보급과 사회 변화", url: "03. joseon_confucian-ethics-society.html", keywords: ["유교윤리", "성리학", "삼강행실도", "국조오례의", "양천제", "반상제", "향교", "성균관", "서당"] },
-  { title: "🏛️ 사림의 성장과 붕당 형성", url: "04. joseon_sarim-bungdang.html", keywords: ["훈구", "사림", "사화", "무오사화", "갑자사화", "기묘사화", "조광조", "서원", "향약", "붕당", "동인", "서인"] },
-  { title: "📖 훈민정음 창제와 과학 기술의 발달", url: "05. joseon_hunminjeongeum-science.html", keywords: ["세종", "훈민정음", "측우기", "자격루", "앙부일구", "칠정산", "농사직설", "향약집성방", "혼천의", "과학기술"] },
-  { title: "⚔️ 임진왜란의 발발과 극복", url: "06. joseon_imjin-war.html", keywords: ["임진왜란", "1592년", "이순신", "한산도대첩", "수군", "의병", "곽재우", "권율", "행주대첩", "조명연합군"] },
-  { title: "🔥 전후 복구와 광해군의 중립 외교", url: "07. joseon_gwanghaegun-diplomacy.html", keywords: ["광해군", "중립외교", "명나라", "후금", "강홍립", "대동법", "동의보감", "전후복구", "인조반정"] },
-  { title: "🏔️ 정묘호란·병자호란과 국제 질서의 변화", url: "08. joseon_horan-intl-order.html", keywords: ["인조", "친명배금", "정묘호란", "병자호란", "남한산성", "삼전도의굴욕", "청나라", "북벌운동", "효종"] },
-  { title: "🏗️ 양 난 이후 국가를 재건하다", url: "09. joseon_postwar_rebuild_edited.html", keywords: ["비변사", "훈련도감", "5군영", "속오군", "영정법", "대동법", "균역법", "수취체제", "광해군", "영조"] },
-  { title: "👑 영조·정조의 탕평 정치와 세도 정치", url: "10. joseon_tangpyeong_sedo_edited.html", keywords: ["조선후기", "영조", "정조", "탕평정치", "탕평책", "규장각", "수원화성", "세도정치", "붕당정치", "비변사"] },
-  { title: "🏘️ 향촌 사회가 흔들리다", url: "11. joseon_hyangchon_change.html", keywords: ["조선후기", "신분제동요", "양반층분화", "향전", "신향", "구향", "수령", "향리", "농민봉기", "향촌사회"] },
-  { title: "🔥 삼정의 문란과 농민의 의식 성장", url: "12. joseon_samjeong_farmers.html", keywords: ["조선후기", "삼정의문란", "전정", "군정", "환곡", "홍경래의난", "임술농민봉기", "진주농민봉기", "동학", "최제우"] },
-  { title: "📚 새로운 학문적 경향이 나타나다", url: "13. joseon_silhak_gukhak.html", keywords: ["조선후기", "실학", "중농학파", "중상학파", "정약용", "박지원", "박제가", "유수원", "국학", "대동여지도"] },
-  { title: "🌏 동아시아, 문화를 교류하다", url: "14. joseon_eastasia_culture.html", keywords: ["조선후기", "동아시아", "문화교류", "조선통신사", "연행사", "서양문물", "곤여만국전도", "자명종", "천주교", "서학"] },
-  { title: "🎭 생활과 문화의 새로운 양상", url: "15. joseon_life_culture.html", keywords: ["조선후기", "서민문화", "풍속화", "김홍도", "신윤복", "판소리", "탈춤", "민화", "한글소설", "홍길동전", "춘향전"] },
-  { title: "⚓ 문호를 개방하고 개화 정책을 펼치다", url: "16. joseon_opening_modernization.html", keywords: ["흥선대원군", "강화도조약", "운요호사건", "개항", "불평등조약", "개화정책", "위정척사운동", "임오군란", "갑신정변", "조미수호통상조약"] },
-  { title: "🇰🇷 국민 국가를 수립하기 위해 노력하다", url: "17. korean_national_state.html", keywords: ["동학농민운동", "전봉준", "갑오개혁", "을미사변", "독립협회", "만민공동회", "관민공동회", "대한제국", "광무개혁", "구본신참"] },
-  { title: "✊ 일제에 맞서 민족 운동을 전개하다", url: "18. anti_japanese_movements.html", keywords: ["일제강점기", "항일의병운동", "을사의병", "정미의병", "애국계몽운동", "신민회", "국채보상운동", "안중근", "항일운동", "민족운동"] },
-  { title: "🕊️ 독립을 위한 노력과 대한민국 정부 수립", url: "19. independence_to_government.html", keywords: ["3.1운동", "대한민국임시정부", "무장독립투쟁", "의열단", "한인애국단", "한국광복군", "8.15광복", "모스크바3국외상회의", "5.10총선거", "대한민국정부수립"] },
-  { title: "🏭 식민지 경제 체제로 재편되다", url: "20. colonial-economy.html", keywords: ["일제강점기", "식민지", "경제수탈", "토지조사사업", "산미증식계획", "병참기지화", "국가총동원법", "공출", "징용", "징병", "위안부"] },
-  { title: "📈 국가 주도의 경제 성장이 이루어지다", url: "21. growth-economy.html", keywords: ["경제성장", "경제개발5개년계획", "박정희", "한강의기적", "수출주도형", "경부고속국도", "새마을운동", "중화학공업", "1960년대", "1970년대"] },
-  { title: "⚖️ 신자유주의 경제 정책과 노동 운동", url: "22. neoliberalism-labor.html", keywords: ["신자유주의", "IMF", "외환위기", "1997년", "금모으기운동", "비정규직", "노동운동", "전태일", "민주노총", "시장개방", "세계화"] },
-  { title: "🎶 대중문화가 발전하다", url: "23. pop-culture.html", keywords: ["대중문화", "한류", "K-pop", "케이팝", "대중매체", "라디오", "텔레비전", "TV", "청년문화", "1970년대", "1990년대", "영화", "프로스포츠"] },
-  { title: "📜 제헌 헌법과 민주주의 지향", url: "24. constitutional-democracy.html", keywords: ["제헌헌법", "제헌국회", "5.10총선거", "510총선거", "이승만", "제1공화국", "반민특위", "친일파", "농지개혁", "1948년", "대한민국정부수립"] },
-  { title: "✊ 4·19 혁명, 민주주의의 씨를 뿌리다", url: "25. april-revolution.html", keywords: ["4.19혁명", "419", "3.15부정선거", "315", "김주열", "마산의거", "이승만하야", "내각책임제", "장면내각", "제2공화국", "민주주의"] },
-  { title: "🔥 민주주의, 시련을 겪다", url: "26. dictatorship-and-resistance.html", keywords: ["독재", "5.16군사정변", "박정희", "유신헌법", "유신체제", "부마항쟁", "신군부", "전두환", "5.18민주화운동", "518", "광주", "계엄령"] },
-  { title: "🌸 6월 민주 항쟁, 민주주의를 꽃피우다", url: "27. june-democracy.html", keywords: ["6월민주항쟁", "6월항쟁", "1987년", "박종철", "이한열", "고문치사사건", "4.13호헌조치", "호헌철폐", "6.29민주화선언", "629선언", "대통령직선제", "전두환"] },
-  { title: "⚔️ 6·25 전쟁과 분단 고착", url: "28. korean-war-division.html", keywords: ["6.25전쟁", "625", "1950년", "북한남침", "인천상륙작전", "맥아더", "1.4후퇴", "중국군개입", "휴전협정", "판문점", "분단", "이산가족", "냉전"] },
-  { title: "🕊️ 평화 통일을 위해 노력하다", url: "29. peaceful-unification.html", keywords: ["평화통일", "7.4남북공동성명", "74남북공동성명", "남북기본합의서", "6.15남북공동선언", "615", "햇볕정책", "김대중", "남북정상회담", "개성공단", "이산가족상봉"] }
+  { title: "🏯 조선 건국과 한양 천도", url: "korean/joseon-early/01. joseon_foundation.html", keywords: ["조선건국", "이성계", "정도전", "위화도회군", "과전법", "한양천도", "경복궁", "신진사대부"] },
+  { title: "🏛️ 유교 통치 체제와 사대교린", url: "korean/joseon-early/02. joseon_confucian-governance.html", keywords: ["경국대전", "의정부", "6조", "3사", "사헌부", "사간원", "홍문관", "8도", "관찰사", "사대교린"] },
+  { title: "📜 유교 윤리 보급과 사회 변화", url: "korean/joseon-early/03. joseon_confucian-ethics-society.html", keywords: ["유교윤리", "성리학", "삼강행실도", "국조오례의", "양천제", "반상제", "향교", "성균관", "서당"] },
+  { title: "🏛️ 사림의 성장과 붕당 형성", url: "korean/joseon-middle/04. joseon_sarim-bungdang.html", keywords: ["훈구", "사림", "사화", "무오사화", "갑자사화", "기묘사화", "조광조", "서원", "향약", "붕당", "동인", "서인"] },
+  { title: "📖 훈민정음 창제와 과학 기술의 발달", url: "korean/joseon-early/05. joseon_hunminjeongeum-science.html", keywords: ["세종", "훈민정음", "측우기", "자격루", "앙부일구", "칠정산", "농사직설", "향약집성방", "혼천의", "과학기술"] },
+  { title: "⚔️ 임진왜란의 발발과 극복", url: "korean/joseon-middle/06. joseon_imjin-war.html", keywords: ["임진왜란", "1592년", "이순신", "한산도대첩", "수군", "의병", "곽재우", "권율", "행주대첩", "조명연합군"] },
+  { title: "🔥 전후 복구와 광해군의 중립 외교", url: "korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html", keywords: ["광해군", "중립외교", "명나라", "후금", "강홍립", "대동법", "동의보감", "전후복구", "인조반정"] },
+  { title: "🏔️ 정묘호란·병자호란과 국제 질서의 변화", url: "korean/joseon-late/08. joseon_horan-intl-order.html", keywords: ["인조", "친명배금", "정묘호란", "병자호란", "남한산성", "삼전도의굴욕", "청나라", "북벌운동", "효종"] },
+  { title: "🏗️ 양 난 이후 국가를 재건하다", url: "korean/joseon-late/09. joseon_postwar_rebuild_edited.html", keywords: ["비변사", "훈련도감", "5군영", "속오군", "영정법", "대동법", "균역법", "수취체제", "광해군", "영조"] },
+  { title: "👑 영조·정조의 탕평 정치와 세도 정치", url: "korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html", keywords: ["조선후기", "영조", "정조", "탕평정치", "탕평책", "규장각", "수원화성", "세도정치", "붕당정치", "비변사"] },
+  { title: "🏘️ 향촌 사회가 흔들리다", url: "korean/joseon-late/11. joseon_hyangchon_change.html", keywords: ["조선후기", "신분제동요", "양반층분화", "향전", "신향", "구향", "수령", "향리", "농민봉기", "향촌사회"] },
+  { title: "🔥 삼정의 문란과 농민의 의식 성장", url: "korean/joseon-late/12. joseon_samjeong_farmers.html", keywords: ["조선후기", "삼정의문란", "전정", "군정", "환곡", "홍경래의난", "임술농민봉기", "진주농민봉기", "동학", "최제우"] },
+  { title: "📚 새로운 학문적 경향이 나타나다", url: "korean/joseon-late/13. joseon_silhak_gukhak.html", keywords: ["조선후기", "실학", "중농학파", "중상학파", "정약용", "박지원", "박제가", "유수원", "국학", "대동여지도"] },
+  { title: "🌏 동아시아, 문화를 교류하다", url: "korean/joseon-late/14. joseon_eastasia_culture.html", keywords: ["조선후기", "동아시아", "문화교류", "조선통신사", "연행사", "서양문물", "곤여만국전도", "자명종", "천주교", "서학"] },
+  { title: "🎭 생활과 문화의 새로운 양상", url: "korean/joseon-late/15. joseon_life_culture.html", keywords: ["조선후기", "서민문화", "풍속화", "김홍도", "신윤복", "판소리", "탈춤", "민화", "한글소설", "홍길동전", "춘향전"] },
+  { title: "⚓ 문호를 개방하고 개화 정책을 펼치다", url: "korean/modern/16. joseon_opening_modernization.html", keywords: ["흥선대원군", "강화도조약", "운요호사건", "개항", "불평등조약", "개화정책", "위정척사운동", "임오군란", "갑신정변", "조미수호통상조약"] },
+  { title: "🇰🇷 국민 국가를 수립하기 위해 노력하다", url: "korean/modern/17. korean_national_state.html", keywords: ["동학농민운동", "전봉준", "갑오개혁", "을미사변", "독립협회", "만민공동회", "관민공동회", "대한제국", "광무개혁", "구본신참"] },
+  { title: "✊ 일제에 맞서 민족 운동을 전개하다", url: "korean/contemporary/18. anti_japanese_movements.html", keywords: ["일제강점기", "항일의병운동", "을사의병", "정미의병", "애국계몽운동", "신민회", "국채보상운동", "안중근", "항일운동", "민족운동"] },
+  { title: "🕊️ 독립을 위한 노력과 대한민국 정부 수립", url: "korean/contemporary/19. independence_to_government.html", keywords: ["3.1운동", "대한민국임시정부", "무장독립투쟁", "의열단", "한인애국단", "한국광복군", "8.15광복", "모스크바3국외상회의", "5.10총선거", "대한민국정부수립"] },
+  { title: "🏭 식민지 경제 체제로 재편되다", url: "korean/contemporary/20. colonial-economy.html", keywords: ["일제강점기", "식민지", "경제수탈", "토지조사사업", "산미증식계획", "병참기지화", "국가총동원법", "공출", "징용", "징병", "위안부"] },
+  { title: "📈 국가 주도의 경제 성장이 이루어지다", url: "korean/contemporary/21. growth-economy.html", keywords: ["경제성장", "경제개발5개년계획", "박정희", "한강의기적", "수출주도형", "경부고속국도", "새마을운동", "중화학공업", "1960년대", "1970년대"] },
+  { title: "⚖️ 신자유주의 경제 정책과 노동 운동", url: "korean/contemporary/22. neoliberalism-labor.html", keywords: ["신자유주의", "IMF", "외환위기", "1997년", "금모으기운동", "비정규직", "노동운동", "전태일", "민주노총", "시장개방", "세계화"] },
+  { title: "🎶 대중문화가 발전하다", url: "korean/contemporary/23. pop-culture.html", keywords: ["대중문화", "한류", "K-pop", "케이팝", "대중매체", "라디오", "텔레비전", "TV", "청년문화", "1970년대", "1990년대", "영화", "프로스포츠"] },
+  { title: "📜 제헌 헌법과 민주주의 지향", url: "korean/contemporary/24. constitutional-democracy.html", keywords: ["제헌헌법", "제헌국회", "5.10총선거", "510총선거", "이승만", "제1공화국", "반민특위", "친일파", "농지개혁", "1948년", "대한민국정부수립"] },
+  { title: "✊ 4·19 혁명, 민주주의의 씨를 뿌리다", url: "korean/contemporary/25. april-revolution.html", keywords: ["4.19혁명", "419", "3.15부정선거", "315", "김주열", "마산의거", "이승만하야", "내각책임제", "장면내각", "제2공화국", "민주주의"] },
+  { title: "🔥 민주주의, 시련을 겪다", url: "korean/contemporary/26. dictatorship-and-resistance.html", keywords: ["독재", "5.16군사정변", "박정희", "유신헌법", "유신체제", "부마항쟁", "신군부", "전두환", "5.18민주화운동", "518", "광주", "계엄령"] },
+  { title: "🌸 6월 민주 항쟁, 민주주의를 꽃피우다", url: "korean/contemporary/27. june-democracy.html", keywords: ["6월민주항쟁", "6월항쟁", "1987년", "박종철", "이한열", "고문치사사건", "4.13호헌조치", "호헌철폐", "6.29민주화선언", "629선언", "대통령직선제", "전두환"] },
+  { title: "⚔️ 6·25 전쟁과 분단 고착", url: "korean/contemporary/28. korean-war-division.html", keywords: ["6.25전쟁", "625", "1950년", "북한남침", "인천상륙작전", "맥아더", "1.4후퇴", "중국군개입", "휴전협정", "판문점", "분단", "이산가족", "냉전"] },
+  { title: "🕊️ 평화 통일을 위해 노력하다", url: "korean/contemporary/29. peaceful-unification.html", keywords: ["평화통일", "7.4남북공동성명", "74남북공동성명", "남북기본합의서", "6.15남북공동선언", "615", "햇볕정책", "김대중", "남북정상회담", "개성공단", "이산가족상봉"] }
 ];
 
 (function(){

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>📈 국가 주도의 경제 성장이 이루어지다</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">국가 주도의 경제 성장이 이루어지다</span>
+<span class="page-ref">한국사 Ⅵ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">📈</span>
+<h1>국가 주도의 경제 성장이 이루어지다</h1>
+<p class="subtitle">광복 이후 한국 경제는 어떻게 빠르게 성장했을까?<br/>놀라운 성과 뒤에 숨겨진 대가는 무엇이었는지 함께 살펴봅시다.</p>
+<div class="hero-keywords">
+<span>원조 경제</span><span>농지 개혁</span><span>경제 개발 5개년 계획</span><span>한강의 기적</span><span>노동 문제</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 국가 주도 경제 성장의 대표 시기는 언제였을까?</li>
+<li><span class="cq-badge standard">표준</span> 한국 경제의 급속한 성장은 어떤 방식으로 이루어졌을까?</li>
+<li><span class="cq-badge advanced">심화</span> 경제 성장은 왜 언제나 성과와 문제를 함께 남길까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">광복 직후 경제 재편</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">농지 개혁</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">6·25 전쟁 피해와 원조 경제</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">경제 개발 5개년 계획</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">중화학 공업 육성</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">성장의 이면과 노동 문제</div></div>
+</div>
+</div>
+<!-- ═══ SECTION 1: 광복 직후와 원조 경제 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🏳️</span>
+<h2>광복 직후와 원조 경제 — 폐허 위에서 다시 시작하다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 농지 개혁과 삼백 산업</h4>
+<p>1945년 광복을 맞았지만, 한국 경제는 축하할 여유가 없었습니다. 35년간 일본에 종속되어 있던 경제 구조를 뜯어고치고 <strong>자주적인 경제를 새로 세워야 하는 과제</strong>가 눈앞에 놓여 있었기 때문입니다.</p>
+<p>이 과정에서 정부는 <strong>농지 개혁</strong>을 실시하였습니다. 일본인이 남기고 간 토지와 지주의 농지를 농민에게 분배하여 <strong>많은 농민이 처음으로 자기 땅을 갖게 되었습니다.</strong> 그러나 곧이어 터진 6·25 전쟁은 경제 기반을 다시 무너뜨렸습니다. 전쟁 뒤 한국 경제는 한동안 <strong>미국의 경제 원조에 크게 의존</strong>하였고, 원조 물자인 밀가루·면화·원당(설탕 원료)을 바탕으로 이른바 <strong>삼백 산업</strong>이 성장하였습니다.</p>
+<div class="highlight-box"><strong>핵심 포인트</strong><br/>미국 원조는 전쟁 직후 생존에 꼭 필요한 버팀목이었지만, 외국 농산물이 대량으로 들어오면서 국내 농업 기반이 약해지는 부작용도 함께 남겼습니다. 원조가 영원히 계속될 수 없는 만큼, 스스로 성장하는 힘을 키워야 한다는 과제가 생겼습니다.</div>
+</div>
+<!-- ═══ SECTION 2: 경제 개발 5개년 계획 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">🏗️</span>
+<h2>경제 개발 5개년 계획 — 국가가 설계도를 그리다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 정부 주도의 산업화 전략</h4>
+<p>1960년대에 접어들면서 정부는 더 이상 원조에 기대지 않겠다는 결심을 합니다. 대신 <strong>국가가 직접 계획을 세우고 산업화를 이끄는 방식</strong>을 택했는데, 그 핵심이 바로 <strong>경제 개발 5개년 계획</strong>이었습니다.</p>
+<p>제1차(1962~1966), 제2차(1967~1971) 계획이 실행되면서 <strong>경공업 중심의 수출 산업</strong>이 빠르게 성장하였습니다. 섬유, 신발, 가발 같은 물건을 만들어 해외에 팔았고, 수출액은 해마다 눈에 띄게 늘어났습니다. 국가가 목표를 정하고 기업을 지원하며 노동력을 동원하는 방식으로, 한국 경제는 <strong>이전에 없던 속도로 성장하기 시작</strong>하였습니다.</p>
+<div class="highlight-box teal"><strong>왜 '국가 주도'였을까?</strong><br/>당시 한국에는 대규모 민간 자본이 부족했습니다. 개인이나 기업이 스스로 산업을 일으키기 어려웠기 때문에, 정부가 직접 방향을 정하고 자원을 집중시키는 전략을 선택한 것입니다.</div>
+</div>
+<!-- ═══ SECTION 3: 중화학 공업과 한강의 기적 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">🏭</span>
+<h2>중화학 공업과 한강의 기적 — 세계가 놀란 성장</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 철강·조선·석유 화학으로 산업 구조를 바꾸다</h4>
+<p>1970년대에 들어서면서 정부는 한 단계 더 나아갑니다. 섬유나 신발 같은 가벼운 산업만으로는 한계가 있다고 판단하고, <strong>철강, 조선, 기계, 석유 화학</strong> 등 무거운 산업, 즉 <strong>중화학 공업</strong>을 집중적으로 육성하기 시작한 것입니다.</p>
+<p>대규모 공업 단지가 조성되고, 종합 제철 공장이 세워졌습니다. 그 결과 한국은 짧은 시간 안에 놀라운 경제 성장을 이루어 냈습니다. 세계는 이를 <strong>'한강의 기적'</strong>이라 불렀고, 한국은 대만·홍콩·싱가포르와 함께 <strong>'아시아의 네 마리 용'</strong>으로 주목받았습니다. 1인당 국민 소득과 산업 구조가 빠르게 변화하며, 한국은 농업 중심 사회에서 공업 중심 사회로 탈바꿈하였습니다.</p>
+</div>
+<!-- ═══ SECTION 4: 성장의 이면 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">⚖️</span>
+<h2>성장의 이면 — 누군가의 희생 위에 선 기적</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 빛나는 성과 뒤에 드리운 그림자</h4>
+<p>하지만 이 놀라운 성장에는 <strong>무시할 수 없는 대가</strong>가 따랐습니다. 공장에서 밤낮없이 일한 노동자들은 <strong>저임금과 열악한 노동 환경</strong>에 시달렸고, 성장의 혜택은 모두에게 골고루 돌아가지 않았습니다.</p>
+<p>또한 정부가 경제에 지나치게 개입하면서 <strong>정경 유착</strong>(정치와 기업의 부적절한 결탁)이라는 문제가 나타났고, 수출에 과도하게 의존하는 구조적 취약점도 드러났습니다. 한국의 산업화는 분명 대단한 성과였지만, <strong>그 성과가 모두에게 공평하게 돌아간 것은 아니었습니다.</strong></p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">경제 성장의 성과</div>
+<div class="name">빛</div>
+<div class="desc">빠른 공업화와 수출 확대<br/>생활 수준 향상<br/>세계가 주목한 '한강의 기적'</div>
+</div>
+<div class="compare-card red">
+<div class="label">경제 성장의 한계</div>
+<div class="name">그림자</div>
+<div class="desc">저임금·열악한 노동 환경<br/>정부 과잉 개입과 정경 유착<br/>수출 의존 구조의 취약성</div>
+</div>
+</div>
+</div>
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>경제 성장의 공은 누구에게 돌려야 할까요? 계획을 세운 정부? 투자한 기업? 아니면 낮은 임금에도 묵묵히 일한 노동자들?</p>
+<p>하나만 꼽기 어렵다면, 그것은 <strong>경제 성장이라는 성과가 여러 주체의 노력과 희생이 겹쳐 만들어진 것</strong>이기 때문일 겁니다. 성과만 볼 것이 아니라, 그 과정에서 누가 어떤 대가를 치렀는지도 함께 생각해 봅시다.</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>광복 이후 한국은 <strong>농지 개혁</strong>으로 농민에게 토지를 분배하고, <strong>미국 원조</strong>에 의존하며 경제 재건의 기초를 마련하였다.</li>
+<li>1960년대부터 <strong>경제 개발 5개년 계획</strong>을 통해 국가 주도의 산업화를 추진하였고, <strong>경공업 중심의 수출</strong>로 빠른 성장을 이루었다.</li>
+<li>1970년대에는 <strong>중화학 공업</strong>을 집중 육성하여 산업 구조가 크게 바뀌었고, 세계는 이를 <strong>'한강의 기적'</strong>이라 불렀다.</li>
+<li>하지만 성장의 이면에는 <strong>저임금 노동 문제, 정경 유착, 수출 의존</strong> 등의 한계가 함께 존재하였다.</li>
+<li>경제 성장은 <strong>정부 정책·기업 활동·노동자의 희생</strong>이 모두 어우러진 복합적인 결과였다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 경제 성장은 왜 언제나 성과와 문제를 함께 남길까?</h4>
+<p class="question-text">한국의 경제 성장은 '한강의 기적'이라 불릴 만큼 놀라운 성과였습니다. 하지만 동시에 저임금 노동, 정경 유착, 수출 의존 같은 문제도 남겼습니다. 경제가 빠르게 성장하면 왜 이런 문제가 함께 나타나는 것일까요? 한국 경제 성장의 구체적인 사례를 들어 설명해 보세요.<br/><br/>(힌트: <strong>경제 개발 5개년 계획</strong>, <strong>정부 주도</strong>, <strong>노동자</strong>, <strong>정경 유착</strong>, <strong>수출 의존</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>경제 개발 5개년 계획</span><span>국가 주도</span><span>경공업</span><span>중화학 공업</span><span>한강의 기적</span><span>저임금</span><span>노동 문제</span><span>정경 유착</span><span>수출 의존</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>경제가 빠르게 성장하면 성과와 문제가 함께 나타나는 이유는, <strong>빠른 성장을 위해 특정 부문에 자원을 집중하면 다른 부문이 소외되기 때문</strong>입니다.</p>
+<p>한국의 경우, 정부는 경제 개발 5개년 계획을 통해 수출 산업과 대기업을 집중적으로 지원하였습니다. 덕분에 <strong>공업화와 수출이 빠르게 이루어져 국민 소득이 크게 늘어나는 성과</strong>를 거두었습니다. 하지만 이 과정에서 공장 노동자들은 저임금과 장시간 노동에 시달렸고, 정부와 기업이 밀착하면서 <strong>정경 유착</strong> 문제가 생겼습니다. 또한 수출에 지나치게 의존하는 경제 구조는 세계 경제가 흔들릴 때 큰 위기에 빠질 수 있는 약점이 되었습니다.</p>
+<p>즉, <strong>빠른 성장은 반드시 누군가의 희생이나 구조적 불균형을 수반하기 쉽고</strong>, 그래서 성과만이 아니라 그 이면의 문제까지 함께 살펴보아야 역사를 균형 있게 이해할 수 있습니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="1" data-explain="6·25 전쟁 이후 한국 경제는 크게 파괴되어, 한동안 미국의 경제 원조에 크게 의존하였습니다. 원조 물자인 밀가루·면화·원당을 바탕으로 삼백 산업이 성장했지만, 자급자족과는 거리가 멀었습니다. 금본위제 확대, 식민지 경제 강화, 대외 무역 중단은 이 시기의 상황과 맞지 않습니다.">
+<h4>Q1. 6·25 전쟁 뒤 한국 경제의 초기 특징으로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 금본위제 확대</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 미국 원조에 대한 높은 의존</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 완전한 자급자족</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 식민지 경제 강화</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="1" data-explain="1960년대 이후 정부는 경제 개발 5개년 계획을 세우고, 국가가 직접 산업화를 이끄는 방식으로 경제를 성장시켰습니다. 이를 통해 경공업 중심의 수출이 빠르게 늘어났고, 이후 중화학 공업까지 육성하였습니다. 향약 보급은 조선 시대 향촌 자치, 통신사 파견은 조선의 외교, 만민 공동회는 독립 협회 활동, 물산 장려 운동은 일제 강점기 경제 자립 운동으로 각각 다른 시대·맥락의 사건입니다.">
+<h4>Q2. 1960년대 이후 국가 주도 경제 성장의 핵심 수단은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 향약 보급</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 경제 개발 5개년 계획</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 통신사 파견</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 물산 장려 운동</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="1" data-explain="교과서는 한국 경제 성장의 성과와 함께 그 한계도 함께 다루고 있습니다. 대표적인 문제로는 노동자들의 저임금과 열악한 노동 환경, 정부의 지나친 경제 개입, 정경 유착, 그리고 수출에 과도하게 의존하는 구조를 꼽고 있습니다. '농업 완전 붕괴만 발생', '산업화 미진행', '국제 무역 금지', '민주주의 즉시 완성'은 모두 사실과 다릅니다.">
+<h4>Q3. 한국 경제 성장의 한계로 교과서가 함께 지적하는 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 농업 완전 붕괴만 발생하였다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 노동 문제와 지나친 정부 개입, 수출 의존이 나타났다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 산업화는 전혀 진행되지 않았다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 국제 무역이 완전히 금지되었다.</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

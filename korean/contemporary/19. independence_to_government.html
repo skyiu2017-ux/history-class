@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🕊️ 독립을 위한 노력과 대한민국 정부 수립</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">독립을 위한 노력과 대한민국 정부 수립</span>
+<span class="page-ref">한국사 Ⅴ</span>
+</nav>
+<header class="hero">
+<span class="hero-emoji">🕊️</span>
+<h1>독립을 위한 노력과 대한민국 정부 수립</h1>
+<p class="subtitle">일제의 탄압이 극에 달했지만, 독립운동은 멈추지 않았습니다.<br/>그리고 마침내 광복. 하지만 기쁨의 순간은 곧 분단의 시작이기도 했습니다.</p>
+<div class="hero-keywords">
+<span>민족 말살 정책</span><span>한국 광복군</span><span>8·15 광복</span><span>38도선</span><span>5·10 총선거</span><span>대한민국 정부 수립</span>
+</div>
+</header>
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 광복 전 독립운동은 어떤 모습으로 이어졌을까?</li>
+<li><span class="cq-badge standard">표준</span> 광복 이후 대한민국 정부 수립까지 어떤 과정이 전개되었을까?</li>
+<li><span class="cq-badge advanced">심화</span> 왜 광복은 기쁨인 동시에 분단의 출발점이 되기도 했을까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">민족 말살 정책</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">광복군 활동</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">1945</div><div class="tl-label">8·15 광복</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">38도선·분할 점령</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">5·10 총선거</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">1948</div><div class="tl-label">대한민국 수립</div></div>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">⛓️</span>
+<h2>민족 말살 정책 — 민족 자체를 없애려 하다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 이름까지 빼앗으려 한 일제</h4>
+<p>1930년대 후반, 일제는 단순한 식민 지배를 넘어 <strong>민족 정체성 자체를 없애려는 정책</strong>을 본격적으로 밀어붙였습니다. <strong>신사 참배</strong>를 강요하고, <strong>황국 신민 서사</strong>를 외우게 하며, 한국인의 이름을 일본식으로 바꾸는 <strong>창씨개명</strong>까지 강제하였습니다.</p>
+<p>동시에 <strong>국가 총동원법</strong>으로 사람과 물자를 전쟁에 동원했습니다. <strong>징용</strong>으로 노동력을 빼앗고, <strong>징병</strong>으로 전쟁터에 끌고 갔으며, <strong>일본군 '위안부'</strong>를 강제 동원하는 반인도적 범죄까지 자행했습니다.</p>
+<div class="highlight-box"><strong>핵심 포인트</strong><br/>민족 말살 정책은 땅과 자원을 빼앗는 것을 넘어, <strong>한 민족의 말과 이름과 정체성까지 지우려 한</strong> 극단적인 식민 정책이었습니다.</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">⚔️</span>
+<h2>한국 광복군과 광복 — 끝까지 싸우다, 마침내 해방</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 독립운동은 멈추지 않았다</h4>
+<p>탄압이 극심해졌지만 독립운동은 결코 멈추지 않았습니다. 중국 관내에서는 <strong>조선 의용대</strong>와 <strong>한국 광복군</strong>이 항일전에 참여하였습니다. 대한민국 임시 정부는 태평양 전쟁 중 일본에 <strong>선전 포고</strong>를 하고 광복군을 참전시켰습니다.</p>
+<p>1945년 8월 15일, 일본이 연합국에 무조건 항복하면서 우리 민족은 마침내 <strong>광복</strong>을 맞았습니다. 35년간의 식민 지배가 끝나는 순간이었습니다.</p>
+<div class="highlight-box gold"><strong>광복의 의미</strong><br/>광복은 연합국의 승리라는 국제적 요인과 함께, <strong>35년간 멈추지 않은 독립운동의 결과</strong>이기도 합니다. 3·1 운동부터 임시 정부, 광복군까지 — 긴 투쟁의 끝에 찾아온 해방이었습니다.</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">🔀</span>
+<h2>광복 직후의 혼란 — 기쁨과 분열이 동시에</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 38도선, 나뉜 한반도</h4>
+<p>광복의 기쁨은 오래가지 못했습니다. 한반도는 곧바로 통일 정부를 세우지 못했습니다. <strong>38도선</strong>을 기준으로 남쪽에는 미군이, 북쪽에는 소련군이 주둔하며 <strong>분할 점령</strong>이 시작되었습니다.</p>
+<p><strong>모스크바 3국 외상 회의</strong>에서 한반도의 임시 정부 수립과 신탁 통치가 논의되자, 국내에서는 <strong>신탁 통치 찬반</strong>을 둘러싼 격렬한 대립이 벌어졌습니다. 좌우 갈등이 깊어졌고, 남북 협상 시도도 결실을 맺지 못했습니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">국제적 요인</div>
+<div class="name">미·소 냉전</div>
+<div class="desc">38도선 분할 점령<br/>미국과 소련의 대립이<br/>한반도에 그대로 투영됨</div>
+</div>
+<div class="compare-card red">
+<div class="label">국내적 요인</div>
+<div class="name">좌우 갈등</div>
+<div class="desc">신탁 통치 찬반 대립<br/>남북 협상 실패<br/>통일 정부 수립 무산</div>
+</div>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">🗳️</span>
+<h2>대한민국 정부 수립 — 새 나라의 첫걸음</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 5·10 총선거와 제헌 국회</h4>
+<p>유엔은 한반도 전체에서 <strong>총선거</strong>를 실시하기로 결정했지만, 소련과 북한이 이를 거부하면서 결국 <strong>남한만의 선거</strong>가 치러졌습니다. 1948년 5월 10일, <strong>5·10 총선거</strong>가 실시되어 <strong>제헌 국회</strong>가 구성되었습니다.</p>
+<p>제헌 국회는 헌법을 제정하고, 1948년 8월 15일 <strong>대한민국 정부 수립</strong>을 선포하였습니다. 이것은 3·1 운동의 정신과 대한민국 임시 정부의 법통을 잇는 것이었습니다.</p>
+<div class="highlight-box teal"><strong>대한민국의 출발</strong><br/>대한민국 정부 수립은 <strong>자주적 국민 국가를 향한 오랜 노력의 결실</strong>이었습니다. 그러나 남한만의 단독 정부라는 점에서, 분단이 고착되는 출발점이기도 했습니다. 기쁨과 아쉬움이 공존하는 역사적 순간이었습니다.</div>
+</div>
+
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>광복은 35년 식민 지배에서 벗어난 기쁜 사건이었습니다. 그런데 왜 곧바로 하나의 나라를 세우지 못했을까요?</p>
+<p><strong>미·소 냉전</strong>이라는 국제 질서, <strong>좌우 갈등</strong>이라는 국내 정치, <strong>남북의 체제 차이</strong> — 이 세 가지가 어떻게 맞물려 분단으로 이어졌는지 생각해 봅시다. 광복과 분단은 왜 같은 날짜(8·15)에 연결되어 있을까요?</p>
+</div>
+
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>일제는 <strong>민족 말살 정책</strong>(신사 참배·창씨개명)과 <strong>전시 동원</strong>(징용·징병·'위안부')으로 민족을 탄압하였다.</li>
+<li>이에 맞서 <strong>조선 의용대</strong>와 <strong>한국 광복군</strong>이 항일전에 참여하였고, 임시 정부는 일본에 선전 포고하였다.</li>
+<li>1945년 <strong>8·15 광복</strong>을 맞았지만, <strong>38도선 분할 점령</strong>과 <strong>좌우 대립</strong>으로 통일 정부 수립은 무산되었다.</li>
+<li>1948년 <strong>5·10 총선거</strong>로 제헌 국회가 구성되었고, <strong>대한민국 정부</strong>가 수립되었다.</li>
+<li>대한민국은 3·1 운동과 임시 정부의 정신을 잇는 국가이지만, 남한만의 정부라는 점에서 <strong>분단 고착의 출발점</strong>이기도 했다.</li>
+</ul>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 왜 광복은 기쁨인 동시에 분단의 출발점이 되기도 했을까?</h4>
+<p class="question-text">1945년 광복은 35년간의 식민 지배에서 벗어난 역사적 사건이었습니다. 그런데 광복 직후 한반도는 통일 국가를 세우지 못하고 남북으로 나뉘었습니다. 그 이유를 국제적 요인(미·소 냉전)과 국내적 요인(좌우 갈등)을 함께 고려하여 서술해 보세요.<br/><br/>(힌트: <strong>38도선</strong>, <strong>모스크바 3국 외상 회의</strong>, <strong>신탁 통치 찬반</strong>, <strong>5·10 총선거</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags"><span>광복</span><span>38도선</span><span>미·소 냉전</span><span>좌우 갈등</span><span>신탁 통치</span><span>5·10 총선거</span><span>대한민국</span><span>분단</span><span>통일 정부</span></div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>광복이 분단으로 이어진 이유는 <strong>국제적 요인과 국내적 요인</strong>이 복합적으로 작용했기 때문입니다.</p>
+<p><strong>국제적으로</strong>, 제2차 세계 대전 직후 미국과 소련은 냉전 체제에 돌입했고, 한반도는 38도선을 기준으로 양국에 의해 분할 점령되었습니다. 한반도의 미래가 강대국의 대립 구도 속에 놓인 것입니다.</p>
+<p><strong>국내적으로</strong>, 신탁 통치를 둘러싼 찬반 대립으로 좌우 갈등이 깊어졌고, 남북 협상도 실패하였습니다. 결국 유엔의 총선거 결정에도 불구하고 남한에서만 5·10 총선거가 치러졌고, 대한민국 정부가 수립되었습니다.</p>
+<p>따라서 광복은 <strong>독립운동의 결실</strong>이면서 동시에, 냉전과 내부 갈등이 겹쳐 <strong>분단이 시작되는 지점</strong>이기도 했습니다.</p>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<div class="quiz-question" data-correct="2" data-explain="창씨개명은 일제가 한국인의 이름을 일본식으로 바꾸도록 강제한 민족 말살 정책의 대표적 사례입니다. 신사 참배 강요, 황국 신민 서사 암송과 함께 민족 정체성 자체를 없애려는 정책이었습니다. 물산 장려 운동은 한국인이 주도한 민족 운동이고, 5·10 총선거는 광복 이후의 사건입니다.">
+<h4>Q1. 일제가 한국인의 이름을 일본식으로 바꾸도록 강제한 정책은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 물산 장려 운동</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 5·10 총선거</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 창씨개명</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 모스크바 3국 외상 회의</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-question" data-correct="1" data-explain="한국 광복군은 대한민국 임시 정부 산하의 군사 조직으로, 태평양 전쟁 중 일본에 선전 포고하고 항일전에 참여하였습니다. 조선 의용대와 함께 중국 관내에서 활동한 대표적인 독립군 부대입니다. 별기군은 개화기의 신식 군대, 훈련도감은 조선 시대 군영입니다.">
+<h4>Q2. 대한민국 임시 정부 산하에서 항일전에 참여한 군사 조직은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 별기군</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 한국 광복군</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 훈련도감</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 신간회</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-question" data-correct="0" data-explain="1948년 5·10 총선거로 제헌 국회가 구성되었고, 헌법을 제정한 뒤 대한민국 정부가 수립되었습니다. 이는 3·1 운동과 임시 정부의 정신을 잇는 것이었지만, 남한만의 정부라는 점에서 분단이 고착되는 출발점이기도 했습니다.">
+<h4>Q3. 1948년 대한민국 정부 수립의 직접적 계기가 된 사건은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 5·10 총선거</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 3·1 운동</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 봉오동 전투</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 을사늑약</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div>
+<footer class="page-footer">📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도</footer>
+
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

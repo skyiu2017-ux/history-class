@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>⚖️ 신자유주의 경제 정책과 노동 운동</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">신자유주의 경제 정책과 노동 운동</span>
+<span class="page-ref">한국사 Ⅵ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">⚖️</span>
+<h1>신자유주의 경제 정책과 노동 운동</h1>
+<p class="subtitle">시장 중심의 개혁은 왜 노동·복지·불평등 문제와 함께 논의될 수밖에 없을까?<br/>효율을 높이려는 변화가 누군가에게는 위기가 된 이유를 살펴봅시다.</p>
+<div class="hero-keywords">
+<span>신자유주의</span><span>외환 위기</span><span>IMF</span><span>구조 조정</span><span>비정규직</span><span>노동 운동</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 신자유주의 경제 정책은 무엇일까?</li>
+<li><span class="cq-badge standard">표준</span> 외환 위기 이후 한국 사회는 어떻게 달라졌을까?</li>
+<li><span class="cq-badge advanced">심화</span> 효율과 경쟁이 강조될수록 왜 노동권과 복지 문제가 커질까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">세계화 확대</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">신자유주의 확산</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">외환 위기 (1997)</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">IMF 구제 금융</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">구조 조정과 사회 변화</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">노동 운동 확대</div></div>
+</div>
+</div>
+<!-- ═══ SECTION 1: 신자유주의의 확산 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🌐</span>
+<h2>신자유주의의 확산 — 시장에 맡겨라</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 정부는 줄이고, 시장은 열고</h4>
+<p>1970년대 이후, 세계 경제에 새로운 흐름이 등장합니다. <strong>신자유주의</strong>입니다. 이것은 한마디로 <strong>"정부가 경제에 너무 많이 관여하지 말고, 시장의 자율적인 경쟁에 맡기자"</strong>는 생각이었습니다. 국가 간의 장벽을 낮추고, 기업이 자유롭게 활동할 수 있는 환경을 만드는 것이 핵심이었습니다.</p>
+<p>정보 통신 기술이 발달하고 세계화가 빠르게 진행되면서, 이 흐름은 전 세계로 퍼져 나갔습니다. 한국도 예외가 아니었습니다. 1980년대부터 <strong>농·축·수산물 시장과 자본 시장을 점차 개방</strong>하며 세계 경제 질서에 발을 맞추어 갔습니다.</p>
+<div class="highlight-box"><strong>핵심 포인트</strong><br/>신자유주의는 단순한 경제 이론이 아닙니다. 한국 사회 전체의 경제 운영 방식을 바꾸어 놓은 거대한 흐름이었고, 이후 우리 사회에 성과와 문제를 동시에 안겨 주었습니다.</div>
+</div>
+<!-- ═══ SECTION 2: 외환 위기와 IMF 체제 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">💥</span>
+<h2>외환 위기와 IMF — 나라가 흔들린 날</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 1997년, 대한민국이 겪은 경제 충격</h4>
+<p>세계화의 물결 속에서 한국 경제는 빠르게 성장했지만, 그 이면에는 <strong>취약한 구조</strong>가 숨어 있었습니다. 기업들은 무리하게 빚을 늘려 사업을 확장했고, 금융 시스템은 이를 제대로 감독하지 못했습니다. 결국 1997년, 외국 자본이 한꺼번에 빠져나가면서 한국은 <strong>외환 위기</strong>라는 초유의 경제 충격을 맞았습니다.</p>
+<p>나라 안에 외화(달러)가 바닥나자, 정부는 <strong>국제 통화 기금(IMF)</strong>으로부터 긴급 구제 금융을 지원받았습니다. 국민들은 금반지와 금목걸이를 내놓는 <strong>'금 모으기 운동'</strong>으로 위기 극복에 동참했습니다. 하지만 외환 위기는 단순한 금융 문제가 아니었습니다. 수많은 기업이 문을 닫고, 직장을 잃은 사람들이 거리로 나왔으며, 가정 경제가 송두리째 흔들렸습니다.</p>
+<div class="highlight-box teal"><strong>생활 속의 역사</strong><br/>외환 위기는 숫자 속의 사건이 아니었습니다. 부모님이 갑자기 직장을 잃고, 가게가 문을 닫고, 이웃이 이사를 가야 했던 — <strong>보통 사람들의 일상이 무너진 사건</strong>이었습니다.</div>
+</div>
+<!-- ═══ SECTION 3: 구조 조정과 새로운 사회 문제 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">🔧</span>
+<h2>구조 조정 — 효율의 칼날이 남긴 상처</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 경제를 살리기 위한 수술, 그리고 그 대가</h4>
+<p>외환 위기를 극복하기 위해 김대중 정부는 <strong>기업과 금융 부문의 구조 조정</strong>을 강하게 밀어붙였습니다. 비효율적인 기업을 정리하고, 금융 시스템을 개혁하여 경제 체질을 바꾸겠다는 것이었습니다.</p>
+<p>이 '수술'은 분명 경제 회복에 기여했습니다. 그러나 그 과정에서 수많은 사람이 직장을 잃었고, <strong>비정규직 노동자</strong>가 크게 늘어났습니다. 안정적인 일자리 대신 언제 잘릴지 모르는 불안정한 고용이 일상이 된 것입니다. <strong>빈부 격차</strong>도 눈에 띄게 벌어졌습니다. 구조 조정이라는 이름의 개혁은 경제를 효율적으로 만들었지만, 동시에 <strong>사회적 약자에게 더 큰 고통을 안겨 주는 양면</strong>을 가지고 있었습니다.</p>
+</div>
+<!-- ═══ SECTION 4: 노동 운동의 성장 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">✊</span>
+<h2>노동 운동 — 인간다운 삶을 요구하다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 전태일에서 비정규직까지, 노동 운동의 확장</h4>
+<p>사실 노동 문제는 외환 위기 이전부터 존재했습니다. 1960~70년대 급속한 경제 성장의 이면에는 <strong>저임금, 장시간 노동, 열악한 작업 환경</strong>이 자리하고 있었습니다. 1970년 청년 노동자 <strong>전태일</strong>은 "근로 기준법을 준수하라!"고 외치며 분신하였고, 이 사건은 한국 노동 운동의 출발점이 되었습니다.</p>
+<p>1980년대 후반에는 민주화와 함께 <strong>노동조합 결성</strong>이 활발해졌고, 노동자들은 단체 행동을 통해 자신들의 권리를 요구하기 시작했습니다. 외환 위기 이후에는 비정규직 문제, 대량 해고 문제, 외국인 노동자의 권리 문제까지 겹치며 노동 운동의 범위가 한층 넓어졌습니다. 노동 운동은 더 이상 임금 인상만을 외치는 것이 아니라, <strong>인간다운 노동과 사회적 안전망</strong>을 요구하는 흐름으로 성장하였습니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">신자유주의의 성과</div>
+<div class="name">효율과 개방</div>
+<div class="desc">시장 효율성 향상<br/>경제 구조 개편과 체질 개선<br/>국제 경쟁력 강화 시도</div>
+</div>
+<div class="compare-card red">
+<div class="label">신자유주의의 문제</div>
+<div class="name">불안과 격차</div>
+<div class="desc">실업 증가와 비정규직 확대<br/>빈부 격차 심화<br/>노동권과 복지 요구 증가</div>
+</div>
+</div>
+</div>
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>경제 위기를 극복하기 위해 구조 조정을 하면 효율은 높아지지만, 일자리를 잃는 사람이 생깁니다. <strong>경제를 살리는 일과 사회적 약자를 보호하는 일</strong>은 왜 이렇게 자주 충돌할까요?</p>
+<p>둘 다 포기할 수 없다면, 어떻게 해야 균형을 찾을 수 있을까요? 오늘날의 비정규직 문제, 청년 실업 문제와 연결 지어 생각해 봅시다.</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li><strong>신자유주의</strong>는 정부 역할을 줄이고 시장의 자율과 경쟁을 강조하는 경제 흐름이었다.</li>
+<li>한국은 1997년 <strong>외환 위기</strong>를 겪으며 IMF 구제 금융을 받고, 강도 높은 <strong>구조 조정</strong>을 추진하였다.</li>
+<li>구조 조정 과정에서 <strong>실업자와 비정규직이 크게 늘고, 빈부 격차</strong>가 심해지는 새로운 사회 문제가 나타났다.</li>
+<li>노동 운동은 <strong>전태일의 분신</strong>(1970) 이후 본격화되어, 인간다운 노동과 사회적 안전망을 요구하는 흐름으로 성장하였다.</li>
+<li>신자유주의 정책은 <strong>효율과 형평성이라는 두 가치 사이의 긴장</strong>을 언제나 함께 낳는다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 효율과 경쟁이 강조될수록 왜 노동권과 복지 문제가 커질까?</h4>
+<p class="question-text">신자유주의는 시장의 효율과 경쟁을 중시합니다. 외환 위기 이후 한국은 구조 조정을 통해 경제 체질을 개선하려 했지만, 동시에 비정규직 증가와 빈부 격차 심화라는 문제를 낳았습니다. 효율과 경쟁을 강조하는 정책이 왜 노동권과 복지 문제를 함께 불러오는지, 한국의 사례를 들어 설명해 보세요.<br/><br/>(힌트: <strong>구조 조정</strong>, <strong>비정규직</strong>, <strong>빈부 격차</strong>, <strong>효율과 형평성</strong>, <strong>노동 운동</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>신자유주의</span><span>외환 위기</span><span>구조 조정</span><span>비정규직</span><span>빈부 격차</span><span>효율</span><span>형평성</span><span>노동 운동</span><span>사회 안전망</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>효율과 경쟁을 강조하는 정책은 <strong>경쟁에서 이기는 쪽에 자원을 집중시키는 대신, 경쟁에서 밀려나는 사람들을 보호하는 장치를 약화시키기 때문</strong>에 노동권과 복지 문제가 커집니다.</p>
+<p>한국의 경우, 외환 위기 이후 구조 조정을 추진하면서 비효율적인 기업은 정리되었지만, 그 과정에서 많은 노동자가 일자리를 잃었습니다. 새로 생긴 일자리도 <strong>비정규직</strong>이 대부분이어서 고용이 불안정해졌고, 안정적인 직장을 가진 사람과 그렇지 못한 사람 사이의 <strong>빈부 격차가 심해졌습니다.</strong></p>
+<p>즉, 효율을 높이기 위한 개혁은 전체적으로 경제를 살릴 수 있지만, <strong>그 비용을 사회적 약자가 더 많이 부담하게 되는 구조</strong>를 만들기 쉽습니다. 그래서 효율만을 추구하면 형평성이 무너지고, 이를 바로잡기 위한 노동 운동과 복지 요구가 함께 커지는 것입니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="1" data-explain="신자유주의는 정부의 경제 개입을 줄이고, 시장의 자율적 경쟁과 개방을 중시하는 경제 흐름입니다. 정부 개입을 '강화'하는 것이 아니라 '축소'하는 것이 핵심이며, 신분제 유지나 농업 중심 경제, 통상 수교 거부와는 전혀 관계가 없습니다.">
+<h4>Q1. 신자유주의 경제 정책의 핵심으로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 정부 개입 강화</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 시장 자율성 중시</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 신분제 유지</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 농업 중심 경제</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="1" data-explain="1997년 한국은 외화(달러)가 바닥나면서 외환 위기를 겪었고, 국제 통화 기금(IMF)으로부터 긴급 구제 금융을 지원받았습니다. 금융 실명제는 1993년에 시행된 금융 투명화 정책이고, 병자호란·임오군란은 조선 시대 사건, 대공황은 1929년 미국에서 시작된 세계 경제 위기로 각각 다른 맥락입니다.">
+<h4>Q2. 1990년대 후반 한국이 겪은 경제 위기는?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 금융 실명제</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 외환 위기</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 병자호란</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 대공황</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="2" data-explain="외환 위기 이후 구조 조정이 추진되면서 많은 사람이 직장을 잃고 실업자가 늘었으며, 비정규직 노동자가 크게 증가하여 빈부 격차가 심해졌습니다. '양반 증가'는 조선 시대 신분제 문제이고, '비정규직 감소'는 사실과 반대입니다. '과거제 부활'과 '장시 확대'는 이 시기와 관련이 없는 개념입니다.">
+<h4>Q3. 외환 위기 이후 나타난 사회 문제로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 양반 증가</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 비정규직 감소</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 실업자와 빈부 격차 증가</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 과거제 부활</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

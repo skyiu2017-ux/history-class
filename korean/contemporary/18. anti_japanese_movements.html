@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>✊ 일제에 맞서 민족 운동을 전개하다</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">일제에 맞서 민족 운동을 전개하다</span>
+<span class="page-ref">한국사 Ⅴ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">✊</span>
+<h1>일제에 맞서 민족 운동을 전개하다</h1>
+<p class="subtitle">나라를 잃었지만, 독립을 향한 의지까지 잃지는 않았습니다.<br/>거리에서, 교실에서, 전장에서 — 민족은 저마다의 방식으로 싸웠습니다.</p>
+<div class="hero-keywords">
+<span>3·1 운동</span><span>대한민국 임시 정부</span><span>신간회</span><span>봉오동 전투</span><span>청산리 대첩</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 3·1 운동과 대한민국 임시 정부는 어떤 의미를 가질까?</li>
+<li><span class="cq-badge standard">표준</span> 일제 강점기 민족 운동은 어떤 여러 갈래로 전개되었을까?</li>
+<li><span class="cq-badge advanced">심화</span> 왜 독립운동은 하나의 노선이 아니라 다양한 방식으로 전개될 수밖에 없었을까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">국권 피탈·무단 통치</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">1919</div><div class="tl-label">3·1 운동</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">임시 정부 수립</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">실력 양성·사회 운동</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">1920</div><div class="tl-label">봉오동·청산리</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">1927</div><div class="tl-label">신간회 창립</div></div>
+</div>
+</div>
+<!-- ═══ SECTION 1: 3·1 운동 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🕊️</span>
+<h2>3·1 운동 — 민족 전체가 독립을 외치다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 단순한 시위가 아니었다</h4>
+<p>1919년 3월 1일, 학생·종교인·상인·농민 등 <strong>다양한 계층</strong>이 함께 거리로 나와 독립을 외쳤습니다. <strong>3·1 운동</strong>은 서울에서 시작되어 전국 각지와 해외 동포 사회로까지 퍼져 나간 <strong>전국적 독립운동</strong>이었습니다.</p>
+<p>이것은 단순한 시위가 아니었습니다. <strong>"민족 전체가 독립을 원한다"</strong>는 사실을 국내외에 분명히 알린 사건이었고, 이후 독립운동의 방향을 근본적으로 바꾸어 놓은 출발점이었습니다.</p>
+<div class="highlight-box"><strong>핵심 포인트</strong><br/>3·1 운동은 특정 지도자나 단체만의 운동이 아니라, <strong>민족 전체가 참여한 거족적 독립운동</strong>이었다는 점에서 한국 독립운동사의 가장 중요한 전환점입니다.</div>
+</div>
+<!-- ═══ SECTION 2: 대한민국 임시 정부 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">🏛️</span>
+<h2>대한민국 임시 정부 — 독립운동의 구심점</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 최초의 민주 공화제 정부</h4>
+<p>3·1 운동은 독립에 대한 열망을 보여 주었지만, 동시에 <strong>흩어진 독립운동을 하나로 이끌 지도부</strong>가 필요하다는 사실도 드러냈습니다. 이에 1919년 상하이에 <strong>대한민국 임시 정부</strong>가 수립되었습니다.</p>
+<p>임시 정부는 우리 역사상 <strong>최초의 민주 공화제 정부</strong>로, 외교 활동과 군사 활동, 독립운동 노선 조정 등 독립운동의 중심 역할을 하였습니다. 다만 자금 부족과 국제 정세의 한계 속에서 늘 어려움을 겪어야 했습니다.</p>
+<div class="highlight-box gold"><strong>왜 '민주 공화제'가 중요할까?</strong><br/>임시 정부가 왕이 아닌 <strong>국민이 주인인 공화제</strong>를 택했다는 것은, 독립 이후 세울 나라의 방향까지 이미 정한 것이었습니다. 오늘날 대한민국의 뿌리가 여기에 있습니다.</div>
+</div>
+<!-- ═══ SECTION 3: 다양한 민족 운동 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">📚</span>
+<h2>다양한 민족 운동 — 각자의 자리에서 싸우다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 무장 투쟁만이 독립운동이 아니었다</h4>
+<p>3·1 운동 이후 독립운동은 <strong>여러 갈래</strong>로 확장되었습니다. 우리 물건을 쓰자는 <strong>물산 장려 운동</strong>, 우리 힘으로 대학을 세우자는 <strong>민립 대학 설립 운동</strong>, 노동자와 농민의 권익을 지키려는 <strong>노동·농민 운동</strong>, 일제의 차별 교육에 맞선 <strong>학생 운동</strong> 등이 이어졌습니다.</p>
+<p>독립운동은 총을 드는 것만이 아니었습니다. <strong>민족의 역량을 키우고, 사회 구조를 바꾸려는 운동</strong>까지 모두 포함하는 넓은 흐름이었습니다.</p>
+</div>
+<!-- ═══ SECTION 4: 무장 투쟁과 신간회 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">⚔️</span>
+<h2>무장 투쟁과 민족 협동 — 총과 연대로 맞서다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 봉오동 전투와 청산리 대첩</h4>
+<p>만주와 연해주에서는 일제의 무력 지배에 정면으로 맞서는 <strong>무장 독립 전쟁</strong>이 벌어졌습니다. 1920년 <strong>봉오동 전투</strong>와 <strong>청산리 대첩</strong>에서 독립군은 일본군에 큰 승리를 거두었습니다. 이 전투들은 식민지 백성이 제국의 군대를 이길 수 있다는 것을 증명한 사건이었습니다.</p>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 신간회 — 분열을 넘어 협력으로</h4>
+<p>한편 국내에서는 1927년 <strong>신간회</strong>가 창립되었습니다. 신간회는 <strong>민족주의 계열과 사회주의 계열</strong>이 함께 손잡고 만든 단체로, 독립운동이 분열을 넘어 <strong>협력의 가능성</strong>을 모색한 중요한 시도였습니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">실력 양성 운동</div>
+<div class="name">교육·경제·문화</div>
+<div class="desc">물산 장려·민립 대학 설립<br/>노동·농민·학생 운동<br/>민족 역량을 키워 독립 준비</div>
+</div>
+<div class="compare-card red">
+<div class="label">무장 투쟁</div>
+<div class="name">군사적 저항</div>
+<div class="desc">봉오동 전투·청산리 대첩<br/>만주·연해주 독립군 활동<br/>일제의 무력에 정면 대응</div>
+</div>
+</div>
+<div class="highlight-box teal"><strong>독립운동의 세 갈래</strong><br/>외교 독립론(국제 사회에 호소), 실력 양성(교육·경제 역량 축적), 무장 투쟁(군사적 저항) — 이 세 방향은 서로 경쟁한 것이 아니라, <strong>식민지라는 극한 상황에서 가능한 모든 방법을 동시에 시도한 것</strong>이었습니다.</div>
+</div>
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>독립운동이 외교·실력 양성·무장 투쟁 등 여러 방향으로 갈라진 것은 <strong>약점</strong>이었을까요? 아니면 나라를 완전히 빼앗긴 극한 상황에서 <strong>가능한 모든 수단을 동원한 복합 대응</strong>이었을까요?</p>
+<p>하나의 방법만 고집했다면 더 나은 결과가 나왔을까요, 아니면 오히려 더 취약해졌을까요? 오늘날의 사회 문제 해결에서도 다양한 접근이 왜 필요한지 연결 지어 생각해 봅시다.</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li><strong>3·1 운동</strong>(1919)은 학생·종교인·농민 등 민족 전체가 참여한 전국적 독립운동이었다.</li>
+<li>3·1 운동을 계기로 상하이에 <strong>대한민국 임시 정부</strong>가 수립되었으며, 이는 최초의 <strong>민주 공화제 정부</strong>였다.</li>
+<li>이후 독립운동은 <strong>외교</strong>, <strong>실력 양성</strong>(물산 장려·민립 대학·노동·농민 운동), <strong>무장 투쟁</strong> 등 다양한 방식으로 전개되었다.</li>
+<li><strong>봉오동 전투</strong>와 <strong>청산리 대첩</strong>에서 독립군은 일본군에 큰 승리를 거두었다.</li>
+<li><strong>신간회</strong>(1927)는 민족주의와 사회주의 계열이 협력한 민족 협동 전선이었다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 왜 독립운동은 하나의 노선이 아니라 다양한 방식으로 전개될 수밖에 없었을까?</h4>
+<p class="question-text">일제 강점기 독립운동은 외교, 실력 양성, 무장 투쟁 등 여러 방향으로 나뉘어 전개되었습니다. 이것을 '분열'로 볼 수도 있고, '식민지 현실에 대한 복합적 대응'으로 볼 수도 있습니다. 당시 상황을 고려하여, 독립운동이 다양한 방식으로 전개된 이유를 서술해 보세요.<br/><br/>(힌트: <strong>식민지 상황의 제약</strong>, <strong>각 운동의 역할</strong>, <strong>신간회의 의미</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>3·1 운동</span><span>임시 정부</span><span>외교</span><span>실력 양성</span><span>무장 투쟁</span><span>신간회</span><span>봉오동</span><span>청산리</span><span>식민지</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>독립운동이 여러 방식으로 전개된 것은 <strong>식민지라는 극한 상황 때문</strong>입니다.</p>
+<p>나라를 완전히 빼앗긴 상황에서 <strong>하나의 방법만으로 독립을 이루기는 불가능</strong>했습니다. 외교 독립론은 국제 사회의 지지를 얻으려 했고, 실력 양성 운동은 교육과 경제 역량을 키워 장기적 독립을 준비했으며, 무장 투쟁은 일제의 군사력에 직접 맞섰습니다. 각각이 서로 다른 역할을 담당하며 <strong>독립이라는 하나의 목표를 향해 움직인 것</strong>입니다.</p>
+<p>신간회가 민족주의와 사회주의 계열의 협력을 시도한 것도, 분열보다 연대가 필요하다는 인식이 있었기 때문입니다. 따라서 독립운동의 다양성은 약점이 아니라, <strong>가능한 모든 수단을 동원한 복합적 독립 전략</strong>이었다고 평가할 수 있습니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="0" data-explain="3·1 운동(1919)은 학생, 종교인, 상인, 농민 등 다양한 계층이 함께 참여한 전국적 독립운동이었습니다. 이 운동을 계기로 독립운동의 구심점인 대한민국 임시 정부가 수립되었습니다. 갑신정변은 1884년, 동학 농민 운동은 1894년의 사건입니다.">
+<h4>Q1. 1919년 민족 전체가 참여한 전국적 독립운동으로, 대한민국 임시 정부 수립의 계기가 된 사건은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 3·1 운동</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 갑신정변</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 동학 농민 운동</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 물산 장려 운동</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="2" data-explain="대한민국 임시 정부는 3·1 운동을 계기로 1919년 상하이에 수립된 우리 역사상 최초의 민주 공화제 정부입니다. 외교 활동과 군사 활동, 독립운동 노선 조정 등의 역할을 하였습니다. 통감부는 일제 기관, 독립 협회는 대한 제국 시기의 단체입니다.">
+<h4>Q2. 3·1 운동 이후 상하이에 수립된, 최초의 민주 공화제 정부는?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 통감부</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 독립 협회</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 대한민국 임시 정부</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 신간회</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="1" data-explain="신간회(1927)는 민족주의 계열과 사회주의 계열이 함께 협력하여 창립한 민족 협동 전선 단체입니다. 독립운동의 분열을 넘어 연대를 모색한 중요한 시도였습니다. 봉오동 전투는 무장 투쟁, 물산 장려 운동은 실력 양성 운동에 해당합니다.">
+<h4>Q3. 민족주의와 사회주의 계열이 함께 만든 민족 협동 전선 단체는?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 독립 협회</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 신간회</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 대한민국 임시 정부</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 물산 장려회</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

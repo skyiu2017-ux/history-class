@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>✊ 4·19 혁명, 민주주의의 씨를 뿌리다</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'\2713';position:absolute;left:0;color:var(--gold);font-weight:700}
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">4·19 혁명, 민주주의의 씨를 뿌리다</span>
+<span class="page-ref">한국사 Ⅵ</span>
+</nav>
+<header class="hero">
+<span class="hero-emoji">✊</span>
+<h1>4·19 혁명, 민주주의의 씨를 뿌리다</h1>
+<p class="subtitle">학생과 시민은 어떻게 독재와 부정 선거에 맞서 민주주의를 되찾으려 했을까?<br/>거리로 나선 사람들의 용기가 역사를 바꾼 이야기입니다.</p>
+<div class="hero-keywords">
+<span>이승만 정부</span><span>발췌 개헌</span><span>사사오입 개헌</span><span>3·15 부정 선거</span><span>4·19 혁명</span>
+</div>
+</header>
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 4·19 혁명은 왜 일어났을까?</li>
+<li><span class="cq-badge standard">표준</span> 4·19 혁명은 어떤 과정을 거쳐 전국으로 확산되었을까?</li>
+<li><span class="cq-badge advanced">심화</span> 왜 4·19 혁명은 한국 민주주의의 씨앗으로 평가될까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">이승만 장기 집권</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">발췌·사사오입 개헌</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">3·15 부정 선거</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">김주열 시신 발견</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">4·19 혁명</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">이승만 하야</div></div>
+
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">👑</span>
+<h2>장기 집권의 배경 — 헌법을 바꿔서라도 권력을 놓지 않겠다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 발췌 개헌과 사사오입 개헌</h4>
+<p>제헌 헌법으로 출범한 대한민국의 첫 대통령 이승만. 그는 민주주의의 틀 안에서 선출되었지만, 시간이 지나면서 <strong>권력을 내려놓지 않으려는 모습</strong>을 보이기 시작합니다.</p>
+<p>이승만 정부는 <strong>발췌 개헌</strong>으로 대통령 직선제를 도입하고, 다시 <strong>사사오입 개헌</strong>으로 대통령 출마 횟수 제한을 없앴습니다. 헌법을 '국민을 위한 약속'이 아니라 <strong>'자신의 권력을 유지하기 위한 도구'</strong>로 이용한 것입니다. 민주주의의 제도보다 권력 유지가 앞선 정치 운영이었습니다.</p>
+<div class="highlight-box"><strong>핵심 포인트</strong><br/>헌법을 바꾸는 것 자체가 문제가 아닙니다. 문제는 헌법을 <strong>국민의 뜻이 아니라 권력자의 필요에 맞추어</strong> 바꾸었다는 점입니다.</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">🗳️</span>
+<h2>3·15 부정 선거 — 민주주의를 짓밟은 선거</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 투표함까지 조작하다</h4>
+<p>1960년, 자유당 정권은 부통령 후보 이기붕을 당선시키기 위해 <strong>3·15 부정 선거</strong>를 자행하였습니다. 유권자를 협박하고, 투표함을 바꿔치기하는 등 <strong>선거 자체를 조작</strong>한 것입니다.</p>
+<p>이것은 단순한 부정행위가 아니었습니다. 국민이 자기 대표를 직접 뽑는 선거, 즉 <strong>민주주의의 가장 기본적인 절차를 정면으로 부정</strong>한 사건이었습니다. 이에 대한 분노가 곧 전국을 뒤흔드는 혁명으로 이어집니다.</p>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">✊</span>
+<h2>혁명의 전개 — 마산에서 서울로, 학생에서 시민으로</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 김주열의 죽음이 전국을 깨우다</h4>
+<p>부정 선거에 분노한 시위는 <strong>마산</strong>에서 먼저 일어났습니다. 그런데 시위 과정에서 실종되었던 <strong>김주열 학생</strong>의 시신이 바다에서 발견되면서, 국민의 분노는 걷잡을 수 없이 커졌습니다.</p>
+<p><strong>4월 19일</strong>, 서울을 비롯한 전국에서 학생과 시민들이 거리로 쏟아져 나왔습니다. 경찰이 시위대에 발포해 많은 사상자가 발생했지만, 시위는 멈추지 않았습니다. 대학교수들까지 "학생의 피에 보답하라"며 시위에 나서면서, 정권 퇴진 요구는 더욱 거세졌습니다. 결국 이승만은 <strong>"국민이 원한다면 대통령직을 물러나겠다"</strong>며 하야하였습니다.</p>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">🌱</span>
+<h2>역사적 의의와 한계 — 민주주의의 씨앗을 뿌리다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 시민의 힘으로 독재를 무너뜨리다</h4>
+<p>4·19 혁명은 <strong>학생과 시민의 힘으로 장기 독재 정권을 무너뜨린 사건</strong>입니다. 이것은 한국 역사에서 시민이 민주주의를 지켜낼 수 있음을 보여 준 첫 대규모 사례였습니다.</p>
+<p>이후 장면 내각이 들어섰지만, 민주주의는 곧 <strong>5·16 군사 정변</strong>이라는 또 다른 시련을 맞게 됩니다. 그래서 4·19 혁명은 완성된 민주주의라기보다, <strong>한국 민주주의의 씨앗을 뿌린 사건</strong>으로 평가됩니다.</p>
+<div class="highlight-box teal"><strong>씨앗의 의미</strong><br/>4·19 혁명이 뿌린 씨앗은 이후 5·18 민주화 운동, 6월 민주 항쟁으로 이어지며 한국 민주주의의 뿌리가 되었습니다.</div>
+</div>
+
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>정권이 바뀌었다고 민주주의가 완성된 것일까요?</p>
+<p>아니면 시민이 <strong>계속 참여하고 감시해야</strong> 민주주의가 유지되는 것일까요? 4·19 혁명 이후 다시 군사 정변이 일어난 사실을 떠올려 봅시다.</p>
+</div>
+
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>이승만 정부는 <strong>발췌 개헌·사사오입 개헌</strong>과 <strong>3·15 부정 선거</strong>로 장기 집권을 시도하였다.</li>
+<li>이에 맞서 학생과 시민은 전국적 시위를 벌였고, <strong>4·19 혁명</strong>으로 정권을 무너뜨렸다.</li>
+<li>4·19 혁명은 <strong>시민의 힘으로 독재에 맞선 한국 민주주의의 중요한 출발점</strong>이었다.</li>
+<li>다만 이후 민주주의는 <strong>5·16 군사 정변</strong>이라는 새로운 시련을 겪게 된다.</li>
+
+</ul>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 왜 4·19 혁명은 한국 민주주의의 씨앗으로 평가될까?</h4>
+<p class="question-text">4·19 혁명은 학생과 시민이 부정 선거와 독재에 맞서 정권을 무너뜨린 사건입니다. 그런데 이후 민주주의가 곧바로 완성되지 않고 군사 정변이 일어나기도 했습니다. 그럼에도 4·19 혁명이 '민주주의의 씨앗'으로 평가받는 이유는 무엇일까요?<br/><br/>(힌트: <strong>3·15 부정 선거</strong>, <strong>시민의 저항</strong>, <strong>이승만 하야</strong>, <strong>이후 민주화 운동</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>4·19 혁명</span><span>3·15 부정 선거</span><span>부정 선거</span><span>시민 저항</span><span>이승만</span><span>하야</span><span>민주주의</span><span>군사 정변</span><span>씨앗</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>4·19 혁명이 '민주주의의 씨앗'으로 평가받는 이유는, <strong>시민이 직접 행동하여 잘못된 권력을 바꿀 수 있다는 것을 처음으로 증명</strong>했기 때문입니다.</p>
+<p>3·15 부정 선거로 민주주의의 가장 기본적인 절차가 짓밟히자, 학생과 시민은 거리로 나서 저항하였고, 결국 이승만 대통령을 하야시켰습니다. 비록 이후 <strong>군사 정변</strong>이 일어나 민주주의가 곧바로 완성되지는 못했지만, 4·19 혁명의 기억과 경험은 이후 <strong>5·18 민주화 운동, 6월 민주 항쟁</strong>으로 이어졌습니다.</p>
+<p>즉, 4·19 혁명은 <strong>한국 민주주의가 자라나는 뿌리</strong>가 되었기 때문에 '씨앗'이라는 평가를 받는 것입니다.</p>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<div class="quiz-question" data-correct="1" data-explain="4·19 혁명은 1960년 자유당 정권이 부통령 당선을 위해 벌인 3·15 부정 선거에 대한 국민적 저항으로 시작되었습니다. 을사늑약은 1905년 외교권 박탈, 6·29 선언은 1987년 민주화 선언, 10월 유신은 1972년 박정희의 독재 강화 조치로 각각 다른 시기의 사건입니다.">
+<h4>Q1. 4·19 혁명의 직접적 배경은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 을사늑약</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 3·15 부정 선거</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 6·29 선언</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 10월 유신</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-question" data-correct="1" data-explain="마산에서 시위 중 실종되었던 김주열 학생의 시신이 바다에서 발견되면서 국민의 분노가 폭발하였고, 시위가 전국으로 확산되는 결정적 계기가 되었습니다. 한·일 협정 체결, 정전 협정 체결, 국회 해산은 모두 4·19 혁명의 시위 확산과 직접적 관련이 없습니다.">
+<h4>Q2. 시위가 전국으로 확산된 결정적 계기가 된 사건은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 한·일 협정 체결</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 김주열 시신 발견</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 정전 협정 체결</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 국회 해산</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-question" data-correct="1" data-explain="4·19 혁명은 학생과 시민의 힘으로 이승만 장기 독재 정권을 무너뜨리고, 민주주의를 되찾으려 한 사건입니다. 군사 정권 수립은 이후 5·16 군사 정변의 결과이고, 남북 통일이나 식민지 지배 종식과는 관련이 없습니다.">
+<h4>Q3. 4·19 혁명의 의의로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 군사 정권 수립</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 학생과 시민의 힘으로 독재 정권을 무너뜨림</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 남북 통일 실현</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 식민지 지배 종식</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div>
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+function submitInquiry(id){
+  const card=document.getElementById(id);const answerInput=card.querySelector('.inquiry-textarea');const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");if(!studentName)return;
+  const pageTitle=document.title;const btn=card.querySelector('.inquiry-submit');const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+  fetch(scriptURL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({pageTitle:pageTitle,studentId:studentId,studentName:studentName,answer:answerText})})
+  .then(response=>{alert("🎉 성공적으로 제출되었습니다!");card.querySelector('.keyword-result').style.display='block';card.querySelector('.model-answer').style.display='block';btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';})
+  .catch(error=>{console.error('Error!',error.message);alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';});
+}
+let currentQ=0,score=0;const questions=document.querySelectorAll('.quiz-question');const totalQ=questions.length;
+function initQuiz(){const prog=document.getElementById('quizProgress');prog.innerHTML='';for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}questions[0].classList.add('active');}
+function selectAnswer(btn,idx){const q=questions[currentQ],correct=parseInt(q.dataset.correct);const opts=q.querySelectorAll('.quiz-option');opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';q.querySelector('.quiz-next-btn').style.display='inline-block';}
+function nextQuestion(){questions[currentQ].classList.remove('active');currentQ++;if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}}
+function resetQuiz(){currentQ=0;score=0;document.getElementById('quizResult').style.display='none';questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});initQuiz();}
+initQuiz();
+</script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🏭 식민지 경제 체제로 재편되다</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">식민지 경제 체제로 재편되다</span>
+<span class="page-ref">한국사 Ⅴ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">🏭</span>
+<h1>식민지 경제 체제로 재편되다</h1>
+<p class="subtitle">일제는 조선의 경제를 어떻게 '일본을 위한 경제'로 바꾸었을까?<br/>겉으로는 개발처럼 보였지만, 그 이면에는 체계적인 수탈이 숨어 있었습니다.</p>
+<div class="hero-keywords">
+<span>토지 조사 사업</span><span>산미 증식 계획</span><span>회사령</span><span>병참 기지화</span><span>식민지 경제 체제</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 식민지 경제 체제란 무엇일까?</li>
+<li><span class="cq-badge standard">표준</span> 일제는 어떤 정책으로 조선 경제를 식민지 구조로 만들었을까?</li>
+<li><span class="cq-badge advanced">심화</span> 겉으로는 개발처럼 보이는 정책이 왜 실제로는 수탈이 될 수 있을까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">국권 피탈 (1910)</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">토지 조사 사업</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">회사령 공포</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">산미 증식 계획</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">일본 기업 진출 확대</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">병참 기지화 정책</div></div>
+</div>
+</div>
+<!-- ═══ SECTION 1: 식민지 경제 체제의 성격 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🔗</span>
+<h2>식민지 경제 체제 — 조선은 누구를 위한 경제였나</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 일본을 위해 설계된 경제 구조</h4>
+<p>1910년 국권을 빼앗긴 뒤, 조선의 경제는 더 이상 조선 사람들을 위해 돌아가지 않았습니다. 일제는 조선을 <strong>일본의 식량과 원료를 공급하는 기지</strong>이자, <strong>일본 상품을 사다 쓰는 시장</strong>으로 만들기 위한 경제 정책을 하나씩 실행에 옮겼습니다.</p>
+<p>이 시기에 철도가 놓이고, 도로가 깔리고, 항구가 커졌습니다. 그런데 이런 시설들이 생긴 이유는 조선 사람들의 생활을 편리하게 하려는 것이 아니었습니다. <strong>식민지를 효율적으로 지배하고 대륙 침략을 뒷받침하기 위한 목적</strong>이었습니다. 겉모습만 보면 발전처럼 보여도, 그 이익이 흘러가는 방향은 언제나 일본이었습니다.</p>
+<div class="highlight-box"><strong>핵심 포인트</strong><br/>시설이 늘어나고 제도가 정비된다고 해서 무조건 '발전'이라고 할 수 있을까요? 누가, 무엇을 위해 만들었는지를 함께 봐야 비로소 그 정책의 성격이 드러납니다.</div>
+</div>
+<!-- ═══ SECTION 2: 토지 조사 사업 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">🌾</span>
+<h2>토지 조사 사업 — 땅의 주인이 바뀌다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 신고하지 못하면 빼앗기는 토지</h4>
+<p>1910년대, 일제는 <strong>토지 조사 사업</strong>을 실시하였습니다. 표면적인 목적은 토지의 소유자와 면적을 정확히 파악하겠다는 것이었습니다. 그러나 그 과정에는 함정이 있었습니다. 토지 소유자가 <strong>정해진 기간 안에 직접 신고</strong>해야만 소유권을 인정받을 수 있었던 것입니다.</p>
+<p>문제는 당시 많은 농민들이 복잡한 신고 절차를 잘 모르거나, 기한을 놓쳤다는 점입니다. 신고되지 않은 토지는 <strong>조선 총독부의 소유</strong>가 되었고, 이 땅은 다시 동양 척식 주식회사나 일본인 지주에게 넘어갔습니다. 수많은 조선 농민이 하루아침에 자기 땅을 잃고 소작농으로 전락하였습니다.</p>
+<div class="highlight-box teal"><strong>제도 정비인가, 수탈인가?</strong><br/>토지 조사 사업은 겉으로 보면 근대적인 토지 정리 사업처럼 보입니다. 하지만 그 결과를 보면 <strong>조선 농민의 토지가 대규모로 총독부와 일본인에게 넘어간 수탈 정책</strong>이었음을 알 수 있습니다.</div>
+</div>
+<!-- ═══ SECTION 3: 회사령과 산미 증식 계획 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">🌱</span>
+<h2>회사령과 산미 증식 계획 — 기업도, 쌀도 일본 것</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 한국인의 기업은 막고, 일본의 쌀 창고로 만들다</h4>
+<p>일제는 <strong>회사령</strong>을 공포하여 한국인이 회사를 세우려면 총독부의 허가를 받도록 하였습니다. 이것은 사실상 한국인의 기업 활동을 억누르는 장치였습니다. 이후 1920년대에 회사령이 폐지되었지만, 그것은 한국인을 위한 것이 아니라 <strong>일본 기업이 조선에 자유롭게 진출하도록 길을 열어 주기 위한 조치</strong>였습니다.</p>
+<p>같은 시기, 일제는 <strong>산미 증식 계획</strong>을 추진하였습니다. 일본 본토에서 쌀이 부족해지자, 조선에서 더 많은 쌀을 생산해 가져가려 한 것입니다. 쌀 생산량 자체는 늘어났지만, 그 쌀의 상당 부분이 일본으로 실려 나갔습니다. 정작 조선의 농민들은 소작료 부담에 시달리며 <strong>오히려 먹을 것이 줄어드는 모순적인 상황</strong>에 놓였습니다.</p>
+</div>
+<!-- ═══ SECTION 4: 병참 기지화 정책 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">⚙️</span>
+<h2>병참 기지화 정책 — 전쟁을 위한 공급 기지</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 조선의 모든 것이 전쟁에 동원되다</h4>
+<p>중일 전쟁(1937)과 태평양 전쟁(1941)이 확대되면서, 일제는 조선을 <strong>군수 물자 공급 기지</strong>로 만드는 <strong>병참 기지화 정책</strong>을 본격적으로 밀어붙였습니다. 남부 지방에서는 목화 재배를 강요하여 군복 원료를 확보하였고, 북부 지방에는 군수 공업 시설을 집중시켰습니다.</p>
+<p>이 시기 조선의 경제는 사람들의 일상생활이 아니라 <strong>오직 전쟁 수행에 맞추어 재편</strong>되었습니다. 사람도, 물자도, 산업 시설도 모두 일본의 침략 전쟁을 지탱하기 위한 방향으로 동원되었습니다. 조선인의 삶은 철저히 뒷전이었습니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">겉모습 — 표면적 목적</div>
+<div class="name">제도 정비 · 산업 확충</div>
+<div class="desc">토지 정리, 쌀 증산, 철도·항구 건설<br/>근대적 제도를 도입하는 것처럼 보임</div>
+</div>
+<div class="compare-card red">
+<div class="label">이면 — 실제 결과</div>
+<div class="name">종속과 수탈</div>
+<div class="desc">토지 상실, 식량 반출, 기업 활동 억제<br/>모든 이익이 일본으로 흘러감</div>
+</div>
+</div>
+</div>
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>철도가 놓이고, 항구가 커지고, 공장이 세워졌습니다. 이런 변화만 본다면 '발전'이라고 부를 수 있을까요?</p>
+<p>진정한 개발인지 수탈인지를 판단하려면, <strong>누가 그 시설을 만들었는지, 그 이익이 누구에게 돌아갔는지, 그 과정에서 누구의 삶이 나빠졌는지</strong>를 함께 봐야 하지 않을까요? 오늘날의 개발 사업에도 같은 질문을 던져 봅시다.</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>일제는 조선을 <strong>일본의 식량·원료 공급지</strong>이자 <strong>상품 판매 시장</strong>으로 만드는 식민지 경제 체제를 구축하였다.</li>
+<li><strong>토지 조사 사업</strong>으로 많은 농민이 토지를 잃고 소작농으로 전락하였다.</li>
+<li><strong>회사령</strong>으로 한국인의 기업 활동을 억제하고, <strong>산미 증식 계획</strong>으로 조선의 쌀을 일본으로 가져갔다.</li>
+<li><strong>병참 기지화 정책</strong>으로 조선의 사람·물자·산업을 전쟁 수행에 동원하였다.</li>
+<li>겉으로는 제도 정비나 산업 시설 확충처럼 보였지만, 실제로는 <strong>종속과 수탈</strong>의 구조였다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 겉으로는 개발처럼 보이는 정책이 왜 실제로는 수탈이 될 수 있을까?</h4>
+<p class="question-text">일제는 토지 조사 사업, 산미 증식 계획, 철도·항구 건설 등을 실시하면서 조선 경제를 재편하였습니다. 이 정책들은 겉으로 보면 제도를 정비하고 시설을 늘리는 것처럼 보일 수도 있습니다. 그렇다면 왜 이것을 '개발'이 아니라 '수탈'이라고 평가하는 것일까요? 아래 세 가지 정책 중 하나 이상을 구체적으로 들어 설명해 보세요.<br/><br/>(힌트: <strong>토지 조사 사업</strong>, <strong>산미 증식 계획</strong>, <strong>병참 기지화 정책</strong>, <strong>이익의 방향</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>토지 조사 사업</span><span>산미 증식 계획</span><span>병참 기지화</span><span>수탈</span><span>식민지 경제</span><span>이익의 방향</span><span>소작농</span><span>일본 기업</span><span>군수 물자</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>일제의 경제 정책이 '개발'이 아니라 '수탈'인 이유는, <strong>정책의 결과로 얻어진 이익이 조선 사람들에게 돌아가지 않고 일본으로 흘러갔기 때문</strong>입니다.</p>
+<p>예를 들어 <strong>토지 조사 사업</strong>은 근대적 토지 정리처럼 보이지만, 실제로는 신고하지 못한 농민의 토지를 총독부와 일본인 지주가 가져가는 결과를 낳았습니다. <strong>산미 증식 계획</strong> 역시 쌀 생산량은 늘었지만, 그 쌀 대부분이 일본으로 반출되어 조선 농민의 식량 사정은 오히려 악화되었습니다.</p>
+<p>즉, 시설이 늘어나고 제도가 정비되는 것처럼 보여도, <strong>그 목적이 조선 사회의 발전이 아니라 일본 제국의 이익을 위한 것</strong>이었다면, 그것은 개발이 아니라 수탈이라고 평가해야 합니다. 정책을 판단할 때는 겉모습이 아니라 '누가 이익을 얻었는가'를 함께 살펴보아야 합니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="1" data-explain="1910년대 일제는 토지 조사 사업을 실시하여 토지 소유자가 정해진 기간 안에 신고하지 못하면 그 토지를 조선 총독부 소유로 만들었습니다. 이를 통해 많은 토지가 총독부와 일본인 지주에게 넘어갔습니다. 광무개혁은 대한 제국의 근대화 정책, 대동법은 조선 시대 세금 제도, 산미 증식 계획은 1920년대 쌀 증산 정책으로 토지를 직접 빼앗는 것과는 구분됩니다.">
+<h4>Q1. 1910년대 일제가 많은 토지를 조선 총독부 소유로 만든 정책은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 광무개혁</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 토지 조사 사업</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 대동법</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 산미 증식 계획</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="2" data-explain="산미 증식 계획은 일본 본토에서 쌀이 부족해지자 조선에서 더 많은 쌀을 생산하여 일본으로 가져가기 위해 추진한 정책입니다. 쌀 생산량은 늘었지만, 그 쌀의 상당 부분이 일본으로 반출되었기 때문에 조선 농민의 생활은 오히려 악화되었습니다. 따라서 '조선 농민의 생활 향상'이나 '한국인 기업 설립 지원'과는 정반대의 결과를 가져왔습니다.">
+<h4>Q2. 산미 증식 계획의 주된 목적은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 조선 농민의 생활 향상</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 한국인의 기업 설립 지원</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 일본의 식량 부족 문제 해결</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 조선의 공업화 촉진</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="1" data-explain="병참 기지화 정책은 중일 전쟁과 태평양 전쟁이 확대되면서 일제가 조선을 군수 물자 공급 기지로 삼은 정책입니다. 남부 지방에서는 목화 재배를 강요하고, 북부 지방에는 군수 공업을 집중시켜 조선의 모든 자원과 인력을 전쟁에 동원하였습니다. 문화 교류나 민주주의 발전, 토지 균등 분배와는 전혀 관계가 없습니다.">
+<h4>Q3. 병참 기지화 정책에 대한 설명으로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 조선을 문화 교류의 중심지로 만들려는 정책</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 조선을 일본의 전쟁 수행을 위한 군수·원료 공급 기지로 만든 정책</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 농민 자치를 확대하기 위한 정책</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 토지의 균등 분배를 위한 정책</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

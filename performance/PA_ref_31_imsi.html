@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>📝 수행평가 참고자료 — 3·1 운동과 대한민국 임시정부</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1d3c2e;--primary-light:#2e5e47;--primary-pale:#e8f0eb;
+  --accent:#e74c3c;--accent-glow:rgba(231,76,60,.25);
+  --gold:#f0c040;--gold-pale:#fff8e7;--teal:#1abc9c;--coral:#e74c3c;--green:#27ae60;
+  --bg:#f3f7f4;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1c2824;--text-sub:#5a6d62;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(29,60,46,.08);--shadow-lg:0 16px 48px rgba(29,60,46,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(243,247,244,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(29,60,46,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#0c1f17 40%,#2e5e47 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(231,76,60,.12),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+.highlight-box{border-left:4px solid var(--primary-light);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(46,94,71,.06),rgba(46,94,71,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(240,192,64,.08),rgba(240,192,64,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+.highlight-box.accent{background:linear-gradient(135deg,rgba(231,76,60,.06),rgba(231,76,60,.02));border-left-color:var(--accent)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--primary-light)}.compare-card.blue .label{color:var(--primary-light)}
+.compare-card.red{border-top:3px solid var(--accent)}.compare-card.red .label{color:var(--accent)}
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2e5e47 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+.src-box{background:#f0f5f1;border:1px solid #b0ccbb;border-radius:var(--radius-sm);padding:16px 20px;margin:12px 0}
+.src-label{display:inline-block;background:var(--primary);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:4px;margin-bottom:8px}
+.src-label.advanced{background:var(--accent)}
+.src-title{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:6px}
+.src-text{font-size:13px;line-height:1.8;color:var(--text-sub)}
+.src-key{margin-top:8px;font-size:12px;color:var(--primary-light);font-weight:600}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(29,60,46,.06)}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">수행평가 참고자료 — 3·1 운동과 임시정부</span>
+<span class="page-ref">한국사 Ⅴ · 수행평가</span>
+</nav>
+<header class="hero">
+<span class="hero-emoji">🕊️</span>
+<h1>3·1 운동 → 대한민국 임시정부 수립</h1>
+<p class="subtitle">만세의 함성은 어떻게 '대한민국'이라는 이름의 정부를 탄생시켰을까?<br/>수행평가에 필요한 사료와 배경 지식을 이 페이지에서 확인하세요.</p>
+<div class="hero-keywords">
+<span>3·1 운동</span><span>독립선언서</span><span>제암리</span><span>임시정부</span><span>해외 동포</span><span>외교 vs 무장</span>
+</div>
+</header>
+<div class="container">
+
+<!-- ═══ SECTION 1: 배경 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🌍</span>
+<h2>3·1 운동의 배경 — 왜 1919년이었을까</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 국제 정세와 국내 상황</h4>
+<p><strong>국제 정세</strong>: 제1차 세계 대전이 끝나면서 미국 대통령 윌슨이 <strong>민족자결주의</strong>를 제창했습니다. "각 민족은 스스로 자기 운명을 결정할 권리가 있다"는 이 원칙은 식민지 백성에게 희망을 주었습니다.</p>
+<p><strong>국내 상황</strong>: 일제의 <strong>무단 통치</strong> 아래 조선인은 언론·집회·결사의 자유를 빼앗겼습니다. 헌병 경찰이 일상을 감시하고, 태형(매질)으로 벌을 주는 야만적 통치가 계속되었습니다. 독립에 대한 열망은 이미 한계에 달해 있었습니다.</p>
+<div class="highlight-box"><strong>핵심 배경</strong><br/>민족자결주의 + 무단 통치에 대한 분노 + 고종의 죽음(독살 의혹) → 이 세 가지가 맞물려 1919년 3월 1일, 폭발적인 만세 운동이 시작되었습니다.</div>
+</div>
+
+<!-- ═══ SECTION 2: 기본 자료 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">📜</span>
+<h2>기본 자료 A~D — 3·1 운동과 임시정부</h2>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 자료 A. 3·1 독립선언서 (핵심 요약)</h4>
+<div class="src-box">
+<span class="src-label">기본 자료 A</span>
+<div class="src-text">
+"우리는 오늘, 우리 조선이 독립한 나라이며 조선 사람이 이 나라의 주인임을 선언합니다. 이것은 5,000년 역사의 명령이자 세계 평화를 위한 정당한 권리입니다. 우리는 일본을 미워해서가 아니라, 잘못된 과거를 바로잡고 우리 스스로를 세우기 위해 일어났습니다. 정의와 진리가 우리와 함께하니, 우리는 오직 찬란한 앞날을 향해 당당하게 나아갈 뿐입니다."
+</div>
+<div class="src-key">💡 핵심 키워드: 자주독립 의지 / 평화적 방식 / 보편적 가치(인도주의·세계 평화)</div>
+</div>
+<div class="highlight-box teal"><strong>분석 포인트</strong><br/>3·1 운동이 단순한 반일 감정이 아니라, <strong>평화·인도주의</strong>라는 보편적 가치를 내세운 운동이었다는 점에 주목하세요.</div>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 자료 B. 3·1 운동의 모습</h4>
+<div class="src-box">
+<span class="src-label">기본 자료 B</span>
+<div class="src-text">
+사진에는 교복 차림의 학생, 두루마기 차림의 어른, 작업복 차림의 사람이 함께 보인다. 사람들은 태극기를 들고 거리에서 만세를 외치고 있다.
+</div>
+<div class="src-key">💡 핵심 키워드: 다양한 계층의 참여 / 전국적 확산 / 평화적 시위</div>
+</div>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 자료 C. 제암리 학살 사건 — 일제의 탄압</h4>
+<div class="src-box">
+<span class="src-label">기본 자료 C</span>
+<div class="src-text">
+1919년 4월, 일본군은 수원(화성) 제암리의 남자들을 교회에 가두고 문을 잠근 뒤 불을 질렀습니다. 탈출하려는 사람들에게는 총을 쏴서 살해했습니다. 마을 전체가 잿더미가 되었고, 살아남은 이들은 산속에서 나무뿌리를 캐 먹으며 공포에 떨어야 했습니다. 이 참혹한 현장은 외국인 선교사와 기자들에 의해 전 세계에 알려졌습니다.
+</div>
+<div class="src-key">💡 핵심 키워드: 평화 시위에 대한 무력 진압 / 민간인 학살 / 국제적 공분</div>
+</div>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 자료 D. 대한민국 임시정부의 탄생</h4>
+<div class="src-box">
+<span class="src-label">기본 자료 D</span>
+<div class="src-text">
+3·1 운동의 열기는 '우리 민족을 이끌 정부가 필요하다'는 깨달음으로 이어졌습니다. 1919년 4월, 상하이에 모인 독립운동가들은 <strong>'대한민국'</strong>이라는 국호를 정하고 임시정부를 세웠습니다. '민국'은 왕이 주인이 아닌 <strong>국민이 주인인 나라(공화제)</strong>를 의미합니다.
+</div>
+<div class="src-key">💡 핵심 키워드: 임시정부 수립 배경 / '제국'에서 '민국'으로 / 민주 공화제</div>
+</div>
+<div class="highlight-box gold"><strong>분석 포인트</strong><br/>대한 '제국'(황제의 나라)에서 대한 '민국'(국민의 나라)으로 바뀐 것은 정치 체제의 근본적 전환입니다. 왜 독립운동가들이 공화제를 선택했는지 생각해 봅시다.</div>
+</div>
+
+<!-- ═══ SECTION 3: 심화 자료 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">🔍</span>
+<h2>심화 자료 E~F — 해외 동포와 노선 갈등</h2>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 자료 E. 해외 동포들의 눈물겨운 지원</h4>
+<div class="src-box">
+<span class="src-label advanced">심화 자료 E</span>
+<div class="src-text">
+<strong>미주 지역</strong>: 안창호, 서재필 등은 미국 사회에 독립의 당위성을 알렸습니다. 사탕수수밭에서 하루 3달러를 벌던 노동자들이 수입의 상당 부분을 독립 자금으로 기부하여 임시정부 운영을 도왔습니다.<br/><br/>
+<strong>러시아(연해주)</strong>: '대한국민의회'를 조직하고 가장 먼저 독립을 선포했습니다. 가난한 동포들도 한 명도 빠짐없이 돈을 모아 거액의 독립 자금을 마련했습니다.<br/><br/>
+<strong>중국(북간도)</strong>: 수천 명의 동포가 만세 시위에 참여하고 '결사대'를 조직하여 무장 독립 전쟁을 준비하기 시작했습니다.
+</div>
+<div class="src-key">💡 핵심 키워드: 해외 독립운동 / 자금 지원 / 외교 활동 / 무장 투쟁 준비</div>
+</div>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 자료 F. 독립을 향한 서로 다른 길 — 이승만의 편지(1920)</h4>
+<div class="src-box">
+<span class="src-label advanced">심화 자료 F</span>
+<div class="src-text">
+"미국 신문을 보니 우리 독립운동가들이 폭탄을 던지거나 강제로 돈을 모으는 일이 있다고 합니다. 이런 행동은 오히려 독립에 방해가 됩니다. 지금은 인내하며 세계에 우리의 정의로움을 알리고 <strong>외교를 통해 기회를 엿보는 것이 가장 좋은 방법</strong>입니다."
+</div>
+<div class="src-key">💡 핵심 키워드: 외교론 vs 무장투쟁론 / 노선 갈등 / 임시정부 내부 고민</div>
+</div>
+<div class="highlight-box accent"><strong>분석 포인트</strong><br/>독립운동가들 사이에서 '외교'와 '무장 투쟁' 중 무엇이 더 효과적인지를 둘러싼 갈등이 있었습니다. 이 갈등을 조율할 구심점으로서 임시정부가 왜 필요했는지 생각해 봅시다.</div>
+</div>
+
+<!-- ═══ SECTION 4: 핵심 비교 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">⚖️</span>
+<h2>독립운동의 두 갈래 — 외교론 vs 무장투쟁론</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 같은 목표, 다른 방법</h4>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">외교 독립론</div>
+<div class="name">세계에 호소하자</div>
+<div class="desc">국제 사회에 독립의 정당성을 알림<br/>3·1 운동의 평화적 정신 계승<br/>대표: 이승만 등</div>
+</div>
+<div class="compare-card red">
+<div class="label">무장 투쟁론</div>
+<div class="name">총을 들고 싸우자</div>
+<div class="desc">일제의 무력에 무력으로 대응<br/>봉오동·청산리 전투로 이어짐<br/>대표: 만주·연해주 독립군</div>
+</div>
+</div>
+<div class="highlight-box"><strong>왜 이 갈등이 중요한가?</strong><br/>수행평가에서 <strong>소통 규칙</strong>을 제안할 때, 이 노선 갈등을 어떻게 조율할 수 있었는지를 역사적 맥락과 연결해서 써야 합니다. "힘을 합치자" 수준이 아니라, 구체적이고 실현 가능한 규칙을 제안해 보세요.</div>
+</div>
+
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 수행평가에서 기억할 핵심</h3>
+<ul>
+<li><strong>자료 선택</strong>: 기본 자료(A~D) 중 1개 + 심화 자료(E 또는 F) 중 1개를 선택하여 활용합니다.</li>
+<li><strong>자료 활용법</strong>: "자료 ___에 따르면 ___이다" + "이를 통해 ___을 알 수 있다"로 해석을 덧붙이세요.</li>
+<li><strong>페르소나</strong>: 학생·상인·종교인·해외 한인·가족 중 하나를 골라, 6·7단계까지 일관되게 유지하세요.</li>
+<li><strong>역사적 의의</strong>: 3·1 운동은 전 계층 참여의 거족적 독립운동이었고, 임시정부는 최초의 민주 공화제 정부였다는 점을 반드시 포함하세요.</li>
+<li><strong>소통 규칙</strong>: 외교론·무장투쟁론 갈등, 국내·해외 분리 운영 등 역사적 맥락과 연결된 구체적 규칙을 2가지 제안하세요.</li>
+</ul>
+</div>
+
+</div>
+<footer class="page-footer">📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도 수행평가 참고자료</footer>
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

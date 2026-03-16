@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>📝 수행평가 참고자료 — 갑신정변과 갑오개혁</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1a3a5c;--primary-light:#2a5a8c;--primary-pale:#e8edf6;
+  --accent:#c0392b;--accent-glow:rgba(192,57,43,.25);
+  --gold:#f0c040;--gold-pale:#fff8e7;--teal:#1abc9c;--coral:#e74c3c;--green:#27ae60;
+  --bg:#f4f6f9;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1c2430;--text-sub:#5a6878;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(26,58,92,.08);--shadow-lg:0 16px 48px rgba(26,58,92,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(244,246,249,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(26,58,92,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#0d2040 40%,#2a5a8c 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(192,57,43,.15),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+.highlight-box{border-left:4px solid var(--primary-light);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(42,90,140,.06),rgba(42,90,140,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(240,192,64,.08),rgba(240,192,64,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+.highlight-box.accent{background:linear-gradient(135deg,rgba(192,57,43,.06),rgba(192,57,43,.02));border-left-color:var(--accent)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--primary-light)}.compare-card.blue .label{color:var(--primary-light)}
+.compare-card.red{border-top:3px solid var(--accent)}.compare-card.red .label{color:var(--accent)}
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2a5a8c 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+.src-box{background:#f8fafc;border:1px solid #d0d9e4;border-radius:var(--radius-sm);padding:16px 20px;margin:12px 0}
+.src-label{display:inline-block;background:var(--primary);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:4px;margin-bottom:8px}
+.src-label.warn{background:#e8a020}
+.src-title{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:6px}
+.src-text{font-size:13px;line-height:1.8;color:var(--text-sub)}
+.src-key{margin-top:8px;font-size:12px;color:var(--primary-light);font-weight:600}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(26,58,92,.06)}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">수행평가 참고자료 — 갑신정변과 갑오개혁</span>
+<span class="page-ref">한국사 Ⅴ · 수행평가</span>
+</nav>
+<header class="hero">
+<span class="hero-emoji">📝</span>
+<h1>갑신정변과 갑오개혁의 '두 길'</h1>
+<p class="subtitle">왜 한 개혁은 3일 만에 무너지고, 다른 개혁은 제도로 남았을까?<br/>수행평가에 필요한 사료와 배경 지식을 이 페이지에서 확인하세요.</p>
+<div class="hero-keywords">
+<span>갑신정변</span><span>정령 14개조</span><span>갑오개혁</span><span>김옥균</span><span>군국기무처</span><span>수행평가 자료</span>
+</div>
+</header>
+<div class="container">
+
+<!-- ═══ SECTION 1: 배경 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🌍</span>
+<h2>19세기 후반 조선 — 왜 개혁이 필요했는가</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 안팎으로 무너지는 질서</h4>
+<p><strong>국제 정세</strong>: 청은 양무운동, 일본은 메이지 유신으로 근대화에 나서고 있었습니다. 서양 열강은 아시아 곳곳에 진출했고, 조선도 1876년 강화도 조약 이후 강제로 세계 질서에 편입되었습니다.</p>
+<p><strong>국내 상황</strong>: 양반 중심 신분제, 삼정의 문란, 특권 상인(혜상공국)의 독점, 환곡의 폐단 등 조선 사회의 모순이 깊어지고 있었습니다. 백성의 불만은 커져 갔고, 동학 농민 운동(1894)으로 폭발하기도 했습니다.</p>
+<div class="highlight-box"><strong>핵심 질문</strong><br/>이런 상황에서 조선이 살아남으려면 어떤 개혁이 필요했을까요? 갑신정변과 갑오개혁은 서로 다른 방식으로 이 질문에 답하려 한 시도였습니다.</div>
+</div>
+
+<!-- ═══ SECTION 2: 사료 모음 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">📜</span>
+<h2>수행평가 제시 자료 — 사료 A~E</h2>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 사료 A. 갑신정변 개혁안 (정령 14개조) 핵심 정리</h4>
+<div class="src-box">
+<span class="src-label">자료 A</span>
+<div class="src-text">
+<strong>1.</strong> 청에 대한 조공·허례허식을 줄이거나 없앤다.<br/>
+<strong>2.</strong> 신분·문벌 차별을 없애고, 누구나 평등하게 관리가 될 수 있게 한다.<br/>
+<strong>3.</strong> 토지세(지조법)를 고쳐 관리의 부정을 막고, 백성 부담을 줄이며 국가 재정도 안정시킨다.<br/>
+<strong>6.</strong> 각 지방의 환곡 제도를 폐지해 백성을 괴롭히지 못하게 한다.<br/>
+<strong>7.</strong> 규장각을 없앤다. (기존 왕실·정치 운영의 핵심 기구 정리)<br/>
+<strong>9.</strong> 혜상공국(특권 상인 조직)을 없애 독점과 특혜를 없앤다.<br/>
+<strong>11.</strong> 군대를 정비해 근위대를 빨리 만들고, 군사 조직을 재편한다.<br/>
+<strong>12.</strong> 나라 살림은 호조가 한곳에서 맡고, 따로 돈을 쓰던 기관은 정리한다.<br/>
+<strong>14.</strong> 쓸데없는 관청은 정리하고 필요한 기관만 남겨 정부를 효율적으로 만든다.
+</div>
+<div class="src-key">💡 핵심 키워드: 신분 타파 / 청 간섭 배제 / 민생 개선 / 정부 효율화</div>
+</div>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 사료 B. 김옥균의 개혁 구상 — 「치도약론」(1884)</h4>
+<div class="src-box">
+<span class="src-label">자료 B</span>
+<div class="src-text">
+"요즘 세계는 증기선과 전신으로 나라들이 교통하며 기술과 산업이 빠르게 발전한다. 그런데 조선은 거리의 오물과 불결함 때문에 전염병이 퍼지고 외국인들이 비웃는다."<br/><br/>
+"지금 가장 먼저 해야 할 일은 <strong>(1) 위생, (2) 농업·상업 진흥, (3) 도로 정비</strong>이다. 도로가 정비되면 운송이 쉬워져 농업이 살아나고, 같은 일을 적은 사람이 할 수 있어 남는 힘을 기술·공업에 돌릴 수 있다."
+</div>
+<div class="src-key">💡 핵심 키워드: 근대화 절박함 / 실용적·단계적 개혁안 / 인프라 우선</div>
+</div>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 사료 C. 갑신정변 이후 분위기 변화 — 『윤치호 일기』(1885)</h4>
+<div class="src-box">
+<span class="src-label">자료 C</span>
+<div class="src-text">
+"몇몇 지도자들이 너무 급하게 큰일을 벌여 나라가 더 위태로워졌다. 그 뒤로 '개화당은 외국과 손잡고 나라를 판 역적'이라는 말이 퍼졌다. 외국과 교류하고 개화를 말하는 사람들은 입을 열기 어려운 분위기가 되었다."
+</div>
+<div class="src-key">💡 핵심 키워드: 정변 실패의 후폭풍 / '개화 = 매국' 인식 / 개혁 흐름 단절</div>
+</div>
+<div class="highlight-box accent"><strong>분석 포인트</strong><br/>갑신정변이 실패한 뒤 조선 사회에서 '개화'라는 단어 자체가 부정적으로 변한 이유는 무엇일까요? 방법이 잘못되면 좋은 목표마저 나쁘게 보일 수 있다는 점을 생각해 봅시다.</div>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 사료 D. 갑오개혁 의안(1894) 핵심 정리</h4>
+<div class="src-box">
+<span class="src-label">자료 D</span>
+<div class="src-text">
+<strong>자주 외교</strong>: 공문서 날짜를 개국 기년으로 바꾸고, 청과의 조약을 고치며 각국에 외교관을 보낸다.<br/>
+<strong>신분 평등</strong>: 양반·평민 구별을 폐지하고, 능력으로 인재를 뽑아 등용한다.<br/>
+<strong>인권 보호</strong>: 연좌제 금지, 조혼 금지(남 20세·여 16세 이상), 과부 재혼 허용, <strong>노비제 폐지 + 인신매매 금지</strong>.<br/>
+<strong>국민 참여</strong>: 평민도 정책을 제안할 수 있게 한다.
+</div>
+<div class="src-key">💡 핵심 키워드: 제도적 개혁 / 신분제 철폐 / 인권 보장 / 자주 외교</div>
+</div>
+</div>
+
+<div class="glass-card fade-up">
+<h4>📌 사료 E. 내각 갈등과 국왕의 입장</h4>
+<div class="src-box">
+<span class="src-label">자료 E</span>
+<div class="src-text">
+국왕은 <strong>구파(옛 대신들)</strong>가 청나라를 의식하고 기대려는 태도를 버리지 못했다고 비판했다. 반면 <strong>신파(박영효 중심)</strong>는 나라를 발전시키려는 방향이 국왕의 뜻과 맞는다고 평가했다.<br/><br/>
+특히 국왕은 군부에서 <strong>허락 없이 군대를 움직인 일(월권)</strong>과 <strong>돈 쓰는 과정이 불분명한 점</strong>을 문제 삼았다. "지금은 구파·신파를 억지로 화해시키기 어렵다"는 입장이었다.
+</div>
+<div class="src-key">💡 핵심 키워드: 구파 vs 신파 갈등 / 왕권 vs 개혁파 / 합의 부재가 개혁의 걸림돌</div>
+</div>
+</div>
+
+<!-- ═══ SECTION 3: 비교 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">⚖️</span>
+<h2>갑신정변 vs 갑오개혁 — 핵심 비교</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 두 개혁의 공통점과 차이점</h4>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">갑신정변 (1884)</div>
+<div class="name">급진적 정변</div>
+<div class="desc">김옥균 등 급진 개화파 주도<br/>일본의 힘을 빌림<br/>청군 개입으로 3일 만에 실패<br/>개화에 대한 부정적 인식 확산</div>
+</div>
+<div class="compare-card red">
+<div class="label">갑오개혁 (1894)</div>
+<div class="name">제도적 개혁</div>
+<div class="desc">군국기무처·김홍집 내각 주도<br/>일본의 영향 아래 진행<br/>노비제 폐지 등 근대적 법 제정<br/>단발령 반발·자주성 부족 한계</div>
+</div>
+</div>
+<div class="highlight-box gold"><strong>공통 목표</strong><br/>두 사건 모두 <strong>낡은 신분제를 없애고 자주적인 근대 국가를 만들려는 목표</strong>를 가졌습니다. 그러나 방법, 주체, 외세 의존도, 결과가 크게 달랐습니다.</div>
+</div>
+
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 수행평가에서 기억할 핵심</h3>
+<ul>
+<li><strong>사료 활용법</strong>: "자료 ___에 따르면 ___이다" + "이를 통해 ___을 알 수 있다"로 해석을 덧붙여야 합니다.</li>
+<li><strong>비교 기준</strong>: 누가 추진했나 / 어떤 힘을 빌렸나 / 어떤 반발이 있었나 / 무엇이 남았나</li>
+<li><strong>의의와 한계</strong>: 갑신정변은 개혁안을 명문화했지만 3일 만에 실패, 갑오개혁은 제도로 남았지만 일본 간섭 아래 진행</li>
+<li><strong>페르소나</strong>: 선택한 역할의 입장에서 일관되게 서술해야 합니다.</li>
+<li><strong>소통 규칙</strong>: "사이좋게 지내자" 수준이 아니라, 역사적 맥락과 연결된 구체적 규칙을 제안해야 합니다.</li>
+</ul>
+</div>
+
+</div>
+<footer class="page-footer">📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도 수행평가 참고자료</footer>
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

@@ -38,6 +38,13 @@
     /* 시험 범위 모달 */
     .scope-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:200;align-items:center;justify-content:center;padding:16px}.scope-overlay.open{display:flex}.scope-modal{background:#fff;border-radius:var(--r-lg);max-width:600px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2);padding:0}.scope-modal-header{position:sticky;top:0;background:#fff;padding:18px 20px 12px;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;z-index:1}.scope-modal-header h2{font-size:1.05rem;font-weight:700}.scope-close{background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--dim);padding:4px 8px;border-radius:6px}.scope-close:hover{background:rgba(0,0,0,0.05)}.scope-body{padding:16px 20px 24px}.scope-note{font-size:0.82rem;color:var(--orange);background:var(--orange-bg);padding:10px 14px;border-radius:var(--r-sm);margin-bottom:16px;line-height:1.5;font-weight:500}.scope-unit{margin-bottom:16px}.scope-unit h3{font-size:0.92rem;font-weight:700;color:var(--navy);margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid var(--navy-bg)}.scope-unit ul{list-style:none;display:flex;flex-direction:column;gap:4px}.scope-unit li{font-size:0.83rem;color:var(--text);padding:6px 10px;background:var(--navy-bg);border-radius:6px;display:flex;justify-content:space-between;align-items:center}.scope-unit li .scope-pages{font-size:0.76rem;color:var(--dim);white-space:nowrap;margin-left:12px;flex-shrink:0}
     @media(prefers-reduced-motion:no-preference){.fade-in{opacity:0;transform:translateY(10px);animation:fadeUp .45s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}}
+    /* ── 검색창 스타일 ── */
+    .search-container{position:relative;margin:0 auto 28px;max-width:var(--max-w);padding:0 18px}
+    .search-input{width:100%;padding:14px 18px;font-size:0.92rem;font-family:'Noto Sans KR',sans-serif;border:1px solid rgba(0,0,0,0.1);border-radius:var(--r-md);background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:var(--shadow);outline:none;transition:border-color 0.2s,box-shadow 0.2s;color:var(--text)}.search-input::placeholder{color:var(--dim)}.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.12),var(--shadow)}
+    .search-results{position:absolute;top:100%;left:18px;right:18px;margin-top:4px;background:rgba(255,255,255,0.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(0,0,0,0.08);border-radius:var(--r-md);box-shadow:var(--shadow-h);max-height:320px;overflow-y:auto;display:none;z-index:50;list-style:none}
+    .search-results li+li{border-top:1px solid rgba(0,0,0,0.05)}
+    .search-results a{display:block;padding:12px 16px;transition:background 0.12s}.search-results a:hover{background:rgba(37,99,235,0.06)}
+    .search-title{display:block;font-size:0.9rem;font-weight:600;margin-bottom:2px}.search-keywords{display:block;font-size:0.76rem;color:var(--dim);line-height:1.4}
   </style>
 </head>
 <body>
@@ -351,6 +358,11 @@ const CONFIG = {
     <div id="subject-panels"></div>
   </div></section>
 
+  <div class="search-container fade-in">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 검색어를 입력하세요 (예: 한양, 이성계, 임진왜란, 6월항쟁)...">
+    <ul id="searchResults" class="search-results"></ul>
+  </div>
+
   <section class="sec" id="exam"><div class="container">
     <span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">📝 시험 대비</span>
     <h2 class="sec-title">시험 대비</h2>
@@ -495,6 +507,71 @@ renderNotice();
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.animationPlayState='running';obs.unobserve(x.target)}})},{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
 setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getComputedStyle(el).opacity==='0'){el.style.animationPlayState='paused';obs.observe(el)}})},100);
+
+/* ── 전체 검색 기능 ── */
+const SEARCH_DATA = [
+  { title: "🏯 조선 건국과 한양 천도", url: "01. joseon_foundation.html", keywords: ["조선건국", "이성계", "정도전", "위화도회군", "과전법", "한양천도", "경복궁", "신진사대부"] },
+  { title: "🏛️ 유교 통치 체제와 사대교린", url: "02. joseon_confucian-governance.html", keywords: ["경국대전", "의정부", "6조", "3사", "사헌부", "사간원", "홍문관", "8도", "관찰사", "사대교린"] },
+  { title: "📜 유교 윤리 보급과 사회 변화", url: "03. joseon_confucian-ethics-society.html", keywords: ["유교윤리", "성리학", "삼강행실도", "국조오례의", "양천제", "반상제", "향교", "성균관", "서당"] },
+  { title: "🏛️ 사림의 성장과 붕당 형성", url: "04. joseon_sarim-bungdang.html", keywords: ["훈구", "사림", "사화", "무오사화", "갑자사화", "기묘사화", "조광조", "서원", "향약", "붕당", "동인", "서인"] },
+  { title: "📖 훈민정음 창제와 과학 기술의 발달", url: "05. joseon_hunminjeongeum-science.html", keywords: ["세종", "훈민정음", "측우기", "자격루", "앙부일구", "칠정산", "농사직설", "향약집성방", "혼천의", "과학기술"] },
+  { title: "⚔️ 임진왜란의 발발과 극복", url: "06. joseon_imjin-war.html", keywords: ["임진왜란", "1592년", "이순신", "한산도대첩", "수군", "의병", "곽재우", "권율", "행주대첩", "조명연합군"] },
+  { title: "🔥 전후 복구와 광해군의 중립 외교", url: "07. joseon_gwanghaegun-diplomacy.html", keywords: ["광해군", "중립외교", "명나라", "후금", "강홍립", "대동법", "동의보감", "전후복구", "인조반정"] },
+  { title: "🏔️ 정묘호란·병자호란과 국제 질서의 변화", url: "08. joseon_horan-intl-order.html", keywords: ["인조", "친명배금", "정묘호란", "병자호란", "남한산성", "삼전도의굴욕", "청나라", "북벌운동", "효종"] },
+  { title: "🏗️ 양 난 이후 국가를 재건하다", url: "09. joseon_postwar_rebuild_edited.html", keywords: ["비변사", "훈련도감", "5군영", "속오군", "영정법", "대동법", "균역법", "수취체제", "광해군", "영조"] },
+  { title: "👑 영조·정조의 탕평 정치와 세도 정치", url: "10. joseon_tangpyeong_sedo_edited.html", keywords: ["조선후기", "영조", "정조", "탕평정치", "탕평책", "규장각", "수원화성", "세도정치", "붕당정치", "비변사"] },
+  { title: "🏘️ 향촌 사회가 흔들리다", url: "11. joseon_hyangchon_change.html", keywords: ["조선후기", "신분제동요", "양반층분화", "향전", "신향", "구향", "수령", "향리", "농민봉기", "향촌사회"] },
+  { title: "🔥 삼정의 문란과 농민의 의식 성장", url: "12. joseon_samjeong_farmers.html", keywords: ["조선후기", "삼정의문란", "전정", "군정", "환곡", "홍경래의난", "임술농민봉기", "진주농민봉기", "동학", "최제우"] },
+  { title: "📚 새로운 학문적 경향이 나타나다", url: "13. joseon_silhak_gukhak.html", keywords: ["조선후기", "실학", "중농학파", "중상학파", "정약용", "박지원", "박제가", "유수원", "국학", "대동여지도"] },
+  { title: "🌏 동아시아, 문화를 교류하다", url: "14. joseon_eastasia_culture.html", keywords: ["조선후기", "동아시아", "문화교류", "조선통신사", "연행사", "서양문물", "곤여만국전도", "자명종", "천주교", "서학"] },
+  { title: "🎭 생활과 문화의 새로운 양상", url: "15. joseon_life_culture.html", keywords: ["조선후기", "서민문화", "풍속화", "김홍도", "신윤복", "판소리", "탈춤", "민화", "한글소설", "홍길동전", "춘향전"] },
+  { title: "⚓ 문호를 개방하고 개화 정책을 펼치다", url: "16. joseon_opening_modernization.html", keywords: ["흥선대원군", "강화도조약", "운요호사건", "개항", "불평등조약", "개화정책", "위정척사운동", "임오군란", "갑신정변", "조미수호통상조약"] },
+  { title: "🇰🇷 국민 국가를 수립하기 위해 노력하다", url: "17. korean_national_state.html", keywords: ["동학농민운동", "전봉준", "갑오개혁", "을미사변", "독립협회", "만민공동회", "관민공동회", "대한제국", "광무개혁", "구본신참"] },
+  { title: "✊ 일제에 맞서 민족 운동을 전개하다", url: "18. anti_japanese_movements.html", keywords: ["일제강점기", "항일의병운동", "을사의병", "정미의병", "애국계몽운동", "신민회", "국채보상운동", "안중근", "항일운동", "민족운동"] },
+  { title: "🕊️ 독립을 위한 노력과 대한민국 정부 수립", url: "19. independence_to_government.html", keywords: ["3.1운동", "대한민국임시정부", "무장독립투쟁", "의열단", "한인애국단", "한국광복군", "8.15광복", "모스크바3국외상회의", "5.10총선거", "대한민국정부수립"] },
+  { title: "🏭 식민지 경제 체제로 재편되다", url: "20. colonial-economy.html", keywords: ["일제강점기", "식민지", "경제수탈", "토지조사사업", "산미증식계획", "병참기지화", "국가총동원법", "공출", "징용", "징병", "위안부"] },
+  { title: "📈 국가 주도의 경제 성장이 이루어지다", url: "21. growth-economy.html", keywords: ["경제성장", "경제개발5개년계획", "박정희", "한강의기적", "수출주도형", "경부고속국도", "새마을운동", "중화학공업", "1960년대", "1970년대"] },
+  { title: "⚖️ 신자유주의 경제 정책과 노동 운동", url: "22. neoliberalism-labor.html", keywords: ["신자유주의", "IMF", "외환위기", "1997년", "금모으기운동", "비정규직", "노동운동", "전태일", "민주노총", "시장개방", "세계화"] },
+  { title: "🎶 대중문화가 발전하다", url: "23. pop-culture.html", keywords: ["대중문화", "한류", "K-pop", "케이팝", "대중매체", "라디오", "텔레비전", "TV", "청년문화", "1970년대", "1990년대", "영화", "프로스포츠"] },
+  { title: "📜 제헌 헌법과 민주주의 지향", url: "24. constitutional-democracy.html", keywords: ["제헌헌법", "제헌국회", "5.10총선거", "510총선거", "이승만", "제1공화국", "반민특위", "친일파", "농지개혁", "1948년", "대한민국정부수립"] },
+  { title: "✊ 4·19 혁명, 민주주의의 씨를 뿌리다", url: "25. april-revolution.html", keywords: ["4.19혁명", "419", "3.15부정선거", "315", "김주열", "마산의거", "이승만하야", "내각책임제", "장면내각", "제2공화국", "민주주의"] },
+  { title: "🔥 민주주의, 시련을 겪다", url: "26. dictatorship-and-resistance.html", keywords: ["독재", "5.16군사정변", "박정희", "유신헌법", "유신체제", "부마항쟁", "신군부", "전두환", "5.18민주화운동", "518", "광주", "계엄령"] },
+  { title: "🌸 6월 민주 항쟁, 민주주의를 꽃피우다", url: "27. june-democracy.html", keywords: ["6월민주항쟁", "6월항쟁", "1987년", "박종철", "이한열", "고문치사사건", "4.13호헌조치", "호헌철폐", "6.29민주화선언", "629선언", "대통령직선제", "전두환"] },
+  { title: "⚔️ 6·25 전쟁과 분단 고착", url: "28. korean-war-division.html", keywords: ["6.25전쟁", "625", "1950년", "북한남침", "인천상륙작전", "맥아더", "1.4후퇴", "중국군개입", "휴전협정", "판문점", "분단", "이산가족", "냉전"] },
+  { title: "🕊️ 평화 통일을 위해 노력하다", url: "29. peaceful-unification.html", keywords: ["평화통일", "7.4남북공동성명", "74남북공동성명", "남북기본합의서", "6.15남북공동선언", "615", "햇볕정책", "김대중", "남북정상회담", "개성공단", "이산가족상봉"] }
+];
+
+(function(){
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  if (!searchInput || !searchResults) return;
+
+  searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase().replace(/\s/g, '');
+    if (query.length === 0) { searchResults.style.display = 'none'; return; }
+
+    const matched = SEARCH_DATA.filter(item => {
+      const matchTitle = item.title.toLowerCase().replace(/\s/g, '').includes(query);
+      const matchKeyword = item.keywords.some(kw => kw.toLowerCase().includes(query));
+      return matchTitle || matchKeyword;
+    });
+
+    if (matched.length > 0) {
+      searchResults.innerHTML = matched.map(item => `
+        <li><a href="${item.url}">
+          <span class="search-title">${item.title}</span>
+          <span class="search-keywords">관련 키워드: ${item.keywords.join(', ')}</span>
+        </a></li>`).join('');
+    } else {
+      searchResults.innerHTML = `<li><a href="#" style="pointer-events:none;color:#999;">검색 결과가 없습니다. 😅</a></li>`;
+    }
+    searchResults.style.display = 'block';
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-container')) searchResults.style.display = 'none';
+  });
+})();
 </script>
 </body>
 </html>

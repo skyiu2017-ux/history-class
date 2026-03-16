@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🌏 동아시아, 문화를 교류하다</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">동아시아, 문화를 교류하다</span>
+<span class="page-ref">한국사 Ⅳ</span>
+</nav>
+<header class="hero">
+<span class="hero-emoji">🌏</span>
+<h1>동아시아, 문화를 교류하다</h1>
+<p class="subtitle">조선은 청과 일본에 사절단을 보내면서 새로운 세계를 만났습니다.<br/>바깥세상과의 만남은 조선인의 세계관과 문화를 어떻게 바꾸어 놓았을까요?</p>
+<div class="hero-keywords">
+<span>연행사</span><span>통신사</span><span>서학</span><span>곤여만국전도</span><span>양반전</span><span>진경 산수화</span>
+</div>
+</header>
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 조선 후기 청과 일본에 보낸 대표적인 사절단은 무엇이었을까?</li>
+<li><span class="cq-badge standard">표준</span> 연행사와 통신사는 왜 단순한 외교를 넘어 문화 교류의 통로가 되었을까?</li>
+<li><span class="cq-badge advanced">심화</span> 외부 세계와의 접촉은 조선인의 세계관과 문화에 어떤 변화를 일으켰을까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">병자호란 이후 청과 관계</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">연행사 파견</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">서양 문물·서학 전래</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">통신사 파견</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">문학의 변화</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">회화의 새 경향</div></div>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🏯</span>
+<h2>연행사 — 청으로 간 조선의 눈과 귀</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 외교 사절이자 문화 교류의 통로</h4>
+<p>병자호란 이후 조선은 청에 <strong>연행사</strong>를 파견하였습니다. 연행사는 청의 수도 연경(베이징)에 가서 조공을 바치고 답례품을 받아 오는 외교 사절이었지만, 역할은 그것에 그치지 않았습니다. <strong>물자 교역</strong>과 <strong>학문 교류</strong>의 통로이기도 했습니다.</p>
+<p>연행사를 통해 조선에는 세계 지도, 과학 서적, 화포, 자명종, 천리경 같은 <strong>서양 문물</strong>이 들어왔습니다. 특히 마테오 리치가 제작한 <strong>「곤여만국전도」</strong>가 전래되면서, 조선인들은 유럽·아프리카·아메리카 대륙까지 포함된 넓은 세계를 처음으로 접하게 되었습니다. 중국을 세계의 중심으로만 여기던 기존 관념이 흔들리기 시작한 것입니다.</p>
+<div class="highlight-box"><strong>핵심 포인트</strong><br/>연행사는 단순한 조공 사절이 아니라, 조선이 바깥세상의 지식과 기술을 받아들이는 <strong>창구</strong>였습니다. 곤여만국전도의 전래는 조선인의 세계관을 넓힌 결정적 계기였습니다.</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">✝️</span>
+<h2>서학의 전래 — 새로운 학문, 거센 충돌</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 서학은 왜 환영받지 못했을까</h4>
+<p>연행사를 통해 들어온 서양 학문 가운데 조선 사회에 특히 큰 파장을 일으킨 것이 <strong>서학</strong>입니다. 서학은 천주교를 서양 학문으로 받아들인 것으로, 일부 지식인들은 서양의 과학·지도·천문 지식과 함께 서학에 관심을 가졌습니다.</p>
+<p>그러나 조선 정부와 유학자 대다수는 서학을 쉽게 받아들이지 않았습니다. 서학이 <strong>인간 평등을 강조</strong>하고 <strong>제사를 부정</strong>하는 내용을 담고 있었기 때문입니다. 이것은 성리학 질서와 신분 체제를 중시하던 조선 사회의 근본 원칙과 정면으로 충돌하는 것이었고, 결국 정부의 <strong>탄압</strong>으로 이어졌습니다.</p>
+<div class="highlight-box gold"><strong>충돌의 본질</strong><br/>서학 논쟁은 단순한 종교 문제가 아니었습니다. '모든 인간이 평등하다'는 주장은 양반 중심 사회를 부정하는 것이었고, 제사 거부는 유교적 효(孝)를 부정하는 것이었습니다. 새로운 사상과 기존 질서 사이의 근본적인 충돌이었습니다.</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">⛵</span>
+<h2>통신사 — 일본에 간 조선 문화의 사절단</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 외교와 문화를 동시에 전하다</h4>
+<p>조선은 왜란 이후 일본과 국교를 다시 맺는 과정에서 <strong>통신사</strong>를 여러 차례 파견하였습니다. 통신사는 에도 막부의 요청에 따라 쇼군이 바뀔 때 축하 사절의 성격으로 가기도 했고, 양국 간 외교 관계를 유지하는 역할도 하였습니다.</p>
+<p>통신사는 외교 사절이면서 동시에 <strong>문화 교류의 사절단</strong>이었습니다. 일본에서는 통신사를 성대하게 맞이했고, 숙소에는 글씨와 글을 받으려는 사람들이 몰려들었습니다. 사절단이 보여 준 마상재(말 위에서 하는 재주)는 큰 인기를 끌었고, 행렬과 활동은 병풍·판화·두루마리 그림 등으로 남겨졌습니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">청으로 간 사절</div>
+<div class="name">연행사</div>
+<div class="desc">조공·물자 교역·학문 교류<br/>서양 문물과 세계 지식 유입<br/>곤여만국전도·자명종 등 전래</div>
+</div>
+<div class="compare-card red">
+<div class="label">일본으로 간 사절</div>
+<div class="name">통신사</div>
+<div class="desc">외교 사절 겸 문화 교류<br/>조선 문화를 일본에 널리 알림<br/>글씨·마상재 등 큰 인기</div>
+</div>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">📖</span>
+<h2>문학과 회화의 변화 — 현실을 담아내다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 양반을 비판하고, 우리 산천을 그리다</h4>
+<p>조선 후기 문학은 양반의 고상한 취미에 머무르지 않고, <strong>현실 사회의 모순과 양반 중심 질서를 비판</strong>하는 방향으로 나아갔습니다. 대표작인 <strong>박지원의 『양반전』</strong>은 양반의 위선과 횡포를 풍자하며, 개혁 능력 없는 양반층을 날카롭게 비판한 작품입니다.</p>
+<p>회화에서도 새로운 흐름이 나타났습니다. <strong>정선</strong>은 중국의 이상적 풍경이 아니라 조선의 실제 산천을 그대로 담아낸 <strong>진경 산수화</strong>를 그렸습니다. 이는 명 멸망 이후 높아진 문화적 자존 의식과 우리 자연을 표현하려는 움직임 속에서 등장한 것입니다. <strong>김홍도</strong>는 서민의 생활을, <strong>신윤복</strong>은 도시 사람과 남녀의 풍속을 해학적으로 그린 <strong>풍속화</strong>를 남겼습니다. 서예에서는 <strong>김정희</strong>가 독창적인 <strong>추사체</strong>를 완성하였습니다.</p>
+<div class="highlight-box teal"><strong>문학과 회화의 공통점</strong><br/>양반전과 진경 산수화·풍속화는 모두 <strong>'조선의 현실'</strong>에 눈을 돌렸다는 공통점이 있습니다. 이상이 아니라 실제, 중국이 아니라 조선을 표현하려는 흐름이 문화 전반에 나타난 것입니다.</div>
+</div>
+
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>연행사를 통해 세계 지도를 접한 조선인은 '중국이 세계의 전부가 아니구나'라는 사실을 깨닫기 시작했습니다. 통신사는 일본에서 조선 문화에 대한 높은 관심을 직접 경험했습니다.</p>
+<p>이처럼 <strong>바깥세상과의 접촉</strong>은 기존의 세계관을 흔들기도 하고, 자기 문화에 대한 자부심을 키우기도 합니다. 이 두 가지 변화가 조선 후기 문학과 회화에 어떻게 반영되었는지 연결 지어 생각해 봅시다.</p>
+</div>
+
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li><strong>연행사</strong>는 청과의 외교뿐 아니라 물자 교역과 학문 교류의 통로가 되었고, <strong>곤여만국전도</strong> 등 서양 문물이 전래되어 조선인의 세계관이 넓어졌다.</li>
+<li><strong>서학</strong>은 천주교를 서양 학문으로 수용한 것이었지만, 인간 평등과 제사 부정이 성리학 질서와 충돌하여 정부의 탄압을 받았다.</li>
+<li><strong>통신사</strong>는 일본과의 국교 재개 속에서 외교와 문화 교류를 담당하였고, 조선 문화를 일본에 널리 알렸다.</li>
+<li>조선 후기 문학은 <strong>『양반전』</strong>처럼 현실 사회를 비판하는 방향으로, 회화는 <strong>진경 산수화</strong>와 <strong>풍속화</strong>로 우리 산천과 서민의 삶을 표현하는 방향으로 변화하였다.</li>
+</ul>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 외부 세계와의 접촉은 조선인의 세계관과 문화에 어떤 변화를 일으켰을까?</h4>
+<p class="question-text">연행사를 통해 서양 문물을 접하고, 통신사를 통해 일본과 교류한 경험이 조선 후기 사회에 어떤 변화를 가져왔는지 서술해 보세요. 세계관의 변화와 문학·회화의 새로운 경향을 연결 지어 쓰면 더 좋습니다.<br/><br/>(힌트: <strong>곤여만국전도</strong>, <strong>중국 중심 세계관</strong>, <strong>진경 산수화</strong>, <strong>양반전</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags"><span>연행사</span><span>통신사</span><span>곤여만국전도</span><span>서학</span><span>세계관</span><span>진경 산수화</span><span>풍속화</span><span>양반전</span><span>문화적 자존 의식</span></div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>외부 세계와의 접촉은 조선인의 세계관과 문화 양쪽에 큰 변화를 일으켰습니다.</p>
+<p>먼저 <strong>세계관의 변화</strong> 측면에서, 연행사를 통해 전래된 곤여만국전도는 조선인에게 유럽·아프리카·아메리카까지 포함된 넓은 세계를 보여 주었습니다. 이는 중국만이 세계의 중심이라는 <strong>기존 관념을 흔드는 계기</strong>가 되었습니다.</p>
+<p>동시에 <strong>문화적 자존 의식</strong>도 높아졌습니다. 명이 멸망하고 청이 등장하면서, 조선인들은 자기 문화를 더 적극적으로 표현하기 시작했습니다. 정선의 <strong>진경 산수화</strong>는 중국 풍경이 아닌 조선의 실제 산천을 그렸고, 김홍도·신윤복의 <strong>풍속화</strong>는 서민의 일상을 담았습니다. 박지원의 <strong>『양반전』</strong>은 양반 질서의 모순을 풍자하며 현실 비판의 목소리를 높였습니다. 이처럼 외부와의 만남은 조선 사회가 안과 밖 모두를 새로운 눈으로 바라보게 만든 전환점이었습니다.</p>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<div class="quiz-question" data-correct="3" data-explain="연행사는 병자호란 이후 조선이 청의 수도 연경(베이징)에 보낸 사절단입니다. 조공 사절이면서 물자 교역과 학문 교류의 역할도 하였습니다. 수신사와 조사 시찰단은 개항기의 사절, 별기군은 군사 조직으로 관련이 없습니다.">
+<h4>Q1. 병자호란 이후 조선이 청의 수도 연경에 보낸 사절단은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 수신사</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 조사 시찰단</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 통신사</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 연행사</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-question" data-correct="1" data-explain="「곤여만국전도」는 마테오 리치가 제작한 세계 지도로, 연행사를 통해 조선에 전래되었습니다. 유럽·아프리카·아메리카까지 표시된 이 지도는 조선인이 중국 중심 세계관에서 벗어나는 데 큰 영향을 주었습니다. 대동여지도는 김정호의 조선 지도, 혼일강리역대국도지도는 조선 전기의 세계 지도, 택리지는 지리서입니다.">
+<h4>Q2. 연행사를 통해 조선에 전래되어 세계관 확대에 영향을 준 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 대동여지도</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 곤여만국전도</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 혼일강리역대국도지도</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 택리지</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-question" data-correct="1" data-explain="조선 후기 문학은 박지원의 『양반전』처럼 양반의 위선과 사회 모순을 풍자하는 방향으로 변화했고, 회화는 정선의 진경 산수화(조선의 실제 산천)와 김홍도·신윤복의 풍속화(서민의 삶)처럼 우리 현실을 담아내는 방향으로 발전하였습니다.">
+<h4>Q3. 조선 후기 문학과 회화의 변화에 대한 설명으로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 문학은 왕실 의례만을 다루고, 그림은 중국 풍경만 모방하였다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 문학은 양반의 위선을 풍자했고, 회화는 우리 산천과 서민의 삶을 표현하였다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 문학과 회화 모두 사회 현실과 거리를 두고 추상적으로 변하였다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 회화는 오직 불교 그림만 발전하였다.</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div>
+<footer class="page-footer">📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도</footer>
+
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

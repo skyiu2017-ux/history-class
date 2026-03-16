@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>📚 새로운 학문적 경향이 나타나다</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">새로운 학문적 경향이 나타나다</span>
+<span class="page-ref">한국사 Ⅳ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">📚</span>
+<h1>새로운 학문적 경향이 나타나다</h1>
+<p class="subtitle">성리학만으로는 현실 문제를 풀 수 없다고 느낀 지식인들.<br/>이들은 농민의 삶, 상공업, 우리 역사와 국토에 눈을 돌리기 시작했습니다.</p>
+<div class="hero-keywords">
+<span>실학</span><span>정약용</span><span>북학파</span><span>국학</span><span>대동여지도</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 실학과 국학은 무엇일까?</li>
+<li><span class="cq-badge standard">표준</span> 실학자들은 어떤 방식으로 현실 사회를 바꾸려 했을까?</li>
+<li><span class="cq-badge advanced">심화</span> 실학은 왜 뛰어난 개혁론이었는데도 국가 정책으로 널리 이어지지 못했을까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">사회 문제 심화</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">성리학 한계 노출</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">실학 대두</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">농업 중심 개혁론</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">북학파 등장</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">국학 발달</div></div>
+</div>
+</div>
+<!-- ═══ SECTION 1: 실학의 대두 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">💡</span>
+<h2>실학의 대두 — 현실을 바꿀 학문이 필요하다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 성리학의 한계, 실학의 등장</h4>
+<p>양 난 이후 조선 사회에는 토지 문제, 신분제 동요, 삼정의 문란 등 수많은 현실 문제가 쏟아졌습니다. 하지만 당시 조선의 주류 학문이던 <strong>성리학</strong>은 인간의 본성이나 우주의 원리 같은 이론적 문제에 집중하고 있었고, 농민의 삶이나 경제 구조를 직접 해결하는 데에는 한계가 있었습니다.</p>
+<p>이런 배경에서 <strong>현실 문제 해결에 관심을 두고, 실용적·실증적 태도를 강조하는 새로운 학문</strong>이 나타났는데, 이것이 바로 <strong>실학</strong>입니다. 실학자들은 토지 제도 개혁이나 상공업 진흥처럼, 당장 백성의 삶을 바꿀 수 있는 구체적인 방안을 제시하려 했습니다.</p>
+</div>
+<!-- ═══ SECTION 2: 농업 중심 개혁론 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">🌾</span>
+<h2>농업 중심 개혁론 — 토지를 고쳐 농민을 살리자</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 유형원·이익·정약용의 구상</h4>
+<p>실학자 가운데 <strong>유형원, 이익, 정약용</strong> 등은 조선 사회 혼란의 뿌리가 <strong>불공평한 토지 제도</strong>에 있다고 보았습니다. 소수가 땅을 독점하고 대다수 농민은 소작에 시달리는 현실을 바꾸지 않으면, 아무리 다른 정책을 펴도 농촌은 안정되지 않는다는 생각이었습니다.</p>
+<p>특히 <strong>정약용</strong>은 마을 단위의 공동 농장 운영을 주장했습니다. 이것은 단순히 농사 기술을 바꾸자는 이야기가 아니라, <strong>토지 분배와 생산 방식을 고쳐 농민의 삶을 근본적으로 안정시키려는 사회 개혁론</strong>이었습니다.</p>
+<div class="highlight-box"><strong>핵심 포인트</strong><br/>농업 중심 개혁론은 '농사를 잘 짓자'가 아니라, <strong>'누가, 어떤 조건에서 농사를 짓느냐'를 바꾸자</strong>는 구조 개혁의 주장이었습니다.</div>
+</div>
+<!-- ═══ SECTION 3: 북학파 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">🏪</span>
+<h2>북학파 — 장사와 기술로 나라를 바꾸자</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 박지원·박제가·홍대용의 도전</h4>
+<p><strong>박지원, 박제가, 홍대용</strong> 등은 농업만이 아니라 <strong>상공업의 진흥</strong>을 통해 조선을 바꾸어야 한다고 주장했습니다. 이들은 청나라의 발달한 문물과 기술을 적극 받아들이자고 했기 때문에 <strong>북학파</strong>라 불렸습니다.</p>
+<p><strong>박제가</strong>는 소비가 활발해야 생산도 살아난다고 보았고, <strong>홍대용</strong>은 지전설(지구가 돈다는 주장)을 내세우며 중국이 세계의 중심이라는 기존 세계관을 비판했습니다. 북학파의 주장은 단순히 '장사를 장려하자'는 수준이 아니라, <strong>닫힌 세계관에서 벗어나 새로운 사고를 받아들이자</strong>는 것이었습니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">농업 중심 개혁론</div>
+<div class="name">경세치용</div>
+<div class="desc">유형원·이익·정약용<br/>토지 제도 개혁으로<br/>농촌 사회를 안정시키자</div>
+</div>
+<div class="compare-card red">
+<div class="label">상공업 중심 개혁론</div>
+<div class="name">이용후생 (북학파)</div>
+<div class="desc">박지원·박제가·홍대용<br/>상공업 진흥과 청 문물 수용으로<br/>생산·유통·소비를 활성화하자</div>
+</div>
+</div>
+</div>
+<!-- ═══ SECTION 4: 실학의 의의와 한계 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">⚖️</span>
+<h2>실학의 의의와 한계 — 빛나는 아이디어, 막힌 현실</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 왜 좋은 생각이 정책이 되지 못했을까</h4>
+<p>실학은 현실을 정확히 살피고 구체적인 해결 방안을 찾으려 했다는 점에서, 조선 후기 사회 변화에 대응한 <strong>중요한 학문 경향</strong>이었습니다. 조세 제도 개편이나 상공업 진흥에도 일정 부분 영향을 주었습니다.</p>
+<p>하지만 실학은 대부분 <strong>개인의 학문 연구에 그쳤고, 국가 정책에 충분히 반영되지 못했습니다.</strong> 기득권을 가진 양반층이 토지 개혁을 받아들이기 어려웠고, 세도 정치 아래서 새로운 정책이 추진될 동력도 부족했기 때문입니다.</p>
+<div class="highlight-box gold"><strong>실학의 한계</strong><br/>실학이 정책으로 이어지지 못한 이유는 아이디어가 부족해서가 아니라, <strong>그것을 실행할 정치적 의지와 구조가 뒷받침되지 않았기 때문</strong>입니다. 좋은 생각만으로는 사회가 바뀌지 않는다는 교훈을 보여 줍니다.</div>
+</div>
+<!-- ═══ SECTION 5: 국학의 발달 ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">5</div>
+<span class="section-emoji">🗺️</span>
+<h2>국학의 발달 — 우리 것을 다시 보다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 역사·언어·지리, 조선을 연구하다</h4>
+<p>17세기 초, 조선이 오랑캐라 여기던 청이 명을 멸망시키자, <strong>중국 중심의 세계관에서 벗어나려는 움직임</strong>이 나타났습니다. 이런 분위기 속에서 우리 역사, 언어, 지리 등을 연구하는 <strong>국학</strong>이 발달하였습니다.</p>
+<p>역사 분야에서는 <strong>유득공</strong>이 『발해고』를 써서 발해가 고구려를 계승한 나라임을 밝혔고, <strong>안정복</strong>은 『동사강목』으로 우리 역사를 체계적으로 정리하였습니다. 언어 분야에서는 <strong>신경준</strong>이 『훈민정음운해』를 통해 한글의 원리와 우수성을 설명하였습니다.</p>
+<p>지리 분야에서는 <strong>이중환</strong>이 전국의 자연환경과 인문 조건을 분석한 『택리지』를 저술했고, <strong>김정호</strong>는 여러 지도를 종합하여 1861년 <strong>「대동여지도」</strong>를 제작하였습니다. 대동여지도는 22첩으로 이루어진 대축척 지도로, 기호화된 지도표와 10리마다의 눈금 표시를 사용하여 휴대성과 정확성을 모두 높인 뛰어난 성과였습니다.</p>
+<div class="highlight-box teal"><strong>국학의 의미</strong><br/>국학은 '우리도 연구할 가치가 있는 역사와 문화를 가지고 있다'는 자각에서 출발한 학문입니다. 실학이 현실 문제 해결에 집중했다면, 국학은 <strong>우리 문화와 국토에 대한 관심을 높이는 데 큰 의미</strong>를 가졌습니다.</div>
+</div>
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>실학자들은 토지 제도 개혁, 상공업 진흥, 청 문물 수용 등 뛰어난 개혁안을 제시했습니다. 하지만 이 아이디어들은 대부분 국가 정책으로 실현되지 못했습니다.</p>
+<p>아이디어가 부족해서가 아니라면, 무엇이 실학의 실현을 막았을까요? 당시 <strong>정치 구조</strong>와 <strong>기득권층의 이해관계</strong>를 함께 생각해 봅시다.</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>조선 후기에는 성리학만으로 현실 문제를 풀 수 없다는 인식 속에서 <strong>실학</strong>이 대두하였다.</li>
+<li><strong>농업 중심 개혁론</strong>(유형원·이익·정약용)은 토지 제도 개혁을 통해 농촌을 안정시키려 했고, <strong>북학파</strong>(박지원·박제가·홍대용)는 상공업 진흥과 청 문물 수용을 주장하였다.</li>
+<li>실학은 중요한 학문 경향이었지만, 대부분 <strong>개인의 연구에 그쳐 국가 정책으로 널리 이어지지 못한 한계</strong>가 있었다.</li>
+<li>청 중심 국제 질서 변화 속에서 우리 역사·언어·지리를 연구하는 <strong>국학</strong>이 발달하였다.</li>
+<li>김정호의 <strong>「대동여지도」</strong>(1861년)는 22첩 대축척 지도로, 기호화된 지도표와 10리 눈금을 사용한 뛰어난 성과였다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 실학은 왜 뛰어난 개혁론이었는데도 국가 정책으로 널리 이어지지 못했을까?</h4>
+<p class="question-text">실학자들은 토지 제도 개혁, 상공업 진흥 등 구체적인 해결책을 제시했습니다. 그런데 이 아이디어들은 대부분 정책으로 실현되지 못했습니다. 그 이유를 당시의 정치 상황, 기득권층의 이해관계와 연결하여 서술해 보세요.<br/><br/>(힌트: <strong>세도 정치</strong>, <strong>양반 기득권</strong>, <strong>토지 개혁의 저항</strong>, <strong>개인 연구의 한계</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>실학</span><span>정약용</span><span>북학파</span><span>토지 개혁</span><span>세도 정치</span><span>양반</span><span>기득권</span><span>국가 정책</span><span>한계</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>실학이 정책으로 이어지지 못한 가장 큰 이유는 <strong>당시 정치 구조와 기득권층의 저항</strong> 때문입니다.</p>
+<p>실학자들이 주장한 토지 제도 개혁은 곧 양반 지주층의 이익을 줄이는 일이었습니다. 토지를 많이 가진 양반들에게 자기 땅을 나누라는 요구는 <strong>받아들이기 어려운 것</strong>이었습니다. 게다가 조선 후기는 세도 정치 시기로, 소수 가문이 권력을 독점하고 있었기 때문에 <strong>새로운 개혁을 추진할 정치적 동력이 부족</strong>했습니다.</p>
+<p>결국 실학은 대부분 개인 학자의 연구로 남았습니다. 이는 <strong>좋은 아이디어가 있어도 그것을 실행할 정치적 환경이 갖추어지지 않으면 사회 변화로 이어지기 어렵다</strong>는 교훈을 보여 줍니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="2" data-explain="실학은 조선 후기에 현실 문제 해결에 관심을 두고, 실용적·실증적 태도를 강조한 학문입니다. 성리학은 조선의 주류 학문이었지만 현실 문제 해결에는 한계가 있었고, 국학은 우리 역사·언어·지리를 연구한 학문입니다. 불교와 양명학은 실학의 정의에 해당하지 않습니다.">
+<h4>Q1. 조선 후기 현실 문제 해결에 관심을 두고 실용적·실증적 태도를 강조한 학문은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 성리학</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 국학</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 실학</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 양명학</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="1" data-explain="박지원, 박제가, 홍대용은 상공업 진흥과 청나라의 선진 문물 수용을 주장한 북학파 실학자들입니다. 농업 중심 개혁론자는 유형원·이익·정약용이며, 위정척사 사상가와 실학 반대 학자는 이들과 관련이 없습니다.">
+<h4>Q2. 박지원, 박제가, 홍대용을 공통으로 바르게 묶은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 농업 중심 개혁론자</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 북학파 실학자</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 위정척사 사상가</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 실학 반대 학자</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="2" data-explain="국학은 청의 등장 이후 중국 중심 세계관에서 벗어나 우리 역사, 언어, 지리 등을 연구한 학문입니다. 유득공의 『발해고』, 안정복의 『동사강목』, 신경준의 『훈민정음운해』, 이중환의 『택리지』, 김정호의 「대동여지도」 등이 대표적 성과입니다.">
+<h4>Q3. 조선 후기 국학의 발달에 대한 설명으로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 중국 중심 세계관을 더욱 강화하려는 움직임이었다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 불교 경전을 정리하는 작업만을 뜻하였다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 우리 역사, 언어, 지리 등에 대한 연구가 발달한 것이다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 일본 문물만을 집중적으로 받아들이려는 흐름이었다.</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

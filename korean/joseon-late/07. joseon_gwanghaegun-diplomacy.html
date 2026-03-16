@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔥 전후 복구와 광해군의 중립 외교</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <span class="school">📚 문시중학교</span>
+  <span class="unit">전후 복구와 광해군의 중립 외교</span>
+  <span class="page-ref">한국사 Ⅳ</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">🔥</span>
+  <h1>전후 복구와 광해군의 중립 외교</h1>
+  <p class="subtitle">임진왜란 이후 조선은 무너진 나라를 어떻게 다시 세우려 했고,<br>왜 명과 후금 사이에서 줄타기 외교를 했을까?</p>
+  <div class="hero-keywords">
+    <span>전후 복구</span><span>동의보감</span><span>후금</span><span>중립 외교</span><span>강홍립</span><span>인조반정</span>
+  </div>
+</header>
+
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+  <div class="diff-tab basic">🔹 기초</div>
+  <div class="diff-tab standard">🔸 기본</div>
+  <div class="diff-tab advanced">💠 심화</div>
+</div>
+
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+  <div class="cq-card">
+    <h3>❓ 오늘의 핵심 질문</h3>
+    <ul class="cq-list">
+      <li><span class="cq-badge basic">기초</span> 임진왜란 뒤 조선은 무엇을 먼저 복구하려 했을까?</li>
+      <li><span class="cq-badge standard">표준</span> 광해군의 중립 외교는 어떤 외교였을까?</li>
+      <li><span class="cq-badge advanced">심화</span> 광해군의 선택은 비겁했을까, 아니면 현실적이었을까?</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+  <h3>📅 흐름 한눈에 보기</h3>
+  <div class="tl-track">
+    <div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">왜란 종결</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">토지·호적 정비</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">국방 정비</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">동의보감 편찬</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">중립 외교</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">1623</div><div class="tl-label">인조반정</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 1: 전후 복구 정책 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">1</div>
+  <span class="section-emoji">🔨</span>
+  <h2>전후 복구 — 무너진 나라를 다시 세우다</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 전쟁이 남긴 것 — 폐허 위의 조선</h4>
+  <p>7년에 걸친 임진왜란이 끝났을 때, 조선이 마주한 현실은 참담했습니다. <strong>농경지는 황폐</strong>해졌고, 전쟁 중에 <strong>토지 대장과 호적</strong>이 대량으로 불타 사라져 버렸습니다. 나라가 세금을 걷으려 해도 누가 어디에서 얼마만큼의 땅을 가지고 있는지조차 파악할 수 없는 상황이었습니다. 국가 재정의 기반 자체가 무너진 것입니다.</p>
+  <p><strong>광해군</strong>은 이 위기를 수습하는 데 즉위 초부터 집중했습니다. 먼저 전쟁으로 황폐해진 <strong>토지의 개간을 장려</strong>하고, 사라진 <strong>토지 대장과 호적을 다시 정비</strong>하여 세금 체계를 복원하고자 했습니다. 또한 <strong>성곽과 무기를 수리</strong>하고 <strong>군사 훈련을 실시</strong>하여 다시는 전쟁에 속수무책으로 당하지 않도록 국방력 회복에도 힘썼습니다.</p>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 『동의보감』 — 백성의 몸도 돌보다</h4>
+  <p>전쟁은 국토만 파괴한 것이 아니었습니다. 수많은 백성이 질병과 굶주림에 시달리고 있었습니다. 광해군은 백성의 <strong>건강 문제</strong>에도 관심을 기울여, 선조 때부터 허준이 집필하고 있던 의학서 <strong>『동의보감』</strong>을 완성·간행하도록 하였습니다.</p>
+  <p>『동의보감』은 우리 땅에서 구할 수 있는 약재와 치료법을 체계적으로 정리한 의학 백과사전으로, <strong>전쟁으로 피폐해진 백성의 삶을 돌보려는 실용적 정책</strong>의 상징이었습니다.</p>
+
+  <div class="highlight-box">
+    <strong>핵심 포인트</strong><br>
+    광해군 대의 정책은 한마디로 <strong>"전쟁의 상처를 수습하고 국가 기능을 다시 세우는 것"</strong>에 집중되어 있었습니다. 토지·호적 정비(재정), 성곽·무기 수리(국방), 동의보감 편찬(민생) — 이 세 방향이 전후 복구의 핵심 축이었습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: 후금의 성장과 외교 딜레마 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">2</div>
+  <span class="section-emoji">⚖️</span>
+  <h2>후금의 성장과 외교 딜레마</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>🔍 명은 약해지고, 후금은 강해지고</h4>
+  <p>안으로 전후 복구에 매달리는 동안, 밖으로는 <strong>동아시아의 판도가 급변</strong>하고 있었습니다. 임진왜란에 지원군을 보내느라 <strong>명(明)의 국력은 크게 약화</strong>되었고, 그 빈틈을 파고든 만주의 여진족은 세력을 결집하여 <strong>누르하치</strong>가 <strong>후금(後金)</strong>을 건국하였습니다.</p>
+  <p>새롭게 떠오른 후금은 명에 정면으로 도전하기 시작했고, 명은 위기에 몰리자 <strong>조선에 지원병을 요청</strong>합니다. "임진왜란 때 우리가 도왔으니 이제 너희도 도와라" — 이것이 명의 논리였습니다.</p>
+
+  <div class="highlight-box gold">
+    <strong>광해군의 딜레마</strong><br>
+    광해군은 극도로 어려운 선택 앞에 놓였습니다. 명의 요청을 받아들이면 <strong>아직 전쟁의 상처도 다 아물지 않은 조선이 또다시 전쟁에 휘말리게</strong> 됩니다. 하지만 거절하면 <strong>200년 넘게 유지해 온 명과의 사대 관계</strong>가 무너지고, "은혜를 배신했다"는 비난을 감수해야 합니다. <strong>어느 쪽을 선택해도 위험</strong>한, 전형적인 외교 딜레마였습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: 강홍립과 현실 외교 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">3</div>
+  <span class="section-emoji">🎯</span>
+  <h2>강홍립과 현실 외교</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 "형세를 보아 판단하라" — 광해군의 밀명</h4>
+  <p>광해군은 <strong>명의 요청을 완전히 거절할 수는 없었습니다.</strong> 그랬다가는 "배은망덕"이라는 비난과 함께 외교적 고립에 빠질 수 있었기 때문입니다. 결국 광해군은 <strong>강홍립</strong>에게 약 1만 3천 명의 군사를 주어 출병시킵니다.</p>
+  <p>그런데 여기에 결정적인 <strong>밀명</strong>이 있었습니다. <strong>"전장에 도착하면 형세를 보아서 판단하라."</strong> 쉽게 말해 "전투에 적극적으로 나서지 말고, <strong>상황에 따라 유연하게 대처하라</strong>"는 뜻이었습니다. 명을 완전히 돕지도, 후금을 완전히 적으로 만들지도 않겠다는 <strong>실리적 줄타기</strong>였습니다.</p>
+  <p><strong>1619년 사르후 전투</strong>에서 조·명 연합군은 후금에 <strong>크게 패배</strong>합니다. 이 상황에서 강홍립은 후금에 <strong>투항</strong>하였고, "조선은 본래 후금과 적대할 뜻이 없었다"는 메시지를 전달했습니다.</p>
+
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <div class="label">광해군의 시각</div>
+      <div class="name">실리적 중립</div>
+      <div class="desc">전쟁을 피하고 국익을 지키자<br>명과 후금 사이에서<br>어느 한쪽에 올인하지 말자</div>
+    </div>
+    <div class="compare-card red">
+      <div class="label">서인·유학자의 시각</div>
+      <div class="name">의리와 명분</div>
+      <div class="desc">명은 임진왜란 때 은인이다<br>오랑캐(후금)에 굴복하는 것은<br>도의에 어긋난다</div>
+    </div>
+  </div>
+
+  <p>이 선택은 <strong>의리보다 현실을 우선한 외교 결정</strong>으로 비판받기도 했지만, 전쟁 직후 피폐한 조선의 처지를 고려하면 <strong>나라를 지키기 위한 불가피한 판단</strong>이었다는 평가도 있습니다.</p>
+</div>
+
+<!-- ═══ SECTION 4: 인조반정 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">4</div>
+  <span class="section-emoji">⚡</span>
+  <h2>인조반정 — 중립 외교의 끝</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 왜 광해군은 쫓겨났을까?</h4>
+  <p>광해군의 중립 외교는 <strong>서인 세력의 강한 반발</strong>을 불러왔습니다. 성리학적 명분을 중시하는 이들에게, 200년 은혜를 입은 명을 저버리고 오랑캐 후금에 타협하는 것은 <strong>도저히 받아들일 수 없는 일</strong>이었습니다.</p>
+  <p>게다가 외교 문제만이 아니었습니다. 광해군은 왕위 안정을 위해 <strong>이복동생 영창 대군을 죽이고</strong>, <strong>적모(嫡母)인 인목 대비를 유폐</strong>시킨 사건이 있었습니다. 이 문제는 유교 윤리에서 가장 중시하는 <strong>효(孝)와 의리(義理)</strong>를 정면으로 어기는 것이었고, 서인은 이를 반정의 명분으로 삼았습니다.</p>
+  <p><strong>1623년</strong>, 서인은 <strong>인조반정</strong>을 일으켜 광해군과 북인 정권을 몰아내고 <strong>인조를 왕으로 세웠습니다.</strong></p>
+
+  <div class="highlight-box teal">
+    <strong>인조반정이 바꿔 놓은 것</strong><br>
+    인조반정 이후, 조선의 외교 노선은 <strong>실리적 중립에서 명분 중심의 친명(親明) 외교</strong>로 급격히 기울어집니다. "명에 대한 의리를 지키고, 후금(청)에 맞서겠다"는 것이 새 정권의 기조였습니다. 하지만 이 선택은 결국 <strong>정묘호란(1627)과 병자호란(1636)</strong>이라는 또 다른 전쟁의 씨앗이 됩니다.
+  </div>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+  <h4>💡 생각해 보기</h4>
+  <p>광해군은 나라가 다시 전쟁에 휘말리지 않게 하려 했습니다. 전쟁의 상처가 채 아물지도 않은 조선에서, 또다시 대규모 전쟁에 뛰어드는 것은 자살 행위에 가까웠으니까요.</p>
+  <p>그러나 당시 지배층(서인)은 명에 대한 의리와 성리학적 명분을 더 중요하게 여겼습니다. "은혜를 배신하느니 차라리 싸우겠다"는 논리였습니다.</p>
+  <p>전쟁 직후의 조선에서 더 절실한 것은 <strong>'명분'</strong>이었을까요, 아니면 <strong>'생존'</strong>이었을까요? 여러분은 어떤 선택이 더 현실적이었다고 생각하나요?</p>
+</div>
+
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+  <h3>📚 한눈에 정리</h3>
+  <ul>
+    <li><strong>광해군</strong>은 왜란 이후 토지·호적 정비, 성곽·무기 수리, <strong>『동의보감』 편찬</strong> 등 전후 복구 정책을 적극 추진하였다.</li>
+    <li>임진왜란 이후 <strong>명이 약해지고 후금이 성장</strong>하는 상황에서, 광해군은 <strong>어느 한쪽에 치우치지 않는 중립 외교</strong>를 펼쳤다.</li>
+    <li><strong>강홍립</strong>에게 밀명을 내려 형세를 보아 판단하게 한 것은 실리적 외교의 대표 사례였다.</li>
+    <li>그러나 중립 외교와 왕실 내 윤리 문제에 대한 반발로 <strong>1623년 인조반정</strong>이 일어났고, 이후 조선의 외교는 <strong>명분 중심의 친명 노선</strong>으로 전환되었다.</li>
+  </ul>
+</div>
+
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">💠</div>
+  <h2>심화 탐구</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  다음 탐구 질문에 대해 여러분의 생각을 자유롭게 서술해보세요. 답변 제출 후 키워드 분석과 모범 답안을 확인할 수 있습니다.
+</p>
+
+<div class="inquiry-card fade-up" id="inq1">
+  <h4>📌 탐구. 광해군의 중립 외교는 "비겁"했을까, "현실적"이었을까?</h4>
+  <p class="question-text">광해군은 명과 후금 사이에서 어느 한쪽에 서지 않으려 했습니다. 이 선택을 "명분을 저버린 비겁한 외교"로 볼 수 있을까요, 아니면 "전쟁 직후 국가를 지키기 위한 현실적 판단"이었을까요? 근거를 들어 서술해 보세요.</p>
+  <textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+  <button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+  <div class="keyword-result">
+    <h5>🔍 키워드 분석 결과</h5>
+    <div class="keywords-tags">
+      <span>광해군</span><span>중립 외교</span><span>명</span><span>후금</span><span>강홍립</span><span>명분</span><span>실리</span><span>인조반정</span><span>전후 복구</span>
+    </div>
+  </div>
+  <div class="model-answer">
+    <h5>✅ 모범 답안</h5>
+    <p>광해군의 중립 외교는 <strong>"비겁"과 "현실적"이라는 두 가지 관점 모두로</strong> 평가할 수 있다. "비겁"이라는 시각에서 보면, 임진왜란 때 명이 보내 준 지원군의 은혜를 저버리는 것은 <strong>유교적 의리에 어긋나며</strong>, 강대국 사이에서 줄타기하다가는 오히려 양쪽 모두의 신뢰를 잃을 수 있다는 위험이 있었다.</p>
+    <p>반면 "현실적"이라는 시각에서 보면, 전쟁 직후 국토가 황폐하고 인구와 재정이 크게 줄어든 상황에서 <strong>또다시 대규모 전쟁에 참전하는 것은 국가 존립 자체를 위협</strong>하는 일이었다. 실제로 인조반정 이후 친명 노선을 택한 결과, 조선은 <strong>정묘호란과 병자호란</strong>이라는 두 차례 전쟁을 더 겪게 되었다는 점에서, 광해군의 판단이 더 현실적이었다는 평가도 가능하다.</p>
+  </div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">📝</div>
+  <h2>형성평가</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  문제를 차례대로 풀어보세요!
+</p>
+
+<div class="quiz-container fade-up" id="quiz">
+  <div class="quiz-progress" id="quizProgress"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-question" data-correct="3" data-explain="광해군은 토지 대장·호적 정비, 성곽·무기 수리, 동의보감 편찬 등 전후 복구에 집중했습니다. 대마도 정벌은 세종 때(이종무의 쓰시마 정벌) 일이며 광해군과는 관련이 없습니다.">
+    <h4>Q1. 광해군의 정책으로 옳지 않은 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 토지 대장과 호적 정비</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 성곽과 무기 수리</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 동의보감 편찬</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 대마도 정벌 단행</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-question" data-correct="1" data-explain="광해군은 약해진 명과 강해진 후금 사이에서 어느 한쪽에 완전히 서기보다, 충돌을 피하며 국익을 지키려는 실리적 중립 외교를 펼쳤습니다. 강홍립에게 '형세를 보아 판단하라'는 밀명을 내린 것이 대표적 사례입니다.">
+    <h4>Q2. 광해군 외교의 핵심은 무엇이었는가?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 청과 군신 관계 즉시 수용</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 명과 후금 사이에서 실리적 중립 추구</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 일본과만 동맹 추진</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 북벌 운동 전개</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-question" data-correct="3" data-explain="인조반정의 배경에는 광해군의 중립 외교에 대한 비판, 영창 대군 살해, 인목 대비 유폐 등이 있었습니다. 대동법 전국 시행은 조선 후기에 걸쳐 점진적으로 이루어진 세금 제도 개혁이며, 인조반정의 배경과는 거리가 멉니다.">
+    <h4>Q3. 인조반정의 배경으로 거리가 먼 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 광해군의 중립 외교 비판</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 영창 대군 사건</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 인목 대비 폐위</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 대동법 전국 시행</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quizResult">
+    <div class="score" id="quizScore">0/3</div>
+    <div class="score-label">맞힌 문제 수</div>
+    <button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

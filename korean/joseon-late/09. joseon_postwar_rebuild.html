@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏗️ 양 난 이후 국가를 재건하다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <span class="school">📚 문시중학교</span>
+  <span class="unit">양 난 이후 국가를 재건하다</span>
+  <span class="page-ref">한국사 Ⅳ</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">🏗️</span>
+  <h1>양 난 이후 국가를 재건하다</h1>
+  <p class="subtitle">임진왜란과 병자호란, 두 차례의 전쟁이 할퀴고 간 조선.<br>무너진 국가 체제를 어떻게 다시 세웠고, 정치는 어떻게 변해갔을까?</p>
+  <div class="hero-keywords">
+    <span>비변사</span><span>5군영</span><span>속오군</span><span>대동법</span><span>예송</span><span>환국</span>
+  </div>
+</header>
+
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+  <div class="diff-tab basic">🔹 기초</div>
+  <div class="diff-tab standard">🔸 기본</div>
+  <div class="diff-tab advanced">💠 심화</div>
+</div>
+
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+  <div class="cq-card">
+    <h3>❓ 오늘의 핵심 질문</h3>
+    <ul class="cq-list">
+      <li><span class="cq-badge basic">기초</span> 양 난 이후 가장 위상이 커진 정치 기구는 무엇이었을까?</li>
+      <li><span class="cq-badge standard">표준</span> 조선은 왜 군사·재정 제도를 처음부터 다시 고쳐야 했을까?</li>
+      <li><span class="cq-badge advanced">심화</span> 예송과 환국은 단순한 싸움이었을까, 정치 운영 방식 자체의 변화였을까?</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+  <h3>📅 흐름 한눈에 보기</h3>
+  <div class="tl-track">
+    <div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">임진왜란·병자호란</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">비변사 강화</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">5군영·속오군 정비</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">대동법 시행</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">예송 논쟁</div></div>
+    <div class="tl-connector"></div>
+    <div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">환국 정치</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 1: 비변사의 위상 강화 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">1</div>
+  <span class="section-emoji">🏛️</span>
+  <h2>비변사의 위상 강화 — 전쟁이 바꾼 정치 구조</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 임시 기구에서 최고 권력 기관으로</h4>
+  <p>비변사는 원래 왜구와 여진의 침입에 대비하기 위해 설치한 <strong>임시 군사 회의 기구</strong>였습니다. 평소에는 그다지 주목받지 못하던, 말하자면 '비상 대책 회의실' 같은 곳이었죠.</p>
+  <p>그런데 임진왜란과 병자호란이 터지면서 상황이 완전히 달라졌습니다. 전쟁 중에는 한시라도 빨리 결정을 내려야 합니다. 식량을 어디로 보낼지, 병력을 어디에 배치할지, 외교 문서에 뭐라고 답할지 — 이런 급박한 문제들이 매일 쏟아졌고, 기존의 <strong>의정부나 6조</strong>처럼 절차를 밟아 천천히 논의하는 시스템으로는 도저히 감당할 수가 없었습니다.</p>
+  <p>그 결과, 비변사는 <strong>군사 문제는 물론 인사, 외교, 재정까지 폭넓게 다루는 핵심 정치 기구</strong>로 성장하게 됩니다. 전쟁 전에는 상상도 못 할 변화였습니다. 반면 조선 전기 정치 운영의 중심이던 <strong>의정부와 6조의 기능은 상대적으로 크게 약해졌습니다.</strong></p>
+
+  <div class="highlight-box">
+    <strong>핵심 포인트</strong><br>
+    전쟁이라는 위기가 정치 구조 자체를 바꾸어 놓았습니다. 비변사 중심의 정치 운영은 빠른 의사 결정에는 효과적이었지만, 의정부와 6조를 통한 균형 잡힌 정치 운영이 무너졌다는 뜻이기도 합니다. 위기 대응을 위한 변화가 조선 후기 정치 구조의 기본 틀이 된 셈입니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: 군사·지방 통치 개편 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">2</div>
+  <span class="section-emoji">⚔️</span>
+  <h2>군사 제도 개편 — 두 번 당하지 않기 위한 준비</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 5군영 체제와 속오군 — 중앙과 지방을 다시 무장하다</h4>
+  <p>임진왜란과 병자호란은 조선의 기존 군사 체제가 얼마나 허술했는지를 처참하게 드러냈습니다. 왜군이 쳐들어왔을 때 조선군이 곳곳에서 무너진 이유 중 하나는, <strong>수도 방어 체계가 제대로 갖춰져 있지 않았기 때문</strong>입니다.</p>
+  <p>이 뼈아픈 경험을 바탕으로, 조선은 수도 한양을 지키기 위한 <strong>5군영 체제</strong>를 정비합니다. 훈련도감·어영청·총융청·수어청·금위영 — 이 다섯 군영이 한양과 그 주변을 겹겹이 방어하는 구조를 만든 것입니다.</p>
+  <p>지방에서도 변화가 일어났습니다. 전쟁 전에는 <strong>양반이 군역을 지지 않는 것이 당연</strong>했지만, 전쟁의 교훈은 분명했습니다. 위기가 닥치면 모두가 함께 싸워야 한다는 것이었죠. 이에 따라 지방에서는 <strong>양반부터 평민까지 함께 편성하는 속오군</strong>을 운영하게 됩니다.</p>
+
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <div class="label">중앙 군사</div>
+      <div class="name">5군영 체제</div>
+      <div class="desc">수도 한양과 주변 방어를<br>5개 군영이 나누어 담당<br>전문 군사 조직으로 정비</div>
+    </div>
+    <div class="compare-card red">
+      <div class="label">지방 군사</div>
+      <div class="name">속오군</div>
+      <div class="desc">양반부터 평민까지<br>신분을 넘어 함께 편성<br>지방 방어의 새로운 틀</div>
+    </div>
+  </div>
+
+  <div class="highlight-box teal">
+    <strong>단순한 병력 증강이 아니었다</strong><br>
+    이 군사 개편은 단순히 '군인 수를 늘리자'는 이야기가 아니었습니다. 전쟁이 다시 일어나면 <strong>중앙과 지방이 함께 대응할 수 있도록 국가 전체의 방어 체계를 처음부터 다시 설계</strong>한 것이었습니다. 같은 실수를 두 번 반복하지 않겠다는 절박한 의지가 담긴 개혁이었습니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: 재정 개혁과 대동법 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">3</div>
+  <span class="section-emoji">💰</span>
+  <h2>재정 개혁과 대동법 — 백성의 부담을 줄여라</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 공납의 폐단 — 중간에서 돈을 뜯는 자들</h4>
+  <p>전쟁이 끝난 뒤, 조선은 국가 재정을 다시 세워야 했습니다. 그런데 기존의 <strong>공납 제도</strong>가 큰 문제였습니다. 공납이란, 각 지역에서 그 지역의 <strong>특산물을 현물로 바치는 세금</strong>입니다.</p>
+  <p>문제는 이 과정에서 <strong>방납업자</strong>라는 존재가 끼어든 것이었습니다. 백성이 직접 특산물을 구해 바치기 어려운 경우, 중간에서 대신 물건을 조달해주는 사람들이 등장했는데, 이들이 <strong>비용을 터무니없이 부풀려</strong> 이익을 챙겼습니다. 정작 세금을 내야 하는 <strong>농민들은 원래 세금의 몇 배에 달하는 돈</strong>을 방납업자에게 지불해야 했습니다. 백성의 삶은 전쟁 이후에도 나아지지 않았습니다.</p>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 대동법 — 쌀로 통일하여 간소하게</h4>
+  <p>이 폐단을 줄이기 위해 시행된 것이 바로 <strong>대동법</strong>입니다. 대동법의 핵심은 단순했습니다. 지역 특산물을 이것저것 바치게 하는 대신, <strong>쌀, 베, 동전 등으로 통일하여 세금을 납부</strong>하게 한 것입니다.</p>
+  <p>이렇게 하면 방납업자가 끼어들 여지가 줄어들고, 백성의 부담이 한결 가벼워집니다. 여기에 한 가지 중요한 변화가 더 따라왔습니다. 국가가 필요한 물품을 조달하기 위해 <strong>공인(貢人)</strong>이라는 전문 상인이 등장한 것입니다. 공인은 정부로부터 돈을 받고 필요한 물건을 시장에서 구입해 납품하는 역할을 맡았습니다.</p>
+
+  <div class="highlight-box gold">
+    <strong>경제적 파급 효과</strong><br>
+    대동법은 단순한 세금 개혁이 아니었습니다. 공인이 시장에서 물건을 사고파는 과정에서 <strong>상품 화폐 경제가 발달</strong>하는 계기가 되었습니다. 세금 제도 하나를 바꿨을 뿐인데, 조선의 경제 구조가 움직이기 시작한 셈입니다.
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: 예송과 환국 ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">4</div>
+  <span class="section-emoji">🔄</span>
+  <h2>붕당 정치의 변화 — 예송에서 환국으로</h2>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 예송 — 상복 기간을 두고 벌어진 정치 대결</h4>
+  <p>예송(禮訟)은 겉으로 보면 '왕실의 상복을 몇 년 입을 것인가'를 둘러싼 논쟁이었습니다. 왕이 죽었을 때, 왕의 어머니가 상복을 1년 입어야 하는지 3년 입어야 하는지 — 언뜻 보면 사소해 보이는 문제였죠.</p>
+  <p>하지만 그 안을 들여다보면 전혀 사소하지 않았습니다. <strong>상복 기간을 어떻게 정하느냐에 따라 왕의 정통성 해석이 달라졌고</strong>, 이것은 곧 <strong>서인과 남인 중 누가 정치 주도권을 잡느냐</strong>의 문제와 직결되었습니다. 예법이라는 학문적 논쟁의 탈을 쓰고 있었지만, 실제로는 치열한 정치 싸움이었던 셈입니다.</p>
+  <p>그래도 이 시기에는 서로 <strong>예법과 명분을 내세우며 공론(公論)을 통해 다투는 정치 원리</strong>가 아직 어느 정도 남아 있었습니다. 서인과 남인은 서로 논쟁하되, 토론과 명분의 틀 안에서 경쟁했습니다.</p>
+</div>
+
+<div class="glass-card fade-up">
+  <h4>📌 환국 — 붕당 정치의 균형이 무너지다</h4>
+  <p>그러나 <strong>환국(換局)</strong>이 시작되면서, 정치의 성격은 근본적으로 달라졌습니다. 환국이란, <strong>국왕이 한 붕당을 통째로 몰아내고 다른 붕당을 등용하여 정국을 뒤바꾸는 방식</strong>을 말합니다.</p>
+  <p>예송 시절에는 서인과 남인이 '우리 해석이 맞다'며 논쟁이라도 했지만, 환국 시대에는 그런 토론조차 필요 없어졌습니다. 왕의 결정 한 번이면 어제까지 권력을 잡고 있던 붕당이 하루아침에 쫓겨나고, 그 자리를 다른 붕당이 차지했습니다.</p>
+  <p>이런 일이 반복되자, <strong>붕당 사이의 공존 원칙은 완전히 무너졌습니다.</strong> 서로를 정치적 경쟁자가 아닌 <strong>'제거해야 할 적'</strong>으로 바라보게 되었고, 정치는 점점 <strong>권력 투쟁 중심</strong>으로 변질되어 갔습니다.</p>
+
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <div class="label">예송 시대</div>
+      <div class="name">공론과 명분의 논쟁</div>
+      <div class="desc">왕실 상복 기간을 둘러싼 논쟁<br>서인과 남인이 예법 해석으로 대립<br>토론과 공론의 원리가 남아 있었음</div>
+    </div>
+    <div class="compare-card red">
+      <div class="label">환국 시대</div>
+      <div class="name">권력 재편의 정치</div>
+      <div class="desc">국왕이 정국을 통째로 뒤바꿈<br>한 붕당을 몰아내고 다른 붕당 등용<br>공존 원칙 붕괴, 정국 불안 심화</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+  <h4>💡 생각해 보기</h4>
+  <p>조선 전기에는 여러 붕당이 서로 견제하면서도 공존하는 것이 정치의 원칙이었습니다. 그런데 양 난 이후, 특히 환국이 반복되면서 이 원칙이 무너지기 시작합니다.</p>
+  <p>전쟁 이후 강화된 왕권, 붕당 사이에 깊어진 불신, 빠르게 정국을 수습해야 하는 현실 — 이 세 가지 요인이 서로 어떻게 맞물려 '공론 정치'를 약화시켰을까요?</p>
+  <p>정치에서 <strong>'토론과 공존'</strong>이 사라지면 어떤 일이 벌어질까요? 오늘날의 정치와 비교하며 생각해 봅시다.</p>
+</div>
+
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+  <h3>📚 한눈에 정리</h3>
+  <ul>
+    <li>양 난 이후 조선은 전쟁에 신속하게 대응하기 위해 <strong>비변사 중심의 정치 운영</strong>으로 기울어졌고, 의정부와 6조의 기능은 상대적으로 약해졌다.</li>
+    <li>군사 제도는 수도 방어를 위한 <strong>5군영</strong>과 신분을 넘어 편성한 지방의 <strong>속오군</strong>으로 정비되었다.</li>
+    <li>재정 제도는 공납의 폐단을 줄이기 위한 <strong>대동법</strong>으로 개혁되었고, 공인의 등장으로 <strong>상품 화폐 경제 발달</strong>에도 영향을 주었다.</li>
+    <li>정치적으로는 <strong>예송</strong>에서 공론 정치의 흔적이 남아 있었지만, <strong>환국</strong>이 반복되면서 붕당 정치의 공존 원리는 크게 약해졌다.</li>
+    <li>이러한 변화는 조선 후기 정치 불안과 이후 <strong>탕평 정치</strong>가 등장하는 배경으로 이어졌다.</li>
+  </ul>
+</div>
+
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">💠</div>
+  <h2>심화 탐구</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  다음 탐구 질문에 대해 여러분의 생각을 자유롭게 서술해보세요. 답변 제출 후 키워드 분석과 모범 답안을 확인할 수 있습니다.
+</p>
+
+<div class="inquiry-card fade-up" id="inq1">
+  <h4>📌 탐구. 예송과 환국은 단순한 '싸움'이었을까, 정치 운영 방식의 변화였을까?</h4>
+  <p class="question-text">예송은 왕실 상복 기간을 둘러싼 논쟁이었고, 환국은 국왕이 붕당을 통째로 교체하는 정치 방식이었습니다. 이 두 사건을 비교하면서, 예송에서 환국으로의 변화가 조선 정치에 어떤 의미를 가졌는지 근거를 들어 서술해 보세요. (힌트: '공론 정치의 변화'에 주목하세요.)</p>
+  <textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+  <button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+  <div class="keyword-result">
+    <h5>🔍 키워드 분석 결과</h5>
+    <div class="keywords-tags">
+      <span>예송</span><span>환국</span><span>공론 정치</span><span>붕당</span><span>서인</span><span>남인</span><span>왕권 강화</span><span>권력 투쟁</span><span>탕평</span>
+    </div>
+  </div>
+  <div class="model-answer">
+    <h5>✅ 모범 답안</h5>
+    <p>예송과 환국은 모두 '정치적 다툼'이라는 점에서 비슷해 보이지만, 그 <strong>성격과 정치적 의미는 크게 다릅니다.</strong></p>
+    <p>예송 시기에는 서인과 남인이 왕실 상복 기간이라는 <strong>예법 해석을 놓고 공론의 형식을 빌려 경쟁</strong>했습니다. 물론 실제로는 정치 주도권 다툼이었지만, 적어도 명분과 토론의 원리가 작동하고 있었습니다. 반면 환국은 <strong>국왕이 한 붕당을 통째로 몰아내고 다른 붕당을 등용</strong>하는 방식으로, 토론이나 공존의 원칙 없이 정국이 뒤집히는 것이었습니다.</p>
+    <p>따라서 예송에서 환국으로의 변화는 <strong>'토론과 공존의 정치'에서 '권력 재편 중심의 정치'로 전환</strong>되었음을 의미합니다. 이러한 변화가 붕당 정치의 균형을 무너뜨리고, 이후 탕평 정치가 등장하게 되는 배경이 되었습니다.</p>
+  </div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+  <div class="section-num">📝</div>
+  <h2>형성평가</h2>
+</div>
+
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">
+  문제를 차례대로 풀어보세요!
+</p>
+
+<div class="quiz-container fade-up" id="quiz">
+  <div class="quiz-progress" id="quizProgress"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-question" data-correct="1" data-explain="비변사는 원래 왜구·여진 침입에 대비한 임시 기구였지만, 임진왜란과 병자호란을 겪으면서 군사뿐 아니라 인사·외교·재정까지 다루는 핵심 정치 기구로 성장하였습니다. 의정부와 6조의 기능은 상대적으로 약해졌습니다.">
+    <h4>Q1. 양 난 이후 가장 위상이 커진 정치 기구는 무엇인가?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 성균관</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 비변사</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 집현전</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 중추원</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-question" data-correct="2" data-explain="대동법은 특산물을 바치게 하는 공납 과정에서 방납업자가 끼어들어 비용을 부풀리는 폐단을 줄이기 위해 시행되었습니다. 쌀, 베, 동전 등으로 세금을 통일하여 백성의 부담을 덜어 주었고, 공인의 등장으로 상품 화폐 경제 발달에도 영향을 주었습니다.">
+    <h4>Q2. 대동법 시행의 직접적인 목적으로 가장 알맞은 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 군역 부담을 완전히 없애기 위해</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 과거 시험 과목을 줄이기 위해</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 공납의 폐단을 줄이기 위해</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 지방 수령을 없애기 위해</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-question" data-correct="2" data-explain="예송은 왕실 상복 기간을 둘러싼 논쟁으로, 서인과 남인이 예법 해석을 두고 대립한 사건이었습니다. 환국은 국왕이 한 붕당을 몰아내고 다른 붕당을 등용하여 정국을 통째로 바꾸는 정치 방식이었습니다. 둘 다 외국과의 전쟁이나 군사·재정 개혁, 서민 문화와는 거리가 멉니다.">
+    <h4>Q3. 예송과 환국을 비교한 설명으로 가장 알맞은 것은?</h4>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="selectAnswer(this,0)">① 둘 다 외국과의 전쟁이다.</button>
+      <button class="quiz-option" onclick="selectAnswer(this,1)">② 예송은 군사 개혁이고, 환국은 재정 개혁이다.</button>
+      <button class="quiz-option" onclick="selectAnswer(this,2)">③ 예송은 예법 논쟁의 성격이 있었고, 환국은 정국을 통째로 바꾸는 정치 방식이었다.</button>
+      <button class="quiz-option" onclick="selectAnswer(this,3)">④ 둘 다 서민 문화의 발달과 관련 있다.</button>
+    </div>
+    <div class="quiz-explanation"></div>
+    <button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quizResult">
+    <div class="score" id="quizScore">0/3</div>
+    <div class="score-label">맞힌 문제 수</div>
+    <button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

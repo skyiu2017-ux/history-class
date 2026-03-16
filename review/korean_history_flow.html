@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🌊 한국사의 흐름</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">한국사의 흐름</span>
+<span class="page-ref">한국사 통합</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">🌊</span>
+<h1>한국사의 흐름</h1>
+<p class="subtitle">구석기 시대부터 현대 대한민국까지, 한국사를 움직인 가장 중요한 전환점만 따라가며<br/>시대의 큰 흐름을 한눈에 정리해 봅시다.</p>
+<div class="hero-keywords">
+<span>구석기</span><span>고조선</span><span>삼국</span><span>고려</span><span>조선</span><span>개항</span><span>독립운동</span><span>대한민국</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 한국사는 어떤 시대 구분 속에서 이어져 왔을까?</li>
+<li><span class="cq-badge standard">표준</span> 각 시대를 대표하는 핵심 사건은 다음 시대와 어떻게 연결될까?</li>
+<li><span class="cq-badge advanced">심화</span> 오늘의 대한민국은 어떤 긴 역사적 흐름 위에서 만들어졌을까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">선사·고조선</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">여러 나라·삼국</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">남북국</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">고려</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">조선 전기</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">조선 후기</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑦</div><div class="tl-label">개항·국권 피탈</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑧</div><div class="tl-label">일제 강점기·광복</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑨</div><div class="tl-label">대한민국</div></div>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🪨</span>
+<h2>선사 시대와 고조선 — 정착과 국가의 시작</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 이동 생활에서 농경 사회, 그리고 첫 국가로</h4>
+<p><strong>구석기 시대</strong> 사람들은 동굴이나 막집에서 살며 사냥과 채집으로 생활하였습니다. 이후 <strong>신석기 시대</strong>가 되면 빗살무늬 토기와 간석기를 사용하고, 강가나 바닷가에 정착해 농경과 목축을 시작합니다. 한국사에서 가장 먼저 눈여겨볼 변화는 바로 <strong>이동 생활에서 정착 생활로의 전환</strong>입니다.</p>
+<p>청동기 시대에는 생산력이 높아지고 계급이 생기면서 사회가 점차 복잡해졌습니다. 이 흐름 속에서 <strong>고조선</strong>이 성립하였고, 이후 철기 문화를 받아들이며 더 성장했습니다. 선사 시대에서 고대 국가로 넘어가는 핵심은 <strong>도구의 발달 → 정착 생활 → 계급 분화 → 국가 성립</strong>이라는 흐름입니다.</p>
+<div class="highlight-box"><strong>정치</strong> 고조선의 성립<br/><strong>사회·경제</strong> 농경 시작, 계급 분화<br/><strong>문화</strong> 빗살무늬 토기, 고인돌, 청동기 문화</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">⚔️</span>
+<h2>여러 나라와 삼국 — 경쟁하며 국가 체제를 키우다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 철기 문화가 만든 성장과 경쟁</h4>
+<p><strong>철기 문화</strong>가 퍼지자 농기구와 무기가 발달하고 생산력도 높아졌습니다. 이 과정에서 부여, 고구려, 옥저, 동예, 삼한 같은 여러 나라가 성장하였고, 이후 <strong>고구려·백제·신라</strong>가 경쟁하며 삼국 시대가 전개되었습니다. 이 시기의 핵심은 각 나라가 전쟁과 정복을 통해 영토를 넓히고, 왕권을 강화하며 중앙 집권 체제를 갖추어 갔다는 점입니다.</p>
+<p>삼국은 서로 경쟁했지만 문화적으로도 크게 발전했습니다. 율령 반포, 불교 수용, 한자 사용, 고분 문화와 대외 교류는 국가 체제를 정비하고 문화를 발전시키는 중요한 수단이었습니다. 그래서 삼국 시대는 단순한 전쟁의 시대가 아니라 <strong>국가 체제와 문화가 함께 성장한 시대</strong>로 보아야 합니다.</p>
+<div class="highlight-box gold"><strong>정치</strong> 삼국의 성립과 중앙 집권 강화<br/><strong>사회·경제</strong> 철기 문화 확산, 정복 활동 활발<br/><strong>문화</strong> 불교 수용, 율령, 고분 문화, 대외 교류</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">🌄</span>
+<h2>남북국 시대 — 통일 신라와 발해가 함께 서다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 한반도와 만주에 두 국가가 공존한 시대</h4>
+<p>신라는 당과 손잡고 삼국을 통일했지만, 통일 이후에는 당을 몰아내고 자주성을 지켰습니다. 한편 고구려 유민과 말갈 세력은 대조영을 중심으로 <strong>발해</strong>를 세웠습니다. 그래서 이 시기는 한반도의 통일 신라와 만주의 발해가 함께 존재한 <strong>남북국 시대</strong>로 이해하는 것이 중요합니다.</p>
+<p>통일 신라는 불교 문화와 귀족 문화를 발전시켰고, 발해는 스스로를 고구려 계승 국가로 인식하며 동북아 강국으로 성장했습니다. 이 시대의 핵심은 ‘통일’만이 아니라, <strong>신라와 발해가 각기 다른 방식으로 발전하며 우리 역사 영역을 넓혔다</strong>는 데 있습니다.</p>
+<div class="highlight-box teal"><strong>정치</strong> 신라의 삼국 통일, 발해의 건국<br/><strong>사회·경제</strong> 귀족 중심 사회, 대외 교역 확대<br/><strong>문화</strong> 불국사·석굴암, 발해의 해동성국 문화</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">👑</span>
+<h2>고려 — 통합 왕조의 출범과 변화</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 후삼국을 통일하고 새로운 질서를 세우다</h4>
+<p>왕건은 918년 고려를 세우고, 936년 <strong>후삼국을 통일</strong>하여 다시 한반도를 하나의 왕조 아래 묶었습니다. 고려는 호족을 포섭하며 나라를 안정시키고, 과거제와 같은 제도를 통해 새로운 지배 질서를 세웠습니다. 즉 고려의 시작은 ‘통일’과 ‘체제 정비’라는 두 과제로 요약할 수 있습니다.</p>
+<p>이후 고려는 거란·여진·몽골과의 대외 관계 속에서 큰 변화를 겪었습니다. 특히 몽골 간섭기는 왕권과 지배 체제가 크게 흔들린 시기였고, 공민왕 때 이를 바로잡으려는 개혁이 추진되었습니다. 문화적으로는 <strong>청자</strong>, <strong>팔만대장경</strong>, <strong>금속활자</strong>가 대표적이며, 고려는 불교 문화와 귀족 문화가 찬란하게 꽃핀 왕조였습니다.</p>
+<div class="highlight-box"><strong>정치</strong> 후삼국 통일, 대외 관계 변화, 공민왕 개혁<br/><strong>사회·경제</strong> 귀족 사회와 토지 제도, 대외 전쟁의 영향<br/><strong>문화</strong> 청자, 팔만대장경, 금속활자</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">5</div>
+<span class="section-emoji">📘</span>
+<h2>조선 전기 — 유교 국가의 틀을 만들다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 새 왕조, 새 수도, 새 질서</h4>
+<p>1392년 이성계가 조선을 건국하면서 고려는 막을 내렸습니다. 조선은 한양으로 수도를 옮기고, 유교를 통치 이념으로 삼아 중앙 집권 국가를 정비하였습니다. <strong>경국대전</strong>과 의정부·6조 체제, 사대교린 외교는 조선 전기의 기본 골격을 보여 줍니다.</p>
+<p>세종 때에는 <strong>훈민정음</strong>이 창제되고, 측우기·자격루·앙부일구 같은 과학 기술도 발달하였습니다. 즉 조선 전기는 단순히 왕조가 바뀐 시기가 아니라, <strong>유교 국가 체제와 새로운 문화 기반이 만들어진 시기</strong>였습니다.</p>
+<div class="highlight-box gold"><strong>정치</strong> 조선 건국, 한양 천도, 경국대전<br/><strong>사회·경제</strong> 유교 질서 정착, 중앙 집권 강화<br/><strong>문화</strong> 훈민정음, 과학 기술, 조선왕조실록</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">6</div>
+<span class="section-emoji">🔥</span>
+<h2>조선 후기 — 전쟁, 개혁, 사회 변화가 겹치다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 양 난 이후 조선 사회가 크게 흔들리다</h4>
+<p><strong>임진왜란</strong>과 <strong>병자호란</strong>은 조선의 정치·군사 체제에 큰 충격을 주었습니다. 이후 비변사의 위상이 커지고 군사·재정 제도가 개편되었으며, 붕당 정치가 변질되자 영조와 정조는 <strong>탕평 정치</strong>를 추진하였습니다. 그러나 정조 사후에는 <strong>세도 정치</strong>가 나타나 나라의 기강이 흔들렸습니다.</p>
+<p>사회·경제적으로는 신분제가 흔들리고 상업과 서민 문화가 성장하였으며, 실학과 국학도 발달하였습니다. 하지만 삼정의 문란과 농민 수탈이 심해져 홍경래의 난, 임술 농민 봉기 같은 저항도 나타났습니다. 그래서 조선 후기는 ‘혼란’만이 아니라 <strong>새로운 사회로 넘어가기 전의 변화가 응축된 시기</strong>라고 볼 수 있습니다.</p>
+<div class="highlight-box teal"><strong>정치</strong> 양 난, 탕평 정치, 세도 정치<br/><strong>사회·경제</strong> 신분제 동요, 농민 봉기, 상업 발달<br/><strong>문화</strong> 실학, 국학, 판소리·민화 같은 서민 문화</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">7</div>
+<span class="section-emoji">🚪</span>
+<h2>근대의 시작 — 개항과 국민 국가 수립의 좌절</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 문호 개방, 개혁, 그리고 국권 위기</h4>
+<p>19세기 후반 조선은 일본의 강요로 <strong>강화도 조약</strong>을 체결하며 문호를 개방하였습니다. 이후 임오군란, 갑신정변, 동학 농민 운동, 갑오개혁처럼 낡은 체제를 바꾸려는 여러 시도가 이어졌지만, 외세의 간섭은 점점 더 심해졌습니다.</p>
+<p>대한 제국은 광무개혁으로 자주독립 국가를 세우려 했고, 독립 협회와 만민 공동회는 자유 민권과 자주 국권을 외쳤습니다. 그러나 일본은 을사늑약을 강요하고 1910년 결국 <strong>국권을 빼앗았습니다</strong>. 이 시기의 핵심은 개혁의 필요성과 외세 침략이 동시에 겹쳐 있었다는 데 있습니다.</p>
+<div class="highlight-box"><strong>정치</strong> 개항, 대한 제국, 국권 피탈<br/><strong>사회·경제</strong> 불평등 무역, 개항장의 변화, 개혁 갈등<br/><strong>문화</strong> 근대 문물 수용, 독립신문, 계몽 운동</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">8</div>
+<span class="section-emoji">✊</span>
+<h2>일제 강점기와 광복 — 빼앗긴 나라를 되찾기까지</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 식민 지배에 맞선 다양한 독립운동</h4>
+<p>일제는 무단 통치와 식민지 경제 정책으로 한국 사회를 억압하고 수탈했습니다. 이에 맞서 우리 민족은 <strong>3·1 운동</strong>을 일으켰고, 이를 계기로 <strong>대한민국 임시 정부</strong>가 수립되었습니다. 이후 실력 양성 운동, 의열 투쟁, 봉오동 전투와 청산리 대첩 같은 무장 투쟁이 이어졌습니다.</p>
+<p>1930년대 이후 일제는 민족 말살 정책을 강화했지만, 독립운동은 멈추지 않았습니다. 조선 의용대와 한국 광복군의 활동 속에서 1945년 드디어 <strong>광복</strong>을 맞았습니다. 이 시기의 핵심은 독립운동이 한 가지 방식이 아니라 <strong>외교·교육·문화·무장 투쟁이 함께 전개된 긴 과정</strong>이었다는 점입니다.</p>
+<div class="highlight-box gold"><strong>정치</strong> 3·1 운동, 대한민국 임시 정부, 광복<br/><strong>사회·경제</strong> 식민지 수탈, 토지 조사 사업, 민족 말살 정책<br/><strong>문화</strong> 민족 교육, 우리말 지키기, 독립 의식 확산</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">9</div>
+<span class="section-emoji">🇰🇷</span>
+<h2>대한민국 — 분단, 민주화, 경제 성장, 그리고 평화 모색</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 오늘의 대한민국은 어떤 길을 걸어왔을까?</h4>
+<p>광복 이후 한반도는 38도선을 기준으로 분할 점령되었고, 1948년 <strong>대한민국 정부</strong>가 수립되었습니다. 그러나 곧 <strong>6·25 전쟁</strong>이 일어나 분단은 더욱 굳어졌습니다. 이후 한국 사회는 이승만 정부의 독재, 4·19 혁명, 유신 체제, 5·18 민주화 운동, 6월 민주 항쟁을 거치며 민주주의를 넓혀 왔습니다.</p>
+<p>한편 전후 원조 경제를 바탕으로 산업화와 경제 성장을 이루었고, 오늘날에는 대중문화와 과학 기술에서도 세계적 영향을 미치고 있습니다. 남북 관계에서는 7·4 남북 공동 성명, 6·15 남북 공동 선언, 판문점 선언 등 평화와 통일을 위한 노력이 이어지고 있습니다. 대한민국의 현대사는 <strong>분단의 어려움 속에서도 민주주의와 경제 성장, 평화를 함께 추구해 온 역사</strong>입니다.</p>
+<div class="highlight-box teal"><strong>정치</strong> 정부 수립, 민주화 운동, 남북 대화<br/><strong>사회·경제</strong> 6·25 전쟁, 산업화, 외환 위기, 복지 확대 논의<br/><strong>문화</strong> 대중문화 발전, 스포츠 대중화, 한류</div>
+</div>
+
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>한국사는 <strong>선사 시대의 정착 생활</strong>에서 시작해, <strong>고조선과 고대 국가의 형성</strong>으로 이어졌습니다.</li>
+<li><strong>삼국과 남북국</strong> 시기에는 국가 체제와 문화가 크게 발전했고, <strong>고려</strong>는 후삼국을 통일한 통합 왕조였습니다.</li>
+<li><strong>조선</strong>은 유교 국가 체제를 만들고 문화를 발전시켰으며, 후기로 갈수록 사회·경제적 변화가 크게 나타났습니다.</li>
+<li>근대에는 <strong>개항과 외세 침략</strong>, 그리고 국민 국가를 세우려는 노력이 겹쳤고, 결국 국권을 빼앗겼습니다.</li>
+<li>일제 강점기에는 다양한 <strong>독립운동</strong>이 전개되었고, 광복 이후에는 <strong>대한민국의 민주화·경제 성장·평화 통일 노력</strong>이 이어졌습니다.</li>
+</ul>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">한국사의 흐름 속에서 가장 큰 전환점을 골라, 왜 그렇게 생각하는지 써 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 한국사에서 가장 큰 전환점은 무엇일까?</h4>
+<p class="question-text">구석기에서 신석기로의 전환, 고조선의 성립, 고려 건국, 조선 건국, 개항, 광복, 대한민국 정부 수립 등은 모두 한국사의 큰 전환점입니다. 이 가운데 하나를 골라, 그 사건이 앞 시대와 뒤 시대를 어떻게 바꾸었는지 설명해 보세요.<br/><br/>(힌트: <strong>국가의 모습</strong>, <strong>사람들의 생활</strong>, <strong>대외 관계</strong>, <strong>민주주의</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>전환점</span><span>연속성</span><span>변화</span><span>국가 형성</span><span>개항</span><span>광복</span><span>민주주의</span><span>대외 관계</span><span>생활 변화</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>예를 들어 <strong>개항</strong>을 가장 큰 전환점으로 볼 수 있습니다. 개항 이전의 조선은 유교 질서를 바탕으로 한 전통 사회였지만, 개항 이후에는 일본과 서양 열강의 압력 속에서 근대 문물과 제도를 받아들이게 되었습니다.</p>
+<p>이 변화는 단순히 외국과 무역을 시작한 데 그치지 않았습니다. 임오군란, 갑신정변, 동학 농민 운동, 대한 제국 수립, 국권 피탈로 이어지는 격변의 출발점이 되었고, 결국 일제 강점기와 광복, 대한민국 수립까지 연결되었습니다. 그래서 개항은 한국사를 전근대에서 근대로 넘어가게 만든 대표적 전환점이라고 할 수 있습니다.</p>
+</div>
+</div>
+
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">한국사의 큰 흐름이 제대로 잡혔는지 핵심 문제로 확인해 봅시다.</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+
+<div class="quiz-question" data-correct="2" data-explain="구석기 시대는 이동 생활과 사냥·채집이 중심이었고, 신석기 시대에는 농경과 목축이 시작되며 정착 생활이 확대되었습니다. 한국사 흐름의 첫 큰 변화는 바로 이동 생활에서 정착 생활로 바뀐 점입니다.">
+<h4>Q1. 구석기 시대에서 신석기 시대로 넘어가며 나타난 가장 큰 변화는 무엇일까?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 금속 활자의 사용이 시작되었다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 대통령 직선제가 실시되었다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 농경과 목축이 시작되며 정착 생활이 확대되었다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 삼국이 중앙 집권 체제를 완성하였다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,4)">⑤ 일본과의 국교가 정상화되었다.</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-question" data-correct="1" data-explain="남북국 시대는 통일 신라와 발해가 함께 존재한 시기입니다. 신라는 삼국을 통일한 뒤 한반도 남부를 다스렸고, 발해는 고구려를 계승하며 만주 지역에서 발전했습니다.">
+<h4>Q2. 남북국 시대를 가장 잘 설명한 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 고구려와 백제가 함께 존재한 시기이다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 통일 신라와 발해가 함께 존재한 시기이다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 고려와 조선이 함께 존재한 시기이다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 대한 제국과 일제가 함께 지배한 시기이다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,4)">⑤ 남한과 북한이 각각 정부를 세운 시기이다.</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-question" data-correct="3" data-explain="조선 전기의 대표 문화 성과로는 훈민정음 창제와 과학 기술 발달이 있습니다. 반면 3·1 운동은 일제 강점기, 6·25 전쟁과 6월 민주 항쟁은 현대사에 해당합니다.">
+<h4>Q3. 다음 중 조선 전기를 대표하는 사건과 문화로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 3·1 운동과 대한민국 임시 정부 수립</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 6·25 전쟁과 정전 협정</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 동학 농민 운동과 갑오개혁</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 조선 건국, 훈민정음 창제, 과학 기술 발달</button>
+<button class="quiz-option" onclick="selectAnswer(this,4)">⑤ 외환 위기와 구조 조정</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-question" data-correct="4" data-explain="개항 이후 조선은 개혁을 시도했지만, 일본의 침략이 심해져 결국 을사늑약과 국권 피탈로 이어졌습니다. 따라서 근대사의 흐름은 개항 - 개혁과 저항 - 국권 피탈로 이해하는 것이 핵심입니다.">
+<h4>Q4. 근대 한국사의 큰 흐름을 가장 알맞게 정리한 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 조선 건국 → 훈민정음 창제 → 탕평 정치</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 후삼국 통일 → 몽골 간섭 → 공민왕 개혁</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 4·19 혁명 → 5·18 민주화 운동 → 6월 민주 항쟁</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 구석기 → 신석기 → 고조선</button>
+<button class="quiz-option" onclick="selectAnswer(this,4)">⑤ 개항 → 개혁과 저항 → 국권 피탈</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-question" data-correct="1" data-explain="대한민국 현대사의 핵심 흐름은 정부 수립, 6·25 전쟁, 민주화 운동, 경제 성장, 그리고 평화 통일 노력으로 정리할 수 있습니다. 이 다섯 요소가 오늘의 대한민국을 이해하는 가장 기본 축입니다.">
+<h4>Q5. 오늘의 대한민국을 이해하는 핵심 흐름으로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 광개토 대왕의 정복 활동과 골품제</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 정부 수립, 6·25 전쟁, 민주화 운동, 경제 성장, 평화 통일 노력</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 불국사 건립, 금속활자 발명, 세도 정치</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 동학 농민 운동, 갑신정변, 임오군란만으로 충분하다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,4)">⑤ 고려 청자와 조선 백자만 보면 된다.</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/5</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div>
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 한국사 흐름 정리 페이지
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+
+  // ⚠️ 아래 URL을 선생님의 Google Apps Script 웹앱 주소로 변경하세요
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    // 제출 성공 시 키워드·모범답안 표시
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✏️ 빈칸 학습지 모음 — 문시중 역사 클래스</title>
+  <meta name="description" content="수업 빈칸 학습지를 다운로드하여 인쇄하거나 복습할 수 있습니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#F5F4F0;--bg-card:rgba(255,255,255,0.72);--bg-card-hover:rgba(255,255,255,0.92);--glass:rgba(255,255,255,0.55);--text:#1A1A1A;--sub:#555;--dim:#999;--blue:#2563EB;--blue-bg:#EFF6FF;--navy:#1E3A5F;--navy-bg:#F0F4F8;--orange:#D97706;--orange-bg:#FFFBEB;--purple:#7C3AED;--purple-bg:#F5F3FF;--green:#059669;--green-bg:#ECFDF5;--red:#DC2626;--red-bg:#FEF2F2;--max-w:820px;--r-sm:10px;--r-md:16px;--r-lg:22px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 14px rgba(0,0,0,0.06);--shadow-h:0 2px 8px rgba(0,0,0,0.06),0 10px 28px rgba(0,0,0,0.1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.container{max-width:var(--max-w);margin:0 auto;padding:0 18px}
+
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(245,244,240,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.06)}.header-inner{display:flex;align-items:center;justify-content:space-between;height:54px;max-width:var(--max-w);margin:0 auto;padding:0 18px}.site-brand{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:-0.02em}.back-btn{display:inline-flex;align-items:center;gap:4px;font-size:0.85rem;font-weight:600;color:var(--navy);padding:6px 12px;border-radius:8px;transition:background 0.15s}.back-btn:hover{background:var(--navy-bg)}
+
+    .hero{background:linear-gradient(135deg,#1B2A4A 0%,#2C4A7C 50%,#3A5F90 100%);color:#fff;padding:44px 0 36px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:-35%;right:-15%;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}.hero-inner{position:relative;z-index:1}.hero-eye{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;opacity:0.65;margin-bottom:10px}.hero h1{font-size:clamp(1.35rem,4.5vw,1.9rem);font-weight:700;line-height:1.4;letter-spacing:-0.02em;margin-bottom:8px}.hero-desc{font-size:0.88rem;opacity:0.78;max-width:460px;margin-bottom:20px}
+    .hero-stats{display:flex;gap:14px;flex-wrap:wrap}.hero-stat{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:8px 16px}.hero-stat .num{font-size:1.2rem;font-weight:800}.hero-stat .label{font-size:0.72rem;opacity:0.7}
+
+    .sec{padding:28px 0}
+    .era-heading{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--navy-bg);display:flex;align-items:center;gap:8px}
+
+    .ws-card{background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-lg);box-shadow:var(--shadow);margin-bottom:10px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}.ws-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-h)}
+    .ws-card-inner{display:flex;align-items:center;gap:14px;padding:16px 18px}
+    .ws-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;background:var(--navy-bg);color:var(--navy)}
+    .ws-info{flex:1;min-width:0}
+    .ws-info h3{font-size:0.92rem;font-weight:700;margin-bottom:2px;line-height:1.4}
+    .ws-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+    .ws-tag{font-size:0.7rem;font-weight:600;padding:2px 8px;border-radius:5px}
+    .tag-unit{background:var(--navy-bg);color:var(--navy)}.tag-page{background:var(--orange-bg);color:var(--orange)}.tag-count{background:var(--green-bg);color:var(--green)}
+    .ws-topics{font-size:0.8rem;color:var(--sub);line-height:1.5}
+    .ws-actions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+    .ws-dl-btn{display:inline-flex;align-items:center;gap:4px;padding:10px 16px;border-radius:10px;font-size:0.82rem;font-weight:700;background:var(--navy);color:#fff;transition:background 0.15s,transform 0.1s;border:none;cursor:pointer;text-decoration:none}.ws-dl-btn:hover{background:#142D4C}.ws-dl-btn:active{transform:scale(0.97)}
+    .ws-page-btn{display:inline-flex;align-items:center;gap:4px;padding:10px 16px;border-radius:10px;font-size:0.82rem;font-weight:600;background:var(--blue-bg);color:var(--blue);transition:background 0.15s;text-decoration:none}.ws-page-btn:hover{background:#DBEAFE}
+
+    @media(max-width:600px){.ws-card-inner{flex-direction:column;align-items:flex-start;gap:10px}.ws-actions{width:100%}.ws-dl-btn,.ws-page-btn{flex:1;justify-content:center}}
+
+    .guide-box{background:var(--bg-card);backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);margin-top:10px}.guide-box h3{font-size:0.95rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}.guide-box p{font-size:0.84rem;color:var(--sub);line-height:1.6;margin-bottom:6px}
+
+    .site-footer{padding:28px 0 48px;text-align:center;font-size:0.78rem;color:var(--dim);border-top:1px solid rgba(0,0,0,0.06)}.site-footer p+p{margin-top:3px}
+
+    @media(prefers-reduced-motion:no-preference){.fade-in{opacity:0;transform:translateY(10px);animation:fadeUp .45s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}}
+  </style>
+</head>
+<body>
+
+<header class="site-header"><div class="header-inner">
+  <a class="site-brand" href="../index.html">📘 문시중 역사 클래스</a>
+  <a class="back-btn" href="../index.html">← 포털로 돌아가기</a>
+</div></header>
+
+<section class="hero"><div class="container hero-inner">
+  <p class="hero-eye fade-in">문시중학교 역사 수업 포털 · 시험 대비</p>
+  <h1 class="fade-in d1">✏️ 빈칸 학습지 모음</h1>
+  <p class="hero-desc fade-in d2">수업에서 사용한 빈칸 학습지를 다운로드하여 인쇄하거나, 태블릿에서 필기할 수 있습니다.</p>
+  <div class="hero-stats fade-in d3">
+    <div class="hero-stat"><div class="num">9</div><div class="label">학습지</div></div>
+    <div class="hero-stat"><div class="num">3</div><div class="label">대단원</div></div>
+    <div class="hero-stat"><div class="num">PDF</div><div class="label">다운로드</div></div>
+  </div>
+</div></section>
+
+<main>
+  <div class="container" id="wsContainer"></div>
+
+  <div class="container" style="padding-top:14px;padding-bottom:40px;">
+    <div class="guide-box fade-in">
+      <h3>💡 학습지 활용 팁</h3>
+      <p><strong>인쇄용:</strong> PDF를 다운로드하여 인쇄 후 직접 빈칸을 채워 보세요.</p>
+      <p><strong>디지털 복습:</strong> 🖥️ 수업 페이지 버튼을 누르면 인터랙티브 자료에서 정답을 확인할 수 있습니다.</p>
+      <p><strong>시험 대비:</strong> 빈칸을 가리고 스스로 답을 떠올린 뒤 정답을 확인하는 방식이 가장 효과적입니다.</p>
+      <p style="margin-top:10px;color:var(--navy);font-weight:600;">📌 학습지는 수업 진도에 맞춰 계속 추가됩니다.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="container">
+  <p><strong>문시중 역사 클래스</strong></p>
+  <p>수업 자료는 계속 업데이트됩니다.</p>
+</div></footer>
+
+<script>
+const WORKSHEETS = [
+  {
+    era: 'Ⅳ. 조선의 성립과 발전',
+    items: [
+      {
+        num: '①', title: '문화의 발달과 사회 변화',
+        unit: '유교 윤리 보급 ~ 과학 기술 발달',
+        page: '126~131쪽', pages: 2,
+        topics: '삼강행실도, 훈민정음 서문, 농사직설, 측우기, 경국대전, 양천제·반상제, 사료 읽기(삼강행실도 서문, 훈민정음·농사직설·측우기 서문)',
+        pdf: '../worksheets/ws01_confucian_culture_science.pdf',
+        lessonUrl: '../korean/joseon-early/03. joseon_confucian-ethics-society.html'
+      },
+      {
+        num: '②', title: '임진왜란을 극복하다',
+        unit: '임진왜란 전개와 극복',
+        page: '132~135쪽', pages: 2,
+        topics: '임진왜란 발발, 이순신 수군, 의병 활약, 한산도대첩, 행주대첩, 정유재란, 동아시아 정세 변화, 사료 읽기(선조수정실록 수군 반격)',
+        pdf: '../worksheets/ws02_imjin_war.pdf',
+        lessonUrl: '../korean/joseon-middle/06. joseon_imjin-war.html'
+      },
+      {
+        num: '③', title: '병자호란과 동아시아 국제 질서',
+        unit: '광해군 중립 외교 ~ 북벌 운동',
+        page: '136~139쪽', pages: 2,
+        topics: '광해군 중립 외교, 인조반정, 정묘호란, 병자호란, 삼전도의 굴욕, 북벌 운동, 사료 읽기(광해군일기, 인조실록, 최명길, 송시열)',
+        pdf: '../worksheets/ws03_horan_intl_order.pdf',
+        lessonUrl: '../korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html'
+      }
+    ]
+  },
+  {
+    era: 'Ⅴ. 조선 사회의 변동',
+    items: [
+      {
+        num: '④', title: '양 난 이후 국가를 재건하다',
+        unit: '비변사 강화 ~ 대동법 ~ 붕당 정치 변화',
+        page: '146~148쪽', pages: 2,
+        topics: '비변사, 5군영, 속오군, 영정법·대동법·균역법, 예송, 환국, 탕평론, 사료 읽기(비변사 비판, 박세채 탕평론, 대동법)',
+        pdf: '../worksheets/ws04_postwar_rebuild.pdf',
+        lessonUrl: '../korean/joseon-late/09. joseon_postwar_rebuild_edited.html'
+      },
+      {
+        num: '⑤', title: '탕평 정치와 세도 정치',
+        unit: '영조·정조 탕평책 ~ 세도 정치',
+        page: '149~153쪽', pages: 2,
+        topics: '영조 탕평비, 균역법, 정조 규장각, 수원 화성, 만천명월주인옹, 세도 정치, 매관매직, 사료 읽기(영조실록, 정조 발언)',
+        pdf: '../worksheets/ws05_tangpyeong_sedo.pdf',
+        lessonUrl: '../korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html'
+      },
+      {
+        num: '⑥', title: '향촌 사회 변화와 농민 봉기',
+        unit: '신분제 동요 ~ 삼정 문란 ~ 동학',
+        page: '154~157쪽', pages: 2,
+        topics: '납속책, 공명첩, 향전, 삼정의 문란, 홍경래의 난, 임술 농민 봉기, 동학(최제우), 사료 읽기(진주 봉기, 정감록, 박규수)',
+        pdf: '../worksheets/ws06_hyangchon_farmers.pdf',
+        lessonUrl: '../korean/joseon-late/11. joseon_hyangchon_change.html'
+      },
+      {
+        num: '⑦', title: '실학·문화교류·예술',
+        unit: '실학 ~ 국학 ~ 연행사·통신사 ~ 진경산수화',
+        page: '158~163쪽', pages: 2,
+        topics: '중농학파(정약용), 중상학파(박지원), 대동여지도, 연행사, 조선통신사, 서학, 진경산수화, 추사체, 사료 읽기(성호 이익 한전론)',
+        pdf: '../worksheets/ws07_silhak_culture_exchange.pdf',
+        lessonUrl: '../korean/joseon-late/13. joseon_silhak_gukhak.html'
+      },
+      {
+        num: '⑧', title: '상속·풍속 변화와 서민 문화',
+        unit: '상속 제도 변화 ~ 서민 문화 확산',
+        page: '164~169쪽', pages: 2,
+        topics: '장자 중심 상속, 시가살이, 족보, 이앙법, 상평통보, 한글 소설, 판소리, 탈춤, 민화, 사료 읽기(가례향의, 부안 김씨 고문서)',
+        pdf: '../worksheets/ws08_inheritance_folk_culture.pdf',
+        lessonUrl: '../korean/joseon-late/15. joseon_life_culture.html'
+      }
+    ]
+  },
+  {
+    era: 'Ⅵ. 근·현대 사회의 전개',
+    items: [
+      {
+        num: '⑨', title: '문호 개방과 개화 정책',
+        unit: '흥선 대원군 ~ 강화도 조약 ~ 갑신정변 ~ 갑오개혁',
+        page: '174~177쪽', pages: 2,
+        topics: '흥선 대원군, 강화도 조약, 임오군란, 갑신정변 14개조, 김옥균 치도약론, 동학농민운동, 갑오개혁, 사료 읽기(갑신정변·갑오개혁·윤치호)',
+        pdf: '../worksheets/ws09_opening_modernization.pdf',
+        lessonUrl: '../korean/modern/16. joseon_opening_modernization.html'
+      }
+    ]
+  }
+];
+
+function render() {
+  const container = document.getElementById('wsContainer');
+  let html = '';
+
+  WORKSHEETS.forEach((section, si) => {
+    html += `<div class="sec"><div class="era-heading fade-in">${section.era}</div>`;
+    section.items.forEach((ws, i) => {
+      html += `
+      <div class="ws-card fade-in d${Math.min(i+1,4)}">
+        <div class="ws-card-inner">
+          <div class="ws-icon">${ws.num}</div>
+          <div class="ws-info">
+            <h3>${ws.title}</h3>
+            <div class="ws-meta">
+              <span class="ws-tag tag-unit">${ws.unit}</span>
+              <span class="ws-tag tag-page">${ws.page}</span>
+              <span class="ws-tag tag-count">${ws.pages}쪽</span>
+            </div>
+            <div class="ws-topics">${ws.topics}</div>
+          </div>
+          <div class="ws-actions">
+            <a class="ws-dl-btn" href="${ws.pdf}">📄 다운로드</a>
+            <a class="ws-page-btn" href="${ws.lessonUrl}">🖥️ 수업 페이지</a>
+          </div>
+        </div>
+      </div>`;
+    });
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+
+  const obs = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.style.animationPlayState = 'running'; obs.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  container.querySelectorAll('.fade-in').forEach(el => { el.style.animationPlayState = 'paused'; obs.observe(el); });
+}
+
+render();
+</script>
+</body>
+</html>

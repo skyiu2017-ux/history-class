@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Quiz — 문시중 역사 클래스</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#F5F4F0;--bg-card:rgba(255,255,255,0.78);--bg-card-hover:rgba(255,255,255,0.96);--glass:rgba(255,255,255,0.58);
+      --text:#1A1A1A;--sub:#555;--dim:#999;--blue:#2563EB;--blue-bg:#EFF6FF;--navy:#1E3A5F;--navy-bg:#F0F4F8;
+      --orange:#D97706;--orange-bg:#FFFBEB;--purple:#7C3AED;--purple-bg:#F5F3FF;--green:#059669;--green-bg:#ECFDF5;
+      --slate:#64748B;--slate-bg:#F8FAFC;--red:#DC2626;--red-bg:#FEF2F2;--max-w:900px;--r-sm:10px;--r-md:16px;--r-lg:22px;
+      --shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 14px rgba(0,0,0,0.06);--shadow-h:0 2px 8px rgba(0,0,0,0.06),0 10px 28px rgba(0,0,0,0.1)
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none} ul{list-style:none}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 18px}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(245,244,240,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.06)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:54px;max-width:var(--max-w);margin:0 auto;padding:0 18px}
+    .site-brand{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:-0.02em}
+    .back-btn{display:inline-flex;align-items:center;gap:4px;font-size:0.85rem;font-weight:500;color:var(--sub);padding:6px 12px;border-radius:8px;transition:background 0.15s}
+    .back-btn:hover{background:rgba(0,0,0,0.05)}
+    .hero{background:linear-gradient(135deg,#1B2A4A 0%,#2C4A7C 50%,#3A5F90 100%);color:#fff;padding:44px 0 34px;position:relative;overflow:hidden}
+    .hero::after{content:'';position:absolute;top:-35%;right:-15%;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+    .hero-inner{position:relative;z-index:1}
+    .hero-eye{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;opacity:0.65;margin-bottom:10px}
+    .hero h1{font-size:clamp(1.4rem,4.5vw,2rem);font-weight:800;line-height:1.35;letter-spacing:-0.02em;margin-bottom:8px}
+    .hero-desc{font-size:0.9rem;opacity:0.82;max-width:640px}
+    .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .hero-badges span{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.14);font-size:0.75rem;font-weight:600}
+    .sec{padding:28px 0 10px}
+    .intro-card,.flow-banner,.quiz-shell,.answer-sheet,.toc-card,.unit-card{background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-md);box-shadow:var(--shadow)}
+    .intro-card{padding:18px 20px}
+    .intro-card h2{font-size:1rem;color:var(--navy);margin-bottom:8px}
+    .intro-card p{font-size:0.87rem;color:var(--sub);line-height:1.7}
+    .toc-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+    @media(min-width:680px){.toc-grid{grid-template-columns:repeat(3,1fr)}}
+    .toc-card{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+    .toc-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+    .toc-num{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.78rem;font-weight:800;flex-shrink:0}
+    .toc-label{font-size:0.84rem;font-weight:700;color:var(--text)}
+    .toc-sub{font-size:0.75rem;color:var(--sub);margin-top:2px}
+    .unit-card{padding:22px 22px 24px;margin:18px 0 28px;scroll-margin-top:76px}
+    .unit-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+    .unit-title-wrap{display:flex;align-items:flex-start;gap:12px}
+    .unit-num{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;font-weight:800;flex-shrink:0}
+    .unit-title{font-size:1.1rem;font-weight:800;color:var(--navy);letter-spacing:-0.02em}
+    .unit-desc{font-size:0.84rem;color:var(--sub);margin-top:4px}
+    .unit-stat{font-size:0.78rem;font-weight:700;padding:6px 10px;border-radius:999px;white-space:nowrap}
+    .flow-banner{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;margin-bottom:16px;background:var(--navy-bg);border-color:rgba(30,58,95,.08)}
+    .flow-icon{font-size:1.05rem;flex-shrink:0;margin-top:1px}
+    .flow-text{font-size:0.83rem;color:var(--navy);font-weight:500;line-height:1.6}
+    .quiz-shell{padding:22px}
+    .quiz-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .quiz-meta-title{font-size:0.92rem;font-weight:800;color:var(--navy)}
+    .quiz-meta-sub{font-size:0.77rem;color:var(--sub)}
+    .quiz-progress{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+    .quiz-dot{width:26px;height:6px;border-radius:999px;background:#e5e7eb;transition:background .2s ease,transform .2s ease}
+    .quiz-dot.active{background:var(--blue);transform:scaleY(1.1)}
+    .quiz-dot.correct{background:var(--green)}
+    .quiz-dot.wrong{background:var(--red)}
+    .quiz-question{display:none;animation:fadeUp .28s ease}
+    .quiz-question.active{display:block}
+    .question-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .q-badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:0.72rem;font-weight:800}
+    .q-badge.mcq{background:var(--blue-bg);color:var(--blue)}
+    .q-badge.ox{background:var(--purple-bg);color:var(--purple)}
+    .q-badge.short{background:var(--orange-bg);color:var(--orange)}
+    .q-number{font-size:0.8rem;font-weight:700;color:var(--dim)}
+    .question-text{font-size:1rem;font-weight:700;color:var(--text);line-height:1.7;margin-bottom:14px}
+    .quiz-options{display:flex;flex-direction:column;gap:10px}
+    .quiz-option,.short-check-btn,.next-btn,.retry-btn,.toggle-answer-btn{width:100%;text-align:left;padding:14px 16px;background:rgba(255,255,255,.78);border:2px solid #e5e7eb;border-radius:12px;font-family:inherit;font-size:0.92rem;cursor:pointer;transition:all .18s ease;line-height:1.6}
+    .quiz-option:hover:not(.disabled),.short-check-btn:hover,.next-btn:hover,.retry-btn:hover,.toggle-answer-btn:hover{border-color:var(--blue);background:#fff}
+    .quiz-option.disabled{pointer-events:none}
+    .quiz-option.selected-correct{border-color:var(--green);background:rgba(5,150,105,.08);color:#065f46}
+    .quiz-option.selected-wrong{border-color:var(--red);background:rgba(220,38,38,.07);color:#991b1b}
+    .quiz-option.show-correct{border-color:var(--green);background:rgba(5,150,105,.06)}
+    .short-wrap{display:flex;flex-direction:column;gap:10px}
+    .short-input{width:100%;padding:14px 16px;border:2px solid #e5e7eb;border-radius:12px;font-size:0.94rem;font-family:inherit;transition:border-color .18s ease,box-shadow .18s ease;background:rgba(255,255,255,.88)}
+    .short-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
+    .short-check-btn,.next-btn,.retry-btn,.toggle-answer-btn{font-weight:700;text-align:center}
+    .short-check-btn,.next-btn{max-width:220px;background:var(--navy);border-color:var(--navy);color:#fff}
+    .short-check-btn:hover,.next-btn:hover{background:#284b78;border-color:#284b78}
+    .retry-btn{max-width:220px;background:#fff;border-color:var(--navy);color:var(--navy)}
+    .toggle-answer-btn{max-width:240px;background:#fff;border-style:dashed;color:var(--sub)}
+    .short-feedback,.quiz-explanation{display:none;margin-top:14px;padding:14px 16px;border-radius:12px;font-size:0.86rem;line-height:1.75}
+    .short-feedback.correct,.quiz-explanation{background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.12);color:var(--text)}
+    .short-feedback.wrong{background:rgba(220,38,38,.05);border:1px solid rgba(220,38,38,.12);color:var(--text)}
+    .next-btn{display:none;margin-top:16px}
+    .quiz-result{display:none;text-align:center;padding:14px 0 6px}
+    .quiz-score{font-size:2.6rem;font-weight:900;color:var(--blue);line-height:1.15}
+    .quiz-score-label{font-size:0.9rem;color:var(--sub);margin-top:4px}
+    .quiz-comment{font-size:0.83rem;color:var(--sub);margin-top:10px}
+    .quiz-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .answer-sheet{display:none;padding:18px 20px;margin-top:16px}
+    .answer-sheet.open{display:block}
+    .answer-sheet h4{font-size:0.94rem;color:var(--navy);margin-bottom:10px}
+    .answer-list{display:grid;gap:10px}
+    .answer-item{padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.05)}
+    .answer-item strong{display:block;font-size:0.86rem;color:var(--text);margin-bottom:5px}
+    .answer-item p{font-size:0.82rem;color:var(--sub);line-height:1.65}
+    .site-footer{padding:30px 0 50px;text-align:center;font-size:0.78rem;color:var(--dim);border-top:1px solid rgba(0,0,0,0.06);margin-top:12px}
+    .site-footer p+p{margin-top:3px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:560px){
+      .unit-head{flex-direction:column;align-items:flex-start}
+      .quiz-shell{padding:18px}
+      .question-text{font-size:0.96rem}
+      .quiz-option,.short-check-btn,.next-btn,.retry-btn,.toggle-answer-btn,.short-input{font-size:0.9rem}
+    }
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner">
+  <a class="site-brand" href="./">📘 문시중 역사 클래스</a>
+  <a class="back-btn" href="./">← 메인으로</a>
+</div></header>
+
+<section class="hero"><div class="container hero-inner">
+  <p class="hero-eye">조선 전기 · 조선 후기 · 근·현대</p>
+  <h1>Review Quiz</h1>
+  <p class="hero-desc">읽기용 정리 페이지가 아니라, 학생이 직접 선택하고 입력하며 정답과 해설을 바로 확인할 수 있는 형성평가형 복습 퀴즈입니다.</p>
+  <div class="hero-badges">
+    <span>조선 전기 6문항</span>
+    <span>조선 후기 16문항</span>
+    <span>근·현대 7문항</span>
+    <span>즉시 피드백</span>
+  </div>
+</div></section>
+
+<main>
+  <section class="sec"><div class="container">
+    <div class="intro-card">
+      <h2>✍️ 문제 푸는 방법</h2>
+      <p>객관식과 OX는 보기를 눌러 답을 선택하고, 단답형은 답을 입력한 뒤 <strong>정답 확인</strong>을 누르세요. 각 문제를 풀면 바로 해설이 나타나고, 섹션이 끝나면 점수를 확인할 수 있습니다.</p>
+    </div>
+    <div class="toc-grid" id="toc-grid"></div>
+  </div></section>
+  <div class="container" id="units-container"></div>
+</main>
+
+<footer class="site-footer"><div class="container">
+  <p><strong>문시중 역사 클래스</strong> — Review Quiz</p>
+  <p>형성평가형 복습 페이지</p>
+</div></footer>
+
+<script>
+const QUIZ_SECTIONS = [
+  {
+    id:'early', num:'Ⅰ', title:'조선 전기의 유교 문화와 과학, 왜란·호란', color:'#7C3AED', bg:'rgba(124,58,237,.10)', statBg:'#F5F3FF', statColor:'#7C3AED',
+    desc:'유교 통치 체제, 대외 관계, 과학 기술, 전쟁 이후 국제 정세를 확인하는 섹션입니다.',
+    flow:'유교 국가 체제 정비 → 언론 기관과 견제 장치 → 사대 외교와 교린 → 4군 6진 → 왜란 이후 동아시아 질서 변화',
+    questions:[
+      {no:1,type:'mcq',question:'성종 때 완성된 조선의 기본 법전으로, 유교적 법치 국가의 기틀을 마련한 책은?',options:['① 『동국통감』','② 『경국대전』','③ 『국조오례의』','④ 『삼강행실도』'],answer:1,explain:'『경국대전』은 조선의 기본 법전으로, 6전 체제를 바탕으로 중앙 집권적 통치 질서를 정비하는 데 큰 역할을 하였습니다.'},
+      {no:2,type:'mcq',question:'조선의 언론 기관인 3사(사헌부·사간원·홍문관)를 둔 주된 목적으로 가장 적절한 것은?',options:['① 군사력을 강화하여 여진족을 토벌하기 위해','② 왕실의 제사 예법을 정립하기 위해','③ 권력의 독점과 부정을 막고 관리를 감찰하기 위해','④ 백성들에게 훈민정음을 널리 보급하기 위해'],answer:2,explain:'3사는 관리의 비리를 감찰하고, 왕에게 간언하며, 정책을 비판·자문하는 역할을 맡아 권력 견제 장치로 기능했습니다.'},
+      {no:3,type:'ox',question:'세종은 이종무에게 명하여 왜구의 근거지인 쓰시마섬(대마도)을 토벌하게 하였고, 이후 3포를 개항하여 일본과의 교역을 허락하였다.',answer:'O',explain:'1419년 이종무의 대마도 정벌 이후, 조선은 일본과의 관계를 일방적 배척이 아니라 통제된 교역으로 조정해 갔습니다.'},
+      {no:4,type:'short',question:'조선이 명과 맺은 외교 관계로, 정치적 안정을 꾀하고 조공 무역을 통해 실리도 추구한 외교 방식은 무엇인가?',accept:['사대외교','사대 외교','사대'],displayAnswer:'사대 외교',explain:'조선은 명에 대해서는 사대, 주변 나라에 대해서는 교린을 취하는 사대교린 외교를 펼쳤습니다. 이 문제는 그중 명과의 관계를 묻고 있으므로 정답은 사대 외교입니다.'},
+      {no:5,type:'ox',question:'세종은 북방의 여진족을 몰아내고 영토를 확장하기 위해 압록강 유역에는 4군을, 두만강 유역에는 6진을 설치하였다.',answer:'O',explain:'최윤덕과 김종서의 활동으로 4군 6진이 개척되었고, 이는 오늘날 한반도 북방 국경선 형성의 기반이 되었습니다.'},
+      {no:6,type:'mcq',question:'임진왜란 이후 동아시아 국제 정세의 변화로 옳지 않은 것은?',options:['① 명은 조선에 군대를 파견한 영향 등으로 국력이 크게 약화되었다.','② 만주의 여진족은 세력을 결집하여 후금을 건국하였다.','③ 일본은 전쟁 중 끌고 간 기술자들의 영향으로 도자기 문화가 발달하였다.','④ 청이 명을 멸망시키고 조선에 북벌 운동을 제안하였다.'],answer:3,explain:'북벌 운동은 청의 제안이 아니라 병자호란 뒤 조선에서 추진한 대청 강경 정책입니다. 따라서 ④가 옳지 않습니다.'}
+    ]
+  },
+  {
+    id:'late', num:'Ⅱ', title:'조선 후기 사회 변동', color:'#DC2626', bg:'rgba(220,38,38,.08)', statBg:'#FEF2F2', statColor:'#DC2626',
+    desc:'정치·경제·사회·문화 변화를 중심으로 조선 후기 핵심 내용을 폭넓게 확인하는 섹션입니다.',
+    flow:'양 난 이후 국가 재건 → 대동법·균역법 → 붕당 정치의 변질과 탕평 → 세도 정치 → 신분제 동요 → 실학·국학·서민 문화',
+    questions:[
+      {no:7,type:'short',question:'양 난 이후 의정부를 대신하여 국방, 외교 등 국가의 주요 정책을 논의하고 결정하는 최고 정치 기구가 된 곳은?',accept:['비변사'],displayAnswer:'비변사',explain:'비변사는 원래 임시 기구였으나, 양 난 이후 국정을 총괄하는 최고 정치 기구로 성장했습니다.'},
+      {no:8,type:'ox',question:'대동법은 집집마다 토산물을 바치던 공납의 폐단을 시정하기 위해, 소유한 토지 결수를 기준으로 쌀·베·동전 등을 거두는 제도였다.',answer:'O',explain:'대동법은 공납 부담을 토지 결수 기준으로 통일해 농민의 부담을 줄이고 납부 방식을 합리화한 제도입니다.'},
+      {no:9,type:'mcq',question:'숙종 때 집권 붕당이 급격히 바뀌면서 상호 공존의 원칙이 무너지고 일당 전제화가 나타난 현상은?',options:['① 예송','② 사화','③ 환국','④ 탕평'],answer:2,explain:'환국은 숙종이 정국을 주도하며 집권 붕당을 자주 바꾼 정치 운영 방식으로, 붕당 정치의 변질을 심화시켰습니다.'},
+      {no:10,type:'mcq',question:'다음 중 정조의 업적으로 옳지 않은 것은?',options:['① 규장각 설치','② 장용영 창설','③ 수원 화성 건설','④ 균역법 실시'],answer:3,explain:'균역법은 영조 때 시행되었습니다. 정조는 규장각, 장용영, 수원 화성 등을 통해 왕권과 개혁 정치를 강화했습니다.'},
+      {no:11,type:'short',question:'정조 사후 순조·헌종·철종 때 특정 가문이 권력을 독점하여 국정을 주도한 정치 형태를 무엇이라 하는가?',accept:['세도정치','세도 정치'],displayAnswer:'세도 정치',explain:'세도 정치는 안동 김씨, 풍양 조씨 등 소수 가문이 권력을 장악해 국정을 운영한 시기를 말합니다.'},
+      {no:12,type:'ox',question:'조선 후기에는 공명첩과 납속책의 영향으로 양반의 수가 크게 늘어났다.',answer:'O',explain:'공명첩과 납속책은 돈이나 곡식을 바치고 관직 임명장을 받게 한 제도였고, 이것이 신분 질서 동요에 영향을 주었습니다.'},
+      {no:13,type:'mcq',question:'세도 정치 시기 농민들에게 큰 고통을 준 폐단으로, 본래 빈민 구제 제도였으나 고리대처럼 변질된 것은?',options:['① 전정','② 군정','③ 환곡','④ 공납'],answer:2,explain:'환곡은 원래 춘궁기에 곡식을 빌려주던 제도였지만, 운영이 문란해지면서 농민 수탈의 수단으로 바뀌었습니다.'},
+      {no:14,type:'short',question:'1811년 평안도 지역 차별과 세도 정권의 수탈에 저항하여 일어난 봉기는 무엇인가?',accept:['홍경래의난','홍경래의 난','홍경래난'],displayAnswer:'홍경래의 난',explain:'홍경래의 난은 평안도 차별, 세도 정치의 부패, 농민과 몰락 양반의 불만이 결합해 일어난 대표적 봉기입니다.'},
+      {no:15,type:'mcq',question:'상공업 진흥과 청의 선진 문물 수용을 주장하며, 『북학의』를 쓴 실학자는?',options:['① 정약용','② 박제가','③ 유형원','④ 김정호'],answer:1,explain:'박제가는 북학파 실학자로, 청의 발전된 문물을 적극 받아들여 상공업을 진흥해야 한다고 주장했습니다.'},
+      {no:16,type:'short',question:'병자호란 이후 조선이 청에 파견한 사절단으로, 서양 과학 기술과 세계 지도를 들여와 세계관 확대에 영향을 준 이들은?',accept:['연행사'],displayAnswer:'연행사',explain:'연행사는 청에 다녀오며 선진 문물과 새로운 정보를 접했고, 조선 지식인의 시야를 넓히는 데 기여했습니다.'},
+      {no:17,type:'ox',question:'조선 후기 성리학적 생활 규범이 정착되면서 재산을 자녀에게 고르게 나누어 주던 방식에서 적장자 중심의 상속 제도로 변화하였다.',answer:'O',explain:'조선 후기에는 부계 중심 질서가 강화되면서 상속과 제사가 점차 적장자 중심으로 바뀌었습니다.'},
+      {no:18,type:'mcq',question:'조선 후기 서민 문화의 사례로 적절하지 않은 것은?',options:['① 한글 소설의 유행','② 판소리와 탈춤 공연','③ 사설시조의 발달','④ 성리학 중심의 가묘 건립'],answer:3,explain:'가묘 건립은 양반 중심의 성리학적 예법 강화와 관련이 깊고, 서민 문화의 대표 사례로 보기는 어렵습니다.'},
+      {no:19,type:'short',question:'정조가 자신의 정치적 이상을 실현하는 중심지로 삼고자 건설하였으며, 거중기 등 과학 기술이 활용된 도시는?',accept:['수원화성','수원 화성'],displayAnswer:'수원 화성',explain:'수원 화성은 정조의 개혁 의지와 실학적 기술 활용이 결합된 대표적 도시·건축 유산입니다.'},
+      {no:20,type:'mcq',question:'조선 후기 서학의 확산에 맞서 최제우가 창시하였고, 인간 평등 사상을 강조한 종교는?',options:['① 동학','② 유교','③ 불교','④ 도교'],answer:0,explain:'동학은 최제우가 창시한 민족 종교로, 인간 존엄과 평등 의식을 강조하며 이후 농민 운동의 사상적 기반이 되었습니다.'},
+      {no:21,type:'short',question:'대동법 시행 이후, 관청에 필요한 물품을 대신 조달하고 정부로부터 대가를 받아 활동한 상인은?',accept:['공인'],displayAnswer:'공인',explain:'공인은 대동법 시행과 함께 성장한 어용 상인으로, 상품 화폐 경제 발달을 촉진했습니다.'},
+      {no:22,type:'mcq',question:'세도 정치 시기 나타난 현상으로 적절하지 않은 것은?',options:['① 암행어사의 기능이 약화되었다.','② 탐관오리의 수탈로 삼정의 문란이 심해졌다.','③ 비변사가 국정 최고 기구 기능을 잃고 의정부가 부활하였다.','④ 과거 비리와 매관매직이 성행하였다.'],answer:2,explain:'세도 정치 시기에도 비변사는 여전히 핵심 권력 기구였습니다. 의정부가 정상적으로 부활한 것은 아닙니다.'},
+    ]
+  },
+  {
+    id:'modern', num:'Ⅲ', title:'근·현대 사회의 전개', color:'#059669', bg:'rgba(5,150,105,.08)', statBg:'#ECFDF5', statColor:'#059669',
+    desc:'개항 이후 민중 운동, 광복 이후 정부 수립, 민주주의 발전과 통일 노력을 확인하는 섹션입니다.',
+    flow:'개항과 개혁 운동 → 국권 수호와 민족 운동 → 광복과 정부 수립 → 민주주의 발전 → 통일 노력',
+    questions:[
+      {no:23,type:'mcq',question:'전봉준의 주도로 전라도 일대에서 일어났으며, 신분제 폐지와 외세 배격을 주장한 근대 민중 운동은?',options:['① 임오군란','② 갑신정변','③ 동학 농민 운동','④ 독립 협회 활동'],answer:2,explain:'동학 농민 운동은 반봉건·반외세를 내세운 대표적 민중 운동으로, 이후 갑오개혁과 근대 사회 변화에도 큰 영향을 주었습니다.'},
+      {no:24,type:'short',question:'대한 제국이 1900년에 공표하여 독도가 울릉도(울도군)의 관할 구역임을 분명히 한 행정 조치는?',accept:['대한제국칙령제41호','대한 제국 칙령 제41호','칙령제41호','칙령 제41호'],displayAnswer:'대한 제국 칙령 제41호',explain:'대한 제국 칙령 제41호는 울도군의 관할 구역에 독도를 포함함을 명시한 중요한 근대 법령입니다.'},
+      {no:25,type:'ox',question:'6·25 전쟁 당시 국군과 유엔군은 인천 상륙 작전의 성공으로 서울을 수복하고 압록강 근처까지 진격하였다.',answer:'O',explain:'인천 상륙 작전은 전세를 뒤집는 계기가 되었고, 이후 국군과 유엔군은 북진하여 압록강 부근까지 진격했습니다.'},
+      {no:26,type:'mcq',question:'1987년 6월 민주 항쟁의 결과로 국민이 쟁취한 민주주의의 핵심 성과는?',options:['① 대통령 직선제 개헌','② 내각 책임제 실시','③ 유신 헌법 공포','④ 5·10 총선거 실시'],answer:0,explain:'6월 민주 항쟁의 결과 6·29 민주화 선언이 발표되었고, 대통령 직선제 개헌이 이루어졌습니다.'},
+      {no:27,type:'short',question:'1972년 발표된 것으로, 자주·평화·민족적 대단결이라는 통일의 3대 원칙을 남북이 처음으로 합의한 성명의 명칭은?',accept:['74남북공동성명','7·4남북공동성명','7.4남북공동성명','7-4남북공동성명','7 4 남북 공동 성명'],displayAnswer:'7·4 남북 공동 성명',explain:'7·4 남북 공동 성명은 남북이 최초로 통일 원칙을 합의했다는 점에서 큰 의미가 있습니다.'},
+      {no:28,type:'short',question:'1945년 광복 직후, 한반도 문제를 논의하며 신탁 통치 등을 결정했던 회의의 명칭은?',accept:['모스크바3국외상회의','모스크바 3국 외상 회의','모스크바삼국외상회의'],displayAnswer:'모스크바 3국 외상 회의',explain:'모스크바 3국 외상 회의는 광복 직후 한반도 정부 수립 방식과 신탁 통치 문제를 둘러싼 갈등의 계기가 되었습니다.'},
+      {no:29,type:'ox',question:'대한민국 정부는 1950년, ‘농사짓는 사람이 땅을 소유한다’는 원칙에 따라 유상 매수·유상 분배 방식의 농지 개혁을 실시하였다.',answer:'O',explain:'농지 개혁은 지주 중심 토지 구조를 바꾸고 많은 농민이 토지를 소유하도록 하여 사회 안정과 경제 변화에 영향을 주었습니다.'}
+    ]
+  }
+];
+
+function makeTOC(){
+  const toc = document.getElementById('toc-grid');
+  toc.innerHTML = QUIZ_SECTIONS.map(sec => `
+    <button class="toc-card" onclick="document.getElementById('section-${sec.id}').scrollIntoView({behavior:'smooth', block:'start'})">
+      <div class="toc-num" style="background:${sec.color};">${sec.num}</div>
+      <div>
+        <div class="toc-label">${sec.title}</div>
+        <div class="toc-sub">${sec.questions.length}문항 · 형성평가형</div>
+      </div>
+    </button>
+  `).join('');
+}
+
+function renderSections(){
+  const container = document.getElementById('units-container');
+  container.innerHTML = QUIZ_SECTIONS.map(sec => `
+    <section class="unit-card" id="section-${sec.id}">
+      <div class="unit-head">
+        <div class="unit-title-wrap">
+          <div class="unit-num" style="background:${sec.color};">${sec.num}</div>
+          <div>
+            <h2 class="unit-title">${sec.title}</h2>
+            <p class="unit-desc">${sec.desc}</p>
+          </div>
+        </div>
+        <div class="unit-stat" style="background:${sec.statBg};color:${sec.statColor};">총 ${sec.questions.length}문항</div>
+      </div>
+      <div class="flow-banner">
+        <span class="flow-icon">🔗</span>
+        <span class="flow-text">${sec.flow}</span>
+      </div>
+      <div class="quiz-shell">
+        <div class="quiz-meta">
+          <div>
+            <div class="quiz-meta-title">형성평가 시작</div>
+            <div class="quiz-meta-sub">문제를 풀면 바로 정답과 해설을 확인할 수 있습니다.</div>
+          </div>
+          <button class="toggle-answer-btn" onclick="toggleAnswerSheet('${sec.id}')">정답표 펼치기</button>
+        </div>
+        <div class="quiz-progress" id="progress-${sec.id}"></div>
+        <div id="questions-${sec.id}"></div>
+        <div class="quiz-result" id="result-${sec.id}">
+          <div class="quiz-score" id="score-${sec.id}">0 / 0</div>
+          <div class="quiz-score-label">맞힌 문제 수</div>
+          <p class="quiz-comment" id="comment-${sec.id}"></p>
+          <div class="quiz-actions">
+            <button class="retry-btn" onclick="resetSection('${sec.id}')">다시 풀기</button>
+            <button class="toggle-answer-btn" onclick="toggleAnswerSheet('${sec.id}')">정답표 확인</button>
+          </div>
+        </div>
+        <div class="answer-sheet" id="answers-${sec.id}">
+          <h4>정답 및 핵심 해설</h4>
+          <div class="answer-list">
+            ${sec.questions.map(q => `
+              <div class="answer-item">
+                <strong>Q${q.no}. ${q.type === 'mcq' ? q.options[q.answer] : (q.type === 'ox' ? q.answer : q.displayAnswer)}</strong>
+                <p>${q.explain}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </section>
+  `).join('');
+}
+
+const quizState = {};
+
+function normalize(str){
+  return String(str || '')
+    .toLowerCase()
+    .replace(/[\s·\.,()'"\-–—]/g,'')
+    .replace(/[『』「」\[\]·]/g,'');
+}
+
+function buildQuestions(){
+  QUIZ_SECTIONS.forEach(sec => {
+    quizState[sec.id] = {current:0, score:0};
+
+    const progress = document.getElementById(`progress-${sec.id}`);
+    progress.innerHTML = sec.questions.map((_,idx) => `<div class="quiz-dot${idx===0?' active':''}" id="dot-${sec.id}-${idx}"></div>`).join('');
+
+    const wrap = document.getElementById(`questions-${sec.id}`);
+    wrap.innerHTML = sec.questions.map((q, idx) => {
+      const head = `
+        <div class="question-head">
+          <span class="q-badge ${q.type}">${q.type === 'mcq' ? '객관식' : q.type === 'ox' ? 'OX' : '단답형'}</span>
+          <span class="q-number">Q${q.no} · ${idx+1}/${sec.questions.length}</span>
+        </div>
+        <div class="question-text">${q.question}</div>
+      `;
+
+      if(q.type === 'mcq'){
+        return `
+          <div class="quiz-question ${idx===0?'active':''}" id="question-${sec.id}-${idx}">
+            ${head}
+            <div class="quiz-options">
+              ${q.options.map((opt,optIdx) => `<button class="quiz-option" onclick="selectChoice('${sec.id}', ${idx}, ${optIdx}, this)">${opt}</button>`).join('')}
+            </div>
+            <div class="quiz-explanation" id="explain-${sec.id}-${idx}"></div>
+            <button class="next-btn" id="next-${sec.id}-${idx}" onclick="nextQuestion('${sec.id}')">다음 문제 →</button>
+          </div>
+        `;
+      }
+      if(q.type === 'ox'){
+        return `
+          <div class="quiz-question ${idx===0?'active':''}" id="question-${sec.id}-${idx}">
+            ${head}
+            <div class="quiz-options">
+              <button class="quiz-option" onclick="selectOX('${sec.id}', ${idx}, 'O', this)">① O</button>
+              <button class="quiz-option" onclick="selectOX('${sec.id}', ${idx}, 'X', this)">② X</button>
+            </div>
+            <div class="quiz-explanation" id="explain-${sec.id}-${idx}"></div>
+            <button class="next-btn" id="next-${sec.id}-${idx}" onclick="nextQuestion('${sec.id}')">다음 문제 →</button>
+          </div>
+        `;
+      }
+      return `
+        <div class="quiz-question ${idx===0?'active':''}" id="question-${sec.id}-${idx}">
+          ${head}
+          <div class="short-wrap">
+            <input class="short-input" id="input-${sec.id}-${idx}" type="text" placeholder="정답을 입력하세요." autocomplete="off">
+            <button class="short-check-btn" id="check-${sec.id}-${idx}" onclick="checkShortAnswer('${sec.id}', ${idx})">정답 확인</button>
+          </div>
+          <div class="short-feedback" id="feedback-${sec.id}-${idx}"></div>
+          <button class="next-btn" id="next-${sec.id}-${idx}" onclick="nextQuestion('${sec.id}')">다음 문제 →</button>
+        </div>
+      `;
+    }).join('');
+  });
+}
+
+function lockOptions(questionEl){
+  questionEl.querySelectorAll('.quiz-option').forEach(btn => {
+    btn.classList.add('disabled');
+    btn.style.pointerEvents = 'none';
+  });
+}
+
+function markDot(sectionId, index, correct){
+  const dot = document.getElementById(`dot-${sectionId}-${index}`);
+  if(correct){ dot.classList.add('correct'); }
+  else { dot.classList.add('wrong'); }
+}
+
+function openExplanation(sectionId, index, text){
+  const ex = document.getElementById(`explain-${sectionId}-${index}`);
+  if(ex){
+    ex.innerHTML = `<strong>해설</strong><br>${text}`;
+    ex.style.display = 'block';
+  }
+  const nextBtn = document.getElementById(`next-${sectionId}-${index}`);
+  if(nextBtn) nextBtn.style.display = 'inline-block';
+}
+
+function selectChoice(sectionId, index, choiceIndex, btn){
+  const sec = QUIZ_SECTIONS.find(s => s.id === sectionId);
+  const q = sec.questions[index];
+  const questionEl = document.getElementById(`question-${sectionId}-${index}`);
+  lockOptions(questionEl);
+
+  if(choiceIndex === q.answer){
+    btn.classList.add('selected-correct');
+    quizState[sectionId].score += 1;
+    markDot(sectionId, index, true);
+  }else{
+    btn.classList.add('selected-wrong');
+    const options = questionEl.querySelectorAll('.quiz-option');
+    if(options[q.answer]) options[q.answer].classList.add('show-correct');
+    markDot(sectionId, index, false);
+  }
+  openExplanation(sectionId, index, q.explain);
+}
+
+function selectOX(sectionId, index, choice, btn){
+  const sec = QUIZ_SECTIONS.find(s => s.id === sectionId);
+  const q = sec.questions[index];
+  const questionEl = document.getElementById(`question-${sectionId}-${index}`);
+  lockOptions(questionEl);
+
+  if(choice === q.answer){
+    btn.classList.add('selected-correct');
+    quizState[sectionId].score += 1;
+    markDot(sectionId, index, true);
+  }else{
+    btn.classList.add('selected-wrong');
+    questionEl.querySelectorAll('.quiz-option').forEach(opt => {
+      if(opt.textContent.includes(q.answer)) opt.classList.add('show-correct');
+    });
+    markDot(sectionId, index, false);
+  }
+  openExplanation(sectionId, index, q.explain);
+}
+
+function checkShortAnswer(sectionId, index){
+  const sec = QUIZ_SECTIONS.find(s => s.id === sectionId);
+  const q = sec.questions[index];
+  const input = document.getElementById(`input-${sectionId}-${index}`);
+  const btn = document.getElementById(`check-${sectionId}-${index}`);
+  const feedback = document.getElementById(`feedback-${sectionId}-${index}`);
+  const user = normalize(input.value);
+
+  if(!user){
+    alert('답을 먼저 입력해주세요.');
+    input.focus();
+    return;
+  }
+
+  const acceptable = q.accept.map(normalize);
+  const isCorrect = acceptable.includes(user);
+
+  input.disabled = true;
+  btn.disabled = true;
+  btn.style.pointerEvents = 'none';
+
+  if(isCorrect){
+    quizState[sectionId].score += 1;
+    markDot(sectionId, index, true);
+    feedback.className = 'short-feedback correct';
+    feedback.innerHTML = `<strong>정답입니다.</strong><br>${q.explain}`;
+  }else{
+    markDot(sectionId, index, false);
+    feedback.className = 'short-feedback wrong';
+    feedback.innerHTML = `<strong>정답: ${q.displayAnswer}</strong><br>${q.explain}`;
+  }
+  feedback.style.display = 'block';
+  document.getElementById(`next-${sectionId}-${index}`).style.display = 'inline-block';
+}
+
+function nextQuestion(sectionId){
+  const sec = QUIZ_SECTIONS.find(s => s.id === sectionId);
+  const state = quizState[sectionId];
+  const current = state.current;
+  const currentEl = document.getElementById(`question-${sectionId}-${current}`);
+  if(currentEl) currentEl.classList.remove('active');
+  const currentDot = document.getElementById(`dot-${sectionId}-${current}`);
+  if(currentDot) currentDot.classList.remove('active');
+
+  state.current += 1;
+  if(state.current < sec.questions.length){
+    const nextEl = document.getElementById(`question-${sectionId}-${state.current}`);
+    if(nextEl) nextEl.classList.add('active');
+    const nextDot = document.getElementById(`dot-${sectionId}-${state.current}`);
+    if(nextDot) nextDot.classList.add('active');
+  }else{
+    showResult(sectionId);
+  }
+}
+
+function resultComment(score, total){
+  const ratio = score / total;
+  if(ratio === 1) return '완벽합니다. 핵심 개념을 매우 정확하게 이해했습니다.';
+  if(ratio >= 0.8) return '아주 좋습니다. 틀린 문항만 다시 보면 정리가 거의 끝납니다.';
+  if(ratio >= 0.6) return '좋습니다. 해설을 다시 읽고 틀린 개념을 한 번 더 확인하세요.';
+  return '핵심 개념 복습이 더 필요합니다. 정답표와 해설을 함께 다시 보세요.';
+}
+
+function showResult(sectionId){
+  const sec = QUIZ_SECTIONS.find(s => s.id === sectionId);
+  const state = quizState[sectionId];
+  document.getElementById(`score-${sectionId}`).textContent = `${state.score} / ${sec.questions.length}`;
+  document.getElementById(`comment-${sectionId}`).textContent = resultComment(state.score, sec.questions.length);
+  document.getElementById(`result-${sectionId}`).style.display = 'block';
+}
+
+function resetSection(sectionId){
+  const sec = QUIZ_SECTIONS.find(s => s.id === sectionId);
+  quizState[sectionId] = {current:0, score:0};
+
+  sec.questions.forEach((q, idx) => {
+    const qEl = document.getElementById(`question-${sectionId}-${idx}`);
+    qEl.classList.toggle('active', idx === 0);
+
+    const dot = document.getElementById(`dot-${sectionId}-${idx}`);
+    dot.className = `quiz-dot${idx===0?' active':''}`;
+
+    qEl.querySelectorAll('.quiz-option').forEach(btn => {
+      btn.className = 'quiz-option';
+      btn.style.pointerEvents = '';
+    });
+
+    const ex = document.getElementById(`explain-${sectionId}-${idx}`);
+    if(ex) ex.style.display = 'none';
+
+    const feedback = document.getElementById(`feedback-${sectionId}-${idx}`);
+    if(feedback) feedback.style.display = 'none';
+
+    const next = document.getElementById(`next-${sectionId}-${idx}`);
+    if(next) next.style.display = 'none';
+
+    const input = document.getElementById(`input-${sectionId}-${idx}`);
+    if(input){ input.disabled = false; input.value = ''; }
+
+    const check = document.getElementById(`check-${sectionId}-${idx}`);
+    if(check){ check.disabled = false; check.style.pointerEvents = ''; }
+  });
+
+  document.getElementById(`result-${sectionId}`).style.display = 'none';
+  document.getElementById(`section-${sectionId}`).scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function toggleAnswerSheet(sectionId){
+  const el = document.getElementById(`answers-${sectionId}`);
+  el.classList.toggle('open');
+}
+
+makeTOC();
+renderSections();
+buildQuestions();
+</script>
+</body>
+</html>

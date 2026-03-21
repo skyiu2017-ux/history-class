@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📜 사료 다시 보기 — 문시중 역사 클래스</title>
+  <meta name="description" content="수업에서 다룬 역사 사료를 다시 읽고 분석해 봅니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5F4F0;
+      --bg-card: rgba(255,255,255,0.72);
+      --bg-card-hover: rgba(255,255,255,0.92);
+      --glass: rgba(255,255,255,0.55);
+      --text: #1A1A1A;
+      --sub: #555;
+      --dim: #999;
+      --blue: #2563EB;
+      --blue-bg: #EFF6FF;
+      --navy: #1E3A5F;
+      --navy-bg: #F0F4F8;
+      --orange: #D97706;
+      --orange-bg: #FFFBEB;
+      --purple: #7C3AED;
+      --purple-bg: #F5F3FF;
+      --green: #059669;
+      --green-bg: #ECFDF5;
+      --red: #DC2626;
+      --red-bg: #FEF2F2;
+      --teal: #0D9488;
+      --teal-bg: #F0FDFA;
+      --max-w: 820px;
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 22px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 14px rgba(0,0,0,0.06);
+      --shadow-h: 0 2px 8px rgba(0,0,0,0.06), 0 10px 28px rgba(0,0,0,0.1);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+    body { font-family:'Noto Sans KR',-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 18px; }
+
+    /* ── 헤더 ── */
+    .site-header { position:sticky; top:0; z-index:100; background:rgba(245,244,240,0.82); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border-bottom:1px solid rgba(0,0,0,0.06); }
+    .header-inner { display:flex; align-items:center; justify-content:space-between; height:54px; max-width:var(--max-w); margin:0 auto; padding:0 18px; }
+    .site-brand { font-weight:700; font-size:1rem; color:var(--navy); letter-spacing:-0.02em; }
+    .back-btn { display:inline-flex; align-items:center; gap:4px; font-size:0.85rem; font-weight:600; color:var(--blue); padding:6px 12px; border-radius:8px; transition:background 0.15s; }
+    .back-btn:hover { background:var(--blue-bg); }
+
+    /* ── 히어로 ── */
+    .hero { background:linear-gradient(135deg, #2D1B4E 0%, #4A2C6E 50%, #6B3FA0 100%); color:#fff; padding:44px 0 36px; position:relative; overflow:hidden; }
+    .hero::after { content:''; position:absolute; top:-35%; right:-15%; width:360px; height:360px; background:radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%); border-radius:50%; pointer-events:none; }
+    .hero-inner { position:relative; z-index:1; }
+    .hero-eye { font-size:0.78rem; font-weight:500; letter-spacing:0.06em; opacity:0.65; margin-bottom:10px; }
+    .hero h1 { font-size:clamp(1.35rem,4.5vw,1.9rem); font-weight:700; line-height:1.4; letter-spacing:-0.02em; margin-bottom:8px; }
+    .hero-desc { font-size:0.88rem; opacity:0.78; max-width:460px; margin-bottom:20px; }
+
+    /* ── 시대 필터 탭 ── */
+    .era-tabs { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:20px; padding:0 18px; max-width:var(--max-w); margin-left:auto; margin-right:auto; margin-top:24px; }
+    .era-tab { padding:7px 16px; border-radius:10px; font-size:0.85rem; font-weight:600; background:rgba(0,0,0,0.04); color:var(--sub); cursor:pointer; border:none; transition:all 0.15s; }
+    .era-tab:hover { background:rgba(0,0,0,0.08); }
+    .era-tab.active { background:var(--purple); color:#fff; }
+
+    /* ── 섹션 ── */
+    .sec { padding:28px 0; }
+    .sec-label { display:inline-flex; align-items:center; gap:5px; font-size:0.72rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; padding:3px 10px; border-radius:6px; margin-bottom:10px; }
+    .era-heading { font-size:1.15rem; font-weight:700; color:var(--navy); margin-bottom:16px; padding-bottom:8px; border-bottom:2px solid var(--navy-bg); display:flex; align-items:center; gap:8px; }
+
+    /* ── 사료 카드 ── */
+    .source-card { background:var(--bg-card); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid var(--glass); border-radius:var(--r-lg); padding:0; box-shadow:var(--shadow); margin-bottom:14px; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s; }
+    .source-card:hover { transform:translateY(-1px); box-shadow:var(--shadow-h); }
+    .source-header { padding:16px 18px 12px; cursor:pointer; display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+    .source-header h3 { font-size:0.95rem; font-weight:700; line-height:1.5; }
+    .source-meta { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+    .source-tag { font-size:0.72rem; font-weight:600; padding:2px 8px; border-radius:6px; }
+    .tag-era { background:var(--navy-bg); color:var(--navy); }
+    .tag-type { background:var(--purple-bg); color:var(--purple); }
+    .tag-page { background:var(--orange-bg); color:var(--orange); }
+    .source-toggle { font-size:1rem; color:var(--dim); transition:transform 0.25s; flex-shrink:0; margin-top:2px; }
+    .source-card.open .source-toggle { transform:rotate(180deg); }
+
+    .source-body { display:none; padding:0 18px 18px; }
+    .source-card.open .source-body { display:block; }
+
+    /* 사료 원문 박스 */
+    .source-text-box { background:linear-gradient(135deg, rgba(245,243,255,0.8), rgba(240,244,248,0.8)); border-left:4px solid var(--purple); border-radius:0 var(--r-sm) var(--r-sm) 0; padding:14px 16px; margin-bottom:14px; font-size:0.88rem; line-height:1.8; position:relative; }
+    .source-text-box::before { content:'📜'; position:absolute; top:10px; right:12px; font-size:1.2rem; opacity:0.3; }
+    .source-text-box .original { color:var(--text); font-weight:500; }
+    .source-text-box .translation { color:var(--sub); font-size:0.84rem; margin-top:8px; padding-top:8px; border-top:1px dashed rgba(0,0,0,0.1); }
+
+    /* 맥락 & 분석 */
+    .source-context { margin-bottom:12px; }
+    .source-context h4 { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:6px; display:flex; align-items:center; gap:4px; }
+    .source-context p { font-size:0.84rem; color:var(--sub); line-height:1.6; }
+
+    .analysis-points { display:flex; flex-direction:column; gap:6px; }
+    .analysis-point { display:flex; gap:8px; padding:10px 12px; background:rgba(240,244,248,0.6); border-radius:var(--r-sm); font-size:0.84rem; line-height:1.5; }
+    .analysis-point .point-icon { flex-shrink:0; width:22px; height:22px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.7rem; background:var(--blue-bg); color:var(--blue); font-weight:700; }
+
+    .source-link { display:inline-flex; align-items:center; gap:4px; font-size:0.82rem; font-weight:600; color:var(--blue); margin-top:12px; padding:6px 12px; border-radius:8px; background:var(--blue-bg); transition:background 0.15s; }
+    .source-link:hover { background:#DBEAFE; }
+
+    /* ── 하단 안내 ── */
+    .guide-box { background:var(--bg-card); backdrop-filter:blur(10px); border:1px solid var(--glass); border-radius:var(--r-lg); padding:20px; box-shadow:var(--shadow); margin-top:10px; }
+    .guide-box h3 { font-size:0.95rem; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+    .guide-box p { font-size:0.84rem; color:var(--sub); line-height:1.6; margin-bottom:6px; }
+
+    /* ── 푸터 ── */
+    .site-footer { padding:28px 0 48px; text-align:center; font-size:0.78rem; color:var(--dim); border-top:1px solid rgba(0,0,0,0.06); }
+    .site-footer p+p { margin-top:3px; }
+
+    /* ── 애니메이션 ── */
+    @media(prefers-reduced-motion:no-preference){
+      .fade-in { opacity:0; transform:translateY(10px); animation:fadeUp .45s ease forwards; }
+      @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+      .d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}
+    }
+
+    /* 검색 */
+    .search-box { position:relative; margin-bottom:20px; }
+    .search-input { width:100%; padding:12px 16px 12px 40px; font-size:0.88rem; font-family:'Noto Sans KR',sans-serif; border:1px solid rgba(0,0,0,0.1); border-radius:var(--r-md); background:var(--bg-card); backdrop-filter:blur(10px); box-shadow:var(--shadow); outline:none; transition:border-color 0.2s, box-shadow 0.2s; color:var(--text); }
+    .search-input::placeholder { color:var(--dim); }
+    .search-input:focus { border-color:var(--purple); box-shadow:0 0 0 3px rgba(124,58,237,0.12), var(--shadow); }
+    .search-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:0.9rem; color:var(--dim); pointer-events:none; }
+    .no-results { text-align:center; padding:40px 20px; color:var(--dim); font-size:0.9rem; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="index.html">📘 문시중 역사 클래스</a>
+    <a class="back-btn" href="index.html">← 포털로 돌아가기</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="hero-eye fade-in">문시중학교 역사 수업 포털 · 복습</p>
+    <h1 class="fade-in d1">📜 사료 다시 보기</h1>
+    <p class="hero-desc fade-in d2">수업에서 다룬 역사 사료를 다시 읽고, 핵심 분석 포인트를 확인해 보세요.</p>
+  </div>
+</section>
+
+<div class="container" style="margin-top:24px;">
+  <div class="search-box fade-in">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="sourceSearch" class="search-input" placeholder="사료 검색 (예: 훈민정음, 위화도, 삼전도, 3·1운동...)">
+  </div>
+</div>
+
+<div class="era-tabs" id="eraTabs"></div>
+
+<main>
+  <div class="container" id="sourceContainer"></div>
+
+  <div class="container" style="padding-top:14px; padding-bottom:40px;">
+    <div class="guide-box fade-in">
+      <h3>💡 사료 읽기 팁</h3>
+      <p><strong>1단계:</strong> 사료의 출처(누가, 언제, 왜 썼는지)를 먼저 파악하세요.</p>
+      <p><strong>2단계:</strong> 핵심 키워드와 주장을 밑줄 치며 읽어 보세요.</p>
+      <p><strong>3단계:</strong> 교과서 내용과 연결하여 "이 사료가 증명하는 것"을 한 문장으로 정리해 보세요.</p>
+      <p style="margin-top:10px; color:var(--purple); font-weight:600;">📌 사료는 시험 서술형에서 자주 등장합니다. 원문을 여러 번 읽어두면 큰 도움이 됩니다!</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><strong>문시중 역사 클래스</strong></p>
+    <p>수업 자료는 계속 업데이트됩니다.</p>
+  </div>
+</footer>
+
+<script>
+const SOURCES = [
+  /* ── 조선 전기 ── */
+  {
+    era: '조선 전기',
+    title: '위화도 회군과 조선 건국의 명분',
+    type: '실록·정치문서',
+    page: '교과서 114~115쪽',
+    lessonUrl: 'korean/joseon-early/01. joseon_foundation.html',
+    original: '이성계가 위화도에서 군사를 돌이켜 돌아오니, 이에 공양왕을 폐하고 새 왕조를 세우니 국호를 조선이라 하였다.',
+    translation: '이성계가 위화도에서 군대를 되돌린 뒤, 공양왕을 물러나게 하고 새 나라를 세워 나라 이름을 "조선"으로 정했다.',
+    context: '1388년, 명나라가 철령 이북 땅의 반환을 요구하자 최영은 요동 정벌을 추진했지만, 이성계는 4불가론을 내세워 반대하고 위화도에서 회군했습니다.',
+    points: [
+      '이성계의 회군은 단순한 군사 행동이 아니라, 정치 권력을 장악하기 위한 결정적 전환점이었습니다.',
+      '새 왕조의 국호를 "조선"으로 정한 것은 고조선의 정통성을 계승하겠다는 의미를 담고 있습니다.',
+      '과전법 실시로 신진사대부의 경제적 기반을 마련한 점도 함께 파악하세요.'
+    ]
+  },
+  {
+    era: '조선 전기',
+    title: '훈민정음 서문',
+    type: '어제 서문',
+    page: '교과서 128~129쪽',
+    lessonUrl: 'korean/joseon-early/05. joseon_hunminjeongeum-science.html',
+    original: '나랏말씀이 중국과 달라 문자와 서로 통하지 아니하므로, 어리석은 백성이 말하고자 하는 바가 있어도 마침내 제 뜻을 능히 펴지 못하는 사람이 많으니라. 내 이를 위하여 가엾이 여겨 새로 스물여덟 자를 만드노니, 사람마다 하여금 쉽게 익혀 날로 씀에 편안하게 하고자 할 따름이니라.',
+    translation: null,
+    context: '세종이 1443년에 훈민정음을 창제하고 1446년에 반포하면서 쓴 서문입니다. 당시 한자를 모르는 백성들이 자기 뜻을 표현하지 못하는 현실을 안타깝게 여긴 세종의 애민 정신이 드러납니다.',
+    points: [
+      '"나랏말씀이 중국과 달라"에서 언어적 독자성을 강조한 점에 주목하세요.',
+      '"어리석은 백성"이라는 표현은 무시가 아니라, 글을 배울 기회가 없었던 백성을 가엾이 여기는 의미입니다.',
+      '훈민정음 창제의 목적: 실용성(쉽게 익혀 날로 씀에 편안) + 애민 정신'
+    ]
+  },
+  {
+    era: '조선 전기',
+    title: '경국대전의 통치 체제',
+    type: '법전',
+    page: '교과서 118~119쪽',
+    lessonUrl: 'korean/joseon-early/02. joseon_confucian-governance.html',
+    original: '국가의 모든 제도와 법령을 한데 모아 백관의 직임을 밝히고, 형벌의 기준을 세우며, 예의와 의식을 정하노라.',
+    translation: '나라의 모든 제도와 법을 하나로 모아서, 관리의 직무를 분명히 하고, 형벌의 기준을 마련하며, 예절과 의식을 정했다.',
+    context: '경국대전은 조선의 기본 법전으로, 성종 때 완성되었습니다. 이전·호전·예전·병전·형전·공전의 6전 체계로 구성되어 유교적 통치 이념을 법으로 제도화한 것입니다.',
+    points: [
+      '조선은 법전(경국대전)에 기초한 법치 국가를 지향했습니다.',
+      '6전 체계는 6조와 대응하여, 행정의 체계화를 보여줍니다.',
+      '유교 이념을 법과 제도로 구체화한 점이 고려와의 차이점입니다.'
+    ]
+  },
+
+  /* ── 조선 중기 ── */
+  {
+    era: '조선 중기',
+    title: '이순신 장군의 장계 — 한산도대첩',
+    type: '장계(보고서)',
+    page: '교과서 132~133쪽',
+    lessonUrl: 'korean/joseon-middle/06. joseon_imjin-war.html',
+    original: '신이 학익진으로 적선을 에워싸니, 적이 크게 무너져 도망치는 자 헤아릴 수 없었나이다. 이 싸움에서 왜선 크고 작은 것을 합하여 59척을 깨뜨렸나이다.',
+    translation: '제가 학익진(학의 날개 모양 진형)으로 적의 배를 포위하니, 적이 크게 무너져 도망치는 자가 셀 수 없이 많았습니다. 이 싸움에서 왜선 59척을 격파했습니다.',
+    context: '1592년 7월, 한산도 앞바다에서 이순신이 학익진 전법으로 일본 수군을 대파한 전투입니다. 이 승리로 일본군의 서해 진출을 차단하고 보급로를 끊었습니다.',
+    points: [
+      '한산도대첩의 전략적 의미: 일본의 수륙병진 작전을 좌절시킨 결정적 해전',
+      '"학익진"은 넓은 바다에서 적을 포위하는 전술로, 이순신의 뛰어난 전략 능력을 보여줍니다.',
+      '장계는 전투 결과를 왕에게 보고하는 공식 문서로, 사실적이고 구체적인 기록입니다.'
+    ]
+  },
+  {
+    era: '조선 중기',
+    title: '곽재우 의병의 활약',
+    type: '기록',
+    page: '교과서 134쪽',
+    lessonUrl: 'korean/joseon-middle/06. joseon_imjin-war.html',
+    original: '곽재우는 의령에서 붉은 옷을 입고 의병을 일으켜 왜적의 보급로를 끊으니, 사람들이 홍의장군이라 불렀다.',
+    translation: null,
+    context: '임진왜란 초기 관군이 연패하는 상황에서, 전국 각지의 양반과 백성들이 자발적으로 의병을 조직하여 싸웠습니다. 곽재우는 최초의 의병장으로 꼽힙니다.',
+    points: [
+      '의병은 관군과 달리 지역 지리를 활용한 유격전을 벌였습니다.',
+      '의병 활동은 백성의 자발적 국방 참여라는 점에서 역사적 의의가 큽니다.',
+      '의병 + 수군(이순신) + 관군 + 명나라 원군의 합동이 왜란 극복의 핵심 요인입니다.'
+    ]
+  },
+
+  /* ── 조선 후기 ── */
+  {
+    era: '조선 후기',
+    title: '광해군의 중립 외교',
+    type: '실록',
+    page: '교과서 136~137쪽',
+    lessonUrl: 'korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html',
+    original: '명과 후금 사이에서 함부로 한쪽 편을 들어서는 안 된다. 강홍립에게 형세를 살펴 행동하라 밀명을 내렸다.',
+    translation: '명나라와 후금 사이에서 아무렇게나 한쪽 편을 들면 안 된다. 강홍립에게 "상황을 보아 가며 행동하라"는 비밀 명령을 내렸다.',
+    context: '임진왜란 이후 명과 후금(청)의 대립이 심화되자, 광해군은 실리적 중립 외교를 펼쳤습니다. 하지만 서인들은 이를 배은망덕이라 비판하여 인조반정의 명분으로 삼았습니다.',
+    points: [
+      '광해군의 중립 외교는 국가 이익을 우선한 현실주의 외교였습니다.',
+      '인조반정 후 친명배금 정책으로 전환되면서 호란을 초래하게 됩니다.',
+      '"형세를 살펴 행동하라"는 밀명은 외교적 유연성을 보여주는 핵심 사료입니다.'
+    ]
+  },
+  {
+    era: '조선 후기',
+    title: '삼전도의 굴욕',
+    type: '실록·비문',
+    page: '교과서 138~139쪽',
+    lessonUrl: 'korean/joseon-late/08. joseon_horan-intl-order.html',
+    original: '인조가 남한산성에서 나와 삼전도에서 청 태종에게 세 번 절하고 아홉 번 머리를 조아리는 삼배구고두례를 행하였다.',
+    translation: null,
+    context: '1637년 병자호란에서 패배한 후, 인조는 삼전도에서 청 태종에게 항복 의식을 행했습니다. 이후 소현세자와 봉림대자(효종)가 인질로 끌려갔습니다.',
+    points: [
+      '삼배구고두례는 신하의 예를 행한 것으로, 조선에게는 극심한 치욕이었습니다.',
+      '병자호란 이후 조선은 청에 조공을 바치는 관계가 되었고, 동아시아 국제 질서가 명→청 중심으로 재편되었습니다.',
+      '이 치욕은 이후 효종의 북벌론으로 이어지는 역사적 맥락을 만들었습니다.'
+    ]
+  },
+  {
+    era: '조선 후기',
+    title: '영조의 탕평 교서',
+    type: '교서',
+    page: '교과서 149~150쪽',
+    lessonUrl: 'korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html',
+    original: '당파에 치우치지 말고 옳은 것을 따를 것이며, 의리에 밝고 당론에 어두워야 한다.',
+    translation: '어느 한 당파에 치우치지 말고 옳은 것을 기준으로 따라야 하며, 의리에 밝되 당파의 논리에는 휘둘리지 말아야 한다.',
+    context: '영조는 붕당 간 갈등을 해소하고 왕권을 강화하기 위해 탕평책을 시행했습니다. 성균관 앞에 탕평비를 세우고, 각 당파에서 고르게 인재를 등용하고자 했습니다.',
+    points: [
+      '탕평책의 핵심 원리: 의리는 지키되 당파 논리에 빠지지 말라',
+      '영조의 탕평은 당파의 존재 자체를 부정한 것이 아니라, 극단적 당쟁을 조절하려 한 것입니다.',
+      '정조의 탕평(준론탕평)과 비교하여 이해하면 더 깊이 있는 답변이 가능합니다.'
+    ]
+  },
+  {
+    era: '조선 후기',
+    title: '정약용의 실학 사상 — 여전론·목민심서',
+    type: '학술서',
+    page: '교과서 158~159쪽',
+    lessonUrl: 'korean/joseon-late/13. joseon_silhak_gukhak.html',
+    original: '여전론(閭田論)에서 이르길, 마을 단위로 토지를 공동 경작하고 노동량에 따라 수확을 나누어야 한다고 하였다. 또한 목민심서에서 수령은 백성을 위해 봉사하는 자라 하였다.',
+    translation: '정약용의 여전론은 "마을 단위로 땅을 함께 경작하고 일한 만큼 나누자"는 토지 개혁안이고, 목민심서는 "지방 관리는 백성을 위해 일하는 사람"이라는 뜻을 담고 있다.',
+    context: '조선 후기 사회 모순이 심화되면서 실학자들이 현실 개혁안을 제시했습니다. 정약용은 중농학파의 대표로, 토지 제도와 관료 제도의 개혁을 주장했습니다.',
+    points: [
+      '여전론은 토지의 공동 경작·노동량 기반 분배를 주장한 급진적 개혁안입니다.',
+      '목민심서는 관리의 직무 윤리를 정리한 것으로, 민본 사상이 담겨 있습니다.',
+      '실학은 성리학의 한계를 극복하고 실제 사회 문제 해결을 추구한 학문입니다.'
+    ]
+  },
+  {
+    era: '조선 후기',
+    title: '동학의 창시 — 최제우의 가르침',
+    type: '경전(동경대전)',
+    page: '교과서 157쪽',
+    lessonUrl: 'korean/joseon-late/12. joseon_samjeong_farmers.html',
+    original: '사람이 곧 하늘이니(人乃天), 사람 섬기기를 하늘 섬기듯 하라.',
+    translation: '사람이 곧 하늘이니, 사람을 하늘 대하듯 존중해야 한다.',
+    context: '1860년, 최제우는 삼정의 문란과 서양 세력(천주교)의 침투에 위기감을 느끼고, "인내천" 사상을 핵심으로 하는 동학을 창시했습니다.',
+    points: [
+      '"인내천(人乃天)"은 모든 사람이 평등하다는 혁명적 사상입니다.',
+      '동학은 서학(천주교)에 대응하면서도 유·불·도를 융합한 자생 종교입니다.',
+      '이후 동학농민운동의 사상적 기반이 되었다는 점을 연결하세요.'
+    ]
+  },
+
+  /* ── 근대 ── */
+  {
+    era: '근대',
+    title: '강화도 조약 (조일수호조규)',
+    type: '조약문',
+    page: '교과서 174~175쪽',
+    lessonUrl: 'korean/modern/16. joseon_opening_modernization.html',
+    original: '제1관: 조선국은 자주의 나라로 일본국과 평등한 권리를 가진다. 제10관: 일본 국민이 조선국 항구에서 죄를 범하면 일본 관원이 심판한다.',
+    translation: '제1조: 조선은 자주국이며 일본과 동등한 권리를 가진다. 제10조: 일본인이 조선 항구에서 범죄를 저지르면 일본 관리가 재판한다(치외법권).',
+    context: '1876년 일본이 운요호 사건을 빌미로 조선에 강요한 불평등 조약입니다. 조선 최초의 근대적 조약이지만, 치외법권·해안 측량권 등 불평등한 내용을 담고 있습니다.',
+    points: [
+      '제1관의 "자주국"은 청의 간섭을 배제하려는 일본의 의도가 숨어 있습니다.',
+      '제10관의 치외법권(영사재판권)은 대표적인 불평등 조항입니다.',
+      '관세 규정이 없다는 점도 불평등의 핵심 — 이후 무관세 수출로 조선 경제가 타격을 입습니다.'
+    ]
+  },
+  {
+    era: '근대',
+    title: '독립신문 창간사',
+    type: '신문 사설',
+    page: '교과서 178~179쪽',
+    lessonUrl: 'korean/modern/17. korean_national_state.html',
+    original: '우리는 첫째 편벽되지 아니한 고로 무슨 당에도 상관이 없고 ... 모든 일을 기록하여 남녀 상하귀천을 무론하고 이 신문을 보면 새 지식을 얻어 학문이 진보하기를 바라노라.',
+    translation: '우리는 어디에도 치우치지 않아 어느 당파에도 관계없고 ... 모든 일을 기록하여 남녀·신분에 관계없이 이 신문을 보면 새 지식을 얻어 학문이 발전하기를 바란다.',
+    context: '1896년 서재필이 한글 전용으로 창간한 독립신문은 민중 계몽과 자주 독립 의식을 고취하는 데 큰 역할을 했습니다.',
+    points: [
+      '한글 전용 신문이라는 점에서 일반 백성도 읽을 수 있도록 한 민주적 성격이 드러납니다.',
+      '"남녀 상하귀천을 무론하고"에서 신분·성별에 관계없이 모두를 독자로 상정한 근대적 평등 의식을 읽을 수 있습니다.',
+      '독립협회 활동과 연결하여, 만민공동회·관민공동회로 이어지는 흐름을 파악하세요.'
+    ]
+  },
+
+  /* ── 현대 ── */
+  {
+    era: '현대',
+    title: '3·1 독립선언서',
+    type: '선언문',
+    page: '교과서 180~181쪽',
+    lessonUrl: 'korean/contemporary/19. independence_to_government.html',
+    original: '오등은 자(玆)에 아(我) 조선의 독립국임과 조선인의 자주민임을 선언하노라. 차(此)로써 세계 만방에 고하여 인류 평등의 대의를 극명하며, 차(此)로써 자손만대에 고하여 민족자존의 정권을 영유케 하노라.',
+    translation: '우리는 여기에 우리 조선이 독립국임과 조선인이 자주적인 국민임을 선언한다. 이로써 세계 모든 나라에 알려 인류 평등의 큰 뜻을 분명히 하며, 이로써 후손들에게 알려 민족 자존의 정당한 권리를 영원히 누리게 한다.',
+    context: '1919년 3월 1일, 민족 대표 33인이 발표한 독립선언서입니다. 윌슨의 민족자결주의, 2·8 독립선언의 영향을 받아 비폭력 평화 시위로 시작되었습니다.',
+    points: [
+      '"독립국"과 "자주민"을 동시에 선언한 점에서 국가 독립 + 국민 주권이라는 이중적 의미가 있습니다.',
+      '"인류 평등의 대의"에서 민족 독립을 세계 보편적 가치로 확장한 점을 주목하세요.',
+      '3·1 운동은 대한민국 임시정부 수립의 직접적 계기가 되었습니다.'
+    ]
+  },
+  {
+    era: '현대',
+    title: '제헌 헌법 전문',
+    type: '헌법',
+    page: '교과서 196~197쪽',
+    lessonUrl: 'korean/contemporary/24. constitutional-democracy.html',
+    original: '유구한 역사와 전통에 빛나는 우리들 대한국민은 기미 삼일운동으로 대한민국을 건립하여 세계에 선포한 위대한 독립정신을 계승하여 이제 민주독립국가를 재건함에 있어서 … 대한민국은 민주공화국이다. 대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다.',
+    translation: null,
+    context: '1948년 5·10 총선거로 구성된 제헌국회에서 만든 대한민국 최초의 헌법입니다. 3·1 운동과 대한민국 임시정부의 법통을 계승한다고 명시했습니다.',
+    points: [
+      '"기미 삼일운동으로 대한민국을 건립"이라고 하여 3·1 운동을 건국의 기원으로 삼았습니다.',
+      '"민주공화국" "주권은 국민에게"라는 조항은 국민주권주의를 선언한 핵심 내용입니다.',
+      '제헌 헌법과 현행 헌법 전문을 비교해 보면, 역사적 연속성과 변화를 파악할 수 있습니다.'
+    ]
+  },
+  {
+    era: '현대',
+    title: '4·19 혁명의 함성',
+    type: '시위 구호·신문',
+    page: '교과서 198~199쪽',
+    lessonUrl: 'korean/contemporary/25. april-revolution.html',
+    original: '"부정 선거 다시 하라!" "이승만 하야하라!" — 1960년 4월 19일, 학생과 시민이 부정 선거에 항거하여 일어섰다.',
+    translation: null,
+    context: '1960년 3·15 부정선거에 분노한 학생들이 중심이 되어 이승만 독재 정권을 무너뜨린 민주주의 혁명입니다. 김주열 학생의 시신 발견이 전국적 시위의 기폭제가 되었습니다.',
+    points: [
+      '4·19 혁명은 학생과 시민의 힘으로 독재 정권을 무너뜨린 최초의 민주 혁명입니다.',
+      '3·15 부정선거 → 마산 의거 → 4·19 → 이승만 하야의 흐름을 정리하세요.',
+      '4·19 이후 내각책임제 개헌과 장면 내각 출범으로 이어지지만, 5·16 군사정변으로 좌절됩니다.'
+    ]
+  },
+  {
+    era: '현대',
+    title: '6·29 민주화 선언',
+    type: '선언문',
+    page: '교과서 202~203쪽',
+    lessonUrl: 'korean/contemporary/27. june-democracy.html',
+    original: '국민의 여망인 대통령 직선제 개헌을 통하여 1988년 2월 평화적 정부 이양을 실현하겠습니다.',
+    translation: '국민이 바라는 대통령 직선제 개헌을 통해 1988년 2월에 평화적으로 정부를 넘겨주겠습니다.',
+    context: '1987년 6월 민주 항쟁의 결과, 노태우가 발표한 선언입니다. 박종철 고문치사 사건과 이한열 학생 사망으로 촉발된 전국적 시위가 직선제 개헌을 이끌어냈습니다.',
+    points: [
+      '6·29 선언은 국민의 민주화 요구를 정권이 수용한 역사적 전환점입니다.',
+      '4·13 호헌조치(대통령 간선제 유지) → 6월 항쟁 → 6·29 선언의 흐름을 반드시 정리하세요.',
+      '이후 대통령 직선제가 부활하고, 평화적 정권 교체가 가능해졌습니다.'
+    ]
+  },
+  {
+    era: '현대',
+    title: '7·4 남북 공동 성명',
+    type: '공동성명',
+    page: '교과서 204~207쪽',
+    lessonUrl: 'korean/contemporary/29. peaceful-unification.html',
+    original: '통일은 외세에 의존하거나 외세의 간섭을 받음이 없이 자주적으로, 서로 상대방을 반대하는 무력행사에 의거하지 않고 평화적 방법으로, 사상과 이념·제도의 차이를 초월하여 민족적 대단결을 도모하여야 한다.',
+    translation: '통일은 ① 외세에 기대지 않고 자주적으로, ② 무력을 사용하지 않고 평화적으로, ③ 이념과 제도의 차이를 넘어 민족 대단결을 이루어야 한다.',
+    context: '1972년 남북이 최초로 통일의 3대 원칙(자주·평화·민족 대단결)에 합의한 성명입니다. 냉전 완화 분위기 속에서 발표되었지만, 이후 남북 모두 독재 체제 강화에 이용되었다는 비판도 있습니다.',
+    points: [
+      '자주·평화·민족 대단결이라는 3대 원칙을 반드시 암기하세요.',
+      '이 원칙은 이후 남북기본합의서(1991), 6·15 공동선언(2000)에도 계승되었습니다.',
+      '합의의 의미뿐 아니라 한계(정치적 이용)도 함께 평가할 줄 알아야 합니다.'
+    ]
+  }
+];
+
+/* ── 시대별 탭 생성 ── */
+const eras = ['전체', ...new Set(SOURCES.map(s => s.era))];
+const tabsEl = document.getElementById('eraTabs');
+tabsEl.innerHTML = eras.map((e, i) =>
+  `<button class="era-tab ${i===0?'active':''}" onclick="filterEra('${e}', this)">${e === '전체' ? '📌 전체' : e}</button>`
+).join('');
+
+let currentEra = '전체';
+function filterEra(era, btn) {
+  currentEra = era;
+  document.querySelectorAll('.era-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderSources();
+}
+
+/* ── 사료 카드 렌더링 ── */
+function renderSources(searchQuery) {
+  const container = document.getElementById('sourceContainer');
+  let filtered = SOURCES;
+
+  if (currentEra !== '전체') {
+    filtered = filtered.filter(s => s.era === currentEra);
+  }
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase().replace(/\s/g, '');
+    filtered = filtered.filter(s =>
+      s.title.toLowerCase().replace(/\s/g, '').includes(q) ||
+      s.original.toLowerCase().replace(/\s/g, '').includes(q) ||
+      s.context.toLowerCase().replace(/\s/g, '').includes(q) ||
+      s.era.toLowerCase().replace(/\s/g, '').includes(q)
+    );
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="no-results">😅 검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</div>';
+    return;
+  }
+
+  // 시대별 그룹핑
+  const grouped = {};
+  filtered.forEach(s => {
+    if (!grouped[s.era]) grouped[s.era] = [];
+    grouped[s.era].push(s);
+  });
+
+  let html = '';
+  for (const [era, sources] of Object.entries(grouped)) {
+    html += `<div class="sec"><div class="era-heading fade-in">${getEraIcon(era)} ${era}</div>`;
+    sources.forEach((s, i) => {
+      const transHtml = s.translation
+        ? `<div class="translation">💬 쉬운 풀이: ${s.translation}</div>`
+        : '';
+      html += `
+        <div class="source-card fade-in d${Math.min(i+1,4)}" data-idx="${SOURCES.indexOf(s)}">
+          <div class="source-header" onclick="toggleSource(this)">
+            <div>
+              <h3>${s.title}</h3>
+              <div class="source-meta">
+                <span class="source-tag tag-era">${s.era}</span>
+                <span class="source-tag tag-type">${s.type}</span>
+                <span class="source-tag tag-page">${s.page}</span>
+              </div>
+            </div>
+            <span class="source-toggle">▾</span>
+          </div>
+          <div class="source-body">
+            <div class="source-text-box">
+              <div class="original">"${s.original}"</div>
+              ${transHtml}
+            </div>
+            <div class="source-context" style="margin-bottom:14px;">
+              <h4>📋 배경과 맥락</h4>
+              <p>${s.context}</p>
+            </div>
+            <div class="source-context">
+              <h4>🔍 핵심 분석 포인트</h4>
+              <div class="analysis-points">
+                ${s.points.map((p, pi) => `<div class="analysis-point"><div class="point-icon">${pi+1}</div><span>${p}</span></div>`).join('')}
+              </div>
+            </div>
+            <a class="source-link" href="${s.lessonUrl}">📖 수업 페이지에서 더 알아보기 →</a>
+          </div>
+        </div>`;
+    });
+    html += '</div>';
+  }
+  container.innerHTML = html;
+
+  // 애니메이션 재적용
+  const obs = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.style.animationPlayState = 'running'; obs.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  container.querySelectorAll('.fade-in').forEach(el => { el.style.animationPlayState = 'paused'; obs.observe(el); });
+}
+
+function getEraIcon(era) {
+  const icons = { '조선 전기': '🏯', '조선 중기': '⚔️', '조선 후기': '👑', '근대': '⚓', '현대': '🇰🇷' };
+  return icons[era] || '📜';
+}
+
+function toggleSource(header) {
+  const card = header.closest('.source-card');
+  card.classList.toggle('open');
+}
+
+/* ── 검색 ── */
+document.getElementById('sourceSearch').addEventListener('input', function() {
+  renderSources(this.value);
+});
+
+/* ── 초기 렌더링 ── */
+renderSources();
+</script>
+</body>
+</html>

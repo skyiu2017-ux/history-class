@@ -26,19 +26,17 @@
     .unit-list{display:flex;flex-direction:column;gap:6px}.unit-item{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-sm);box-shadow:var(--shadow);transition:transform 0.15s,background 0.15s}.unit-item:hover{transform:translateX(3px);background:var(--bg-card-hover)}.unit-name{font-size:0.88rem;font-weight:500}.unit-count{font-size:0.72rem;color:var(--dim);margin-left:auto;margin-right:8px}.arrow{color:var(--dim);font-size:0.82rem}
     .era-label{font-size:0.72rem;font-weight:600;color:var(--navy);padding:16px 0 6px 2px;letter-spacing:0.03em;border-bottom:1px solid rgba(0,0,0,0.06);margin-bottom:6px}.era-label:first-child{padding-top:0}
     .unit-details{display:flex;flex-direction:column;gap:0}.unit-details>summary{list-style:none;cursor:pointer}.unit-details>summary::-webkit-details-marker{display:none}.unit-details[open]>summary .arrow{transform:rotate(180deg)}.unit-details .arrow{transition:transform 0.2s;display:inline-block}.sub-list{display:flex;flex-direction:column;gap:4px;padding:4px 0}.sub-item{background:rgba(240,244,248,0.8);border-left:3px solid var(--navy)}.sub-item:hover{background:rgba(240,244,248,1)}
-    /* 중단원 레벨 스타일 */
     .midunit-item{background:rgba(240,244,248,0.5);border-left:3px solid rgba(30,58,95,0.3)}.midunit-item .unit-name{font-size:0.85rem;padding-left:8px;color:var(--navy)}.midunit-details>summary{list-style:none;cursor:pointer}.midunit-details>summary::-webkit-details-marker{display:none}.midunit-details[open]>summary .arrow{transform:rotate(180deg)}.midunit-details .arrow{transition:transform 0.2s;display:inline-block}
     .page-item{background:rgba(240,244,248,0.9);border-left:3px solid var(--blue)}.page-item .unit-name{font-size:0.83rem;padding-left:20px;color:var(--text)}.page-item:hover{background:rgba(219,234,254,0.6)}
+    /* 학습지 다운로드 버튼 */
+    .page-item-wrap{display:flex;align-items:center;gap:0}.page-item-wrap .page-item{flex:1;border-radius:var(--r-sm) 0 0 var(--r-sm)}.page-item-wrap .ws-btn{display:flex;align-items:center;justify-content:center;padding:0 14px;background:var(--orange-bg);border:1px solid rgba(217,119,6,0.15);border-left:none;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:0.72rem;font-weight:600;color:var(--orange);white-space:nowrap;gap:3px;transition:background 0.15s;text-decoration:none;min-height:100%}.page-item-wrap .ws-btn:hover{background:#FEF3C7}
     .notice-box{background:var(--red-bg);border:1px solid rgba(220,38,38,0.15);border-radius:var(--r-md);padding:16px;margin-bottom:12px}.notice-box h3{font-size:0.88rem;font-weight:700;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-list{display:flex;flex-direction:column;gap:4px}.notice-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-list li::before{content:'•';position:absolute;left:0;color:var(--red)}
-    /* 공지 카드 분류 스타일 */
     .notice-info-box{background:var(--blue-bg);border:1px solid rgba(37,99,235,0.12);border-radius:var(--r-md);padding:16px;margin-bottom:10px}.notice-info-box h3{font-size:0.88rem;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-info-list{display:flex;flex-direction:column;gap:4px}.notice-info-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-info-list li::before{content:'•';position:absolute;left:0;color:var(--blue)}
     .notice-schedule-box{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);border-radius:var(--r-md);padding:16px;margin-bottom:10px}.notice-schedule-box h3{font-size:0.88rem;font-weight:700;color:var(--purple);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-schedule-list{display:flex;flex-direction:column;gap:4px}.notice-schedule-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-schedule-list li::before{content:'•';position:absolute;left:0;color:var(--purple)}
     .update-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:0.84rem}.update-item:last-child{border-bottom:none}.update-date{color:var(--dim);font-size:0.78rem;font-weight:500;white-space:nowrap;min-width:60px}
     .site-footer{padding:28px 0 48px;text-align:center;font-size:0.78rem;color:var(--dim);border-top:1px solid rgba(0,0,0,0.06)}.site-footer p+p{margin-top:3px}
-    /* 시험 범위 모달 */
     .scope-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:200;align-items:center;justify-content:center;padding:16px}.scope-overlay.open{display:flex}.scope-modal{background:#fff;border-radius:var(--r-lg);max-width:600px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2);padding:0}.scope-modal-header{position:sticky;top:0;background:#fff;padding:18px 20px 12px;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;z-index:1}.scope-modal-header h2{font-size:1.05rem;font-weight:700}.scope-close{background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--dim);padding:4px 8px;border-radius:6px}.scope-close:hover{background:rgba(0,0,0,0.05)}.scope-body{padding:16px 20px 24px}.scope-note{font-size:0.82rem;color:var(--orange);background:var(--orange-bg);padding:10px 14px;border-radius:var(--r-sm);margin-bottom:16px;line-height:1.5;font-weight:500}.scope-unit{margin-bottom:16px}.scope-unit h3{font-size:0.92rem;font-weight:700;color:var(--navy);margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid var(--navy-bg)}.scope-unit ul{list-style:none;display:flex;flex-direction:column;gap:4px}.scope-unit li{font-size:0.83rem;color:var(--text);padding:6px 10px;background:var(--navy-bg);border-radius:6px;display:flex;justify-content:space-between;align-items:center}.scope-unit li .scope-pages{font-size:0.76rem;color:var(--dim);white-space:nowrap;margin-left:12px;flex-shrink:0}
     @media(prefers-reduced-motion:no-preference){.fade-in{opacity:0;transform:translateY(10px);animation:fadeUp .45s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}}
-    /* ── 검색창 스타일 ── */
     .search-container{position:relative;margin:0 auto 28px;max-width:var(--max-w);padding:0 18px}
     .search-input{width:100%;padding:14px 18px;font-size:0.92rem;font-family:'Noto Sans KR',sans-serif;border:1px solid rgba(0,0,0,0.1);border-radius:var(--r-md);background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:var(--shadow);outline:none;transition:border-color 0.2s,box-shadow 0.2s;color:var(--text)}.search-input::placeholder{color:var(--dim)}.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.12),var(--shadow)}
     .search-results{position:absolute;top:100%;left:18px;right:18px;margin-top:4px;background:rgba(255,255,255,0.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(0,0,0,0.08);border-radius:var(--r-md);box-shadow:var(--shadow-h);max-height:320px;overflow-y:auto;display:none;z-index:50;list-style:none}
@@ -51,17 +49,13 @@
 
 <script>
 const CONFIG = {
-  /* ──────────────────────────────────────────
-     이번 주 수업
-     - text: 실제 페이지 제목을 표시 (generic 금지)
-  ────────────────────────────────────────── */
   thisWeek: [
     { badge: '중3', color: '#2563EB', title: '임진왜란과 병자호란',
       desc: '임진왜란의 전개 과정과 의병·수군의 활약을 정리합니다.',
       links: [
-        { icon: '📄', text: '학습지', url: '#' },
+        { icon: '📄', text: '빈칸 학습지', url: 'worksheets/ws02_imjin_war.pdf' },
         { icon: '🖥️', text: '임진왜란 수업 페이지', url: 'korean/joseon-middle/06. joseon_imjin-war.html' },
-        { icon: '✅', text: '복습 퀴즈', url: 'review/quiz.html' }
+        { icon: '✅', text: '복습 퀴즈', url: 'review_quiz.html' }
       ]},
     { badge: '중2', color: '#7C3AED', title: '수업 자료 준비 중',
       desc: '중2 수업 자료는 현재 준비 중입니다. 곧 업데이트될 예정이에요!',
@@ -70,11 +64,6 @@ const CONFIG = {
       ]}
   ],
 
-  /* ──────────────────────────────────────────
-     주제별 자료 — 4단계: 시대 → 대단원 → 중단원 → 페이지
-     구조: era > units > subunits > pages
-     - 페이지 제목/URL은 CONFIG만 수정하면 즉시 반영됨
-  ────────────────────────────────────────── */
   korean: [
     { era: '고려', units: [
       { name: '고려의 성립과 변천', subunits: [
@@ -99,8 +88,8 @@ const CONFIG = {
           { name: '유교 통치 체제와 사대교린', url: 'korean/joseon-early/02. joseon_confucian-governance.html' }
         ]},
         { name: '유교 문화와 과학 기술', pages: [
-          { name: '유교 윤리 보급과 사회 변화', url: 'korean/joseon-early/03. joseon_confucian-ethics-society.html' },
-          { name: '훈민정음 창제와 과학 기술의 발달', url: 'korean/joseon-early/05. joseon_hunminjeongeum-science.html' }
+          { name: '유교 윤리 보급과 사회 변화', url: 'korean/joseon-early/03. joseon_confucian-ethics-society.html', ws: 'worksheets/ws01_confucian_culture_science.pdf' },
+          { name: '훈민정음 창제와 과학 기술의 발달', url: 'korean/joseon-early/05. joseon_hunminjeongeum-science.html', ws: 'worksheets/ws01_confucian_culture_science.pdf' }
         ]}
       ]}
     ]},
@@ -110,35 +99,35 @@ const CONFIG = {
           { name: '사림의 성장과 붕당 형성', url: 'korean/joseon-middle/04. joseon_sarim-bungdang.html' }
         ]},
         { name: '임진왜란과 극복', pages: [
-          { name: '임진왜란의 발발과 극복', url: 'korean/joseon-middle/06. joseon_imjin-war.html' }
+          { name: '임진왜란의 발발과 극복', url: 'korean/joseon-middle/06. joseon_imjin-war.html', ws: 'worksheets/ws02_imjin_war.pdf' }
         ]}
       ]}
     ]},
     { era: '조선 후기', units: [
       { name: '조선 사회의 변동', subunits: [
         { name: '전후 복구와 호란', pages: [
-          { name: '전후 복구와 광해군의 중립 외교', url: 'korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html' },
-          { name: '정묘호란·병자호란과 국제 질서의 변화', url: 'korean/joseon-late/08. joseon_horan-intl-order.html' }
+          { name: '전후 복구와 광해군의 중립 외교', url: 'korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html', ws: 'worksheets/ws03_horan_intl_order.pdf' },
+          { name: '정묘호란·병자호란과 국제 질서의 변화', url: 'korean/joseon-late/08. joseon_horan-intl-order.html', ws: 'worksheets/ws03_horan_intl_order.pdf' }
         ]},
         { name: '제도 개편과 정치 변동', pages: [
-          { name: '양 난 이후 국가를 재건하다', url: 'korean/joseon-late/09. joseon_postwar_rebuild_edited.html' },
-          { name: '영조·정조의 탕평 정치와 세도 정치', url: 'korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html' }
+          { name: '양 난 이후 국가를 재건하다', url: 'korean/joseon-late/09. joseon_postwar_rebuild_edited.html', ws: 'worksheets/ws04_postwar_rebuild.pdf' },
+          { name: '영조·정조의 탕평 정치와 세도 정치', url: 'korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html', ws: 'worksheets/ws05_tangpyeong_sedo.pdf' }
         ]},
         { name: '사회 변화와 농민 봉기', pages: [
-          { name: '향촌 사회가 흔들리다', url: 'korean/joseon-late/11. joseon_hyangchon_change.html' },
-          { name: '삼정의 문란과 농민의 의식 성장', url: 'korean/joseon-late/12. joseon_samjeong_farmers.html' }
+          { name: '향촌 사회가 흔들리다', url: 'korean/joseon-late/11. joseon_hyangchon_change.html', ws: 'worksheets/ws06_hyangchon_farmers.pdf' },
+          { name: '삼정의 문란과 농민의 의식 성장', url: 'korean/joseon-late/12. joseon_samjeong_farmers.html', ws: 'worksheets/ws06_hyangchon_farmers.pdf' }
         ]},
         { name: '학문과 문화의 새 경향', pages: [
-          { name: '새로운 학문적 경향이 나타나다', url: 'korean/joseon-late/13. joseon_silhak_gukhak.html' },
-          { name: '동아시아, 문화를 교류하다', url: 'korean/joseon-late/14. joseon_eastasia_culture.html' },
-          { name: '생활과 문화의 새로운 양상', url: 'korean/joseon-late/15. joseon_life_culture.html' }
+          { name: '새로운 학문적 경향이 나타나다', url: 'korean/joseon-late/13. joseon_silhak_gukhak.html', ws: 'worksheets/ws07_silhak_culture_exchange.pdf' },
+          { name: '동아시아, 문화를 교류하다', url: 'korean/joseon-late/14. joseon_eastasia_culture.html', ws: 'worksheets/ws07_silhak_culture_exchange.pdf' },
+          { name: '생활과 문화의 새로운 양상', url: 'korean/joseon-late/15. joseon_life_culture.html', ws: 'worksheets/ws08_inheritance_folk_culture.pdf' }
         ]}
       ]}
     ]},
     { era: '근·현대', units: [
       { name: '근·현대 사회의 전개', subunits: [
         { name: '개항과 근대 국가 수립 운동', pages: [
-          { name: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html' },
+          { name: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html', ws: 'worksheets/ws09_opening_modernization.pdf' },
           { name: '국민 국가 수립을 위한 노력', url: 'korean/modern/17. korean_national_state.html' }
         ]},
         { name: '일제 강점과 민족 운동', pages: [
@@ -231,11 +220,6 @@ const CONFIG = {
     ]}
   ],
 
-  /* ──────────────────────────────────────────
-     시험 대비 카드
-     - 시험 범위표: 클릭 시 모달로 상세 범위 확인
-     - 빈칸 학습지: Google Classroom 링크 + 로그인 안내
-  ────────────────────────────────────────── */
   exam: [
     { icon:'📋', title:'시험 범위표',
       desc:'교과서 126~209쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대 사회의 전개',
@@ -248,12 +232,9 @@ const CONFIG = {
       linkText:'클래스룸 열기', url:'https://classroom.google.com/c/ODQ4MTY3OTIxOTc5', external:true },
     { icon:'📝', title:'서술형 대비',
       desc:'자주 나오는 서술형 문제와 답변 방향을 확인하세요.',
-      linkText:'서술형 보기', url:'#' /* TODO: 서술형 대비 페이지 경로 */ }
+      linkText:'서술형 보기', url:'#' }
   ],
 
-  /* ──────────────────────────────────────────
-     시험 범위 상세 데이터 (모달에서 사용)
-  ────────────────────────────────────────── */
   examScope: {
     range: '교과서 126쪽 ~ 209쪽',
     note: '수업 중 진도를 나가서 다룬 부분까지로 이후 시험 전 자세한 안내 예정',
@@ -296,31 +277,18 @@ const CONFIG = {
     ]
   },
 
-  /* ──────────────────────────────────────────
-     수행평가
-  ────────────────────────────────────────── */
   performance: [
     { icon:'📌', title:'수행평가 안내 (1차)', desc:'1차 수행평가 활동 목적과 과제 내용을 확인합니다.', linkText:'안내 보기', url:'performance/PA_ref_gapsin_gabo.html' },
     { icon:'📌', title:'수행평가 안내 (2차)', desc:'2차 수행평가 활동 안내입니다.', linkText:'안내 보기', url:'performance/PA_ref_31_imsi.html' },
   ],
 
-  /* ──────────────────────────────────────────
-     복습
-     - 한국사 흐름 파악하기 → korean_history_flow.html
-  ────────────────────────────────────────── */
   review: [
-    { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'#' /* TODO: 요약 페이지 경로 */ },
-    { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'#' /* TODO: 사료 페이지 경로 */ },
+    { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'review_summary.html' },
+    { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'review_sources.html' },
     { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review_quiz.html' },
     { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'korean_history_flow.html' }
   ],
 
-  /* ──────────────────────────────────────────
-     공지 및 업데이트 — 2축 구조
-     ① siteNotices: 페이지 구성 관련 안내
-     ② scheduleNotices: 수행평가/시험 일정 안내
-     ③ updates: 최근 변경사항 로그
-  ────────────────────────────────────────── */
   siteNotices: [
     '이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.',
     '자료는 수업 진도에 맞춰 계속 추가·수정됩니다.',
@@ -332,6 +300,8 @@ const CONFIG = {
     '중간고사 시험 범위: 교과서 126~209쪽 (상세 범위는 시험 대비 > 시험 범위표 참고)'
   ],
   updates: [
+    { date:'3.21', text:'빈칸 학습지 PDF 다운로드 추가 (주제별 자료에서 📄 버튼)' },
+    { date:'3.21', text:'지난 시간 요약 · 사료 다시 보기 페이지 신규 개설' },
     { date:'3.15', text:'임진왜란·병자호란 수업 페이지 업로드' },
     { date:'3.14', text:'중2 고려 건국과 발전 인터랙티브 자료 추가' },
     { date:'3.13', text:'수행평가 1차 안내문 공개' },
@@ -380,7 +350,7 @@ const CONFIG = {
   <section class="sec" id="subjects"><div class="container">
     <span class="sec-label" style="background:var(--navy-bg);color:var(--navy);">📚 주제별 자료</span>
     <h2 class="sec-title">주제별 자료</h2>
-    <p class="sec-desc">한국사와 세계사, 시대별로 수업 자료를 찾아보세요.</p>
+    <p class="sec-desc">한국사와 세계사, 시대별로 수업 자료를 찾아보세요. 📄 버튼으로 빈칸 학습지를 다운로드할 수 있습니다.</p>
     <div class="subject-tabs" id="subject-tabs"></div>
     <div id="subject-panels"></div>
   </div></section>
@@ -420,7 +390,6 @@ const CONFIG = {
   </div></section>
 </main>
 
-<!-- 시험 범위 상세 모달 -->
 <div class="scope-overlay" id="scope-overlay" role="dialog" aria-modal="true" aria-label="시험 범위 상세">
   <div class="scope-modal">
     <div class="scope-modal-header">
@@ -443,7 +412,7 @@ function toggleNav(){const n=document.getElementById('main-nav'),b=document.quer
 function closeNav(){document.getElementById('main-nav').classList.remove('open');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
 document.addEventListener('click',e=>{const n=document.getElementById('main-nav'),b=document.querySelector('.nav-toggle');if(n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target))closeNav()});
 
-/* ── 이번 주 수업 (실제 페이지 제목 표시) ── */
+/* ── 이번 주 수업 ── */
 function renderWeek(){
   document.getElementById('week-container').innerHTML=CONFIG.thisWeek.map((w,i)=>{
     const f=i===0,lBg=f?'var(--blue-bg)':'var(--purple-bg)',lC=f?'var(--blue)':'var(--purple)',hBg=f?'#DBEAFE':'#EDE9FE';
@@ -462,7 +431,6 @@ function renderEras(data){
   return data.map(era=>{
     const unitHtml=era.units.map(unit=>{
       const totalPages=unit.subunits.reduce((sum,su)=>sum+su.pages.length,0);
-      // 대단원 — 접기/펼치기
       return`<details class="unit-details"><summary class="unit-item"><span class="unit-name">${unit.name}</span><span class="unit-count">${totalPages}개</span><span class="arrow">▾</span></summary><div class="sub-list">${renderSubunits(unit.subunits)}</div></details>`;
     }).join('');
     return`<div class="era-label">${era.era}</div><div class="unit-list" style="margin-bottom:12px;">${unitHtml}</div>`;
@@ -471,16 +439,23 @@ function renderEras(data){
 function renderSubunits(subunits){
   return subunits.map(su=>{
     if(su.pages.length===1){
-      // 중단원 아래 페이지가 1개면 바로 링크
-      return`<a class="unit-item midunit-item" href="${su.pages[0].url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;
+      const pg=su.pages[0];
+      if(pg.ws){
+        return`<div class="page-item-wrap"><a class="unit-item midunit-item" href="${pg.url}" style="flex:1"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;
+      }
+      return`<a class="unit-item midunit-item" href="${pg.url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;
     }
-    // 중단원 아래 페이지가 여러 개면 접기
-    return`<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>`<a class="unit-item page-item" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`).join('')}</div></details>`;
+    return`<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>{
+      if(pg.ws){
+        return`<div class="page-item-wrap"><a class="unit-item page-item" href="${pg.url}" style="flex:1"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;
+      }
+      return`<a class="unit-item page-item" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`;
+    }).join('')}</div></details>`;
   }).join('');
 }
 function switchSubject(id,btn){document.querySelectorAll('.subject-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.subject-panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active')}
 
-/* ── 카드 렌더링 (시험대비/수행평가/복습) ── */
+/* ── 카드 렌더링 ── */
 function renderCards(data,id,color,bg){
   document.getElementById(id).innerHTML=data.map((c,i)=>{
     const ext=c.external?` target="_blank" rel="noopener noreferrer"`:'';
@@ -496,27 +471,21 @@ function openScope(){
   document.getElementById('scope-overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closeScope(){
-  document.getElementById('scope-overlay').classList.remove('open');
-  document.body.style.overflow='';
-}
+function closeScope(){document.getElementById('scope-overlay').classList.remove('open');document.body.style.overflow=''}
 document.getElementById('scope-overlay').addEventListener('click',function(e){if(e.target===this)closeScope()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeScope()});
 
-/* ── 공지 렌더링 (2축 구조) ── */
+/* ── 공지 렌더링 ── */
 function renderNotice(){
   const container=document.getElementById('notice-container');
   let html='';
-  // ① 페이지 이용 안내
   if(CONFIG.siteNotices&&CONFIG.siteNotices.length){
     html+=`<div class="notice-info-box fade-in"><h3>📌 페이지 이용 안내</h3><ul class="notice-info-list">${CONFIG.siteNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
   }
-  // ② 수행평가·시험 일정
   if(CONFIG.scheduleNotices&&CONFIG.scheduleNotices.length){
     html+=`<div class="notice-schedule-box fade-in"><h3>📅 주요 일정 안내</h3><ul class="notice-schedule-list">${CONFIG.scheduleNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
   }
   container.innerHTML=html;
-  // 업데이트 로그
   document.getElementById('updates-card').innerHTML=`<h3 style="font-size:0.88rem;font-weight:700;margin-bottom:10px;">🔄 최근 변경</h3>`+
     CONFIG.updates.map(u=>`<div class="update-item"><span class="update-date">${u.date}</span><span>${u.text}</span></div>`).join('');
   document.getElementById('last-update').textContent='마지막 업데이트: 2026.'+CONFIG.updates[0].date;
@@ -530,12 +499,12 @@ renderCards(CONFIG.performance,'perform-grid','var(--purple)','var(--purple-bg)'
 renderCards(CONFIG.review,'review-grid','var(--green)','var(--green-bg)');
 renderNotice();
 
-/* ── Intersection Observer 애니메이션 ── */
+/* ── Intersection Observer ── */
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.animationPlayState='running';obs.unobserve(x.target)}})},{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
 setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getComputedStyle(el).opacity==='0'){el.style.animationPlayState='paused';obs.observe(el)}})},100);
 
-/* ── 전체 검색 기능 ── */
+/* ── 전체 검색 ── */
 const SEARCH_DATA = [
   { title: "🏯 조선 건국과 한양 천도", url: "korean/joseon-early/01. joseon_foundation.html", keywords: ["조선건국", "이성계", "정도전", "위화도회군", "과전법", "한양천도", "경복궁", "신진사대부"] },
   { title: "🏛️ 유교 통치 체제와 사대교린", url: "korean/joseon-early/02. joseon_confucian-governance.html", keywords: ["경국대전", "의정부", "6조", "3사", "사헌부", "사간원", "홍문관", "8도", "관찰사", "사대교린"] },
@@ -565,24 +534,23 @@ const SEARCH_DATA = [
   { title: "🔥 민주주의, 시련을 겪다", url: "korean/contemporary/26. dictatorship-and-resistance.html", keywords: ["독재", "5.16군사정변", "박정희", "유신헌법", "유신체제", "부마항쟁", "신군부", "전두환", "5.18민주화운동", "518", "광주", "계엄령"] },
   { title: "🌸 6월 민주 항쟁, 민주주의를 꽃피우다", url: "korean/contemporary/27. june-democracy.html", keywords: ["6월민주항쟁", "6월항쟁", "1987년", "박종철", "이한열", "고문치사사건", "4.13호헌조치", "호헌철폐", "6.29민주화선언", "629선언", "대통령직선제", "전두환"] },
   { title: "⚔️ 6·25 전쟁과 분단 고착", url: "korean/contemporary/28. korean-war-division.html", keywords: ["6.25전쟁", "625", "1950년", "북한남침", "인천상륙작전", "맥아더", "1.4후퇴", "중국군개입", "휴전협정", "판문점", "분단", "이산가족", "냉전"] },
-  { title: "🕊️ 평화 통일을 위해 노력하다", url: "korean/contemporary/29. peaceful-unification.html", keywords: ["평화통일", "7.4남북공동성명", "74남북공동성명", "남북기본합의서", "6.15남북공동선언", "615", "햇볕정책", "김대중", "남북정상회담", "개성공단", "이산가족상봉"] }
+  { title: "🕊️ 평화 통일을 위해 노력하다", url: "korean/contemporary/29. peaceful-unification.html", keywords: ["평화통일", "7.4남북공동성명", "74남북공동성명", "남북기본합의서", "6.15남북공동선언", "615", "햇볕정책", "김대중", "남북정상회담", "개성공단", "이산가족상봉"] },
+  { title: "📖 지난 시간 요약", url: "review_summary.html", keywords: ["요약", "복습", "정리", "지난시간", "핵심정리"] },
+  { title: "📜 사료 다시 보기", url: "review_sources.html", keywords: ["사료", "원문", "해석", "분석", "자료읽기"] }
 ];
 
 (function(){
   const searchInput = document.getElementById('searchInput');
   const searchResults = document.getElementById('searchResults');
   if (!searchInput || !searchResults) return;
-
   searchInput.addEventListener('input', function() {
     const query = this.value.toLowerCase().replace(/\s/g, '');
     if (query.length === 0) { searchResults.style.display = 'none'; return; }
-
     const matched = SEARCH_DATA.filter(item => {
       const matchTitle = item.title.toLowerCase().replace(/\s/g, '').includes(query);
       const matchKeyword = item.keywords.some(kw => kw.toLowerCase().includes(query));
       return matchTitle || matchKeyword;
     });
-
     if (matched.length > 0) {
       searchResults.innerHTML = matched.map(item => `
         <li><a href="${item.url}">
@@ -594,7 +562,6 @@ const SEARCH_DATA = [
     }
     searchResults.style.display = 'block';
   });
-
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.search-container')) searchResults.style.display = 'none';
   });

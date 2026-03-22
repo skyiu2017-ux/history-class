@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>📝 서술형 평가 완벽 대비 — 한국사 15문항</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0;cursor:pointer;transition:transform .2s}
+.tl-node:hover{transform:scale(1.08)}
+.tl-node.active .tl-dot{background:var(--primary);box-shadow:0 2px 16px rgba(27,42,74,.3);transform:scale(1.15)}
+.tl-node.active .tl-label{color:var(--primary);font-weight:800}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow);transition:all .3s}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4;transition:all .3s}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+.tl-all-btn{display:block;margin:12px auto 0;padding:6px 20px;border-radius:100px;font-size:12px;font-weight:700;background:var(--primary);color:#fff;border:none;cursor:pointer;font-family:var(--font);transition:background .2s}
+.tl-all-btn:hover{background:var(--primary-light)}
+.tl-all-btn.active{background:var(--accent)}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY - collapsible */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg);cursor:pointer;transition:box-shadow .3s}
+.summary-box:hover{box-shadow:0 20px 56px rgba(27,42,74,.18)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:0;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.summary-box h3 .toggle-icon{font-size:14px;transition:transform .3s;opacity:.7}
+.summary-box.open h3{margin-bottom:16px}
+.summary-box.open h3 .toggle-icon{transform:rotate(180deg)}
+.summary-box ul{list-style:none;padding:0;max-height:0;overflow:hidden;transition:max-height .4s ease}
+.summary-box.open ul{max-height:600px}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* ===== ANSWER CHECK SYSTEM ===== */
+.answer-zone{margin:16px 0 24px;padding:20px;background:rgba(255,255,255,.5);border:1px dashed #c8cfe0;border-radius:var(--radius-sm)}
+.answer-zone label{display:block;font-size:13px;font-weight:700;color:var(--text-sub);margin-bottom:8px}
+.answer-zone textarea{width:100%;min-height:80px;padding:12px;border:2px solid #e0e4ed;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;background:#fff;transition:border-color .2s}
+.answer-zone textarea:focus{outline:none;border-color:var(--accent)}
+.check-btn{margin-top:10px;padding:9px 22px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s}
+.check-btn:hover{background:var(--primary-light)}
+
+.feedback-panel{display:none;margin-top:16px;border-radius:var(--radius-sm);overflow:hidden;border:1px solid #e0e4ed;animation:fadeUp .35s ease}
+.fb-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--primary);color:#fff}
+.fb-score{font-size:22px;font-weight:900}.fb-score-label{font-size:12px;opacity:.8}
+.fb-body{padding:16px 18px;background:#fff}
+.fb-section{margin-bottom:14px}
+.fb-section:last-child{margin-bottom:0}
+.fb-section-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.fb-section-title.green{color:var(--green)}.fb-section-title.red{color:var(--coral)}.fb-section-title.blue{color:var(--accent)}.fb-section-title.gold{color:#b8860b}
+.fb-tags{display:flex;flex-wrap:wrap;gap:5px}
+.fb-tag{padding:3px 10px;border-radius:100px;font-size:11.5px;font-weight:600}
+.fb-tag.found{background:rgba(39,174,96,.1);color:var(--green);border:1px solid rgba(39,174,96,.2)}
+.fb-tag.missing{background:rgba(231,76,60,.06);color:var(--coral);border:1px solid rgba(231,76,60,.15);text-decoration:line-through;text-decoration-color:rgba(231,76,60,.4)}
+.fb-check-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;line-height:1.6;margin-bottom:6px}
+.fb-check-item .icon{flex-shrink:0;width:18px;text-align:center}
+.fb-tip{font-size:13px;color:var(--text-sub);line-height:1.7;padding:10px 14px;background:rgba(212,168,83,.06);border-radius:var(--radius-xs);border-left:3px solid var(--gold)}
+
+/* PERIOD SECTION HIDING */
+.period-section{transition:opacity .3s,max-height .4s}
+.period-section.hidden{display:none}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">서술형 평가 대비 문항집</span>
+<span class="page-ref">한국사 전 범위</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">📝</span>
+<h1>서술형 평가 완벽 대비</h1>
+<p class="subtitle">조선 전기부터 현대까지, 한국사 핵심 15문항을 한 권에 담았습니다.<br/>직접 답을 써 보고 '확인하기'를 누르면 키워드·서술 체계를 바로 점검할 수 있습니다.</p>
+<div class="hero-keywords">
+<span>조선 전기</span><span>조선 중기</span><span>조선 후기</span><span>근대</span><span>현대</span><span>15문항 총정리</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 5점 소문항</div>
+<div class="diff-tab standard">🔸 조건 서술형</div>
+<div class="diff-tab advanced">💠 비교·분석형</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 서술형 평가, 이렇게 준비하자!</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 자료에 나오는 핵심 용어와 명칭을 정확히 쓸 수 있는가?</li>
+<li><span class="cq-badge standard">표준</span> 〈조건〉에 제시된 키워드를 모두 포함하여 논리적으로 서술할 수 있는가?</li>
+<li><span class="cq-badge advanced">심화</span> 두 가지 이상의 사건이나 관점을 비교하여 자기 생각을 쓸 수 있는가?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 시대별 문항 구성 — 시대를 클릭하면 해당 문항만 표시됩니다</h3>
+<div class="tl-track">
+<div class="tl-node active" data-period="all" onclick="filterPeriod('all')"><div class="tl-dot">All</div><div class="tl-label">전체 보기</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node" data-period="joseon-early" onclick="filterPeriod('joseon-early')"><div class="tl-dot">Ⅰ</div><div class="tl-label">조선 전기 (3문항)</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node" data-period="joseon-mid" onclick="filterPeriod('joseon-mid')"><div class="tl-dot">Ⅱ</div><div class="tl-label">조선 중기 (2문항)</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node" data-period="joseon-late" onclick="filterPeriod('joseon-late')"><div class="tl-dot">Ⅲ</div><div class="tl-label">조선 후기 (4문항)</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node" data-period="modern" onclick="filterPeriod('modern')"><div class="tl-dot">Ⅳ</div><div class="tl-label">근대 (4문항)</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node" data-period="contemporary" onclick="filterPeriod('contemporary')"><div class="tl-dot">Ⅴ</div><div class="tl-label">현대 (2문항)</div></div>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- SECTION 1: 조선 전기 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="period-section" data-period="joseon-early">
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🏛️</span>
+<h2>조선 전기 — 나라의 틀을 세우다</h2>
+</div>
+
+<!-- 문항 11 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 1. 통치 체제의 정비와 왕권·신권의 관계 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 태종은 6조의 판서가 국왕에게 직접 보고하도록 하였고, 세종은 의정부의 논의를 거쳐 국왕에게 올리도록 하였다.<br/><br/>
+<strong>자료 (나)</strong> 성종은 『경국대전』을 완성·반포하고, 새로운 정치 세력을 등용하였다.
+</div>
+<p><strong>1-1.</strong> (가)의 두 제도 명칭을 각각 쓰고, 왕권과 신권의 관계에 미친 영향을 비교하여 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>6조 직계제</strong>, <strong>의정부 서사제</strong>를 반드시 쓰고, 각각 <strong>왕권 강화</strong>, <strong>왕권과 신권의 조화</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="1-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="태종은 … 제도를 시행하여 … 세종은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('1-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>1-2.</strong> (나)의 새로운 정치 세력의 명칭을 쓰고, 이들이 주로 활동한 3사의 역할을 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>사림</strong>, <strong>3사</strong>를 반드시 쓰고, <strong>언론 기능</strong>, <strong>감찰</strong>, <strong>간언</strong>, <strong>권력 독점 견제</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="1-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="성종이 등용한 새로운 정치 세력은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('1-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 1 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 2. 세종 대의 민족 문화 발달과 과학 기술 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> "우리나라의 말이 중국과 달라 한자와는 서로 잘 통하지 아니한다. …… 내가 이를 위하여 새로 스물여덟 글자를 만드니 ……"<br/><br/>
+<strong>자료 (나)</strong> 세종은 우리나라의 실정에 맞는 역법을 만들기 위해 한양을 기준으로 천체의 움직임을 계산한 역법서를 편찬하게 하였다.
+</div>
+<p><strong>2-1.</strong> (가)에 나타난 세종의 문자 창제 목적을 쓰고, 이를 조선의 민본 정치와 연결하여 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>훈민정음</strong>이라는 명칭을 반드시 쓰고, <strong>백성이 자신의 뜻을 펴고 생활에 필요한 지식을 익히도록 하려는 뜻</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="2-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="세종은 …을 창제하였는데, 그 목적은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('2-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>2-2.</strong> (나)의 역법서 이름을 쓰고, 이 역법서가 지닌 자주적 의의를 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>칠정산</strong>을 반드시 쓰고, <strong>중국 역법에만 의존하지 않고 한양을 기준으로 절기와 시간을 계산했다는 점</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="2-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(나)의 역법서는 …이며, …"></textarea>
+<button class="check-btn" onclick="checkAnswer('2-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 2 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 3. 조선의 대외 관계 — 사대교린 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 조선은 건국 직후 명과 외교 관계를 정비하고 조공·책봉 관계를 맺어 국제 질서 속에서 국가의 안정을 도모하였다.<br/><br/>
+<strong>자료 (나)</strong> 북방의 여진과 남방의 왜에 대해서는 회유와 무력 대응을 함께 사용하는 정책을 펼쳤다.
+</div>
+<p><strong>3-1.</strong> (가)에 나타난 대외 관계의 원칙을 쓰고, 그 정치적·경제적 실리를 각각 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>사대</strong>라는 용어를 반드시 쓰고, <strong>왕권 안정·안보 확보</strong>와 <strong>공무역·문물 수용</strong>을 나누어 설명할 것.</div>
+<div class="answer-zone" data-qid="3-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(가)에 나타난 대외 관계의 원칙은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('3-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>3-2.</strong> (나)에 해당하는 외교 정책의 명칭을 쓰고, 왜에 대한 강경책과 온건책의 사례를 각각 한 가지씩 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>교린</strong>을 반드시 쓰고, 강경책으로 <strong>이종무의 쓰시마 정벌</strong>, 온건책으로 <strong>3포 개항 또는 계해약조</strong> 가운데 하나를 포함할 것.</div>
+<div class="answer-zone" data-qid="3-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(나)의 외교 정책은 …이다. 강경책으로는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('3-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+</div><!-- /joseon-early -->
+
+<!-- ════════════════════════════════════════════ -->
+<!-- SECTION 2: 조선 중기 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="period-section" data-period="joseon-mid">
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">⚔️</span>
+<h2>조선 중기 — 사림의 성장과 전란의 소용돌이</h2>
+</div>
+
+<!-- 문항 12 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 4. 사림의 성장과 외교적 위기 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 사림은 여러 차례 사화를 겪었지만 향촌 사회를 바탕으로 세력을 다시 키웠다.<br/><br/>
+<strong>자료 (나)</strong> 광해군은 전후 복구를 추진하는 한편, 명과 후금 사이에서 실리 외교를 폈다.
+</div>
+<p><strong>4-1.</strong> (가)의 사림이 향촌 사회에서 세력을 유지·확대할 수 있었던 기반 두 가지를 쓰고, 그 의미를 설명하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>향약</strong>, <strong>서원</strong>을 반드시 쓰고, <strong>향촌 지배력 강화</strong>와 연결할 것.</div>
+<div class="answer-zone" data-qid="4-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="사림이 향촌에서 세력을 키울 수 있었던 기반은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('4-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>4-2.</strong> (나)의 외교 정책 명칭을 쓰고, 그 배경과 의도를 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>중립 외교</strong>를 반드시 쓰고, <strong>명의 원군 요청</strong>, <strong>후금의 성장</strong>, <strong>재침 방지</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="4-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="광해군의 외교 정책은 …이다. 그 배경은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('4-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 3 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 5. 임진왜란의 극복과 동아시아의 변화 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 일본의 침략으로 전쟁이 일어나자 각지에서 유학자, 농민, 승려 등이 자발적으로 군사를 일으켜 싸웠다.<br/><br/>
+<strong>자료 (나)</strong> 이 전쟁 이후 중국 대륙과 일본의 정세에도 큰 변화가 나타났다.
+</div>
+<p><strong>5-1.</strong> (가)의 군사 조직 명칭을 쓰고, 이들이 전세를 회복하는 데 기여한 이유를 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>의병</strong>을 반드시 쓰고, <strong>자발적 참여</strong>와 <strong>지형을 활용한 전술</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="5-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(가)의 군사 조직은 …이다. 이들이 전세 회복에 기여한 이유는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('5-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>5-2.</strong> (나)에 나타난 전쟁 이후의 동아시아 정세 변화를 중국 대륙과 일본으로 나누어 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> 중국은 <strong>명의 쇠퇴와 후금의 성장</strong>, 일본은 <strong>도쿠가와 이에야스의 에도 막부 성립</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="5-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="전쟁 이후 중국 대륙에서는 … 일본에서는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('5-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">중국 대륙의 변화</div>
+<div class="name">명 → 후금(청)</div>
+<div class="desc">조선에 원군을 보내며 국력이 소진된 명은 급격히 쇠퇴하였고, 북방의 후금이 세력을 키워 결국 청을 건국하였다.</div>
+</div>
+<div class="compare-card red">
+<div class="label">일본의 변화</div>
+<div class="name">전국 시대 → 에도 막부</div>
+<div class="desc">도요토미 히데요시 사후, 도쿠가와 이에야스가 권력을 장악하여 에도 막부를 열고 약 260년간 일본을 통치하였다.</div>
+</div>
+</div>
+</div>
+</div><!-- /joseon-mid -->
+
+<!-- ════════════════════════════════════════════ -->
+<!-- SECTION 3: 조선 후기 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="period-section" data-period="joseon-late">
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">📜</span>
+<h2>조선 후기 — 흔들리는 질서, 새로운 움직임</h2>
+</div>
+
+<!-- 문항 4 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 6. 붕당 정치의 변질과 영조의 개혁 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 숙종 대에는 국왕이 주도하여 집권 붕당을 급격히 바꾸는 정치가 반복되었다.<br/><br/>
+<strong>자료 (나)</strong> 영조는 붕당의 대립을 완화하고 백성의 부담을 줄이기 위해 개혁을 추진하였다.
+</div>
+<p><strong>6-1.</strong> (가)의 정치적 사건 명칭을 쓰고, 이것이 조선 후기 정치에 끼친 영향을 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>환국</strong>을 반드시 쓰고, <strong>일당 전제화</strong>, <strong>정치적 보복</strong>, <strong>상호 비판과 견제 기능의 약화</strong> 가운데 두 가지 이상을 포함할 것.</div>
+<div class="answer-zone" data-qid="6-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(가)의 정치적 사건은 …이다. 이로 인해 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('6-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>6-2.</strong> (나)의 제도 이름을 쓰고, 그 시행으로 줄어든 재정을 보충하기 위한 대책을 두 가지 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>균역법</strong>을 반드시 쓰고, <strong>결작</strong>, <strong>선무군관포</strong>, <strong>어염선세(어세·염세·선세)</strong> 가운데 두 가지를 포함할 것.</div>
+<div class="answer-zone" data-qid="6-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(나)의 제도는 …이다. 줄어든 재정을 보충하기 위해 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('6-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 13 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 7. 수취 체제의 개편과 탕평 정치 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 공납의 폐단을 줄이기 위해 광해군 대 경기도에서 새로운 수취 제도가 처음 시행되었다.<br/><br/>
+<strong>자료 (나)</strong> 정조는 탕평 정치를 뒷받침하고 왕권을 강화하기 위해 제도 정비에 힘썼다.
+</div>
+<p><strong>7-1.</strong> (가)의 제도 명칭을 쓰고, 이 제도 시행 뒤 등장한 상인과 조선 후기 경제 변화의 관계를 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>대동법</strong>, <strong>공인</strong>을 반드시 쓰고, <strong>상공업 발달</strong>, <strong>상품 화폐 경제 활성화</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="7-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(가)의 제도는 …이다. 이 제도 시행 뒤 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('7-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>7-2.</strong> (나)에서 정조가 왕권 강화를 위해 시행한 정책을 학술·정책 연구 측면과 군사적 측면에서 각각 한 가지씩 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>규장각</strong>이 정책 연구와 인재 양성을 맡은 기관이었음을, <strong>장용영</strong>이 국왕의 친위 부대였음을 포함할 것.</div>
+<div class="answer-zone" data-qid="7-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="정조는 학술·정책 연구를 위해 … 군사적으로는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('7-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 5 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 8. 새로운 사상의 등장 — 실학 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> "마을 단위로 토지를 공동 소유하고 공동 경작하여 수확물을 나누어야 한다."<br/><br/>
+<strong>자료 (나)</strong> "재물은 우물과 같아서 퍼내면 차고 버려두면 말라버린다."
+</div>
+<p><strong>8-1.</strong> (가)의 주장을 펼친 실학자의 이름과 토지 제도의 명칭을 쓰고, 그 배경이 된 농촌 사회 문제를 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>정약용</strong>, <strong>여전론(여전제)</strong>을 반드시 쓰고, <strong>토지 집중과 소작농 증가</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="8-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(가)의 주장을 펼친 실학자는 …이며, 토지 제도는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('8-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>8-2.</strong> (나)의 주장을 펼친 실학자의 이름과 학파를 쓰고, 이 학파가 부국강병을 위해 강조한 바를 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>박제가</strong>, <strong>북학파(중상학파)</strong>를 반드시 쓰고, <strong>상공업 진흥</strong>과 <strong>청의 발달한 문물 수용</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="8-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(나)의 주장을 펼친 실학자는 …이며, …학파에 속한다. …"></textarea>
+<button class="check-btn" onclick="checkAnswer('8-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">중농학파 (경세치용)</div>
+<div class="name">토지 개혁 강조</div>
+<div class="desc">정약용 — 여전론<br/>유형원 — 균전론<br/>이익 — 한전론<br/>농민의 토지 확보와 자립을 목표로 삼았다.</div>
+</div>
+<div class="compare-card red">
+<div class="label">중상학파 (이용후생·북학파)</div>
+<div class="name">상공업 진흥 강조</div>
+<div class="desc">박제가 — 소비 촉진론<br/>박지원 — 수레·선박 이용<br/>청의 문물을 적극 수용하여 나라를 부강하게 하려 했다.</div>
+</div>
+</div>
+</div>
+
+<!-- 문항 6 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 9. 신분제의 동요와 서민 문화의 발달 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 조선 후기에는 부농과 상인이 돈과 곡식을 바탕으로 공명첩을 사거나 족보를 고쳐 양반이 되기도 하였다.<br/><br/>
+<strong>자료 (나)</strong> 판소리, 탈춤, 한글 소설 등 서민 문화가 널리 유행하였다.
+</div>
+<p><strong>9-1.</strong> (가)와 같은 현상으로 조선 후기 신분 구조에 어떤 변화가 나타났는지 서술하고, 이것이 국가 재정에 미친 영향을 설명하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>양반 증가</strong>, <strong>양반 권위 약화</strong>, <strong>상민·노비 감소</strong>를 포함하고, 이로 인해 <strong>신분 질서가 동요하였음</strong>을 서술할 것.</div>
+<div class="answer-zone" data-qid="9-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="조선 후기에는 …와 같은 현상으로 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('9-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>9-2.</strong> (나)의 탈춤과 한글 소설이 주로 다룬 내용을 쓰고, 이것이 서민 의식의 성장과 어떤 관련이 있는지 설명하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>양반의 위선·무능 풍자</strong>, <strong>신분 차별 비판</strong>, <strong>서민의 사회의식 성장</strong> 가운데 두 가지 이상을 포함할 것.</div>
+<div class="answer-zone" data-qid="9-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="탈춤과 한글 소설에서는 주로 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('9-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+</div><!-- /joseon-late -->
+
+<!-- ════════════════════════════════════════════ -->
+<!-- SECTION 4: 근대 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="period-section" data-period="modern">
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">🔥</span>
+<h2>근대 — 개혁의 꿈과 저항의 불꽃</h2>
+</div>
+
+<!-- 문항 14 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 10. 동학 농민 운동과 갑오개혁 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 동학 농민군은 탐관오리 처벌, 신분제 폐지, 조세 제도 개혁 등을 요구하며 봉기하였다.<br/><br/>
+<strong>자료 (나)</strong> 이후 일본의 간섭 속에서 군국기무처를 중심으로 개혁이 추진되었다.
+</div>
+<p><strong>10-1.</strong> (가)의 동학 농민 운동이 지닌 반봉건·반외세 성격이 각각 어떤 사실에서 드러나는지 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>탐관오리 처벌·신분제 폐지</strong>와 <strong>일본군을 몰아내기 위한 2차 봉기</strong>를 각각 연결할 것.</div>
+<div class="answer-zone" data-qid="10-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="동학 농민 운동의 반봉건적 성격은 …에서, 반외세적 성격은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('10-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>10-2.</strong> (나)의 개혁 명칭을 쓰고, 그 내용 중 신분제와 관련된 변화를 한 가지 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>갑오개혁</strong>을 반드시 쓰고, <strong>공사 노비법 혁파</strong> 또는 <strong>신분제 폐지</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="10-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(나)의 개혁은 …이다. 신분제와 관련하여 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('10-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 7 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 11. 갑신정변과 독립협회 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 급진 개화파는 청과의 사대 관계를 청산하고 근대 국가를 세우려 하였으나 정변은 3일 만에 실패하였다.<br/><br/>
+<strong>자료 (나)</strong> 서재필 등이 조직한 단체는 독립문을 세우고 만민 공동회와 관민 공동회를 열어 의회 설립을 추진하였다.
+</div>
+<p><strong>11-1.</strong> (가)의 갑신정변이 지닌 의의와 한계를 각각 한 가지씩 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> 의의로 <strong>근대적 정치 개혁 운동</strong> 또는 <strong>근대 국가 수립 지향</strong>, 한계로 <strong>일본 의존</strong> 또는 <strong>민중의 지지 부족</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="11-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="갑신정변의 의의는 …이고, 한계는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('11-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>11-2.</strong> (나)의 단체 이름을 쓰고, 이 단체가 궁극적으로 지향한 정치 체제를 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>독립협회</strong>를 반드시 쓰고, <strong>입헌 군주제 지향</strong> 또는 <strong>의회 설립 추진</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="11-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(나)의 단체는 …이다. 이 단체가 지향한 정치 체제는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('11-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 8 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 12. 3·1 운동과 대한민국 임시 정부 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 1919년 3월 1일 시작된 만세 시위는 학생, 상인, 노동자, 농민 등 여러 계층이 참여하며 전국과 해외로 확산되었다.<br/><br/>
+<strong>자료 (나)</strong> 3·1 운동 이후 상하이에 독립운동을 이끌 조직이 수립되었다.
+</div>
+<p><strong>12-1.</strong> (가)의 3·1 운동이 일어난 대외적 배경 한 가지와, 이 운동이 일제의 통치 방식에 미친 영향을 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> 배경으로 <strong>민족 자결주의</strong> 또는 <strong>2·8 독립 선언</strong>을 포함하고, 결과로 <strong>무단 통치에서 문화 통치로의 변화</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="12-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="3·1 운동의 대외적 배경은 … 이 운동의 결과 일제는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('12-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>12-2.</strong> (나)의 조직 명칭을 쓰고, 이 조직이 채택한 정치 체제의 특징을 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>대한민국 임시 정부</strong>를 반드시 쓰고, <strong>민주 공화제</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="12-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(나)의 조직은 …이다. 이 조직이 채택한 정치 체제는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('12-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 9 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 13. 신간회와 민족 유일당 운동 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 1920년대 후반에는 비타협적 민족주의 세력과 사회주의 세력이 힘을 합쳐 합법적 민족 운동 단체를 만들었다.<br/><br/>
+<strong>자료 (나)</strong> 1929년 광주에서 시작된 학생 시위는 전국적인 항일 운동으로 확대되었다.
+</div>
+<p><strong>13-1.</strong> (가)의 단체 명칭을 쓰고, 이 단체가 결성된 배경과 공통 목표를 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>신간회</strong>를 반드시 쓰고, <strong>일제의 탄압 강화</strong>, <strong>민족 운동의 분열 극복</strong>, <strong>항일 운동의 통일 전선 형성</strong> 가운데 두 가지 이상을 포함할 것.</div>
+<div class="answer-zone" data-qid="13-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(가)의 단체는 …이다. 결성 배경은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('13-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>13-2.</strong> (나)의 광주 학생 항일 운동이 지닌 의의를 3·1 운동과 비교하여 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>3·1 운동 이후 최대 규모의 항일 민족 운동</strong>이라는 점과 <strong>학생의 주도적 역할</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="13-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="광주 학생 항일 운동은 3·1 운동과 비교하면 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('13-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+</div><!-- /modern -->
+
+<!-- ════════════════════════════════════════════ -->
+<!-- SECTION 5: 현대 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="period-section" data-period="contemporary">
+<div class="section-head fade-up">
+<div class="section-num">5</div>
+<span class="section-emoji">🇰🇷</span>
+<h2>현대 — 민주주의를 향한 먼 길</h2>
+</div>
+
+<!-- 문항 15 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 14. 대한민국 민주주의의 시련과 발전 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 1960년 3·15 부정 선거에 항의하는 시위가 전국으로 확산되었고, 결국 이승만 대통령은 하야하였다.<br/><br/>
+<strong>자료 (나)</strong> 1987년 박종철 고문치사 사건과 4·13 호헌 조치에 대한 반발로 전국적 시위가 일어났고, 6·29 민주화 선언이 발표되었다.
+</div>
+<p><strong>14-1.</strong> (가)의 민주화 운동 명칭을 쓰고, 그 직후 출범한 정부의 권력 구조상 특징을 서술하시오. [4점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>4·19 혁명</strong>을 반드시 쓰고, <strong>내각 책임제(의원 내각제)</strong>를 포함할 것.</div>
+<div class="answer-zone" data-qid="14-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="(가)의 민주화 운동은 …이다. 그 직후 출범한 정부는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('14-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>14-2.</strong> (나)의 민주화 운동에서 시민들이 요구한 대통령 선거 방식을 쓰고, 그 역사적 의의를 서술하시오. [6점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>대통령 직선제</strong>를 반드시 쓰고, <strong>직선제 개헌을 이끌어 내어 민주주의 발전의 전기가 되었다</strong>는 점을 포함할 것.</div>
+<div class="answer-zone" data-qid="14-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="시민들이 요구한 것은 …이다. 이것의 역사적 의의는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('14-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+
+<!-- 문항 10 -->
+<div class="glass-card fade-up">
+<h4>📌 문항 15. 경제 발전의 명암과 남북 관계의 진전 [10점]</h4>
+<div class="highlight-box">
+<strong>자료 (가)</strong> 고도 경제 성장의 이면에는 장시간 노동과 저임금에 시달린 노동자의 희생이 있었다. 1970년 전태일은 근로기준법 준수를 외치며 분신하였다.<br/><br/>
+<strong>자료 (나)</strong> 2000년 첫 남북 정상 회담이 열리고 6·15 남북 공동 선언이 발표되었다.
+</div>
+<p><strong>15-1.</strong> (가)의 사건이 당시 한국 사회에 던진 충격과 노동 운동에 끼친 영향을 서술하시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>노동 현실의 심각성을 사회 문제로 드러냈다</strong>는 점과 <strong>이후 노동 운동 확산의 계기</strong>가 되었다는 점을 포함할 것.</div>
+<div class="answer-zone" data-qid="15-1">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="전태일의 분신은 … 이후 노동 운동은 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('15-1')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+
+<p><strong>15-2.</strong> (나)의 선언이 지닌 역사적 의미를 서술하고, 그 뒤 추진된 남북 경제 협력 사업의 이름을 쓰시오. [5점]</p>
+<div class="highlight-box gold"><strong>〈조건〉</strong> <strong>남북 정상이 처음 만나 통일 문제를 자주적으로 해결하기로 합의했다</strong>는 점과 <strong>개성 공단</strong>을 포함할 것.</div>
+<div class="answer-zone" data-qid="15-2">
+<label>✏️ 여기에 답안을 작성하세요</label>
+<textarea placeholder="6·15 남북 공동 선언은 … 이후 추진된 경제 협력 사업으로는 …"></textarea>
+<button class="check-btn" onclick="checkAnswer('15-2')">확인하기 ✔️</button>
+<div class="feedback-panel"></div>
+</div>
+</div>
+</div><!-- /contemporary -->
+
+<!-- ═══ 생각해 보기 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 서술형 답안 작성 꿀팁</h4>
+<p><strong>① 키워드를 먼저 배치하라:</strong> 〈조건〉에 제시된 핵심 용어를 빠짐없이 쓴 뒤, 그 용어를 중심으로 문장을 연결하면 감점을 줄일 수 있습니다.</p>
+<p><strong>② '왜'와 '그래서'를 연결하라:</strong> "~때문에 …하였다", "그 결과 …가 나타났다"처럼 원인과 결과를 분명히 드러내면 논리적인 답안이 됩니다.</p>
+<p><strong>③ 비교 문제는 표로 정리하라:</strong> 머릿속으로 표를 그려 공통점·차이점을 나눈 뒤 서술하면 빠뜨리는 내용 없이 쓸 수 있습니다.</p>
+</div>
+
+<!-- ═══ SUMMARY (collapsible) ═══ -->
+<div class="summary-box fade-up" id="summaryBox" onclick="toggleSummary()">
+<h3><span>📚 15문항 핵심 키워드 총정리</span><span class="toggle-icon">▼</span></h3>
+<ul>
+<li><strong>조선 전기:</strong> 6조 직계제 · 의정부 서사제 · 사림 · 3사(언론 기능) · 훈민정음 · 칠정산 · 사대 · 교린</li>
+<li><strong>조선 중기:</strong> 향약 · 서원 · 중립 외교 · 의병 · 명 쇠퇴 · 에도 막부</li>
+<li><strong>조선 후기:</strong> 환국 · 균역법 · 어염선세 · 대동법 · 공인 · 규장각 · 장용영 · 정약용 · 여전론 · 박제가 · 북학파 · 공명첩 · 서민 문화</li>
+<li><strong>근대:</strong> 동학 농민 운동 · 갑오개혁 · 갑신정변 · 독립협회 · 3·1 운동 · 대한민국 임시 정부 · 민주 공화제 · 신간회 · 광주 학생 항일 운동</li>
+<li><strong>현대:</strong> 4·19 혁명 · 내각 책임제 · 6월 민주 항쟁 · 대통령 직선제 · 전태일 · 6·15 남북 공동 선언 · 개성 공단</li>
+</ul>
+</div>
+
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 여러 시대의 내용을 연결하여 비교·분석하는 활동입니다. 핵심 키워드를 활용해 논리적으로 서술해 보세요.</p>
+
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 조선 후기의 변화는 근대로 가는 징검다리였을까?</h4>
+<p class="question-text">조선 후기에는 신분제가 동요하고(문항 9), 실학자들이 토지 개혁과 상공업 진흥을 주장하였으며(문항 8), 서민 문화가 발달하였습니다. 이러한 변화들이 이후 동학 농민 운동의 반봉건 요구(문항 10)나 갑오개혁의 신분제 폐지(문항 10)와 어떻게 이어지는지 설명해 보세요.<br/><br/>
+<strong>〈조건〉</strong> 아래 키워드 중 <strong>네 가지 이상</strong>을 포함하여 서술할 것.<br/>
+(힌트: <strong>공명첩</strong>, <strong>양반 권위 약화</strong>, <strong>실학</strong>, <strong>서민 의식 성장</strong>, <strong>동학 농민 운동</strong>, <strong>갑오개혁</strong>, <strong>신분제 폐지</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>공명첩</span><span>양반 권위 약화</span><span>실학</span><span>서민 의식 성장</span><span>동학 농민 운동</span><span>갑오개혁</span><span>신분제 폐지</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>조선 후기에는 <strong>공명첩</strong> 등을 통해 상민이 양반 신분을 사들이면서 <strong>양반의 권위가 약화</strong>되었고, 판소리·탈춤 등 서민 문화의 발달은 <strong>서민 의식의 성장</strong>을 보여 주었습니다. 한편 <strong>실학</strong>자들은 토지 개혁과 상공업 진흥을 주장하며 사회 모순을 학문적으로 비판하였습니다.</p>
+<p>이처럼 '신분의 벽이 무너지고 있다'는 흐름은 근대에 들어 더욱 뚜렷해졌습니다. <strong>동학 농민 운동</strong>에서 농민들이 탐관오리 처벌과 신분제 폐지를 직접 요구한 것은 조선 후기부터 쌓여 온 변화의 에너지가 폭발한 결과라 할 수 있으며, <strong>갑오개혁</strong>에서 공사 노비법이 혁파되고 <strong>신분제가 폐지</strong>된 것은 이 흐름이 제도적으로 실현된 것이었습니다.</p>
+</div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">서술형 문항에 나오는 핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+
+<div class="quiz-question" data-correct="2" data-explain="태종은 6조의 판서가 국왕에게 직접 보고하게 하는 '6조 직계제'를 시행하여 왕권을 강화하였고, 세종은 의정부에서 먼저 논의한 뒤 국왕에게 올리게 하는 '의정부 서사제'를 시행하여 왕권과 신권의 조화를 도모하였습니다.">
+<h4>Q1. 태종이 왕권 강화를 위해 시행한 제도와, 세종이 왕권과 신권의 조화를 위해 시행한 제도를 바르게 짝지은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 과전법 — 비변사</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 의정부 서사제 — 6조 직계제</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 6조 직계제 — 의정부 서사제</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 대동법 — 균역법</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-question" data-correct="1" data-explain="정약용은 마을 단위의 공동 소유·공동 경작을 주장한 '여전론'을 제시한 실학자입니다. 박제가는 소비 촉진론을 주장한 북학파, 이이는 조선 중기 학자, 정조는 탕평 정치를 추진한 국왕입니다.">
+<h4>Q2. "마을 단위로 토지를 공동 소유하고 공동 경작하여 수확물을 나누어야 한다"고 주장한 실학자는?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 박제가</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 정약용</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 이이</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 정조</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-question" data-correct="0" data-explain="동학 농민 운동은 탐관오리 처벌·신분제 폐지를 요구한 '반봉건'적 성격과, 일본의 침략에 맞서 2차 봉기를 일으킨 '반외세'적 성격을 모두 가지고 있습니다.">
+<h4>Q3. 동학 농민 운동의 성격으로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 반봉건·반외세 운동</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 친일·반봉건 운동</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 왕권 강화 운동</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 북벌 운동</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-question" data-correct="3" data-explain="3·1 운동 직후인 1919년 중국 상하이에서 수립된 대한민국 임시 정부는 '민주 공화제'를 채택하였습니다. 이는 왕이 아닌 국민이 주권을 가지는 근대적 정치 체제입니다.">
+<h4>Q4. 대한민국 임시 정부가 채택한 정치 체제는?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 입헌 군주제</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 연방제</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 군사 독재 체제</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 민주 공화제</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-question" data-correct="2" data-explain="1987년 6월 민주 항쟁에서 시민들은 대통령 직선제 개헌을 요구하였고, 그 결과 6·29 민주화 선언이 발표되어 직선제 개헌이 이루어졌습니다.">
+<h4>Q5. 1987년 6월 민주 항쟁에서 시민들이 요구한 핵심 사항은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 내각 책임제</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 의원 내각제</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 대통령 직선제</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 남북 통일</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/5</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+
+</div><!-- /container -->
+
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════
+   ANSWER CHECKING DATA — 30 sub-questions
+   ═══════════════════════════════════════════ */
+const questionData = {
+  "1-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"6조 직계제", alt:["육조직계제","6조직계제","6조 직계"], weight:1.5},
+      {word:"의정부 서사제", alt:["의정부서사제"], weight:1.5},
+      {word:"왕권 강화", alt:["왕권강화","왕권을 강화"], weight:1},
+      {word:"왕권과 신권의 조화", alt:["왕권과 신권","신권의 조화","신권 조화","왕권 신권 조화"], weight:1}
+    ],
+    structureHints: ["비교"],
+    tip: "'6조 직계제 → 왕권 강화'와 '의정부 서사제 → 왕권과 신권의 조화'를 대비하여 서술하면 완벽한 답안이 됩니다."
+  },
+  "1-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"사림", alt:["사림파","사림 세력"], weight:1.5},
+      {word:"3사", alt:["삼사","사헌부","사간원","홍문관"], weight:1.5},
+      {word:"언론 기능", alt:["언론기능","언론 기관","언론 활동","언론"], weight:0.6},
+      {word:"감찰", alt:["감찰 기능","감찰하"], weight:0.6},
+      {word:"간언", alt:["간쟁","간언하"], weight:0.6},
+      {word:"권력 독점 견제", alt:["권력 견제","독점 견제","권력독점","견제 기능"], weight:0.6}
+    ],
+    structureHints: ["나열"],
+    tip: "3사는 '언론 기관'으로서 감찰(사헌부) + 간언(사간원) + 권력 독점 견제(홍문관 등)의 역할을 했다고 서술하면 완벽합니다."
+  },
+  "2-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"훈민정음", alt:["훈민 정음"], weight:2},
+      {word:"백성", alt:["백성이","백성들","일반 백성","어리석은 백성"], weight:1},
+      {word:"뜻을 펴", alt:["뜻을 표현","의사를 표현","자신의 뜻","의사 전달","뜻을 전하"], weight:1},
+      {word:"지식을 익히", alt:["지식 습득","생활에 필요","배울 수","학습"], weight:1}
+    ],
+    structureHints: ["인과"],
+    tip: "'훈민정음'이라는 명칭을 꼭 쓰고, '백성이 자신의 뜻을 펴고 생활에 필요한 지식을 익히게 하려 했다'는 민본 정신과 연결해 보세요."
+  },
+  "2-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"칠정산", alt:["七政算"], weight:2},
+      {word:"한양", alt:["한양을 기준","서울을 기준"], weight:1.5},
+      {word:"절기", alt:["절기와 시간","절기를 계산"], weight:0.8},
+      {word:"중국 역법", alt:["중국에 의존","중국 역법에만","독자적","자주적"], weight:1}
+    ],
+    structureHints: ["인과"],
+    tip: "'칠정산'을 쓴 뒤, '중국 역법에만 의존하지 않고 한양을 기준으로 계산했다'는 자주적 의의를 서술하세요."
+  },
+  "3-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"사대", alt:["사대 정책","사대 외교","사대관계"], weight:2},
+      {word:"왕권 안정", alt:["왕권을 안정","안보 확보","안보를 확보","국가 안정"], weight:1.5},
+      {word:"공무역", alt:["조공 무역","공무역을 통해"], weight:0.8},
+      {word:"문물 수용", alt:["문물을 수용","선진 문물","문화 교류"], weight:0.8}
+    ],
+    structureHints: ["구분"],
+    tip: "정치적 실리(왕권 안정·안보 확보)와 경제적 실리(공무역·문물 수용)를 나누어 서술하면 됩니다."
+  },
+  "3-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"교린", alt:["교린 정책","교린정책"], weight:2},
+      {word:"이종무", alt:["쓰시마 정벌","대마도 정벌","쓰시마섬"], weight:1.5},
+      {word:"3포 개항", alt:["삼포 개항","계해약조","삼포개항","3포개항","세 곳의 포구"], weight:1.5}
+    ],
+    structureHints: ["구분"],
+    tip: "'교린'을 쓴 뒤 강경책(이종무의 쓰시마 정벌)과 온건책(3포 개항 또는 계해약조)을 각각 한 가지씩 서술하세요."
+  },
+  "4-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"향약", alt:["鄕約"], weight:2},
+      {word:"서원", alt:["書院","서원을 세워","서원 설립"], weight:2},
+      {word:"향촌 지배력 강화", alt:["향촌 지배","향촌에서의 영향력","향촌 사회 장악","지배력을 강화"], weight:1}
+    ],
+    structureHints: ["나열"],
+    tip: "사림의 두 가지 기반 '향약'과 '서원'을 모두 쓰고, 이들이 향촌 사회에서 지배력을 강화하는 데 어떻게 기여했는지 연결하세요."
+  },
+  "4-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"중립 외교", alt:["중립외교","실리 외교","균형 외교"], weight:2},
+      {word:"명의 원군 요청", alt:["명의 원군","명이 원군","명에서 파병","파병 요청"], weight:1},
+      {word:"후금의 성장", alt:["후금이 성장","후금 세력","후금의 세력"], weight:1},
+      {word:"재침 방지", alt:["전쟁 방지","재침을 방지","전란을 피하","평화를 유지"], weight:1}
+    ],
+    structureHints: ["인과"],
+    tip: "광해군이 '중립 외교'를 펼친 배경(명의 원군 요청 + 후금의 성장)과 의도(재침 방지)를 모두 포함하세요."
+  },
+  "5-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"의병", alt:["義兵","의병 활동"], weight:2},
+      {word:"자발적 참여", alt:["자발적으로","자발적 참가","스스로 나서","스스로 모여"], weight:1.5},
+      {word:"지형을 활용", alt:["지형 활용","지리적 이점","지형적 이점","유격전","게릴라"], weight:1.5}
+    ],
+    structureHints: ["인과"],
+    tip: "'의병'의 명칭을 쓰고, '자발적 참여'와 '지형을 활용한 전술' 두 가지 이유를 모두 서술하세요."
+  },
+  "5-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"명의 쇠퇴", alt:["명이 쇠퇴","명 쇠퇴","명나라 쇠퇴","명이 약해"], weight:1.5},
+      {word:"후금", alt:["후금의 성장","후금이 성장","여진족","누르하치"], weight:1},
+      {word:"도쿠가와 이에야스", alt:["도쿠가와","이에야스","德川"], weight:1},
+      {word:"에도 막부", alt:["에도막부","막부 성립","에도 막부를 열"], weight:1.5}
+    ],
+    structureHints: ["구분"],
+    tip: "중국과 일본을 나누어 서술하세요. 중국: '명 쇠퇴 + 후금 성장', 일본: '도쿠가와 이에야스 + 에도 막부 성립'."
+  },
+  "6-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"환국", alt:["換局","환국 정치"], weight:2},
+      {word:"일당 전제화", alt:["일당전제","한 붕당이 독점","일당 전제"], weight:1},
+      {word:"정치적 보복", alt:["정치 보복","보복 정치","상대 붕당을 탄압"], weight:1},
+      {word:"견제 기능", alt:["견제 약화","비판과 견제","상호 견제","상호 비판"], weight:1}
+    ],
+    structureHints: ["인과"],
+    tip: "'환국'을 쓰고, 그로 인한 영향을 '일당 전제화 / 정치적 보복 / 견제 기능 약화' 중 두 가지 이상 포함하세요."
+  },
+  "6-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"균역법", alt:["均役法"], weight:2},
+      {word:"결작", alt:["結作","토지 1결당"], weight:1},
+      {word:"선무군관포", alt:["선무군관","군관포"], weight:1},
+      {word:"어염선세", alt:["염세","선세","어장세","소금세","어세·염세","어세·염세·선세","어세"], weight:1}
+    ],
+    structureHints: ["나열"],
+    tip: "'균역법'을 쓴 뒤, 줄어든 재정 보충 대책으로 '결작, 선무군관포, 어염선세(어세·염세·선세)' 가운데 두 가지를 골라 서술하세요."
+  },
+  "7-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"대동법", alt:["大同法"], weight:2},
+      {word:"공인", alt:["貢人","공인이 등장","공인의 활동"], weight:1.5},
+      {word:"상공업 발달", alt:["상공업이 발달","상업 발달","상업이 발전","수공업 발달"], weight:0.8},
+      {word:"상품 화폐 경제", alt:["화폐 경제","상품화폐","화폐 유통","돈 유통"], weight:0.8}
+    ],
+    structureHints: ["인과"],
+    tip: "'대동법 시행 → 공인 등장 → 상공업 발달 → 상품 화폐 경제 활성화'의 인과 흐름을 잡아 서술하세요."
+  },
+  "7-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"규장각", alt:["奎章閣","규장각을 설치","규장각 설립"], weight:1.5},
+      {word:"정책 연구", alt:["학술 연구","인재 양성","정책연구","학문 연구","연구 기관"], weight:1},
+      {word:"장용영", alt:["壯勇營","장용영을 설치"], weight:1.5},
+      {word:"친위 부대", alt:["국왕 친위","왕의 호위","국왕 호위","친위부대","호위 부대"], weight:1}
+    ],
+    structureHints: ["구분"],
+    tip: "학술·정책 측면에서 '규장각 — 정책 연구와 인재 양성 기관'을, 군사 측면에서 '장용영 — 국왕의 친위 부대'로 서술하면 만점입니다."
+  },
+  "8-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"정약용", alt:["丁若鏞","다산"], weight:2},
+      {word:"여전론", alt:["여전제","閭田論","閭田制"], weight:1.5},
+      {word:"토지 집중", alt:["토지가 집중","토지 겸병","토지를 빼앗"], weight:0.8},
+      {word:"소작농 증가", alt:["소작농이 늘","소작인 증가","소작 농민"], weight:0.8}
+    ],
+    structureHints: ["인과"],
+    tip: "'정약용'과 '여전론'을 쓰고, 이 주장이 나온 배경(토지 집중 + 소작농 증가)을 서술하세요."
+  },
+  "8-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"박제가", alt:["朴齊家"], weight:2},
+      {word:"북학파", alt:["중상학파","北學派","이용후생"], weight:1.5},
+      {word:"상공업 진흥", alt:["상공업을 진흥","상업 발전","상공업 육성","상업 장려"], weight:0.8},
+      {word:"청의 발달한 문물", alt:["청의 문물","청나라 문물","선진 기술 수용","청 문물 수용"], weight:0.8}
+    ],
+    structureHints: ["인과"],
+    tip: "'박제가'와 '북학파(중상학파)'를 쓰고, 이 학파가 강조한 '상공업 진흥'과 '청의 발달한 문물 수용'을 포함하세요."
+  },
+  "9-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"양반 증가", alt:["양반이 증가","양반 수 증가","양반이 늘"], weight:1.5},
+      {word:"양반 권위 약화", alt:["양반의 권위","권위가 약해","권위 약화","권위가 떨어"], weight:1.5},
+      {word:"상민", alt:["상민·노비 감소","상민 감소","상민이 줄"], weight:0.8},
+      {word:"노비 감소", alt:["노비가 감소","노비가 줄","노비 수 감소"], weight:0.8},
+      {word:"신분 질서", alt:["신분제 동요","신분 질서 동요","신분 구조 변화","신분제가 흔들"], weight:1.5}
+    ],
+    structureHints: ["인과"],
+    tip: "'양반 증가 + 양반 권위 약화 + 상민·노비 감소'로 신분 구조 변화를 설명하고, 이로 인해 '신분 질서가 동요하였다'는 점을 서술하세요."
+  },
+  "9-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"양반의 위선", alt:["양반 위선","양반을 풍자","양반 풍자","위선과 무능","양반의 무능"], weight:1.5},
+      {word:"신분 차별 비판", alt:["신분 차별","신분제 비판","신분제를 비판","차별을 비판"], weight:1.5},
+      {word:"서민의 사회의식 성장", alt:["서민 의식 성장","서민 의식","사회의식","의식이 성장","의식 향상"], weight:2}
+    ],
+    structureHints: ["인과"],
+    tip: "탈춤·한글 소설이 '양반의 위선·무능 풍자'와 '신분 차별 비판'을 다루었고, 이것이 '서민의 사회의식 성장'을 보여 준다고 연결하세요."
+  },
+  "10-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"탐관오리 처벌", alt:["탐관오리","부패 관리 처벌"], weight:1},
+      {word:"신분제 폐지", alt:["신분제를 폐지","신분 차별 철폐"], weight:1},
+      {word:"반봉건", alt:["반봉건적","봉건 타파"], weight:0.8},
+      {word:"2차 봉기", alt:["재봉기","다시 봉기","일본군을 몰아내"], weight:1.5},
+      {word:"반외세", alt:["반외세적","외세 배격","반침략"], weight:0.8}
+    ],
+    structureHints: ["구분"],
+    tip: "반봉건(탐관오리 처벌·신분제 폐지)과 반외세(일본군을 몰아내기 위한 2차 봉기)를 각각 구분하여 서술하세요."
+  },
+  "10-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"갑오개혁", alt:["甲午改革","갑오 개혁"], weight:2.5},
+      {word:"공사 노비법 혁파", alt:["노비법 혁파","노비제 폐지","노비 해방"], weight:1.5},
+      {word:"신분제 폐지", alt:["신분제를 폐지","신분 철폐","신분제가 폐지"], weight:1}
+    ],
+    structureHints: ["인과"],
+    tip: "'갑오개혁'을 쓰고, 신분제 관련 변화로 '공사 노비법 혁파' 또는 '신분제 폐지'를 포함하세요."
+  },
+  "11-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"근대적 정치 개혁", alt:["근대 국가 수립","근대적 개혁","근대 국가","정치 개혁 운동"], weight:2},
+      {word:"일본 의존", alt:["일본에 의존","일본의 도움","일본군 의존","일본 세력 의존"], weight:1.5},
+      {word:"민중의 지지 부족", alt:["민중 지지 부족","국민의 지지","백성의 지지","대중의 지지"], weight:1.5}
+    ],
+    structureHints: ["구분"],
+    tip: "의의(근대적 정치 개혁 운동 또는 근대 국가 수립 지향)와 한계(일본 의존 또는 민중 지지 부족)를 각각 서술하세요."
+  },
+  "11-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"독립협회", alt:["독립 협회","獨立協會"], weight:2.5},
+      {word:"입헌 군주제", alt:["입헌군주제","입헌 군주"], weight:1.5},
+      {word:"의회 설립", alt:["의회를 설립","의회 설립 추진","의회를 만들","국회 설립"], weight:1}
+    ],
+    structureHints: ["인과"],
+    tip: "'독립협회'를 쓰고, 이 단체가 '입헌 군주제'를 지향하며 '의회 설립'을 추진했다는 점을 서술하세요."
+  },
+  "12-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"민족 자결주의", alt:["민족자결주의","민족 자결","윌슨","자결주의"], weight:1.5},
+      {word:"2·8 독립 선언", alt:["2·8독립선언","2.8 독립","이팔 독립"], weight:1.5},
+      {word:"무단 통치", alt:["무단통치","무력 통치","헌병 경찰"], weight:0.8},
+      {word:"문화 통치", alt:["문화통치","민족 분열 통치"], weight:1.5}
+    ],
+    structureHints: ["인과"],
+    tip: "배경(민족 자결주의 또는 2·8 독립 선언)과 결과(무단 통치 → 문화 통치)를 인과관계로 연결하세요."
+  },
+  "12-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"대한민국 임시 정부", alt:["임시정부","임시 정부","대한민국임시정부","상하이 임시 정부"], weight:2.5},
+      {word:"민주 공화제", alt:["민주공화제","공화정","민주 공화정"], weight:2.5}
+    ],
+    structureHints: ["인과"],
+    tip: "'대한민국 임시 정부'와 '민주 공화제'를 모두 쓰면 핵심 점수를 확보할 수 있습니다."
+  },
+  "13-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"신간회", alt:["新幹會"], weight:2},
+      {word:"일제의 탄압", alt:["일제 탄압","탄압 강화","탄압이 강화"], weight:1},
+      {word:"민족 운동의 분열 극복", alt:["분열 극복","운동의 분열","분열을 극복"], weight:1},
+      {word:"통일 전선", alt:["통일전선","민족 유일당","단결","하나로 모"], weight:1}
+    ],
+    structureHints: ["나열"],
+    tip: "'신간회'를 쓰고, 배경과 목표를 '일제 탄압 강화 / 민족 운동 분열 극복 / 통일 전선 형성' 중 두 가지 이상 포함하세요."
+  },
+  "13-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"3·1 운동 이후 최대 규모", alt:["3·1 운동 이후 최대","최대 규모의 항일","가장 큰 규모"], weight:2.5},
+      {word:"학생의 주도적 역할", alt:["학생이 주도","학생 주도","학생들이 이끌","학생 중심"], weight:2.5}
+    ],
+    structureHints: ["비교"],
+    tip: "3·1 운동과 비교하여 '최대 규모의 항일 민족 운동'이라는 점과 '학생의 주도적 역할'을 모두 서술하세요."
+  },
+  "14-1": {
+    maxScore: 4,
+    keywords: [
+      {word:"4·19 혁명", alt:["4.19 혁명","4·19혁명","사일구 혁명","4월 혁명","419 혁명","4·19"], weight:2},
+      {word:"내각 책임제", alt:["내각책임제","의원 내각제","의원내각제"], weight:2}
+    ],
+    structureHints: ["인과"],
+    tip: "'4·19 혁명'과 '내각 책임제(의원 내각제)' 두 키워드만 정확히 쓰면 핵심 점수를 확보할 수 있습니다."
+  },
+  "14-2": {
+    maxScore: 6,
+    keywords: [
+      {word:"대통령 직선제", alt:["직선제","대통령 직접 선거","직접 선거"], weight:2.5},
+      {word:"직선제 개헌", alt:["개헌","헌법 개정","직선제로 개헌"], weight:1.5},
+      {word:"민주주의 발전", alt:["민주주의의 발전","민주화의 전기","민주주의 전기","민주화 발전"], weight:2}
+    ],
+    structureHints: ["인과"],
+    tip: "'대통령 직선제'를 쓰고, '직선제 개헌을 이끌어 내어 민주주의 발전의 전기가 되었다'는 의의를 서술하세요."
+  },
+  "15-1": {
+    maxScore: 5,
+    keywords: [
+      {word:"노동 현실", alt:["노동 실태","노동자의 현실","열악한 노동","노동 조건","근로 조건"], weight:1.5},
+      {word:"사회 문제", alt:["사회문제","사회적 문제로","사회에 알"], weight:1},
+      {word:"노동 운동 확산", alt:["노동 운동이 확산","노동운동 확산","노동 운동의 계기","노동 운동이 활발"], weight:2.5}
+    ],
+    structureHints: ["인과"],
+    tip: "전태일의 분신이 '노동 현실의 심각성을 사회 문제로 드러냈다'는 점과 '이후 노동 운동 확산의 계기'가 되었다는 점을 연결하세요."
+  },
+  "15-2": {
+    maxScore: 5,
+    keywords: [
+      {word:"남북 정상", alt:["남북정상","정상 회담","정상회담","최초의 남북"], weight:1.5},
+      {word:"자주적으로 해결", alt:["자주적 해결","우리 민족끼리","자주적","자주 원칙"], weight:1},
+      {word:"통일 문제", alt:["통일을 논의","평화 통일","통일 논의"], weight:0.5},
+      {word:"개성 공단", alt:["개성공단","개성공업지구","개성 공업 지구"], weight:2}
+    ],
+    structureHints: ["인과"],
+    tip: "'남북 정상이 처음 만나 통일 문제를 자주적으로 해결하기로 합의'한 의미와 '개성 공단'을 모두 서술하세요."
+  }
+};
+
+/* 서술 체계 분석용 표현 패턴 */
+const structurePatterns = {
+  cause: {
+    label: "인과관계 표현",
+    patterns: ["때문에","덕분에","로 인해","이로 인해","결과","그 결과","따라서","그래서","하였기에","까닭에","원인","영향으로","으로써"],
+    icon: "🔗"
+  },
+  compare: {
+    label: "비교·대비 표현",
+    patterns: ["반면","한편","에 비해","와 달리","와는 달리","차이","공통점","다른 점","에 비하여","반대로","그러나","하지만"],
+    icon: "⚖️"
+  },
+  sequence: {
+    label: "시간·순서 표현",
+    patterns: ["이후","이전에","먼저","뒤에","그 뒤","다음으로","처음","마지막으로","그다음","직후","을 거쳐"],
+    icon: "📅"
+  },
+  conclusion: {
+    label: "정리·결론 표현",
+    patterns: ["즉","다시 말해","결국","결론적으로","요약하면","종합하면","이를 통해","이처럼","정리하면"],
+    icon: "🎯"
+  }
+};
+
+/* ═══════════════════════════════════════════
+   ANSWER CHECK FUNCTION
+   ═══════════════════════════════════════════ */
+function checkAnswer(qid){
+  const zone = document.querySelector('.answer-zone[data-qid="'+qid+'"]');
+  const textarea = zone.querySelector('textarea');
+  const answer = textarea.value.trim();
+  if(!answer){alert("답안을 먼저 작성해 주세요!");textarea.focus();return;}
+
+  const data = questionData[qid];
+  if(!data) return;
+
+  const foundKw = [];
+  const missingKw = [];
+  let kwScore = 0;
+  const totalKwWeight = data.keywords.reduce((s,k)=>s+k.weight,0);
+
+  data.keywords.forEach(kw=>{
+    const allForms = [kw.word, ...(kw.alt||[])];
+    const found = allForms.some(f=>answer.includes(f));
+    if(found){foundKw.push(kw.word);kwScore+=kw.weight;}
+    else{missingKw.push(kw.word);}
+  });
+
+  /* 서술 체계 분석 */
+  const structureResults = [];
+  Object.keys(structurePatterns).forEach(key=>{
+    const sp = structurePatterns[key];
+    const used = sp.patterns.filter(p=>answer.includes(p));
+    structureResults.push({key, label:sp.label, icon:sp.icon, found:used.length>0, examples:used.slice(0,3)});
+  });
+  const structureScore = structureResults.filter(s=>s.found).length;
+
+  /* 글자수 체크 */
+  const charCount = answer.replace(/\s/g,'').length;
+  const lengthOk = charCount >= 30;
+
+  /* 점수 계산 */
+  let rawScore = (kwScore / totalKwWeight) * data.maxScore * 0.75;
+  if(structureScore >= 2) rawScore += data.maxScore * 0.15;
+  else if(structureScore >= 1) rawScore += data.maxScore * 0.08;
+  if(lengthOk) rawScore += data.maxScore * 0.1;
+  let finalScore = Math.min(Math.round(rawScore*10)/10, data.maxScore);
+  if(foundKw.length === data.keywords.length && structureScore >= 1 && lengthOk) finalScore = data.maxScore;
+
+  /* 피드백 HTML 생성 */
+  const panel = zone.querySelector('.feedback-panel');
+  let scoreColor = finalScore >= data.maxScore*0.8 ? 'var(--green)' : finalScore >= data.maxScore*0.5 ? 'var(--gold)' : 'var(--coral)';
+  let scoreEmoji = finalScore >= data.maxScore*0.8 ? '🎉' : finalScore >= data.maxScore*0.5 ? '👍' : '💪';
+
+  let html = '';
+  html += '<div class="fb-header" style="background:'+scoreColor+'">';
+  html += '<div><div class="fb-score">'+finalScore+' / '+data.maxScore+'점</div><div class="fb-score-label">'+scoreEmoji+' 예상 점수</div></div></div>';
+  html += '<div class="fb-body">';
+
+  /* 키워드 */
+  if(foundKw.length > 0){
+    html += '<div class="fb-section"><div class="fb-section-title green">✅ 포함된 키워드 ('+foundKw.length+'개)</div><div class="fb-tags">';
+    foundKw.forEach(k=>{html += '<span class="fb-tag found">'+k+'</span>';});
+    html += '</div></div>';
+  }
+  if(missingKw.length > 0){
+    html += '<div class="fb-section"><div class="fb-section-title red">❌ 빠진 키워드 ('+missingKw.length+'개)</div><div class="fb-tags">';
+    missingKw.forEach(k=>{html += '<span class="fb-tag missing">'+k+'</span>';});
+    html += '</div></div>';
+  }
+
+  /* 서술 체계 */
+  html += '<div class="fb-section"><div class="fb-section-title blue">📝 서술 체계 점검</div>';
+  structureResults.forEach(s=>{
+    if(s.found){
+      html += '<div class="fb-check-item"><span class="icon">✅</span><span>'+s.icon+' '+s.label+' 사용 — "'+s.examples.join('", "')+'"</span></div>';
+    } else {
+      html += '<div class="fb-check-item"><span class="icon">⬜</span><span style="color:var(--text-light)">'+s.icon+' '+s.label+' — 아직 사용하지 않음</span></div>';
+    }
+  });
+  if(!lengthOk){
+    html += '<div class="fb-check-item"><span class="icon">⚠️</span><span style="color:var(--coral)">답안이 너무 짧습니다 ('+charCount+'자). 조건에 맞게 좀 더 서술해 보세요.</span></div>';
+  }
+  html += '</div>';
+
+  /* 보완 팁 */
+  if(missingKw.length > 0 || structureScore < 2){
+    html += '<div class="fb-section"><div class="fb-section-title gold">💡 이렇게 보완해 보세요</div>';
+    html += '<div class="fb-tip">'+data.tip+'</div>';
+    html += '</div>';
+  }
+
+  html += '</div>';
+  panel.innerHTML = html;
+  panel.style.display = 'block';
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+/* ═══════════════════════════════════════════
+   TIMELINE PERIOD FILTER
+   ═══════════════════════════════════════════ */
+function filterPeriod(period){
+  /* 노드 active 상태 */
+  document.querySelectorAll('.tl-node').forEach(n=>{
+    n.classList.toggle('active', n.dataset.period === period);
+  });
+
+  /* 섹션 표시/숨김 */
+  document.querySelectorAll('.period-section').forEach(sec=>{
+    if(period === 'all'){
+      sec.classList.remove('hidden');
+    } else {
+      sec.classList.toggle('hidden', sec.dataset.period !== period);
+    }
+  });
+
+  /* 공통 영역 (think-box, summary, inquiry, quiz 등)은 전체 보기에서만 표시 */
+  /* fade-up 재실행 */
+  document.querySelectorAll('.fade-up:not(.visible)').forEach(el=>obs.observe(el));
+}
+
+/* ═══════════════════════════════════════════
+   COLLAPSIBLE SUMMARY
+   ═══════════════════════════════════════════ */
+function toggleSummary(){
+  document.getElementById('summaryBox').classList.toggle('open');
+}
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════════ */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  });
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* ═══════════════════════════════════════════
+   INQUIRY — Google Sheets 제출 연동
+   ═══════════════════════════════════════════ */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert("답변을 먼저 작성해주세요!");answerInput.focus();return;}
+  const studentId=prompt("학번을 입력해주세요.\n(예: 30101)");
+  if(!studentId)return;
+  const studentName=prompt("이름을 입력해주세요.\n(예: 홍길동)");
+  if(!studentName)return;
+  const pageTitle=document.title;
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent="제출 중...⏳";btn.disabled=true;btn.style.opacity='0.7';
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({pageTitle:pageTitle,studentId:studentId,studentName:studentName,answer:answerText})
+  })
+  .then(response=>{
+    alert("🎉 성공적으로 제출되었습니다!");
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert("❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.");
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* ═══════════════════════════════════════════
+   QUIZ
+   ═══════════════════════════════════════════ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+initQuiz();
+</script>
+</body>
+</html>

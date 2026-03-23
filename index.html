@@ -28,6 +28,7 @@
     .unit-details{display:flex;flex-direction:column;gap:0}.unit-details>summary{list-style:none;cursor:pointer}.unit-details>summary::-webkit-details-marker{display:none}.unit-details[open]>summary .arrow{transform:rotate(180deg)}.unit-details .arrow{transition:transform 0.2s;display:inline-block}.sub-list{display:flex;flex-direction:column;gap:4px;padding:4px 0}.sub-item{background:rgba(240,244,248,0.8);border-left:3px solid var(--navy)}.sub-item:hover{background:rgba(240,244,248,1)}
     .midunit-item{background:rgba(240,244,248,0.5);border-left:3px solid rgba(30,58,95,0.3)}.midunit-item .unit-name{font-size:0.85rem;padding-left:8px;color:var(--navy)}.midunit-details>summary{list-style:none;cursor:pointer}.midunit-details>summary::-webkit-details-marker{display:none}.midunit-details[open]>summary .arrow{transform:rotate(180deg)}.midunit-details .arrow{transition:transform 0.2s;display:inline-block}
     .page-item{background:rgba(240,244,248,0.9);border-left:3px solid var(--blue)}.page-item .unit-name{font-size:0.83rem;padding-left:20px;color:var(--text)}.page-item:hover{background:rgba(219,234,254,0.6)}
+    /* 학습지 다운로드 버튼 */
     .page-item-wrap{display:flex;align-items:center;gap:0}.page-item-wrap .page-item{flex:1;border-radius:var(--r-sm) 0 0 var(--r-sm)}.page-item-wrap .ws-btn{display:flex;align-items:center;justify-content:center;padding:0 14px;background:var(--orange-bg);border:1px solid rgba(217,119,6,0.15);border-left:none;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:0.72rem;font-weight:600;color:var(--orange);white-space:nowrap;gap:3px;transition:background 0.15s;text-decoration:none;min-height:100%}.page-item-wrap .ws-btn:hover{background:#FEF3C7}
     .notice-box{background:var(--red-bg);border:1px solid rgba(220,38,38,0.15);border-radius:var(--r-md);padding:16px;margin-bottom:12px}.notice-box h3{font-size:0.88rem;font-weight:700;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-list{display:flex;flex-direction:column;gap:4px}.notice-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-list li::before{content:'•';position:absolute;left:0;color:var(--red)}
     .notice-info-box{background:var(--blue-bg);border:1px solid rgba(37,99,235,0.12);border-radius:var(--r-md);padding:16px;margin-bottom:10px}.notice-info-box h3{font-size:0.88rem;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-info-list{display:flex;flex-direction:column;gap:4px}.notice-info-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-info-list li::before{content:'•';position:absolute;left:0;color:var(--blue)}
@@ -64,35 +65,215 @@ const CONFIG = {
   ],
 
   korean: [
-    { era: '고려', units: [{ name: '고려의 성립과 변천', subunits: [{ name: '고려의 건국과 통치', pages: [{ name: '고려의 건국과 발전', url: 'korean/goryeo/goryeo.html' }]},{ name: '고려의 대외 관계', pages: [{ name: '고려의 대외 관계', url: 'korean/goryeo/foreign-relations.html' }]},{ name: '몽골 간섭과 자주 개혁', pages: [{ name: '몽골 간섭과 자주 개혁', url: 'korean/goryeo/mongol-reforms.html' }]},{ name: '고려의 사회와 문화', pages: [{ name: '고려의 사회와 문화', url: 'korean/goryeo/society-culture.html' }]}]}]},
-    { era: '조선 전기', units: [{ name: '조선의 성립과 발전', subunits: [{ name: '조선의 건국과 통치 체제', pages: [{ name: '조선 건국과 한양 천도', url: 'korean/joseon-early/01. joseon_foundation.html' },{ name: '유교 통치 체제와 사대교린', url: 'korean/joseon-early/02. joseon_confucian-governance.html' }]},{ name: '유교 문화와 과학 기술', pages: [{ name: '유교 윤리 보급과 사회 변화', url: 'korean/joseon-early/03. joseon_confucian-ethics-society.html', ws: 'worksheets/ws01_confucian_culture_science.pdf' },{ name: '훈민정음 창제와 과학 기술의 발달', url: 'korean/joseon-early/05. joseon_hunminjeongeum-science.html', ws: 'worksheets/ws01_confucian_culture_science.pdf' }]}]}]},
-    { era: '조선 중기 — 전쟁과 위기', units: [{ name: '정치 변동과 대외 전쟁', subunits: [{ name: '사림과 붕당 정치', pages: [{ name: '사림의 성장과 붕당 형성', url: 'korean/joseon-middle/04. joseon_sarim-bungdang.html' }]},{ name: '임진왜란과 극복', pages: [{ name: '임진왜란의 발발과 극복', url: 'korean/joseon-middle/06. joseon_imjin-war.html', ws: 'worksheets/ws02_imjin_war.pdf' }]}]}]},
-    { era: '조선 후기', units: [{ name: '조선 사회의 변동', subunits: [{ name: '전후 복구와 호란', pages: [{ name: '전후 복구와 광해군의 중립 외교', url: 'korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html', ws: 'worksheets/ws03_horan_intl_order.pdf' },{ name: '정묘호란·병자호란과 국제 질서의 변화', url: 'korean/joseon-late/08. joseon_horan-intl-order.html', ws: 'worksheets/ws03_horan_intl_order.pdf' }]},{ name: '제도 개편과 정치 변동', pages: [{ name: '양 난 이후 국가를 재건하다', url: 'korean/joseon-late/09. joseon_postwar_rebuild_edited.html', ws: 'worksheets/ws04_postwar_rebuild.pdf' },{ name: '영조·정조의 탕평 정치와 세도 정치', url: 'korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html', ws: 'worksheets/ws05_tangpyeong_sedo.pdf' }]},{ name: '사회 변화와 농민 봉기', pages: [{ name: '향촌 사회가 흔들리다', url: 'korean/joseon-late/11. joseon_hyangchon_change.html', ws: 'worksheets/ws06_hyangchon_farmers.pdf' },{ name: '삼정의 문란과 농민의 의식 성장', url: 'korean/joseon-late/12. joseon_samjeong_farmers.html', ws: 'worksheets/ws06_hyangchon_farmers.pdf' }]},{ name: '학문과 문화의 새 경향', pages: [{ name: '새로운 학문적 경향이 나타나다', url: 'korean/joseon-late/13. joseon_silhak_gukhak.html', ws: 'worksheets/ws07_silhak_culture_exchange.pdf' },{ name: '동아시아, 문화를 교류하다', url: 'korean/joseon-late/14. joseon_eastasia_culture.html', ws: 'worksheets/ws07_silhak_culture_exchange.pdf' },{ name: '생활과 문화의 새로운 양상', url: 'korean/joseon-late/15. joseon_life_culture.html', ws: 'worksheets/ws08_inheritance_folk_culture.pdf' }]}]}]},
-    { era: '근·현대', units: [{ name: '근·현대 사회의 전개', subunits: [{ name: '개항과 근대 국가 수립 운동', pages: [{ name: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html', ws: 'worksheets/ws09_opening_modernization.pdf' },{ name: '국민 국가 수립을 위한 노력', url: 'korean/modern/17. korean_national_state.html' }]},{ name: '일제 강점과 민족 운동', pages: [{ name: '일제에 맞선 민족 운동', url: 'korean/contemporary/18. anti_japanese_movements.html' },{ name: '독립 노력과 대한민국 정부 수립', url: 'korean/contemporary/19. independence_to_government.html' }]},{ name: '경제의 변화', pages: [{ name: '식민지 경제 체제로 재편되다', url: 'korean/contemporary/20. colonial-economy.html' },{ name: '국가 주도의 경제 성장', url: 'korean/contemporary/21. growth-economy.html' },{ name: '신자유주의 경제 정책과 노동 운동', url: 'korean/contemporary/22. neoliberalism-labor.html' }]},{ name: '민주주의의 발전', pages: [{ name: '제헌 헌법과 민주주의 지향', url: 'korean/contemporary/24. constitutional-democracy.html' },{ name: '4·19 혁명', url: 'korean/contemporary/25. april-revolution.html' },{ name: '민주주의, 시련을 겪다', url: 'korean/contemporary/26. dictatorship-and-resistance.html' },{ name: '6월 민주 항쟁', url: 'korean/contemporary/27. june-democracy.html' }]},{ name: '사회·문화의 변화', pages: [{ name: '대중문화가 발전하다', url: 'korean/contemporary/23. pop-culture.html' }]},{ name: '분단과 통일', pages: [{ name: '6·25 전쟁과 분단 고착', url: 'korean/contemporary/28. korean-war-division.html' },{ name: '평화 통일을 위한 노력', url: 'korean/contemporary/29. peaceful-unification.html' }]}]}]}
+    { era: '고려', units: [
+      { name: '고려의 성립과 변천', subunits: [
+        { name: '고려의 건국과 통치', pages: [
+          { name: '고려의 건국과 발전', url: 'korean/goryeo/goryeo.html' }
+        ]},
+        { name: '고려의 대외 관계', pages: [
+          { name: '고려의 대외 관계', url: 'korean/goryeo/foreign-relations.html' }
+        ]},
+        { name: '몽골 간섭과 자주 개혁', pages: [
+          { name: '몽골 간섭과 자주 개혁', url: 'korean/goryeo/mongol-reforms.html' }
+        ]},
+        { name: '고려의 사회와 문화', pages: [
+          { name: '고려의 사회와 문화', url: 'korean/goryeo/society-culture.html' }
+        ]}
+      ]}
+    ]},
+    { era: '조선 전기', units: [
+      { name: '조선의 성립과 발전', subunits: [
+        { name: '조선의 건국과 통치 체제', pages: [
+          { name: '조선 건국과 한양 천도', url: 'korean/joseon-early/01. joseon_foundation.html' },
+          { name: '유교 통치 체제와 사대교린', url: 'korean/joseon-early/02. joseon_confucian-governance.html' }
+        ]},
+        { name: '유교 문화와 과학 기술', pages: [
+          { name: '유교 윤리 보급과 사회 변화', url: 'korean/joseon-early/03. joseon_confucian-ethics-society.html', ws: 'worksheets/ws01_confucian_culture_science.pdf' },
+          { name: '훈민정음 창제와 과학 기술의 발달', url: 'korean/joseon-early/05. joseon_hunminjeongeum-science.html', ws: 'worksheets/ws01_confucian_culture_science.pdf' }
+        ]}
+      ]}
+    ]},
+    { era: '조선 중기 — 전쟁과 위기', units: [
+      { name: '정치 변동과 대외 전쟁', subunits: [
+        { name: '사림과 붕당 정치', pages: [
+          { name: '사림의 성장과 붕당 형성', url: 'korean/joseon-middle/04. joseon_sarim-bungdang.html' }
+        ]},
+        { name: '임진왜란과 극복', pages: [
+          { name: '임진왜란의 발발과 극복', url: 'korean/joseon-middle/06. joseon_imjin-war.html', ws: 'worksheets/ws02_imjin_war.pdf' }
+        ]}
+      ]}
+    ]},
+    { era: '조선 후기', units: [
+      { name: '조선 사회의 변동', subunits: [
+        { name: '전후 복구와 호란', pages: [
+          { name: '전후 복구와 광해군의 중립 외교', url: 'korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html', ws: 'worksheets/ws03_horan_intl_order.pdf' },
+          { name: '정묘호란·병자호란과 국제 질서의 변화', url: 'korean/joseon-late/08. joseon_horan-intl-order.html', ws: 'worksheets/ws03_horan_intl_order.pdf' }
+        ]},
+        { name: '제도 개편과 정치 변동', pages: [
+          { name: '양 난 이후 국가를 재건하다', url: 'korean/joseon-late/09. joseon_postwar_rebuild_edited.html', ws: 'worksheets/ws04_postwar_rebuild.pdf' },
+          { name: '영조·정조의 탕평 정치와 세도 정치', url: 'korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html', ws: 'worksheets/ws05_tangpyeong_sedo.pdf' }
+        ]},
+        { name: '사회 변화와 농민 봉기', pages: [
+          { name: '향촌 사회가 흔들리다', url: 'korean/joseon-late/11. joseon_hyangchon_change.html', ws: 'worksheets/ws06_hyangchon_farmers.pdf' },
+          { name: '삼정의 문란과 농민의 의식 성장', url: 'korean/joseon-late/12. joseon_samjeong_farmers.html', ws: 'worksheets/ws06_hyangchon_farmers.pdf' }
+        ]},
+        { name: '학문과 문화의 새 경향', pages: [
+          { name: '새로운 학문적 경향이 나타나다', url: 'korean/joseon-late/13. joseon_silhak_gukhak.html', ws: 'worksheets/ws07_silhak_culture_exchange.pdf' },
+          { name: '동아시아, 문화를 교류하다', url: 'korean/joseon-late/14. joseon_eastasia_culture.html', ws: 'worksheets/ws07_silhak_culture_exchange.pdf' },
+          { name: '생활과 문화의 새로운 양상', url: 'korean/joseon-late/15. joseon_life_culture.html', ws: 'worksheets/ws08_inheritance_folk_culture.pdf' }
+        ]}
+      ]}
+    ]},
+    { era: '근·현대', units: [
+      { name: '근·현대 사회의 전개', subunits: [
+        { name: '개항과 근대 국가 수립 운동', pages: [
+          { name: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html', ws: 'worksheets/ws09_opening_modernization.pdf' },
+          { name: '국민 국가 수립을 위한 노력', url: 'korean/modern/17. korean_national_state.html' }
+        ]},
+        { name: '일제 강점과 민족 운동', pages: [
+          { name: '일제에 맞선 민족 운동', url: 'korean/contemporary/18. anti_japanese_movements.html' },
+          { name: '독립 노력과 대한민국 정부 수립', url: 'korean/contemporary/19. independence_to_government.html' }
+        ]},
+        { name: '경제의 변화', pages: [
+          { name: '식민지 경제 체제로 재편되다', url: 'korean/contemporary/20. colonial-economy.html' },
+          { name: '국가 주도의 경제 성장', url: 'korean/contemporary/21. growth-economy.html' },
+          { name: '신자유주의 경제 정책과 노동 운동', url: 'korean/contemporary/22. neoliberalism-labor.html' }
+        ]},
+        { name: '민주주의의 발전', pages: [
+          { name: '제헌 헌법과 민주주의 지향', url: 'korean/contemporary/24. constitutional-democracy.html' },
+          { name: '4·19 혁명', url: 'korean/contemporary/25. april-revolution.html' },
+          { name: '민주주의, 시련을 겪다', url: 'korean/contemporary/26. dictatorship-and-resistance.html' },
+          { name: '6월 민주 항쟁', url: 'korean/contemporary/27. june-democracy.html' }
+        ]},
+        { name: '사회·문화의 변화', pages: [
+          { name: '대중문화가 발전하다', url: 'korean/contemporary/23. pop-culture.html' }
+        ]},
+        { name: '분단과 통일', pages: [
+          { name: '6·25 전쟁과 분단 고착', url: 'korean/contemporary/28. korean-war-division.html' },
+          { name: '평화 통일을 위한 노력', url: 'korean/contemporary/29. peaceful-unification.html' }
+        ]}
+      ]}
+    ]}
   ],
   world: [
-    { era: '고대 문명', units: [{ name: '고대 문명과 제국', subunits: [{ name: '세계 4대 문명', pages: [{ name: '세계 4대 문명', url: 'world/ancient/civilizations.html' }]},{ name: '고대 그리스와 로마', pages: [{ name: '고대 그리스', url: 'world/ancient/greece.html' },{ name: '로마 제국', url: 'world/ancient/rome.html' }]},{ name: '서아시아 제국', pages: [{ name: '서아시아 제국', url: 'world/ancient/west-asia.html' }]}]}]},
-    { era: '세계 종교', units: [{ name: '세계 종교의 확산', subunits: [{ name: '크리스트교의 성립과 확산', pages: [{ name: '크리스트교', url: 'world/religion/christianity.html' }]}]}]},
-    { era: '중세 유럽', units: [{ name: '유럽 세계의 형성과 변화', subunits: [{ name: '비잔티움 제국과 교황권', pages: [{ name: '비잔티움 제국', url: 'world/medieval/byzantine.html' },{ name: '교황권의 성장', url: 'world/medieval/papal-authority.html' }]},{ name: '십자군과 중세의 변화', pages: [{ name: '십자군 전쟁', url: 'world/medieval/crusades.html' }]}]}]},
-    { era: '르네상스·종교 개혁', units: [{ name: '근대 의식의 성장', subunits: [{ name: '르네상스와 종교 개혁', pages: [{ name: '르네상스', url: 'world/renaissance/renaissance.html' },{ name: '종교 개혁', url: 'world/renaissance/reformation.html' }]}]}]},
-    { era: '신항로·절대 왕정', units: [{ name: '교역망의 확대와 절대 왕정', subunits: [{ name: '신항로 개척과 절대 왕정', pages: [{ name: '대항해시대', url: 'world/exploration/exploration.html' },{ name: '절대 왕정과 계몽사상', url: 'world/exploration/absolutism.html' }]}]}]},
-    { era: '시민 혁명·근대 사회', units: [{ name: '시민 혁명과 근대 국민 국가', subunits: [{ name: '시민 혁명', pages: [{ name: '영국 혁명', url: 'world/revolution/british.html' },{ name: '프랑스 혁명', url: 'world/revolution/french.html' },{ name: '미국 독립 혁명', url: 'world/revolution/american.html' }]},{ name: '근대 사회의 형성', pages: [{ name: '유럽의 자유주의·민족주의', url: 'world/revolution/european-liberalism.html' },{ name: '민주주의의 발전', url: 'world/revolution/democracy.html' },{ name: '자본주의 사회', url: 'world/revolution/capitalism.html' }]}]}]}
+    { era: '고대 문명', units: [
+      { name: '고대 문명과 제국', subunits: [
+        { name: '세계 4대 문명', pages: [
+          { name: '세계 4대 문명', url: 'world/ancient/civilizations.html' }
+        ]},
+        { name: '고대 그리스와 로마', pages: [
+          { name: '고대 그리스', url: 'world/ancient/greece.html' },
+          { name: '로마 제국', url: 'world/ancient/rome.html' }
+        ]},
+        { name: '서아시아 제국', pages: [
+          { name: '서아시아 제국', url: 'world/ancient/west-asia.html' }
+        ]}
+      ]}
+    ]},
+    { era: '세계 종교', units: [
+      { name: '세계 종교의 확산', subunits: [
+        { name: '크리스트교의 성립과 확산', pages: [
+          { name: '크리스트교', url: 'world/religion/christianity.html' }
+        ]}
+      ]}
+    ]},
+    { era: '중세 유럽', units: [
+      { name: '유럽 세계의 형성과 변화', subunits: [
+        { name: '비잔티움 제국과 교황권', pages: [
+          { name: '비잔티움 제국', url: 'world/medieval/byzantine.html' },
+          { name: '교황권의 성장', url: 'world/medieval/papal-authority.html' }
+        ]},
+        { name: '십자군과 중세의 변화', pages: [
+          { name: '십자군 전쟁', url: 'world/medieval/crusades.html' }
+        ]}
+      ]}
+    ]},
+    { era: '르네상스·종교 개혁', units: [
+      { name: '근대 의식의 성장', subunits: [
+        { name: '르네상스와 종교 개혁', pages: [
+          { name: '르네상스', url: 'world/renaissance/renaissance.html' },
+          { name: '종교 개혁', url: 'world/renaissance/reformation.html' }
+        ]}
+      ]}
+    ]},
+    { era: '신항로·절대 왕정', units: [
+      { name: '교역망의 확대와 절대 왕정', subunits: [
+        { name: '신항로 개척과 절대 왕정', pages: [
+          { name: '대항해시대', url: 'world/exploration/exploration.html' },
+          { name: '절대 왕정과 계몽사상', url: 'world/exploration/absolutism.html' }
+        ]}
+      ]}
+    ]},
+    { era: '시민 혁명·근대 사회', units: [
+      { name: '시민 혁명과 근대 국민 국가', subunits: [
+        { name: '시민 혁명', pages: [
+          { name: '영국 혁명', url: 'world/revolution/british.html' },
+          { name: '프랑스 혁명', url: 'world/revolution/french.html' },
+          { name: '미국 독립 혁명', url: 'world/revolution/american.html' }
+        ]},
+        { name: '근대 사회의 형성', pages: [
+          { name: '유럽의 자유주의·민족주의', url: 'world/revolution/european-liberalism.html' },
+          { name: '민주주의의 발전', url: 'world/revolution/democracy.html' },
+          { name: '자본주의 사회', url: 'world/revolution/capitalism.html' }
+        ]}
+      ]}
+    ]}
   ],
 
   exam: [
-    { icon:'📋', title:'시험 범위표', desc:'교과서 126~209쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대 사회의 전개', linkText:'범위 상세 보기', url:'javascript:openScope()' },
-    { icon:'💡', title:'핵심 개념 정리', desc:'단원별 핵심 개념을 짧고 명확하게 정리했습니다.', linkText:'정리 보기', url:'review/review_concepts.html' },
-    { icon:'✏️', title:'빈칸 학습지', desc:'단원별 빈칸 학습지를 다운로드하여 인쇄하거나 복습할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' },
-    { icon:'📝', title:'서술형 대비', desc:'15문항 서술형 연습 — 답안을 쓰고 키워드·서술 체계를 바로 점검합니다.', linkText:'서술형 문항 풀기', url:'review/seosulhyung_15_interactive.html' }
+    { icon:'📋', title:'시험 범위표',
+      desc:'교과서 126~209쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대 사회의 전개',
+      linkText:'범위 상세 보기', url:'javascript:openScope()' },
+    { icon:'💡', title:'핵심 개념 정리',
+      desc:'단원별 핵심 개념을 짧고 명확하게 정리했습니다.',
+      linkText:'정리 보기', url:'review/review_concepts.html' },
+    { icon:'✏️', title:'빈칸 학습지',
+      desc:'단원별 빈칸 학습지를 다운로드하여 인쇄하거나 복습할 수 있습니다.',
+      linkText:'학습지 모음 보기', url:'review/review_worksheets.html' },
+    { icon:'📝', title:'서술형 대비',
+      desc:'자주 나오는 서술형 문제와 답변 방향을 확인하세요.',
+      linkText:'서술형 보기', url:'#' }
   ],
 
   examScope: {
     range: '교과서 126쪽 ~ 209쪽',
     note: '수업 중 진도를 나가서 다룬 부분까지로 이후 시험 전 자세한 안내 예정',
     sections: [
-      { title: '조선의 성립과 발전', items: [{ topic: '유교 윤리를 보급하기 위해 노력하다', pages: '126~127' },{ topic: '훈민정음이 창제되고 과학 기술이 발달하다', pages: '128~131' },{ topic: '임진왜란을 극복하다', pages: '132~135' },{ topic: '병자호란이 일어나고 동아시아 국제 질서가 바뀌다', pages: '136~139' },{ topic: '대단원 마무리', pages: '140~141' }]},
-      { title: '조선 사회의 변동', items: [{ topic: '양 난 이후 국가를 재건하다', pages: '144~148' },{ topic: '영조, 정조가 탕평 정치를 펼치다 / 세도 정치가 나라의 기강을 흔들다', pages: '149~153' },{ topic: '향촌 사회가 흔들리다', pages: '154~155' },{ topic: '농민 봉기가 일어나다', pages: '156~157' },{ topic: '새로운 학문적 경향이 나타나다', pages: '158~159' },{ topic: '동아시아, 문화를 교류하다', pages: '160~163' },{ topic: '상속 제도와 사회 풍속이 바뀌다', pages: '164~165' },{ topic: '사회·경제적 변동 속에서 서민 문화가 확산되다', pages: '166~169' },{ topic: '대단원 마무리', pages: '170~171' }]},
-      { title: '근·현대 사회의 전개', items: [{ topic: '문호를 개방하고 개화 정책을 펼치다', pages: '174~177' },{ topic: '국민 국가를 수립하기 위해 노력하다', pages: '178~179' },{ topic: '일제에 맞서 민족 운동을 전개하다', pages: '180~181' },{ topic: '대한민국 정부를 수립하다', pages: '182~185' },{ topic: '개항으로 세계 경제 체제에 편입되다', pages: '186~187' },{ topic: '식민지 경제 체제로 재편되다', pages: '188~189' },{ topic: '국가 주도의 경제 성장이 이루어지다', pages: '190~191' },{ topic: '신자유주의 경제 정책이 추진되다', pages: '192~193' },{ topic: '대중문화가 발전하다', pages: '194~195' },{ topic: '제헌 헌법, 민주주의를 지향하다', pages: '196~197' },{ topic: '4·19 혁명, 민주주의의 씨를 뿌리다', pages: '198~199' },{ topic: '민주주의, 시련을 겪다', pages: '200~201' },{ topic: '민주주의를 꽃피우다', pages: '202~203' },{ topic: '6·25 전쟁으로 분단이 고착되다 / 평화 통일을 위해 노력하다', pages: '204~207' },{ topic: '대단원 마무리', pages: '208~209' }]}
+      { title: '조선의 성립과 발전', items: [
+        { topic: '유교 윤리를 보급하기 위해 노력하다', pages: '126~127' },
+        { topic: '훈민정음이 창제되고 과학 기술이 발달하다', pages: '128~131' },
+        { topic: '임진왜란을 극복하다', pages: '132~135' },
+        { topic: '병자호란이 일어나고 동아시아 국제 질서가 바뀌다', pages: '136~139' },
+        { topic: '대단원 마무리', pages: '140~141' }
+      ]},
+      { title: '조선 사회의 변동', items: [
+        { topic: '양 난 이후 국가를 재건하다', pages: '144~148' },
+        { topic: '영조, 정조가 탕평 정치를 펼치다 / 세도 정치가 나라의 기강을 흔들다', pages: '149~153' },
+        { topic: '향촌 사회가 흔들리다', pages: '154~155' },
+        { topic: '농민 봉기가 일어나다', pages: '156~157' },
+        { topic: '새로운 학문적 경향이 나타나다', pages: '158~159' },
+        { topic: '동아시아, 문화를 교류하다', pages: '160~163' },
+        { topic: '상속 제도와 사회 풍속이 바뀌다', pages: '164~165' },
+        { topic: '사회·경제적 변동 속에서 서민 문화가 확산되다', pages: '166~169' },
+        { topic: '대단원 마무리', pages: '170~171' }
+      ]},
+      { title: '근·현대 사회의 전개', items: [
+        { topic: '문호를 개방하고 개화 정책을 펼치다', pages: '174~177' },
+        { topic: '국민 국가를 수립하기 위해 노력하다', pages: '178~179' },
+        { topic: '일제에 맞서 민족 운동을 전개하다', pages: '180~181' },
+        { topic: '대한민국 정부를 수립하다', pages: '182~185' },
+        { topic: '개항으로 세계 경제 체제에 편입되다', pages: '186~187' },
+        { topic: '식민지 경제 체제로 재편되다', pages: '188~189' },
+        { topic: '국가 주도의 경제 성장이 이루어지다', pages: '190~191' },
+        { topic: '신자유주의 경제 정책이 추진되다', pages: '192~193' },
+        { topic: '대중문화가 발전하다', pages: '194~195' },
+        { topic: '제헌 헌법, 민주주의를 지향하다', pages: '196~197' },
+        { topic: '4·19 혁명, 민주주의의 씨를 뿌리다', pages: '198~199' },
+        { topic: '민주주의, 시련을 겪다', pages: '200~201' },
+        { topic: '민주주의를 꽃피우다', pages: '202~203' },
+        { topic: '6·25 전쟁으로 분단이 고착되다 / 평화 통일을 위해 노력하다', pages: '204~207' },
+        { topic: '대단원 마무리', pages: '208~209' }
+      ]}
     ]
   },
 
@@ -105,7 +286,7 @@ const CONFIG = {
     { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'review/review_summary.html' },
     { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'review/review_sources.html' },
     { icon:'✏️', title:'빈칸 학습지 모음', desc:'단원별 빈칸 학습지를 다운로드할 수 있습니다.', linkText:'학습지 보기', url:'review/review_worksheets.html' },
-    { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review/quiz.html' },
+    { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review/review_quiz.html' },
     { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'review/korean_history_flow.html' }
   ],
 
@@ -120,7 +301,6 @@ const CONFIG = {
     '중간고사 시험 범위: 교과서 126~209쪽 (상세 범위는 시험 대비 > 시험 범위표 참고)'
   ],
   updates: [
-    { date:'3.22', text:'서술형 대비 15문항 인터랙티브 페이지 추가 (키워드·서술 체계 자동 점검)' },
     { date:'3.21', text:'빈칸 학습지 PDF 다운로드 추가 (주제별 자료에서 📄 버튼)' },
     { date:'3.21', text:'지난 시간 요약 · 사료 다시 보기 페이지 신규 개설' },
     { date:'3.15', text:'임진왜란·병자호란 수업 페이지 업로드' },
@@ -228,23 +408,166 @@ const CONFIG = {
 </div></footer>
 
 <script>
+/* ── 네비게이션 ── */
 function toggleNav(){const n=document.getElementById('main-nav'),b=document.querySelector('.nav-toggle'),o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}
 function closeNav(){document.getElementById('main-nav').classList.remove('open');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
 document.addEventListener('click',e=>{const n=document.getElementById('main-nav'),b=document.querySelector('.nav-toggle');if(n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target))closeNav()});
-function renderWeek(){document.getElementById('week-container').innerHTML=CONFIG.thisWeek.map((w,i)=>{const f=i===0,lBg=f?'var(--blue-bg)':'var(--purple-bg)',lC=f?'var(--blue)':'var(--purple)',hBg=f?'#DBEAFE':'#EDE9FE';return`<div class="week-card fade-in ${i>0?'d1':''}" style="border-left-color:${w.color};"><span class="week-badge" style="background:${w.color};">${w.badge}</span><h3>${w.title}</h3><p>${w.desc}</p><div class="week-links">${w.links.map(l=>`<a href="${l.url}" style="background:${lBg};color:${lC};" onmouseover="this.style.background='${hBg}'" onmouseout="this.style.background='${lBg}'">${l.icon} ${l.text}</a>`).join('')}</div></div>`}).join('')}
-function renderSubjects(){const t=document.getElementById('subject-tabs'),p=document.getElementById('subject-panels'),s=[{id:'korean',label:'🇰🇷 한국사',data:CONFIG.korean},{id:'world',label:'🌍 세계사',data:CONFIG.world}];t.innerHTML=s.map((x,i)=>`<button class="subject-tab ${i===0?'active':''}" onclick="switchSubject('${x.id}',this)">${x.label}</button>`).join('');p.innerHTML=s.map((x,i)=>`<div class="subject-panel ${i===0?'active':''}" id="panel-${x.id}">${renderEras(x.data)}</div>`).join('')}
-function renderEras(data){return data.map(era=>{const unitHtml=era.units.map(unit=>{const totalPages=unit.subunits.reduce((sum,su)=>sum+su.pages.length,0);return`<details class="unit-details"><summary class="unit-item"><span class="unit-name">${unit.name}</span><span class="unit-count">${totalPages}개</span><span class="arrow">▾</span></summary><div class="sub-list">${renderSubunits(unit.subunits)}</div></details>`}).join('');return`<div class="era-label">${era.era}</div><div class="unit-list" style="margin-bottom:12px;">${unitHtml}</div>`}).join('')}
-function renderSubunits(subunits){return subunits.map(su=>{if(su.pages.length===1){const pg=su.pages[0];if(pg.ws){return`<div class="page-item-wrap"><a class="unit-item midunit-item" href="${pg.url}" style="flex:1"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`}return`<a class="unit-item midunit-item" href="${pg.url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`}return`<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>{if(pg.ws){return`<div class="page-item-wrap"><a class="unit-item page-item" href="${pg.url}" style="flex:1"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`}return`<a class="unit-item page-item" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`}).join('')}</div></details>`}).join('')}
+
+/* ── 이번 주 수업 ── */
+function renderWeek(){
+  document.getElementById('week-container').innerHTML=CONFIG.thisWeek.map((w,i)=>{
+    const f=i===0,lBg=f?'var(--blue-bg)':'var(--purple-bg)',lC=f?'var(--blue)':'var(--purple)',hBg=f?'#DBEAFE':'#EDE9FE';
+    return`<div class="week-card fade-in ${i>0?'d1':''}" style="border-left-color:${w.color};"><span class="week-badge" style="background:${w.color};">${w.badge}</span><h3>${w.title}</h3><p>${w.desc}</p><div class="week-links">${w.links.map(l=>`<a href="${l.url}" style="background:${lBg};color:${lC};" onmouseover="this.style.background='${hBg}'" onmouseout="this.style.background='${lBg}'">${l.icon} ${l.text}</a>`).join('')}</div></div>`;
+  }).join('');
+}
+
+/* ── 주제별 자료: 4단계 렌더링 (시대 → 대단원 → 중단원 → 페이지) ── */
+function renderSubjects(){
+  const t=document.getElementById('subject-tabs'),p=document.getElementById('subject-panels'),
+  s=[{id:'korean',label:'🇰🇷 한국사',data:CONFIG.korean},{id:'world',label:'🌍 세계사',data:CONFIG.world}];
+  t.innerHTML=s.map((x,i)=>`<button class="subject-tab ${i===0?'active':''}" onclick="switchSubject('${x.id}',this)">${x.label}</button>`).join('');
+  p.innerHTML=s.map((x,i)=>`<div class="subject-panel ${i===0?'active':''}" id="panel-${x.id}">${renderEras(x.data)}</div>`).join('');
+}
+function renderEras(data){
+  return data.map(era=>{
+    const unitHtml=era.units.map(unit=>{
+      const totalPages=unit.subunits.reduce((sum,su)=>sum+su.pages.length,0);
+      return`<details class="unit-details"><summary class="unit-item"><span class="unit-name">${unit.name}</span><span class="unit-count">${totalPages}개</span><span class="arrow">▾</span></summary><div class="sub-list">${renderSubunits(unit.subunits)}</div></details>`;
+    }).join('');
+    return`<div class="era-label">${era.era}</div><div class="unit-list" style="margin-bottom:12px;">${unitHtml}</div>`;
+  }).join('');
+}
+function renderSubunits(subunits){
+  return subunits.map(su=>{
+    if(su.pages.length===1){
+      const pg=su.pages[0];
+      if(pg.ws){
+        return`<div class="page-item-wrap"><a class="unit-item midunit-item" href="${pg.url}" style="flex:1"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;
+      }
+      return`<a class="unit-item midunit-item" href="${pg.url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;
+    }
+    return`<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>{
+      if(pg.ws){
+        return`<div class="page-item-wrap"><a class="unit-item page-item" href="${pg.url}" style="flex:1"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;
+      }
+      return`<a class="unit-item page-item" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`;
+    }).join('')}</div></details>`;
+  }).join('');
+}
 function switchSubject(id,btn){document.querySelectorAll('.subject-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.subject-panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active')}
-function renderCards(data,id,color,bg){document.getElementById(id).innerHTML=data.map((c,i)=>{const ext=c.external?` target="_blank" rel="noopener noreferrer"`:'';return`<article class="card fade-in ${i>0?'d'+Math.min(i,4):''}"><div class="card-icon" style="background:${bg};color:${color};">${c.icon}</div><h3>${c.title}</h3><p>${c.desc}</p><a href="${c.url}" class="card-link" style="color:${color};"${ext}>${c.linkText}</a></article>`}).join('')}
-function openScope(){const s=CONFIG.examScope,body=document.getElementById('scope-body');body.innerHTML=`<div class="scope-note">⚠️ ${s.note}</div><p style="font-size:0.85rem;font-weight:600;margin-bottom:14px;">범위: ${s.range}</p>`+s.sections.map(sec=>`<div class="scope-unit"><h3>${sec.title}</h3><ul>${sec.items.map(it=>`<li><span>${it.topic}</span><span class="scope-pages">${it.pages}쪽</span></li>`).join('')}</ul></div>`).join('');document.getElementById('scope-overlay').classList.add('open');document.body.style.overflow='hidden'}
+
+/* ── 카드 렌더링 ── */
+function renderCards(data,id,color,bg){
+  document.getElementById(id).innerHTML=data.map((c,i)=>{
+    const ext=c.external?` target="_blank" rel="noopener noreferrer"`:'';
+    return`<article class="card fade-in ${i>0?'d'+Math.min(i,4):''}"><div class="card-icon" style="background:${bg};color:${color};">${c.icon}</div><h3>${c.title}</h3><p>${c.desc}</p><a href="${c.url}" class="card-link" style="color:${color};"${ext}>${c.linkText}</a></article>`;
+  }).join('');
+}
+
+/* ── 시험 범위 모달 ── */
+function openScope(){
+  const s=CONFIG.examScope, body=document.getElementById('scope-body');
+  body.innerHTML=`<div class="scope-note">⚠️ ${s.note}</div><p style="font-size:0.85rem;font-weight:600;margin-bottom:14px;">범위: ${s.range}</p>`+
+    s.sections.map(sec=>`<div class="scope-unit"><h3>${sec.title}</h3><ul>${sec.items.map(it=>`<li><span>${it.topic}</span><span class="scope-pages">${it.pages}쪽</span></li>`).join('')}</ul></div>`).join('');
+  document.getElementById('scope-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
 function closeScope(){document.getElementById('scope-overlay').classList.remove('open');document.body.style.overflow=''}
-document.getElementById('scope-overlay').addEventListener('click',function(e){if(e.target===this)closeScope()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeScope()});
-function renderNotice(){const container=document.getElementById('notice-container');let html='';if(CONFIG.siteNotices&&CONFIG.siteNotices.length){html+=`<div class="notice-info-box fade-in"><h3>📌 페이지 이용 안내</h3><ul class="notice-info-list">${CONFIG.siteNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`}if(CONFIG.scheduleNotices&&CONFIG.scheduleNotices.length){html+=`<div class="notice-schedule-box fade-in"><h3>📅 주요 일정 안내</h3><ul class="notice-schedule-list">${CONFIG.scheduleNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`}container.innerHTML=html;document.getElementById('updates-card').innerHTML=`<h3 style="font-size:0.88rem;font-weight:700;margin-bottom:10px;">🔄 최근 변경</h3>`+CONFIG.updates.map(u=>`<div class="update-item"><span class="update-date">${u.date}</span><span>${u.text}</span></div>`).join('');document.getElementById('last-update').textContent='마지막 업데이트: 2026.'+CONFIG.updates[0].date}
-renderWeek();renderSubjects();renderCards(CONFIG.exam,'exam-grid','var(--orange)','var(--orange-bg)');renderCards(CONFIG.performance,'perform-grid','var(--purple)','var(--purple-bg)');renderCards(CONFIG.review,'review-grid','var(--green)','var(--green-bg)');renderNotice();
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.animationPlayState='running';obs.unobserve(x.target)}})},{threshold:0.1});document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getComputedStyle(el).opacity==='0'){el.style.animationPlayState='paused';obs.observe(el)}})},100);
-const SEARCH_DATA=[{title:"🏯 조선 건국과 한양 천도",url:"korean/joseon-early/01. joseon_foundation.html",keywords:["조선건국","이성계","정도전","위화도회군","과전법","한양천도","경복궁","신진사대부"]},{title:"🏛️ 유교 통치 체제와 사대교린",url:"korean/joseon-early/02. joseon_confucian-governance.html",keywords:["경국대전","의정부","6조","3사","사헌부","사간원","홍문관","8도","관찰사","사대교린"]},{title:"📜 유교 윤리 보급과 사회 변화",url:"korean/joseon-early/03. joseon_confucian-ethics-society.html",keywords:["유교윤리","성리학","삼강행실도","국조오례의","양천제","반상제","향교","성균관","서당"]},{title:"🏛️ 사림의 성장과 붕당 형성",url:"korean/joseon-middle/04. joseon_sarim-bungdang.html",keywords:["훈구","사림","사화","무오사화","갑자사화","기묘사화","조광조","서원","향약","붕당","동인","서인"]},{title:"📖 훈민정음 창제와 과학 기술의 발달",url:"korean/joseon-early/05. joseon_hunminjeongeum-science.html",keywords:["세종","훈민정음","측우기","자격루","앙부일구","칠정산","농사직설","향약집성방","혼천의","과학기술"]},{title:"⚔️ 임진왜란의 발발과 극복",url:"korean/joseon-middle/06. joseon_imjin-war.html",keywords:["임진왜란","1592년","이순신","한산도대첩","수군","의병","곽재우","권율","행주대첩","조명연합군"]},{title:"🔥 전후 복구와 광해군의 중립 외교",url:"korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html",keywords:["광해군","중립외교","명나라","후금","강홍립","대동법","동의보감","전후복구","인조반정"]},{title:"🏔️ 정묘호란·병자호란과 국제 질서의 변화",url:"korean/joseon-late/08. joseon_horan-intl-order.html",keywords:["인조","친명배금","정묘호란","병자호란","남한산성","삼전도의굴욕","청나라","북벌운동","효종"]},{title:"🏗️ 양 난 이후 국가를 재건하다",url:"korean/joseon-late/09. joseon_postwar_rebuild_edited.html",keywords:["비변사","훈련도감","5군영","속오군","영정법","대동법","균역법","수취체제","광해군","영조"]},{title:"👑 영조·정조의 탕평 정치와 세도 정치",url:"korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html",keywords:["조선후기","영조","정조","탕평정치","탕평책","규장각","수원화성","세도정치","붕당정치","비변사"]},{title:"🏘️ 향촌 사회가 흔들리다",url:"korean/joseon-late/11. joseon_hyangchon_change.html",keywords:["조선후기","신분제동요","양반층분화","향전","신향","구향","수령","향리","농민봉기","향촌사회"]},{title:"🔥 삼정의 문란과 농민의 의식 성장",url:"korean/joseon-late/12. joseon_samjeong_farmers.html",keywords:["조선후기","삼정의문란","전정","군정","환곡","홍경래의난","임술농민봉기","진주농민봉기","동학","최제우"]},{title:"📚 새로운 학문적 경향이 나타나다",url:"korean/joseon-late/13. joseon_silhak_gukhak.html",keywords:["조선후기","실학","중농학파","중상학파","정약용","박지원","박제가","유수원","국학","대동여지도"]},{title:"🌏 동아시아, 문화를 교류하다",url:"korean/joseon-late/14. joseon_eastasia_culture.html",keywords:["조선후기","동아시아","문화교류","조선통신사","연행사","서양문물","곤여만국전도","자명종","천주교","서학"]},{title:"🎭 생활과 문화의 새로운 양상",url:"korean/joseon-late/15. joseon_life_culture.html",keywords:["조선후기","서민문화","풍속화","김홍도","신윤복","판소리","탈춤","민화","한글소설","홍길동전","춘향전"]},{title:"⚓ 문호를 개방하고 개화 정책을 펼치다",url:"korean/modern/16. joseon_opening_modernization.html",keywords:["흥선대원군","강화도조약","운요호사건","개항","불평등조약","개화정책","위정척사운동","임오군란","갑신정변","조미수호통상조약"]},{title:"🇰🇷 국민 국가를 수립하기 위해 노력하다",url:"korean/modern/17. korean_national_state.html",keywords:["동학농민운동","전봉준","갑오개혁","을미사변","독립협회","만민공동회","관민공동회","대한제국","광무개혁","구본신참"]},{title:"✊ 일제에 맞서 민족 운동을 전개하다",url:"korean/contemporary/18. anti_japanese_movements.html",keywords:["일제강점기","항일의병운동","을사의병","정미의병","애국계몽운동","신민회","국채보상운동","안중근","항일운동","민족운동"]},{title:"🕊️ 독립을 위한 노력과 대한민국 정부 수립",url:"korean/contemporary/19. independence_to_government.html",keywords:["3.1운동","대한민국임시정부","무장독립투쟁","의열단","한인애국단","한국광복군","8.15광복","모스크바3국외상회의","5.10총선거","대한민국정부수립"]},{title:"🏭 식민지 경제 체제로 재편되다",url:"korean/contemporary/20. colonial-economy.html",keywords:["일제강점기","식민지","경제수탈","토지조사사업","산미증식계획","병참기지화","국가총동원법","공출","징용","징병","위안부"]},{title:"📈 국가 주도의 경제 성장이 이루어지다",url:"korean/contemporary/21. growth-economy.html",keywords:["경제성장","경제개발5개년계획","박정희","한강의기적","수출주도형","경부고속국도","새마을운동","중화학공업","1960년대","1970년대"]},{title:"⚖️ 신자유주의 경제 정책과 노동 운동",url:"korean/contemporary/22. neoliberalism-labor.html",keywords:["신자유주의","IMF","외환위기","1997년","금모으기운동","비정규직","노동운동","전태일","민주노총","시장개방","세계화"]},{title:"🎶 대중문화가 발전하다",url:"korean/contemporary/23. pop-culture.html",keywords:["대중문화","한류","K-pop","케이팝","대중매체","라디오","텔레비전","TV","청년문화","1970년대","1990년대","영화","프로스포츠"]},{title:"📜 제헌 헌법과 민주주의 지향",url:"korean/contemporary/24. constitutional-democracy.html",keywords:["제헌헌법","제헌국회","5.10총선거","510총선거","이승만","제1공화국","반민특위","친일파","농지개혁","1948년","대한민국정부수립"]},{title:"✊ 4·19 혁명",url:"korean/contemporary/25. april-revolution.html",keywords:["4.19혁명","419","3.15부정선거","315","김주열","마산의거","이승만하야","내각책임제","장면내각","제2공화국","민주주의"]},{title:"🔥 민주주의, 시련을 겪다",url:"korean/contemporary/26. dictatorship-and-resistance.html",keywords:["독재","5.16군사정변","박정희","유신헌법","유신체제","부마항쟁","신군부","전두환","5.18민주화운동","518","광주","계엄령"]},{title:"🌸 6월 민주 항쟁",url:"korean/contemporary/27. june-democracy.html",keywords:["6월민주항쟁","6월항쟁","1987년","박종철","이한열","고문치사사건","4.13호헌조치","호헌철폐","6.29민주화선언","629선언","대통령직선제","전두환"]},{title:"⚔️ 6·25 전쟁과 분단 고착",url:"korean/contemporary/28. korean-war-division.html",keywords:["6.25전쟁","625","1950년","북한남침","인천상륙작전","맥아더","1.4후퇴","중국군개입","휴전협정","판문점","분단","이산가족","냉전"]},{title:"🕊️ 평화 통일을 위해 노력하다",url:"korean/contemporary/29. peaceful-unification.html",keywords:["평화통일","7.4남북공동성명","74남북공동성명","남북기본합의서","6.15남북공동선언","615","햇볕정책","김대중","남북정상회담","개성공단","이산가족상봉"]},{title:"📝 서술형 대비 15문항",url:"review/seosulhyung_15_interactive.html",keywords:["서술형","서술형대비","서술형평가","시험대비","키워드점검","15문항"]},{title:"📖 지난 시간 요약",url:"review/review_summary.html",keywords:["요약","복습","정리","지난시간","핵심정리"]},{title:"📜 사료 다시 보기",url:"review/review_sources.html",keywords:["사료","원문","해석","분석","자료읽기"]},{title:"✏️ 빈칸 학습지 모음",url:"review/review_worksheets.html",keywords:["학습지","빈칸","워크시트","인쇄","PDF","다운로드"]}];
-(function(){const searchInput=document.getElementById('searchInput');const searchResults=document.getElementById('searchResults');if(!searchInput||!searchResults)return;searchInput.addEventListener('input',function(){const query=this.value.toLowerCase().replace(/\s/g,'');if(query.length===0){searchResults.style.display='none';return}const matched=SEARCH_DATA.filter(item=>{const matchTitle=item.title.toLowerCase().replace(/\s/g,'').includes(query);const matchKeyword=item.keywords.some(kw=>kw.toLowerCase().includes(query));return matchTitle||matchKeyword});if(matched.length>0){searchResults.innerHTML=matched.map(item=>`<li><a href="${item.url}"><span class="search-title">${item.title}</span><span class="search-keywords">관련 키워드: ${item.keywords.join(', ')}</span></a></li>`).join('')}else{searchResults.innerHTML=`<li><a href="#" style="pointer-events:none;color:#999;">검색 결과가 없습니다. 😅</a></li>`}searchResults.style.display='block'});document.addEventListener('click',function(e){if(!e.target.closest('.search-container'))searchResults.style.display='none'})})();
+document.getElementById('scope-overlay').addEventListener('click',function(e){if(e.target===this)closeScope()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeScope()});
+
+/* ── 공지 렌더링 ── */
+function renderNotice(){
+  const container=document.getElementById('notice-container');
+  let html='';
+  if(CONFIG.siteNotices&&CONFIG.siteNotices.length){
+    html+=`<div class="notice-info-box fade-in"><h3>📌 페이지 이용 안내</h3><ul class="notice-info-list">${CONFIG.siteNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
+  }
+  if(CONFIG.scheduleNotices&&CONFIG.scheduleNotices.length){
+    html+=`<div class="notice-schedule-box fade-in"><h3>📅 주요 일정 안내</h3><ul class="notice-schedule-list">${CONFIG.scheduleNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
+  }
+  container.innerHTML=html;
+  document.getElementById('updates-card').innerHTML=`<h3 style="font-size:0.88rem;font-weight:700;margin-bottom:10px;">🔄 최근 변경</h3>`+
+    CONFIG.updates.map(u=>`<div class="update-item"><span class="update-date">${u.date}</span><span>${u.text}</span></div>`).join('');
+  document.getElementById('last-update').textContent='마지막 업데이트: 2026.'+CONFIG.updates[0].date;
+}
+
+/* ── 초기 렌더링 ── */
+renderWeek();
+renderSubjects();
+renderCards(CONFIG.exam,'exam-grid','var(--orange)','var(--orange-bg)');
+renderCards(CONFIG.performance,'perform-grid','var(--purple)','var(--purple-bg)');
+renderCards(CONFIG.review,'review-grid','var(--green)','var(--green-bg)');
+renderNotice();
+
+/* ── Intersection Observer ── */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.animationPlayState='running';obs.unobserve(x.target)}})},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
+setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getComputedStyle(el).opacity==='0'){el.style.animationPlayState='paused';obs.observe(el)}})},100);
+
+/* ── 전체 검색 ── */
+const SEARCH_DATA = [
+  { title: "🏯 조선 건국과 한양 천도", url: "korean/joseon-early/01. joseon_foundation.html", keywords: ["조선건국", "이성계", "정도전", "위화도회군", "과전법", "한양천도", "경복궁", "신진사대부"] },
+  { title: "🏛️ 유교 통치 체제와 사대교린", url: "korean/joseon-early/02. joseon_confucian-governance.html", keywords: ["경국대전", "의정부", "6조", "3사", "사헌부", "사간원", "홍문관", "8도", "관찰사", "사대교린"] },
+  { title: "📜 유교 윤리 보급과 사회 변화", url: "korean/joseon-early/03. joseon_confucian-ethics-society.html", keywords: ["유교윤리", "성리학", "삼강행실도", "국조오례의", "양천제", "반상제", "향교", "성균관", "서당"] },
+  { title: "🏛️ 사림의 성장과 붕당 형성", url: "korean/joseon-middle/04. joseon_sarim-bungdang.html", keywords: ["훈구", "사림", "사화", "무오사화", "갑자사화", "기묘사화", "조광조", "서원", "향약", "붕당", "동인", "서인"] },
+  { title: "📖 훈민정음 창제와 과학 기술의 발달", url: "korean/joseon-early/05. joseon_hunminjeongeum-science.html", keywords: ["세종", "훈민정음", "측우기", "자격루", "앙부일구", "칠정산", "농사직설", "향약집성방", "혼천의", "과학기술"] },
+  { title: "⚔️ 임진왜란의 발발과 극복", url: "korean/joseon-middle/06. joseon_imjin-war.html", keywords: ["임진왜란", "1592년", "이순신", "한산도대첩", "수군", "의병", "곽재우", "권율", "행주대첩", "조명연합군"] },
+  { title: "🔥 전후 복구와 광해군의 중립 외교", url: "korean/joseon-late/07. joseon_gwanghaegun-diplomacy.html", keywords: ["광해군", "중립외교", "명나라", "후금", "강홍립", "대동법", "동의보감", "전후복구", "인조반정"] },
+  { title: "🏔️ 정묘호란·병자호란과 국제 질서의 변화", url: "korean/joseon-late/08. joseon_horan-intl-order.html", keywords: ["인조", "친명배금", "정묘호란", "병자호란", "남한산성", "삼전도의굴욕", "청나라", "북벌운동", "효종"] },
+  { title: "🏗️ 양 난 이후 국가를 재건하다", url: "korean/joseon-late/09. joseon_postwar_rebuild_edited.html", keywords: ["비변사", "훈련도감", "5군영", "속오군", "영정법", "대동법", "균역법", "수취체제", "광해군", "영조"] },
+  { title: "👑 영조·정조의 탕평 정치와 세도 정치", url: "korean/joseon-late/10. joseon_tangpyeong_sedo_edited.html", keywords: ["조선후기", "영조", "정조", "탕평정치", "탕평책", "규장각", "수원화성", "세도정치", "붕당정치", "비변사"] },
+  { title: "🏘️ 향촌 사회가 흔들리다", url: "korean/joseon-late/11. joseon_hyangchon_change.html", keywords: ["조선후기", "신분제동요", "양반층분화", "향전", "신향", "구향", "수령", "향리", "농민봉기", "향촌사회"] },
+  { title: "🔥 삼정의 문란과 농민의 의식 성장", url: "korean/joseon-late/12. joseon_samjeong_farmers.html", keywords: ["조선후기", "삼정의문란", "전정", "군정", "환곡", "홍경래의난", "임술농민봉기", "진주농민봉기", "동학", "최제우"] },
+  { title: "📚 새로운 학문적 경향이 나타나다", url: "korean/joseon-late/13. joseon_silhak_gukhak.html", keywords: ["조선후기", "실학", "중농학파", "중상학파", "정약용", "박지원", "박제가", "유수원", "국학", "대동여지도"] },
+  { title: "🌏 동아시아, 문화를 교류하다", url: "korean/joseon-late/14. joseon_eastasia_culture.html", keywords: ["조선후기", "동아시아", "문화교류", "조선통신사", "연행사", "서양문물", "곤여만국전도", "자명종", "천주교", "서학"] },
+  { title: "🎭 생활과 문화의 새로운 양상", url: "korean/joseon-late/15. joseon_life_culture.html", keywords: ["조선후기", "서민문화", "풍속화", "김홍도", "신윤복", "판소리", "탈춤", "민화", "한글소설", "홍길동전", "춘향전"] },
+  { title: "⚓ 문호를 개방하고 개화 정책을 펼치다", url: "korean/modern/16. joseon_opening_modernization.html", keywords: ["흥선대원군", "강화도조약", "운요호사건", "개항", "불평등조약", "개화정책", "위정척사운동", "임오군란", "갑신정변", "조미수호통상조약"] },
+  { title: "🇰🇷 국민 국가를 수립하기 위해 노력하다", url: "korean/modern/17. korean_national_state.html", keywords: ["동학농민운동", "전봉준", "갑오개혁", "을미사변", "독립협회", "만민공동회", "관민공동회", "대한제국", "광무개혁", "구본신참"] },
+  { title: "✊ 일제에 맞서 민족 운동을 전개하다", url: "korean/contemporary/18. anti_japanese_movements.html", keywords: ["일제강점기", "항일의병운동", "을사의병", "정미의병", "애국계몽운동", "신민회", "국채보상운동", "안중근", "항일운동", "민족운동"] },
+  { title: "🕊️ 독립을 위한 노력과 대한민국 정부 수립", url: "korean/contemporary/19. independence_to_government.html", keywords: ["3.1운동", "대한민국임시정부", "무장독립투쟁", "의열단", "한인애국단", "한국광복군", "8.15광복", "모스크바3국외상회의", "5.10총선거", "대한민국정부수립"] },
+  { title: "🏭 식민지 경제 체제로 재편되다", url: "korean/contemporary/20. colonial-economy.html", keywords: ["일제강점기", "식민지", "경제수탈", "토지조사사업", "산미증식계획", "병참기지화", "국가총동원법", "공출", "징용", "징병", "위안부"] },
+  { title: "📈 국가 주도의 경제 성장이 이루어지다", url: "korean/contemporary/21. growth-economy.html", keywords: ["경제성장", "경제개발5개년계획", "박정희", "한강의기적", "수출주도형", "경부고속국도", "새마을운동", "중화학공업", "1960년대", "1970년대"] },
+  { title: "⚖️ 신자유주의 경제 정책과 노동 운동", url: "korean/contemporary/22. neoliberalism-labor.html", keywords: ["신자유주의", "IMF", "외환위기", "1997년", "금모으기운동", "비정규직", "노동운동", "전태일", "민주노총", "시장개방", "세계화"] },
+  { title: "🎶 대중문화가 발전하다", url: "korean/contemporary/23. pop-culture.html", keywords: ["대중문화", "한류", "K-pop", "케이팝", "대중매체", "라디오", "텔레비전", "TV", "청년문화", "1970년대", "1990년대", "영화", "프로스포츠"] },
+  { title: "📜 제헌 헌법과 민주주의 지향", url: "korean/contemporary/24. constitutional-democracy.html", keywords: ["제헌헌법", "제헌국회", "5.10총선거", "510총선거", "이승만", "제1공화국", "반민특위", "친일파", "농지개혁", "1948년", "대한민국정부수립"] },
+  { title: "✊ 4·19 혁명, 민주주의의 씨를 뿌리다", url: "korean/contemporary/25. april-revolution.html", keywords: ["4.19혁명", "419", "3.15부정선거", "315", "김주열", "마산의거", "이승만하야", "내각책임제", "장면내각", "제2공화국", "민주주의"] },
+  { title: "🔥 민주주의, 시련을 겪다", url: "korean/contemporary/26. dictatorship-and-resistance.html", keywords: ["독재", "5.16군사정변", "박정희", "유신헌법", "유신체제", "부마항쟁", "신군부", "전두환", "5.18민주화운동", "518", "광주", "계엄령"] },
+  { title: "🌸 6월 민주 항쟁, 민주주의를 꽃피우다", url: "korean/contemporary/27. june-democracy.html", keywords: ["6월민주항쟁", "6월항쟁", "1987년", "박종철", "이한열", "고문치사사건", "4.13호헌조치", "호헌철폐", "6.29민주화선언", "629선언", "대통령직선제", "전두환"] },
+  { title: "⚔️ 6·25 전쟁과 분단 고착", url: "korean/contemporary/28. korean-war-division.html", keywords: ["6.25전쟁", "625", "1950년", "북한남침", "인천상륙작전", "맥아더", "1.4후퇴", "중국군개입", "휴전협정", "판문점", "분단", "이산가족", "냉전"] },
+  { title: "🕊️ 평화 통일을 위해 노력하다", url: "korean/contemporary/29. peaceful-unification.html", keywords: ["평화통일", "7.4남북공동성명", "74남북공동성명", "남북기본합의서", "6.15남북공동선언", "615", "햇볕정책", "김대중", "남북정상회담", "개성공단", "이산가족상봉"] },
+  { title: "📖 지난 시간 요약", url: "review/review_summary.html", keywords: ["요약", "복습", "정리", "지난시간", "핵심정리"] },
+  { title: "📜 사료 다시 보기", url: "review/review_sources.html", keywords: ["사료", "원문", "해석", "분석", "자료읽기"] },
+  { title: "✏️ 빈칸 학습지 모음", url: "review/review_worksheets.html", keywords: ["학습지", "빈칸", "워크시트", "인쇄", "PDF", "다운로드"] }
+];
+
+(function(){
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  if (!searchInput || !searchResults) return;
+  searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase().replace(/\s/g, '');
+    if (query.length === 0) { searchResults.style.display = 'none'; return; }
+    const matched = SEARCH_DATA.filter(item => {
+      const matchTitle = item.title.toLowerCase().replace(/\s/g, '').includes(query);
+      const matchKeyword = item.keywords.some(kw => kw.toLowerCase().includes(query));
+      return matchTitle || matchKeyword;
+    });
+    if (matched.length > 0) {
+      searchResults.innerHTML = matched.map(item => `
+        <li><a href="${item.url}">
+          <span class="search-title">${item.title}</span>
+          <span class="search-keywords">관련 키워드: ${item.keywords.join(', ')}</span>
+        </a></li>`).join('');
+    } else {
+      searchResults.innerHTML = `<li><a href="#" style="pointer-events:none;color:#999;">검색 결과가 없습니다. 😅</a></li>`;
+    }
+    searchResults.style.display = 'block';
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-container')) searchResults.style.display = 'none';
+  });
+})();
 </script>
 </body>
 </html>

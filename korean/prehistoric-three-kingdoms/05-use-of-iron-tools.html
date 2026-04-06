@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🔩 철기를 만들어 사용하다</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">철기를 만들어 사용하다</span>
+<span class="page-ref">한국사 Ⅰ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">🔩</span>
+<h1>철기를 만들어 사용하다</h1>
+<p class="subtitle">청동보다 단단하고 구하기 쉬운 철이 등장하자, 농업과 전쟁, 정치 질서까지 함께 바뀌었습니다.<br/>철기는 만주와 한반도 여러 나라의 성장을 이끈 '게임 체인저'였습니다.</p>
+<div class="hero-keywords">
+<span>철기 시대</span><span>철제 농기구</span><span>철제 무기</span><span>생산력 향상</span><span>정복 활동</span><span>여러 나라</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 철기는 청동기와 어떤 점에서 달랐을까?</li>
+<li><span class="cq-badge standard">표준</span> 철기의 보급이 사회에 미친 영향은 무엇일까?</li>
+<li><span class="cq-badge advanced">심화</span> 철기가 먼저 바꾼 것은 농업이었을까, 정치 질서였을까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">철기 문화 유입</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">철제 농기구 보급</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">농업 생산력 증가</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">철제 무기 제작</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">정복 활동 확대</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">여러 나라 성장</div></div>
+</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">⚙️</span>
+<h2>철기의 확산 — 청동을 넘어서다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 더 강하고, 더 흔한 금속</h4>
+<p><strong>기원전 5~4세기경</strong>, 만주와 한반도에 철기 문화가 퍼지기 시작하였습니다. 철은 청동보다 <strong>구하기 쉽고 강도가 높아</strong> 농기구와 무기를 만드는 데 훨씬 유리했습니다.</p>
+<p>청동은 귀해서 일부 지배층만 사용할 수 있었지만, 철은 상대적으로 풍부해 <strong>훨씬 많은 사람이 사용</strong>할 수 있었습니다. 그래서 철기의 등장은 일부가 아닌 사회 전체의 생활을 바꾸는 힘을 가지고 있었습니다.</p>
+<div class="highlight-box"><strong>청동 vs 철</strong><br/>청동은 '지배자의 금속'이었다면, 철은 '모두의 금속'이었습니다. 더 많은 사람에게 영향을 미쳤기에 변화의 폭도 훨씬 컸습니다.</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">🌾</span>
+<h2>농업과 생산력의 변화 — 땅을 더 깊이 갈다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 철제 농기구가 바꾼 농사</h4>
+<p><strong>철제 농기구</strong>가 사용되면서 땅을 더 깊이, 더 넓게 갈 수 있게 되었습니다. 농업 생산력이 크게 높아졌고, 이전보다 훨씬 많은 식량을 수확할 수 있었습니다.</p>
+<p>생산력이 높아지면 인구가 늘고, 마을이 커지며, 더 많은 자원을 바탕으로 사회가 발전합니다. 철제 농기구 하나가 사회 전체의 규모를 키운 셈입니다.</p>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">⚔️</span>
+<h2>전쟁과 정복 — 강한 자가 세력을 넓히다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 철제 무기가 바꾼 전쟁의 양상</h4>
+<p><strong>철제 무기</strong>는 전쟁의 방식과 규모를 완전히 바꾸어 놓았습니다. 더 강한 무기를 가진 집단은 주변을 복속시키며 세력을 넓혀 갔고, 이 과정에서 <strong>여러 나라가 성장</strong>하였습니다.</p>
+<p>철기의 보급은 단순한 '기술 변화'가 아니었습니다. 철을 가진 집단과 그렇지 못한 집단의 차이가 곧 힘의 차이가 되었고, 이것이 <strong>정치 질서의 재편</strong>으로 이어졌습니다.</p>
+<div class="highlight-box teal"><strong>기술이 권력을 바꾸다</strong><br/>철기를 먼저 확보한 집단이 주변을 정복하고 나라를 세웠습니다. 기술 격차가 곧 권력 격차가 되는 현상은 역사에서 반복됩니다.</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">🗺️</span>
+<h2>여러 나라의 성장 — 새로운 시대가 열리다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 철기가 연 경쟁의 시대</h4>
+<p>철기 문화가 퍼진 뒤, 만주와 한반도 곳곳에서는 <strong>부여, 고구려, 옥저, 동예, 삼한</strong> 같은 여러 나라가 성장하였습니다. 이들은 철기를 바탕으로 농업을 키우고, 군사력을 강화하며, 각자의 방식으로 사회를 발전시켜 갔습니다.</p>
+<p>따라서 철기의 보급은 <strong>선사 시대에서 역사 시대로 넘어가는 가교</strong> 역할을 했습니다. 도구 하나가 농업, 전쟁, 정치를 함께 바꾸며 한반도의 새로운 시대를 연 것입니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">청동기 시대</div>
+<div class="name">지배자의 금속</div>
+<div class="desc">구하기 어렵고 비쌈<br/>지배층만 소유<br/>상징적 의미가 강함</div>
+</div>
+<div class="compare-card red">
+<div class="label">철기 시대</div>
+<div class="name">사회 전체의 금속</div>
+<div class="desc">풍부하고 단단함<br/>농기구·무기로 널리 사용<br/>농업·전쟁·정치 모두 변화</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>철기의 보급이 '먼저' 바꾼 것은 무엇이었을까요? 농사를 더 잘 지을 수 있게 된 것? 아니면 더 강한 무기로 전쟁에서 이길 수 있게 된 것?</p><p>오늘날에도 새로운 기술(인터넷, 인공지능 등)이 사회를 바꾸고 있습니다. 철기 시대와 비교해 보면 어떤 공통점이 보일까요?</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li><strong>기원전 5~4세기경</strong> 만주와 한반도에 <strong>철기 문화</strong>가 퍼지기 시작하였다.</li>
+<li>철은 청동보다 <strong>구하기 쉽고 강도가 높아</strong> 농기구와 무기에 널리 사용되었다.</li>
+<li><strong>철제 농기구</strong>의 보급으로 농업 생산력이 크게 높아졌다.</li>
+<li><strong>철제 무기</strong>는 정복 활동을 활발하게 만들어 여러 나라의 성장을 이끌었다.</li>
+<li>철기의 보급은 <strong>농업·전쟁·정치를 함께 바꾼 종합적 변화</strong>였다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 철기의 보급이 먼저 바꾼 것은 농업이었을까, 정치 질서였을까?</h4>
+<p class="question-text">철기는 농업과 전쟁 모두에 큰 영향을 주었습니다. 철제 농기구가 생산력을 높인 것이 먼저 사회를 바꾸었을까요, 아니면 철제 무기가 정복 활동을 촉진하여 정치 질서를 재편한 것이 더 결정적이었을까요? <strong>한쪽을 선택하거나 둘 다 고려하여</strong> 근거를 들어 서술해 보세요.<br/><br/>(힌트: <strong>철제 농기구</strong>, <strong>생산력</strong>, <strong>철제 무기</strong>, <strong>정복 활동</strong>, <strong>여러 나라</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>철기</span><span>철제 농기구</span><span>철제 무기</span><span>생산력</span><span>정복 활동</span><span>부여</span><span>고구려</span><span>삼한</span><span>기술 변화</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>철기의 보급은 <strong>농업과 정치 질서를 동시에 바꾼 변화</strong>였지만, 순서를 따진다면 농업의 변화가 먼저 기반을 만들었다고 볼 수 있습니다.</p>
+<p>철제 농기구로 생산력이 높아지면 인구가 늘고 자원이 많아집니다. 더 많은 자원을 가진 집단은 <strong>더 강한 군대를 만들 수 있었고</strong>, 이것이 정복 활동으로 이어졌습니다.</p>
+<p>물론 철제 무기가 직접적으로 정치 질서를 바꾼 측면도 무시할 수 없습니다. 따라서 농업 변화가 기반을 만들고, 군사적 변화가 그 위에서 <strong>정치적 재편</strong>을 이끌었다고 보는 것이 적절합니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="1" data-explain="철은 청동보다 원료가 풍부하고 강도가 높아 농기구와 무기에 널리 사용되었습니다. 청동처럼 일부 지배층에 한정되지 않고 사회 전체의 생활을 바꿀 수 있었습니다.">
+<h4>Q1. 철기가 청동기보다 사회 전체에 큰 영향을 줄 수 있었던 이유로 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 색이 더 아름다워 장식용으로 인기가 많았다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 청동보다 구하기 쉽고 강도가 높아 널리 사용되었다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 종교 의식에만 사용되어 신성한 금속으로 여겨졌다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 지배층만 사용할 수 있어 권위가 더 높았다.</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="2" data-explain="철기의 보급으로 농업 생산력이 높아지고 정복 활동이 활발해지면서 여러 나라가 성장하였습니다. 그러나 계급이 사라진 것이 아니라, 오히려 강한 집단과 약한 집단의 차이가 더 뚜렷해졌습니다.">
+<h4>Q2. 철기의 보급이 가져온 변화로 옳지 않은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 농업 생산력이 높아졌다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 정복 활동이 활발해졌다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 계급이 사라지고 평등 사회가 되었다.</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 여러 나라가 성장하였다.</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="2" data-explain="고조선은 청동기 시대에 성립한 나라로, 철기 문화가 본격 확산되기 이전부터 존재하였습니다. 부여, 고구려, 삼한은 철기 문화를 바탕으로 성장한 나라입니다.">
+<h4>Q3. 철기 문화가 퍼진 뒤 만주와 한반도에서 성장한 나라로 알맞지 않은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 부여</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 고구려</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 고조선</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 삼한</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert('답변을 먼저 작성해주세요!');answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt('학번을 입력해주세요.\n(예: 30101)');
+  if(!studentId)return;
+  const studentName=prompt('이름을 입력해주세요.\n(예: 홍길동)');
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent='제출 중...⏳';btn.disabled=true;btn.style.opacity='0.7';
+
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert('🎉 성공적으로 제출되었습니다!');
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert('❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.');
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

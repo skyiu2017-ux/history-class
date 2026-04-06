@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🛡️ 고려, 몽골의 침입에 맞서 싸우다</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">고려, 몽골의 침입에 맞서 싸우다</span>
+<span class="page-ref">한국사 Ⅲ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">🛡️</span>
+<h1>고려, 몽골의 침입에 맞서 싸우다</h1>
+<p class="subtitle">유라시아를 휩쓴 몽골 제국의 침략에 맞선 약 40년의 전쟁.<br/>지배층만의 전쟁이 아니었습니다 — 백성들의 끈질긴 저항의 역사입니다.</p>
+<div class="hero-keywords">
+<span>강화도 천도</span><span>처인성 전투</span><span>김윤후</span><span>팔만대장경</span><span>삼별초</span><span>배중손</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 강화도 천도는 어떤 의미를 가졌을까?</li>
+<li><span class="cq-badge standard">표준</span> 몽골에 맞선 군민 항전의 대표적 사례는 무엇일까?</li>
+<li><span class="cq-badge advanced">심화</span> 팔만대장경은 어떤 상황에서 만들어졌을까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">몽골 침입 시작</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">강화도 천도</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">처인성·충주성 항전</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">팔만대장경 조판</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">개경 환도 결정</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">삼별초의 항쟁</div></div>
+</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">🏝️</span>
+<h2>강화도 천도 — 바다를 방패로</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 지배층의 전략, 백성의 희생</h4>
+<p>몽골의 침략이 시작되자, 최씨 무신 정권의 <strong>최우</strong>는 몽골군이 수전에 약하다는 점을 이용해 수도를 <strong>강화도</strong>로 옮겼습니다. 좁은 바다를 방패 삼아 장기전을 준비한 것입니다.</p>
+<p>강화도 천도는 지배층과 왕실을 지키는 데는 효과적이었지만, <strong>육지에 남겨진 백성들</strong>은 몽골군의 약탈과 학살에 무방비로 노출되었습니다. 이 결정은 <strong>군사 전략의 효과</strong>와 <strong>백성의 희생</strong>이라는 양면을 가지고 있습니다.</p>
+<div class="highlight-box"><strong>두 개의 평가</strong><br/>강화도 천도는 '현명한 전략'이었을까, '비겁한 도피'였을까? 관점에 따라 평가가 달라지는 역사적 결정입니다.</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">🔥</span>
+<h2>군민 항전 — 백성이 나라를 지키다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 처인성의 김윤후, 충주성의 노비들</h4>
+<p>지배층 대신 나라를 지킨 것은 <strong>평범한 백성</strong>들이었습니다. <strong>처인성(용인)</strong>에서는 승려 출신 <strong>김윤후</strong>와 지역 민중이 합심하여 몽골군 총사령관 <strong>살리타를 사살</strong>하는 큰 승리를 거두었습니다.</p>
+<p><strong>충주성</strong>에서는 노비 등 천민들이 신분 해방의 희망을 품고 몽골군을 끝까지 막아냈습니다. 고려의 항전은 <strong>농민, 천민, 군민이 모두 나서 외세에 맞선 처절하고 위대한 싸움</strong>이었습니다.</p>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">📖</span>
+<h2>팔만대장경 — 부처의 힘으로 국난을 극복하라</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 전쟁 속에서 빚어낸 기적</h4>
+<p>몽골의 침입으로 거대한 <strong>황룡사 9층 목탑</strong>과 <strong>초조대장경</strong> 등이 불타 없어졌습니다. 이에 강화도의 최씨 정권은 <strong>부처의 힘으로 국난을 극복</strong>하고자 <strong>팔만대장경</strong> 조판 사업을 벌였습니다.</p>
+<p>오랜 전쟁 속에서도 방대하고 정교한 경판을 오타 없이 새겨낸 것은, 뛰어난 <strong>인쇄·목공 기술</strong>과 나라를 지키고자 했던 <strong>결집된 정신력</strong>을 동시에 보여 줍니다.</p>
+<div class="highlight-box teal"><strong>전쟁 속의 문화 유산</strong><br/>팔만대장경은 '전쟁 중에도 문화를 지키겠다'는 의지의 산물입니다. 8만여 장의 경판에 오탈자가 거의 없다는 것이 그 정신력의 증거입니다.</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">⛵</span>
+<h2>삼별초의 항쟁 — 끝까지 굴복하지 않다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 강화도에서 진도, 그리고 제주도까지</h4>
+<p>오랜 전쟁에 지친 고려 왕실은 무신 정권을 무너뜨리고 몽골(원)과 <strong>화의</strong>를 맺어 개경으로 돌아가기로 했습니다. 그러나 최씨 정권의 핵심 군사 조직이었던 <strong>삼별초</strong>는 굴복을 거부했습니다.</p>
+<p><strong>배중손</strong>의 지휘 아래 강화도에서 <strong>진도</strong>로, 다시 <strong>제주도</strong>로 근거지를 옮겨가며 끝까지 저항하다 진압되었습니다. 삼별초의 항쟁은 <strong>대몽 항쟁의 마지막 불꽃</strong>이었습니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">지배층의 전략</div>
+<div class="name">강화도 천도</div>
+<div class="desc">바다를 방패로 장기전<br/>왕실과 지배층 보호<br/>육지 백성은 무방비 노출</div>
+</div>
+<div class="compare-card red">
+<div class="label">백성의 항전</div>
+<div class="name">군민 합심 저항</div>
+<div class="desc">처인성: 살리타 사살<br/>충주성: 천민들의 항전<br/>삼별초: 끝까지 저항</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>강화도 천도는 군사 전략으로서는 효과적이었지만, 백성의 삶 측면에서는 큰 희생을 초래했습니다. 이 결정을 어떻게 평가해야 할까요?</p><p>전쟁 중에 팔만대장경을 만든 것은 현실 도피였을까, 정신적 저항이었을까?</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>최씨 정권은 몽골의 수전 약점을 이용해 <strong>강화도로 천도</strong>하여 장기전을 준비하였다.</li>
+<li><strong>처인성</strong>에서 김윤후가 살리타를 사살하고, <strong>충주성</strong>에서 천민들이 항전하였다.</li>
+<li>전쟁 중 <strong>팔만대장경</strong>을 조판하여 부처의 힘으로 국난 극복을 기원하였다.</li>
+<li>개경 환도 후 <strong>삼별초</strong>가 배중손의 지휘로 강화도→진도→제주도에서 끝까지 저항하였다.</li>
+<li>대몽 항쟁은 <strong>지배층만의 전쟁이 아니라 백성이 함께 싸운 저항의 역사</strong>였다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 강화도 천도를 군사 전략과 백성의 삶, 두 관점에서 평가해 보자</h4>
+<p class="question-text">최씨 정권의 강화도 천도는 몽골의 약점을 이용한 군사 전략이었지만, 육지 백성은 무방비로 남겨졌습니다. 이 결정을 <strong>군사 전략의 관점</strong>과 <strong>백성의 삶의 관점</strong>에서 각각 평가해 보세요.<br/><br/>(힌트: <strong>수전의 약점</strong>, <strong>장기전</strong>, <strong>육지의 백성</strong>, <strong>약탈</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>강화도 천도</span><span>처인성</span><span>김윤후</span><span>팔만대장경</span><span>삼별초</span><span>배중손</span><span>대몽 항쟁</span><span>군민 항전</span><span>장기전</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p><strong>군사 전략의 관점</strong>에서 강화도 천도는 효과적이었습니다. 몽골군은 수전에 약했기 때문에 좁은 바다가 천연 방어선이 되었고, 실제로 몽골은 강화도를 함락시키지 못했습니다.</p>
+<p>그러나 <strong>백성의 삶의 관점</strong>에서는 심각한 문제가 있었습니다. 지배층은 강화도에서 안전하게 생활한 반면, 육지의 백성은 몽골군의 약탈과 학살에 그대로 노출되었습니다.</p>
+<p>따라서 이 결정은 <strong>'나라를 지켰지만 백성을 지키지 못한'</strong> 양면적 성격을 가집니다. 처인성과 충주성에서 백성들이 스스로 싸워야 했다는 사실이 이를 증명합니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="1" data-explain="처인성(용인)에서 승려 출신 김윤후와 지역 민중이 합심하여 몽골군 총사령관 살리타를 사살하는 큰 승리를 거두었습니다.">
+<h4>Q1. 처인성 전투에서 몽골군 총사령관 살리타를 사살한 인물은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 배중손</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 김윤후</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 최충헌</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 강감찬</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="1" data-explain="팔만대장경은 몽골 침입으로 초조대장경이 소실된 뒤, 부처의 힘으로 국난을 극복하고자 강화도에서 제작되었습니다.">
+<h4>Q2. 팔만대장경이 제작된 시기와 목적으로 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 삼국 시대, 불교 전파를 위해</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 몽골 침입기, 부처의 힘으로 국난 극복을 위해</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 조선 시대, 유학 보급을 위해</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 통일 신라, 왕권 강화를 위해</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="1" data-explain="삼별초는 개경 환도에 반발하여 강화도에서 봉기한 뒤, 진도로, 다시 제주도로 근거지를 옮기며 끝까지 대몽 항쟁을 이어갔습니다.">
+<h4>Q3. 삼별초가 대몽 항쟁을 이어간 순서로 옳은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 진도 → 강화도 → 제주도</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 강화도 → 진도 → 제주도</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 제주도 → 진도 → 강화도</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 강화도 → 제주도 → 진도</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert('답변을 먼저 작성해주세요!');answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt('학번을 입력해주세요.\n(예: 30101)');
+  if(!studentId)return;
+  const studentName=prompt('이름을 입력해주세요.\n(예: 홍길동)');
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent='제출 중...⏳';btn.disabled=true;btn.style.opacity='0.7';
+
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert('🎉 성공적으로 제출되었습니다!');
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert('❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.');
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

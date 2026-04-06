@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🏺 고려의 신분과 문화</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">고려의 신분과 문화</span>
+<span class="page-ref">한국사 Ⅲ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">🏺</span>
+<h1>고려의 신분과 문화</h1>
+<p class="subtitle">전쟁과 혼란 속에서도 고려는 세계가 놀랄 만큼 정교한 문화를 꽃피웠습니다.<br/>청자, 금속 활자, 역사서 — 고려인의 다채로운 삶과 창조력을 만나 봅시다.</p>
+<div class="hero-keywords">
+<span>균분 상속</span><span>금속 활자</span><span>직지심체요절</span><span>삼국사기</span><span>삼국유사</span><span>고려청자</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 고려 시대 여성의 지위는 조선과 어떻게 달랐을까?</li>
+<li><span class="cq-badge standard">표준</span> 삼국사기와 삼국유사는 어떤 차이가 있을까?</li>
+<li><span class="cq-badge advanced">심화</span> 고려청자의 상감 기법은 무엇이 특별한가?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">신분제와 여성 지위</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">불교 문화 융성</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">팔만대장경 완성</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">직지심체요절 인쇄</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">삼국사기·삼국유사</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">상감 청자 발전</div></div>
+</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">👩</span>
+<h2>신분제와 여성의 상대적 평등 — 조선과 달랐던 고려</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 균분 상속과 자유로운 재혼</h4>
+<p>고려는 귀족, 중류층, 양민, 천민으로 나뉜 엄격한 신분제 사회였습니다. 그러나 <strong>가족 제도</strong>만큼은 조선 후기와 크게 달랐습니다. 부모의 재산을 아들과 딸 구별 없이 골고루 나누어 주는 <strong>균분 상속</strong>이 일반적이었습니다.</p>
+<p>제사도 형제자매가 돌아가며 지냈고, <strong>여성의 재혼</strong>도 비교적 자유로웠습니다. 일상생활에서 여성의 지위가 남성과 큰 차이가 없었다는 점이 고려 사회의 독특한 특징입니다.</p>
+<div class="highlight-box"><strong>시대마다 다른 여성의 지위</strong><br/>고려와 조선은 같은 한반도의 나라이지만, 여성의 지위는 상당히 달랐습니다. 시대에 따라 사회의 모습이 변한다는 것을 보여 주는 좋은 사례입니다.</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">📖</span>
+<h2>금속 활자와 인쇄술 — 세계를 앞서다</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 직지심체요절, 구텐베르크보다 앞서다</h4>
+<p>고려의 인쇄술은 세계 최고 수준이었습니다. 목판 인쇄의 최고봉인 <strong>팔만대장경</strong>에 이어, 고려 후기에는 청주 흥덕사에서 <strong>『직지심체요절』</strong>을 찍어냈습니다.</p>
+<p>이는 서양의 구텐베르크보다 앞선 <strong>현존하는 세계 최고(最古)의 금속 활자본</strong>으로, 고려의 정보 기술이 얼마나 혁신적이었는지 증명합니다. 불교를 널리 퍼뜨리려는 종교적 열정이 기술 혁신의 원동력이 되었습니다.</p>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">📚</span>
+<h2>삼국사기와 삼국유사 — 시대를 담은 두 역사서</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 유교적 합리성 vs 민족적 자부심</h4>
+<p>묘청의 난 이후 <strong>김부식</strong>은 유교적이고 합리적인 시각에서 삼국의 역사를 정돈한 <strong>『삼국사기』</strong>를 편찬했습니다(기전체 형식). 이는 현존하는 <strong>한국 최고(最古)의 역사서</strong>입니다.</p>
+<p>반면 몽골의 침입으로 나라가 짓밟히던 시기, <strong>일연</strong> 스님은 <strong>『삼국유사』</strong>를 썼습니다. 단군 신화를 비롯해 불교 설화와 민족의 옛이야기가 가득 담겨, 고난 속에서 <strong>민족의 자부심</strong>을 일깨워 주는 역할을 했습니다.</p>
+<div class="highlight-box teal"><strong>같은 역사, 다른 시선</strong><br/>삼국사기는 '질서와 합리'를, 삼국유사는 '정체성과 자부심'을 강조합니다. 역사서는 쓰는 사람의 시대와 목적을 반영합니다.</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">🏺</span>
+<h2>고려청자 — 예술의 극치</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 비색의 아름다움, 상감의 독창성</h4>
+<p>고려를 대표하는 최고의 예술품은 <strong>고려청자</strong>입니다. 은은하고 맑은 비취색(<strong>비색</strong>)의 아름다움에 더해, 도자기 표면을 파내고 다른 흙을 채워 무늬를 넣는 <strong>상감 기법</strong>은 세계 어디에서도 볼 수 없는 고려만의 독창적 기술입니다.</p>
+<p>이 외에도 <strong>나전칠기</strong>와 <strong>불화</strong> 등 고려의 공예품은 귀족적이고 섬세한 미의식의 결정체입니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">삼국사기</div>
+<div class="name">유교적 합리성</div>
+<div class="desc">김부식 편찬 (기전체)<br/>묘청의 난 이후 저술<br/>합리적·질서 중심의 역사</div>
+</div>
+<div class="compare-card red">
+<div class="label">삼국유사</div>
+<div class="name">민족적 자부심</div>
+<div class="desc">일연 저술<br/>몽골 침입기에 저술<br/>단군 신화·불교 설화 수록</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>김부식의 삼국사기와 일연의 삼국유사는 각각 어떤 시대적 배경에서 쓰였을까요?</p><p>같은 역사를 다루면서도 관점이 다른 이유는 무엇일까요? '역사를 쓰는 사람의 시대'가 역사서에 어떤 영향을 미치는지 생각해 봅시다.</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>고려는 신분제 사회였으나 <strong>균분 상속, 여성의 재혼</strong> 등 여성 지위가 비교적 높았다.</li>
+<li><strong>직지심체요절</strong>은 현존하는 <strong>세계 최고의 금속 활자본</strong>이다.</li>
+<li><strong>삼국사기</strong>(김부식, 기전체)와 <strong>삼국유사</strong>(일연, 단군 신화 수록)는 각각 다른 시대적 배경에서 쓰였다.</li>
+<li><strong>고려청자</strong>는 비색의 아름다움과 <strong>상감 기법</strong>이라는 독창적 기술로 유명하다.</li>
+<li>고려 문화는 <strong>전쟁과 혼란 속에서도 세계적 수준의 정교함과 창조성</strong>을 보여 준다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 삼국사기와 삼국유사는 각각 어떤 시대적 배경과 목적에서 쓰였을까?</h4>
+<p class="question-text">김부식의 삼국사기와 일연의 삼국유사는 모두 삼국의 역사를 다루지만, 쓰인 시기와 목적, 특징이 다릅니다. 두 역사서의 <strong>시대적 배경, 저술 목적, 주요 특징</strong>을 비교하여 설명해 보세요.<br/><br/>(힌트: <strong>묘청의 난 이후 vs 몽골 침입기</strong>, <strong>유교 vs 불교</strong>, <strong>합리성 vs 정체성</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>삼국사기</span><span>삼국유사</span><span>김부식</span><span>일연</span><span>기전체</span><span>단군 신화</span><span>유교</span><span>불교</span><span>고려청자</span><span>직지심체요절</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p><strong>삼국사기</strong>는 묘청의 난(1135년) 이후, <strong>김부식</strong>이 유교적·합리적 시각에서 삼국의 역사를 정리한 역사서입니다. 기전체 형식으로 왕의 업적과 제도를 체계적으로 서술하며, <strong>질서와 합리성</strong>을 강조합니다.</p>
+<p><strong>삼국유사</strong>는 몽골 침입이라는 국난 속에서, <strong>일연</strong> 스님이 단군 신화와 불교 설화 등을 모아 쓴 역사서입니다. <strong>민족의 정체성과 자부심</strong>을 일깨워 고난을 이겨내려는 목적이 담겨 있습니다.</p>
+<p>이처럼 같은 역사를 다루면서도 <strong>시대적 필요에 따라 관점이 달라질 수 있다</strong>는 것이 두 역사서를 비교할 때 가장 중요한 포인트입니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="2" data-explain="직지심체요절은 고려 후기 청주 흥덕사에서 인쇄된 현존하는 세계 최고의 금속 활자본입니다. ①은 목판 인쇄, ②는 세계 최고의 목판 인쇄물입니다.">
+<h4>Q1. 현존하는 세계 최고(最古)의 금속 활자본은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 팔만대장경</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 무구정광대다라니경</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 직지심체요절</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 삼국유사</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="1" data-explain="고려청자의 상감 기법은 도자기 표면을 파내고 다른 색의 흙을 채워 넣어 무늬를 만드는 세계 유일의 독창적 기술입니다.">
+<h4>Q2. 고려청자의 독창적 기법으로 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 비단에 무늬를 짜는 직조 기법</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 도자기 표면을 파내고 다른 흙을 채우는 상감 기법</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 금속에 은을 박아 넣는 은입사 기법</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 나무에 옻칠을 하는 나전 기법</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="1" data-explain="삼국유사는 일연 스님이 저술한 역사서로, 단군 신화를 비롯해 불교 설화와 민족의 옛이야기를 수록하여 민족 정체성을 일깨우는 역할을 했습니다.">
+<h4>Q3. 단군 신화를 수록한 역사서와 그 저자는?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 삼국사기 — 김부식</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 삼국유사 — 일연</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 왕오천축국전 — 혜초</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 직지심체요절 — 경한</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert('답변을 먼저 작성해주세요!');answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt('학번을 입력해주세요.\n(예: 30101)');
+  if(!studentId)return;
+  const studentName=prompt('이름을 입력해주세요.\n(예: 홍길동)');
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent='제출 중...⏳';btn.disabled=true;btn.style.opacity='0.7';
+
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert('🎉 성공적으로 제출되었습니다!');
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert('❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.');
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

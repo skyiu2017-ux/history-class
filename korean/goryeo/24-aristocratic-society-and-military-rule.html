@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🗡️ 문벌 사회의 동요와 무신 정권</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">문벌 사회의 동요와 무신 정권</span>
+<span class="page-ref">한국사 Ⅲ</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">🗡️</span>
+<h1>문벌 사회의 동요와 무신 정권</h1>
+<p class="subtitle">과거와 음서로 권력을 독점한 문벌 귀족, 차별에 분노한 무신들의 칼 —<br/>고려는 100년 넘는 격동의 시대로 접어듭니다.</p>
+<div class="hero-keywords">
+<span>문벌 귀족</span><span>이자겸의 난</span><span>묘청</span><span>무신 정변</span><span>최씨 정권</span><span>망이·망소이</span>
+</div>
+</header>
+<!-- DIFFICULTY -->
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 기초</div>
+<div class="diff-tab standard">🔸 기본</div>
+<div class="diff-tab advanced">💠 심화</div>
+</div>
+<!-- CORE QUESTIONS -->
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 오늘의 핵심 질문</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 문벌 귀족 사회의 모순은 무엇이었을까?</li>
+<li><span class="cq-badge standard">표준</span> 무신 정변은 왜 일어났을까?</li>
+<li><span class="cq-badge advanced">심화</span> 무신 정권 시기에 하층민의 반란이 많았던 이유는 무엇일까?</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<!-- TIMELINE -->
+<div class="timeline-bar fade-up">
+<h3>📅 흐름 한눈에 보기</h3>
+<div class="tl-track">
+<div class="tl-node"><div class="tl-dot">①</div><div class="tl-label">문벌 귀족 권력 독점</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">②</div><div class="tl-label">이자겸의 난</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">③</div><div class="tl-label">묘청의 서경 천도 운동</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">④</div><div class="tl-label">무신 정변(1170)</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑤</div><div class="tl-label">최씨 정권 성립</div></div>
+<div class="tl-connector"></div>
+<div class="tl-node"><div class="tl-dot">⑥</div><div class="tl-label">민중 봉기 확산</div></div>
+</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">1</div>
+<span class="section-emoji">👑</span>
+<h2>문벌 사회의 모순 — 이자겸과 묘청</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 권력 독점이 만든 균열</h4>
+<p>문벌 귀족은 <strong>공음전과 음서</strong>를 통해 권력과 부를 세습했습니다. 특히 경원 이씨 가문의 <strong>이자겸</strong>은 왕실과 거듭 혼인하며 왕을 뛰어넘는 권력을 누리다 반란을 일으켰습니다(<strong>이자겸의 난</strong>).</p>
+<p>이후 정지상, <strong>묘청</strong> 등 서경 세력은 썩어빠진 개경을 벗어나 서경(평양)으로 수도를 옮기고 금나라를 정벌하자며 <strong>묘청의 서경 천도 운동</strong>을 일으켰지만, 김부식이 이끄는 개경 귀족에게 진압되었습니다.</p>
+<div class="highlight-box"><strong>연이은 반란 = 곪은 사회</strong><br/>이자겸의 난과 묘청의 난이 잇따라 일어났다는 것은, 문벌 사회가 얼마나 심각하게 병들어 있었는지를 보여 줍니다.</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">2</div>
+<span class="section-emoji">⚔️</span>
+<h2>무신 정변 — 칼이 지배하는 시대</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 차별이 폭발한 순간</h4>
+<p>문벌 귀족들이 권력을 다투는 동안, 나라를 지키는 무신들은 문신의 <strong>무시와 차별</strong> 속에서 <strong>군인전</strong>조차 제대로 받지 못하는 처지였습니다.</p>
+<p>폭발 직전이던 불만은 <strong>1170년</strong>, <strong>정중부</strong>와 이의방 등이 보현원에서 문신들을 대거 죽이고 왕을 내쫓는 <strong>무신 정변</strong>으로 터져 나왔습니다. 문벌 중심의 정치 질서가 하루아침에 무너지고, 칼이 지배하는 시대가 열렸습니다.</p>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">3</div>
+<span class="section-emoji">🏴</span>
+<h2>최씨 정권 — 무신 지배의 안정기</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 교정도감, 정방, 삼별초</h4>
+<p>무신들 사이의 피비린내 나는 권력 다툼 끝에 <strong>최충헌</strong>이 정권을 잡으며 약 60년간의 <strong>최씨 정권</strong>이 성립되었습니다. 최씨 정권은 <strong>교정도감</strong>(최고 권력 기구)과 <strong>정방</strong>(인사 담당)을 설치하고 <strong>삼별초</strong>라는 사병을 두어 권력을 유지했습니다.</p>
+<p>형식상 왕은 존재했지만, 실질적 권력은 최씨 집안이 쥐고 있는 <strong>'왕 위의 권력'</strong>이었습니다.</p>
+<div class="highlight-box teal"><strong>무신 정권의 구조</strong><br/>교정도감(정책), 정방(인사), 삼별초(군사) — 이 세 기구를 장악함으로써 최씨 정권은 국가 권력을 사실상 독점했습니다.</div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">4</div>
+<span class="section-emoji">🔥</span>
+<h2>민중 봉기 — 가장 낮은 곳의 저항</h2>
+</div>
+<div class="glass-card fade-up">
+<h4>📌 망이·망소이, 만적의 난</h4>
+<p>무신 정권 아래 백성들의 삶은 문벌 시대보다 <strong>더 비참해졌습니다</strong>. 가혹한 수탈에 맞서 공주 명학소의 <strong>망이·망소이의 난</strong>, 노비 출신 <strong>만적의 난</strong> 등 신분 해방과 생존을 향한 하층민의 거센 저항이 전국을 뒤덮었습니다.</p>
+<p>특히 만적은 '장군과 재상의 씨가 따로 있는 것이 아니다'라며 <strong>신분 차별 자체에 도전</strong>했습니다. 비록 실패했지만, 이는 당시 사회의 구조적 모순이 얼마나 심각했는지를 보여 주는 사건입니다.</p>
+<div class="compare-row">
+<div class="compare-card blue">
+<div class="label">문벌 귀족 사회</div>
+<div class="name">과거·음서로 권력 독점</div>
+<div class="desc">공음전으로 세습<br/>이자겸의 난·묘청의 난<br/>문신 우대, 무신 차별</div>
+</div>
+<div class="compare-card red">
+<div class="label">무신 정권</div>
+<div class="name">칼이 지배하는 시대</div>
+<div class="desc">정중부의 무신 정변(1170)<br/>최씨 정권 60년<br/>민중 봉기 전국 확산</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ 심화 생각 박스 ═══ -->
+<div class="think-box fade-up">
+<h4>💡 생각해 보기</h4>
+<p>무신 정권 시기에 유독 노비·천민 등 하층민의 반란이 많이 일어난 이유는 무엇일까요?</p><p>'무신이 문신을 이겼으니 세상이 좋아졌을까?' — 지배자가 바뀌어도 백성의 삶이 나아지지 않는 이유를 생각해 봅시다.</p>
+</div>
+<!-- ═══ SUMMARY ═══ -->
+<div class="summary-box fade-up">
+<h3>📚 한눈에 정리</h3>
+<ul>
+<li>문벌 귀족은 <strong>공음전·음서</strong>로 권력을 독점하며 <strong>이자겸의 난</strong>과 <strong>묘청의 서경 천도 운동</strong>을 일으켰다.</li>
+<li><strong>1170년 무신 정변</strong>으로 문벌 중심 질서가 무너지고 무신이 권력을 장악했다.</li>
+<li><strong>최충헌</strong> 이후 약 60년간 <strong>최씨 정권</strong>이 교정도감·정방·삼별초로 권력을 유지했다.</li>
+<li>하층민은 <strong>망이·망소이의 난</strong>, <strong>만적의 난</strong> 등으로 신분 해방과 생존을 위해 저항했다.</li>
+<li>무신 정권기는 <strong>지배 질서의 붕괴와 민중 저항</strong>이 동시에 일어난 격동의 시대였다.</li>
+</ul>
+</div>
+<!-- ═══ INQUIRY ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">💠</div>
+<h2>심화 탐구</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">아래 질문은 배운 내용을 비교하고 이유를 따져 보는 활동입니다. 핵심 개념을 연결해 서술해 보세요.</p>
+<div class="inquiry-card fade-up" id="inq1">
+<h4>📌 탐구. 무신 정권 시기에 하층민의 반란이 많이 일어난 이유는 무엇일까?</h4>
+<p class="question-text">무신 정변 이후 하층민의 봉기가 전국으로 확산되었습니다. 왜 무신 정권기에 유독 노비·천민의 반란이 많았을까요? <strong>'신분 상승의 가능성'</strong>이라는 관점에서 설명해 보세요.<br/><br/>(힌트: <strong>무신 정변</strong>, <strong>신분 질서 붕괴</strong>, <strong>만적의 발언</strong>)</p>
+<textarea class="inquiry-textarea" placeholder="여기에 생각을 자유롭게 적어보세요..."></textarea>
+<button class="inquiry-submit" onclick="submitInquiry('inq1')">답변 제출</button>
+<div class="keyword-result">
+<h5>🔍 키워드 분석 결과</h5>
+<div class="keywords-tags">
+<span>무신 정변</span><span>최씨 정권</span><span>망이·망소이</span><span>만적</span><span>신분 해방</span><span>교정도감</span><span>삼별초</span><span>민중 봉기</span><span>하층민</span>
+</div>
+</div>
+<div class="model-answer">
+<h5>✅ 모범 답안</h5>
+<p>무신 정권기에 하층민의 반란이 많았던 이유는 <strong>무신 정변 자체가 기존 신분 질서를 흔들어 놓았기 때문</strong>입니다.</p>
+<p>무신 정변은 '문신이 지배하는 세상'을 '무신이 지배하는 세상'으로 바꾸었습니다. 이것은 <strong>신분 질서가 영원불변한 것이 아니라 바뀔 수 있다</strong>는 것을 모두에게 보여 준 사건이었습니다.</p>
+<p>하층민들은 '무신도 문신을 이겼는데, 우리도 바꿀 수 있다'는 가능성을 보았습니다. 만적이 '장군과 재상의 씨가 따로 있는 것이 아니다'라고 말한 것은, 이러한 <strong>신분 상승의 열망</strong>을 대변합니다.</p>
+</div>
+</div>
+<!-- ═══ QUIZ ═══ -->
+<div class="section-head fade-up">
+<div class="section-num">📝</div>
+<h2>형성평가</h2>
+</div>
+<p class="fade-up" style="color:var(--text-sub);font-size:14px;margin-bottom:20px;">핵심 개념이 정확히 잡혔는지 짧게 확인해 보세요!</p>
+<div class="quiz-container fade-up" id="quiz">
+<div class="quiz-progress" id="quizProgress"></div>
+<!-- Q1 -->
+<div class="quiz-question" data-correct="1" data-explain="무신들은 문신의 무시와 차별 속에서 군인전조차 제대로 받지 못했습니다. 이러한 불만이 쌓여 1170년 정중부 등이 무신 정변을 일으켰습니다.">
+<h4>Q1. 무신 정변이 일어난 배경으로 가장 알맞은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 왕의 폭정에 대한 반발</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 문신의 무신 차별과 경제적 불이익</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 몽골의 침입</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 거란의 3차 침입</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q2 -->
+<div class="quiz-question" data-correct="3" data-explain="도병마사는 고려 초기부터 있던 국방 회의 기구로, 최씨 정권이 만든 것이 아닙니다. 교정도감(정책), 정방(인사), 삼별초(사병)가 최씨 정권의 핵심 기구입니다.">
+<h4>Q2. 최씨 무신 정권의 권력 기구로 알맞지 않은 것은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 교정도감</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 정방</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 삼별초</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 도병마사</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Q3 -->
+<div class="quiz-question" data-correct="3" data-explain="노비 출신 만적은 '장군과 재상의 씨가 따로 있는 것이 아니다'라며 신분 차별 자체에 도전하는 봉기를 일으켰습니다.">
+<h4>Q3. '장군과 재상의 씨가 따로 있는 것이 아니다'라고 말한 인물은?</h4>
+<div class="quiz-options">
+<button class="quiz-option" onclick="selectAnswer(this,0)">① 이자겸</button>
+<button class="quiz-option" onclick="selectAnswer(this,1)">② 묘청</button>
+<button class="quiz-option" onclick="selectAnswer(this,2)">③ 정중부</button>
+<button class="quiz-option" onclick="selectAnswer(this,3)">④ 만적</button>
+</div>
+<div class="quiz-explanation"></div>
+<button class="quiz-next-btn" onclick="nextQuestion()">다음 문제 →</button>
+</div>
+<!-- Result -->
+<div class="quiz-result" id="quizResult">
+<div class="score" id="quizScore">0/3</div>
+<div class="score-label">맞힌 문제 수</div>
+<button class="retry-btn" onclick="resetQuiz()">🔄 다시 풀기</button>
+</div>
+</div>
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* INQUIRY — Google Sheets 제출 연동 */
+function submitInquiry(id){
+  const card=document.getElementById(id);
+  const answerInput=card.querySelector('.inquiry-textarea');
+  const answerText=answerInput?answerInput.value.trim():'';
+  if(!answerText){alert('답변을 먼저 작성해주세요!');answerInput.focus();return}
+
+  // 학번·이름 입력
+  const studentId=prompt('학번을 입력해주세요.\n(예: 30101)');
+  if(!studentId)return;
+  const studentName=prompt('이름을 입력해주세요.\n(예: 홍길동)');
+  if(!studentName)return;
+
+  // 페이지 제목 자동 추출
+  const pageTitle=document.title;
+
+  // 버튼 상태 변경
+  const btn=card.querySelector('.inquiry-submit');
+  const originalText=btn.textContent;
+  btn.textContent='제출 중...⏳';btn.disabled=true;btn.style.opacity='0.7';
+
+  const scriptURL='https://script.google.com/macros/s/AKfycbztBtjcaNopJARt0u1wh0UFCcuyUhsnI--QrF28vmpS_pKCuP9Oxt18ZLthG8b0YfRt/exec';
+
+  fetch(scriptURL,{
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      pageTitle:pageTitle,
+      studentId:studentId,
+      studentName:studentName,
+      answer:answerText
+    })
+  })
+  .then(response=>{
+    alert('🎉 성공적으로 제출되었습니다!');
+    card.querySelector('.keyword-result').style.display='block';
+    card.querySelector('.model-answer').style.display='block';
+    btn.textContent='✅ 제출 완료';btn.disabled=true;btn.style.opacity='1';
+  })
+  .catch(error=>{
+    console.error('Error!',error.message);
+    alert('❌ 제출에 실패했습니다. 인터넷 연결을 확인해주세요.');
+    btn.textContent=originalText;btn.disabled=false;btn.style.opacity='1';
+  });
+}
+
+/* QUIZ */
+let currentQ=0,score=0;
+const questions=document.querySelectorAll('.quiz-question');
+const totalQ=questions.length;
+
+function initQuiz(){
+  const prog=document.getElementById('quizProgress');prog.innerHTML='';
+  for(let i=0;i<totalQ;i++){const d=document.createElement('div');d.className='quiz-dot'+(i===0?' active':'');prog.appendChild(d)}
+  questions[0].classList.add('active');
+}
+
+function selectAnswer(btn,idx){
+  const q=questions[currentQ],correct=parseInt(q.dataset.correct);
+  const opts=q.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(idx===correct){btn.classList.add('selected-correct');score++;document.querySelectorAll('.quiz-dot')[currentQ].classList.add('correct')}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('wrong')}
+  const expl=q.querySelector('.quiz-explanation');expl.textContent=q.dataset.explain;expl.style.display='block';
+  q.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){
+  questions[currentQ].classList.remove('active');currentQ++;
+  if(currentQ<totalQ){questions[currentQ].classList.add('active');document.querySelectorAll('.quiz-dot')[currentQ].classList.add('active')}
+  else{document.getElementById('quizScore').textContent=score+'/'+totalQ;document.getElementById('quizResult').style.display='block'}
+}
+
+function resetQuiz(){
+  currentQ=0;score=0;document.getElementById('quizResult').style.display='none';
+  questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});
+  initQuiz();
+}
+
+initQuiz();
+</script>
+</body>
+</html>

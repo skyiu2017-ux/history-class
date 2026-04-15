@@ -28,7 +28,8 @@
     .unit-details{display:flex;flex-direction:column;gap:0}.unit-details>summary{list-style:none;cursor:pointer}.unit-details>summary::-webkit-details-marker{display:none}.unit-details[open]>summary .arrow{transform:rotate(180deg)}.unit-details .arrow{transition:transform 0.2s;display:inline-block}.sub-list{display:flex;flex-direction:column;gap:4px;padding:4px 0}.sub-item{background:rgba(240,244,248,0.8);border-left:3px solid var(--navy)}.sub-item:hover{background:rgba(240,244,248,1)}
     .midunit-item{background:rgba(240,244,248,0.5);border-left:3px solid rgba(30,58,95,0.3)}.midunit-item .unit-name{font-size:0.85rem;padding-left:8px;color:var(--navy)}.midunit-details>summary{list-style:none;cursor:pointer}.midunit-details>summary::-webkit-details-marker{display:none}.midunit-details[open]>summary .arrow{transform:rotate(180deg)}.midunit-details .arrow{transition:transform 0.2s;display:inline-block}
     .page-item{background:rgba(240,244,248,0.9);border-left:3px solid var(--blue)}.page-item .unit-name{font-size:0.83rem;padding-left:20px;color:var(--text)}.page-item:hover{background:rgba(219,234,254,0.6)}
-    /* 학습지 다운로드 버튼 */
+    /* ★ 통합정리 페이지 강조 */
+    .page-item.page-highlight{background:rgba(219,234,254,0.5);border-left:3px solid var(--navy)}.page-item.page-highlight .unit-name{color:var(--navy);font-weight:600}
     .page-item-wrap{display:flex;align-items:center;gap:0}.page-item-wrap .page-item{flex:1;border-radius:var(--r-sm) 0 0 var(--r-sm)}.page-item-wrap .ws-btn{display:flex;align-items:center;justify-content:center;padding:0 14px;background:var(--orange-bg);border:1px solid rgba(217,119,6,0.15);border-left:none;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:0.72rem;font-weight:600;color:var(--orange);white-space:nowrap;gap:3px;transition:background 0.15s;text-decoration:none;min-height:100%}.page-item-wrap .ws-btn:hover{background:#FEF3C7}
     .notice-box{background:var(--red-bg);border:1px solid rgba(220,38,38,0.15);border-radius:var(--r-md);padding:16px;margin-bottom:12px}.notice-box h3{font-size:0.88rem;font-weight:700;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-list{display:flex;flex-direction:column;gap:4px}.notice-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-list li::before{content:'•';position:absolute;left:0;color:var(--red)}
     .notice-info-box{background:var(--blue-bg);border:1px solid rgba(37,99,235,0.12);border-radius:var(--r-md);padding:16px;margin-bottom:10px}.notice-info-box h3{font-size:0.88rem;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-info-list{display:flex;flex-direction:column;gap:4px}.notice-info-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-info-list li::before{content:'•';position:absolute;left:0;color:var(--blue)}
@@ -50,12 +51,12 @@
 <script>
 const CONFIG = {
   thisWeek: [
-    { badge: '중3', color: '#2563EB', title: '향촌 사회의 변동과 농민 봉기',
-      desc: '조선 후기 신분제 동요와 향촌 사회 변화, 삼정의 문란과 농민 봉기를 정리합니다.',
+    { badge: '중3', color: '#2563EB', title: '문호 개방과 개화 정책',
+      desc: '개항기 조선의 문호 개방 과정과 개화 정책 추진을 정리합니다. 병인양요부터 을미사변까지 핵심 흐름을 확인하세요.',
       links: [
-        { icon: '📄', text: '빈칸 학습지', url: 'worksheets/ws06_hyangchon_farmers.pdf' },
-        { icon: '🖥️', text: '향촌 사회가 흔들리다', url: 'korean/joseon-late/11. joseon_hyangchon_change.html' },
-        { icon: '🖥️', text: '삼정의 문란과 농민의 의식 성장', url: 'korean/joseon-late/12. joseon_samjeong_farmers.html' }
+        { icon: '📄', text: '빈칸 학습지', url: 'worksheets/ws09_opening_modernization.pdf' },
+        { icon: '🖥️', text: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html' },
+        { icon: '🖥️', text: '개항기 통합 정리 + 형성평가', url: 'korean/modern/gaehangi_final.html' }
       ]},
     { badge: '중2', color: '#7C3AED', title: '수업 자료 준비 중',
       desc: '중2 수업 자료는 현재 준비 중입니다. 곧 업데이트될 예정이에요!',
@@ -173,7 +174,9 @@ const CONFIG = {
       { name: '근·현대 사회의 전개', subunits: [
         { name: '개항과 근대 국가 수립 운동', pages: [
           { name: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html', ws: 'worksheets/ws09_opening_modernization.pdf' },
-          { name: '국민 국가 수립을 위한 노력', url: 'korean/modern/17. korean_national_state.html' }
+          { name: '국민 국가 수립을 위한 노력', url: 'korean/modern/17. korean_national_state.html' },
+          /* ★ [추가] 개항기 통합 정리 + 형성평가 */
+          { name: '📋 개항기 조선의 위기와 개혁 — 통합 정리 + 형성평가', url: 'korean/modern/gaehangi_final.html', highlight: true }
         ]},
         { name: '일제 강점과 민족 운동', pages: [
           { name: '일제에 맞선 민족 운동', url: 'korean/contemporary/18. anti_japanese_movements.html' },
@@ -203,81 +206,45 @@ const CONFIG = {
   world: [
     { era: '고대 문명', units: [
       { name: '고대 문명과 제국', subunits: [
-        { name: '세계 4대 문명', pages: [
-          { name: '세계 4대 문명', url: 'world/ancient/civilizations.html' }
-        ]},
-        { name: '고대 그리스와 로마', pages: [
-          { name: '고대 그리스', url: 'world/ancient/greece.html' },
-          { name: '로마 제국', url: 'world/ancient/rome.html' }
-        ]},
-        { name: '서아시아 제국', pages: [
-          { name: '서아시아 제국', url: 'world/ancient/west-asia.html' }
-        ]}
+        { name: '세계 4대 문명', pages: [{ name: '세계 4대 문명', url: 'world/ancient/civilizations.html' }]},
+        { name: '고대 그리스와 로마', pages: [{ name: '고대 그리스', url: 'world/ancient/greece.html' },{ name: '로마 제국', url: 'world/ancient/rome.html' }]},
+        { name: '서아시아 제국', pages: [{ name: '서아시아 제국', url: 'world/ancient/west-asia.html' }]}
       ]}
     ]},
     { era: '세계 종교', units: [
       { name: '세계 종교의 확산', subunits: [
-        { name: '크리스트교의 성립과 확산', pages: [
-          { name: '크리스트교', url: 'world/religion/christianity.html' }
-        ]}
+        { name: '크리스트교의 성립과 확산', pages: [{ name: '크리스트교', url: 'world/religion/christianity.html' }]}
       ]}
     ]},
     { era: '중세 유럽', units: [
       { name: '유럽 세계의 형성과 변화', subunits: [
-        { name: '비잔티움 제국과 교황권', pages: [
-          { name: '비잔티움 제국', url: 'world/medieval/byzantine.html' },
-          { name: '교황권의 성장', url: 'world/medieval/papal-authority.html' }
-        ]},
-        { name: '십자군과 중세의 변화', pages: [
-          { name: '십자군 전쟁', url: 'world/medieval/crusades.html' }
-        ]}
+        { name: '비잔티움 제국과 교황권', pages: [{ name: '비잔티움 제국', url: 'world/medieval/byzantine.html' },{ name: '교황권의 성장', url: 'world/medieval/papal-authority.html' }]},
+        { name: '십자군과 중세의 변화', pages: [{ name: '십자군 전쟁', url: 'world/medieval/crusades.html' }]}
       ]}
     ]},
     { era: '르네상스·종교 개혁', units: [
       { name: '근대 의식의 성장', subunits: [
-        { name: '르네상스와 종교 개혁', pages: [
-          { name: '르네상스', url: 'world/renaissance/renaissance.html' },
-          { name: '종교 개혁', url: 'world/renaissance/reformation.html' }
-        ]}
+        { name: '르네상스와 종교 개혁', pages: [{ name: '르네상스', url: 'world/renaissance/renaissance.html' },{ name: '종교 개혁', url: 'world/renaissance/reformation.html' }]}
       ]}
     ]},
     { era: '신항로·절대 왕정', units: [
       { name: '교역망의 확대와 절대 왕정', subunits: [
-        { name: '신항로 개척과 절대 왕정', pages: [
-          { name: '대항해시대', url: 'world/exploration/exploration.html' },
-          { name: '절대 왕정과 계몽사상', url: 'world/exploration/absolutism.html' }
-        ]}
+        { name: '신항로 개척과 절대 왕정', pages: [{ name: '대항해시대', url: 'world/exploration/exploration.html' },{ name: '절대 왕정과 계몽사상', url: 'world/exploration/absolutism.html' }]}
       ]}
     ]},
     { era: '시민 혁명·근대 사회', units: [
       { name: '시민 혁명과 근대 국민 국가', subunits: [
-        { name: '시민 혁명', pages: [
-          { name: '영국 혁명', url: 'world/revolution/british.html' },
-          { name: '프랑스 혁명', url: 'world/revolution/french.html' },
-          { name: '미국 독립 혁명', url: 'world/revolution/american.html' }
-        ]},
-        { name: '근대 사회의 형성', pages: [
-          { name: '유럽의 자유주의·민족주의', url: 'world/revolution/european-liberalism.html' },
-          { name: '민주주의의 발전', url: 'world/revolution/democracy.html' },
-          { name: '자본주의 사회', url: 'world/revolution/capitalism.html' }
-        ]}
+        { name: '시민 혁명', pages: [{ name: '영국 혁명', url: 'world/revolution/british.html' },{ name: '프랑스 혁명', url: 'world/revolution/french.html' },{ name: '미국 독립 혁명', url: 'world/revolution/american.html' }]},
+        { name: '근대 사회의 형성', pages: [{ name: '유럽의 자유주의·민족주의', url: 'world/revolution/european-liberalism.html' },{ name: '민주주의의 발전', url: 'world/revolution/democracy.html' },{ name: '자본주의 사회', url: 'world/revolution/capitalism.html' }]}
       ]}
     ]}
   ],
 
   exam: [
-    { icon:'📋', title:'시험 범위표',
-      desc:'교과서 126~209쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대 사회의 전개',
-      linkText:'범위 상세 보기', url:'javascript:openScope()' },
-    { icon:'💡', title:'핵심 개념 정리',
-      desc:'단원별 핵심 개념을 짧고 명확하게 정리했습니다.',
-      linkText:'정리 보기', url:'review/review_concepts.html' },
-    { icon:'✏️', title:'빈칸 학습지',
-      desc:'단원별 빈칸 학습지를 다운로드하여 인쇄하거나 복습할 수 있습니다.',
-      linkText:'학습지 모음 보기', url:'review/review_worksheets.html' },
-    { icon:'📝', title:'서술형 대비',
-      desc:'자주 나오는 서술형 문제와 답변 방향을 확인하세요.',
-      linkText:'서술형 보기', url:'#' }
+    { icon:'📋', title:'시험 범위표', desc:'교과서 126~209쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대 사회의 전개', linkText:'범위 상세 보기', url:'javascript:openScope()' },
+    { icon:'💡', title:'핵심 개념 정리', desc:'단원별 핵심 개념을 짧고 명확하게 정리했습니다.', linkText:'정리 보기', url:'review/review_concepts.html' },
+    { icon:'✏️', title:'빈칸 학습지', desc:'단원별 빈칸 학습지를 다운로드하여 인쇄하거나 복습할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' },
+    { icon:'📝', title:'서술형 대비', desc:'자주 나오는 서술형 문제와 답변 방향을 확인하세요.', linkText:'서술형 보기', url:'#' }
   ],
 
   examScope: {
@@ -327,11 +294,13 @@ const CONFIG = {
     { icon:'📌', title:'수행평가 안내 (2차)', desc:'2차 수행평가 활동 안내입니다.', linkText:'안내 보기', url:'performance/PA_ref_31_imsi.html' },
   ],
 
+  /* ★ [수정] 복습 섹션에 개항기 통합 정리 추가 */
   review: [
     { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'review/review_summary.html' },
     { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'review/review_sources.html' },
     { icon:'✏️', title:'빈칸 학습지 모음', desc:'단원별 빈칸 학습지를 다운로드할 수 있습니다.', linkText:'학습지 보기', url:'review/review_worksheets.html' },
     { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review/review_quiz.html' },
+    { icon:'🗺️', title:'개항기 조선 통합 정리', desc:'병인양요부터 을미사변까지 — 사건별 형성평가와 달성도 확인이 포함된 통합 정리 페이지입니다.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/gaehangi_final.html' },
     { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'review/korean_history_flow.html' }
   ],
 
@@ -346,13 +315,13 @@ const CONFIG = {
     '중간고사 시험 범위: 교과서 126~209쪽 (상세 범위는 시험 대비 > 시험 범위표 참고)'
   ],
   updates: [
+    { date:'4.15', text:'개항기 조선의 위기와 개혁 통합 정리 페이지 추가 (형성평가 + 달성도 포함)' },
     { date:'4.05', text:'이번 주 수업 업데이트: 향촌 사회가 흔들리다 · 삼정의 문란과 농민의 의식 성장' },
     { date:'3.21', text:'빈칸 학습지 PDF 다운로드 추가 (주제별 자료에서 📄 버튼)' },
     { date:'3.21', text:'지난 시간 요약 · 사료 다시 보기 페이지 신규 개설' },
     { date:'3.15', text:'임진왜란·병자호란 수업 페이지 업로드' },
     { date:'3.14', text:'중2 고려 건국과 발전 인터랙티브 자료 추가' },
-    { date:'3.13', text:'수행평가 1차 안내문 공개' },
-    { date:'3.12', text:'한국사 흐름 파악하기 흐름도 추가' }
+    { date:'3.13', text:'수행평가 1차 안내문 공개' }
   ]
 };
 </script>
@@ -382,7 +351,7 @@ const CONFIG = {
 <main>
   <section class="sec" id="week"><div class="container">
     <span class="sec-label" style="background:var(--blue-bg);color:var(--blue);">📌 THIS WEEK</span>
-    <h2 class="sec-title">이번 주 수업 <span style="font-size:0.72em;font-weight:500;color:var(--dim);">(4월 6일~10일)</span></h2>
+    <h2 class="sec-title">이번 주 수업 <span style="font-size:0.72em;font-weight:500;color:var(--dim);">(4월 14일~18일)</span></h2>
     <p class="sec-desc">이번 주 확인해야 할 수업 자료입니다.</p>
     <div id="week-container"></div>
   </div></section>
@@ -467,7 +436,7 @@ function renderWeek(){
   }).join('');
 }
 
-/* ── 주제별 자료: 4단계 렌더링 (시대 → 대단원 → 중단원 → 페이지) ── */
+/* ── 주제별 자료: 4단계 렌더링 ── */
 function renderSubjects(){
   const t=document.getElementById('subject-tabs'),p=document.getElementById('subject-panels'),
   s=[{id:'korean',label:'🇰🇷 한국사',data:CONFIG.korean},{id:'world',label:'🌍 세계사',data:CONFIG.world}];
@@ -487,16 +456,18 @@ function renderSubunits(subunits){
   return subunits.map(su=>{
     if(su.pages.length===1){
       const pg=su.pages[0];
+      const hlClass = pg.highlight ? ' page-highlight' : '';
       if(pg.ws){
         return`<div class="page-item-wrap"><a class="unit-item midunit-item" href="${pg.url}" style="flex:1"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;
       }
-      return`<a class="unit-item midunit-item" href="${pg.url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;
+      return`<a class="unit-item midunit-item${hlClass}" href="${pg.url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;
     }
     return`<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>{
+      const hlClass = pg.highlight ? ' page-highlight' : '';
       if(pg.ws){
-        return`<div class="page-item-wrap"><a class="unit-item page-item" href="${pg.url}" style="flex:1"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;
+        return`<div class="page-item-wrap"><a class="unit-item page-item${hlClass}" href="${pg.url}" style="flex:1"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;
       }
-      return`<a class="unit-item page-item" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`;
+      return`<a class="unit-item page-item${hlClass}" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`;
     }).join('')}</div></details>`;
   }).join('');
 }
@@ -553,36 +524,37 @@ setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getCompute
 
 /* ── 전체 검색 ── */
 const SEARCH_DATA = [
-
-  { title: "🏺 만주와 한반도에 사람이 살기 시작하다", url: "prehistoric-three-kingdoms/01-people-settle-in-manchuria-and-korea.html", keywords: ["선사시대", "구석기", "검은모루동굴", "전곡리", "뗀석기", "이동생활"] },
-  { title: "🌾 농경과 목축을 시작하다", url: "prehistoric-three-kingdoms/02-beginning-of-farming-and-herding.html", keywords: ["신석기", "간석기", "빗살무늬토기", "움집", "농경", "목축", "정착생활"] },
-  { title: "🔔 청동기 문화가 발전하다", url: "prehistoric-three-kingdoms/03-development-of-bronze-culture.html", keywords: ["청동기", "비파형동검", "고인돌", "민무늬토기", "벼농사", "계급발생"] },
-  { title: "👑 고조선이 발전하다", url: "prehistoric-three-kingdoms/04-growth-of-gojoseon.html", keywords: ["고조선", "단군", "8조법", "위만조선", "한사군"] },
-  { title: "⛏️ 철기를 만들어 사용하다", url: "prehistoric-three-kingdoms/05-use-of-iron-tools.html", keywords: ["철기", "철제농기구", "생산력향상", "정복활동"] },
-  { title: "🏞️ 여러 나라가 성장하다", url: "prehistoric-three-kingdoms/06-growth-of-early-states.html", keywords: ["부여", "고구려", "옥저", "동예", "삼한", "영고", "동맹", "무천"] },
-  { title: "🏰 삼국과 가야, 나라의 기틀을 다지다", url: "prehistoric-three-kingdoms/07-foundations-of-the-three-kingdoms-and-gaya.html", keywords: ["삼국", "가야", "국가형성", "고구려", "백제", "신라"] },
-  { title: "⚔️ 삼국과 가야, 경쟁하며 발전하다", url: "prehistoric-three-kingdoms/08-development-through-competition.html", keywords: ["삼국발전", "율령", "불교수용", "중앙집권", "가야연맹"] },
-  { title: "🛡️ 삼국의 항쟁과 가야의 멸망", url: "prehistoric-three-kingdoms/09-conflicts-among-the-three-kingdoms-and-fall-of-gaya.html", keywords: ["한강유역", "삼국항쟁", "금관가야", "대가야", "멸망"] },
-  { title: "🏠 신분에 따라 다른 생활을 하다", url: "prehistoric-three-kingdoms/10-life-by-social-status.html", keywords: ["삼국사회", "신분", "귀족", "평민", "천민", "생활상"] },
-  { title: "🪦 삶과 신앙의 모습을 고분에 남기다", url: "prehistoric-three-kingdoms/11-life-and-beliefs-in-tombs.html", keywords: ["고분", "고분벽화", "무령왕릉", "돌무지덧널무덤", "사신도"] },
-  { title: "🌏 주변 국가와 교류하다", url: "prehistoric-three-kingdoms/12-exchanges-with-neighboring-states.html", keywords: ["삼국교류", "중국", "일본", "불교전래", "한자", "율령"] },
-  { title: "🏹 고구려가 수와 당의 침략을 물리치다", url: "north-south-states/13-goguryeo-against-sui-and-tang.html", keywords: ["수", "당", "을지문덕", "살수대첩", "안시성", "연개소문"] },
-  { title: "🌄 삼국이 통일되다", url: "north-south-states/14-unification-of-the-three-kingdoms.html", keywords: ["삼국통일", "나당연합", "황산벌", "매소성", "기벌포", "문무왕"] },
-  { title: "🦅 고구려 유민, 발해를 세우다", url: "north-south-states/15-founding-of-balhae.html", keywords: ["발해", "대조영", "동모산", "고구려계승", "남북국"] },
-  { title: "🏛️ 신라 왕권이 강해지고 통치 제도가 정비되다", url: "north-south-states/16-strengthening-of-silla-kingship.html", keywords: ["신문왕", "녹읍폐지", "관료전", "국학", "9주5소경", "9서당10정"] },
-  { title: "🌊 발해, 해동성국으로 우뚝 서다", url: "north-south-states/17-balhae-rises-as-haedongseongguk.html", keywords: ["해동성국", "무왕", "문왕", "선왕", "3성6부", "5경15부62주"] },
-  { title: "🌪️ 신라가 무너지고 후삼국이 일어나다", url: "north-south-states/18-fall-of-silla-and-later-three-kingdoms.html", keywords: ["후삼국", "호족", "원종애노의난", "견훤", "궁예", "최치원"] },
-  { title: "🛕 신라 불교 문화를 꽃피우다", url: "north-south-states/19-buddhist-culture-of-silla.html", keywords: ["원효", "의상", "불국사", "석굴암", "혜초", "무구정광대다라니경"] },
-  { title: "🌐 발해 문화, 국제성을 띠다", url: "north-south-states/20-international-culture-of-balhae.html", keywords: ["발해문화", "상경성", "온돌", "고구려전통", "국제성"] },
-  { title: "⛵ 신라와 발해, 대외 교류가 활발해지다", url: "north-south-states/21-external-exchanges-of-silla-and-balhae.html", keywords: ["장보고", "청해진", "신라방", "발해교통로", "신라도", "동아시아문화권"] },
-  { title: "🤝 고려, 후삼국을 통일하다", url: "goryeo/22-goryeo-unifies-the-later-three-kingdoms.html", keywords: ["왕건", "후삼국", "고창전투", "경순왕", "견훤", "훈요10조"] },
-  { title: "⚖️ 고려, 통치 체제를 정비하다", url: "goryeo/23-goryeo-governance-system.html", keywords: ["광종", "노비안검법", "과거제", "성종", "시무28조", "국자감"] },
-  { title: "🗡️ 문벌 사회가 동요하고 무신 정권이 수립되다", url: "goryeo/24-aristocratic-society-and-military-rule.html", keywords: ["문벌귀족", "인주이씨", "이자겸의난", "묘청", "무신정변", "최씨정권"] },
-  { title: "🌐 다원적 국제 질서가 만들어지다", url: "goryeo/25-multilateral-international-order.html", keywords: ["서희", "강동6주", "강감찬", "귀주대첩", "별무반", "벽란도"] },
-  { title: "🛡️ 고려, 몽골의 침입에 맞서 싸우다", url: "goryeo/26-goryeo-against-the-mongol-invasions.html", keywords: ["강화도천도", "김윤후", "처인성", "충주성", "팔만대장경", "삼별초"] },
-  { title: "⛓️ 원 간섭기, 권문세족이 등장하다", url: "goryeo/27-yuan-interference-and-powerful-families.html", keywords: ["부마국", "정동행성", "공녀", "권문세족", "대농장", "몽골풍"] },
-  { title: "🔱 공민왕, 개혁 정치를 실시하다", url: "goryeo/28-king-gongmin-and-reforms.html", keywords: ["공민왕", "반원자주", "기철숙청", "쌍성총관부", "전민변정도감", "신진사대부"] },
-  { title: "🏺 신분에 따라 다른 삶을 살다, 다양한 문화가 발달하다", url: "goryeo/29-life-by-status-and-goryeo-culture.html", keywords: ["고려문화", "균분상속", "직지심체요절", "삼국사기", "삼국유사", "고려청자"] },
+  /* ★ [추가] 개항기 통합 정리 */
+  { title: "🗺️ 개항기 조선의 위기와 개혁 — 통합 정리 + 형성평가", url: "korean/modern/gaehangi_final.html", keywords: ["개항기", "병인양요", "신미양요", "강화도조약", "개화정책", "임오군란", "갑신정변", "동학농민운동", "갑오개혁", "을미개혁", "을미사변", "통합정리", "형성평가", "달성도"] },
+  { title: "🏺 만주와 한반도에 사람이 살기 시작하다", url: "korean/prehistoric-three-kingdoms/01-people-settle-in-manchuria-and-korea.html", keywords: ["선사시대", "구석기", "검은모루동굴", "전곡리", "뗀석기", "이동생활"] },
+  { title: "🌾 농경과 목축을 시작하다", url: "korean/prehistoric-three-kingdoms/02-beginning-of-farming-and-herding.html", keywords: ["신석기", "간석기", "빗살무늬토기", "움집", "농경", "목축", "정착생활"] },
+  { title: "🔔 청동기 문화가 발전하다", url: "korean/prehistoric-three-kingdoms/03-development-of-bronze-culture.html", keywords: ["청동기", "비파형동검", "고인돌", "민무늬토기", "벼농사", "계급발생"] },
+  { title: "👑 고조선이 발전하다", url: "korean/prehistoric-three-kingdoms/04-growth-of-gojoseon.html", keywords: ["고조선", "단군", "8조법", "위만조선", "한사군"] },
+  { title: "⛏️ 철기를 만들어 사용하다", url: "korean/prehistoric-three-kingdoms/05-use-of-iron-tools.html", keywords: ["철기", "철제농기구", "생산력향상", "정복활동"] },
+  { title: "🏞️ 여러 나라가 성장하다", url: "korean/prehistoric-three-kingdoms/06-growth-of-early-states.html", keywords: ["부여", "고구려", "옥저", "동예", "삼한", "영고", "동맹", "무천"] },
+  { title: "🏰 삼국과 가야, 나라의 기틀을 다지다", url: "korean/prehistoric-three-kingdoms/07-foundations-of-the-three-kingdoms-and-gaya.html", keywords: ["삼국", "가야", "국가형성", "고구려", "백제", "신라"] },
+  { title: "⚔️ 삼국과 가야, 경쟁하며 발전하다", url: "korean/prehistoric-three-kingdoms/08-development-through-competition.html", keywords: ["삼국발전", "율령", "불교수용", "중앙집권", "가야연맹"] },
+  { title: "🛡️ 삼국의 항쟁과 가야의 멸망", url: "korean/prehistoric-three-kingdoms/09-conflicts-among-the-three-kingdoms-and-fall-of-gaya.html", keywords: ["한강유역", "삼국항쟁", "금관가야", "대가야", "멸망"] },
+  { title: "🏠 신분에 따라 다른 생활을 하다", url: "korean/prehistoric-three-kingdoms/10-life-by-social-status.html", keywords: ["삼국사회", "신분", "귀족", "평민", "천민", "생활상"] },
+  { title: "🪦 삶과 신앙의 모습을 고분에 남기다", url: "korean/prehistoric-three-kingdoms/11-life-and-beliefs-in-tombs.html", keywords: ["고분", "고분벽화", "무령왕릉", "돌무지덧널무덤", "사신도"] },
+  { title: "🌏 주변 국가와 교류하다", url: "korean/prehistoric-three-kingdoms/12-exchanges-with-neighboring-states.html", keywords: ["삼국교류", "중국", "일본", "불교전래", "한자", "율령"] },
+  { title: "🏹 고구려가 수와 당의 침략을 물리치다", url: "korean/north-south-states/13-goguryeo-against-sui-and-tang.html", keywords: ["수", "당", "을지문덕", "살수대첩", "안시성", "연개소문"] },
+  { title: "🌄 삼국이 통일되다", url: "korean/north-south-states/14-unification-of-the-three-kingdoms.html", keywords: ["삼국통일", "나당연합", "황산벌", "매소성", "기벌포", "문무왕"] },
+  { title: "🦅 고구려 유민, 발해를 세우다", url: "korean/north-south-states/15-founding-of-balhae.html", keywords: ["발해", "대조영", "동모산", "고구려계승", "남북국"] },
+  { title: "🏛️ 신라 왕권이 강해지고 통치 제도가 정비되다", url: "korean/north-south-states/16-strengthening-of-silla-kingship.html", keywords: ["신문왕", "녹읍폐지", "관료전", "국학", "9주5소경", "9서당10정"] },
+  { title: "🌊 발해, 해동성국으로 우뚝 서다", url: "korean/north-south-states/17-balhae-rises-as-haedongseongguk.html", keywords: ["해동성국", "무왕", "문왕", "선왕", "3성6부", "5경15부62주"] },
+  { title: "🌪️ 신라가 무너지고 후삼국이 일어나다", url: "korean/north-south-states/18-fall-of-silla-and-later-three-kingdoms.html", keywords: ["후삼국", "호족", "원종애노의난", "견훤", "궁예", "최치원"] },
+  { title: "🛕 신라 불교 문화를 꽃피우다", url: "korean/north-south-states/19-buddhist-culture-of-silla.html", keywords: ["원효", "의상", "불국사", "석굴암", "혜초", "무구정광대다라니경"] },
+  { title: "🌐 발해 문화, 국제성을 띠다", url: "korean/north-south-states/20-international-culture-of-balhae.html", keywords: ["발해문화", "상경성", "온돌", "고구려전통", "국제성"] },
+  { title: "⛵ 신라와 발해, 대외 교류가 활발해지다", url: "korean/north-south-states/21-external-exchanges-of-silla-and-balhae.html", keywords: ["장보고", "청해진", "신라방", "발해교통로", "신라도", "동아시아문화권"] },
+  { title: "🤝 고려, 후삼국을 통일하다", url: "korean/goryeo/22-goryeo-unifies-the-later-three-kingdoms.html", keywords: ["왕건", "후삼국", "고창전투", "경순왕", "견훤", "훈요10조"] },
+  { title: "⚖️ 고려, 통치 체제를 정비하다", url: "korean/goryeo/23-goryeo-governance-system.html", keywords: ["광종", "노비안검법", "과거제", "성종", "시무28조", "국자감"] },
+  { title: "🗡️ 문벌 사회가 동요하고 무신 정권이 수립되다", url: "korean/goryeo/24-aristocratic-society-and-military-rule.html", keywords: ["문벌귀족", "인주이씨", "이자겸의난", "묘청", "무신정변", "최씨정권"] },
+  { title: "🌐 다원적 국제 질서가 만들어지다", url: "korean/goryeo/25-multilateral-international-order.html", keywords: ["서희", "강동6주", "강감찬", "귀주대첩", "별무반", "벽란도"] },
+  { title: "🛡️ 고려, 몽골의 침입에 맞서 싸우다", url: "korean/goryeo/26-goryeo-against-the-mongol-invasions.html", keywords: ["강화도천도", "김윤후", "처인성", "충주성", "팔만대장경", "삼별초"] },
+  { title: "⛓️ 원 간섭기, 권문세족이 등장하다", url: "korean/goryeo/27-yuan-interference-and-powerful-families.html", keywords: ["부마국", "정동행성", "공녀", "권문세족", "대농장", "몽골풍"] },
+  { title: "🔱 공민왕, 개혁 정치를 실시하다", url: "korean/goryeo/28-king-gongmin-and-reforms.html", keywords: ["공민왕", "반원자주", "기철숙청", "쌍성총관부", "전민변정도감", "신진사대부"] },
+  { title: "🏺 신분에 따라 다른 삶을 살다, 다양한 문화가 발달하다", url: "korean/goryeo/29-life-by-status-and-goryeo-culture.html", keywords: ["고려문화", "균분상속", "직지심체요절", "삼국사기", "삼국유사", "고려청자"] },
   { title: "🏯 조선 건국과 한양 천도", url: "korean/joseon-early/01. joseon_foundation.html", keywords: ["조선건국", "이성계", "정도전", "위화도회군", "과전법", "한양천도", "경복궁", "신진사대부"] },
   { title: "🏛️ 유교 통치 체제와 사대교린", url: "korean/joseon-early/02. joseon_confucian-governance.html", keywords: ["경국대전", "의정부", "6조", "3사", "사헌부", "사간원", "홍문관", "8도", "관찰사", "사대교린"] },
   { title: "📜 유교 윤리 보급과 사회 변화", url: "korean/joseon-early/03. joseon_confucian-ethics-society.html", keywords: ["유교윤리", "성리학", "삼강행실도", "국조오례의", "양천제", "반상제", "향교", "성균관", "서당"] },

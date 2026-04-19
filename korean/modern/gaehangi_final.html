@@ -230,9 +230,9 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <section class="hero" id="top"><div class="container hero-inner">
-<p class="hero-eye fade-in">문시중 역사 클래스 · 개항기 정리 페이지</p>
-<h1 class="fade-in d1">개항기 조선의 위기와 개혁<br>병인양요에서 아관파천까지</h1>
-<p class="hero-desc fade-in d2">문을 걸어 잠근 나라에 포성이 울렸고, 강제로 열린 문 뒤에는 30년간의 위기와 개혁이 이어졌습니다. 병인양요부터 아관파천까지, 조선이 겪은 격변의 흐름을 따라가 봅시다.</p>
+<p class="hero-eye fade-in">문시중 역사 클래스 · 개항기 탐구 페이지</p>
+<h1 class="fade-in d1">개항기 조선의 위기와 개혁<br>원인·선택·결과로 읽기</h1>
+<p class="hero-desc fade-in d2">문을 걸어 잠근 나라에 포성이 울렸고, 강제로 열린 문 뒤에는 30년간의 위기와 개혁이 이어졌습니다. 이 페이지는 사건을 단순히 외우기보다, 왜 그런 선택이 일어났고 그 결과가 어디로 이어졌는지 생각하도록 구성했습니다.</p>
 <div class="hero-actions fade-in d3">
 <a href="#overview" class="btn btn-w">📌 전체 흐름 보기</a>
 <a href="#byeongin" class="btn btn-g">📚 본문 바로가기</a>
@@ -245,7 +245,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="overview"><div class="container">
 <span class="sec-label" style="background:var(--blue-bg);color:var(--blue);">📌 OVERVIEW</span>
 <h2 class="sec-title">이 페이지에서 다루는 흐름</h2>
-<p class="sec-desc">사건을 클릭하면 해당 내용으로 바로 이동합니다. 형성평가를 완료한 사건은 ✓ 표시됩니다.</p>
+<p class="sec-desc">사건을 클릭하면 해당 내용으로 바로 이동합니다. 형성평가를 완료한 사건은 ✓ 표시됩니다. 각 사건 아래의 질문은 ‘다음 사건 맞히기’보다 원인·입장·판단을 생각하도록 다시 구성했습니다.</p>
 
 <!-- 인터랙티브 수평 타임라인 -->
 <div class="timeline-horizontal fade-in" id="timelineWrap">
@@ -279,6 +279,13 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <a class="quick-card fade-in" href="#gaehwa"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">🛠️</div><div class="q-text"><h3>개화 정책과 정변</h3><p>근대화 시도와 정치 격변</p></div></a>
 <a class="quick-card fade-in" href="#donghak"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">🌾</div><div class="q-text"><h3>농민운동과 개혁</h3><p>동학농민운동과 갑오·을미개혁</p></div></a>
 <a class="quick-card fade-in" href="#dashboard"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">📊</div><div class="q-text"><h3>나의 달성도</h3><p>형성평가 결과로 학습 달성도 확인</p></div></a>
+</div></div></section>
+
+<section class="sec" style="padding-top:6px;"><div class="container">
+<div class="card-grid cg-3">
+<article class="card fade-in"><div class="card-icon" style="background:var(--blue-bg);color:var(--blue);">🔍</div><h3>원인 묻기</h3><p>사건이 왜 일어났는지, 어떤 모순과 갈등이 쌓였는지를 먼저 생각합니다.</p></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--orange-bg);color:var(--orange);">🧭</div><h3>선택 읽기</h3><p>정부·개화파·농민·왕실이 왜 그런 선택을 했는지 입장과 처지를 함께 살핍니다.</p></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--green-bg);color:var(--green);">🧩</div><h3>결과 연결하기</h3><p>한 사건의 결과가 다음 사건의 원인이 되는 흐름을 인과적으로 연결해 봅니다.</p></article>
 </div></div></section>
 
 <!-- 핵심 주제 -->
@@ -357,7 +364,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   </div>
   <div class="quiz-item quiz-locked" id="qi-byeongin-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
-    <p class="quiz-qtext">병인양요 이후 흥선대원군이 강화한 정책 방향으로 가장 적절한 것은?</p>
+    <p class="quiz-qtext">양요 이후 흥선대원군이 더욱 강화한 정책 방향으로 가장 적절한 것은?</p>
     <div class="quiz-opts" id="qo-byeongin-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('byeongin',1,0)" role="radio" aria-checked="false">① 서양과의 통상 조약을 적극 추진했다</button>
       <button class="qopt" onclick="answerQ('byeongin',1,1)" role="radio" aria-checked="false">② 천주교 탄압을 완화하고 개화를 허용했다</button>
@@ -431,12 +438,12 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <div class="table-wrap"><h4>📜 조약의 주요 내용 (12개 조항 중 핵심)</h4><table><thead><tr><th>조항</th><th>내용</th><th>숨겨진 의도</th></tr></thead><tbody><tr><td>제1조</td><td>조선은 자주국, 일본과 평등한 권리</td><td>조선-청 관계를 끊으려는 전략</td></tr><tr><td>제5조</td><td>부산 외에 항구 2곳을 추가로 개항할 수 있도록 함 (후에 원산·인천 개항)</td><td>경제 침략 + 군사 거점 확보</td></tr><tr><td>제7조</td><td>일본이 조선 연안 해안 측량 가능</td><td>전쟁 시 상륙 지점 사전 파악</td></tr><tr><td>제10조</td><td>개항장에서 일본인 범죄는 일본 법으로 처리</td><td>영사재판권 → 대표적 불평등 조항</td></tr></tbody></table></div>
 <div class="content-block"><h3>⚖️ 이 조약을 어떻게 봐야 할까?</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>조선이 세계 무대에 첫발을 내딛는 계기</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>영사재판권, 해안 측량권 등 일본에게만 유리한 불평등 조약</li><li>일본의 조선 침략이 본격적으로 시작되는 출발점</li><li>이후 개화파 vs 위정척사파의 대립이 격화되는 계기</li></ul></div></div></div>
 <div class="question-toggle-block" style="background:var(--blue-bg);border:1px solid rgba(37,99,235,0.14);border-radius:var(--r-md);padding:16px;margin-top:14px;">
-  <h3 style="font-size:0.92rem;font-weight:700;color:var(--blue);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--blue);margin-bottom:8px;">💭 생각 열기 질문</h3>
   <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
-  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">강화도조약 이후 조선 정부가 새로운 군대와 제도를 만들자, 가장 큰 불만을 느낀 사람들은 누구였을까?</p>
-  <button onclick="toggleAnswer('ans-ganghwa')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--blue);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">강화도 조약 이후 추진된 개화 정책이 일부 계층에만 이익이 된다고 느낀 집단은 누구이며, 왜 그렇게 느꼈을까?</p>
+  <button onclick="toggleAnswer('ans-ganghwa')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--blue);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">생각 비교하기</button>
   <div id="ans-ganghwa" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(37,99,235,0.12);border-radius:12px;">
-    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">강화도조약 이후 조선 정부는 <strong>통리기무아문</strong>을 설치하고 <strong>별기군</strong> 같은 신식 군대를 만들며 개화 정책을 추진했다. 이때 가장 큰 불만을 느낀 사람들은 <strong>기존의 구식 군인과 전통 질서를 중시하던 세력</strong>이었다. 이들은 자신들이 홀대받고 있다고 느꼈고, 이런 불만은 뒤의 임오군란으로 이어지는 배경이 되었다.</p>
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">강화도 조약 이후 조선 정부는 <strong>통리기무아문</strong>을 설치하고 <strong>별기군</strong>을 창설하는 등 개화 정책을 추진했다. 그러나 이 변화는 모든 집단에 고르게 이익이 되지 않았다. <strong>구식 군인</strong>은 신식 군대에 비해 심하게 홀대받았고, <strong>위정척사 성향의 유생과 보수 세력</strong>은 전통 질서가 무너진다고 여겼다. 즉, 개화 정책이 일부 집단에는 기회였지만 다른 집단에는 소외와 위협으로 받아들여졌고, 이런 불만이 임오군란으로 이어졌다.</p>
   </div>
   <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
 </div>
@@ -489,12 +496,12 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 </div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>강화도 조약(1876)</li><li>통리기무아문 설치 · 별기군 창설</li><li>일본(신사유람단) · 청나라(영선사) 파견</li><li>원산학사 · 동문학 설립 / 한성순보 발간</li><li>임오군란(1882) → 청나라 간섭 심화</li><li>갑신정변(1884) → 개화 정책 시련</li></ol></div>
 <div class="question-toggle-block" style="background:var(--green-bg);border:1px solid rgba(5,150,105,0.15);border-radius:var(--r-md);padding:16px;margin-top:14px;">
-  <h3 style="font-size:0.92rem;font-weight:700;color:var(--green);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--green);margin-bottom:8px;">💭 생각 열기 질문</h3>
   <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
-  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">새 군대는 우대하고 구식 군인은 홀대했다면, 이런 차별은 결국 어떤 사건으로 터져 나올 수 있었을까?</p>
-  <button onclick="toggleAnswer('ans-gaehwa')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--green);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">신식 군대 우대와 구식 군인 차별은 왜 정치적 불만을 군사적 폭발로 바꾸었을까?</p>
+  <button onclick="toggleAnswer('ans-gaehwa')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--green);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">생각 비교하기</button>
   <div id="ans-gaehwa" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(5,150,105,0.12);border-radius:12px;">
-    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">별기군은 <strong>근대식 무기와 훈련</strong>을 받으며 우대를 받았지만, 구식 군인들은 <strong>밀린 봉급</strong>도 제대로 받지 못했다. 특히 지급된 쌀에 <strong>겨와 모래가 섞여 있던 일</strong>은 큰 분노를 불러일으켰다. 이런 차별과 불만이 쌓여 결국 <strong>1882년 임오군란</strong>이 일어났다.</p>
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">별기군은 <strong>근대식 무기와 훈련</strong>을 받으며 우대를 받았지만, 구식 군인들은 <strong>밀린 봉급</strong>도 제대로 받지 못했다. 더구나 지급된 쌀에 <strong>겨와 모래가 섞여 있었던 일</strong>은 단순한 생활고를 넘어 국가가 자신들을 버렸다는 모욕감으로 이어졌다. 그래서 불만은 개인적 원망에 머물지 않고 무장 집단의 집단행동으로 폭발했고, 결국 <strong>임오군란</strong>으로 나타났다.</p>
   </div>
   <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
 </div>
@@ -542,10 +549,10 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <div class="table-wrap"><h4>🌍 외국의 개입</h4><table><thead><tr><th>나라</th><th>행동</th><th>목적</th></tr></thead><tbody><tr><td>일본</td><td>군함·병력 1,500명 파견</td><td>피해 배상 + 추가 통상 특권 요구</td></tr><tr><td>청나라</td><td>대군 파견</td><td>조선에 대한 종주권 강화</td></tr></tbody></table></div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>구식 군인 차별 대우</li><li>임오군란 발생</li><li>대원군 재집권 (33일)</li><li>청나라 개입 → 대원군 납치</li><li>제물포 조약 → 일본 권한 강화</li><li>청나라 간섭 심화 → 갑신정변(1884)</li></ol></div>
 <div class="question-toggle-block" style="background:var(--orange-bg);border:1px solid rgba(217,119,6,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
-  <h3 style="font-size:0.92rem;font-weight:700;color:var(--orange);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--orange);margin-bottom:8px;">💭 생각 열기 질문</h3>
   <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
-  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">임오군란 뒤 청의 간섭이 더 커지자, 급진 개화파는 왜 천천히 개혁하기보다 정변을 선택했을까?</p>
-  <button onclick="toggleAnswer('ans-imo')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--orange);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">임오군란 뒤 청의 간섭이 더 커지자, 급진 개화파는 왜 점진적 개혁보다 정변을 선택했을까?</p>
+  <button onclick="toggleAnswer('ans-imo')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--orange);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">생각 비교하기</button>
   <div id="ans-imo" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(217,119,6,0.12);border-radius:12px;">
     <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">임오군란 뒤에는 <strong>청나라 군대가 조선에 주둔</strong>하고, 대원군이 청으로 끌려가는 등 청의 간섭이 더 강해졌다. 급진 개화파는 이렇게 가면 조선이 청의 영향에서 벗어나기 어렵다고 보았다. 그래서 그들은 <strong>일본의 도움을 받아 짧은 시간 안에 정권을 잡고 개혁을 추진</strong>하려 했고, 그 결과 <strong>1884년 갑신정변</strong>을 일으켰다.</p>
   </div>
@@ -567,7 +574,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   </div>
   <div class="quiz-item quiz-locked" id="qi-imo-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
-    <p class="quiz-qtext">임오군란의 결과로 조선에 나타난 가장 큰 변화는?</p>
+    <p class="quiz-qtext">임오군란 이후 조선 정치에 나타난 주된 변화는?</p>
     <div class="quiz-opts" id="qo-imo-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('imo',1,0)">① 일본의 영향력이 완전히 사라졌다</button>
       <button class="qopt" onclick="answerQ('imo',1,1)">② 청나라만 조선에 영향력을 행사하게 되었다</button>
@@ -596,12 +603,12 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <div class="content-block"><h3>❌ 왜 실패했나?</h3><div class="single-box"><h4>실패 원인</h4><ul><li>일본군 의존으로 민심을 잃음</li><li>청나라 군사력을 과소평가함</li><li>좌·우영군 장악 실패</li><li>무기 미정비</li><li>고종의 이탈</li><li>대중 기반을 만들지 못함</li></ul></div></div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>임오군란(1882) — 청나라 간섭 심화</li><li>개화당 거사(1884)</li><li>청나라 군대 개입 — 3일 만에 실패</li><li>한성 조약(일본 배상)</li><li>텐진 조약(청일 동시 철수 + 파병 통보 조항)</li><li>청나라 간섭 더욱 강화 / 개화에 대한 민심 악화</li></ol></div>
 <div class="question-toggle-block" style="background:var(--purple-bg);border:1px solid rgba(124,58,237,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
-  <h3 style="font-size:0.92rem;font-weight:700;color:var(--purple);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--purple);margin-bottom:8px;">💭 생각 열기 질문</h3>
   <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
-  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">갑신정변이 실패한 뒤에도 사회 문제가 그대로였다면, 다음에는 어떤 사람들이 직접 움직이게 되었을까?</p>
-  <button onclick="toggleAnswer('ans-gapsin')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--purple);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">갑신정변 실패 이후에도 사회 문제가 해결되지 않았을 때, 개혁의 주도 세력이 지식인에서 농민으로 옮겨 간 이유는 무엇일까?</p>
+  <button onclick="toggleAnswer('ans-gapsin')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--purple);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">생각 비교하기</button>
   <div id="ans-gapsin" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(124,58,237,0.12);border-radius:12px;">
-    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">갑신정변은 <strong>3일 만에 실패</strong>했고, 지방의 <strong>탐관오리 문제</strong>와 백성의 생활고, 외세의 경제 침탈 같은 문제는 그대로 남았다. 그래서 다음에는 권력층이 아니라 <strong>농민들이 직접 움직이게 되었고</strong>, 이런 흐름 속에서 <strong>1894년 동학농민운동</strong>이 일어났다.</p>
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">갑신정변은 <strong>소수 개화 지식인 중심의 위로부터 개혁</strong>이었고 3일 만에 실패했다. 그 뒤에도 지방의 <strong>탐관오리 수탈</strong>, 생활고, 외세 침투 같은 문제는 해결되지 않았다. 결국 국가 권력 안에서 개혁을 이끌 세력이 힘을 잃자, 가장 절박하게 문제를 겪던 <strong>농민</strong>이 직접 나서게 되었고, 개혁의 주도 축이 지식인에서 농민으로 이동하며 <strong>동학농민운동</strong>으로 이어졌다.</p>
   </div>
   <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
 </div>
@@ -621,7 +628,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   </div>
   <div class="quiz-item quiz-locked" id="qi-gapsin-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
-    <p class="quiz-qtext">갑신정변이 실패한 가장 근본적인 이유는?</p>
+    <p class="quiz-qtext">갑신정변이 실패한 주된 이유로 가장 적절한 것은?</p>
     <div class="quiz-opts" id="qo-gapsin-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('gapsin',1,0)">① 개혁 정령 14개조의 내용 자체가 잘못되었기 때문에</button>
       <button class="qopt" onclick="answerQ('gapsin',1,1)">② 일본 군사력에만 의존하고 민중의 지지를 얻지 못했기 때문에</button>
@@ -676,10 +683,10 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 </div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>고부 민란</li><li>1차 봉기: 반봉건</li><li>전주화약 → 집강소</li><li>청·일 군대 개입 → 청일전쟁</li><li>2차 봉기: 반외세</li><li>우금치 패배 → 전봉준 처형</li><li>갑오개혁에 영향 / 의병운동·3·1운동으로 계승</li></ol></div>
 <div class="question-toggle-block" style="background:var(--green-bg);border:1px solid rgba(5,150,105,0.15);border-radius:var(--r-md);padding:16px;margin-top:14px;">
-  <h3 style="font-size:0.92rem;font-weight:700;color:var(--green);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--green);margin-bottom:8px;">💭 생각 열기 질문</h3>
   <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
-  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">농민군과 정부가 화해했는데도 일본이 군대를 철수하지 않았다면, 일본은 조선에서 무엇을 하려 했다고 볼 수 있을까?</p>
-  <button onclick="toggleAnswer('ans-donghak')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--green);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">전주화약 뒤에도 일본이 군대를 철수하지 않았다면, 일본은 조선에서 무엇을 하려 했다고 볼 수 있을까?</p>
+  <button onclick="toggleAnswer('ans-donghak')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--green);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">생각 비교하기</button>
   <div id="ans-donghak" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(5,150,105,0.12);border-radius:12px;">
     <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">동학농민운동 과정에서 <strong>전주화약</strong>이 맺어졌지만, 일본은 군대를 물리지 않았다. 오히려 <strong>경복궁을 점령</strong>하고 조선 정부를 장악해 개혁을 밀어붙였다. 따라서 일본은 단순히 조선을 돕기보다, <strong>조선을 자기 영향 아래 두고 개혁의 주도권을 잡으려 했다</strong>고 볼 수 있다. 이것이 갑오·을미개혁으로 이어졌다.</p>
   </div>
@@ -734,10 +741,10 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <div class="content-block"><h3>⚖️ 갑오·을미개혁 종합 평가</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>정치·행정·사법·교육·경제·사회 전 분야의 근대 개혁</li><li>노비 제도 폐지, 신분 차별 철폐 등 동학농민운동의 요구 일부 반영</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>일본 군사력을 배경으로 추진되어 자주성이 약함</li><li>민중의 지지를 얻지 못해 위로부터 강요된 개혁이 됨</li><li>단발령 반발과 을미의병, 아관파천으로 중단</li></ul></div></div></div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>동학농민운동</li><li>일본군 경복궁 점령 → 친일 정권 수립</li><li>1차 갑오개혁</li><li>2차 갑오개혁</li><li>명성황후 시해 (을미사변)</li><li>3차 을미개혁</li><li>단발령 반발 → 을미의병</li><li>아관파천 → 개혁 중단</li></ol></div>
 <div class="question-toggle-block" style="background:var(--orange-bg);border:1px solid rgba(217,119,6,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
-  <h3 style="font-size:0.92rem;font-weight:700;color:var(--orange);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--orange);margin-bottom:8px;">💭 생각 열기 질문</h3>
   <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
-  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">명성황후가 러시아와 가까워지며 일본을 견제하자, 일본은 왜 명성황후를 가장 큰 걸림돌로 보았을까?</p>
-  <button onclick="toggleAnswer('ans-gabo')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--orange);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">명성황후가 러시아와 가까워지며 일본을 견제하자, 일본은 왜 명성황후를 조선 장악의 핵심 장애물로 보았을까?</p>
+  <button onclick="toggleAnswer('ans-gabo')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--orange);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">생각 비교하기</button>
   <div id="ans-gabo" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(217,119,6,0.12);border-radius:12px;">
     <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">갑오·을미개혁 이후 일본의 영향력이 커지자, 조선 왕실은 이를 견제하려 했다. 특히 <strong>명성황후는 러시아와 가까워지며 일본을 막으려 했기 때문에</strong>, 일본에게는 조선 지배를 방해하는 핵심 인물로 보였다. 그래서 일본은 명성황후를 가장 큰 걸림돌로 여기고, 결국 <strong>1895년 을미사변</strong>을 일으켰다.</p>
   </div>
@@ -759,7 +766,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   </div>
   <div class="quiz-item quiz-locked" id="qi-gabo-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
-    <p class="quiz-qtext">갑오·을미개혁이 민중의 지지를 받지 못한 근본적인 이유는?</p>
+    <p class="quiz-qtext">갑오·을미개혁이 민중의 지지를 충분히 받지 못한 주된 이유는?</p>
     <div class="quiz-opts" id="qo-gabo-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('gabo',1,0)">① 개혁 내용이 지나치게 보수적이었기 때문에</button>
       <button class="qopt" onclick="answerQ('gabo',1,1)">② 일본 군사력을 배경으로 한 타율적 개혁이어서 자주성이 없었기 때문에</button>
@@ -788,10 +795,10 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <div class="content-block"><h3>💥 을미사변이 가져온 결과</h3><div class="single-box"><h4>결과</h4><ul><li>명성황후 시해 + 단발령 강행 → 전국적 을미의병 봉기</li><li>고종의 아관파천</li><li>김홍집 내각 붕괴</li><li>항일 독립운동의 불씨가 됨</li></ul></div></div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>삼국간섭</li><li>조선 왕실의 러시아 접근</li><li>일본: 명성황후가 최대 걸림돌</li><li>을미사변</li><li>단발령 강행</li><li>을미의병 전국 봉기</li><li>아관파천</li></ol></div>
 <div class="question-toggle-block" style="background:var(--red-bg);border:1px solid rgba(220,38,38,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
-  <h3 style="font-size:0.92rem;font-weight:700;color:var(--red);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--red);margin-bottom:8px;">💭 생각 열기 질문</h3>
   <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
-  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">을미사변 뒤 고종은 왜 궁궐을 떠나 러시아 공사관으로 피신했을까?</p>
-  <button onclick="toggleAnswer('ans-eulmi')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--red);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">을미사변 뒤 고종은 왜 궁궐을 떠나 러시아 공사관으로 피신할 수밖에 없었을까?</p>
+  <button onclick="toggleAnswer('ans-eulmi')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--red);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">생각 비교하기</button>
   <div id="ans-eulmi" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(220,38,38,0.12);border-radius:12px;">
     <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">을미사변으로 <strong>명성황후가 일본 낭인들에게 살해</strong>되자, 고종은 경복궁 안에서도 안전하지 않다고 느꼈다. 일본의 감시와 위협이 계속되는 상황에서 고종은 일본을 피해 다른 나라의 힘을 빌리려 했고, 결국 <strong>1896년 러시아 공사관으로 피신하는 아관파천</strong>을 선택했다.</p>
   </div>
@@ -813,7 +820,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   </div>
   <div class="quiz-item quiz-locked" id="qi-eulmi-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
-    <p class="quiz-qtext">을미사변이 일어난 배경으로 가장 적절한 것은?</p>
+    <p class="quiz-qtext">을미사변이 일어난 배경으로 옳은 것은?</p>
     <div class="quiz-opts" id="qo-eulmi-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('eulmi',1,0)">① 조선이 청나라와 새로운 동맹을 맺으려 했기 때문에</button>
       <button class="qopt" onclick="answerQ('eulmi',1,1)">② 명성황후가 갑오개혁을 적극 지지했기 때문에</button>
@@ -846,8 +853,8 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <div class="question-toggle-block" style="background:var(--navy-bg);border:1px solid rgba(30,58,95,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
   <h3 style="font-size:0.92rem;font-weight:700;color:var(--navy);margin-bottom:8px;">📝 이 주제를 한 문장으로 정리해 보기</h3>
   <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
-  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">아관파천 이후 고종이 「대한제국」을 선포한 이유는 무엇이었을까?</p>
-  <button onclick="toggleAnswer('ans-agwan')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--navy);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">아관파천 이후 환궁한 고종은 왜 대한제국을 선포하려 했을까?</p>
+  <button onclick="toggleAnswer('ans-agwan')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--navy);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">생각 비교하기</button>
   <div id="ans-agwan" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(30,58,95,0.12);border-radius:12px;">
     <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">아관파천으로 <strong>왕이 외국 공사관에 머문다는 치욕</strong>을 겪은 뒤, 독립협회를 비롯한 여러 세력이 환궁을 요구했다. 고종은 경운궁(덕수궁)으로 돌아온 뒤, <strong>더 이상 청나라·일본에 종속되지 않는 자주 독립 국가</strong>임을 세계에 알리기 위해 국호를 <strong>대한제국</strong>으로 바꾸고 황제로 즉위했다(1897). 이는 조선이 자주국임을 선포하려는 상징적 행동이었다.</p>
   </div>
@@ -858,7 +865,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-agwan">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-agwan-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
-    <p class="quiz-qtext">아관파천 이후 고종이 환궁하여 선포한 국가는?</p>
+    <p class="quiz-qtext">아관파천 이후 환궁한 고종이 이듬해 선포한 국가는?</p>
     <div class="quiz-opts" id="qo-agwan-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('agwan',0,0)">① 조선</button>
       <button class="qopt" onclick="answerQ('agwan',0,1)">② 대한제국</button>
@@ -869,7 +876,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   </div>
   <div class="quiz-item quiz-locked" id="qi-agwan-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
-    <p class="quiz-qtext">아관파천이 조선에 끼친 가장 큰 부정적 영향은?</p>
+    <p class="quiz-qtext">아관파천이 조선에 끼친 주된 부정적 영향은?</p>
     <div class="quiz-opts" id="qo-agwan-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('agwan',1,0)">① 일본과의 관계가 완전히 단절되었다</button>
       <button class="qopt" onclick="answerQ('agwan',1,1)">② 러시아를 비롯한 열강에게 각종 이권을 넘겨주는 계기가 되었다</button>
@@ -923,7 +930,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   <p>병인양요에서 아관파천까지의 흐름을 떠올리며, 개항기 조선이 어떤 위기와 변화를 겪었는지 한 문장으로 정리해 보세요.</p>
   <textarea id="summarySentence" class="summary-textarea" placeholder=""></textarea>
   <div style="margin-top:10px;">
-    <button class="summary-toggle" onclick="toggleAnswer('summaryModelAnswer')">모범답안 보기</button>
+    <button class="summary-toggle" onclick="toggleAnswer('summaryModelAnswer')">모범생각 비교하기</button>
     <div id="summaryModelAnswer" class="summary-model">
       <p><strong>모범답안:</strong> 개항기 조선은 서양과 일본의 침략 속에서 개화와 개혁을 추진했지만, 외세의 간섭과 국내 혼란이 겹치면서 왕실의 위기가 깊어져 결국 아관파천에 이르렀다.</p>
     </div>
@@ -1035,16 +1042,16 @@ document.addEventListener('click',function(e){if(!searchInput.contains(e.target)
 /* ─── QUIZ ─── */
 const ANSWERS={byeongin:[1,2],sinmi:[2,1],ganghwa:[3,1],gaehwa:[1,2],imo:[1,2],gapsin:[1,1],donghak:[2,1],gabo:[1,1],eulmi:[2,2],agwan:[1,1]};
 const EXPLANATIONS={
-  byeongin:['정답은 ② 양헌수입니다. 양헌수 부대가 매복 작전으로 프랑스군 160명을 크게 물리쳤습니다. ① 어재연은 신미양요(1871) 광성보 전투의 장수이고, ③ 전봉준은 동학농민운동(1894)의 지도자, ④ 최익현은 위정척사 운동의 대표 유학자입니다.','정답은 ③입니다. 병인양요 이후 대원군은 "서양을 이겼으니 문을 열 이유가 없다"고 판단하며 쇄국정책을 더욱 강화하고 전국에 척화비를 세웠습니다. ① 통상 조약 추진이나 ② 개화 허용은 대원군 하야 이후의 흐름이며, ④ 청나라에 도움을 요청해 개화를 시작한 적은 없습니다.'],
+  byeongin:['정답은 ② 양헌수입니다. 양헌수 부대가 매복 작전으로 프랑스군 160명을 크게 물리쳤습니다. ① 어재연은 신미양요(1871) 광성보 전투의 장수이고, ③ 전봉준은 동학농민운동(1894)의 지도자, ④ 최익현은 위정척사 운동의 대표 유학자입니다.','정답은 ③입니다. 병인양요와 신미양요를 거치며 대원군은 "서양과의 화친은 나라를 파는 일"이라고 보고 통상 수교 거부 정책을 더욱 강화했으며, 그 흐름 속에서 전국에 척화비를 세웠습니다. ① 통상 조약 추진이나 ② 개화 허용은 대원군 하야 이후의 흐름이며, ④ 청나라에 도움을 요청해 개화를 시작한 적은 없습니다.'],
   sinmi:['정답은 ③ 어재연입니다. 어재연 장군은 광성보에서 600명의 병력으로 끝까지 항전하다 전사했습니다. ① 양헌수는 병인양요(1866) 정족산성 전투의 장수, ② 최익현은 위정척사파 유학자, ④ 전봉준은 동학농민운동(1894)의 지도자입니다.','정답은 ②입니다. 척화비의 핵심은 「서양 오랑캐와 화친하는 것은 나라를 파는 행위」라는 쇄국 의지입니다. ① 부국강병은 개화파의 주장, ③ 청과 협력해 일본 견제는 사대당(온건 개화파)의 노선, ④ 개항은 강화도 조약(1876) 이후의 흐름으로, 모두 척화비의 취지와 정반대입니다.'],
   ganghwa:['정답은 ④ 제10조입니다. 제10조는 개항장 내 일본인 범죄를 일본 법으로 처리하도록 한 영사재판권 조항으로, 가장 대표적인 불평등 내용입니다. ① 제1조는 「조선은 자주국」 규정, ② 제5조는 항구 추가 개항, ③ 제7조는 해안 측량권에 관한 조항입니다.','정답은 ②입니다. 겉으로는 「조선은 자주국」이라고 써서 조선의 독립을 인정하는 듯하지만, 실제 의도는 조선과 청나라의 전통적 종속 관계를 끊어 일본이 조선에 침투하기 쉽게 만들려는 전략이었습니다. ①과 ④처럼 진정한 독립·대등 보장이 아니었고, ③ 서양과의 조약을 막으려 한 것도 아닙니다.'],
   gaehwa:['정답은 ② 원산학사입니다. 원산학사(1883)는 함경도 원산에 주민들의 힘으로 세워진 우리나라 최초의 근대 학교입니다. ① 동문학은 같은 해 세워진 최초의 관립 영어학교(통역관 양성)이고, ③ 통리기무아문은 외교·통상 담당 정부 기구, ④ 한성순보는 최초의 근대 신문입니다.','정답은 ③입니다. 신사유람단(일본)과 영선사(청나라) 파견의 공통 목적은 근대 문물과 기술을 배워 조선의 개화 정책에 활용하기 위해서였습니다. ① 군사 지원 요청, ② 무역 조약 체결, ④ 외국 정치 체제 도입은 파견 목적과 다릅니다.'],
-  imo:['정답은 ②입니다. 구식 군인들이 13개월이나 밀린 급료로 받은 쌀에 겨와 모래가 섞여 있어 분노가 폭발한 것이 직접적 원인입니다. ① 별기군 폐지는 임오군란의 원인이 아니라 대원군 재집권 후의 조치이고, ③ 청군 주둔은 임오군란의 결과이며, ④ 갑신정변은 임오군란보다 2년 뒤(1884)에 일어난 사건입니다.','정답은 ③입니다. 임오군란의 결과, 청나라는 대원군을 납치하고 군대를 주둔시켜 내정 간섭을 강화했고, 일본도 제물포 조약으로 배상금과 공사관 경비병 주둔권을 얻었습니다. ① 일본 영향력이 사라진 것이 아니라 오히려 강해졌고, ② 청나라만이 아닌 양국 모두의 간섭이 심화되었으며, ④ 대원군은 33일 만에 청에 의해 실각했습니다.'],
+  imo:['정답은 ②입니다. 구식 군인들이 13개월이나 밀린 급료로 받은 쌀에 겨와 모래가 섞여 있어 분노가 폭발한 것이 직접적 원인입니다. ① 별기군 폐지는 임오군란의 원인이 아니라 대원군 재집권 후의 조치이고, ③ 청군 주둔은 임오군란의 결과이며, ④ 갑신정변은 임오군란보다 2년 뒤(1884)에 일어난 사건입니다.','정답은 ③입니다. 임오군란 뒤 청나라는 대원군을 납치하고 군대를 주둔시켜 내정 간섭을 강화했고, 일본도 제물포 조약으로 배상금과 공사관 경비병 주둔권을 얻었습니다. ① 일본 영향력이 사라진 것이 아니라 오히려 강해졌고, ② 청나라만이 아닌 양국 모두의 간섭이 심화되었으며, ④ 대원군은 33일 만에 청에 의해 실각했습니다.'],
   gapsin:['정답은 ② 3일입니다. 청군의 반격과 일본군 철수로 거사 3일 만에 실패해 「3일 천하」라 불립니다. ①·③·④는 사실과 다른 기간입니다.','정답은 ②입니다. 급진 개화파는 일본군에만 의존했고, 백성의 지지 기반 없이 위로부터 추진된 개혁이었기에 청군 앞에 무력했습니다. ① 14개조의 내용 자체(문벌 폐지, 인민 평등 등)는 진보적이었고, ③ 고종은 처음에는 협조했다가 이탈했으며, ④ 급진 개화파의 목표는 청의 간섭을 끊는 것이었으므로 청과 협의하지 않은 것은 당연합니다.'],
   donghak:['정답은 ③ 집강소입니다. 집강소는 전주화약 이후 전라도 53개 고을에 설치한 농민 자치 기구로, 폐정개혁을 직접 실행했습니다. ① 군국기무처는 갑오개혁(1894)의 주도 기구, ② 통리기무아문은 개화 정책(1880) 관련 기구, ④ 도방은 고려 무신 정권의 사병 기구입니다.','정답은 ②입니다. 1차 봉기는 고부군수 조병갑 등 탐관오리의 수탈에 맞선 반봉건 운동이었고, 2차 봉기는 청·일 군대 개입 후 일본을 몰아내기 위한 반외세(항일) 운동이었습니다. ① 순서가 반대이고, ③ 1차는 반봉건이 핵심이었으며, ④ 농민군은 처음부터 끝까지 왕실 타도를 목표로 하지 않았습니다.'],
   gabo:['정답은 ② 군국기무처입니다. 군국기무처는 1차 갑오개혁(1894)을 주도한 기구로, 김홍집이 이끌며 과거제 폐지·신분제 철폐 등 근대 개혁을 추진했습니다. ① 통리기무아문은 개화 정책(1880)의 기구, ③ 집강소는 동학농민군의 자치 기구, ④ 의정부는 조선의 기존 최고 행정 기구입니다.','정답은 ②입니다. 갑오·을미개혁의 내용은 진보적이었지만, 일본군의 경복궁 점령이라는 강압 아래 추진되었기에 민중은 "우리의 개혁"이 아니라 "일본이 시킨 개혁"으로 받아들였습니다. ① 내용이 보수적이었던 것이 아니라 오히려 획기적이었고, ③ 왕실이 적극 반대했다기보다는 무력화된 상태였으며, ④ 속도가 느렸던 것이 아니라 외세에 의한 타율성이 핵심 문제였습니다.'],
   eulmi:['정답은 ③ 미우라입니다. 일본 공사 미우라가 낭인·군대를 이끌고 경복궁 건청궁에 침입해 명성황후를 시해했습니다. ① 이노우에는 미우라의 전임 공사, ② 이토는 당시 일본 총리(배후 추정), ④ 야마가타는 일본 육군 지도자로 현장 지휘자가 아닙니다.','정답은 ③입니다. 청일전쟁 이후 러시아·프랑스·독일의 삼국간섭으로 일본의 입지가 좁아지자, 조선 왕실(명성황후)이 러시아에 접근하며 일본을 견제했습니다. 일본은 이를 위기로 보고 명성황후를 제거했습니다. ① 청나라 동맹이 아니라 러시아 접근이었고, ② 명성황후는 갑오개혁을 지지하지 않았으며, ④ 일본은 청일전쟁에서 승리했지 패배한 것이 아닙니다.'],
-  agwan:['정답은 ② 대한제국입니다. 고종은 아관파천 이후 약 1년 뒤 경운궁(덕수궁)으로 환궁하여 1897년 국호를 대한제국으로 바꾸고 황제로 즉위했습니다. ① 조선은 기존 국호, ③ 대한민국은 1919년 임시정부·1948년 정부 수립 시의 국호, ④ 한성부는 서울의 옛 행정구역 이름입니다.','정답은 ②입니다. 아관파천으로 일본 간섭에서는 벗어났지만, 대가로 러시아에 광산·삼림 이권, 미국에 운산 금광·경인철도 부설권, 일본에 경부철도 부설권 등을 넘겨주어 열강의 경제적 침탈이 본격화되었습니다. ① 일본과의 관계가 완전히 단절된 것이 아니라 경부철도 등 이권을 여전히 얻었고, ③ 청나라 간섭은 청일전쟁 패배 이후 이미 약화된 상태였으며, ④ 독립협회는 아관파천 이후 활동을 시작한 단체입니다.']
+  agwan:['정답은 ② 대한제국입니다. 고종은 아관파천 이후 러시아 공사관에 머물다가 환궁한 뒤, 이듬해인 1897년에 국호를 대한제국으로 바꾸고 황제로 즉위했습니다. ① 조선은 기존 국호, ③ 대한민국은 1919년 임시정부·1948년 정부 수립 시의 국호, ④ 한성부는 서울의 옛 행정구역 이름입니다.','정답은 ②입니다. 아관파천으로 일본 간섭에서는 벗어났지만, 대가로 러시아에 광산·삼림 이권, 미국에 운산 금광·경인철도 부설권, 일본에 경부철도 부설권 등을 넘겨주어 열강의 경제적 침탈이 본격화되었습니다. ① 일본과의 관계가 완전히 단절된 것이 아니라 경부철도 등 이권을 여전히 얻었고, ③ 청나라 간섭은 청일전쟁 패배 이후 이미 약화된 상태였으며, ④ 독립협회는 아관파천 이후 활동을 시작한 단체입니다.']
 };
 
 const SECTIONS=SEC_ORDER;

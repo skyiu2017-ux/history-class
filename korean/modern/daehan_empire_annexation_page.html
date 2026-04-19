@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대한제국에서 한일 병합까지</title>
+<meta name="description" content="대한제국 수립부터 한일 병합까지 자주독립의 시도와 국권 피탈 과정을 정리한 페이지">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F4F0;--bg-card:rgba(255,255,255,0.72);--bg-card-hover:rgba(255,255,255,0.92);--glass:rgba(255,255,255,0.55);--text:#1A1A1A;--sub:#555;--dim:#999;--blue:#2563EB;--blue-bg:#EFF6FF;--navy:#1E3A5F;--navy-bg:#F0F4F8;--orange:#D97706;--orange-bg:#FFFBEB;--purple:#7C3AED;--purple-bg:#F5F3FF;--green:#059669;--green-bg:#ECFDF5;--slate:#64748B;--slate-bg:#F8FAFC;--red:#DC2626;--red-bg:#FEF2F2;--max-w:820px;--r-sm:10px;--r-md:16px;--r-lg:22px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 14px rgba(0,0,0,0.06);--shadow-h:0 2px 8px rgba(0,0,0,0.06),0 10px 28px rgba(0,0,0,0.1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.68;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}ul{list-style:none}.container{max-width:var(--max-w);margin:0 auto;padding:0 18px}
+
+/* HEADER + PROGRESS BAR */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(245,244,240,0.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.07)}.header-inner{display:flex;align-items:center;justify-content:space-between;height:54px;max-width:var(--max-w);margin:0 auto;padding:0 18px}.site-brand{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:-0.02em}
+.nav-toggle{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:none;border:none;cursor:pointer;border-radius:8px}.nav-toggle:hover{background:rgba(0,0,0,0.05)}.nav-toggle svg{width:20px;height:20px;color:var(--text)}
+.main-nav{display:none;position:absolute;top:54px;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.08);padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,0.08)}.main-nav.open{display:block}.main-nav ul{display:flex;flex-direction:column}.main-nav a{display:block;padding:11px 18px;font-size:0.92rem;font-weight:500;transition:background 0.15s}.main-nav a:hover{background:rgba(0,0,0,0.04)}
+@media(min-width:700px){.nav-toggle{display:none}.main-nav{display:block!important;position:static;background:none;backdrop-filter:none;border:none;padding:0;box-shadow:none}.main-nav ul{flex-direction:row;gap:16px}.main-nav a{padding:5px 10px;font-size:0.85rem;border-radius:6px}}
+
+/* ── 스크롤 프로그레스 바 ── */
+.scroll-progress{position:fixed;top:54px;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple),var(--red));z-index:99;transition:width 0.08s linear;border-radius:0 2px 2px 0}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1B2A4A 0%,#2C4A7C 50%,#3A5F90 100%);color:#fff;padding:44px 0 36px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:-35%;right:-15%;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}.hero-inner{position:relative;z-index:1}.hero-eye{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;opacity:0.65;margin-bottom:10px}.hero h1{font-size:clamp(1.4rem,4.8vw,2rem);font-weight:700;line-height:1.4;letter-spacing:-0.02em;margin-bottom:8px}.hero-desc{font-size:0.9rem;opacity:0.8;max-width:560px;margin-bottom:26px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:11px 20px;border-radius:12px;font-size:0.88rem;font-weight:600;transition:transform 0.15s,box-shadow 0.15s;cursor:pointer;border:none}.btn:active{transform:scale(0.97)}.btn-w{background:#fff;color:var(--navy)}.btn-w:hover{box-shadow:0 4px 16px rgba(255,255,255,0.25)}.btn-g{background:rgba(255,255,255,0.14);color:#fff;border:1px solid rgba(255,255,255,0.22)}.btn-g:hover{background:rgba(255,255,255,0.22)}
+
+/* ═══════════════════════════════════════
+   인터랙티브 수평 타임라인
+═══════════════════════════════════════ */
+.timeline-horizontal{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.12) transparent;padding:20px 0 12px;margin:-8px -18px 0;padding-left:18px;padding-right:18px}
+.timeline-horizontal::-webkit-scrollbar{height:4px}
+.timeline-horizontal::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.12);border-radius:2px}
+.tl-track{display:flex;align-items:flex-start;gap:0;position:relative;min-width:max-content;padding-bottom:8px}
+.tl-node{display:flex;flex-direction:column;align-items:center;cursor:pointer;position:relative;padding:0 6px;min-width:88px;transition:transform 0.2s}
+.tl-node:hover{transform:translateY(-3px)}
+.tl-dot{width:18px;height:18px;border-radius:50%;border:3px solid var(--blue);background:#fff;position:relative;z-index:2;transition:all 0.3s;box-shadow:0 2px 8px rgba(37,99,235,0.15)}
+.tl-node.active .tl-dot{background:var(--blue);transform:scale(1.3);box-shadow:0 0 0 6px rgba(37,99,235,0.15),0 2px 8px rgba(37,99,235,0.3)}
+.tl-node.done .tl-dot{background:var(--green);border-color:var(--green);box-shadow:0 0 0 4px rgba(5,150,105,0.12)}
+.tl-node.done .tl-dot::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.55rem;font-weight:900}
+.tl-line{flex:1;height:3px;background:rgba(37,99,235,0.15);margin-top:7.5px;min-width:16px;position:relative;z-index:1;transition:background 0.4s}
+.tl-line.filled{background:var(--green)}
+.tl-year{font-size:0.62rem;color:var(--dim);margin-top:6px;font-weight:600;white-space:nowrap}
+.tl-name{font-size:0.68rem;color:var(--sub);margin-top:2px;font-weight:500;white-space:nowrap;max-width:80px;text-align:center;line-height:1.3}
+.tl-node.active .tl-name{color:var(--navy);font-weight:700}
+
+/* SECTION */
+.sec{padding:42px 0 28px}.sec-label{display:inline-flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:10px}.sec-title{font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:3px}.sec-desc{font-size:0.85rem;color:var(--sub);margin-bottom:18px}
+.section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(0,0,0,0.07),transparent);margin:0}
+.section-anchor{scroll-margin-top:66px}
+
+/* CARDS */
+.card{background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s}.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}.card-grid{display:grid;gap:10px}.cg-2{grid-template-columns:1fr}.cg-3{grid-template-columns:1fr}.cg-4{grid-template-columns:1fr}@media(min-width:500px){.cg-2{grid-template-columns:repeat(2,1fr)}.cg-3{grid-template-columns:repeat(3,1fr)}.cg-4{grid-template-columns:repeat(2,1fr)}}@media(min-width:820px){.cg-4{grid-template-columns:repeat(4,1fr)}}
+.card-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:10px;transition:transform 0.4s cubic-bezier(.34,1.56,.64,1)}.card:hover .card-icon{transform:scale(1.15) rotate(-5deg)}.card h3{font-size:0.95rem;font-weight:600;margin-bottom:4px}.card p{font-size:0.82rem;color:var(--sub);line-height:1.6}.card-link{display:inline-flex;align-items:center;gap:4px;font-size:0.8rem;font-weight:600;margin-top:10px;transition:gap 0.15s}.card-link:hover{gap:8px}.card-link::after{content:'→'}
+
+/* WEEK CARD */
+.week-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow);border-left:4px solid var(--blue);margin-bottom:12px}
+.week-card.wc-red{border-left-color:var(--red)}.week-card.wc-blue{border-left-color:var(--blue)}.week-card.wc-green{border-left-color:var(--green)}.week-card.wc-orange{border-left-color:var(--orange)}.week-card.wc-purple{border-left-color:var(--purple)}
+.week-badge{display:inline-block;font-size:0.7rem;font-weight:600;padding:2px 10px;border-radius:20px;color:#fff;margin-bottom:8px}.week-card h3{font-size:1.05rem;font-weight:700;margin-bottom:3px}.week-card>p{font-size:0.84rem;color:var(--sub);margin-bottom:0}
+
+/* QUICK CARD */
+.quick-card{display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-md);box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s}.quick-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}.q-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}.q-text h3{font-size:0.9rem;font-weight:600;margin-bottom:1px}.q-text p{font-size:0.76rem;color:var(--dim)}
+
+/* SEARCH */
+.search-container{position:relative;margin:0 auto 28px;max-width:var(--max-w);padding:0 18px}.search-input{width:100%;padding:14px 18px;font-size:0.92rem;font-family:'Noto Sans KR',sans-serif;border:1px solid rgba(0,0,0,0.1);border-radius:var(--r-md);background:var(--bg-card);backdrop-filter:blur(10px);box-shadow:var(--shadow);outline:none;transition:border-color 0.2s,box-shadow 0.2s;color:var(--text)}.search-input::placeholder{color:var(--dim)}.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.12),var(--shadow)}.search-results{position:absolute;top:100%;left:18px;right:18px;margin-top:4px;background:rgba(255,255,255,0.97);backdrop-filter:blur(18px);border:1px solid rgba(0,0,0,0.08);border-radius:var(--r-md);box-shadow:var(--shadow-h);max-height:320px;overflow-y:auto;display:none;z-index:50;list-style:none}.search-results li+li{border-top:1px solid rgba(0,0,0,0.05)}.search-results a{display:block;padding:12px 16px;transition:background 0.12s}.search-results a:hover{background:rgba(37,99,235,0.06)}.search-title{display:block;font-size:0.9rem;font-weight:600;margin-bottom:2px}.search-keywords{display:block;font-size:0.76rem;color:var(--dim);line-height:1.4}
+
+/* CONTENT BLOCKS */
+.content-grid{display:grid;gap:12px}.content-block{background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow)}.content-block h3{font-size:0.96rem;font-weight:700;margin-bottom:10px;color:var(--navy)}.content-block ul{display:flex;flex-direction:column;gap:6px;list-style:none}.content-block li{font-size:0.85rem;color:var(--text);padding-left:14px;position:relative}.content-block li::before{content:'•';position:absolute;left:0;color:var(--blue)}
+.mini-card ul{display:flex;flex-direction:column;gap:6px}.mini-card li{font-size:0.82rem;color:var(--text);padding-left:14px;position:relative;list-style:none}.mini-card li::before{content:'•';position:absolute;left:0;color:var(--green)}
+
+/* TABLE */
+.table-wrap{background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow);overflow-x:auto}.table-wrap h4{font-size:0.96rem;font-weight:700;margin-bottom:10px;color:var(--navy)}table{width:100%;border-collapse:collapse;font-size:0.82rem;background:rgba(255,255,255,0.65);border-radius:12px;overflow:hidden}th,td{padding:11px 10px;text-align:left;border-bottom:1px solid rgba(0,0,0,0.06);vertical-align:top}th{background:var(--navy-bg);color:var(--navy);font-weight:700}tr:last-child td{border-bottom:none}
+
+/* ═══ VS 비교 카드 ═══ */
+.vs-card{background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-lg);padding:0;box-shadow:var(--shadow);overflow:hidden}
+.vs-header{text-align:center;padding:14px 16px 10px;font-size:0.96rem;font-weight:700;color:var(--navy);background:var(--navy-bg)}
+.vs-body{display:grid;grid-template-columns:1fr auto 1fr}
+.vs-side{padding:16px}
+.vs-side h5{font-size:0.78rem;font-weight:700;margin-bottom:10px;text-align:center;padding:4px 0;border-radius:6px}
+.vs-left h5{background:var(--blue-bg);color:var(--blue)}
+.vs-right h5{background:var(--red-bg);color:var(--red)}
+.vs-row{font-size:0.8rem;color:var(--text);padding:5px 0;display:flex;align-items:baseline;gap:6px;line-height:1.5}
+.vs-row-label{font-size:0.7rem;font-weight:700;color:var(--dim);min-width:36px}
+.vs-divider{width:1px;background:linear-gradient(to bottom,transparent,rgba(0,0,0,0.1),transparent);margin:12px 0}
+.vs-center{display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:var(--navy);padding:0 8px;opacity:0.2}
+
+/* SPLIT BOX */
+.split-grid{display:grid;gap:10px}@media(min-width:640px){.split-grid{grid-template-columns:1fr 1fr}}.split-box{background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.05);border-radius:12px;padding:14px}.split-box h4{font-size:0.88rem;margin-bottom:8px}.split-box ul{display:flex;flex-direction:column;gap:6px}.split-box li{font-size:0.82rem;list-style:none;padding-left:14px;position:relative}.split-box li::before{content:'•';position:absolute;left:0;color:var(--orange)}
+.single-box{background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.05);border-radius:12px;padding:14px}.single-box h4{font-size:0.88rem;margin-bottom:8px}.single-box ul{display:flex;flex-direction:column;gap:6px}.single-box li{font-size:0.82rem;list-style:none;padding-left:14px;position:relative}.single-box li::before{content:'•';position:absolute;left:0;color:var(--red)}
+
+/* BLOCKQUOTE */
+blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);border-radius:var(--r-md);padding:16px 16px 12px;font-size:0.86rem;color:var(--text)}
+.bq-source{display:block;margin-top:8px;font-size:0.76rem;font-weight:600;color:var(--purple);text-align:right}
+
+/* INFO BOX */
+.notice-info-box{background:var(--blue-bg);border:1px solid rgba(37,99,235,0.12);border-radius:var(--r-md);padding:16px}.notice-info-box h3{font-size:0.88rem;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-info-list{display:flex;flex-direction:column;gap:4px}.notice-info-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative;list-style:none}.notice-info-list li::before{content:'•';position:absolute;left:0;color:var(--blue)}
+
+/* FLOW LIST */
+.flow-list{display:flex;flex-direction:column;gap:8px;counter-reset:flow}.flow-list li{list-style:none;position:relative;padding-left:38px;font-size:0.84rem}.flow-list li::before{counter-increment:flow;content:counter(flow);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:999px;background:var(--navy-bg);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700}
+
+/* TIMELINE LIST (수직) */
+.timeline-card{padding:18px 18px 10px}.timeline-list{display:flex;flex-direction:column;gap:8px}.timeline-list li{position:relative;list-style:none;padding-left:22px;font-size:0.84rem;color:var(--text)}.timeline-list li::before{content:'';position:absolute;left:7px;top:0.72em;width:8px;height:8px;border-radius:50%;background:var(--blue)}.timeline-list li::after{content:'';position:absolute;left:10px;top:1.1em;bottom:-0.9em;width:2px;background:rgba(37,99,235,0.18)}.timeline-list li:last-child::after{display:none}
+
+/* ═══════════════════════════════════════
+   형성평가 (QUIZ)
+═══════════════════════════════════════ */
+.quiz-block{background:linear-gradient(135deg,rgba(30,58,95,0.04) 0%,rgba(37,99,235,0.04) 100%);border:1px solid rgba(37,99,235,0.14);border-radius:var(--r-lg);padding:20px;margin-top:14px;box-shadow:var(--shadow)}
+.quiz-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.quiz-lbl{font-size:0.78rem;font-weight:700;letter-spacing:0.04em;color:var(--navy);background:var(--navy-bg);padding:3px 10px;border-radius:6px}
+.quiz-prog{font-size:0.76rem;color:var(--dim)}
+.quiz-item{margin-bottom:14px}
+.quiz-item:last-child{margin-bottom:0}
+.quiz-item+.quiz-item{padding-top:14px;border-top:1px solid rgba(0,0,0,0.06)}
+.quiz-lvbadge{display:inline-flex;align-items:center;gap:4px;font-size:0.7rem;font-weight:600;padding:2px 8px;border-radius:5px;margin-bottom:7px}
+.lvbadge-check{background:var(--blue-bg);color:var(--blue)}
+.lvbadge-apply{background:var(--orange-bg);color:var(--orange)}
+.quiz-qtext{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6}
+.quiz-opts{display:flex;flex-direction:column;gap:6px}
+.qopt{background:rgba(255,255,255,0.8);border:1px solid rgba(0,0,0,0.1);border-radius:9px;padding:9px 14px;font-size:0.82rem;font-family:'Noto Sans KR',sans-serif;color:var(--text);text-align:left;cursor:pointer;transition:background 0.15s,border-color 0.15s,transform 0.15s;line-height:1.5}
+.qopt:hover:not(:disabled){background:rgba(37,99,235,0.07);border-color:rgba(37,99,235,0.25);transform:translateX(4px)}
+.qopt:disabled{cursor:default}
+.qopt.correct{background:rgba(5,150,105,0.12)!important;border-color:var(--green)!important;color:var(--green);font-weight:600;animation:popCorrect 0.5s cubic-bezier(.34,1.56,.64,1)}
+.qopt.wrong{background:rgba(220,38,38,0.09)!important;border-color:var(--red)!important;color:var(--red);animation:shakeWrong 0.45s ease}
+@keyframes popCorrect{0%{transform:scale(1)}40%{transform:scale(1.03)}100%{transform:scale(1)}}
+@keyframes shakeWrong{0%,100%{transform:translateX(0)}15%{transform:translateX(-6px)}30%{transform:translateX(5px)}45%{transform:translateX(-4px)}60%{transform:translateX(3px)}75%{transform:translateX(-1px)}}
+.quiz-fb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:0.8rem;line-height:1.55;display:none;animation:fadeSlideUp 0.35s ease}
+.quiz-fb.show{display:block}
+.quiz-fb.fb-ok{background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.2);color:#065f46}
+.quiz-fb.fb-no{background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.18);color:#991b1b}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.quiz-locked{opacity:0.38;pointer-events:none;transition:opacity 0.4s ease}
+.quiz-locked.unlocked{opacity:1;pointer-events:auto}
+
+/* 정답 축하 confetti */
+.confetti-burst{position:fixed;top:50%;left:50%;pointer-events:none;z-index:200}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confettiFall 1s ease forwards;opacity:0}
+@keyframes confettiFall{0%{opacity:1;transform:translate(0,0) rotate(0deg) scale(1)}100%{opacity:0;transform:translate(var(--cx),var(--cy)) rotate(var(--cr)) scale(0.3)}}
+
+/* ═══════════════════════════════════════
+   달성도 대시보드
+═══════════════════════════════════════ */
+.dashboard-wrap{background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-lg);padding:32px 24px 24px;box-shadow:var(--shadow);margin-bottom:14px;text-align:center}
+.dash-ring-center{display:flex;justify-content:center;margin-bottom:18px}
+.total-ring{position:relative;width:152px;height:152px}
+.total-ring svg{transform:rotate(-90deg)}
+.total-ring-track{fill:none;stroke:#e5e7eb;stroke-width:10}
+.total-ring-fill{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset 0.9s cubic-bezier(.4,0,.2,1),stroke 0.4s}
+.total-ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.total-pct-num{font-size:2.1rem;font-weight:700;color:var(--navy);line-height:1;letter-spacing:-0.03em}
+.total-pct-label{font-size:0.66rem;color:var(--dim);margin-top:3px;letter-spacing:0.04em}
+.dash-stats{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:0}
+.dash-stat{display:flex;flex-direction:column;align-items:center;padding:0 24px}
+.dash-stat-num{font-size:1.35rem;font-weight:700;color:var(--navy);line-height:1;margin-bottom:3px}
+.dash-stat-label{font-size:0.72rem;color:var(--dim)}
+.dash-stat-div{width:1px;height:34px;background:rgba(0,0,0,0.08)}
+
+/* 섹션별 상세 진행도 */
+.dash-detail{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.06)}
+@media(max-width:499px){.dash-detail{grid-template-columns:repeat(2,1fr)}}
+.dash-sec{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:var(--slate-bg);transition:background 0.3s}
+.dash-sec.sec-perfect{background:var(--green-bg)}
+.dash-sec.sec-partial{background:var(--orange-bg)}
+.dash-sec-icon{font-size:1rem;flex-shrink:0}
+.dash-sec-info{text-align:left;min-width:0}
+.dash-sec-name{font-size:0.72rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-sec-dots{display:flex;gap:3px;margin-top:3px}
+.dash-sec-dot{width:8px;height:8px;border-radius:50%;background:#e5e7eb;transition:background 0.3s}
+.dash-sec-dot.dot-correct{background:var(--green)}
+.dash-sec-dot.dot-wrong{background:var(--red)}
+
+.achieve-banner{border-radius:var(--r-md);padding:14px 18px;display:flex;align-items:flex-start;gap:12px;margin-top:16px;text-align:left;transition:all 0.3s}
+.achieve-banner .ab-icon{font-size:1.5rem;flex-shrink:0}
+.achieve-banner .ab-text h4{font-size:0.9rem;font-weight:700;margin-bottom:2px}
+.achieve-banner .ab-text p{font-size:0.8rem;line-height:1.55}
+
+/* 한 문장 정리 글쓰기 */
+.summary-write{background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow);margin-top:16px}
+.summary-write h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.summary-write p{font-size:0.82rem;color:var(--sub);margin-bottom:12px}
+.summary-textarea{width:100%;min-height:96px;resize:vertical;padding:14px 16px;font-size:0.88rem;line-height:1.65;font-family:'Noto Sans KR',sans-serif;border:1px solid rgba(0,0,0,0.12);border-radius:12px;background:rgba(255,255,255,0.82);color:var(--text);outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+.summary-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.12)}
+.summary-write-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
+.summary-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.summary-save{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--navy);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.summary-share{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--blue);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.summary-toggle{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:none;border-radius:10px;background:var(--orange);color:#fff;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.summary-model{display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.82);border:1px solid rgba(30,58,95,0.12);border-radius:12px}
+.summary-model p{margin-bottom:0;font-size:0.83rem;line-height:1.7;color:var(--text)}
+.summary-meta{font-size:0.76rem;color:var(--dim)}
+.question-helper{font-size:0.78rem;color:var(--sub);margin-bottom:10px;line-height:1.55}
+.question-quiz-link{font-size:0.78rem;color:var(--sub);margin-top:10px}
+
+.ab-waiting{background:var(--slate-bg);border:1px solid #e2e8f0}
+.ab-low{background:var(--red-bg);border:1px solid rgba(220,38,38,0.15)}
+.ab-mid{background:var(--orange-bg);border:1px solid rgba(217,119,6,0.18)}
+.ab-high{background:var(--blue-bg);border:1px solid rgba(37,99,235,0.15)}
+.ab-perfect{background:var(--green-bg);border:1px solid rgba(5,150,105,0.2)}
+
+/* ═══ 섹션 간 이동 네비게이션 ═══ */
+.sec-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.06)}
+.sec-nav-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border:1px solid rgba(0,0,0,0.1);border-radius:10px;background:var(--bg-card);font-size:0.82rem;font-weight:600;color:var(--navy);cursor:pointer;transition:all 0.15s;font-family:'Noto Sans KR',sans-serif}
+.sec-nav-btn:hover{background:var(--navy-bg);border-color:var(--navy);transform:translateY(-1px);box-shadow:var(--shadow)}
+.sec-nav-btn.invisible{visibility:hidden}
+
+/* SCROLL TO TOP */
+.scroll-top{position:fixed;bottom:24px;right:20px;width:42px;height:42px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 16px rgba(0,0,0,0.18);cursor:pointer;opacity:0;transform:translateY(10px);transition:opacity 0.25s,transform 0.25s;z-index:90;border:none}.scroll-top.visible{opacity:1;transform:translateY(0)}.scroll-top:hover{background:#2C4A7C}
+
+/* FOOTER */
+.site-footer{padding:28px 0 48px;text-align:center;font-size:0.78rem;color:var(--dim);border-top:1px solid rgba(0,0,0,0.06)}.site-footer p+p{margin-top:3px}
+
+/* ANIMATIONS */
+@media(prefers-reduced-motion:no-preference){.fade-in{opacity:0;transform:translateY(10px);animation:fadeUp .45s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}}
+</style>
+</head>
+<body>
+
+<header class="site-header"><div class="header-inner">
+<a class="site-brand" href="#top">📘 대한제국과 국권 피탈</a>
+<button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" onclick="toggleNav()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+<nav class="main-nav" id="main-nav" aria-label="주요 메뉴"><ul>
+<li><a href="#overview" onclick="closeNav()">전체 개요</a></li>
+<li><a href="#topics" onclick="closeNav()">핵심 주제</a></li>
+<li><a href="#search" onclick="closeNav()">검색</a></li>
+<li><a href="#daehan" onclick="closeNav()">사건별 정리</a></li>
+<li><a href="#dashboard" onclick="closeNav()">📊 달성도</a></li>
+</ul></nav>
+</div></header>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<section class="hero" id="top"><div class="container hero-inner">
+<p class="hero-eye fade-in">문시중 역사 클래스 · 대한제국과 국권 피탈</p>
+<h1 class="fade-in d1">대한제국에서 한일 병합까지<br>자주독립의 시도와 국권 상실</h1>
+<p class="hero-desc fade-in d2">아관파천 뒤 고종은 대한제국을 세우고 자주독립 국가를 다시 세우려 했습니다. 그러나 일본은 러일전쟁, 을사늑약, 고종 강제 퇴위, 군대 해산, 한일 병합을 단계적으로 강요하며 대한제국의 국권을 빼앗아 갔습니다.</p>
+<div class="hero-actions fade-in d3">
+<a href="#overview" class="btn btn-w">📌 전체 흐름 보기</a>
+<a href="#daehan" class="btn btn-g">📚 본문 바로가기</a>
+</div>
+</div></section>
+
+<main>
+
+<section class="sec section-anchor" id="overview"><div class="container">
+<span class="sec-label" style="background:var(--blue-bg);color:var(--blue);">📌 OVERVIEW</span>
+<h2 class="sec-title">이 페이지에서 다루는 흐름</h2>
+<p class="sec-desc">사건을 클릭하면 해당 내용으로 바로 이동합니다. 형성평가를 모두 맞힌 사건은 ✓ 표시됩니다.</p>
+<div class="timeline-horizontal fade-in" id="timelineWrap">
+<div class="tl-track" id="tlTrack">
+  <div class="tl-node" data-target="daehan" onclick="scrollToSec('daehan')"><div class="tl-dot"></div><span class="tl-year">1897</span><span class="tl-name">대한제국 수립</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="dongnip" onclick="scrollToSec('dongnip')"><div class="tl-dot"></div><span class="tl-year">1896~1898</span><span class="tl-name">독립협회와 만민공동회</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="gwangmu" onclick="scrollToSec('gwangmu')"><div class="tl-dot"></div><span class="tl-year">1897~1904</span><span class="tl-name">광무개혁</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="dokdo" onclick="scrollToSec('dokdo')"><div class="tl-dot"></div><span class="tl-year">1900</span><span class="tl-name">칙령 제41호와 독도</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="ruso" onclick="scrollToSec('ruso')"><div class="tl-dot"></div><span class="tl-year">1904~1905</span><span class="tl-name">러일전쟁과 일본 침략의 본격화</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="eulsa" onclick="scrollToSec('eulsa')"><div class="tl-dot"></div><span class="tl-year">1905</span><span class="tl-name">을사늑약</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="hague" onclick="scrollToSec('hague')"><div class="tl-dot"></div><span class="tl-year">1907</span><span class="tl-name">헤이그 특사와 고종 강제 퇴위</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="gunhae" onclick="scrollToSec('gunhae')"><div class="tl-dot"></div><span class="tl-year">1907</span><span class="tl-name">정미7조약, 군대 해산과 정미의병</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="aeguk" onclick="scrollToSec('aeguk')"><div class="tl-dot"></div><span class="tl-year">1907~1910</span><span class="tl-name">애국 계몽 운동과 국채보상운동</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="junggeun" onclick="scrollToSec('junggeun')"><div class="tl-dot"></div><span class="tl-year">1909</span><span class="tl-name">안중근 의거</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="annex" onclick="scrollToSec('annex')"><div class="tl-dot"></div><span class="tl-year">1910</span><span class="tl-name">한일 병합</span></div>
+</div></div>
+</div></section>
+
+<section class="sec" style="padding-top:0;"><div class="container"><div class="card-grid cg-2">
+<a class="quick-card fade-in" href="#daehan"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">👑</div><div class="q-text"><h3>대한제국의 출발</h3><p>대한제국 수립과 광무개혁</p></div></a>
+<a class="quick-card fade-in" href="#eulsa"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">📜</div><div class="q-text"><h3>국권 침탈의 단계</h3><p>러일전쟁부터 을사늑약까지</p></div></a>
+<a class="quick-card fade-in" href="#aeguk"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">💡</div><div class="q-text"><h3>국권 수호 운동</h3><p>의병과 애국 계몽 운동 비교</p></div></a>
+<a class="quick-card fade-in" href="#dashboard"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">📊</div><div class="q-text"><h3>나의 달성도</h3><p>형성평가 결과로 학습 달성도 확인</p></div></a>
+</div></div></section>
+
+<section class="sec section-anchor" id="topics"><div class="container">
+<span class="sec-label" style="background:var(--navy-bg);color:var(--navy);">📚 핵심 주제</span>
+<h2 class="sec-title">핵심 주제 한눈에 보기</h2>
+<p class="sec-desc">주제별 카드에서 원하는 사건으로 바로 이동할 수 있습니다.</p>
+<div class="card-grid cg-4">
+<article class="card fade-in"><div class="card-icon" style="background:var(--navy-bg);color:var(--navy);">👑</div><h3>대한제국 수립</h3><p>자주독립국 선포와 황제 즉위</p><a href="#daehan" class="card-link" style="color:var(--navy);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--blue-bg);color:var(--blue);">🗞️</div><h3>독립협회</h3><p>자주 국권과 자유 민권의 확대</p><a href="#dongnip" class="card-link" style="color:var(--blue);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--green-bg);color:var(--green);">🛠️</div><h3>광무개혁</h3><p>토지·산업·교육·도시 정비</p><a href="#gwangmu" class="card-link" style="color:var(--green);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--purple-bg);color:var(--purple);">🌊</div><h3>칙령 제41호</h3><p>독도를 대한제국 영토로 명시</p><a href="#dokdo" class="card-link" style="color:var(--purple);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--red-bg);color:var(--red);">⚔️</div><h3>러일전쟁</h3><p>일본 침략의 본격화</p><a href="#ruso" class="card-link" style="color:var(--red);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--red-bg);color:var(--red);">📜</div><h3>을사늑약</h3><p>외교권 박탈과 통감부 설치</p><a href="#eulsa" class="card-link" style="color:var(--red);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--orange-bg);color:var(--orange);">🌍</div><h3>헤이그 특사</h3><p>국제 사회에 부당함을 알리려 한 외교전</p><a href="#hague" class="card-link" style="color:var(--orange);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--red-bg);color:var(--red);">🪖</div><h3>정미의병</h3><p>군대 해산 뒤 전국적 무장 항전</p><a href="#gunhae" class="card-link" style="color:var(--red);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--green-bg);color:var(--green);">💡</div><h3>애국 계몽 운동</h3><p>실력 양성을 통한 국권 수호</p><a href="#aeguk" class="card-link" style="color:var(--green);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--purple-bg);color:var(--purple);">🎯</div><h3>안중근 의거</h3><p>항일 의지를 세계에 알린 의거</p><a href="#junggeun" class="card-link" style="color:var(--purple);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--red-bg);color:var(--red);">🏴</div><h3>한일 병합</h3><p>국권 피탈의 최종 단계</p><a href="#annex" class="card-link" style="color:var(--red);">바로 보기</a></article>
+</div></div></section>
+
+<div class="search-container fade-in" id="search">
+<input type="text" id="searchInput" class="search-input" placeholder="🔍 검색어를 입력하세요 (예: 대한제국, 독립협회, 광무개혁, 칙령 제41호, 을사늑약, 신민회)...">
+<ul id="searchResults" class="search-results" role="listbox"></ul>
+</div>
+
+<div class="section-divider"></div>
+
+<section class="sec section-anchor" id="daehan"><div class="container">
+<span class="sec-label" style="background:var(--navy-bg);color:var(--navy);">국가</span>
+<h2 class="sec-title">대한제국 수립 (1897)</h2>
+<p class="sec-desc">아관파천 뒤 고종은 환구단에서 황제로 즉위하고, 국호를 대한제국으로 바꾸어 자주독립국임을 선포하였다.</p>
+<article class="week-card wc-blue fade-in"><span class="week-badge" style="background:var(--navy);">핵심</span><h3>대한제국 수립 (1897)</h3><p>고종은 러시아 공사관에서 경운궁으로 환궁한 뒤, 더 이상 조선이 청이나 일본에 종속된 나라가 아님을 보여 주기 위해 대한제국을 선포하였다. 황제 즉위식, 광무 연호 사용, 대한국 국제 반포는 모두 국가의 자주성과 황제권 강화를 함께 드러내는 조치였다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>📌 배경 — 왜 ‘조선’이 아니라 ‘대한제국’이 되었나?</h3><ul>
+    <li>을미사변과 아관파천을 거치며 조선 왕실의 권위는 크게 흔들렸다. 고종은 외세 간섭 속에서 무너진 국권을 회복할 상징이 필요하다고 보았다.</li>
+    <li>환궁 이후 고종은 나라를 자주독립국으로 다시 세우기 위해 황제 즉위를 추진하였다. 이는 청의 간섭에서 벗어나 독립국임을 분명히 하려는 뜻이었다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🏛️ 전개 — 무엇이 달라졌나?</h3><ul>
+    <li>1897년 고종은 환구단에서 황제로 즉위하고 국호를 <strong>대한제국</strong>으로 바꾸었다.</li>
+    <li><strong>광무</strong> 연호를 사용하며 새 국가의 출발을 알렸다.</li>
+    <li><strong>대한국 국제</strong>를 반포하여 황제를 중심으로 한 국가 체제를 분명히 하였다.</li>
+  </ul></div>
+  <div class="vs-card fade-in"><div class="vs-header">🔍 조선 vs 대한제국</div><div class="vs-body">
+    <div class="vs-side vs-left"><h5>조선</h5><div class="vs-row"><span class="vs-row-label">국가 명칭</span> 조선</div><div class="vs-row"><span class="vs-row-label">군주 호칭</span> 국왕</div><div class="vs-row"><span class="vs-row-label">국제 질서</span> 전통적 동아시아 질서</div></div>
+    <div class="vs-center">→</div>
+    <div class="vs-side vs-right"><h5>대한제국</h5><div class="vs-row"><span class="vs-row-label">국가 명칭</span> 대한제국</div><div class="vs-row"><span class="vs-row-label">군주 호칭</span> 황제</div><div class="vs-row"><span class="vs-row-label">지향</span> 자주독립국 표방</div></div>
+  </div></div>
+  <div class="content-block"><h3>⚖️ 의의와 한계</h3><div class="split-grid"><div class="split-box"><h4>의의</h4><ul><li>자주독립국을 대내외에 선언</li><li>근대 국가 체제 정비의 출발점 마련</li></ul></div><div class="split-box"><h4>한계</h4><ul><li>황제권 강화에 무게가 실림</li><li>제국주의 국제 질서 속에서 외교적·군사적 기반이 약함</li></ul></div></div></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-daehan" role="region" aria-label="대한제국 수립 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-daehan">0 / 2 완료</span></div><div class="quiz-item" id="qi-daehan-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">대한제국 선포와 함께 고종이 사용한 연호는?</p><div class="quiz-opts" id="qo-daehan-0" role="radiogroup"><button class="qopt" onclick="answerQ('daehan',0,0)" role="radio" aria-checked="false">① 건양</button><button class="qopt" onclick="answerQ('daehan',0,1)" role="radio" aria-checked="false">② 광무</button><button class="qopt" onclick="answerQ('daehan',0,2)" role="radio" aria-checked="false">③ 융희</button><button class="qopt" onclick="answerQ('daehan',0,3)" role="radio" aria-checked="false">④ 개국</button></div><div class="quiz-fb" id="qf-daehan-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-daehan-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">대한제국 수립의 가장 큰 목적을 고르면?</p><div class="quiz-opts" id="qo-daehan-1" role="radiogroup"><button class="qopt" onclick="answerQ('daehan',1,0)" role="radio" aria-checked="false">① 청의 속국임을 인정받기 위해</button><button class="qopt" onclick="answerQ('daehan',1,1)" role="radio" aria-checked="false">② 왕권을 포기하고 의회 정치를 시작하기 위해</button><button class="qopt" onclick="answerQ('daehan',1,2)" role="radio" aria-checked="false">③ 자주독립국임을 대내외에 선포하기 위해</button><button class="qopt" onclick="answerQ('daehan',1,3)" role="radio" aria-checked="false">④ 일본과의 합병을 준비하기 위해</button></div><div class="quiz-fb" id="qf-daehan-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn invisible">← 이전</button><button class="sec-nav-btn" onclick="scrollToSec('dongnip')">독립협회와 만민공동회 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="dongnip"><div class="container">
+<span class="sec-label" style="background:var(--blue-bg);color:var(--blue);">민권</span>
+<h2 class="sec-title">독립협회와 만민공동회 (1896~1898)</h2>
+<p class="sec-desc">독립협회는 자주 국권과 자유 민권을 내세우며 독립신문, 독립문, 만민공동회 등 근대적 시민 활동을 이끌었다.</p>
+<article class="week-card wc-blue fade-in"><span class="week-badge" style="background:var(--blue);">핵심</span><h3>독립협회와 만민공동회</h3><p>독립협회는 서재필, 윤치호, 이상재 등을 중심으로 조직되어 자주독립과 개혁, 민권 확대를 주장하였다. 독립문 건립과 독립신문 발간으로 여론을 넓혔고, 만민공동회·관민공동회를 통해 헌의 6조를 결의하며 정치 참여의 새로운 장면을 만들었다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>📰 무엇을 했나?</h3><ul>
+    <li><strong>독립신문</strong>을 발간하여 자주독립 의식을 넓혔다.</li>
+    <li><strong>독립문</strong>을 세워 청의 간섭에서 벗어난 자주국임을 강조했다.</li>
+    <li>토론회와 연설회를 열어 백성의 정치 의식을 높였다.</li>
+  </ul></div>
+  <div class="content-block"><h3>👥 만민공동회와 관민공동회</h3><ul>
+    <li>민중이 직접 참여한 집회인 <strong>만민공동회</strong>는 외세 간섭을 규탄하고 개혁을 요구하였다.</li>
+    <li>정부와 함께 연 <strong>관민공동회</strong>에서는 <strong>헌의 6조</strong>를 결의하였다.</li>
+    <li>이는 근대적 정치 참여와 민권 의식의 성장으로 이어졌다.</li>
+  </ul></div>
+  <div class="vs-card fade-in"><div class="vs-header">⚖️ 대한제국 정부와 독립협회의 차이</div><div class="vs-body">
+    <div class="vs-side vs-left"><h5>대한제국 정부</h5><div class="vs-row"><span class="vs-row-label">중심</span> 황제권 강화</div><div class="vs-row"><span class="vs-row-label">방향</span> 국가권력 정비</div><div class="vs-row"><span class="vs-row-label">목표</span> 자주독립국 강화</div></div>
+    <div class="vs-center">VS</div>
+    <div class="vs-side vs-right"><h5>독립협회</h5><div class="vs-row"><span class="vs-row-label">중심</span> 민권 확대</div><div class="vs-row"><span class="vs-row-label">방향</span> 여론·집회·토론</div><div class="vs-row"><span class="vs-row-label">목표</span> 자주 국권 + 자유 민권</div></div>
+  </div></div>
+  <div class="content-block"><h3>❗ 왜 해산되었나?</h3><ul>
+    <li>보수 세력은 독립협회가 공화정을 세우려 한다고 공격하였다.</li>
+    <li>결국 정부는 독립협회를 해산시켰고, 만민공동회도 막을 내렸다.</li>
+    <li>그럼에도 이 활동은 이후 근대적 시민 운동의 중요한 출발점이 되었다.</li>
+  </ul></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-dongnip" role="region" aria-label="독립협회와 만민공동회 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-dongnip">0 / 2 완료</span></div><div class="quiz-item" id="qi-dongnip-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">독립협회가 발간한 우리나라 최초의 민간 신문은?</p><div class="quiz-opts" id="qo-dongnip-0" role="radiogroup"><button class="qopt" onclick="answerQ('dongnip',0,0)" role="radio" aria-checked="false">① 한성순보</button><button class="qopt" onclick="answerQ('dongnip',0,1)" role="radio" aria-checked="false">② 독립신문</button><button class="qopt" onclick="answerQ('dongnip',0,2)" role="radio" aria-checked="false">③ 황성신문</button><button class="qopt" onclick="answerQ('dongnip',0,3)" role="radio" aria-checked="false">④ 제국신문</button></div><div class="quiz-fb" id="qf-dongnip-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-dongnip-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">독립협회의 활동 성격으로 가장 적절한 것은?</p><div class="quiz-opts" id="qo-dongnip-1" role="radiogroup"><button class="qopt" onclick="answerQ('dongnip',1,0)" role="radio" aria-checked="false">① 일본의 침략을 군사력으로 막는 무장 투쟁</button><button class="qopt" onclick="answerQ('dongnip',1,1)" role="radio" aria-checked="false">② 자주 국권과 자유 민권을 함께 추구한 시민 운동</button><button class="qopt" onclick="answerQ('dongnip',1,2)" role="radio" aria-checked="false">③ 청과의 전통적 사대 질서 회복 운동</button><button class="qopt" onclick="answerQ('dongnip',1,3)" role="radio" aria-checked="false">④ 농민 중심의 반봉건 혁명 운동</button></div><div class="quiz-fb" id="qf-dongnip-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('daehan')">← 대한제국 수립</button><button class="sec-nav-btn" onclick="scrollToSec('gwangmu')">광무개혁 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="gwangmu"><div class="container">
+<span class="sec-label" style="background:var(--green-bg);color:var(--green);">개혁</span>
+<h2 class="sec-title">광무개혁 (1897~1904)</h2>
+<p class="sec-desc">대한제국은 토지 조사, 산업 진흥, 교육·교통·금융 정비를 통해 자주적 근대 국가를 만들고자 하였다.</p>
+<article class="week-card wc-green fade-in"><span class="week-badge" style="background:var(--green);">핵심</span><h3>광무개혁</h3><p>광무개혁은 대한제국이 황제를 중심으로 추진한 근대화 정책이다. 토지와 재정을 정비하고, 상공업과 교통·통신을 키우며, 학교와 근대 시설을 확충하여 국가의 힘을 키우려 했다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>🌱 토지와 재정 정비</h3><ul>
+    <li><strong>양전 사업</strong>을 실시하여 토지를 측량하고 소유 관계를 파악하였다.</li>
+    <li>토지 소유를 증명하는 <strong>지계</strong>를 발급하여 근대적 재정 기반을 마련하려 했다.</li>
+    <li>이는 국가 재정 확충과 근대적 토지 제도 정비를 위한 시도였다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🏭 산업·교통·도시 근대화</h3><ul>
+    <li>상공업을 장려하고 회사 설립을 추진하였다.</li>
+    <li>철도, 전차, 전기, 통신 등 근대 시설을 도입하였다.</li>
+    <li>한성의 도로 정비, 가로등 설치 등 도시 기반도 바꾸어 갔다.</li>
+  </ul></div>
+  <div class="table-wrap"><h4>📋 광무개혁의 주요 분야</h4><table><thead><tr><th>분야</th><th>내용</th></tr></thead><tbody>
+    <tr><td>토지</td><td>양전 사업, 지계 발급</td></tr>
+    <tr><td>산업</td><td>상공업 진흥, 회사 설립 지원</td></tr>
+    <tr><td>교통·통신</td><td>철도·전차·전신 정비</td></tr>
+    <tr><td>교육</td><td>실업 학교·기술 교육 확대</td></tr>
+  </tbody></table></div>
+  <div class="content-block"><h3>⚖️ 왜 오래 지속되지 못했나?</h3><div class="split-grid"><div class="split-box"><h4>성과</h4><ul><li>근대 국가를 향한 자주적 개혁 시도</li><li>토지·재정·산업 정비의 출발</li></ul></div><div class="split-box"><h4>한계</h4><ul><li>재정·기술·인재 부족</li><li>러일전쟁 전후 일본 침략 심화</li></ul></div></div></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-gwangmu" role="region" aria-label="광무개혁 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-gwangmu">0 / 2 완료</span></div><div class="quiz-item" id="qi-gwangmu-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">광무개혁 때 토지 소유를 증명하기 위해 발급한 것은?</p><div class="quiz-opts" id="qo-gwangmu-0" role="radiogroup"><button class="qopt" onclick="answerQ('gwangmu',0,0)" role="radio" aria-checked="false">① 호패</button><button class="qopt" onclick="answerQ('gwangmu',0,1)" role="radio" aria-checked="false">② 공인</button><button class="qopt" onclick="answerQ('gwangmu',0,2)" role="radio" aria-checked="false">③ 지계</button><button class="qopt" onclick="answerQ('gwangmu',0,3)" role="radio" aria-checked="false">④ 준호구</button></div><div class="quiz-fb" id="qf-gwangmu-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-gwangmu-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">광무개혁의 한계로 가장 적절한 것은?</p><div class="quiz-opts" id="qo-gwangmu-1" role="radiogroup"><button class="qopt" onclick="answerQ('gwangmu',1,0)" role="radio" aria-checked="false">① 근대화 의지가 전혀 없었다</button><button class="qopt" onclick="answerQ('gwangmu',1,1)" role="radio" aria-checked="false">② 외세 침략 심화 속에서 개혁을 지속하기 어려웠다</button><button class="qopt" onclick="answerQ('gwangmu',1,2)" role="radio" aria-checked="false">③ 토지 조사만 하고 산업 정책은 전혀 없었다</button><button class="qopt" onclick="answerQ('gwangmu',1,3)" role="radio" aria-checked="false">④ 청나라가 개혁을 즉시 중단시켰다</button></div><div class="quiz-fb" id="qf-gwangmu-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('dongnip')">← 독립협회와 만민공동회</button><button class="sec-nav-btn" onclick="scrollToSec('dokdo')">칙령 제41호와 독도 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="dokdo"><div class="container">
+<span class="sec-label" style="background:var(--purple-bg);color:var(--purple);">영토</span>
+<h2 class="sec-title">칙령 제41호와 독도 (1900)</h2>
+<p class="sec-desc">대한제국은 울도군을 설치하며 울릉도와 죽도, 석도(독도)를 관할 구역으로 명시하였다.</p>
+<article class="week-card wc-purple fade-in"><span class="week-badge" style="background:var(--purple);">핵심</span><h3>칙령 제41호와 독도</h3><p>대한제국은 1900년 칙령 제41호를 반포해 울릉도를 울도로 개칭하고 울도군을 설치하였다. 이때 관할 구역을 울릉 전도와 죽도, 석도로 규정하여 독도가 대한제국의 영토임을 공식 문서에 분명히 남겼다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>📜 핵심 내용</h3><ul>
+    <li>울릉도를 <strong>울도</strong>로 개칭하고 행정 단위를 정비하였다.</li>
+    <li>울도군의 관할 구역에 <strong>죽도와 석도</strong>를 포함시켰다.</li>
+    <li>여기서 석도는 오늘날의 <strong>독도</strong>를 가리키는 것으로 이해된다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🌊 왜 중요한가?</h3><ul>
+    <li>대한제국이 독도를 자국 영토로 인식하고 행정적으로 관리했음을 보여 준다.</li>
+    <li>훗날 일본이 러일전쟁 중 독도를 편입하려 한 것과 대비되는 중요한 근거가 된다.</li>
+  </ul></div>
+  <div class="notice-info-box"><h3>🔎 기억할 점</h3><ul class="notice-info-list">
+    <li>독도 문제는 단순한 섬 이름 문제가 아니라, 대한제국이 자국 영토를 어떻게 인식하고 문서로 남겼는가와 연결된다.</li>
+  </ul></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-dokdo" role="region" aria-label="칙령 제41호와 독도 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-dokdo">0 / 2 완료</span></div><div class="quiz-item" id="qi-dokdo-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">칙령 제41호에서 울도군의 관할 구역으로 함께 규정된 섬이 아닌 것은?</p><div class="quiz-opts" id="qo-dokdo-0" role="radiogroup"><button class="qopt" onclick="answerQ('dokdo',0,0)" role="radio" aria-checked="false">① 울릉 전도</button><button class="qopt" onclick="answerQ('dokdo',0,1)" role="radio" aria-checked="false">② 죽도</button><button class="qopt" onclick="answerQ('dokdo',0,2)" role="radio" aria-checked="false">③ 석도</button><button class="qopt" onclick="answerQ('dokdo',0,3)" role="radio" aria-checked="false">④ 제주도</button></div><div class="quiz-fb" id="qf-dokdo-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-dokdo-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">칙령 제41호가 역사적으로 중요한 이유는?</p><div class="quiz-opts" id="qo-dokdo-1" role="radiogroup"><button class="qopt" onclick="answerQ('dokdo',1,0)" role="radio" aria-checked="false">① 독도를 일본 영토로 인정했기 때문에</button><button class="qopt" onclick="answerQ('dokdo',1,1)" role="radio" aria-checked="false">② 대한제국이 독도를 자국 영토로 관리했음을 보여 주기 때문에</button><button class="qopt" onclick="answerQ('dokdo',1,2)" role="radio" aria-checked="false">③ 러시아와의 공동 통치를 약속했기 때문에</button><button class="qopt" onclick="answerQ('dokdo',1,3)" role="radio" aria-checked="false">④ 독립협회를 해산한 법령이기 때문에</button></div><div class="quiz-fb" id="qf-dokdo-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('gwangmu')">← 광무개혁</button><button class="sec-nav-btn" onclick="scrollToSec('ruso')">러일전쟁과 일본 침략의 본격화 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="ruso"><div class="container">
+<span class="sec-label" style="background:var(--red-bg);color:var(--red);">전쟁</span>
+<h2 class="sec-title">러일전쟁과 일본 침략의 본격화 (1904~1905)</h2>
+<p class="sec-desc">일본은 러일전쟁을 일으켜 승리한 뒤, 대한제국을 군사적으로 장악하며 지배권을 굳혀 갔다.</p>
+<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>러일전쟁과 일본 침략의 본격화</h3><p>러일전쟁은 한반도와 만주를 둘러싼 러시아와 일본의 충돌이었다. 일본은 전쟁을 구실로 한반도에 군대를 들이고, 대한제국에 한일의정서와 제1차 한일협약을 강요하며 내정 간섭을 강화했다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>🌏 왜 전쟁이 일어났나?</h3><ul>
+    <li>러시아와 일본은 한반도와 만주 지배권을 두고 대립하였다.</li>
+    <li>대한제국의 운명은 당사국 뜻과 무관하게 제국주의 열강의 경쟁 속에 놓였다.</li>
+  </ul></div>
+  <div class="content-block"><h3>⚠️ 대한제국에 끼친 영향</h3><ul>
+    <li>일본은 전쟁 중 <strong>한일의정서</strong>를 강요해 군사상 필요한 곳을 마음대로 사용할 수 있게 했다.</li>
+    <li><strong>제1차 한일협약</strong>으로 외교·재정 고문을 두어 대한제국 내정을 간섭하였다.</li>
+    <li>전쟁 승리 뒤 일본은 대한제국 지배를 더욱 노골화했다.</li>
+  </ul></div>
+  <div class="flow-list-wrap"><ol class="flow-list"><li>러일전쟁 발발</li><li>일본군 한반도 주둔</li><li>한일의정서 강요</li><li>제1차 한일협약 체결</li><li>을사늑약으로 연결</li></ol></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-ruso" role="region" aria-label="러일전쟁과 일본 침략의 본격화 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-ruso">0 / 2 완료</span></div><div class="quiz-item" id="qi-ruso-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">러일전쟁 중 일본이 대한제국에 강요하여 군사상 필요한 곳을 자유롭게 사용할 수 있게 한 것은?</p><div class="quiz-opts" id="qo-ruso-0" role="radiogroup"><button class="qopt" onclick="answerQ('ruso',0,0)" role="radio" aria-checked="false">① 강화도 조약</button><button class="qopt" onclick="answerQ('ruso',0,1)" role="radio" aria-checked="false">② 한일의정서</button><button class="qopt" onclick="answerQ('ruso',0,2)" role="radio" aria-checked="false">③ 을사늑약</button><button class="qopt" onclick="answerQ('ruso',0,3)" role="radio" aria-checked="false">④ 한일 병합 조약</button></div><div class="quiz-fb" id="qf-ruso-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-ruso-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">러일전쟁이 대한제국에 미친 영향으로 가장 적절한 것은?</p><div class="quiz-opts" id="qo-ruso-1" role="radiogroup"><button class="qopt" onclick="answerQ('ruso',1,0)" role="radio" aria-checked="false">① 대한제국의 외교권이 강화되었다</button><button class="qopt" onclick="answerQ('ruso',1,1)" role="radio" aria-checked="false">② 일본의 내정 간섭이 약화되었다</button><button class="qopt" onclick="answerQ('ruso',1,2)" role="radio" aria-checked="false">③ 일본의 한반도 지배가 본격화되었다</button><button class="qopt" onclick="answerQ('ruso',1,3)" role="radio" aria-checked="false">④ 청나라의 간섭이 다시 강해졌다</button></div><div class="quiz-fb" id="qf-ruso-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('dokdo')">← 칙령 제41호와 독도</button><button class="sec-nav-btn" onclick="scrollToSec('eulsa')">을사늑약 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="eulsa"><div class="container">
+<span class="sec-label" style="background:var(--red-bg);color:var(--red);">늑약</span>
+<h2 class="sec-title">을사늑약 (1905)</h2>
+<p class="sec-desc">일본은 군사력으로 대한제국 정부를 압박해 외교권을 빼앗고, 통감부를 설치하여 보호국으로 만들었다.</p>
+<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>을사늑약</h3><p>을사늑약은 일본이 덕수궁을 포위한 채 강제로 체결한 조약이다. 이 조약으로 대한제국은 외교권을 잃고, 일본의 통감부가 설치되어 사실상 보호국이 되었다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>📌 어떻게 강요되었나?</h3><ul>
+    <li>일본은 러일전쟁 승리 직후 군대로 궁궐과 도심을 압박했다.</li>
+    <li>고종은 끝까지 반대했지만, 일본은 대신들을 압박해 늑약 체결을 강행했다.</li>
+  </ul></div>
+  <div class="content-block"><h3>📜 핵심 내용</h3><ul>
+    <li>대한제국의 <strong>외교권 박탈</strong></li>
+    <li>서울에 일본의 <strong>통감부 설치</strong></li>
+    <li>일본의 승인 없이 국제 조약 체결 불가</li>
+  </ul></div>
+  <div class="vs-card fade-in"><div class="vs-header">❗ 왜 ‘조약’이 아니라 ‘늑약’인가?</div><div class="vs-body">
+    <div class="vs-side vs-left"><h5>정상적 조약</h5><div class="vs-row"><span class="vs-row-label">체결 방식</span> 자율적 합의</div><div class="vs-row"><span class="vs-row-label">주권</span> 대등</div></div>
+    <div class="vs-center">≠</div>
+    <div class="vs-side vs-right"><h5>을사늑약</h5><div class="vs-row"><span class="vs-row-label">체결 방식</span> 군사적 강요</div><div class="vs-row"><span class="vs-row-label">주권</span> 침해</div></div>
+  </div></div>
+  <div class="content-block"><h3>✊ 저항</h3><ul>
+    <li>장지연은 <strong>「시일야방성대곡」</strong>을 써서 일본의 침략을 규탄했다.</li>
+    <li>민영환 등은 자결로 항거하였다.</li>
+    <li>이후 국권 수호 운동이 더욱 거세졌다.</li>
+  </ul></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-eulsa" role="region" aria-label="을사늑약 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-eulsa">0 / 2 완료</span></div><div class="quiz-item" id="qi-eulsa-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">을사늑약으로 대한제국이 빼앗긴 권한은?</p><div class="quiz-opts" id="qo-eulsa-0" role="radiogroup"><button class="qopt" onclick="answerQ('eulsa',0,0)" role="radio" aria-checked="false">① 입법권</button><button class="qopt" onclick="answerQ('eulsa',0,1)" role="radio" aria-checked="false">② 군사권</button><button class="qopt" onclick="answerQ('eulsa',0,2)" role="radio" aria-checked="false">③ 외교권</button><button class="qopt" onclick="answerQ('eulsa',0,3)" role="radio" aria-checked="false">④ 교육권</button></div><div class="quiz-fb" id="qf-eulsa-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-eulsa-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">을사늑약을 ‘늑약’이라 부르는 가장 큰 이유는?</p><div class="quiz-opts" id="qo-eulsa-1" role="radiogroup"><button class="qopt" onclick="answerQ('eulsa',1,0)" role="radio" aria-checked="false">① 청나라가 승인하지 않았기 때문에</button><button class="qopt" onclick="answerQ('eulsa',1,1)" role="radio" aria-checked="false">② 일본이 군사력으로 강요해 체결했기 때문에</button><button class="qopt" onclick="answerQ('eulsa',1,2)" role="radio" aria-checked="false">③ 백성들이 내용을 몰랐기 때문에</button><button class="qopt" onclick="answerQ('eulsa',1,3)" role="radio" aria-checked="false">④ 조약문이 한문으로 쓰였기 때문에</button></div><div class="quiz-fb" id="qf-eulsa-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('ruso')">← 러일전쟁과 일본 침략의 본격화</button><button class="sec-nav-btn" onclick="scrollToSec('hague')">헤이그 특사와 고종 강제 퇴위 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="hague"><div class="container">
+<span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">외교</span>
+<h2 class="sec-title">헤이그 특사와 고종 강제 퇴위 (1907)</h2>
+<p class="sec-desc">고종은 을사늑약의 부당함을 국제 사회에 알리려 했지만, 일본은 이를 빌미로 고종을 퇴위시켰다.</p>
+<article class="week-card wc-orange fade-in"><span class="week-badge" style="background:var(--orange);">핵심</span><h3>헤이그 특사와 고종 강제 퇴위</h3><p>고종은 네덜란드 헤이그에서 열린 만국 평화 회의에 이상설, 이준, 이위종을 특사로 보내 을사늑약의 부당함을 알리려 했다. 그러나 일본의 방해로 공식 참석은 이루어지지 못했고, 일본은 이를 빌미로 고종을 강제로 퇴위시켰다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>📨 고종의 시도</h3><ul>
+    <li>을사늑약이 무효임을 국제 사회에 알리고자 특사를 파견했다.</li>
+    <li>대한제국은 끝까지 외교적으로 국권을 지키려 했다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🚫 왜 실패했나?</h3><ul>
+    <li>일본은 대한제국의 외교권을 빼앗은 상태였기 때문에 특사의 공식 참가를 가로막았다.</li>
+    <li>회의장 안에서 목소리를 내지 못한 채 국제 여론전에서 한계를 드러냈다.</li>
+  </ul></div>
+  <div class="content-block"><h3>👑 결과</h3><ul>
+    <li>일본은 이 사건을 구실로 <strong>고종을 강제 퇴위</strong>시켰다.</li>
+    <li>순종이 즉위했고, 대한제국의 주권은 더욱 약화되었다.</li>
+    <li>이후 정미7조약과 군대 해산으로 침탈이 한 단계 더 심해졌다.</li>
+  </ul></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-hague" role="region" aria-label="헤이그 특사와 고종 강제 퇴위 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-hague">0 / 2 완료</span></div><div class="quiz-item" id="qi-hague-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">헤이그에 파견된 특사의 목적으로 가장 알맞은 것은?</p><div class="quiz-opts" id="qo-hague-0" role="radiogroup"><button class="qopt" onclick="answerQ('hague',0,0)" role="radio" aria-checked="false">① 일본과의 군사 동맹 체결</button><button class="qopt" onclick="answerQ('hague',0,1)" role="radio" aria-checked="false">② 러시아 원조 요청</button><button class="qopt" onclick="answerQ('hague',0,2)" role="radio" aria-checked="false">③ 을사늑약의 부당함을 국제 사회에 알리기 위해</button><button class="qopt" onclick="answerQ('hague',0,3)" role="radio" aria-checked="false">④ 대한제국 황제 즉위를 승인받기 위해</button></div><div class="quiz-fb" id="qf-hague-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-hague-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">헤이그 특사 사건 이후 일본이 취한 조치로 옳은 것은?</p><div class="quiz-opts" id="qo-hague-1" role="radiogroup"><button class="qopt" onclick="answerQ('hague',1,0)" role="radio" aria-checked="false">① 독립협회를 다시 허용했다</button><button class="qopt" onclick="answerQ('hague',1,1)" role="radio" aria-checked="false">② 고종을 강제로 퇴위시켰다</button><button class="qopt" onclick="answerQ('hague',1,2)" role="radio" aria-checked="false">③ 대한제국 군대를 증강시켰다</button><button class="qopt" onclick="answerQ('hague',1,3)" role="radio" aria-checked="false">④ 통감부를 철수시켰다</button></div><div class="quiz-fb" id="qf-hague-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('eulsa')">← 을사늑약</button><button class="sec-nav-btn" onclick="scrollToSec('gunhae')">정미7조약, 군대 해산과 정미의병 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="gunhae"><div class="container">
+<span class="sec-label" style="background:var(--red-bg);color:var(--red);">항쟁</span>
+<h2 class="sec-title">정미7조약, 군대 해산과 정미의병 (1907)</h2>
+<p class="sec-desc">일본은 대한제국 군대를 해산했고, 해산 군인과 의병이 결합하며 무장 항전은 전국적 전쟁으로 확대되었다.</p>
+<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>군대 해산과 정미의병</h3><p>고종이 퇴위한 뒤 일본은 정미7조약을 강요하여 대한제국 내정을 더욱 장악했다. 이어 대한제국 군대를 해산하자, 해산 군인들이 의병에 합류해 정미의병이 전국적으로 전개되었다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>📜 정미7조약</h3><ul>
+    <li>일본은 대한제국의 행정 각 부문을 더욱 통제하였다.</li>
+    <li>차관 정치와 통감부 권한이 강화되며 대한제국의 자율성은 크게 줄었다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🪖 왜 의병이 더 거세졌나?</h3><ul>
+    <li><strong>군대 해산</strong>으로 직업 군인들이 일자리를 잃은 것이 아니라, 나라의 무력을 빼앗긴 일이 되었다.</li>
+    <li>해산 군인들은 의병에 합류해 무장력과 전투 경험을 보탰다.</li>
+    <li>정미의병은 전국적으로 전개되며 국권 수호 전쟁 성격을 띠었다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🔥 대표적 전개</h3><ul>
+    <li>13도 창의군 결성</li>
+    <li>서울 진공 작전 추진</li>
+    <li>일본의 남한 대토벌 작전으로 큰 피해를 입음</li>
+  </ul></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-gunhae" role="region" aria-label="정미7조약, 군대 해산과 정미의병 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-gunhae">0 / 2 완료</span></div><div class="quiz-item" id="qi-gunhae-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">정미의병이 더욱 확대된 직접적 계기는?</p><div class="quiz-opts" id="qo-gunhae-0" role="radiogroup"><button class="qopt" onclick="answerQ('gunhae',0,0)" role="radio" aria-checked="false">① 독립협회 해산</button><button class="qopt" onclick="answerQ('gunhae',0,1)" role="radio" aria-checked="false">② 군대 해산</button><button class="qopt" onclick="answerQ('gunhae',0,2)" role="radio" aria-checked="false">③ 갑오개혁</button><button class="qopt" onclick="answerQ('gunhae',0,3)" role="radio" aria-checked="false">④ 러시아 혁명</button></div><div class="quiz-fb" id="qf-gunhae-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-gunhae-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">정미의병의 성격을 가장 잘 설명한 것은?</p><div class="quiz-opts" id="qo-gunhae-1" role="radiogroup"><button class="qopt" onclick="answerQ('gunhae',1,0)" role="radio" aria-checked="false">① 지방 세금 감면을 요구하는 소요</button><button class="qopt" onclick="answerQ('gunhae',1,1)" role="radio" aria-checked="false">② 외세 배격과 국권 수호를 위한 전국적 무장 항전</button><button class="qopt" onclick="answerQ('gunhae',1,2)" role="radio" aria-checked="false">③ 청나라 지원을 요청하는 운동</button><button class="qopt" onclick="answerQ('gunhae',1,3)" role="radio" aria-checked="false">④ 일본과의 타협을 전제로 한 정치 운동</button></div><div class="quiz-fb" id="qf-gunhae-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('hague')">← 헤이그 특사와 고종 강제 퇴위</button><button class="sec-nav-btn" onclick="scrollToSec('aeguk')">애국 계몽 운동과 국채보상운동 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="aeguk"><div class="container">
+<span class="sec-label" style="background:var(--green-bg);color:var(--green);">자강</span>
+<h2 class="sec-title">애국 계몽 운동과 국채보상운동 (1907~1910)</h2>
+<p class="sec-desc">무장 투쟁과 함께, 교육·산업·경제력을 키워 국권을 지키려는 실력 양성 운동도 전개되었다.</p>
+<article class="week-card wc-green fade-in"><span class="week-badge" style="background:var(--green);">핵심</span><h3>애국 계몽 운동과 국채보상운동</h3><p>일부 인사들은 의병 전쟁과 더불어 교육·산업·경제력 향상을 통해 나라의 힘을 길러야 한다고 보았다. 국채보상운동, 신민회 활동, 학교 설립과 민족 산업 육성은 모두 실력 양성을 통한 국권 수호 운동이었다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>💰 국채보상운동</h3><ul>
+    <li>일본에게 진 빚을 국민의 힘으로 갚아 경제 예속을 막자는 운동이었다.</li>
+    <li>담배를 끊어 그 돈을 모으자는 절약 운동도 함께 벌어졌다.</li>
+    <li>일본의 방해로 성과는 제한되었지만, 민족적 연대 의식을 보여 주었다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🏫 신민회와 실력 양성</h3><ul>
+    <li><strong>신민회</strong>는 비밀 결사로서 교육·산업·독립운동 기지를 키우려 했다.</li>
+    <li>대성학교, 오산학교 등 민족 교육 기관을 세웠다.</li>
+    <li>자기회사 같은 민족 기업 육성도 추진하였다.</li>
+  </ul></div>
+  <div class="vs-card fade-in"><div class="vs-header">⚖️ 의병 운동 vs 애국 계몽 운동</div><div class="vs-body">
+    <div class="vs-side vs-left"><h5>의병 운동</h5><div class="vs-row"><span class="vs-row-label">방법</span> 무장 항전</div><div class="vs-row"><span class="vs-row-label">목표</span> 일본 침략 저지</div></div>
+    <div class="vs-center">공통</div>
+    <div class="vs-side vs-right"><h5>애국 계몽 운동</h5><div class="vs-row"><span class="vs-row-label">방법</span> 실력 양성</div><div class="vs-row"><span class="vs-row-label">목표</span> 국권 회복 기반 마련</div></div>
+  </div></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-aeguk" role="region" aria-label="애국 계몽 운동과 국채보상운동 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-aeguk">0 / 2 완료</span></div><div class="quiz-item" id="qi-aeguk-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">국채보상운동의 주된 목적은?</p><div class="quiz-opts" id="qo-aeguk-0" role="radiogroup"><button class="qopt" onclick="answerQ('aeguk',0,0)" role="radio" aria-checked="false">① 일본과의 전쟁 자금을 모으기 위해</button><button class="qopt" onclick="answerQ('aeguk',0,1)" role="radio" aria-checked="false">② 일본에게 진 빚을 국민 힘으로 갚아 경제 예속을 막기 위해</button><button class="qopt" onclick="answerQ('aeguk',0,2)" role="radio" aria-checked="false">③ 대한제국 황실 재정을 늘리기 위해</button><button class="qopt" onclick="answerQ('aeguk',0,3)" role="radio" aria-checked="false">④ 청나라에 조공을 보내기 위해</button></div><div class="quiz-fb" id="qf-aeguk-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-aeguk-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">신민회의 활동으로 옳은 것은?</p><div class="quiz-opts" id="qo-aeguk-1" role="radiogroup"><button class="qopt" onclick="answerQ('aeguk',1,0)" role="radio" aria-checked="false">① 강화도 조약 체결 주도</button><button class="qopt" onclick="answerQ('aeguk',1,1)" role="radio" aria-checked="false">② 대성학교·오산학교 설립 등 실력 양성 운동 전개</button><button class="qopt" onclick="answerQ('aeguk',1,2)" role="radio" aria-checked="false">③ 통감부 설치</button><button class="qopt" onclick="answerQ('aeguk',1,3)" role="radio" aria-checked="false">④ 갑오개혁 추진</button></div><div class="quiz-fb" id="qf-aeguk-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('gunhae')">← 정미7조약, 군대 해산과 정미의병</button><button class="sec-nav-btn" onclick="scrollToSec('junggeun')">안중근 의거 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="junggeun"><div class="container">
+<span class="sec-label" style="background:var(--purple-bg);color:var(--purple);">의열</span>
+<h2 class="sec-title">안중근 의거 (1909)</h2>
+<p class="sec-desc">안중근은 하얼빈에서 이토 히로부미를 처단하여 일본 침략의 책임을 묻고 항일 의지를 세계에 알렸다.</p>
+<article class="week-card wc-purple fade-in"><span class="week-badge" style="background:var(--purple);">핵심</span><h3>안중근 의거</h3><p>안중근은 대한제국의 외교권 박탈과 침략 정책의 중심 인물인 이토 히로부미를 하얼빈에서 사살하였다. 이는 단순한 개인의 행동이 아니라 일본 제국주의에 맞선 정치적 의거였다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="content-block"><h3>🎯 누구를 겨냥했나?</h3><ul>
+    <li>이토 히로부미는 초대 통감으로 대한제국 침탈의 상징적 인물이었다.</li>
+    <li>안중근은 그를 처단함으로써 일본 침략의 부당함을 드러내고자 했다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🌍 왜 중요한가?</h3><ul>
+    <li>한국인의 항일 의지를 국제 사회에 알린 사건이었다.</li>
+    <li>개인의 복수가 아니라 동양 평화와 국권 회복을 주장한 의거라는 점이 중요하다.</li>
+  </ul></div>
+  <div class="notice-info-box"><h3>🖋️ 기억할 말</h3><ul class="notice-info-list"><li>안중근은 재판 과정에서도 자신의 행동을 ‘의거’로 설명하며 일본 침략을 비판하였다.</li></ul></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-junggeun" role="region" aria-label="안중근 의거 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-junggeun">0 / 2 완료</span></div><div class="quiz-item" id="qi-junggeun-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">안중근이 하얼빈에서 처단한 인물은?</p><div class="quiz-opts" id="qo-junggeun-0" role="radiogroup"><button class="qopt" onclick="answerQ('junggeun',0,0)" role="radio" aria-checked="false">① 이완용</button><button class="qopt" onclick="answerQ('junggeun',0,1)" role="radio" aria-checked="false">② 데라우치</button><button class="qopt" onclick="answerQ('junggeun',0,2)" role="radio" aria-checked="false">③ 이토 히로부미</button><button class="qopt" onclick="answerQ('junggeun',0,3)" role="radio" aria-checked="false">④ 미우라</button></div><div class="quiz-fb" id="qf-junggeun-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-junggeun-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">안중근 의거의 의미로 가장 적절한 것은?</p><div class="quiz-opts" id="qo-junggeun-1" role="radiogroup"><button class="qopt" onclick="answerQ('junggeun',1,0)" role="radio" aria-checked="false">① 일본과의 타협을 촉진했다</button><button class="qopt" onclick="answerQ('junggeun',1,1)" role="radio" aria-checked="false">② 국제 사회에 한국인의 항일 의지를 알렸다</button><button class="qopt" onclick="answerQ('junggeun',1,2)" role="radio" aria-checked="false">③ 대한제국의 외교권을 회복시켰다</button><button class="qopt" onclick="answerQ('junggeun',1,3)" role="radio" aria-checked="false">④ 조선 총독부 설치를 막았다</button></div><div class="quiz-fb" id="qf-junggeun-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('aeguk')">← 애국 계몽 운동과 국채보상운동</button><button class="sec-nav-btn" onclick="scrollToSec('annex')">한일 병합 →</button></div>
+</div></section>
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="annex"><div class="container">
+<span class="sec-label" style="background:var(--red-bg);color:var(--red);">국권피탈</span>
+<h2 class="sec-title">한일 병합 (1910)</h2>
+<p class="sec-desc">일본은 대한제국을 강제로 병합하여 국권을 완전히 빼앗고, 조선 총독부를 설치해 식민 통치를 시작하였다.</p>
+<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>한일 병합</h3><p>한일 병합은 대한제국의 국권 피탈이 최종 단계에 이른 사건이다. 외교권 박탈, 통감부 설치, 황제 퇴위, 군대 해산을 거쳐 일본은 1910년 대한제국을 강제로 병합하고 식민 지배 체제를 세웠다.</p></article>
+
+<div class="content-grid fade-in d1">
+  <div class="flow-list-wrap"><h3 style="margin-bottom:10px;">📉 국권 피탈의 단계</h3><ol class="flow-list">
+    <li>러일전쟁 승리</li>
+    <li>을사늑약 체결</li>
+    <li>통감부 설치</li>
+    <li>고종 강제 퇴위</li>
+    <li>군대 해산</li>
+    <li>한일 병합</li>
+  </ol></div>
+  <div class="content-block"><h3>🏴 병합 이후</h3><ul>
+    <li>대한제국은 사라지고 일본의 식민 통치가 시작되었다.</li>
+    <li><strong>조선 총독부</strong>가 설치되어 강압적인 식민 지배를 수행했다.</li>
+    <li>이후 항일 독립운동은 더 넓고 조직적인 형태로 전개되었다.</li>
+  </ul></div>
+  <div class="content-block"><h3>🧭 이 단원의 핵심 정리</h3><p>대한제국은 자주독립 국가를 세우고 광무개혁을 추진했지만, 일본은 전쟁과 늑약, 내정 간섭과 무장 해제를 단계적으로 강요하며 결국 국권을 빼앗았다. 그러나 이에 맞선 의병, 애국 계몽 운동, 의열 투쟁은 이후 독립운동의 토대가 되었다.</p></div>
+</div>
+
+<div class="quiz-block fade-in" id="quiz-annex" role="region" aria-label="한일 병합 형성평가"><div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-annex">0 / 2 완료</span></div><div class="quiz-item" id="qi-annex-0"><div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div><p class="quiz-qtext">한일 병합 이전 국권 피탈의 과정으로 가장 알맞은 순서는?</p><div class="quiz-opts" id="qo-annex-0" role="radiogroup"><button class="qopt" onclick="answerQ('annex',0,0)" role="radio" aria-checked="false">① 군대 해산 → 을사늑약 → 통감부 설치</button><button class="qopt" onclick="answerQ('annex',0,1)" role="radio" aria-checked="false">② 을사늑약 → 통감부 설치 → 고종 강제 퇴위 → 군대 해산</button><button class="qopt" onclick="answerQ('annex',0,2)" role="radio" aria-checked="false">③ 한일 병합 → 을사늑약 → 통감부 설치</button><button class="qopt" onclick="answerQ('annex',0,3)" role="radio" aria-checked="false">④ 강화도 조약 → 3·1 운동 → 한일 병합</button></div><div class="quiz-fb" id="qf-annex-0" aria-live="polite"></div></div><div class="quiz-item quiz-locked" id="qi-annex-1"><div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div><p class="quiz-qtext">한일 병합 이후 설치되어 식민 통치를 수행한 기관은?</p><div class="quiz-opts" id="qo-annex-1" role="radiogroup"><button class="qopt" onclick="answerQ('annex',1,0)" role="radio" aria-checked="false">① 군국기무처</button><button class="qopt" onclick="answerQ('annex',1,1)" role="radio" aria-checked="false">② 통리기무아문</button><button class="qopt" onclick="answerQ('annex',1,2)" role="radio" aria-checked="false">③ 조선 총독부</button><button class="qopt" onclick="answerQ('annex',1,3)" role="radio" aria-checked="false">④ 의정부</button></div><div class="quiz-fb" id="qf-annex-1" aria-live="polite"></div></div></div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('junggeun')">← 안중근 의거</button><button class="sec-nav-btn" onclick="scrollToSec('dashboard')">📊 달성도 보기 →</button></div>
+</div></section>
+
+<div class="section-divider"></div>
+<section class="sec section-anchor" id="dashboard"><div class="container">
+<span class="sec-label" style="background:var(--navy-bg);color:var(--navy);">📊 나의 달성도</span>
+<h2 class="sec-title">학습 달성도 확인</h2>
+<p class="sec-desc">각 사건의 형성평가 결과가 여기에 자동으로 반영됩니다.</p>
+
+<div class="dashboard-wrap fade-in">
+  <div class="dash-ring-center">
+    <div class="total-ring">
+      <svg viewBox="0 0 152 152" width="152" height="152">
+        <circle class="total-ring-track" cx="76" cy="76" r="64"/>
+        <circle class="total-ring-fill" id="ring-fill" cx="76" cy="76" r="64" stroke="#2563EB" stroke-dasharray="402.1" stroke-dashoffset="402.1"/>
+      </svg>
+      <div class="total-ring-text">
+        <span class="total-pct-num" id="total-pct-num">0%</span>
+        <span class="total-pct-label">달성률</span>
+      </div>
+    </div>
+  </div>
+  <div class="dash-stats">
+    <div class="dash-stat"><span class="dash-stat-num" id="total-correct">0</span><span class="dash-stat-label">정답</span></div>
+    <div class="dash-stat-div"></div>
+    <div class="dash-stat"><span class="dash-stat-num">22</span><span class="dash-stat-label">전체 문항</span></div>
+    <div class="dash-stat-div"></div>
+    <div class="dash-stat"><span class="dash-stat-num" id="total-done">0</span><span class="dash-stat-label">응답 완료</span></div>
+  </div>
+  <div class="dash-detail" id="dashDetail"></div>
+</div>
+
+<div class="summary-write fade-in" id="summaryWrite">
+  <h3>✍️ 이 주제를 한 문장으로 설명해 보기</h3>
+  <p>대한제국 수립에서 한일 병합까지의 흐름을 떠올리며, 자주독립의 시도와 국권 상실 과정을 한 문장으로 정리해 보세요.</p>
+  <textarea id="summarySentence" class="summary-textarea" placeholder=""></textarea>
+  <div style="margin-top:10px;">
+    <button class="summary-toggle" onclick="toggleAnswer('summaryModelAnswer')">모범답안 보기</button>
+    <div id="summaryModelAnswer" class="summary-model">
+      <p><strong>모범답안:</strong> 대한제국은 자주독립 국가를 세우고 광무개혁을 추진했지만, 일본이 러일전쟁 이후 을사늑약·고종 강제 퇴위·군대 해산·한일 병합을 단계적으로 강요하면서 결국 국권을 잃었다.</p>
+    </div>
+  </div>
+  <div class="summary-write-foot">
+    <div class="summary-actions">
+      <button class="summary-save" onclick="saveSummarySentence()">문장 저장하기</button>
+      <button class="summary-share" onclick="goToPadlet()">패들렛에 게시하러 가기</button>
+    </div>
+    <span class="summary-meta" id="summaryMeta">저장된 문장이 없습니다.</span>
+  </div>
+</div>
+
+<div class="achieve-banner ab-waiting" id="achieve-banner">
+  <span class="ab-icon">📝</span>
+  <div class="ab-text">
+    <h4>아직 형성평가를 풀지 않았습니다</h4>
+    <p>각 사건 하단의 형성평가를 풀면 달성도가 자동으로 계산됩니다.</p>
+  </div>
+</div>
+
+</div></section>
+
+</main>
+
+<footer class="site-footer"><div class="container">
+<p><strong>대한제국에서 한일 병합까지</strong></p>
+<p>📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도</p>
+</div></footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+
+<script>
+function toggleNav(){const n=document.getElementById('main-nav'),b=document.querySelector('.nav-toggle'),o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+function closeNav(){document.getElementById('main-nav').classList.remove('open');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
+document.addEventListener('click',e=>{const n=document.getElementById('main-nav'),b=document.querySelector('.nav-toggle');if(n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target))closeNav()});
+
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;const pct=h>0?(window.scrollY/h)*100:0;document.getElementById('scrollProgress').style.width=pct+'%';},{passive:true});
+
+const SEC_ORDER=["daehan", "dongnip", "gwangmu", "dokdo", "ruso", "eulsa", "hague", "gunhae", "aeguk", "junggeun", "annex"];
+const SEC_NAMES={"daehan": "대한제국 수립", "dongnip": "독립협회와 만민공동회", "gwangmu": "광무개혁", "dokdo": "칙령 제41호와 독도", "ruso": "러일전쟁과 일본 침략의 본격화", "eulsa": "을사늑약", "hague": "헤이그 특사와 고종 강제 퇴위", "gunhae": "정미7조약, 군대 해산과 정미의병", "aeguk": "애국 계몽 운동과 국채보상운동", "junggeun": "안중근 의거", "annex": "한일 병합"};
+const SEC_ICONS={"daehan": "👑", "dongnip": "🗞️", "gwangmu": "🛠️", "dokdo": "🌊", "ruso": "⚔️", "eulsa": "📜", "hague": "🌍", "gunhae": "🪖", "aeguk": "💡", "junggeun": "🎯", "annex": "🏴"};
+const QUESTION_COUNTS={"daehan": 2, "dongnip": 2, "gwangmu": 2, "dokdo": 2, "ruso": 2, "eulsa": 2, "hague": 2, "gunhae": 2, "aeguk": 2, "junggeun": 2, "annex": 2};
+const TOTAL_QUESTIONS=Object.values(QUESTION_COUNTS).reduce((a,b)=>a+b,0);
+
+function scrollToSec(id){const el=document.getElementById(id);if(el) el.scrollIntoView({behavior:'smooth',block:'start'});}
+
+let activeSection='';
+const sectionEls=SEC_ORDER.map(id=>document.getElementById(id));
+function updateActiveTimeline(){let current='';sectionEls.forEach((el,i)=>{if(el&&el.getBoundingClientRect().top<=120) current=SEC_ORDER[i];});if(current!==activeSection){activeSection=current;document.querySelectorAll('.tl-node').forEach(n=>n.classList.toggle('active',n.dataset.target===current));const activeNode=document.querySelector(`.tl-node[data-target="${current}"]`);if(activeNode){const wrap=document.getElementById('timelineWrap');const nodeLeft=activeNode.offsetLeft-wrap.offsetWidth/2+activeNode.offsetWidth/2;wrap.scrollTo({left:Math.max(0,nodeLeft),behavior:'smooth'});}}}
+window.addEventListener('scroll',updateActiveTimeline,{passive:true});
+
+const SEARCH_DATA=[{"title": "대한제국 수립 (1897)", "url": "#daehan", "keywords": ["대한제국", "환구단", "광무", "대한국 국제", "황제", "자주독립"]}, {"title": "독립협회와 만민공동회 (1896~1898)", "url": "#dongnip", "keywords": ["독립협회", "독립신문", "독립문", "만민공동회", "관민공동회", "헌의 6조", "서재필"]}, {"title": "광무개혁 (1897~1904)", "url": "#gwangmu", "keywords": ["광무개혁", "양전 사업", "지계", "전차", "전기", "실업 학교", "근대화"]}, {"title": "칙령 제41호와 독도 (1900)", "url": "#dokdo", "keywords": ["칙령 제41호", "울도군", "죽도", "석도", "독도", "울릉도"]}, {"title": "러일전쟁과 일본 침략의 본격화 (1904~1905)", "url": "#ruso", "keywords": ["러일전쟁", "한일의정서", "제1차 한일협약", "일본 침략", "만주"]}, {"title": "을사늑약 (1905)", "url": "#eulsa", "keywords": ["을사늑약", "통감부", "외교권", "시일야방성대곡", "민영환", "을사오적"]}, {"title": "헤이그 특사와 고종 강제 퇴위 (1907)", "url": "#hague", "keywords": ["헤이그 특사", "이상설", "이준", "이위종", "고종 퇴위"]}, {"title": "정미7조약, 군대 해산과 정미의병 (1907)", "url": "#gunhae", "keywords": ["정미7조약", "군대 해산", "정미의병", "해산 군인", "13도 창의군"]}, {"title": "애국 계몽 운동과 국채보상운동 (1907~1910)", "url": "#aeguk", "keywords": ["애국 계몽 운동", "국채보상운동", "신민회", "대성학교", "오산학교", "실력 양성"]}, {"title": "안중근 의거 (1909)", "url": "#junggeun", "keywords": ["안중근", "하얼빈", "이토 히로부미", "의거", "동양 평화"]}, {"title": "한일 병합 (1910)", "url": "#annex", "keywords": ["한일 병합", "국권 피탈", "조선 총독부", "식민 통치"]}];
+const searchInput=document.getElementById('searchInput');
+const searchResults=document.getElementById('searchResults');
+searchInput.addEventListener('input',function(){const q=this.value.trim().toLowerCase();if(!q){searchResults.style.display='none';searchResults.innerHTML='';return;}const matches=SEARCH_DATA.filter(item=>{const hay=[item.title,...(item.keywords||[])].join(' ').toLowerCase();return q.split(/\s+/).every(w=>hay.includes(w));}).slice(0,8);if(!matches.length){searchResults.innerHTML='<li><a href="javascript:void(0)"><span class="search-title">검색 결과가 없습니다.</span><span class="search-keywords">다른 키워드로 다시 검색해 보세요.</span></a></li>';searchResults.style.display='block';return;}searchResults.innerHTML=matches.map(item=>`<li><a href="${item.url}" onclick="closeSearch()"><span class="search-title">${item.title}</span><span class="search-keywords">${(item.keywords||[]).slice(0,6).join(' · ')}</span></a></li>`).join('');searchResults.style.display='block';});
+function closeSearch(){searchResults.style.display='none';searchInput.value='';}
+document.addEventListener('click',function(e){if(!searchInput.contains(e.target)&&!searchResults.contains(e.target))searchResults.style.display='none';});
+
+const ANSWERS={"daehan": [1, 2], "dongnip": [1, 1], "gwangmu": [2, 1], "dokdo": [3, 1], "ruso": [1, 2], "eulsa": [2, 1], "hague": [2, 1], "gunhae": [1, 1], "aeguk": [1, 1], "junggeun": [2, 1], "annex": [1, 2]};
+const EXPLANATIONS={"daehan": ["정답은 ② 광무입니다. 대한제국 수립과 함께 고종은 광무 연호를 사용하며 새 국가의 출범을 알렸습니다. ① 건양은 갑오개혁 무렵, ③ 융희는 순종 때의 연호입니다.", "정답은 ③입니다. 대한제국은 자주독립국임을 선포하려는 성격이 강했습니다. 다만 그 과정에서 황제권 강화도 함께 추진되었습니다."], "dongnip": ["정답은 ② 독립신문입니다. 독립신문은 독립협회의 자주독립·개혁 사상을 널리 알리는 역할을 했습니다.", "정답은 ②입니다. 독립협회는 자주 국권과 자유 민권을 함께 강조하며 토론회, 만민공동회, 헌의 6조 결의 등을 이끌었습니다."], "gwangmu": ["정답은 ③ 지계입니다. 광무개혁은 양전 사업과 지계 발급을 통해 근대적 토지 제도를 마련하려 했습니다.", "정답은 ②입니다. 광무개혁은 자주적 근대화 시도였지만, 재정 한계와 일본 침략 심화 때문에 충분히 지속되지 못했습니다."], "dokdo": ["정답은 ④ 제주도입니다. 칙령 제41호는 울릉 전도, 죽도, 석도를 울도군의 관할 구역으로 규정했습니다.", "정답은 ②입니다. 칙령 제41호는 대한제국이 독도를 자국 영토로 인식하고 행정적으로 다루었음을 보여 주는 중요한 근거입니다."], "ruso": ["정답은 ② 한일의정서입니다. 일본은 전쟁을 구실로 대한제국 영토를 군사적으로 이용할 수 있게 했습니다.", "정답은 ③입니다. 일본은 러일전쟁 승리 후 대한제국 지배권을 굳히며 을사늑약으로 이어지는 침략을 본격화했습니다."], "eulsa": ["정답은 ③ 외교권입니다. 을사늑약으로 대한제국은 외교권을 잃고 일본의 보호국이 되었습니다.", "정답은 ②입니다. 을사늑약은 대한제국의 자율적 합의가 아니라 일본의 군사적 강요 아래 체결된 조약이므로 ‘늑약’이라 부릅니다."], "hague": ["정답은 ③입니다. 헤이그 특사는 을사늑약이 강제로 체결되었음을 알리고 국제 사회의 도움을 얻으려는 시도였습니다.", "정답은 ②입니다. 일본은 헤이그 특사 파견을 빌미로 고종을 강제로 퇴위시키고 대한제국 지배를 더 강화했습니다."], "gunhae": ["정답은 ② 군대 해산입니다. 해산 군인들이 의병에 합류하면서 정미의병은 무장력과 조직력을 키웠습니다.", "정답은 ②입니다. 정미의병은 국권 수호를 목표로 한 전국적 항일 무장 투쟁으로 전개되었습니다."], "aeguk": ["정답은 ②입니다. 국채보상운동은 일본에 진 빚을 국민이 갚아 경제적 예속을 막아 보려는 민족 운동이었습니다.", "정답은 ②입니다. 신민회는 교육·산업·독립운동 기지 육성 등을 통해 실력 양성 운동을 전개했습니다."], "junggeun": ["정답은 ③ 이토 히로부미입니다. 그는 대한제국 침탈의 상징적 인물로, 안중근은 이를 정치적 의거로 보았습니다.", "정답은 ②입니다. 안중근 의거는 한국인의 항일 의지를 세계에 알린 상징적 사건이었습니다."], "annex": ["정답은 ②입니다. 을사늑약으로 외교권을 빼앗기고 통감부가 설치되었으며, 이후 고종 강제 퇴위와 군대 해산을 거쳐 한일 병합으로 이어졌습니다.", "정답은 ③ 조선 총독부입니다. 일본은 한일 병합 뒤 조선 총독부를 설치해 강압적인 식민 통치를 시작했습니다."]};
+const qState={};
+SEC_ORDER.forEach(s=>{qState[s]=new Array(QUESTION_COUNTS[s]).fill(null);});
+
+
+try{
+  const saved = JSON.parse(localStorage.getItem('quiz_daehan_gukgwon'));
+  if(saved){
+    SEC_ORDER.forEach(sid=>{
+      if(saved[sid]){
+        saved[sid].forEach((v,i)=>{
+          if(v!==null && v!==undefined){
+            qState[sid][i]=v;
+            const correct=ANSWERS[sid][i];
+            const opts=document.querySelectorAll(`#qo-${sid}-${i} .qopt`);
+            opts.forEach((btn,j)=>{
+              btn.disabled=true;
+              if(j===correct) btn.classList.add('correct');
+              else if(j===v && j!==correct) btn.classList.add('wrong');
+            });
+            const fb=document.getElementById(`qf-${sid}-${i}`);
+            const isOk=v===correct;
+            fb.className='quiz-fb show '+(isOk?'fb-ok':'fb-no');
+            fb.textContent=(isOk?'✅ 정답입니다! ':'❌ 오답입니다. ')+EXPLANATIONS[sid][i];
+            if(i<QUESTION_COUNTS[sid]-1){
+              const next=document.getElementById(`qi-${sid}-${i+1}`);
+              if(next){
+                next.classList.remove('quiz-locked');
+                next.classList.add('unlocked');
+              }
+            }
+          }
+        });
+        const done=qState[sid].filter(v=>v!==null).length;
+        const prog=document.getElementById(`prog-${sid}`);
+        if(prog) prog.textContent=`${done} / ${QUESTION_COUNTS[sid]} 완료`;
+      }
+    });
+    updateDashboard();
+    updateTimelineDots();
+  }
+}catch(e){}
+
+function saveState(){try{localStorage.setItem('quiz_daehan_gukgwon',JSON.stringify(qState));}catch(e){}}
+
+function spawnConfetti(target){const rect=target.getBoundingClientRect();const cx=rect.left+rect.width/2;const cy=rect.top+rect.height/2;const container=document.createElement('div');container.className='confetti-burst';container.style.left=cx+'px';container.style.top=cy+'px';const colors=['#059669','#2563EB','#D97706','#7C3AED','#DC2626','#f59e0b'];for(let i=0;i<18;i++){const p=document.createElement('div');p.className='confetti-piece';const angle=(Math.PI*2/18)*i;const dist=60+Math.random()*60;p.style.cssText=`--cx:${Math.cos(angle)*dist}px;--cy:${Math.sin(angle)*dist-40}px;--cr:${Math.random()*720}deg;background:${colors[i%colors.length]};animation-delay:${Math.random()*0.15}s;left:${-4}px;top:${-4}px;`;container.appendChild(p);}document.body.appendChild(container);setTimeout(()=>container.remove(),1200);}
+
+function answerQ(sid,qIdx,chosen){if(qState[sid][qIdx]!==null)return;qState[sid][qIdx]=chosen;const correct=ANSWERS[sid][qIdx];const opts=document.querySelectorAll(`#qo-${sid}-${qIdx} .qopt`);opts.forEach((btn,i)=>{btn.disabled=true;if(i===correct) btn.classList.add('correct'); else if(i===chosen&&i!==correct) btn.classList.add('wrong');});const fb=document.getElementById(`qf-${sid}-${qIdx}`);const isOk=chosen===correct;fb.className='quiz-fb show '+(isOk?'fb-ok':'fb-no');fb.textContent=(isOk?'✅ 정답입니다! ':'❌ 오답입니다. ')+EXPLANATIONS[sid][qIdx];if(isOk) spawnConfetti(opts[correct]);if(qIdx<QUESTION_COUNTS[sid]-1){const next=document.getElementById(`qi-${sid}-${qIdx+1}`);if(next){next.classList.remove('quiz-locked');next.classList.add('unlocked');}}const done=qState[sid].filter(v=>v!==null).length;document.getElementById(`prog-${sid}`).textContent=`${done} / ${QUESTION_COUNTS[sid]} 완료`;updateDashboard();updateTimelineDots();saveState();}
+
+function updateTimelineDots(){SEC_ORDER.forEach(sid=>{const s=qState[sid];const allDone=s.every(v=>v!==null);const allCorrect=s.every((v,i)=>v===ANSWERS[sid][i]);const node=document.querySelector(`.tl-node[data-target="${sid}"]`);if(!node)return;if(allDone&&allCorrect) node.classList.add('done'); else node.classList.remove('done');});const lines=document.querySelectorAll('.tl-line');const nodes=document.querySelectorAll('.tl-node');lines.forEach((line,i)=>{const prev=nodes[i];if(prev&&prev.classList.contains('done')) line.classList.add('filled'); else line.classList.remove('filled');});}
+
+function updateDashboard(){let totalCorrect=0,totalAnswered=0;SEC_ORDER.forEach(sid=>{const s=qState[sid];s.forEach((v,i)=>{if(v!==null) totalAnswered++; if(v!==null&&v===ANSWERS[sid][i]) totalCorrect++;});});const totalPct=Math.round(totalCorrect/TOTAL_QUESTIONS*100);document.getElementById('total-pct-num').textContent=totalPct+'%';document.getElementById('total-correct').textContent=totalCorrect;document.getElementById('total-done').textContent=totalAnswered;const circumference=402.1;const offset=circumference-(totalPct/100)*circumference;const fill=document.getElementById('ring-fill');fill.style.strokeDashoffset=offset;fill.style.stroke=totalPct>=80?'#059669':totalPct>=50?'#2563EB':'#DC2626';const banner=document.getElementById('achieve-banner');let cls,icon,title,msg;if(totalAnswered===0){cls='ab-waiting';icon='📝';title='아직 형성평가를 풀지 않았습니다';msg='각 사건 하단의 형성평가를 풀면 달성도가 자동으로 계산됩니다.';}else if(totalPct<50){cls='ab-low';icon='📖';title=`달성률 ${totalPct}% — 다시 한번 복습해봐요`;msg='틀린 문항의 해설과 해당 본문을 다시 읽어 보세요.';}else if(totalPct<80){cls='ab-mid';icon='💪';title=`달성률 ${totalPct}% — 잘 하고 있어요!`;msg='핵심 사건의 인과 관계를 한 번 더 정리하면 더 좋아집니다.';}else if(totalPct<100){cls='ab-high';icon='🌟';title=`달성률 ${totalPct}% — 거의 다 왔어요!`;msg='국권 피탈이 단계적으로 진행된 흐름을 다시 확인해 보세요.';}else{cls='ab-perfect';icon='🏆';title='달성률 100% — 완벽합니다!';msg=`${TOTAL_QUESTIONS}문항 모두 정답입니다. 대한제국에서 한일 병합까지의 흐름을 정확히 이해했습니다.`;}banner.className='achieve-banner '+cls;banner.innerHTML=`<span class="ab-icon">${icon}</span><div class="ab-text"><h4>${title}</h4><p>${msg}</p></div>`;const detail=document.getElementById('dashDetail');detail.innerHTML=SEC_ORDER.map(sid=>{const s=qState[sid];const dots=s.map((v,i)=>{if(v===null)return'<div class="dash-sec-dot"></div>';return v===ANSWERS[sid][i]?'<div class="dash-sec-dot dot-correct"></div>':'<div class="dash-sec-dot dot-wrong"></div>';}).join('');const allDone=s.every(v=>v!==null);const allCorrect=s.every((v,i)=>v===ANSWERS[sid][i]);const cls=allDone&&allCorrect?'sec-perfect':allDone?'sec-partial':'';return`<div class="dash-sec ${cls}" onclick="scrollToSec('${sid}')" style="cursor:pointer"><span class="dash-sec-icon">${SEC_ICONS[sid]}</span><div class="dash-sec-info"><div class="dash-sec-name">${SEC_NAMES[sid]}</div><div class="dash-sec-dots">${dots}</div></div></div>`;}).join('');}
+
+updateDashboard();
+updateTimelineDots();
+
+function toggleAnswer(id){const el=document.getElementById(id);if(!el)return;el.style.display=el.style.display==='none'||!el.style.display?'block':'none';}
+
+const scrollTopBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{scrollTopBtn.classList.toggle('visible',window.scrollY>400);},{passive:true});
+
+const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.animationPlayState='running';obs.unobserve(entry.target);}});},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el);});
+
+function buildSummaryExportText(){const sentence=(document.getElementById('summarySentence')?.value||'').trim();const totalPct=document.getElementById('total-pct-num')?.textContent||'0%';const totalCorrect=document.getElementById('total-correct')?.textContent||'0';const totalDone=document.getElementById('total-done')?.textContent||'0';return ['[대한제국과 국권 피탈 학습 기록]',`형성평가 달성도: ${totalPct}`,`정답 수: ${totalCorrect} / ${TOTAL_QUESTIONS}`,`응답 완료: ${totalDone} / ${TOTAL_QUESTIONS}`,`한 문장 정리: ${sentence || '(작성하지 않음)'}`].join('\n');}
+
+async function saveSummarySentence(){const ta=document.getElementById('summarySentence');const meta=document.getElementById('summaryMeta');const text=(ta.value||'').trim();const exportText=buildSummaryExportText();try{localStorage.setItem('daehan_summary_sentence',text);localStorage.setItem('daehan_summary_export',exportText);}catch(e){}let copied=false;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(exportText);copied=true;}}catch(e){}meta.textContent=copied ? '달성도와 작성한 문장이 저장되었고, 복사도 완료되었습니다.' : '달성도와 작성한 문장이 저장되었습니다.';}
+
+function loadSummarySentence(){const ta=document.getElementById('summarySentence');const meta=document.getElementById('summaryMeta');let text='';try{text=localStorage.getItem('daehan_summary_sentence')||'';}catch(e){}ta.value=text;if(text){meta.textContent='이전에 저장한 문장이 불러와졌습니다.';}}
+
+function goToPadlet(){alert('해당 게시판에 형성평가 달성도와 쓴 문장을 게시물로 작성해주세요');window.open('https://padlet.com/skyiu2017/padlet-w36swvembvidinp','_blank');}
+loadSummarySentence();
+</script>
+
+</body>
+</html>

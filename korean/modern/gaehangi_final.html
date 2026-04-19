@@ -4,23 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>개항기 조선의 위기와 개혁</title>
-<meta name="description" content="강화도 조약부터 을미사변까지 개항기 조선의 위기와 개혁을 정리한 페이지">
+<meta name="description" content="병인양요부터 아관파천까지 개항기 조선의 위기와 개혁을 정리한 페이지">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F5F4F0;--bg-card:rgba(255,255,255,0.72);--bg-card-hover:rgba(255,255,255,0.92);--glass:rgba(255,255,255,0.55);--text:#1A1A1A;--sub:#555;--dim:#999;--blue:#2563EB;--blue-bg:#EFF6FF;--navy:#1E3A5F;--navy-bg:#F0F4F8;--orange:#D97706;--orange-bg:#FFFBEB;--purple:#7C3AED;--purple-bg:#F5F3FF;--green:#059669;--green-bg:#ECFDF5;--slate:#64748B;--slate-bg:#F8FAFC;--red:#DC2626;--red-bg:#FEF2F2;--max-w:820px;--r-sm:10px;--r-md:16px;--r-lg:22px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 14px rgba(0,0,0,0.06);--shadow-h:0 2px 8px rgba(0,0,0,0.06),0 10px 28px rgba(0,0,0,0.1)}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.68;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}ul{list-style:none}.container{max-width:var(--max-w);margin:0 auto;padding:0 18px}
 
-/* HEADER */
+/* HEADER + PROGRESS BAR */
 .site-header{position:sticky;top:0;z-index:100;background:rgba(245,244,240,0.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.07)}.header-inner{display:flex;align-items:center;justify-content:space-between;height:54px;max-width:var(--max-w);margin:0 auto;padding:0 18px}.site-brand{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:-0.02em}
 .nav-toggle{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:none;border:none;cursor:pointer;border-radius:8px}.nav-toggle:hover{background:rgba(0,0,0,0.05)}.nav-toggle svg{width:20px;height:20px;color:var(--text)}
 .main-nav{display:none;position:absolute;top:54px;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,0.08);padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,0.08)}.main-nav.open{display:block}.main-nav ul{display:flex;flex-direction:column}.main-nav a{display:block;padding:11px 18px;font-size:0.92rem;font-weight:500;transition:background 0.15s}.main-nav a:hover{background:rgba(0,0,0,0.04)}
 @media(min-width:700px){.nav-toggle{display:none}.main-nav{display:block!important;position:static;background:none;backdrop-filter:none;border:none;padding:0;box-shadow:none}.main-nav ul{flex-direction:row;gap:16px}.main-nav a{padding:5px 10px;font-size:0.85rem;border-radius:6px}}
 
+/* ── 스크롤 프로그레스 바 ── */
+.scroll-progress{position:fixed;top:54px;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple),var(--red));z-index:99;transition:width 0.08s linear;border-radius:0 2px 2px 0}
+
 /* HERO */
 .hero{background:linear-gradient(135deg,#1B2A4A 0%,#2C4A7C 50%,#3A5F90 100%);color:#fff;padding:44px 0 36px;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;top:-35%;right:-15%;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}.hero-inner{position:relative;z-index:1}.hero-eye{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;opacity:0.65;margin-bottom:10px}.hero h1{font-size:clamp(1.4rem,4.8vw,2rem);font-weight:700;line-height:1.4;letter-spacing:-0.02em;margin-bottom:8px}.hero-desc{font-size:0.9rem;opacity:0.8;max-width:560px;margin-bottom:26px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:5px;padding:11px 20px;border-radius:12px;font-size:0.88rem;font-weight:600;transition:transform 0.15s,box-shadow 0.15s;cursor:pointer;border:none}.btn:active{transform:scale(0.97)}.btn-w{background:#fff;color:var(--navy)}.btn-w:hover{box-shadow:0 4px 16px rgba(255,255,255,0.25)}.btn-g{background:rgba(255,255,255,0.14);color:#fff;border:1px solid rgba(255,255,255,0.22)}.btn-g:hover{background:rgba(255,255,255,0.22)}
+
+/* ═══════════════════════════════════════
+   인터랙티브 수평 타임라인
+═══════════════════════════════════════ */
+.timeline-horizontal{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.12) transparent;padding:20px 0 12px;margin:-8px -18px 0;padding-left:18px;padding-right:18px}
+.timeline-horizontal::-webkit-scrollbar{height:4px}
+.timeline-horizontal::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.12);border-radius:2px}
+.tl-track{display:flex;align-items:flex-start;gap:0;position:relative;min-width:max-content;padding-bottom:8px}
+.tl-node{display:flex;flex-direction:column;align-items:center;cursor:pointer;position:relative;padding:0 6px;min-width:88px;transition:transform 0.2s}
+.tl-node:hover{transform:translateY(-3px)}
+.tl-dot{width:18px;height:18px;border-radius:50%;border:3px solid var(--blue);background:#fff;position:relative;z-index:2;transition:all 0.3s;box-shadow:0 2px 8px rgba(37,99,235,0.15)}
+.tl-node.active .tl-dot{background:var(--blue);transform:scale(1.3);box-shadow:0 0 0 6px rgba(37,99,235,0.15),0 2px 8px rgba(37,99,235,0.3)}
+.tl-node.done .tl-dot{background:var(--green);border-color:var(--green);box-shadow:0 0 0 4px rgba(5,150,105,0.12)}
+.tl-node.done .tl-dot::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.55rem;font-weight:900}
+.tl-line{flex:1;height:3px;background:rgba(37,99,235,0.15);margin-top:7.5px;min-width:16px;position:relative;z-index:1;transition:background 0.4s}
+.tl-line.filled{background:var(--green)}
+.tl-year{font-size:0.62rem;color:var(--dim);margin-top:6px;font-weight:600;white-space:nowrap}
+.tl-name{font-size:0.68rem;color:var(--sub);margin-top:2px;font-weight:500;white-space:nowrap;max-width:80px;text-align:center;line-height:1.3}
+.tl-node.active .tl-name{color:var(--navy);font-weight:700}
 
 /* SECTION */
 .sec{padding:42px 0 28px}.sec-label{display:inline-flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:10px}.sec-title{font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:3px}.sec-desc{font-size:0.85rem;color:var(--sub);margin-bottom:18px}
@@ -28,8 +50,8 @@
 .section-anchor{scroll-margin-top:66px}
 
 /* CARDS */
-.card{background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s}.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}.card-grid{display:grid;gap:10px}.cg-2{grid-template-columns:1fr}.cg-4{grid-template-columns:1fr}@media(min-width:500px){.cg-2,.cg-4{grid-template-columns:repeat(2,1fr)}}@media(min-width:820px){.cg-4{grid-template-columns:repeat(4,1fr)}}
-.card-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:10px}.card h3{font-size:0.95rem;font-weight:600;margin-bottom:4px}.card p{font-size:0.82rem;color:var(--sub);line-height:1.6}.card-link{display:inline-flex;align-items:center;gap:4px;font-size:0.8rem;font-weight:600;margin-top:10px;transition:gap 0.15s}.card-link:hover{gap:8px}.card-link::after{content:'→'}
+.card{background:var(--bg-card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s}.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}.card-grid{display:grid;gap:10px}.cg-2{grid-template-columns:1fr}.cg-3{grid-template-columns:1fr}.cg-4{grid-template-columns:1fr}@media(min-width:500px){.cg-2{grid-template-columns:repeat(2,1fr)}.cg-3{grid-template-columns:repeat(3,1fr)}.cg-4{grid-template-columns:repeat(2,1fr)}}@media(min-width:820px){.cg-4{grid-template-columns:repeat(4,1fr)}}
+.card-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:10px;transition:transform 0.4s cubic-bezier(.34,1.56,.64,1)}.card:hover .card-icon{transform:scale(1.15) rotate(-5deg)}.card h3{font-size:0.95rem;font-weight:600;margin-bottom:4px}.card p{font-size:0.82rem;color:var(--sub);line-height:1.6}.card-link{display:inline-flex;align-items:center;gap:4px;font-size:0.8rem;font-weight:600;margin-top:10px;transition:gap 0.15s}.card-link:hover{gap:8px}.card-link::after{content:'→'}
 
 /* WEEK CARD */
 .week-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1px solid var(--glass);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow);border-left:4px solid var(--blue);margin-bottom:12px}
@@ -49,6 +71,19 @@
 /* TABLE */
 .table-wrap{background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow);overflow-x:auto}.table-wrap h4{font-size:0.96rem;font-weight:700;margin-bottom:10px;color:var(--navy)}table{width:100%;border-collapse:collapse;font-size:0.82rem;background:rgba(255,255,255,0.65);border-radius:12px;overflow:hidden}th,td{padding:11px 10px;text-align:left;border-bottom:1px solid rgba(0,0,0,0.06);vertical-align:top}th{background:var(--navy-bg);color:var(--navy);font-weight:700}tr:last-child td{border-bottom:none}
 
+/* ═══ VS 비교 카드 ═══ */
+.vs-card{background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-lg);padding:0;box-shadow:var(--shadow);overflow:hidden}
+.vs-header{text-align:center;padding:14px 16px 10px;font-size:0.96rem;font-weight:700;color:var(--navy);background:var(--navy-bg)}
+.vs-body{display:grid;grid-template-columns:1fr auto 1fr}
+.vs-side{padding:16px}
+.vs-side h5{font-size:0.78rem;font-weight:700;margin-bottom:10px;text-align:center;padding:4px 0;border-radius:6px}
+.vs-left h5{background:var(--blue-bg);color:var(--blue)}
+.vs-right h5{background:var(--red-bg);color:var(--red)}
+.vs-row{font-size:0.8rem;color:var(--text);padding:5px 0;display:flex;align-items:baseline;gap:6px;line-height:1.5}
+.vs-row-label{font-size:0.7rem;font-weight:700;color:var(--dim);min-width:36px}
+.vs-divider{width:1px;background:linear-gradient(to bottom,transparent,rgba(0,0,0,0.1),transparent);margin:12px 0}
+.vs-center{display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:var(--navy);padding:0 8px;opacity:0.2}
+
 /* SPLIT BOX */
 .split-grid{display:grid;gap:10px}@media(min-width:640px){.split-grid{grid-template-columns:1fr 1fr}}.split-box{background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.05);border-radius:12px;padding:14px}.split-box h4{font-size:0.88rem;margin-bottom:8px}.split-box ul{display:flex;flex-direction:column;gap:6px}.split-box li{font-size:0.82rem;list-style:none;padding-left:14px;position:relative}.split-box li::before{content:'•';position:absolute;left:0;color:var(--orange)}
 .single-box{background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.05);border-radius:12px;padding:14px}.single-box h4{font-size:0.88rem;margin-bottom:8px}.single-box ul{display:flex;flex-direction:column;gap:6px}.single-box li{font-size:0.82rem;list-style:none;padding-left:14px;position:relative}.single-box li::before{content:'•';position:absolute;left:0;color:var(--red)}
@@ -63,11 +98,11 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 /* FLOW LIST */
 .flow-list{display:flex;flex-direction:column;gap:8px;counter-reset:flow}.flow-list li{list-style:none;position:relative;padding-left:38px;font-size:0.84rem}.flow-list li::before{counter-increment:flow;content:counter(flow);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:999px;background:var(--navy-bg);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700}
 
-/* TIMELINE LIST */
+/* TIMELINE LIST (수직) */
 .timeline-card{padding:18px 18px 10px}.timeline-list{display:flex;flex-direction:column;gap:8px}.timeline-list li{position:relative;list-style:none;padding-left:22px;font-size:0.84rem;color:var(--text)}.timeline-list li::before{content:'';position:absolute;left:7px;top:0.72em;width:8px;height:8px;border-radius:50%;background:var(--blue)}.timeline-list li::after{content:'';position:absolute;left:10px;top:1.1em;bottom:-0.9em;width:2px;background:rgba(37,99,235,0.18)}.timeline-list li:last-child::after{display:none}
 
 /* ═══════════════════════════════════════
-   형성평가 (QUIZ) 스타일
+   형성평가 (QUIZ)
 ═══════════════════════════════════════ */
 .quiz-block{background:linear-gradient(135deg,rgba(30,58,95,0.04) 0%,rgba(37,99,235,0.04) 100%);border:1px solid rgba(37,99,235,0.14);border-radius:var(--r-lg);padding:20px;margin-top:14px;box-shadow:var(--shadow)}
 .quiz-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
@@ -81,17 +116,25 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 .lvbadge-apply{background:var(--orange-bg);color:var(--orange)}
 .quiz-qtext{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6}
 .quiz-opts{display:flex;flex-direction:column;gap:6px}
-.qopt{background:rgba(255,255,255,0.8);border:1px solid rgba(0,0,0,0.1);border-radius:9px;padding:9px 14px;font-size:0.82rem;font-family:'Noto Sans KR',sans-serif;color:var(--text);text-align:left;cursor:pointer;transition:background 0.15s,border-color 0.15s;line-height:1.5}
-.qopt:hover:not(:disabled){background:rgba(37,99,235,0.07);border-color:rgba(37,99,235,0.25)}
+.qopt{background:rgba(255,255,255,0.8);border:1px solid rgba(0,0,0,0.1);border-radius:9px;padding:9px 14px;font-size:0.82rem;font-family:'Noto Sans KR',sans-serif;color:var(--text);text-align:left;cursor:pointer;transition:background 0.15s,border-color 0.15s,transform 0.15s;line-height:1.5}
+.qopt:hover:not(:disabled){background:rgba(37,99,235,0.07);border-color:rgba(37,99,235,0.25);transform:translateX(4px)}
 .qopt:disabled{cursor:default}
-.qopt.correct{background:rgba(5,150,105,0.12)!important;border-color:var(--green)!important;color:var(--green);font-weight:600}
-.qopt.wrong{background:rgba(220,38,38,0.09)!important;border-color:var(--red)!important;color:var(--red)}
-.quiz-fb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:0.8rem;line-height:1.55;display:none}
+.qopt.correct{background:rgba(5,150,105,0.12)!important;border-color:var(--green)!important;color:var(--green);font-weight:600;animation:popCorrect 0.5s cubic-bezier(.34,1.56,.64,1)}
+.qopt.wrong{background:rgba(220,38,38,0.09)!important;border-color:var(--red)!important;color:var(--red);animation:shakeWrong 0.45s ease}
+@keyframes popCorrect{0%{transform:scale(1)}40%{transform:scale(1.03)}100%{transform:scale(1)}}
+@keyframes shakeWrong{0%,100%{transform:translateX(0)}15%{transform:translateX(-6px)}30%{transform:translateX(5px)}45%{transform:translateX(-4px)}60%{transform:translateX(3px)}75%{transform:translateX(-1px)}}
+.quiz-fb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:0.8rem;line-height:1.55;display:none;animation:fadeSlideUp 0.35s ease}
 .quiz-fb.show{display:block}
 .quiz-fb.fb-ok{background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.2);color:#065f46}
 .quiz-fb.fb-no{background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.18);color:#991b1b}
-.quiz-locked{opacity:0.38;pointer-events:none;transition:opacity 0.3s}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.quiz-locked{opacity:0.38;pointer-events:none;transition:opacity 0.4s ease}
 .quiz-locked.unlocked{opacity:1;pointer-events:auto}
+
+/* 정답 축하 confetti */
+.confetti-burst{position:fixed;top:50%;left:50%;pointer-events:none;z-index:200}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confettiFall 1s ease forwards;opacity:0}
+@keyframes confettiFall{0%{opacity:1;transform:translate(0,0) rotate(0deg) scale(1)}100%{opacity:0;transform:translate(var(--cx),var(--cy)) rotate(var(--cr)) scale(0.3)}}
 
 /* ═══════════════════════════════════════
    달성도 대시보드
@@ -111,15 +154,53 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 .dash-stat-label{font-size:0.72rem;color:var(--dim)}
 .dash-stat-div{width:1px;height:34px;background:rgba(0,0,0,0.08)}
 
-.achieve-banner{border-radius:var(--r-md);padding:14px 18px;display:flex;align-items:flex-start;gap:12px;margin-top:16px;text-align:left}
+/* 섹션별 상세 진행도 */
+.dash-detail{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.06)}
+@media(max-width:499px){.dash-detail{grid-template-columns:repeat(2,1fr)}}
+.dash-sec{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:var(--slate-bg);transition:background 0.3s}
+.dash-sec.sec-perfect{background:var(--green-bg)}
+.dash-sec.sec-partial{background:var(--orange-bg)}
+.dash-sec-icon{font-size:1rem;flex-shrink:0}
+.dash-sec-info{text-align:left;min-width:0}
+.dash-sec-name{font-size:0.72rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-sec-dots{display:flex;gap:3px;margin-top:3px}
+.dash-sec-dot{width:8px;height:8px;border-radius:50%;background:#e5e7eb;transition:background 0.3s}
+.dash-sec-dot.dot-correct{background:var(--green)}
+.dash-sec-dot.dot-wrong{background:var(--red)}
+
+.achieve-banner{border-radius:var(--r-md);padding:14px 18px;display:flex;align-items:flex-start;gap:12px;margin-top:16px;text-align:left;transition:all 0.3s}
 .achieve-banner .ab-icon{font-size:1.5rem;flex-shrink:0}
 .achieve-banner .ab-text h4{font-size:0.9rem;font-weight:700;margin-bottom:2px}
 .achieve-banner .ab-text p{font-size:0.8rem;line-height:1.55}
+
+/* 한 문장 정리 글쓰기 */
+.summary-write{background:var(--bg-card);border:1px solid var(--glass);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow);margin-top:16px}
+.summary-write h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.summary-write p{font-size:0.82rem;color:var(--sub);margin-bottom:12px}
+.summary-textarea{width:100%;min-height:96px;resize:vertical;padding:14px 16px;font-size:0.88rem;line-height:1.65;font-family:'Noto Sans KR',sans-serif;border:1px solid rgba(0,0,0,0.12);border-radius:12px;background:rgba(255,255,255,0.82);color:var(--text);outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+.summary-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.12)}
+.summary-write-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
+.summary-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.summary-save{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--navy);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.summary-share{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--blue);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.summary-toggle{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:none;border-radius:10px;background:var(--orange);color:#fff;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.summary-model{display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.82);border:1px solid rgba(30,58,95,0.12);border-radius:12px}
+.summary-model p{margin-bottom:0;font-size:0.83rem;line-height:1.7;color:var(--text)}
+.summary-meta{font-size:0.76rem;color:var(--dim)}
+.question-helper{font-size:0.78rem;color:var(--sub);margin-bottom:10px;line-height:1.55}
+.question-quiz-link{font-size:0.78rem;color:var(--sub);margin-top:10px}
+
 .ab-waiting{background:var(--slate-bg);border:1px solid #e2e8f0}
 .ab-low{background:var(--red-bg);border:1px solid rgba(220,38,38,0.15)}
 .ab-mid{background:var(--orange-bg);border:1px solid rgba(217,119,6,0.18)}
 .ab-high{background:var(--blue-bg);border:1px solid rgba(37,99,235,0.15)}
 .ab-perfect{background:var(--green-bg);border:1px solid rgba(5,150,105,0.2)}
+
+/* ═══ 섹션 간 이동 네비게이션 ═══ */
+.sec-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.06)}
+.sec-nav-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border:1px solid rgba(0,0,0,0.1);border-radius:10px;background:var(--bg-card);font-size:0.82rem;font-weight:600;color:var(--navy);cursor:pointer;transition:all 0.15s;font-family:'Noto Sans KR',sans-serif}
+.sec-nav-btn:hover{background:var(--navy-bg);border-color:var(--navy);transform:translateY(-1px);box-shadow:var(--shadow)}
+.sec-nav-btn.invisible{visibility:hidden}
 
 /* SCROLL TO TOP */
 .scroll-top{position:fixed;bottom:24px;right:20px;width:42px;height:42px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 16px rgba(0,0,0,0.18);cursor:pointer;opacity:0;transform:translateY(10px);transition:opacity 0.25s,transform 0.25s;z-index:90;border:none}.scroll-top.visible{opacity:1;transform:translateY(0)}.scroll-top:hover{background:#2C4A7C}
@@ -145,10 +226,13 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 </ul></nav>
 </div></header>
 
+<!-- 스크롤 프로그레스 바 -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <section class="hero" id="top"><div class="container hero-inner">
 <p class="hero-eye fade-in">문시중 역사 클래스 · 개항기 정리 페이지</p>
-<h1 class="fade-in d1">개항기 조선의 위기와 개혁<br>강화도 조약부터 을미사변까지</h1>
-<p class="hero-desc fade-in d2">병인양요부터 을미사변까지, 개항기 핵심 사건의 배경·전개·결과를 사건 순서에 따라 정리했습니다.</p>
+<h1 class="fade-in d1">개항기 조선의 위기와 개혁<br>병인양요에서 아관파천까지</h1>
+<p class="hero-desc fade-in d2">문을 걸어 잠근 나라에 포성이 울렸고, 강제로 열린 문 뒤에는 30년간의 위기와 개혁이 이어졌습니다. 병인양요부터 아관파천까지, 조선이 겪은 격변의 흐름을 따라가 봅시다.</p>
 <div class="hero-actions fade-in d3">
 <a href="#overview" class="btn btn-w">📌 전체 흐름 보기</a>
 <a href="#byeongin" class="btn btn-g">📚 본문 바로가기</a>
@@ -161,10 +245,33 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="overview"><div class="container">
 <span class="sec-label" style="background:var(--blue-bg);color:var(--blue);">📌 OVERVIEW</span>
 <h2 class="sec-title">이 페이지에서 다루는 흐름</h2>
-<p class="sec-desc">개항기 핵심 사건을 시간 순서와 주제별 맥락에 맞게 정리했습니다.</p>
-<div class="card timeline-card fade-in"><ul class="timeline-list">
-<li>병인양요 (1866)</li><li>신미양요 (1871)</li><li>강화도 조약 (1876)</li><li>개화 정책 추진 (1880~1883)</li><li>임오군란 (1882)</li><li>갑신정변 (1884)</li><li>동학농민운동 (1894)</li><li>갑오·을미개혁 (1894~1896)</li><li>을미사변 (1895)</li>
-</ul></div>
+<p class="sec-desc">사건을 클릭하면 해당 내용으로 바로 이동합니다. 형성평가를 완료한 사건은 ✓ 표시됩니다.</p>
+
+<!-- 인터랙티브 수평 타임라인 -->
+<div class="timeline-horizontal fade-in" id="timelineWrap">
+<div class="tl-track" id="tlTrack">
+  <div class="tl-node" data-target="byeongin" onclick="scrollToSec('byeongin')"><div class="tl-dot"></div><span class="tl-year">1866</span><span class="tl-name">병인양요</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="sinmi" onclick="scrollToSec('sinmi')"><div class="tl-dot"></div><span class="tl-year">1871</span><span class="tl-name">신미양요</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="ganghwa" onclick="scrollToSec('ganghwa')"><div class="tl-dot"></div><span class="tl-year">1876</span><span class="tl-name">강화도 조약</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="gaehwa" onclick="scrollToSec('gaehwa')"><div class="tl-dot"></div><span class="tl-year">1880~</span><span class="tl-name">개화 정책</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="imo" onclick="scrollToSec('imo')"><div class="tl-dot"></div><span class="tl-year">1882</span><span class="tl-name">임오군란</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="gapsin" onclick="scrollToSec('gapsin')"><div class="tl-dot"></div><span class="tl-year">1884</span><span class="tl-name">갑신정변</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="donghak" onclick="scrollToSec('donghak')"><div class="tl-dot"></div><span class="tl-year">1894</span><span class="tl-name">동학농민운동</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="gabo" onclick="scrollToSec('gabo')"><div class="tl-dot"></div><span class="tl-year">1894~</span><span class="tl-name">갑오·을미개혁</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="eulmi" onclick="scrollToSec('eulmi')"><div class="tl-dot"></div><span class="tl-year">1895</span><span class="tl-name">을미사변</span></div>
+  <div class="tl-line"></div>
+  <div class="tl-node" data-target="agwan" onclick="scrollToSec('agwan')"><div class="tl-dot"></div><span class="tl-year">1896</span><span class="tl-name">아관파천</span></div>
+</div>
+</div>
+
 </div></section>
 
 <section class="sec" style="padding-top:0;"><div class="container"><div class="card-grid cg-2">
@@ -188,12 +295,13 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <article class="card fade-in"><div class="card-icon" style="background:var(--green-bg);color:var(--green);">🌾</div><h3>동학농민운동</h3><p>반봉건·반외세 운동</p><a href="#donghak" class="card-link" style="color:var(--green);">바로 보기</a></article>
 <article class="card fade-in"><div class="card-icon" style="background:var(--orange-bg);color:var(--orange);">🏛️</div><h3>갑오·을미개혁</h3><p>근대 개혁의 전개와 한계</p><a href="#gabo" class="card-link" style="color:var(--orange);">바로 보기</a></article>
 <article class="card fade-in"><div class="card-icon" style="background:var(--red-bg);color:var(--red);">🕯️</div><h3>을미사변</h3><p>명성황후 시해와 항일 의병의 확산</p><a href="#eulmi" class="card-link" style="color:var(--red);">바로 보기</a></article>
+<article class="card fade-in"><div class="card-icon" style="background:var(--navy-bg);color:var(--navy);">🏛️</div><h3>아관파천</h3><p>러시아 공사관 피신과 대한제국 수립</p><a href="#agwan" class="card-link" style="color:var(--navy);">바로 보기</a></article>
 </div>
 </div></section>
 
 <div class="search-container fade-in" id="search">
-<input type="text" id="searchInput" class="search-input" placeholder="🔍 검색어를 입력하세요 (예: 강화도 조약, 임오군란, 갑오개혁, 을미사변)...">
-<ul id="searchResults" class="search-results"></ul>
+<input type="text" id="searchInput" class="search-input" placeholder="🔍 검색어를 입력하세요 (예: 양헌수, 프랑스, 집강소, 단발령, 김옥균)...">
+<ul id="searchResults" class="search-results" role="listbox"></ul>
 </div>
 
 <div class="section-divider"></div>
@@ -202,40 +310,65 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="byeongin"><div class="container">
 <span class="sec-label" style="background:var(--red-bg);color:var(--red);">양요</span>
 <h2 class="sec-title">병인양요 (1866)</h2>
-<p class="sec-desc">병인박해를 계기로 프랑스가 강화도를 침략한 사건이다.</p>
-<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>병인양요 (1866)</h3><p>병인양요는 프랑스가 선교사 학살에 보복하러 강화도를 침략한 사건으로, 양헌수 부대의 정족산성 승리로 격퇴했지만 대원군의 쇄국 의지를 더 강하게 만든 계기가 되었다.</p></article>
+<p class="sec-desc">대원군의 천주교 탄압이 프랑스 군함을 불러왔고, 조선은 처음으로 서양 열강과 총을 맞대게 되었다.</p>
+<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>병인양요 (1866)</h3><p>흥선대원군은 천주교를 "나라를 갉아먹는 사교"로 보고 탄압했지만, 그 결과 프랑스 군함이 강화도에 닥쳤다. 양헌수 부대가 정족산성에서 프랑스군을 물리치며 첫 서양 열강 격퇴라는 기록을 남겼지만, 아이러니하게도 이 승리는 대원군의 쇄국 의지를 더욱 굳히는 계기가 되었다.</p></article>
 <div class="content-grid fade-in d1">
-<div class="content-block"><h3>📌 사건의 배경 — 왜 프랑스가 쳐들어왔나?</h3><ul><li>흥선대원군이 천주교를 탄압하면서 프랑스 선교사 9명이 처형되고 수천 명이 희생되었다.</li><li>살아남은 선교사 리델이 중국으로 탈출해 프랑스 함대사령관 로즈에게 보고했다.</li><li>로즈는 이를 빌미로 강화도 침략을 결정했다.</li></ul></div>
-<div class="content-block"><h3>⚔️ 사건의 전개</h3><ul><li>1차 원정에서는 군함 3척으로 한강 하류의 지형과 수로를 조사해 본격 침략을 준비했다.</li><li>2차 원정에서는 군함 7척, 병력 1,000명으로 강화도를 점령했다.</li><li>문수산성 전투에서는 화력 차이로 조선군이 패배했다.</li></ul></div>
-<div class="table-wrap"><h4>정족산성 전투 — 역전!</h4><table><thead><tr><th>구분</th><th>프랑스군</th><th>조선군</th></tr></thead><tbody><tr><td>병력</td><td>160명</td><td>549명</td></tr><tr><td>무기</td><td>근대식 총포</td><td>재래식 화포</td></tr><tr><td>전략</td><td>정면 공격</td><td>양헌수의 매복 작전</td></tr><tr><td>피해</td><td>사상자 60~70명</td><td>전사 1명, 부상 4명</td></tr></tbody></table></div>
+<div class="content-block"><h3>📌 사건의 배경 — 왜 프랑스가 쳐들어왔나?</h3><ul><li>흥선대원군은 왕권을 강화하면서 천주교를 '서양 오랑캐의 종교'로 규정하고 대대적인 탄압을 벌였다. 이 과정에서 프랑스 선교사 9명이 처형되고 수천 명의 천주교 신자가 희생되었다(병인박해).</li><li>목숨을 건져 탈출한 선교사 리델은 중국의 프랑스 함대사령관 로즈에게 이 소식을 전했다. 로즈는 "자국민 보호"를 명분으로 강화도 침략을 결정했다.</li></ul></div>
+<div class="content-block"><h3>⚔️ 사건의 전개</h3><ul><li>1차 원정(1866.9): 군함 3척으로 한강 하류의 지형과 수로를 정찰하며 본격 침략을 준비했다.</li><li>2차 원정(1866.10): 군함 7척, 병력 약 1,000명으로 강화도를 점령했다. 문수산성 전투에서는 근대식 화력 차이로 조선군이 패배했다.</li><li>그러나 정족산성에서 양헌수 부대 549명이 매복 작전으로 프랑스군 160명을 크게 물리쳤고, 프랑스군은 결국 퇴각했다.</li></ul></div>
+
+<!-- VS 비교 카드: 정족산성 전투 -->
+<div class="vs-card fade-in">
+<div class="vs-header">⚔️ 정족산성 전투 — 역전!</div>
+<div class="vs-body">
+  <div class="vs-side vs-left">
+    <h5>🇫🇷 프랑스군</h5>
+    <div class="vs-row"><span class="vs-row-label">병력</span> 160명</div>
+    <div class="vs-row"><span class="vs-row-label">무기</span> 근대식 총포</div>
+    <div class="vs-row"><span class="vs-row-label">전략</span> 정면 공격</div>
+    <div class="vs-row"><span class="vs-row-label">피해</span> 사상자 60~70명</div>
+  </div>
+  <div class="vs-center">VS</div>
+  <div class="vs-side vs-right">
+    <h5>🇰🇷 조선군</h5>
+    <div class="vs-row"><span class="vs-row-label">병력</span> 549명</div>
+    <div class="vs-row"><span class="vs-row-label">무기</span> 재래식 화포</div>
+    <div class="vs-row"><span class="vs-row-label">전략</span> 양헌수의 매복 작전</div>
+    <div class="vs-row"><span class="vs-row-label">피해</span> 전사 1명, 부상 4명</div>
+  </div>
+</div>
+</div>
+
 <div class="notice-info-box"><h3>📦 보충</h3><ul class="notice-info-list"><li>프랑스군은 철수하면서 고서적 345권과 은괴 19상자를 약탈했다.</li></ul></div>
-<div class="content-block"><h3>⚖️ 결과와 의의</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>우리 역사상 최초로 서구 열강의 침략을 격퇴한 사건</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>대원군의 천주교 탄압·쇄국정책이 오히려 강화됨</li><li>이후 개화 논의에 걸림돌이 됨</li></ul></div></div></div>
+<div class="content-block"><h3>⚖️ 결과와 의의</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>우리 역사상 최초로 서구 열강의 침략을 격퇴한 사건</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>대원군의 천주교 탄압·쇄국정책이 오히려 강화됨</li><li>이후 개화 논의에 걸림돌이 됨</li></ul></div></div>  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-byeongin">
+<div class="quiz-block fade-in" id="quiz-byeongin" role="region" aria-label="병인양요 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-byeongin">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-byeongin-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">정족산성 전투에서 프랑스군을 격퇴한 조선군 지휘관은?</p>
-    <div class="quiz-opts" id="qo-byeongin-0">
-      <button class="qopt" onclick="answerQ('byeongin',0,0)">① 어재연</button>
-      <button class="qopt" onclick="answerQ('byeongin',0,1)">② 양헌수</button>
-      <button class="qopt" onclick="answerQ('byeongin',0,2)">③ 전봉준</button>
-      <button class="qopt" onclick="answerQ('byeongin',0,3)">④ 최익현</button>
+    <div class="quiz-opts" id="qo-byeongin-0" role="radiogroup">
+      <button class="qopt" onclick="answerQ('byeongin',0,0)" role="radio" aria-checked="false">① 어재연</button>
+      <button class="qopt" onclick="answerQ('byeongin',0,1)" role="radio" aria-checked="false">② 양헌수</button>
+      <button class="qopt" onclick="answerQ('byeongin',0,2)" role="radio" aria-checked="false">③ 전봉준</button>
+      <button class="qopt" onclick="answerQ('byeongin',0,3)" role="radio" aria-checked="false">④ 최익현</button>
     </div>
-    <div class="quiz-fb" id="qf-byeongin-0"></div>
+    <div class="quiz-fb" id="qf-byeongin-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-byeongin-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
     <p class="quiz-qtext">병인양요 이후 흥선대원군이 강화한 정책 방향으로 가장 적절한 것은?</p>
-    <div class="quiz-opts" id="qo-byeongin-1">
-      <button class="qopt" onclick="answerQ('byeongin',1,0)">① 서양과의 통상 조약을 적극 추진했다</button>
-      <button class="qopt" onclick="answerQ('byeongin',1,1)">② 천주교 탄압을 완화하고 개화를 허용했다</button>
-      <button class="qopt" onclick="answerQ('byeongin',1,2)">③ 쇄국정책을 더욱 강화하고 전국에 척화비를 세웠다</button>
-      <button class="qopt" onclick="answerQ('byeongin',1,3)">④ 청나라에 도움을 요청해 개화 정책을 시작했다</button>
+    <div class="quiz-opts" id="qo-byeongin-1" role="radiogroup">
+      <button class="qopt" onclick="answerQ('byeongin',1,0)" role="radio" aria-checked="false">① 서양과의 통상 조약을 적극 추진했다</button>
+      <button class="qopt" onclick="answerQ('byeongin',1,1)" role="radio" aria-checked="false">② 천주교 탄압을 완화하고 개화를 허용했다</button>
+      <button class="qopt" onclick="answerQ('byeongin',1,2)" role="radio" aria-checked="false">③ 쇄국정책을 더욱 강화하고 전국에 척화비를 세웠다</button>
+      <button class="qopt" onclick="answerQ('byeongin',1,3)" role="radio" aria-checked="false">④ 청나라에 도움을 요청해 개화 정책을 시작했다</button>
     </div>
-    <div class="quiz-fb" id="qf-byeongin-1"></div>
+    <div class="quiz-fb" id="qf-byeongin-1" aria-live="polite"></div>
   </div>
 </div>
+<!-- 섹션 이동 -->
+<div class="sec-nav"><button class="sec-nav-btn invisible">← 이전</button><button class="sec-nav-btn" onclick="scrollToSec('sinmi')">신미양요 →</button></div>
 </div>
 </div></section>
 
@@ -245,40 +378,42 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="sinmi"><div class="container">
 <span class="sec-label" style="background:var(--red-bg);color:var(--red);">양요</span>
 <h2 class="sec-title">신미양요 (1871)</h2>
-<p class="sec-desc">미국이 조선을 개항시키려 했으나 실패한 사건이다.</p>
-<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>신미양요 (1871)</h3><p>신미양요는 미국이 군사력으로 조선의 문을 열려 했지만 실패한 사건으로, 오히려 대원군의 쇄국정책을 더 강하게 만들었다.</p></article>
+<p class="sec-desc">병인양요로 자신감을 얻은 대원군 앞에 이번에는 미국 군함이 나타났다. 조선의 문은 다시 한 번 닫혔다.</p>
+<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>신미양요 (1871)</h3><p>5년 전 제너럴셔먼호를 불태운 사건이 화근이었다. 미국은 손해배상과 통상을 내세워 군함 5척으로 강화도를 공격했고, 어재연 장군은 광성보에서 전사할 때까지 싸웠다. 미군은 군사적으로 이겼지만 '통상'이라는 목적은 끝내 달성하지 못했고, 대원군은 전국에 척화비를 세우며 쇄국의 빗장을 더 단단히 걸어 잠갔다.</p></article>
 <div class="content-grid fade-in d1">
-<div class="content-block"><h3>📌 사건의 배경 — 왜 미국이 쳐들어왔나?</h3><ul><li>1866년 제너럴셔먼호 사건 이후 미국은 손해배상과 통상을 요구했다.</li><li>1871년 미국은 군함 5척, 병력 1,230명을 이끌고 강화도로 출발했다.</li></ul></div>
-<div class="content-block"><h3>⚔️ 사건의 전개</h3><ul><li>손돌목 포격 사건에서 미군이 허락 없이 강화해협을 항해하려 하자 조선군이 포격했다.</li><li>초지진, 덕진진, 광성보 전투가 이어졌고 광성보에서는 어재연 장군이 끝까지 항전했다.</li></ul></div>
-<div class="table-wrap"><h4>본격 전투</h4><table><thead><tr><th>전투</th><th>결과</th></tr></thead><tbody><tr><td>초지진</td><td>미군 함포로 완전 초토화, 점령당함</td></tr><tr><td>덕진진</td><td>조선군 없이 무혈 점령당함</td></tr><tr><td>광성보</td><td>어재연 장군이 이끄는 600명 수비 → 함락, 수자기 빼앗김</td></tr></tbody></table></div>
+<div class="content-block"><h3>📌 사건의 배경 — 왜 미국이 쳐들어왔나?</h3><ul><li>1866년 대동강에 나타난 미국 상선 제너럴셔먼호가 통상을 요구하며 행패를 부리자, 평양 관민이 배를 불태워 버렸다. 미국은 이 사건의 배상과 조선과의 무역 개시를 요구했다.</li><li>조선이 응하지 않자, 1871년 미국은 군함 5척과 병력 1,230명을 이끌고 강화도로 향했다.</li></ul></div>
+<div class="content-block"><h3>⚔️ 사건의 전개</h3><ul><li>미군 함대가 허락 없이 강화해협(손돌목)을 항해하자 조선군이 포격했다. 미국은 이를 빌미로 본격 공격을 시작했다.</li><li>초지진과 덕진진이 차례로 함락되었고, 마지막 보루인 광성보에서 어재연 장군이 600명의 병력으로 끝까지 항전했으나 근대식 화력을 이기지 못하고 함락되었다.</li></ul></div>
+<div class="table-wrap"><h4>본격 전투</h4><table><thead><tr><th>전투</th><th>결과</th></tr></thead><tbody><tr><td>초지진</td><td>미군 함포 사격으로 초토화, 점령당함</td></tr><tr><td>덕진진</td><td>조선군이 미리 후퇴하여 무혈 점령당함</td></tr><tr><td>광성보</td><td>어재연 장군이 이끄는 600명이 끝까지 수비했으나 함락, 수자기를 빼앗겼다</td></tr></tbody></table></div>
 <blockquote>서양 오랑캐가 침범하는데 싸우지 않으면 화친하는 것이요, 화친을 주장하는 것은 나라를 파는 행위다.<span class="bq-source">— 척화비(1871)</span></blockquote>
-<div class="content-block"><h3>⚖️ 의의와 한계</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>병인양요에 이어 또 한 번 서양 열강의 침략을 막아냄</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>대원군의 쇄국정책이 더욱 강화됨</li><li>세계 정세를 읽지 못한 채 문을 걸어 잠그는 결과를 낳음</li></ul></div></div></div>
+<div class="content-block"><h3>⚖️ 의의와 한계</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>병인양요에 이어 또 한 번 서양 열강의 침략을 막아냄</li><li>어재연 장군의 항전은 이후 국난 극복의 상징으로 기억됨</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>대원군은 전국에 척화비를 세워 쇄국 의지를 천명함</li><li>세계 정세의 변화를 읽지 못한 채 문을 걸어 잠가, 이후 일본에 의해 강제로 문이 열리게 되는 빌미를 남겼다</li></ul></div></div>  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-sinmi">
+<div class="quiz-block fade-in" id="quiz-sinmi" role="region" aria-label="신미양요 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-sinmi">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-sinmi-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">광성보에서 미군에 맞서 끝까지 항전한 조선군 장수는?</p>
-    <div class="quiz-opts" id="qo-sinmi-0">
+    <div class="quiz-opts" id="qo-sinmi-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('sinmi',0,0)">① 양헌수</button>
       <button class="qopt" onclick="answerQ('sinmi',0,1)">② 최익현</button>
       <button class="qopt" onclick="answerQ('sinmi',0,2)">③ 어재연</button>
       <button class="qopt" onclick="answerQ('sinmi',0,3)">④ 전봉준</button>
     </div>
-    <div class="quiz-fb" id="qf-sinmi-0"></div>
+    <div class="quiz-fb" id="qf-sinmi-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-sinmi-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
     <p class="quiz-qtext">신미양요 이후 세워진 척화비의 내용과 가장 관계 깊은 것은?</p>
-    <div class="quiz-opts" id="qo-sinmi-1">
+    <div class="quiz-opts" id="qo-sinmi-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('sinmi',1,0)">① 서양 문물을 받아들여 부국강병을 이루자</button>
       <button class="qopt" onclick="answerQ('sinmi',1,1)">② 서양과 화친하는 것은 나라를 파는 행위라는 쇄국 의지</button>
       <button class="qopt" onclick="answerQ('sinmi',1,2)">③ 청나라와 협력해 일본을 견제하자</button>
       <button class="qopt" onclick="answerQ('sinmi',1,3)">④ 조선을 개항해 세계 무대에 나서자</button>
     </div>
-    <div class="quiz-fb" id="qf-sinmi-1"></div>
+    <div class="quiz-fb" id="qf-sinmi-1" aria-live="polite"></div>
   </div>
 </div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('byeongin')">← 병인양요</button><button class="sec-nav-btn" onclick="scrollToSec('ganghwa')">강화도 조약 →</button></div>
 </div>
 </div></section>
 
@@ -288,39 +423,50 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="ganghwa"><div class="container">
 <span class="sec-label" style="background:var(--blue-bg);color:var(--blue);">조약</span>
 <h2 class="sec-title">강화도 조약 (1876)</h2>
-<p class="sec-desc">일본이 무력 시위를 배경으로 조선에 강요한 조약으로, 이후 개항기 변화의 출발점이 되었다.</p>
-<article class="week-card wc-blue fade-in"><span class="week-badge" style="background:var(--blue);">핵심</span><h3>강화도 조약 (1876)</h3><p>강화도 조약은 일본이 무력으로 조선의 문을 강제로 열게 만든 불평등 조약으로, 이후 일제강점기로 이어지는 침략의 첫 단추였다.</p></article>
+<p class="sec-desc">서양은 막았지만, 이웃 일본이 군함으로 문을 열었다. 조선 역사상 최초의 근대적 조약이자, 불평등의 시작이었다.</p>
+<article class="week-card wc-blue fade-in"><span class="week-badge" style="background:var(--blue);">핵심</span><h3>강화도 조약 (1876)</h3><p>대원군이 물러나고 민씨 세력이 집권하면서 조선의 외교 분위기가 바뀌기 시작했다. 일본은 이 틈을 놓치지 않았다. 운요호를 보내 일부러 충돌을 유도한 뒤, 군사적 위협을 배경으로 조약을 강요했다. 겉으로는 "조선은 자주국"이라고 썼지만, 영사재판권과 해안 측량권이 포함된 전형적인 불평등 조약이었다. 이 조약은 이후 일본 침략의 첫 번째 단추가 되었다.</p></article>
 <div class="content-grid fade-in d1">
-<div class="content-block"><h3>📌 조약이 맺어진 배경</h3><ul><li>일본: 메이지유신으로 근대 국가가 된 뒤 조선에 외교를 요구했으나, 조선은 국서 형식을 문제 삼아 거절했다.</li><li>조선: 흥선대원군이 물러나고 민씨 세력이 집권하면서 분위기가 바뀌었고, 박규수·오경석 등 개화파가 개방을 주장했다.</li><li>청나라도 조선에 서양 여러 나라와의 교류를 권고했다.</li></ul></div>
-<div class="content-block"><h3>⚔️ 조약 직전 — 무력 시위</h3><ul><li>일본은 군함 3척을 부산에 보내 함포 사격 연습을 하며 간접 위협했다.</li><li>운요호 사건에서 일본은 강화도에 군함을 보내 조선군의 포격을 유도한 뒤, 이를 빌미로 조약 체결을 강하게 밀어붙였다.</li></ul></div>
+<div class="content-block"><h3>📌 조약이 맺어진 배경</h3><ul><li>일본은 메이지유신으로 근대 국가가 된 뒤 조선에 외교를 요구했으나, 조선은 국서의 형식이 기존 관례와 다르다며 거절했다('서계 문제').</li><li>조선 안에서도 변화가 생겼다. 흥선대원군이 물러나고 민씨 세력이 집권하면서, 박규수·오경석 등 개화 사상가들이 "세계의 흐름을 알아야 한다"고 목소리를 높였다.</li><li>청나라 역시 러시아를 견제하기 위해 조선에 서양 여러 나라와 교류할 것을 권고했다.</li></ul></div>
+<div class="content-block"><h3>⚔️ 조약 직전 — 무력 시위</h3><ul><li>일본은 군함 3척을 부산에 보내 함포 사격 연습을 하며 조선을 간접적으로 위협했다.</li><li>결정적으로, 1875년 운요호 사건이 일어났다. 일본은 강화도 앞바다에 군함을 보내 의도적으로 조선군의 포격을 유도한 뒤, 이를 빌미로 "피해를 배상하라, 조약을 맺자"고 강하게 밀어붙였다.</li></ul></div>
 <div class="table-wrap"><h4>📜 조약의 주요 내용 (12개 조항 중 핵심)</h4><table><thead><tr><th>조항</th><th>내용</th><th>숨겨진 의도</th></tr></thead><tbody><tr><td>제1조</td><td>조선은 자주국, 일본과 평등한 권리</td><td>조선-청 관계를 끊으려는 전략</td></tr><tr><td>제5조</td><td>부산 외에 항구 2곳을 추가로 개항할 수 있도록 함 (후에 원산·인천 개항)</td><td>경제 침략 + 군사 거점 확보</td></tr><tr><td>제7조</td><td>일본이 조선 연안 해안 측량 가능</td><td>전쟁 시 상륙 지점 사전 파악</td></tr><tr><td>제10조</td><td>개항장에서 일본인 범죄는 일본 법으로 처리</td><td>영사재판권 → 대표적 불평등 조항</td></tr></tbody></table></div>
 <div class="content-block"><h3>⚖️ 이 조약을 어떻게 봐야 할까?</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>조선이 세계 무대에 첫발을 내딛는 계기</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>영사재판권, 해안 측량권 등 일본에게만 유리한 불평등 조약</li><li>일본의 조선 침략이 본격적으로 시작되는 출발점</li><li>이후 개화파 vs 위정척사파의 대립이 격화되는 계기</li></ul></div></div></div>
+<div class="question-toggle-block" style="background:var(--blue-bg);border:1px solid rgba(37,99,235,0.14);border-radius:var(--r-md);padding:16px;margin-top:14px;">
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--blue);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">강화도조약 이후 조선 정부가 새로운 군대와 제도를 만들자, 가장 큰 불만을 느낀 사람들은 누구였을까?</p>
+  <button onclick="toggleAnswer('ans-ganghwa')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--blue);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <div id="ans-ganghwa" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(37,99,235,0.12);border-radius:12px;">
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">강화도조약 이후 조선 정부는 <strong>통리기무아문</strong>을 설치하고 <strong>별기군</strong> 같은 신식 군대를 만들며 개화 정책을 추진했다. 이때 가장 큰 불만을 느낀 사람들은 <strong>기존의 구식 군인과 전통 질서를 중시하던 세력</strong>이었다. 이들은 자신들이 홀대받고 있다고 느꼈고, 이런 불만은 뒤의 임오군란으로 이어지는 배경이 되었다.</p>
+  </div>
+  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-ganghwa">
+<div class="quiz-block fade-in" id="quiz-ganghwa" role="region" aria-label="강화도 조약 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-ganghwa">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-ganghwa-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">강화도 조약에서 개항장 내 일본인 범죄를 일본 법으로 처벌하도록 한 대표적 불평등 조항은 몇 조인가?</p>
-    <div class="quiz-opts" id="qo-ganghwa-0">
+    <div class="quiz-opts" id="qo-ganghwa-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('ganghwa',0,0)">① 제1조</button>
       <button class="qopt" onclick="answerQ('ganghwa',0,1)">② 제5조</button>
       <button class="qopt" onclick="answerQ('ganghwa',0,2)">③ 제7조</button>
       <button class="qopt" onclick="answerQ('ganghwa',0,3)">④ 제10조</button>
     </div>
-    <div class="quiz-fb" id="qf-ganghwa-0"></div>
+    <div class="quiz-fb" id="qf-ganghwa-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-ganghwa-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
-    <p class="quiz-qtext">강화도 조약 제1조 "조선은 자주국"이라는 규정의 실제 의도로 가장 적절한 것은?</p>
-    <div class="quiz-opts" id="qo-ganghwa-1">
+    <p class="quiz-qtext">강화도 조약 제1조 「조선은 자주국」이라는 규정의 실제 의도로 가장 적절한 것은?</p>
+    <div class="quiz-opts" id="qo-ganghwa-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('ganghwa',1,0)">① 조선의 독립을 진정으로 보장하기 위해</button>
       <button class="qopt" onclick="answerQ('ganghwa',1,1)">② 조선과 청나라의 전통적 관계를 끊어 일본의 침투를 쉽게 하기 위해</button>
       <button class="qopt" onclick="answerQ('ganghwa',1,2)">③ 조선이 서양 열강과 조약을 맺지 못하도록 막기 위해</button>
       <button class="qopt" onclick="answerQ('ganghwa',1,3)">④ 일본과 조선이 완전히 대등한 관계임을 선언하기 위해</button>
     </div>
-    <div class="quiz-fb" id="qf-ganghwa-1"></div>
+    <div class="quiz-fb" id="qf-ganghwa-1" aria-live="polite"></div>
   </div>
 </div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('sinmi')">← 신미양요</button><button class="sec-nav-btn" onclick="scrollToSec('gaehwa')">개화 정책 →</button></div>
 </div>
 </div></section>
 
@@ -330,44 +476,55 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="gaehwa"><div class="container">
 <span class="sec-label" style="background:var(--green-bg);color:var(--green);">정책</span>
 <h2 class="sec-title">개화 정책의 추진</h2>
-<p class="sec-desc">강화도 조약 이후 조선이 근대 문물을 받아들이기 위해 추진한 여러 정책을 정리한다.</p>
-<article class="week-card wc-green fade-in"><span class="week-badge" style="background:var(--green);">핵심</span><h3>개화 정책의 추진</h3><p>개항 이후 조선은 정부 기구 개편, 신식 군대 창설, 해외 시찰, 근대 학교·신문 등 다양한 분야에서 근대화를 추진했지만, 임오군란과 갑신정변으로 큰 어려움을 겪게 된다.</p></article>
+<p class="sec-desc">문이 열리자 조선은 서둘러 변하려 했다. 새 기구를 만들고, 새 군대를 창설하고, 바다 건너 세계를 배우러 떠났다.</p>
+<article class="week-card wc-green fade-in"><span class="week-badge" style="background:var(--green);">핵심</span><h3>개화 정책의 추진</h3><p>강화도 조약 이후, 조선 정부는 "바꾸지 않으면 살아남을 수 없다"는 위기감 속에서 다방면의 개화 정책을 추진했다. 외교·통상 전담 기구인 통리기무아문을 설치하고, 일본식으로 훈련받는 별기군을 창설했으며, 일본과 청나라에 시찰단·유학생을 보냈다. 그러나 이 과정에서 구식 군인 차별, 개화에 대한 반감 등이 쌓이면서 임오군란과 갑신정변이라는 큰 시련을 맞게 된다.</p></article>
 <div class="content-grid fade-in d1">
 <div class="content-block"><h3>📌 개화 정책이란?</h3><ul><li>강화도 조약 이후 조선이 근대 문물을 받아들이고 국가를 바꾸려 한 일련의 노력이다.</li></ul></div>
-<div class="content-block"><h3>🏛️ ① 통리기무아문 (1880)</h3><ul><li>외교·통상·군사 등 12개 부서를 두어 새로운 업무를 담당했다.</li><li>김옥균·홍영식·김홍집 등 개화파 인사들이 대거 진출했다.</li></ul></div>
+<div class="content-block"><h3>🏛️ ① 통리기무아문 (1880)</h3><ul><li>외교·통상·군사 등 12개 부서를 두어 새로운 업무를 담당했다.</li><li>온건 개화파(김홍집 등)와 급진 개화파(김옥균·홍영식 등)가 모두 진출했다.</li></ul></div>
 <div class="table-wrap"><h4>💂 ② 신식 군대 창설 — 별기군 (1881)</h4><table><thead><tr><th>구분</th><th>구식 군대</th><th>별기군</th></tr></thead><tbody><tr><td>무기</td><td>재래식</td><td>근대식 소총</td></tr><tr><td>훈련</td><td>전통 방식</td><td>일본인 교관에게 신식 훈련</td></tr><tr><td>대우</td><td>낮음</td><td>높음</td></tr></tbody></table></div>
-<div class="card-grid cg-2">
+<div class="card-grid cg-3">
 <article class="card mini-card"><h3>✈️ ③ 해외 시찰단·유학생 파견</h3><ul><li>신사유람단(일본): 62명이 3개월간 근대 문물을 시찰</li><li>영선사(청): 김윤식 인솔, 69명이 톈진기기국에서 기술 학습</li></ul></article>
 <article class="card mini-card"><h3>📚 ④ 근대 학교 설립</h3><ul><li>원산학사(1883): 우리나라 최초의 근대 학교</li><li>동문학(1883): 통역관 양성, 최초의 관립 영어학교</li></ul></article>
 <article class="card mini-card"><h3>📰 ⑤ 한성순보 발간</h3><ul><li>1883년 창간, 10일마다 발행, 순한문 사용</li><li>1884년 갑신정변으로 박문국이 불타 폐간</li></ul></article>
 </div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>강화도 조약(1876)</li><li>통리기무아문 설치 · 별기군 창설</li><li>일본(신사유람단) · 청나라(영선사) 파견</li><li>원산학사 · 동문학 설립 / 한성순보 발간</li><li>임오군란(1882) → 청나라 간섭 심화</li><li>갑신정변(1884) → 개화 정책 시련</li></ol></div>
+<div class="question-toggle-block" style="background:var(--green-bg);border:1px solid rgba(5,150,105,0.15);border-radius:var(--r-md);padding:16px;margin-top:14px;">
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--green);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">새 군대는 우대하고 구식 군인은 홀대했다면, 이런 차별은 결국 어떤 사건으로 터져 나올 수 있었을까?</p>
+  <button onclick="toggleAnswer('ans-gaehwa')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--green);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <div id="ans-gaehwa" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(5,150,105,0.12);border-radius:12px;">
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">별기군은 <strong>근대식 무기와 훈련</strong>을 받으며 우대를 받았지만, 구식 군인들은 <strong>밀린 봉급</strong>도 제대로 받지 못했다. 특히 지급된 쌀에 <strong>겨와 모래가 섞여 있던 일</strong>은 큰 분노를 불러일으켰다. 이런 차별과 불만이 쌓여 결국 <strong>1882년 임오군란</strong>이 일어났다.</p>
+  </div>
+  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-gaehwa">
+<div class="quiz-block fade-in" id="quiz-gaehwa" role="region" aria-label="개화 정책 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-gaehwa">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-gaehwa-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">1883년 설립된 우리나라 최초의 근대 학교는?</p>
-    <div class="quiz-opts" id="qo-gaehwa-0">
+    <div class="quiz-opts" id="qo-gaehwa-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('gaehwa',0,0)">① 동문학</button>
       <button class="qopt" onclick="answerQ('gaehwa',0,1)">② 원산학사</button>
       <button class="qopt" onclick="answerQ('gaehwa',0,2)">③ 통리기무아문</button>
       <button class="qopt" onclick="answerQ('gaehwa',0,3)">④ 한성순보</button>
     </div>
-    <div class="quiz-fb" id="qf-gaehwa-0"></div>
+    <div class="quiz-fb" id="qf-gaehwa-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-gaehwa-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
     <p class="quiz-qtext">조선이 신사유람단(일본)과 영선사(청나라)를 파견한 공통된 목적은?</p>
-    <div class="quiz-opts" id="qo-gaehwa-1">
+    <div class="quiz-opts" id="qo-gaehwa-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('gaehwa',1,0)">① 외국의 군사 지원을 요청하기 위해</button>
       <button class="qopt" onclick="answerQ('gaehwa',1,1)">② 무역 조약을 새로 체결하기 위해</button>
       <button class="qopt" onclick="answerQ('gaehwa',1,2)">③ 근대 문물과 기술을 배워 개화 정책에 활용하기 위해</button>
       <button class="qopt" onclick="answerQ('gaehwa',1,3)">④ 외국의 정치 체제를 그대로 도입하기 위해</button>
     </div>
-    <div class="quiz-fb" id="qf-gaehwa-1"></div>
+    <div class="quiz-fb" id="qf-gaehwa-1" aria-live="polite"></div>
   </div>
 </div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('ganghwa')">← 강화도 조약</button><button class="sec-nav-btn" onclick="scrollToSec('imo')">임오군란 →</button></div>
 </div>
 </div></section>
 
@@ -377,39 +534,50 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="imo"><div class="container">
 <span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">군란</span>
 <h2 class="sec-title">임오군란 (1882)</h2>
-<p class="sec-desc">차별받던 구식 군인들의 분노가 폭발한 사건이다.</p>
-<article class="week-card wc-orange fade-in"><span class="week-badge" style="background:var(--orange);">핵심</span><h3>임오군란 (1882)</h3><p>임오군란은 차별받던 구식 군인들이 일으킨 반란으로, 대원군이 잠깐 재집권했지만 청나라 개입으로 무너지고, 오히려 일본과 청나라의 조선 간섭이 더 심해지는 결과를 낳았다.</p></article>
+<p class="sec-desc">새 군대는 우대받고, 구식 군인은 13개월 넘게 월급도 못 받았다. 쌓인 분노가 마침내 폭발했다.</p>
+<article class="week-card wc-orange fade-in"><span class="week-badge" style="background:var(--orange);">핵심</span><h3>임오군란 (1882)</h3><p>별기군은 근대식 무기로 훈련받으며 좋은 대우를 받았지만, 구식 군인들은 13개월째 밀린 봉급도 제대로 받지 못했다. 더구나 뒤늦게 지급된 쌀에는 겨와 모래가 섞여 있었다. 분노한 군인들은 민겸호의 집과 일본 공사관을 습격했고, 권력에서 밀려나 있던 대원군이 잠시 재집권했다. 하지만 청나라가 군대를 보내 대원군을 체포해 가면서 사태는 끝났고, 결과적으로 청나라와 일본 양국의 조선 간섭이 한층 더 심해졌다.</p></article>
 <div class="content-grid fade-in d1">
-<div class="content-block"><h3>📌 사건의 배경 — 왜 일어났나?</h3><ul><li>구식 군인들이 13개월째 월급을 못 받았다.</li><li>뒤늦게 지급된 쌀에는 겨와 모래가 섞여 있었고 양도 부족했다.</li><li>별기군 우대, 민씨 세력의 부패, 개화 정책 반발이 누적되었다.</li></ul></div>
-<div class="content-block"><h3>⚔️ 사건의 전개</h3><ul><li>군인들은 민겸호의 집을 습격하고 일본 공사관을 공격했다.</li><li>명성황후는 도망했고, 고종은 대원군에게 사태 수습을 맡겼다.</li><li>대원군은 별기군 폐지, 5군영 복구, 통리기무아문 폐지 등으로 개화 정책을 되돌리려 했다.</li></ul></div>
+<div class="content-block"><h3>📌 사건의 배경 — 왜 일어났나?</h3><ul><li>별기군은 일본인 교관에게 근대식 훈련을 받으며 좋은 대우를 받았지만, 구식 군인들은 13개월째 봉급도 받지 못한 채 방치되었다.</li><li>뒤늦게 지급된 쌀마저 겨와 모래가 섞인 부실한 것이었다. 이는 군량미를 관리하던 선혜청 관리의 횡령 때문이었다.</li><li>여기에 별기군 우대, 민씨 세력의 부패, 급격한 개화 정책에 대한 반감이 겹치면서 불만이 극에 달했다.</li></ul></div>
+<div class="content-block"><h3>⚔️ 사건의 전개</h3><ul><li>분노한 구식 군인들은 선혜청 관리를 폭행하고, 개화 정책의 핵심 인물인 민겸호의 집을 습격했다. 이어 일본 공사관까지 공격하며 반란은 걷잡을 수 없이 커졌다.</li><li>위험을 느낀 명성황후는 충주로 도망했고, 고종은 사태 수습을 위해 10년 만에 대원군에게 다시 권력을 맡겼다.</li><li>재집권한 대원군은 별기군 폐지, 5군영 복구, 통리기무아문 폐지 등 개화 정책을 원래대로 되돌리려 했다. 하지만 대원군의 재집권은 불과 33일 만에 끝났다.</li></ul></div>
 <div class="table-wrap"><h4>🌍 외국의 개입</h4><table><thead><tr><th>나라</th><th>행동</th><th>목적</th></tr></thead><tbody><tr><td>일본</td><td>군함·병력 1,500명 파견</td><td>피해 배상 + 추가 통상 특권 요구</td></tr><tr><td>청나라</td><td>대군 파견</td><td>조선에 대한 종주권 강화</td></tr></tbody></table></div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>구식 군인 차별 대우</li><li>임오군란 발생</li><li>대원군 재집권 (33일)</li><li>청나라 개입 → 대원군 납치</li><li>제물포 조약 → 일본 권한 강화</li><li>청나라 간섭 심화 → 갑신정변(1884)</li></ol></div>
+<div class="question-toggle-block" style="background:var(--orange-bg);border:1px solid rgba(217,119,6,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--orange);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">임오군란 뒤 청의 간섭이 더 커지자, 급진 개화파는 왜 천천히 개혁하기보다 정변을 선택했을까?</p>
+  <button onclick="toggleAnswer('ans-imo')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--orange);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <div id="ans-imo" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(217,119,6,0.12);border-radius:12px;">
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">임오군란 뒤에는 <strong>청나라 군대가 조선에 주둔</strong>하고, 대원군이 청으로 끌려가는 등 청의 간섭이 더 강해졌다. 급진 개화파는 이렇게 가면 조선이 청의 영향에서 벗어나기 어렵다고 보았다. 그래서 그들은 <strong>일본의 도움을 받아 짧은 시간 안에 정권을 잡고 개혁을 추진</strong>하려 했고, 그 결과 <strong>1884년 갑신정변</strong>을 일으켰다.</p>
+  </div>
+  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-imo">
+<div class="quiz-block fade-in" id="quiz-imo" role="region" aria-label="임오군란 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-imo">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-imo-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">임오군란이 일어난 직접적인 원인은?</p>
-    <div class="quiz-opts" id="qo-imo-0">
+    <div class="quiz-opts" id="qo-imo-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('imo',0,0)">① 신식 별기군이 폐지되었기 때문에</button>
       <button class="qopt" onclick="answerQ('imo',0,1)">② 13개월 치 밀린 쌀에 겨와 모래가 섞여 지급되었기 때문에</button>
       <button class="qopt" onclick="answerQ('imo',0,2)">③ 청나라 군대가 조선에 주둔했기 때문에</button>
       <button class="qopt" onclick="answerQ('imo',0,3)">④ 갑신정변으로 개화 정책이 실패했기 때문에</button>
     </div>
-    <div class="quiz-fb" id="qf-imo-0"></div>
+    <div class="quiz-fb" id="qf-imo-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-imo-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
     <p class="quiz-qtext">임오군란의 결과로 조선에 나타난 가장 큰 변화는?</p>
-    <div class="quiz-opts" id="qo-imo-1">
+    <div class="quiz-opts" id="qo-imo-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('imo',1,0)">① 일본의 영향력이 완전히 사라졌다</button>
       <button class="qopt" onclick="answerQ('imo',1,1)">② 청나라만 조선에 영향력을 행사하게 되었다</button>
       <button class="qopt" onclick="answerQ('imo',1,2)">③ 청나라와 일본 양국의 조선 간섭이 오히려 더 심화되었다</button>
       <button class="qopt" onclick="answerQ('imo',1,3)">④ 대원군이 계속 집권하며 개화 정책을 폐지했다</button>
     </div>
-    <div class="quiz-fb" id="qf-imo-1"></div>
+    <div class="quiz-fb" id="qf-imo-1" aria-live="polite"></div>
   </div>
 </div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('gaehwa')">← 개화 정책</button><button class="sec-nav-btn" onclick="scrollToSec('gapsin')">갑신정변 →</button></div>
 </div>
 </div></section>
 
@@ -419,40 +587,51 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="gapsin"><div class="container">
 <span class="sec-label" style="background:var(--purple-bg);color:var(--purple);">정변</span>
 <h2 class="sec-title">갑신정변 (1884)</h2>
-<p class="sec-desc">급진 개화파가 청나라의 간섭에서 벗어나 조선을 근대 국가로 바꾸려 한 시도였다.</p>
-<article class="week-card wc-purple fade-in"><span class="week-badge" style="background:var(--purple);">핵심</span><h3>갑신정변 (1884)</h3><p>갑신정변은 청나라 간섭에서 벗어나 조선을 근대 국가로 바꾸려 한 개혁 시도였지만, 대중의 지지 없이 일본 군사력에만 의존한 채 단 3일 만에 실패했고, 오히려 이후 일본과 청나라의 조선 지배를 더욱 굳히는 결과를 낳았다.</p></article>
+<p class="sec-desc">청나라의 간섭이 더 심해지자, 김옥균 등 급진 개화파는 "이대로는 조선이 청의 속국이 된다"며 모든 것을 걸었다.</p>
+<article class="week-card wc-purple fade-in"><span class="week-badge" style="background:var(--purple);">핵심</span><h3>갑신정변 (1884)</h3><p>김옥균·박영효·홍영식 등 급진 개화파는 임오군란 이후 청나라의 내정 간섭이 갈수록 심해지는 현실에 절박함을 느꼈다. 청불전쟁으로 청군 병력이 줄어든 틈을 타, 일본의 군사 지원을 약속받고 우정국 개청 축하연에서 거사를 일으켰다. 새 정부를 세우고 개혁 정령 14개조를 발표했지만, 청군의 반격에 일본군이 철수하면서 단 3일 만에 무너졌다. 일본군에만 의지하고 백성의 마음을 얻지 못한 것이 결정적 한계였다.</p></article>
 <div class="content-grid fade-in d1">
 <div class="content-block"><h3>📌 배경 — 당시 조선은 어떤 상황이었나?</h3><ul><li>임오군란 이후 청나라가 군사·재정·외교에 강하게 개입했다.</li><li>민씨 척족 정권은 청나라에 기대 권력을 유지했고 진짜 개혁은 없었다.</li><li>이에 급진 개화파는 청의 간섭에서 벗어나 자주 독립국을 만들고자 했다.</li></ul></div>
 <div class="content-block"><h3>⚔️ 사건의 전개 — 3일 천하</h3><ul><li>청불전쟁으로 조선 주둔 청군이 줄어든 틈을 타 일본의 지원을 약속받고 거사를 준비했다.</li><li>우정국 개청 축하 연회에서 거사를 일으켜 새 정부를 세우고 개혁 정령 14개조를 발표했다.</li><li>그러나 청군의 반격과 일본군 철수로 3일 만에 실패했다.</li></ul></div>
 <div class="table-wrap"><h4>📜 개혁 정령 14개조 — 핵심 방향</h4><table><thead><tr><th>분야</th><th>내용</th><th>쉽게 말하면</th></tr></thead><tbody><tr><td>외교</td><td>청나라에 대한 조공·허례 폐지</td><td>청나라 눈치 그만 보자</td></tr><tr><td>사회</td><td>문벌 폐지, 인민 평등권</td><td>양반·상놈 차별 없애자</td></tr><tr><td>재정</td><td>호조로 재정 일원화</td><td>나라 돈은 한 곳에서 관리하자</td></tr><tr><td>군사</td><td>4영 통합해 근위대 설치</td><td>군대를 하나로 합쳐 강하게 만들자</td></tr><tr><td>정치체제</td><td>의정소 중심 협의, 정부 일원화</td><td>왕 혼자 결정하지 말고 함께 의논하자</td></tr></tbody></table></div>
 <div class="content-block"><h3>❌ 왜 실패했나?</h3><div class="single-box"><h4>실패 원인</h4><ul><li>일본군 의존으로 민심을 잃음</li><li>청나라 군사력을 과소평가함</li><li>좌·우영군 장악 실패</li><li>무기 미정비</li><li>고종의 이탈</li><li>대중 기반을 만들지 못함</li></ul></div></div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>임오군란(1882) — 청나라 간섭 심화</li><li>개화당 거사(1884)</li><li>청나라 군대 개입 — 3일 만에 실패</li><li>한성 조약(일본 배상)</li><li>텐진 조약(청일 동시 철수 + 파병 통보 조항)</li><li>청나라 간섭 더욱 강화 / 개화에 대한 민심 악화</li></ol></div>
+<div class="question-toggle-block" style="background:var(--purple-bg);border:1px solid rgba(124,58,237,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--purple);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">갑신정변이 실패한 뒤에도 사회 문제가 그대로였다면, 다음에는 어떤 사람들이 직접 움직이게 되었을까?</p>
+  <button onclick="toggleAnswer('ans-gapsin')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--purple);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <div id="ans-gapsin" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(124,58,237,0.12);border-radius:12px;">
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">갑신정변은 <strong>3일 만에 실패</strong>했고, 지방의 <strong>탐관오리 문제</strong>와 백성의 생활고, 외세의 경제 침탈 같은 문제는 그대로 남았다. 그래서 다음에는 권력층이 아니라 <strong>농민들이 직접 움직이게 되었고</strong>, 이런 흐름 속에서 <strong>1894년 동학농민운동</strong>이 일어났다.</p>
+  </div>
+  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-gapsin">
+<div class="quiz-block fade-in" id="quiz-gapsin" role="region" aria-label="갑신정변 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-gapsin">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-gapsin-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">갑신정변은 거사 후 며칠 만에 실패로 끝났나?</p>
-    <div class="quiz-opts" id="qo-gapsin-0">
+    <div class="quiz-opts" id="qo-gapsin-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('gapsin',0,0)">① 1일</button>
       <button class="qopt" onclick="answerQ('gapsin',0,1)">② 3일</button>
       <button class="qopt" onclick="answerQ('gapsin',0,2)">③ 7일</button>
       <button class="qopt" onclick="answerQ('gapsin',0,3)">④ 14일</button>
     </div>
-    <div class="quiz-fb" id="qf-gapsin-0"></div>
+    <div class="quiz-fb" id="qf-gapsin-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-gapsin-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
     <p class="quiz-qtext">갑신정변이 실패한 가장 근본적인 이유는?</p>
-    <div class="quiz-opts" id="qo-gapsin-1">
+    <div class="quiz-opts" id="qo-gapsin-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('gapsin',1,0)">① 개혁 정령 14개조의 내용 자체가 잘못되었기 때문에</button>
       <button class="qopt" onclick="answerQ('gapsin',1,1)">② 일본 군사력에만 의존하고 민중의 지지를 얻지 못했기 때문에</button>
       <button class="qopt" onclick="answerQ('gapsin',1,2)">③ 고종이 처음부터 거사를 반대했기 때문에</button>
       <button class="qopt" onclick="answerQ('gapsin',1,3)">④ 청나라와 미리 협의하지 않았기 때문에</button>
     </div>
-    <div class="quiz-fb" id="qf-gapsin-1"></div>
+    <div class="quiz-fb" id="qf-gapsin-1" aria-live="polite"></div>
   </div>
 </div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('imo')">← 임오군란</button><button class="sec-nav-btn" onclick="scrollToSec('donghak')">동학농민운동 →</button></div>
 </div>
 </div></section>
 
@@ -462,44 +641,77 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="donghak"><div class="container">
 <span class="sec-label" style="background:var(--green-bg);color:var(--green);">운동</span>
 <h2 class="sec-title">동학농민운동 (1894)</h2>
-<p class="sec-desc">반봉건·반외세를 외치며 농민들이 일어난 개혁 운동이자 항일 운동이었다.</p>
-<article class="week-card wc-green fade-in"><span class="week-badge" style="background:var(--green);">핵심</span><h3>동학농민운동 (1894)</h3><p>동학농민운동은 탐관오리의 수탈에 시달리던 농민들이 반봉건·반외세를 외치며 일어난 운동으로, 우금치에서 일본군에 패배하며 끝났지만 이후 항일 독립운동의 정신적 뿌리가 되었다.</p></article>
+<p class="sec-desc">위에서 바꾸지 못한 세상을, 이번에는 아래에서부터 바꾸려 했다. 죽창을 든 농민들이 일어섰다.</p>
+<article class="week-card wc-green fade-in"><span class="week-badge" style="background:var(--green);">핵심</span><h3>동학농민운동 (1894)</h3><p>고부군수 조병갑은 농민들에게 없는 세금을 만들어 걷고, 이미 지은 저수지(만석보)에 물세까지 매겼다. 견디다 못한 전봉준이 선두에 서서 농민군을 이끌었다. 1차 봉기에서 탐관오리를 물리치고 전주성까지 점령한 뒤, 전주화약을 맺고 전라도 53개 고을에 집강소라는 자치 기구를 설치해 직접 개혁을 실행했다. 그러나 청·일 양국이 군대를 보내고 청일전쟁이 벌어지면서 2차 봉기(항일전)로 전환했다. 최후의 결전 우금치에서 근대식 무기 앞에 무너졌지만, 이 정신은 의병 운동과 3·1 운동으로 이어졌다.</p></article>
 <div class="content-grid fade-in d1">
-<div class="content-block"><h3>📌 배경 — 왜 농민들이 들고 일어났나?</h3><ul><li>고부군수 조병갑의 수탈, 만석보 수세, 강제 모금 등 탐관오리의 횡포가 심했다.</li><li>개항 이후 일본과 청나라 상인의 경제 침탈도 심해졌다.</li><li>동학의 평등 사상과 조직망이 농민 결집의 기반이 되었다.</li></ul></div>
-<div class="content-block"><h3>⚔️ 1차 봉기 — 탐관오리를 물리치자</h3><ul><li>고부 민란 이후 전봉준·손화중·김개남이 무장현에서 창의문을 발표했다.</li><li>황토현·황룡촌 전투에서 승리하고 전주성을 점령했다.</li><li>전주화약 후 전라도 53개 고을에 집강소가 설치되었다.</li></ul></div>
+<div class="content-block"><h3>📌 배경 — 왜 농민들이 들고 일어났나?</h3><ul><li>전라도 고부군수 조병갑은 이미 완성된 저수지(만석보)에 다시 물세를 매기고, 없는 명목의 세금을 만들어 농민을 쥐어짰다. 이런 탐관오리의 횡포는 전국적인 문제였다.</li><li>개항 이후에는 일본 상인들이 싸게 곡식을 사들여 빼돌리면서 쌀값이 폭등했고, 농민들의 삶은 더욱 팍팍해졌다.</li><li>"사람이 곧 하늘이다(人乃天)"는 동학의 평등 사상이 억눌려 살던 농민들에게 큰 희망이 되었고, 동학의 조직망이 농민들을 하나로 묶는 기반이 되었다.</li></ul></div>
+<div class="content-block"><h3>⚔️ 1차 봉기 — 탐관오리를 물리치자</h3><ul><li>1894년 1월 고부 민란으로 시작된 불길은 금세 커졌다. 전봉준·손화중·김개남이 무장현에서 창의문을 발표하며 본격적인 봉기가 시작되었다.</li><li>황토현·황룡촌 전투에서 관군을 연파하고 전주성까지 점령하자, 조정은 크게 당황했다.</li><li>정부와 전주화약을 맺은 뒤 전라도 53개 고을에 집강소라는 자치 기구를 설치해, 농민들이 직접 탐관오리를 처벌하고 불합리한 제도를 고쳐 나갔다.</li></ul></div>
 <div class="table-wrap"><h4>폐정개혁 12개조 — 핵심 방향</h4><table><thead><tr><th>분야</th><th>내용</th></tr></thead><tbody><tr><td>반봉건</td><td>노비 문서 소각, 신분 차별 폐지, 토지 재분배 요구</td></tr><tr><td>반부패</td><td>탐관오리 숙청, 양반 토호의 횡포 금지</td></tr><tr><td>반외세</td><td>일본 세력 배격, 외국 상인 침투 반대</td></tr><tr><td>경제</td><td>쌀 국외 유출 금지, 불법 조세 폐지</td></tr><tr><td>사회</td><td>칠반천인 대우 개선, 과부 재혼 허용</td></tr></tbody></table></div>
-<div class="table-wrap"><h4>우금치 전투 — 최후의 결전</h4><table><thead><tr><th>구분</th><th>동학농민군</th><th>일본군 + 관군</th></tr></thead><tbody><tr><td>병력</td><td>1만여 명</td><td>소수지만 근대식 무장</td></tr><tr><td>무기</td><td>재래식</td><td>최신 소총·대포</td></tr><tr><td>전투</td><td>40~50회 공방</td><td>우수한 화력으로 방어</td></tr><tr><td>결과</td><td>참패 — 500여 명만 생존</td><td>승리</td></tr></tbody></table></div>
+
+<!-- VS 비교 카드: 우금치 전투 -->
+<div class="vs-card fade-in">
+<div class="vs-header">⚔️ 우금치 전투 — 최후의 결전</div>
+<div class="vs-body">
+  <div class="vs-side vs-left">
+    <h5>🌾 동학농민군</h5>
+    <div class="vs-row"><span class="vs-row-label">병력</span> 1만여 명</div>
+    <div class="vs-row"><span class="vs-row-label">무기</span> 재래식 (죽창, 화승총)</div>
+    <div class="vs-row"><span class="vs-row-label">전투</span> 40~50회 공방</div>
+    <div class="vs-row"><span class="vs-row-label">결과</span> 참패 — 500여 명만 생존</div>
+  </div>
+  <div class="vs-center">VS</div>
+  <div class="vs-side vs-right">
+    <h5>🇯🇵 일본군 + 관군</h5>
+    <div class="vs-row"><span class="vs-row-label">병력</span> 소수지만 근대식 무장</div>
+    <div class="vs-row"><span class="vs-row-label">무기</span> 최신 소총·대포</div>
+    <div class="vs-row"><span class="vs-row-label">전투</span> 우수한 화력으로 방어</div>
+    <div class="vs-row"><span class="vs-row-label">결과</span> 승리</div>
+  </div>
+</div>
+</div>
+
 <div class="card-grid cg-2">
 <article class="card mini-card"><h3>🌍 외세 개입</h3><ul><li>정부가 청나라에 원병을 요청하자 일본도 텐진조약을 근거로 파병</li><li>청일전쟁 발발, 일본의 경복궁 점령</li></ul></article>
 <article class="card mini-card"><h3>⚔️ 2차 봉기 — 항일 전쟁</h3><ul><li>전봉준 재봉기, 남접·북접 연합</li><li>우금치 전투에서 일본군+관군의 근대식 무기에 패배</li></ul></article>
 </div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>고부 민란</li><li>1차 봉기: 반봉건</li><li>전주화약 → 집강소</li><li>청·일 군대 개입 → 청일전쟁</li><li>2차 봉기: 반외세</li><li>우금치 패배 → 전봉준 처형</li><li>갑오개혁에 영향 / 의병운동·3·1운동으로 계승</li></ol></div>
+<div class="question-toggle-block" style="background:var(--green-bg);border:1px solid rgba(5,150,105,0.15);border-radius:var(--r-md);padding:16px;margin-top:14px;">
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--green);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">농민군과 정부가 화해했는데도 일본이 군대를 철수하지 않았다면, 일본은 조선에서 무엇을 하려 했다고 볼 수 있을까?</p>
+  <button onclick="toggleAnswer('ans-donghak')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--green);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <div id="ans-donghak" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(5,150,105,0.12);border-radius:12px;">
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">동학농민운동 과정에서 <strong>전주화약</strong>이 맺어졌지만, 일본은 군대를 물리지 않았다. 오히려 <strong>경복궁을 점령</strong>하고 조선 정부를 장악해 개혁을 밀어붙였다. 따라서 일본은 단순히 조선을 돕기보다, <strong>조선을 자기 영향 아래 두고 개혁의 주도권을 잡으려 했다</strong>고 볼 수 있다. 이것이 갑오·을미개혁으로 이어졌다.</p>
+  </div>
+  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-donghak">
+<div class="quiz-block fade-in" id="quiz-donghak" role="region" aria-label="동학농민운동 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-donghak">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-donghak-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">전주화약 체결 이후 전라도 53개 고을에 설치된 농민 자치 기구는?</p>
-    <div class="quiz-opts" id="qo-donghak-0">
+    <div class="quiz-opts" id="qo-donghak-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('donghak',0,0)">① 군국기무처</button>
       <button class="qopt" onclick="answerQ('donghak',0,1)">② 통리기무아문</button>
       <button class="qopt" onclick="answerQ('donghak',0,2)">③ 집강소</button>
       <button class="qopt" onclick="answerQ('donghak',0,3)">④ 도방</button>
     </div>
-    <div class="quiz-fb" id="qf-donghak-0"></div>
+    <div class="quiz-fb" id="qf-donghak-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-donghak-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
     <p class="quiz-qtext">동학농민운동 1차 봉기와 2차 봉기의 성격을 바르게 구분한 것은?</p>
-    <div class="quiz-opts" id="qo-donghak-1">
+    <div class="quiz-opts" id="qo-donghak-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('donghak',1,0)">① 1차: 반외세(항일), 2차: 반봉건(탐관오리 타도)</button>
       <button class="qopt" onclick="answerQ('donghak',1,1)">② 1차: 반봉건(탐관오리 타도), 2차: 반외세(항일)</button>
       <button class="qopt" onclick="answerQ('donghak',1,2)">③ 1차와 2차 모두 반외세가 핵심 목표였다</button>
       <button class="qopt" onclick="answerQ('donghak',1,3)">④ 1차: 왕실 지지, 2차: 왕실 반대</button>
     </div>
-    <div class="quiz-fb" id="qf-donghak-1"></div>
+    <div class="quiz-fb" id="qf-donghak-1" aria-live="polite"></div>
   </div>
 </div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('gapsin')">← 갑신정변</button><button class="sec-nav-btn" onclick="scrollToSec('gabo')">갑오·을미개혁 →</button></div>
 </div>
 </div></section>
 
@@ -509,44 +721,55 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="gabo"><div class="container">
 <span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">개혁</span>
 <h2 class="sec-title">갑오개혁 · 을미개혁 (1894~1896)</h2>
-<p class="sec-desc">정치·사회·경제 전반을 바꾸려 했던 근대 개혁이지만, 일본의 강압과 민중의 반발 속에 중단되었다.</p>
-<article class="week-card wc-orange fade-in"><span class="week-badge" style="background:var(--orange);">핵심</span><h3>갑오개혁 · 을미개혁 (1894~1896)</h3><p>갑오·을미개혁은 신분제 폐지·근대 행정 수립 등 획기적인 내용을 담았지만, 일본의 강압 아래 추진되고 민중의 지지를 얻지 못해 결국 아관파천으로 중단된 비극적인 근대화의 시도였다.</p></article>
+<p class="sec-desc">신분제 폐지부터 태양력 도입까지, 내용만 보면 획기적인 개혁이었다. 그런데 그 뒤에는 일본군의 총이 있었다.</p>
+<article class="week-card wc-orange fade-in"><span class="week-badge" style="background:var(--orange);">핵심</span><h3>갑오개혁 · 을미개혁 (1894~1896)</h3><p>동학농민운동 진압을 구실로 조선에 들어온 일본군은 경복궁을 점령하고 친일 정권을 세웠다. 이 정권이 추진한 갑오·을미개혁은 과거제 폐지, 신분제 철폐, 재판소 설치, 태양력 도입 등 조선 역사상 전례 없는 근대 개혁이었다. 하지만 일본군의 강압 아래 추진되었기에 백성은 "우리의 개혁"이 아니라 "일본의 개혁"으로 받아들였다. 특히 명성황후 시해 직후 강행된 단발령은 전국적인 을미의병을 불러일으켰고, 개혁은 아관파천과 함께 중단되었다.</p></article>
 <div class="content-grid fade-in d1">
 <div class="content-block"><h3>📌 배경 — 왜 개혁이 시작됐나?</h3><ul><li>동학농민운동 진압을 구실로 일본군이 경복궁을 점령했다.</li><li>친청 정권이 무너지고 친일 신정권이 수립되었으며 군국기무처가 설치되었다.</li><li>실제 개혁은 조선 개화파 관료들이 주도했지만 일본의 보호국화 전략과 결부되어 있었다.</li></ul></div>
 <div class="table-wrap"><h4>🔄 3차에 걸친 개혁 한눈에 보기</h4><table><thead><tr><th>구분</th><th>1차 갑오개혁</th><th>2차 갑오개혁</th><th>3차 을미개혁</th></tr></thead><tbody><tr><td>기간</td><td>1894. 7~12월</td><td>1894. 12~1895. 7월</td><td>1895. 8~1896. 2월</td></tr><tr><td>주도</td><td>군국기무처 (김홍집)</td><td>김홍집·박영효 연립내각</td><td>김홍집 3차 내각</td></tr><tr><td>핵심</td><td>중앙 제도·사회 개혁</td><td>지방 제도·사법 개혁</td><td>생활 제도 개혁</td></tr><tr><td>배경</td><td>청일전쟁 발발</td><td>일본, 청일전쟁 승기</td><td>명성황후 시해 직후</td></tr></tbody></table></div>
-<div class="card-grid cg-2">
+<div class="card-grid cg-3">
 <article class="card mini-card"><h3>1️⃣ 1차 갑오개혁</h3><ul><li>의정부 아래 8아문 설치, 과거제 폐지, 공문서에 개국기년 사용</li><li>문벌·반상제도 폐지, 공사노비법 혁파, 연좌법 폐지, 조혼 금지·과부 재가 허용</li><li>재정 일원화, 금납화, 은본위제, 도량형 통일</li></ul></article>
 <article class="card mini-card"><h3>2️⃣ 2차 갑오개혁</h3><ul><li>내각·7부 체제, 23부 337군으로 지방 제도 개편</li><li>재판소구성법 공포, 법관양성소·사범학교·외국어학교 설립</li><li>일본 유학생 파견</li></ul></article>
 <article class="card mini-card"><h3>3️⃣ 을미개혁</h3><ul><li>태양력 채택, 건양 연호 사용, 단발령, 종두법, 소학교령, 우체사 설치, 군제 개혁</li><li>명성황후 시해 직후 추진되어 반일 감정 속에서 큰 반발을 불러옴</li></ul></article>
 </div>
 <div class="content-block"><h3>⚖️ 갑오·을미개혁 종합 평가</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>정치·행정·사법·교육·경제·사회 전 분야의 근대 개혁</li><li>노비 제도 폐지, 신분 차별 철폐 등 동학농민운동의 요구 일부 반영</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>일본 군사력을 배경으로 추진되어 자주성이 약함</li><li>민중의 지지를 얻지 못해 위로부터 강요된 개혁이 됨</li><li>단발령 반발과 을미의병, 아관파천으로 중단</li></ul></div></div></div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>동학농민운동</li><li>일본군 경복궁 점령 → 친일 정권 수립</li><li>1차 갑오개혁</li><li>2차 갑오개혁</li><li>명성황후 시해 (을미사변)</li><li>3차 을미개혁</li><li>단발령 반발 → 을미의병</li><li>아관파천 → 개혁 중단</li></ol></div>
+<div class="question-toggle-block" style="background:var(--orange-bg);border:1px solid rgba(217,119,6,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--orange);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">명성황후가 러시아와 가까워지며 일본을 견제하자, 일본은 왜 명성황후를 가장 큰 걸림돌로 보았을까?</p>
+  <button onclick="toggleAnswer('ans-gabo')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--orange);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <div id="ans-gabo" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(217,119,6,0.12);border-radius:12px;">
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">갑오·을미개혁 이후 일본의 영향력이 커지자, 조선 왕실은 이를 견제하려 했다. 특히 <strong>명성황후는 러시아와 가까워지며 일본을 막으려 했기 때문에</strong>, 일본에게는 조선 지배를 방해하는 핵심 인물로 보였다. 그래서 일본은 명성황후를 가장 큰 걸림돌로 여기고, 결국 <strong>1895년 을미사변</strong>을 일으켰다.</p>
+  </div>
+  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-gabo">
+<div class="quiz-block fade-in" id="quiz-gabo" role="region" aria-label="갑오·을미개혁 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-gabo">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-gabo-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">1차 갑오개혁을 주도한 기구는?</p>
-    <div class="quiz-opts" id="qo-gabo-0">
+    <div class="quiz-opts" id="qo-gabo-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('gabo',0,0)">① 통리기무아문</button>
       <button class="qopt" onclick="answerQ('gabo',0,1)">② 군국기무처</button>
       <button class="qopt" onclick="answerQ('gabo',0,2)">③ 집강소</button>
       <button class="qopt" onclick="answerQ('gabo',0,3)">④ 의정부</button>
     </div>
-    <div class="quiz-fb" id="qf-gabo-0"></div>
+    <div class="quiz-fb" id="qf-gabo-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-gabo-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
     <p class="quiz-qtext">갑오·을미개혁이 민중의 지지를 받지 못한 근본적인 이유는?</p>
-    <div class="quiz-opts" id="qo-gabo-1">
+    <div class="quiz-opts" id="qo-gabo-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('gabo',1,0)">① 개혁 내용이 지나치게 보수적이었기 때문에</button>
       <button class="qopt" onclick="answerQ('gabo',1,1)">② 일본 군사력을 배경으로 한 타율적 개혁이어서 자주성이 없었기 때문에</button>
       <button class="qopt" onclick="answerQ('gabo',1,2)">③ 왕실이 개혁에 적극 반대했기 때문에</button>
       <button class="qopt" onclick="answerQ('gabo',1,3)">④ 개혁 속도가 너무 느렸기 때문에</button>
     </div>
-    <div class="quiz-fb" id="qf-gabo-1"></div>
+    <div class="quiz-fb" id="qf-gabo-1" aria-live="polite"></div>
   </div>
 </div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('donghak')">← 동학농민운동</button><button class="sec-nav-btn" onclick="scrollToSec('eulmi')">을미사변 →</button></div>
 </div>
 </div></section>
 
@@ -556,40 +779,107 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <section class="sec section-anchor" id="eulmi"><div class="container">
 <span class="sec-label" style="background:var(--red-bg);color:var(--red);">사변</span>
 <h2 class="sec-title">을미사변 (1895)</h2>
-<p class="sec-desc">명성황후를 제거해 조선에 대한 일본의 지배를 강화하려 했던 국가적 만행이다.</p>
-<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>을미사변 (1895)</h3><p>을미사변은 조선의 반일 저항을 이끌던 명성황후를 제거하기 위해 일본이 국가적으로 조직한 만행으로, 이후 전국적인 의병 운동과 항일 독립운동의 불씨가 되었다.</p></article>
+<p class="sec-desc">일본의 조선 지배를 막는 가장 큰 걸림돌, 명성황후. 일본은 끔찍한 방법으로 그 걸림돌을 치우려 했다.</p>
+<article class="week-card wc-red fade-in"><span class="week-badge" style="background:var(--red);">핵심</span><h3>을미사변 (1895)</h3><p>청일전쟁에서 이긴 일본은 조선을 완전히 장악하려 했지만, 뜻밖의 장애물을 만났다. 러시아·프랑스·독일이 삼국간섭으로 일본을 압박하자, 명성황후가 러시아 쪽으로 기울며 일본을 견제한 것이다. 일본은 명성황후를 "조선 장악의 최대 걸림돌"로 판단했고, 1895년 10월 8일 새벽 일본 공사 미우라의 지휘 아래 낭인과 군대가 경복궁에 침입해 명성황후를 시해하는 만행을 저질렀다. 이 사건은 전국적인 을미의병의 도화선이 되었다.</p></article>
 <div class="content-grid fade-in d1">
-<div class="content-block"><h3>📌 사건의 배경 — 왜 일본이 이런 짓을 했나?</h3><ul><li>청일전쟁 이후 삼국간섭으로 일본의 입지가 흔들리자, 조선 왕실은 러시아에 접근했다.</li><li>명성황후는 일본의 내정 간섭에 맞선 핵심 인물이자 러시아와의 연결고리로 인식되었다.</li><li>일본은 명성황후 제거가 조선 장악의 지름길이라고 판단했다.</li></ul></div>
-<div class="content-block"><h3>🔪 사건의 전개 — 1895년 10월 8일 새벽</h3><ul><li>일본 공사 미우라, 일본군 수비대, 낭인 등이 경복궁에 침입했다.</li><li>건청궁으로 돌진해 명성황후를 살해하고 시신을 훼손·소각했다.</li></ul></div>
+<div class="content-block"><h3>📌 사건의 배경 — 왜 일본이 이런 짓을 했나?</h3><ul><li>청일전쟁에서 이겨 조선을 장악하려던 일본에 예상치 못한 변수가 생겼다. 러시아·프랑스·독일이 삼국간섭으로 일본을 압박한 것이다.</li><li>이 틈을 놓치지 않고 명성황후는 러시아와 가까워지며 일본의 내정 간섭에 맞섰다. 일본 입장에서 명성황후는 조선 지배를 방해하는 가장 큰 걸림돌이었다.</li><li>일본은 "명성황후만 제거하면 조선을 완전히 장악할 수 있다"고 판단하고, 끔찍한 계획을 세웠다.</li></ul></div>
+<div class="content-block"><h3>🔪 사건의 전개 — 1895년 10월 8일 새벽</h3><ul><li>일본 공사 미우라의 지휘 아래, 일본군 수비대와 낭인(일본 무뢰배)들이 경복궁에 무단 침입했다.</li><li>건청궁(왕비의 거처)으로 돌진해 명성황후를 살해하고, 시신을 훼손한 뒤 불태워 증거를 인멸하는 만행을 저질렀다.</li><li>이 사건은 외국 공사가 한 나라의 왕비를 조직적으로 살해한, 국제 사회에서도 유례를 찾기 어려운 범죄였다.</li></ul></div>
 <div class="table-wrap"><h4>범행 주도 세력</h4><table><thead><tr><th>역할</th><th>인물·세력</th></tr></thead><tbody><tr><td>현장 최고 지휘</td><td>일본 공사 미우라</td></tr><tr><td>주요 무력</td><td>서울 주둔 일본군 수비대</td></tr><tr><td>행동대</td><td>일본 공사관원·영사경찰·신문기자·낭인</td></tr><tr><td>배후 (추정)</td><td>이토 내각 → 이노우에 → 미우라 지휘 계통</td></tr></tbody></table></div>
 <div class="content-block"><h3>💥 을미사변이 가져온 결과</h3><div class="single-box"><h4>결과</h4><ul><li>명성황후 시해 + 단발령 강행 → 전국적 을미의병 봉기</li><li>고종의 아관파천</li><li>김홍집 내각 붕괴</li><li>항일 독립운동의 불씨가 됨</li></ul></div></div>
 <div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>삼국간섭</li><li>조선 왕실의 러시아 접근</li><li>일본: 명성황후가 최대 걸림돌</li><li>을미사변</li><li>단발령 강행</li><li>을미의병 전국 봉기</li><li>아관파천</li></ol></div>
+<div class="question-toggle-block" style="background:var(--red-bg);border:1px solid rgba(220,38,38,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--red);margin-bottom:8px;">🔗 다음 사건 예측 질문</h3>
+  <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">을미사변 뒤 고종은 왜 궁궐을 떠나 러시아 공사관으로 피신했을까?</p>
+  <button onclick="toggleAnswer('ans-eulmi')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--red);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <div id="ans-eulmi" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(220,38,38,0.12);border-radius:12px;">
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">을미사변으로 <strong>명성황후가 일본 낭인들에게 살해</strong>되자, 고종은 경복궁 안에서도 안전하지 않다고 느꼈다. 일본의 감시와 위협이 계속되는 상황에서 고종은 일본을 피해 다른 나라의 힘을 빌리려 했고, 결국 <strong>1896년 러시아 공사관으로 피신하는 아관파천</strong>을 선택했다.</p>
+  </div>
+  <p class="question-quiz-link">이 질문을 떠올리며 아래 형성평가를 풀어 보세요.</p>
+</div>
 <!-- 형성평가 -->
-<div class="quiz-block fade-in" id="quiz-eulmi">
+<div class="quiz-block fade-in" id="quiz-eulmi" role="region" aria-label="을미사변 형성평가">
   <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-eulmi">0 / 2 완료</span></div>
   <div class="quiz-item" id="qi-eulmi-0">
     <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
     <p class="quiz-qtext">을미사변을 현장에서 지휘한 일본 공사는?</p>
-    <div class="quiz-opts" id="qo-eulmi-0">
+    <div class="quiz-opts" id="qo-eulmi-0" role="radiogroup">
       <button class="qopt" onclick="answerQ('eulmi',0,0)">① 이노우에</button>
       <button class="qopt" onclick="answerQ('eulmi',0,1)">② 이토</button>
       <button class="qopt" onclick="answerQ('eulmi',0,2)">③ 미우라</button>
       <button class="qopt" onclick="answerQ('eulmi',0,3)">④ 야마가타</button>
     </div>
-    <div class="quiz-fb" id="qf-eulmi-0"></div>
+    <div class="quiz-fb" id="qf-eulmi-0" aria-live="polite"></div>
   </div>
   <div class="quiz-item quiz-locked" id="qi-eulmi-1">
     <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
     <p class="quiz-qtext">을미사변이 일어난 배경으로 가장 적절한 것은?</p>
-    <div class="quiz-opts" id="qo-eulmi-1">
+    <div class="quiz-opts" id="qo-eulmi-1" role="radiogroup">
       <button class="qopt" onclick="answerQ('eulmi',1,0)">① 조선이 청나라와 새로운 동맹을 맺으려 했기 때문에</button>
       <button class="qopt" onclick="answerQ('eulmi',1,1)">② 명성황후가 갑오개혁을 적극 지지했기 때문에</button>
       <button class="qopt" onclick="answerQ('eulmi',1,2)">③ 삼국간섭 이후 조선 왕실이 러시아에 접근하자 일본이 위기를 느꼈기 때문에</button>
       <button class="qopt" onclick="answerQ('eulmi',1,3)">④ 일본이 청일전쟁에서 패배해 영향력을 잃었기 때문에</button>
     </div>
-    <div class="quiz-fb" id="qf-eulmi-1"></div>
+    <div class="quiz-fb" id="qf-eulmi-1" aria-live="polite"></div>
   </div>
 </div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('gabo')">← 갑오·을미개혁</button><button class="sec-nav-btn" onclick="scrollToSec('agwan')">아관파천 →</button></div>
+</div>
+</div></section>
+
+<!-- ═══════════════════════ 달성도 대시보드 ═══════════════════════ -->
+<div class="section-divider"></div>
+
+<!-- ⑩ 아관파천 -->
+<section class="sec section-anchor" id="agwan"><div class="container">
+<span class="sec-label" style="background:var(--navy-bg);color:var(--navy);">파천</span>
+<h2 class="sec-title">아관파천 (1896)</h2>
+<p class="sec-desc">왕비가 궁궐에서 살해당했다. 자신마저 위험하다고 느낀 고종은 궁을 버리고 러시아 공사관으로 달아났다.</p>
+<article class="week-card wc-blue fade-in"><span class="week-badge" style="background:var(--navy);">핵심</span><h3>아관파천 (1896)</h3><p>을미사변으로 명성황후가 살해된 뒤, 고종은 경복궁 안에서도 안전하지 않다고 느꼈다. 친일 내각이 단발령까지 강행하면서 전국에 의병이 들끓는 혼란 속에서, 고종은 1896년 2월 11일 새벽 궁녀의 가마를 타고 경복궁을 빠져나와 러시아 공사관으로 피신했다. 일본의 간섭에서는 벗어났지만, 러시아를 비롯한 열강에 광산·철도·삼림 등 각종 이권을 넘겨주는 치욕적 대가를 치렀다. 약 1년 뒤 환궁한 고종은 대한제국을 선포하며 자주 독립국임을 세계에 알리려 했다.</p></article>
+<div class="content-grid fade-in d1">
+<div class="content-block"><h3>📌 사건의 배경 — 왜 왕이 궁을 떠나야 했나?</h3><ul><li>을미사변으로 명성황후가 궁궐 안에서 살해당하는 일이 벌어지자, 고종은 "경복궁에 있어도 목숨을 보장받을 수 없다"는 극심한 공포를 느꼈다.</li><li>설상가상으로 친일 내각(김홍집)은 단발령까지 강행했다. "신체발부 수지부모(몸과 머리카락은 부모에게 받은 것)"라는 유교적 신념이 강하던 시대에 머리카락을 자르라는 명령은 전국적인 분노를 불러일으켰고, 곳곳에서 을미의병이 봉기했다.</li><li>친러 성향의 인사들과 러시아 공사 베베르가 비밀리에 피신 계획을 세워 고종을 설득했다.</li></ul></div>
+<div class="content-block"><h3>🏃 사건의 전개 — 1896년 2월 11일 새벽</h3><ul><li>고종과 세자(훗날 순종)가 궁녀의 가마를 타고 경복궁을 몰래 빠져나왔다. 왕이 가마꾼도 없이 허름한 가마로 탈출하는 상황 자체가 조선 왕실의 위기를 보여 주었다.</li><li>정동의 러시아 공사관에 도착한 고종은 곧바로 새 내각을 구성하고, 김홍집 내각의 해산을 명령했다.</li><li>김홍집은 내각 붕괴 후 군중에게 피살되었고, 고종은 약 1년간(1896.2~1897.2) 러시아 공사관에서 국정을 운영하는 전대미문의 상황이 이어졌다.</li></ul></div>
+<div class="table-wrap"><h4>📜 아관파천 이후 열강에 넘긴 주요 이권</h4><table><thead><tr><th>나라</th><th>넘겨준 이권</th></tr></thead><tbody><tr><td>러시아</td><td>경원·종성 광산 채굴권, 압록강·두만강 삼림 벌채권</td></tr><tr><td>미국</td><td>운산 금광 채굴권, 경인철도 부설권</td></tr><tr><td>일본</td><td>경부철도 부설권, 경인철도 인수</td></tr><tr><td>프랑스</td><td>경의철도 부설권</td></tr><tr><td>영국</td><td>은산 금광 채굴권</td></tr></tbody></table></div>
+<div class="content-block"><h3>⚖️ 아관파천을 어떻게 봐야 할까?</h3><div class="split-grid"><div class="split-box"><h4>긍정적 측면</h4><ul><li>일본의 내정 간섭에서 벗어나 고종의 신변을 보호했다</li><li>친일 내각을 무너뜨리고 국정 주도권을 되찾았다</li></ul></div><div class="split-box"><h4>부정적 측면</h4><ul><li>왕이 외국 공사관에 머문 국가적 치욕</li><li>러시아를 비롯한 열강에 각종 이권을 넘겨주는 빌미가 됨</li><li>조선의 자주성과 국제적 위신이 크게 손상됨</li></ul></div></div></div>
+<div class="content-block"><h3>🔍 전체 흐름 정리</h3><ol class="flow-list"><li>을미사변 + 단발령 → 을미의병</li><li>고종, 러시아 공사관으로 피신 (1896.2)</li><li>김홍집 내각 붕괴</li><li>러시아 등 열강에 이권 제공</li><li>독립협회의 환궁 운동</li><li>경운궁(덕수궁)으로 환궁 (1897.2)</li><li>대한제국 선포 (1897.10)</li></ol></div>
+
+<div class="question-toggle-block" style="background:var(--navy-bg);border:1px solid rgba(30,58,95,0.16);border-radius:var(--r-md);padding:16px;margin-top:14px;">
+  <h3 style="font-size:0.92rem;font-weight:700;color:var(--navy);margin-bottom:8px;">📝 이 주제를 한 문장으로 정리해 보기</h3>
+  <p class="question-helper">답을 열기 전에 먼저 내 생각을 한 문장으로 말하거나 적어 보세요.</p>
+  <p style="font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.6;">아관파천 이후 고종이 「대한제국」을 선포한 이유는 무엇이었을까?</p>
+  <button onclick="toggleAnswer('ans-agwan')" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:none;border-radius:10px;background:var(--navy);color:#fff;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">답안 보기</button>
+  <div id="ans-agwan" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.78);border:1px solid rgba(30,58,95,0.12);border-radius:12px;">
+    <p style="font-size:0.83rem;line-height:1.7;color:var(--text);">아관파천으로 <strong>왕이 외국 공사관에 머문다는 치욕</strong>을 겪은 뒤, 독립협회를 비롯한 여러 세력이 환궁을 요구했다. 고종은 경운궁(덕수궁)으로 돌아온 뒤, <strong>더 이상 청나라·일본에 종속되지 않는 자주 독립 국가</strong>임을 세계에 알리기 위해 국호를 <strong>대한제국</strong>으로 바꾸고 황제로 즉위했다(1897). 이는 조선이 자주국임을 선포하려는 상징적 행동이었다.</p>
+  </div>
+</div>
+
+<!-- 형성평가 -->
+<div class="quiz-block fade-in" id="quiz-agwan" role="region" aria-label="아관파천 형성평가">
+  <div class="quiz-head"><span class="quiz-lbl">📝 형성평가</span><span class="quiz-prog" id="prog-agwan">0 / 2 완료</span></div>
+  <div class="quiz-item" id="qi-agwan-0">
+    <div class="quiz-lvbadge lvbadge-check">✅ 교과서 확인</div>
+    <p class="quiz-qtext">아관파천 이후 고종이 환궁하여 선포한 국가는?</p>
+    <div class="quiz-opts" id="qo-agwan-0" role="radiogroup">
+      <button class="qopt" onclick="answerQ('agwan',0,0)">① 조선</button>
+      <button class="qopt" onclick="answerQ('agwan',0,1)">② 대한제국</button>
+      <button class="qopt" onclick="answerQ('agwan',0,2)">③ 대한민국</button>
+      <button class="qopt" onclick="answerQ('agwan',0,3)">④ 한성부</button>
+    </div>
+    <div class="quiz-fb" id="qf-agwan-0" aria-live="polite"></div>
+  </div>
+  <div class="quiz-item quiz-locked" id="qi-agwan-1">
+    <div class="quiz-lvbadge lvbadge-apply">🔥 교과서 응용</div>
+    <p class="quiz-qtext">아관파천이 조선에 끼친 가장 큰 부정적 영향은?</p>
+    <div class="quiz-opts" id="qo-agwan-1" role="radiogroup">
+      <button class="qopt" onclick="answerQ('agwan',1,0)">① 일본과의 관계가 완전히 단절되었다</button>
+      <button class="qopt" onclick="answerQ('agwan',1,1)">② 러시아를 비롯한 열강에게 각종 이권을 넘겨주는 계기가 되었다</button>
+      <button class="qopt" onclick="answerQ('agwan',1,2)">③ 청나라의 간섭이 다시 강해졌다</button>
+      <button class="qopt" onclick="answerQ('agwan',1,3)">④ 독립협회가 즉시 해산되었다</button>
+    </div>
+    <div class="quiz-fb" id="qf-agwan-1" aria-live="polite"></div>
+  </div>
+</div>
+<div class="sec-nav"><button class="sec-nav-btn" onclick="scrollToSec('eulmi')">← 을미사변</button><button class="sec-nav-btn" onclick="scrollToSec('dashboard')">📊 달성도 보기 →</button></div>
 </div>
 </div></section>
 
@@ -601,7 +891,6 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 <p class="sec-desc">각 사건의 형성평가 결과가 여기에 자동으로 반영됩니다.</p>
 
 <div class="dashboard-wrap fade-in">
-  <!-- 총 달성도 원형 게이지 -->
   <div class="dash-ring-center">
     <div class="total-ring">
       <svg viewBox="0 0 152 152" width="152" height="152">
@@ -617,26 +906,37 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
       </div>
     </div>
   </div>
-  <!-- 수치 요약 -->
   <div class="dash-stats">
-    <div class="dash-stat">
-      <span class="dash-stat-num" id="total-correct">0</span>
-      <span class="dash-stat-label">정답</span>
-    </div>
+    <div class="dash-stat"><span class="dash-stat-num" id="total-correct">0</span><span class="dash-stat-label">정답</span></div>
     <div class="dash-stat-div"></div>
-    <div class="dash-stat">
-      <span class="dash-stat-num">18</span>
-      <span class="dash-stat-label">전체 문항</span>
-    </div>
+    <div class="dash-stat"><span class="dash-stat-num">20</span><span class="dash-stat-label">전체 문항</span></div>
     <div class="dash-stat-div"></div>
-    <div class="dash-stat">
-      <span class="dash-stat-num" id="total-done">0</span>
-      <span class="dash-stat-label">응답 완료</span>
+    <div class="dash-stat"><span class="dash-stat-num" id="total-done">0</span><span class="dash-stat-label">응답 완료</span></div>
+  </div>
+
+  <!-- 섹션별 상세 진행도 -->
+  <div class="dash-detail" id="dashDetail"></div>
+</div>
+
+<div class="summary-write fade-in" id="summaryWrite">
+  <h3>✍️ 이 주제를 한 문장으로 설명해 보기</h3>
+  <p>병인양요에서 아관파천까지의 흐름을 떠올리며, 개항기 조선이 어떤 위기와 변화를 겪었는지 한 문장으로 정리해 보세요.</p>
+  <textarea id="summarySentence" class="summary-textarea" placeholder=""></textarea>
+  <div style="margin-top:10px;">
+    <button class="summary-toggle" onclick="toggleAnswer('summaryModelAnswer')">모범답안 보기</button>
+    <div id="summaryModelAnswer" class="summary-model">
+      <p><strong>모범답안:</strong> 개항기 조선은 서양과 일본의 침략 속에서 개화와 개혁을 추진했지만, 외세의 간섭과 국내 혼란이 겹치면서 왕실의 위기가 깊어져 결국 아관파천에 이르렀다.</p>
     </div>
+  </div>
+  <div class="summary-write-foot">
+    <div class="summary-actions">
+      <button class="summary-save" onclick="saveSummarySentence()">문장 저장하기</button>
+      <button class="summary-share" onclick="goToPadlet()">패들렛에 게시하러 가기</button>
+    </div>
+    <span class="summary-meta" id="summaryMeta">저장된 문장이 없습니다.</span>
   </div>
 </div>
 
-<!-- 달성 메시지 배너 -->
 <div class="achieve-banner ab-waiting" id="achieve-banner">
   <span class="ab-icon">📝</span>
   <div class="ab-text">
@@ -651,8 +951,7 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
 
 <footer class="site-footer"><div class="container">
 <p><strong>개항기 조선의 위기와 개혁</strong></p>
-<p>강화도 조약부터 을미사변까지 핵심 흐름 정리</p>
-<p>제작일: 2026.04.14</p>
+<p>📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도</p>
 </div></footer>
 
 <button class="scroll-top" id="scrollTop" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -663,163 +962,318 @@ function toggleNav(){const n=document.getElementById('main-nav'),b=document.quer
 function closeNav(){document.getElementById('main-nav').classList.remove('open');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}
 document.addEventListener('click',e=>{const n=document.getElementById('main-nav'),b=document.querySelector('.nav-toggle');if(n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target))closeNav()});
 
-/* ─── SEARCH ─── */
-const SEARCH_DATA=[{title:'강화도 조약 (1876)',url:'#ganghwa',keywords:['조약','강화도 조약 (1876)','일본이 무력 시위를 배경으로 조선에 강요한 조약으로, 이후 개항기 변화의 출발점이 되었다.']},{title:'병인양요 (1866)',url:'#byeongin',keywords:['양요','병인양요 (1866)','병인박해를 계기로 프랑스가 강화도를 침략한 사건이다.']},{title:'신미양요 (1871)',url:'#sinmi',keywords:['양요','신미양요 (1871)','미국이 조선을 개항시키려 했으나 실패한 사건이다.']},{title:'개화 정책의 추진',url:'#gaehwa',keywords:['정책','개화 정책의 추진','강화도 조약 이후 조선이 근대 문물을 받아들이기 위해 추진한 여러 정책을 정리한다.']},{title:'임오군란 (1882)',url:'#imo',keywords:['군란','임오군란 (1882)','차별받던 구식 군인들의 분노가 폭발한 사건이다.']},{title:'갑신정변 (1884)',url:'#gapsin',keywords:['정변','갑신정변 (1884)','급진 개화파가 청나라의 간섭에서 벗어나 조선을 근대 국가로 바꾸려 한 시도였다.']},{title:'동학농민운동 (1894)',url:'#donghak',keywords:['운동','동학농민운동 (1894)','반봉건·반외세를 외치며 농민들이 일어난 개혁 운동이자 항일 운동이었다.']},{title:'갑오개혁 · 을미개혁 (1894~1896)',url:'#gabo',keywords:['개혁','갑오개혁 · 을미개혁 (1894~1896)','정치·사회·경제 전반을 바꾸려 했던 근대 개혁이지만, 일본의 강압과 민중의 반발 속에 중단되었다.']},{title:'을미사변 (1895)',url:'#eulmi',keywords:['사변','을미사변 (1895)','명성황후를 제거해 조선에 대한 일본의 지배를 강화하려 했던 국가적 만행이다.']}];
+/* ─── SCROLL PROGRESS BAR ─── */
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const pct=h>0?(window.scrollY/h)*100:0;
+  document.getElementById('scrollProgress').style.width=pct+'%';
+},{passive:true});
+
+/* ─── SECTION SCROLL + TIMELINE SYNC ─── */
+const SEC_ORDER=['byeongin','sinmi','ganghwa','gaehwa','imo','gapsin','donghak','gabo','eulmi','agwan'];
+const SEC_NAMES={byeongin:'병인양요',sinmi:'신미양요',ganghwa:'강화도 조약',gaehwa:'개화 정책',imo:'임오군란',gapsin:'갑신정변',donghak:'동학농민운동',gabo:'갑오·을미개혁',eulmi:'을미사변',agwan:'아관파천'};
+const SEC_ICONS={byeongin:'⚔️',sinmi:'⚔️',ganghwa:'📜',gaehwa:'🛠️',imo:'🔥',gapsin:'⚡',donghak:'🌾',gabo:'🏛️',eulmi:'🕯️',agwan:'🏛️'};
+
+function scrollToSec(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// 스크롤 위치에 따라 타임라인 active 노드 업데이트
+let activeSection='';
+const sectionEls=SEC_ORDER.map(id=>document.getElementById(id));
+function updateActiveTimeline(){
+  let current='';
+  sectionEls.forEach((el,i)=>{
+    if(el&&el.getBoundingClientRect().top<=120) current=SEC_ORDER[i];
+  });
+  if(current!==activeSection){
+    activeSection=current;
+    document.querySelectorAll('.tl-node').forEach(n=>{
+      n.classList.toggle('active',n.dataset.target===current);
+    });
+    // 자동 스크롤 타임라인
+    const activeNode=document.querySelector(`.tl-node[data-target="${current}"]`);
+    if(activeNode){
+      const wrap=document.getElementById('timelineWrap');
+      const nodeLeft=activeNode.offsetLeft-wrap.offsetWidth/2+activeNode.offsetWidth/2;
+      wrap.scrollTo({left:Math.max(0,nodeLeft),behavior:'smooth'});
+    }
+  }
+}
+window.addEventListener('scroll',updateActiveTimeline,{passive:true});
+
+/* ─── SEARCH (키워드 확장) ─── */
+const SEARCH_DATA=[
+  {title:'병인양요 (1866)',url:'#byeongin',keywords:['양요','프랑스','강화도','정족산성','양헌수','리델','로즈','병인박해','천주교','쇄국']},
+  {title:'신미양요 (1871)',url:'#sinmi',keywords:['양요','미국','광성보','어재연','제너럴셔먼호','척화비','수자기','손돌목','쇄국정책']},
+  {title:'강화도 조약 (1876)',url:'#ganghwa',keywords:['조약','일본','운요호','불평등','영사재판권','개항','부산','원산','인천','박규수','메이지유신']},
+  {title:'개화 정책의 추진',url:'#gaehwa',keywords:['정책','통리기무아문','별기군','신사유람단','영선사','원산학사','동문학','한성순보','김옥균','김홍집','개화파']},
+  {title:'임오군란 (1882)',url:'#imo',keywords:['군란','구식 군인','민겸호','대원군','청나라','제물포 조약','별기군','13개월']},
+  {title:'갑신정변 (1884)',url:'#gapsin',keywords:['정변','급진 개화파','김옥균','홍영식','우정국','3일 천하','14개조','텐진 조약','한성 조약']},
+  {title:'동학농민운동 (1894)',url:'#donghak',keywords:['운동','전봉준','동학','집강소','우금치','황토현','전주화약','폐정개혁','조병갑','반봉건','반외세','청일전쟁']},
+  {title:'갑오개혁 · 을미개혁 (1894~1896)',url:'#gabo',keywords:['개혁','군국기무처','김홍집','단발령','과거제 폐지','신분제 폐지','아관파천','을미의병']},
+  {title:'을미사변 (1895)',url:'#eulmi',keywords:['사변','명성황후','미우라','낭인','삼국간섭','러시아','아관파천','건청궁','의병']},
+  {title:'아관파천 (1896)',url:'#agwan',keywords:['파천','러시아','고종','공사관','대한제국','이권','독립협회','경운궁','덕수궁','환궁','베베르','김홍집']}
+];
 const searchInput=document.getElementById('searchInput');
 const searchResults=document.getElementById('searchResults');
 searchInput.addEventListener('input',function(){
   const q=this.value.trim().toLowerCase();
   if(!q){searchResults.style.display='none';searchResults.innerHTML='';return;}
-  const matches=SEARCH_DATA.filter(item=>{const hay=[item.title].concat(item.keywords||[]).join(' ').toLowerCase();return hay.includes(q);}).slice(0,8);
+  const matches=SEARCH_DATA.filter(item=>{
+    const hay=[item.title,...(item.keywords||[])].join(' ').toLowerCase();
+    return q.split(/\s+/).every(w=>hay.includes(w));
+  }).slice(0,8);
   if(!matches.length){searchResults.innerHTML='<li><a href="javascript:void(0)"><span class="search-title">검색 결과가 없습니다.</span><span class="search-keywords">다른 키워드로 다시 검색해 보세요.</span></a></li>';searchResults.style.display='block';return;}
-  searchResults.innerHTML=matches.map(item=>`<li><a href="${item.url}"><span class="search-title">${item.title}</span><span class="search-keywords">${(item.keywords||[]).join(' · ')}</span></a></li>`).join('');
+  searchResults.innerHTML=matches.map(item=>`<li><a href="${item.url}" onclick="closeSearch()"><span class="search-title">${item.title}</span><span class="search-keywords">${(item.keywords||[]).slice(0,6).join(' · ')}</span></a></li>`).join('');
   searchResults.style.display='block';
 });
+function closeSearch(){searchResults.style.display='none';searchInput.value='';}
 document.addEventListener('click',function(e){if(!searchInput.contains(e.target)&&!searchResults.contains(e.target))searchResults.style.display='none';});
 
 /* ─── QUIZ ─── */
-// 정답 데이터: {sectionId: [q0_answer_index, q1_answer_index]}
-const ANSWERS = {
-  byeongin: [1, 2],
-  sinmi:    [2, 1],
-  ganghwa:  [3, 1],
-  gaehwa:   [1, 2],
-  imo:      [1, 2],
-  gapsin:   [1, 1],
-  donghak:  [2, 1],
-  gabo:     [1, 1],
-  eulmi:    [2, 2]
+const ANSWERS={byeongin:[1,2],sinmi:[2,1],ganghwa:[3,1],gaehwa:[1,2],imo:[1,2],gapsin:[1,1],donghak:[2,1],gabo:[1,1],eulmi:[2,2],agwan:[1,1]};
+const EXPLANATIONS={
+  byeongin:['정답은 ② 양헌수입니다. 양헌수 부대가 매복 작전으로 프랑스군 160명을 크게 물리쳤습니다. ① 어재연은 신미양요(1871) 광성보 전투의 장수이고, ③ 전봉준은 동학농민운동(1894)의 지도자, ④ 최익현은 위정척사 운동의 대표 유학자입니다.','정답은 ③입니다. 병인양요 이후 대원군은 "서양을 이겼으니 문을 열 이유가 없다"고 판단하며 쇄국정책을 더욱 강화하고 전국에 척화비를 세웠습니다. ① 통상 조약 추진이나 ② 개화 허용은 대원군 하야 이후의 흐름이며, ④ 청나라에 도움을 요청해 개화를 시작한 적은 없습니다.'],
+  sinmi:['정답은 ③ 어재연입니다. 어재연 장군은 광성보에서 600명의 병력으로 끝까지 항전하다 전사했습니다. ① 양헌수는 병인양요(1866) 정족산성 전투의 장수, ② 최익현은 위정척사파 유학자, ④ 전봉준은 동학농민운동(1894)의 지도자입니다.','정답은 ②입니다. 척화비의 핵심은 「서양 오랑캐와 화친하는 것은 나라를 파는 행위」라는 쇄국 의지입니다. ① 부국강병은 개화파의 주장, ③ 청과 협력해 일본 견제는 사대당(온건 개화파)의 노선, ④ 개항은 강화도 조약(1876) 이후의 흐름으로, 모두 척화비의 취지와 정반대입니다.'],
+  ganghwa:['정답은 ④ 제10조입니다. 제10조는 개항장 내 일본인 범죄를 일본 법으로 처리하도록 한 영사재판권 조항으로, 가장 대표적인 불평등 내용입니다. ① 제1조는 「조선은 자주국」 규정, ② 제5조는 항구 추가 개항, ③ 제7조는 해안 측량권에 관한 조항입니다.','정답은 ②입니다. 겉으로는 「조선은 자주국」이라고 써서 조선의 독립을 인정하는 듯하지만, 실제 의도는 조선과 청나라의 전통적 종속 관계를 끊어 일본이 조선에 침투하기 쉽게 만들려는 전략이었습니다. ①과 ④처럼 진정한 독립·대등 보장이 아니었고, ③ 서양과의 조약을 막으려 한 것도 아닙니다.'],
+  gaehwa:['정답은 ② 원산학사입니다. 원산학사(1883)는 함경도 원산에 주민들의 힘으로 세워진 우리나라 최초의 근대 학교입니다. ① 동문학은 같은 해 세워진 최초의 관립 영어학교(통역관 양성)이고, ③ 통리기무아문은 외교·통상 담당 정부 기구, ④ 한성순보는 최초의 근대 신문입니다.','정답은 ③입니다. 신사유람단(일본)과 영선사(청나라) 파견의 공통 목적은 근대 문물과 기술을 배워 조선의 개화 정책에 활용하기 위해서였습니다. ① 군사 지원 요청, ② 무역 조약 체결, ④ 외국 정치 체제 도입은 파견 목적과 다릅니다.'],
+  imo:['정답은 ②입니다. 구식 군인들이 13개월이나 밀린 급료로 받은 쌀에 겨와 모래가 섞여 있어 분노가 폭발한 것이 직접적 원인입니다. ① 별기군 폐지는 임오군란의 원인이 아니라 대원군 재집권 후의 조치이고, ③ 청군 주둔은 임오군란의 결과이며, ④ 갑신정변은 임오군란보다 2년 뒤(1884)에 일어난 사건입니다.','정답은 ③입니다. 임오군란의 결과, 청나라는 대원군을 납치하고 군대를 주둔시켜 내정 간섭을 강화했고, 일본도 제물포 조약으로 배상금과 공사관 경비병 주둔권을 얻었습니다. ① 일본 영향력이 사라진 것이 아니라 오히려 강해졌고, ② 청나라만이 아닌 양국 모두의 간섭이 심화되었으며, ④ 대원군은 33일 만에 청에 의해 실각했습니다.'],
+  gapsin:['정답은 ② 3일입니다. 청군의 반격과 일본군 철수로 거사 3일 만에 실패해 「3일 천하」라 불립니다. ①·③·④는 사실과 다른 기간입니다.','정답은 ②입니다. 급진 개화파는 일본군에만 의존했고, 백성의 지지 기반 없이 위로부터 추진된 개혁이었기에 청군 앞에 무력했습니다. ① 14개조의 내용 자체(문벌 폐지, 인민 평등 등)는 진보적이었고, ③ 고종은 처음에는 협조했다가 이탈했으며, ④ 급진 개화파의 목표는 청의 간섭을 끊는 것이었으므로 청과 협의하지 않은 것은 당연합니다.'],
+  donghak:['정답은 ③ 집강소입니다. 집강소는 전주화약 이후 전라도 53개 고을에 설치한 농민 자치 기구로, 폐정개혁을 직접 실행했습니다. ① 군국기무처는 갑오개혁(1894)의 주도 기구, ② 통리기무아문은 개화 정책(1880) 관련 기구, ④ 도방은 고려 무신 정권의 사병 기구입니다.','정답은 ②입니다. 1차 봉기는 고부군수 조병갑 등 탐관오리의 수탈에 맞선 반봉건 운동이었고, 2차 봉기는 청·일 군대 개입 후 일본을 몰아내기 위한 반외세(항일) 운동이었습니다. ① 순서가 반대이고, ③ 1차는 반봉건이 핵심이었으며, ④ 농민군은 처음부터 끝까지 왕실 타도를 목표로 하지 않았습니다.'],
+  gabo:['정답은 ② 군국기무처입니다. 군국기무처는 1차 갑오개혁(1894)을 주도한 기구로, 김홍집이 이끌며 과거제 폐지·신분제 철폐 등 근대 개혁을 추진했습니다. ① 통리기무아문은 개화 정책(1880)의 기구, ③ 집강소는 동학농민군의 자치 기구, ④ 의정부는 조선의 기존 최고 행정 기구입니다.','정답은 ②입니다. 갑오·을미개혁의 내용은 진보적이었지만, 일본군의 경복궁 점령이라는 강압 아래 추진되었기에 민중은 "우리의 개혁"이 아니라 "일본이 시킨 개혁"으로 받아들였습니다. ① 내용이 보수적이었던 것이 아니라 오히려 획기적이었고, ③ 왕실이 적극 반대했다기보다는 무력화된 상태였으며, ④ 속도가 느렸던 것이 아니라 외세에 의한 타율성이 핵심 문제였습니다.'],
+  eulmi:['정답은 ③ 미우라입니다. 일본 공사 미우라가 낭인·군대를 이끌고 경복궁 건청궁에 침입해 명성황후를 시해했습니다. ① 이노우에는 미우라의 전임 공사, ② 이토는 당시 일본 총리(배후 추정), ④ 야마가타는 일본 육군 지도자로 현장 지휘자가 아닙니다.','정답은 ③입니다. 청일전쟁 이후 러시아·프랑스·독일의 삼국간섭으로 일본의 입지가 좁아지자, 조선 왕실(명성황후)이 러시아에 접근하며 일본을 견제했습니다. 일본은 이를 위기로 보고 명성황후를 제거했습니다. ① 청나라 동맹이 아니라 러시아 접근이었고, ② 명성황후는 갑오개혁을 지지하지 않았으며, ④ 일본은 청일전쟁에서 승리했지 패배한 것이 아닙니다.'],
+  agwan:['정답은 ② 대한제국입니다. 고종은 아관파천 이후 약 1년 뒤 경운궁(덕수궁)으로 환궁하여 1897년 국호를 대한제국으로 바꾸고 황제로 즉위했습니다. ① 조선은 기존 국호, ③ 대한민국은 1919년 임시정부·1948년 정부 수립 시의 국호, ④ 한성부는 서울의 옛 행정구역 이름입니다.','정답은 ②입니다. 아관파천으로 일본 간섭에서는 벗어났지만, 대가로 러시아에 광산·삼림 이권, 미국에 운산 금광·경인철도 부설권, 일본에 경부철도 부설권 등을 넘겨주어 열강의 경제적 침탈이 본격화되었습니다. ① 일본과의 관계가 완전히 단절된 것이 아니라 경부철도 등 이권을 여전히 얻었고, ③ 청나라 간섭은 청일전쟁 패배 이후 이미 약화된 상태였으며, ④ 독립협회는 아관파천 이후 활동을 시작한 단체입니다.']
 };
 
-const EXPLANATIONS = {
-  byeongin: [
-    '양헌수 부대가 매복 작전으로 프랑스군을 크게 물리쳤습니다.',
-    '병인양요 이후 대원군은 서양을 더욱 경계하며 쇄국정책을 강화하고 전국에 척화비를 세웠습니다.'
-  ],
-  sinmi: [
-    '어재연 장군은 600명의 병력으로 광성보를 사수하다 전사했습니다.',
-    '척화비는 "서양 오랑캐와 화친은 나라를 파는 것"이라는 내용으로 흥선대원군의 쇄국 의지를 나타냅니다.'
-  ],
-  ganghwa: [
-    '제10조는 영사재판권으로, 개항장 내 일본인 범죄를 일본 법으로 처리하도록 한 대표적 불평등 조항입니다.',
-    '겉으로는 자주를 내세웠지만 실제로는 조선에 대한 청나라의 영향력을 부정해 일본의 침투를 쉽게 한 전략적 포석이었습니다.'
-  ],
-  gaehwa: [
-    '원산학사(1883)는 함경도 원산에 세워진 우리나라 최초의 근대 학교입니다.',
-    '신사유람단은 일본의 근대 시설을, 영선사는 청나라의 기술을 배우기 위한 파견으로 모두 근대화가 목적이었습니다.'
-  ],
-  imo: [
-    '구식 군인들이 13개월 밀린 급료로 받은 쌀에 겨와 모래가 섞여 있어 분노가 폭발했습니다.',
-    '청나라는 대원군을 납치하고 조선에 군대를 주둔시켰고, 일본은 제물포 조약으로 추가 특권을 얻었습니다. 두 나라의 간섭이 모두 강해졌습니다.'
-  ],
-  gapsin: [
-    '청군 개입과 일본군 철수로 거사 3일 만에 실패했습니다. 이를 "3일 천하"라고 합니다.',
-    '급진 개화파는 일본군에만 의존했고 국민의 지지 기반 없이 위로부터 추진된 개혁이었기 때문에 청군 앞에 무력했습니다.'
-  ],
-  donghak: [
-    '집강소는 전주화약 이후 전라도 각 고을에 설치한 농민 자치 기구로 폐정 개혁을 추진했습니다.',
-    '1차 봉기는 탐관오리 수탈에 맞선 반봉건 운동이었고, 2차 봉기는 청·일 군대 개입 후 일본을 몰아내기 위한 반외세 항일 운동이었습니다.'
-  ],
-  gabo: [
-    '군국기무처는 1차 갑오개혁(1894)을 주도한 기구로 김홍집이 이끌며 과거제 폐지 등 근대 개혁을 추진했습니다.',
-    '내용은 진보적이었지만 일본의 강압 아래 추진된 개혁이라는 인식이 강해 민중이 자국의 개혁으로 받아들이지 않았습니다.'
-  ],
-  eulmi: [
-    '일본 공사 미우라가 낭인·군대를 이끌고 경복궁에 침입해 명성황후를 시해했습니다.',
-    '삼국간섭으로 입지가 좁아진 일본은 조선 왕실이 러시아를 끌어들이려 한다고 판단하고 명성황후를 제거했습니다.'
-  ]
-};
+const SECTIONS=SEC_ORDER;
+const qState={};
+SECTIONS.forEach(s=>{qState[s]=[null,null];});
 
-// 진행 상태: sectionId -> [null|choiceIdx, null|choiceIdx]
-const qState = {};
-const SECTIONS = ['byeongin','sinmi','ganghwa','gaehwa','imo','gapsin','donghak','gabo','eulmi'];
-SECTIONS.forEach(s => { qState[s] = [null, null]; });
-
-function answerQ(sid, qIdx, chosen) {
-  if (qState[sid][qIdx] !== null) return; // 이미 답변함
-  qState[sid][qIdx] = chosen;
-
-  const correct = ANSWERS[sid][qIdx];
-  const opts = document.querySelectorAll(`#qo-${sid}-${qIdx} .qopt`);
-  opts.forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === correct) btn.classList.add('correct');
-    else if (i === chosen && i !== correct) btn.classList.add('wrong');
-  });
-
-  const fb = document.getElementById(`qf-${sid}-${qIdx}`);
-  const isOk = chosen === correct;
-  fb.className = 'quiz-fb show ' + (isOk ? 'fb-ok' : 'fb-no');
-  fb.textContent = (isOk ? '✅ 정답입니다! ' : '❌ 오답입니다. ') + EXPLANATIONS[sid][qIdx];
-
-  // Q1 정답 여부와 무관하게 Q2 잠금 해제
-  if (qIdx === 0) {
-    const q2 = document.getElementById(`qi-${sid}-1`);
-    if (q2) { q2.classList.remove('quiz-locked'); q2.classList.add('unlocked'); }
+// localStorage 복원
+try{
+  const saved=JSON.parse(localStorage.getItem('quiz_gaehanggi'));
+  if(saved){
+    SECTIONS.forEach(sid=>{
+      if(saved[sid]){
+        saved[sid].forEach((v,i)=>{
+          if(v!==null){
+            qState[sid][i]=v;
+            // UI 복원
+            const correct=ANSWERS[sid][i];
+            const opts=document.querySelectorAll(`#qo-${sid}-${i} .qopt`);
+            opts.forEach((btn,j)=>{
+              btn.disabled=true;
+              if(j===correct) btn.classList.add('correct');
+              else if(j===v&&j!==correct) btn.classList.add('wrong');
+            });
+            const fb=document.getElementById(`qf-${sid}-${i}`);
+            const isOk=v===correct;
+            fb.className='quiz-fb show '+(isOk?'fb-ok':'fb-no');
+            fb.textContent=(isOk?'✅ 정답입니다! ':'❌ 오답입니다. ')+EXPLANATIONS[sid][i];
+            if(i===0){
+              const q2=document.getElementById(`qi-${sid}-1`);
+              if(q2){q2.classList.remove('quiz-locked');q2.classList.add('unlocked');}
+            }
+          }
+        });
+        const done=qState[sid].filter(v=>v!==null).length;
+        document.getElementById(`prog-${sid}`).textContent=`${done} / 2 완료`;
+      }
+    });
+    updateDashboard();
+    updateTimelineDots();
   }
+}catch(e){}
 
-  // 진행도 업데이트
-  const done = qState[sid].filter(v => v !== null).length;
-  document.getElementById(`prog-${sid}`).textContent = `${done} / 2 완료`;
-
-  updateDashboard();
+function saveState(){
+  try{localStorage.setItem('quiz_gaehanggi',JSON.stringify(qState));}catch(e){}
 }
 
-function updateDashboard() {
-  let totalCorrect = 0;
-
-  SECTIONS.forEach(sid => {
-    const s = qState[sid];
-    let correct = 0;
-    s.forEach((v, i) => { if (v !== null && v === ANSWERS[sid][i]) correct++; });
-    totalCorrect += correct;
-  });
-
-  // 총점
-  const totalPct = Math.round(totalCorrect / 18 * 100);
-  const totalAnswered = SECTIONS.reduce((acc, s) => acc + qState[s].filter(v=>v!==null).length, 0);
-  document.getElementById('total-pct-num').textContent = totalPct + '%';
-  document.getElementById('total-correct').textContent = totalCorrect;
-  document.getElementById('total-done').textContent = totalAnswered;
-
-  // SVG 링 업데이트 (r=64, circumference≈402.1)
-  const circumference = 402.1;
-  const offset = circumference - (totalPct / 100) * circumference;
-  const fill = document.getElementById('ring-fill');
-  fill.style.strokeDashoffset = offset;
-  fill.style.stroke = totalPct >= 80 ? '#059669' : totalPct >= 50 ? '#2563EB' : '#DC2626';
-
-  // 배너 메시지
-  const banner = document.getElementById('achieve-banner');
-  let cls, icon, title, msg;
-  if (totalAnswered === 0) {
-    cls='ab-waiting'; icon='📝'; title='아직 형성평가를 풀지 않았습니다'; msg='각 사건 하단의 형성평가를 풀면 달성도가 자동으로 계산됩니다.';
-  } else if (totalPct < 50) {
-    cls='ab-low'; icon='📖'; title=`달성률 ${totalPct}% — 다시 한번 복습해봐요`; msg='틀린 문항의 해설을 다시 읽고, 해당 사건 내용을 한 번 더 확인해 보세요.';
-  } else if (totalPct < 80) {
-    cls='ab-mid'; icon='💪'; title=`달성률 ${totalPct}% — 잘 하고 있어요!`; msg='교과서 응용 문항을 더 집중해서 풀어보세요. 조금만 더 노력하면 목표를 달성할 수 있어요.';
-  } else if (totalPct < 100) {
-    cls='ab-high'; icon='🌟'; title=`달성률 ${totalPct}% — 거의 다 왔어요!`; msg='핵심 내용을 잘 이해하고 있습니다. 틀린 부분만 한 번 더 확인하면 완벽합니다.';
-  } else {
-    cls='ab-perfect'; icon='🏆'; title='달성률 100% — 완벽합니다!'; msg='18문항 모두 정답! 개항기 조선의 흐름을 완벽하게 이해했습니다. 훌륭해요!';
+/* ─── Confetti 효과 ─── */
+function spawnConfetti(target){
+  const rect=target.getBoundingClientRect();
+  const cx=rect.left+rect.width/2;
+  const cy=rect.top+rect.height/2;
+  const container=document.createElement('div');
+  container.className='confetti-burst';
+  container.style.left=cx+'px';container.style.top=cy+'px';
+  const colors=['#059669','#2563EB','#D97706','#7C3AED','#DC2626','#f59e0b'];
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='confetti-piece';
+    const angle=(Math.PI*2/18)*i;
+    const dist=60+Math.random()*60;
+    p.style.cssText=`--cx:${Math.cos(angle)*dist}px;--cy:${Math.sin(angle)*dist-40}px;--cr:${Math.random()*720}deg;background:${colors[i%colors.length]};animation-delay:${Math.random()*0.15}s;left:${-4}px;top:${-4}px;`;
+    container.appendChild(p);
   }
-  banner.className = 'achieve-banner ' + cls;
-  banner.innerHTML = `<span class="ab-icon">${icon}</span><div class="ab-text"><h4>${title}</h4><p>${msg}</p></div>`;
+  document.body.appendChild(container);
+  setTimeout(()=>container.remove(),1200);
+}
+
+function answerQ(sid,qIdx,chosen){
+  if(qState[sid][qIdx]!==null)return;
+  qState[sid][qIdx]=chosen;
+  const correct=ANSWERS[sid][qIdx];
+  const opts=document.querySelectorAll(`#qo-${sid}-${qIdx} .qopt`);
+  opts.forEach((btn,i)=>{
+    btn.disabled=true;
+    if(i===correct) btn.classList.add('correct');
+    else if(i===chosen&&i!==correct) btn.classList.add('wrong');
+  });
+  const fb=document.getElementById(`qf-${sid}-${qIdx}`);
+  const isOk=chosen===correct;
+  fb.className='quiz-fb show '+(isOk?'fb-ok':'fb-no');
+  fb.textContent=(isOk?'✅ 정답입니다! ':'❌ 오답입니다. ')+EXPLANATIONS[sid][qIdx];
+
+  // 정답이면 confetti
+  if(isOk) spawnConfetti(opts[correct]);
+
+  if(qIdx===0){
+    const q2=document.getElementById(`qi-${sid}-1`);
+    if(q2){q2.classList.remove('quiz-locked');q2.classList.add('unlocked');}
+  }
+  const done=qState[sid].filter(v=>v!==null).length;
+  document.getElementById(`prog-${sid}`).textContent=`${done} / 2 완료`;
+  updateDashboard();
+  updateTimelineDots();
+  saveState();
+}
+
+function updateTimelineDots(){
+  SECTIONS.forEach(sid=>{
+    const s=qState[sid];
+    const allDone=s.every(v=>v!==null);
+    const allCorrect=s.every((v,i)=>v===ANSWERS[sid][i]);
+    const node=document.querySelector(`.tl-node[data-target="${sid}"]`);
+    if(!node)return;
+    if(allDone&&allCorrect) node.classList.add('done');
+    else node.classList.remove('done');
+  });
+  // 연결선 채우기
+  const lines=document.querySelectorAll('.tl-line');
+  const nodes=document.querySelectorAll('.tl-node');
+  lines.forEach((line,i)=>{
+    const prev=nodes[i];
+    if(prev&&prev.classList.contains('done')) line.classList.add('filled');
+    else line.classList.remove('filled');
+  });
+}
+
+function updateDashboard(){
+  let totalCorrect=0;
+  SECTIONS.forEach(sid=>{
+    const s=qState[sid];
+    s.forEach((v,i)=>{if(v!==null&&v===ANSWERS[sid][i])totalCorrect++;});
+  });
+  const totalPct=Math.round(totalCorrect/20*100);
+  const totalAnswered=SECTIONS.reduce((acc,s)=>acc+qState[s].filter(v=>v!==null).length,0);
+  document.getElementById('total-pct-num').textContent=totalPct+'%';
+  document.getElementById('total-correct').textContent=totalCorrect;
+  document.getElementById('total-done').textContent=totalAnswered;
+  const circumference=402.1;
+  const offset=circumference-(totalPct/100)*circumference;
+  const fill=document.getElementById('ring-fill');
+  fill.style.strokeDashoffset=offset;
+  fill.style.stroke=totalPct>=80?'#059669':totalPct>=50?'#2563EB':'#DC2626';
+  const banner=document.getElementById('achieve-banner');
+  let cls,icon,title,msg;
+  if(totalAnswered===0){cls='ab-waiting';icon='📝';title='아직 형성평가를 풀지 않았습니다';msg='각 사건 하단의 형성평가를 풀면 달성도가 자동으로 계산됩니다.';}
+  else if(totalPct<50){cls='ab-low';icon='📖';title=`달성률 ${totalPct}% — 다시 한번 복습해봐요`;msg='틀린 문항의 해설을 다시 읽고, 해당 사건 내용을 한 번 더 확인해 보세요.';}
+  else if(totalPct<80){cls='ab-mid';icon='💪';title=`달성률 ${totalPct}% — 잘 하고 있어요!`;msg='교과서 응용 문항을 더 집중해서 풀어보세요. 조금만 더 노력하면 목표를 달성할 수 있어요.';}
+  else if(totalPct<100){cls='ab-high';icon='🌟';title=`달성률 ${totalPct}% — 거의 다 왔어요!`;msg='핵심 내용을 잘 이해하고 있습니다. 틀린 부분만 한 번 더 확인하면 완벽합니다.';}
+  else{cls='ab-perfect';icon='🏆';title='달성률 100% — 완벽합니다!';msg='20문항 모두 정답! 개항기 조선의 흐름을 완벽하게 이해했습니다. 훌륭해요!';}
+  banner.className='achieve-banner '+cls;
+  banner.innerHTML=`<span class="ab-icon">${icon}</span><div class="ab-text"><h4>${title}</h4><p>${msg}</p></div>`;
+
+  // 섹션별 상세 진행도
+  const detail=document.getElementById('dashDetail');
+  detail.innerHTML=SECTIONS.map(sid=>{
+    const s=qState[sid];
+    const dots=s.map((v,i)=>{
+      if(v===null)return'<div class="dash-sec-dot"></div>';
+      return v===ANSWERS[sid][i]?'<div class="dash-sec-dot dot-correct"></div>':'<div class="dash-sec-dot dot-wrong"></div>';
+    }).join('');
+    const allDone=s.every(v=>v!==null);
+    const allCorrect=s.every((v,i)=>v===ANSWERS[sid][i]);
+    const cls=allDone&&allCorrect?'sec-perfect':allDone?'sec-partial':'';
+    return`<div class="dash-sec ${cls}" onclick="scrollToSec('${sid}')" style="cursor:pointer"><span class="dash-sec-icon">${SEC_ICONS[sid]}</span><div class="dash-sec-info"><div class="dash-sec-name">${SEC_NAMES[sid]}</div><div class="dash-sec-dots">${dots}</div></div></div>`;
+  }).join('');
+}
+
+// 초기 대시보드 렌더
+updateDashboard();
+
+function toggleAnswer(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.style.display=el.style.display==='none'||!el.style.display?'block':'none';
 }
 
 /* ─── SCROLL TO TOP ─── */
-const scrollTopBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-});
+const scrollTopBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{scrollTopBtn.classList.toggle('visible',window.scrollY>400);},{passive:true});
 
 /* ─── FADE-IN OBSERVER ─── */
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.style.animationPlayState='running'; obs.unobserve(entry.target); }
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.style.animationPlayState='running';obs.unobserve(entry.target);}
   });
-}, {threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el => { el.style.animationPlayState='paused'; obs.observe(el); });
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el);});
+/* ─── 한 문장 정리 저장 ─── */
+function buildSummaryExportText(){
+  const sentence=(document.getElementById('summarySentence')?.value||'').trim();
+  const totalPct=document.getElementById('total-pct-num')?.textContent||'0%';
+  const totalCorrect=document.getElementById('total-correct')?.textContent||'0';
+  const totalDone=document.getElementById('total-done')?.textContent||'0';
+  const lines=[
+    '[개항기 조선 학습 기록]',
+    `형성평가 달성도: ${totalPct}`,
+    `정답 수: ${totalCorrect} / 20`,
+    `응답 완료: ${totalDone} / 20`,
+    `한 문장 정리: ${sentence || '(작성하지 않음)'}`
+  ];
+  return lines.join('\n');
+}
+
+async function saveSummarySentence(){
+  const ta=document.getElementById('summarySentence');
+  const meta=document.getElementById('summaryMeta');
+  const text=(ta.value||'').trim();
+  const exportText=buildSummaryExportText();
+  try{
+    localStorage.setItem('gaehanggi_summary_sentence',text);
+    localStorage.setItem('gaehanggi_summary_export',exportText);
+  }catch(e){}
+  let copied=false;
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(exportText);
+      copied=true;
+    }
+  }catch(e){}
+  meta.textContent=copied ? '달성도와 작성한 문장이 저장되었고, 복사도 완료되었습니다.' : '달성도와 작성한 문장이 저장되었습니다.';
+}
+
+function loadSummarySentence(){
+  const ta=document.getElementById('summarySentence');
+  const meta=document.getElementById('summaryMeta');
+  let text='';
+  try{text=localStorage.getItem('gaehanggi_summary_sentence')||'';}catch(e){}
+  ta.value=text;
+  if(text){
+    meta.textContent='이전에 저장한 문장이 불러와졌습니다.';
+  }
+}
+
+function goToPadlet(){
+  alert('해당 게시판에 형성평가 달성도와 쓴 문장을 게시물로 작성해주세요');
+  window.open('https://padlet.com/skyiu2017/padlet-w36swvembvidinp','_blank');
+}
+
+loadSummarySentence();
 </script>
 </body>
 </html>

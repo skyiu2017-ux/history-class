@@ -659,6 +659,10 @@ blockquote{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);bo
   </div>
 </div>
 
+<div style="text-align:right;margin-top:12px;">
+  <button onclick="resetQuiz()" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid rgba(220,38,38,0.2);border-radius:10px;background:var(--red-bg);color:var(--red);font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">🔄 형성평가 초기화</button>
+</div>
+
 </div></section>
 
 </main>
@@ -768,6 +772,12 @@ function buildSummaryExportText(){const sentence=(document.getElementById('summa
 async function saveSummarySentence(){const ta=document.getElementById('summarySentence');const meta=document.getElementById('summaryMeta');const text=(ta.value||'').trim();const exportText=buildSummaryExportText();try{localStorage.setItem('daehan_summary_sentence',text);localStorage.setItem('daehan_summary_export',exportText);}catch(e){}let copied=false;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(exportText);copied=true;}}catch(e){}meta.textContent=copied ? '달성도와 작성한 문장이 저장되었고, 복사도 완료되었습니다.' : '달성도와 작성한 문장이 저장되었습니다.';}
 
 function loadSummarySentence(){const ta=document.getElementById('summarySentence');const meta=document.getElementById('summaryMeta');let text='';try{text=localStorage.getItem('daehan_summary_sentence')||'';}catch(e){}ta.value=text;if(text){meta.textContent='이전에 저장한 문장이 불러와졌습니다.';}}
+
+function resetQuiz(){
+  if(!confirm('형성평가 기록을 모두 초기화할까요?\n저장된 답안과 달성도가 사라집니다.')) return;
+  try{ localStorage.removeItem('quiz_daehan_gukgwon'); }catch(e){}
+  location.reload();
+}
 
 function goToPadlet(){alert('해당 게시판에 형성평가 달성도와 쓴 문장을 게시물로 작성해주세요');window.open('https://padlet.com/skyiu2017/padlet-w36swvembvidinp','_blank');}
 loadSummarySentence();

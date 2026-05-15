@@ -50,13 +50,11 @@
 <script>
 const CONFIG = {
   thisWeek: [
-    { badge: '중3', color: '#2563EB', title: '문호 개방과 개화 정책',
-      desc: '개항기 조선의 문호 개방 과정과 개화 정책 추진을 정리합니다. 병인양요부터 을미사변까지 핵심 흐름을 확인하세요.',
+    { badge: '중3', color: '#2563EB', title: '일제 식민 통치의 변화와 수탈',
+      desc: '일제의 시기별 식민 통치 변화(무단통치 → 문화통치 → 민족 말살 통치)와 경제 수탈 정책을 정리하고, 이에 맞선 민족 운동까지 통합 정리합니다.',
       links: [
-        { icon: '📄', text: '빈칸 학습지', url: 'worksheets/ws09_opening_modernization.pdf' },
-        { icon: '🖥️', text: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html' },
-        { icon: '🖥️', text: '개항기 통합 정리 + 형성평가', url: 'korean/modern/gaehangi_final.html' },
-        { icon: '🖥️', text: '대한제국~한일 병합 통합 정리', url: 'korean/modern/daehan_empire_annexation_page.html' }
+        { icon: '📄', text: '빈칸 학습지', url: 'worksheets/Changes_in_Japanese_Colonial_Rule_and_Exploitation.pdf' },
+        { icon: '🖥️', text: '일제 식민 통치와 민족 운동 통합 정리 + 형성평가', url: 'korean/modern/japanese_colonial_rule_national_movement_final.html' }
       ]},
     { badge: '중2', color: '#7C3AED', title: '수업 자료 준비 중',
       desc: '중2 수업 자료는 현재 준비 중입니다. 곧 업데이트될 예정이에요!',
@@ -78,7 +76,11 @@ const CONFIG = {
           { name: '📋 개항기 조선의 위기와 개혁 — 통합 정리 + 형성평가', url: 'korean/modern/gaehangi_final.html', highlight: true },
           { name: '📋 대한제국에서 한일 병합까지 — 통합 정리 + 형성평가', url: 'korean/modern/daehan_empire_annexation_page.html', highlight: true }
         ]},
-        { name: '일제 강점과 민족 운동', pages: [{ name: '일제에 맞선 민족 운동', url: 'korean/contemporary/18. anti_japanese_movements.html' },{ name: '독립 노력과 대한민국 정부 수립', url: 'korean/contemporary/19. independence_to_government.html' }]},
+        { name: '일제 강점과 민족 운동', pages: [
+          { name: '일제에 맞선 민족 운동', url: 'korean/contemporary/18. anti_japanese_movements.html' },
+          { name: '독립 노력과 대한민국 정부 수립', url: 'korean/contemporary/19. independence_to_government.html' },
+          { name: '📋 일제 식민 통치의 변화와 수탈 — 통합 정리 + 형성평가', url: 'korean/modern/japanese_colonial_rule_national_movement_final.html', highlight: true, ws: 'worksheets/Changes_in_Japanese_Colonial_Rule_and_Exploitation.pdf' }
+        ]},
         { name: '경제의 변화', pages: [{ name: '식민지 경제 체제로 재편되다', url: 'korean/contemporary/20. colonial-economy.html' },{ name: '국가 주도의 경제 성장', url: 'korean/contemporary/21. growth-economy.html' },{ name: '신자유주의 경제 정책과 노동 운동', url: 'korean/contemporary/22. neoliberalism-labor.html' }]},
         { name: '민주주의의 발전', pages: [{ name: '제헌 헌법과 민주주의 지향', url: 'korean/contemporary/24. constitutional-democracy.html' },{ name: '4·19 혁명', url: 'korean/contemporary/25. april-revolution.html' },{ name: '민주주의, 시련을 겪다', url: 'korean/contemporary/26. dictatorship-and-resistance.html' },{ name: '6월 민주 항쟁', url: 'korean/contemporary/27. june-democracy.html' }]},
         { name: '사회·문화의 변화', pages: [{ name: '대중문화가 발전하다', url: 'korean/contemporary/23. pop-culture.html' }]},
@@ -111,11 +113,13 @@ const CONFIG = {
     { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review/review_quiz.html' },
     { icon:'🗺️', title:'개항기 조선 통합 정리', desc:'병인양요부터 을미사변까지 — 사건별 형성평가와 달성도 확인이 포함된 통합 정리 페이지입니다.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/gaehangi_final.html' },
     { icon:'👑', title:'대한제국과 국권 피탈 통합 정리', desc:'대한제국 수립부터 한일 병합까지 — 사건별 형성평가와 달성도 확인이 포함된 통합 정리 페이지입니다.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/daehan_empire_annexation_page.html' },
+    { icon:'🏯', title:'일제 식민 통치와 민족 운동 통합 정리', desc:'무단·문화·민족 말살 통치의 변화와 경제 수탈, 그리고 이에 맞선 민족 운동을 통합 정리한 페이지입니다. 형성평가와 달성도 확인이 포함되어 있어요.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/japanese_colonial_rule_national_movement_final.html' },
     { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'review/korean_history_flow.html' }
   ],
   siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
   scheduleNotices: ['1학기 수행평가: 5~6월 실시 예정','수행평가 상세 일정 및 기준은 추후 별도 공지 예정','중간고사 시험 범위: 교과서 126~209쪽 (상세 범위는 시험 대비 > 시험 범위표 참고)'],
   updates: [
+    { date:'5.16', text:'이번 주 수업 업데이트: 일제 식민 통치의 변화와 수탈 — 통합 정리 페이지 + 빈칸 학습지 추가 (형성평가 + 달성도 포함)' },
     { date:'4.19', text:'대한제국에서 한일 병합까지 통합 정리 페이지 추가 (형성평가 + 달성도 포함)' },
     { date:'4.15', text:'개항기 조선의 위기와 개혁 통합 정리 페이지 추가 (형성평가 + 달성도 포함)' },
     { date:'4.05', text:'이번 주 수업 업데이트: 향촌 사회가 흔들리다 · 삼정의 문란과 농민의 의식 성장' },
@@ -150,7 +154,7 @@ const CONFIG = {
 <main>
   <section class="sec" id="week"><div class="container">
     <span class="sec-label" style="background:var(--blue-bg);color:var(--blue);">📌 THIS WEEK</span>
-    <h2 class="sec-title">이번 주 수업 <span style="font-size:0.72em;font-weight:500;color:var(--dim);">(4월 14일~18일)</span></h2>
+    <h2 class="sec-title">이번 주 수업 <span style="font-size:0.72em;font-weight:500;color:var(--dim);">(5월 18일~22일)</span></h2>
     <p class="sec-desc">이번 주 확인해야 할 수업 자료입니다.</p>
     <div id="week-container"></div>
   </div></section>
@@ -231,6 +235,7 @@ document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='
 setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getComputedStyle(el).opacity==='0'){el.style.animationPlayState='paused';obs.observe(el)}})},100);
 
 const SEARCH_DATA = [
+  { title:"🏯 일제 식민 통치의 변화와 수탈 — 통합 정리 + 형성평가", url:"korean/modern/japanese_colonial_rule_national_movement_final.html", keywords:["일제","식민통치","무단통치","문화통치","민족말살통치","헌병경찰","조선태형령","토지조사사업","산미증식계획","회사령","병참기지화","국가총동원법","공출","징용","징병","위안부","수탈","민족운동","통합정리","형성평가","달성도"] },
   { title:"👑 대한제국에서 한일 병합까지 — 통합 정리 + 형성평가", url:"korean/modern/daehan_empire_annexation_page.html", keywords:["대한제국","광무개혁","독립협회","만민공동회","칙령 제41호","독도","러일전쟁","을사늑약","헤이그 특사","정미의병","군대 해산","애국계몽운동","국채보상운동","신민회","안중근","한일 병합","국권피탈","통합정리","형성평가","달성도"] },
   { title:"🗺️ 개항기 조선의 위기와 개혁 — 통합 정리 + 형성평가", url:"korean/modern/gaehangi_final.html", keywords:["개항기","병인양요","신미양요","강화도조약","개화정책","임오군란","갑신정변","동학농민운동","갑오개혁","을미개혁","을미사변","통합정리","형성평가","달성도"] },
   { title:"🏺 만주와 한반도에 사람이 살기 시작하다", url:"korean/prehistoric-three-kingdoms/01-people-settle-in-manchuria-and-korea.html", keywords:["선사시대","구석기","검은모루동굴","전곡리","뗀석기","이동생활"] },

@@ -72,13 +72,13 @@ const CONFIG = {
     { era: '근·현대', units: [{ name: '근·현대 사회의 전개', subunits: [
         { name: '개항과 근대 국가 수립 운동', pages: [
           { name: '문호 개방과 개화 정책', url: 'korean/modern/16. joseon_opening_modernization.html', ws: 'worksheets/ws09_opening_modernization.pdf' },
-          { name: '국민 국가 수립을 위한 노력', url: 'korean/modern/17. korean_national_state.html' },
+          { name: '국민 국가 수립을 위한 노력', url: 'korean/modern/17. korean_national_state.html', ws: 'worksheets/ws10_national_state.pdf' },
           { name: '📋 개항기 조선의 위기와 개혁 — 통합 정리 + 형성평가', url: 'korean/modern/gaehangi_final.html', highlight: true },
           { name: '📋 대한제국에서 한일 병합까지 — 통합 정리 + 형성평가', url: 'korean/modern/daehan_empire_annexation_page.html', highlight: true }
         ]},
         { name: '일제 강점과 민족 운동', pages: [
-          { name: '일제에 맞선 민족 운동', url: 'korean/contemporary/18. anti_japanese_movements.html' },
-          { name: '독립 노력과 대한민국 정부 수립', url: 'korean/contemporary/19. independence_to_government.html' },
+          { name: '일제에 맞선 민족 운동', url: 'korean/contemporary/18. anti_japanese_movements.html', ws: 'worksheets/ws11_national_movements.pdf' },
+          { name: '독립 노력과 대한민국 정부 수립', url: 'korean/contemporary/19. independence_to_government.html', ws: 'worksheets/ws12_government_establishment.pdf' },
           { name: '📋 일제 식민 통치의 변화와 수탈 — 통합 정리 + 형성평가', url: 'korean/modern/japanese_colonial_rule_national_movement_final.html', highlight: true, ws: 'worksheets/Changes_in_Japanese_Colonial_Rule_and_Exploitation.pdf' }
         ]},
         { name: '경제의 변화', pages: [{ name: '식민지 경제 체제로 재편되다', url: 'korean/contemporary/20. colonial-economy.html' },{ name: '국가 주도의 경제 성장', url: 'korean/contemporary/21. growth-economy.html' },{ name: '신자유주의 경제 정책과 노동 운동', url: 'korean/contemporary/22. neoliberalism-labor.html' }]},
@@ -96,15 +96,15 @@ const CONFIG = {
     { era: '시민 혁명·근대 사회', units: [{ name: '시민 혁명과 근대 국민 국가', subunits: [{ name: '시민 혁명', pages: [{ name: '영국 혁명', url: 'world/revolution/british.html' },{ name: '프랑스 혁명', url: 'world/revolution/french.html' },{ name: '미국 독립 혁명', url: 'world/revolution/american.html' }]},{ name: '근대 사회의 형성', pages: [{ name: '유럽의 자유주의·민족주의', url: 'world/revolution/european-liberalism.html' },{ name: '민주주의의 발전', url: 'world/revolution/democracy.html' },{ name: '자본주의 사회', url: 'world/revolution/capitalism.html' }]}]}]}
   ],
   exam: [
-    { icon:'📋', title:'시험 범위표', desc:'교과서 126~209쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대 사회의 전개', linkText:'범위 상세 보기', url:'javascript:openScope()' },
+    { icon:'📋', title:'시험 범위표', desc:'교과서 126~141·144~157·176~185쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대(대한민국 정부 수립까지)', linkText:'범위 상세 보기', url:'javascript:openScope()' },
     { icon:'💡', title:'핵심 개념 정리', desc:'단원별 핵심 개념을 짧고 명확하게 정리했습니다.', linkText:'정리 보기', url:'review/review_concepts.html' },
     { icon:'✏️', title:'빈칸 학습지', desc:'단원별 빈칸 학습지를 다운로드하여 인쇄하거나 복습할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' },
-    { icon:'📝', title:'서술형 대비', desc:'자주 나오는 서술형 문제와 답변 방향을 확인하세요.', linkText:'서술형 보기', url:'#' }
+    { icon:'📝', title:'서술형 대비', desc:'자주 나오는 서술형 문제와 답변 방향을 확인하세요.', linkText:'서술형 보기', url:'review/review_seosulhyung.html' }
   ],
-  examScope: { range:'교과서 126쪽 ~ 209쪽', note:'수업 중 진도를 나가서 다룬 부분까지로 이후 시험 전 자세한 안내 예정', sections:[{title:'조선의 성립과 발전',items:[{topic:'유교 윤리를 보급하기 위해 노력하다',pages:'126~127'},{topic:'훈민정음이 창제되고 과학 기술이 발달하다',pages:'128~131'},{topic:'임진왜란을 극복하다',pages:'132~135'},{topic:'병자호란이 일어나고 동아시아 국제 질서가 바뀌다',pages:'136~139'},{topic:'대단원 마무리',pages:'140~141'}]},{title:'조선 사회의 변동',items:[{topic:'양 난 이후 국가를 재건하다',pages:'144~148'},{topic:'영조, 정조가 탕평 정치를 펼치다 / 세도 정치가 나라의 기강을 흔들다',pages:'149~153'},{topic:'향촌 사회가 흔들리다',pages:'154~155'},{topic:'농민 봉기가 일어나다',pages:'156~157'},{topic:'새로운 학문적 경향이 나타나다',pages:'158~159'},{topic:'동아시아, 문화를 교류하다',pages:'160~163'},{topic:'상속 제도와 사회 풍속이 바뀌다',pages:'164~165'},{topic:'사회·경제적 변동 속에서 서민 문화가 확산되다',pages:'166~169'},{topic:'대단원 마무리',pages:'170~171'}]},{title:'근·현대 사회의 전개',items:[{topic:'문호를 개방하고 개화 정책을 펼치다',pages:'174~177'},{topic:'국민 국가를 수립하기 위해 노력하다',pages:'178~179'},{topic:'일제에 맞서 민족 운동을 전개하다',pages:'180~181'},{topic:'대한민국 정부를 수립하다',pages:'182~185'},{topic:'개항으로 세계 경제 체제에 편입되다',pages:'186~187'},{topic:'식민지 경제 체제로 재편되다',pages:'188~189'},{topic:'국가 주도의 경제 성장이 이루어지다',pages:'190~191'},{topic:'신자유주의 경제 정책이 추진되다',pages:'192~193'},{topic:'대중문화가 발전하다',pages:'194~195'},{topic:'제헌 헌법, 민주주의를 지향하다',pages:'196~197'},{topic:'4·19 혁명, 민주주의의 씨를 뿌리다',pages:'198~199'},{topic:'민주주의, 시련을 겪다',pages:'200~201'},{topic:'민주주의를 꽃피우다',pages:'202~203'},{topic:'6·25 전쟁으로 분단이 고착되다 / 평화 통일을 위해 노력하다',pages:'204~207'},{topic:'대단원 마무리',pages:'208~209'}]}]},
+  examScope: { range:'교과서 126~141 · 144~157 · 176~185쪽', note:'활동지 1~6번, 9~12번(일제 식민 통치의 변화와 수탈, 민족 운동의 전개 포함)이 함께 출제 범위입니다. 수업 중 다룬 부분까지가 시험 범위이며, 세부 사항은 시험 전 다시 안내합니다.', sections:[{title:'조선의 성립과 발전',items:[{topic:'유교 윤리를 보급하기 위해 노력하다',pages:'126~127'},{topic:'훈민정음이 창제되고 과학 기술이 발달하다',pages:'128~131'},{topic:'임진왜란을 극복하다',pages:'132~135'},{topic:'병자호란이 일어나고 동아시아 국제 질서가 바뀌다',pages:'136~139'},{topic:'대단원 마무리',pages:'140~141'}]},{title:'조선 사회의 변동',items:[{topic:'양 난 이후 국가를 재건하다',pages:'144~148'},{topic:'영조, 정조가 탕평 정치를 펼치다 / 세도 정치가 나라의 기강을 흔들다',pages:'149~153'},{topic:'향촌 사회가 흔들리다',pages:'154~155'},{topic:'농민 봉기가 일어나다',pages:'156~157'}]},{title:'근·현대 사회의 전개',items:[{topic:'국민 국가를 수립하기 위해 노력하다',pages:'176~179'},{topic:'일제에 맞서 민족 운동을 전개하다',pages:'180~181'},{topic:'대한민국 정부를 수립하다',pages:'182~185'}]}]},
   performance: [
     { icon:'📌', title:'수행평가 안내 (1차)', desc:'1차 수행평가 활동 목적과 과제 내용을 확인합니다.', linkText:'안내 보기', url:'performance/PA_ref_gapsin_gabo.html' },
-    { icon:'📌', title:'수행평가 안내 (2차)', desc:'2차 수행평가 활동 안내입니다.', linkText:'안내 보기', url:'performance/PA_ref_31_imsi.html' },
+    { icon:'📌', title:'수행평가 안내 (2차)', desc:'3·1 운동과 대한민국 임시정부를 연결하는 글쓰기 — 2차 수행평가 사전 안내입니다.', linkText:'안내 보기', url:'performance/PA_guide_31_imsi.html' },
   ],
   review: [
     { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'review/review_summary.html' },
@@ -117,7 +117,7 @@ const CONFIG = {
     { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'review/korean_history_flow.html' }
   ],
   siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
-  scheduleNotices: ['1학기 수행평가: 5~6월 실시 예정','수행평가 상세 일정 및 기준은 추후 별도 공지 예정','중간고사 시험 범위: 교과서 126~209쪽 (상세 범위는 시험 대비 > 시험 범위표 참고)'],
+  scheduleNotices: ['1학기 수행평가: 5~6월 실시 예정','수행평가 상세 일정 및 기준은 추후 별도 공지 예정','중간고사 시험 범위: 교과서 126~141·144~157·176~185쪽 + 활동지 1~6번·9~12번 (상세 범위는 시험 대비 > 시험 범위표 참고)'],
   updates: [
     { date:'5.16', text:'이번 주 수업 업데이트: 일제 식민 통치의 변화와 수탈 — 통합 정리 페이지 + 빈칸 학습지 추가 (형성평가 + 달성도 포함)' },
     { date:'4.19', text:'대한제국에서 한일 병합까지 통합 정리 페이지 추가 (형성평가 + 달성도 포함)' },
@@ -301,9 +301,10 @@ const SEARCH_DATA = [
   { title:"✏️ 빈칸 학습지 모음", url:"review/review_worksheets.html", keywords:["학습지","빈칸","워크시트","인쇄","PDF","다운로드"] },
   { title:"💡 핵심 개념 카드", url:"review/review_concepts.html", keywords:["개념","개념정리","핵심개념","개념카드","키워드","단어정리","용어"] },
   { title:"✅ 확인 퀴즈", url:"review/review_quiz.html", keywords:["퀴즈","문제","확인문제","복습퀴즈","객관식","형성평가"] },
+  { title:"📝 서술형 대비 — 4·5·6단원", url:"review/review_seosulhyung.html", keywords:["서술형","서술형대비","논술","주관식","서술형문항","조선후기","근현대","대한민국정부수립","모범답안"] },
   { title:"📅 한국사 흐름도", url:"review/korean_history_flow.html", keywords:["흐름도","연표","타임라인","한국사흐름","역사흐름","전체흐름"] },
   { title:"📌 수행평가 안내 (1차) — 갑신·갑오개혁", url:"performance/PA_ref_gapsin_gabo.html", keywords:["수행평가","1차","갑신정변","갑오개혁","수행","평가안내"] },
-  { title:"📌 수행평가 안내 (2차) — 3·1 운동·임시정부", url:"performance/PA_ref_31_imsi.html", keywords:["수행평가","2차","3.1운동","31운동","임시정부","수행","평가안내"] }
+  { title:"📌 수행평가 안내 (2차) — 3·1 운동·임시정부", url:"performance/PA_guide_31_imsi.html", keywords:["수행평가","2차","3.1운동","31운동","임시정부","연결하는 글쓰기","수행","평가안내"] }
 ];
 
 (function(){

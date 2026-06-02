@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3·1 운동과 대한민국 임시정부를 연결하는 글쓰기 — 사전 안내</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+    margin: 0; background: #FAF8F3; color: #1F2937;
+    line-height: 1.5; font-size: 12px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+    color: #fff; padding: 16px 22px;
+  }
+  .hero-tag {
+    display: inline-block; font-size: 10px; font-weight: 700; color: #FCA5A5;
+    letter-spacing: 0.8px; padding: 2px 8px; border: 1px solid #FCA5A5;
+    border-radius: 999px; margin-bottom: 6px;
+  }
+  .hero h1 {
+    font-size: 19px; margin: 0 0 4px; font-weight: 800; letter-spacing: -0.3px;
+  }
+  .hero h1 .accent { color: #FCA5A5; }
+  .hero-sub { font-size: 11.5px; color: #D1D5DB; margin: 0 0 8px; }
+  .hero-meta { font-size: 11px; }
+  .hero-meta span {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 2px 8px; border-radius: 4px;
+    margin-right: 4px; display: inline-block; margin-bottom: 2px;
+  }
+  .hero-meta span .l { color: #9CA3AF; margin-right: 4px; }
+  .hero-meta span .v { color: #fff; font-weight: 600; }
+
+  .container { padding: 14px 22px; max-width: 100%; }
+  section { margin-bottom: 14px; }
+  h2 {
+    font-size: 14px; color: #991B1B; margin: 0 0 8px;
+    padding-bottom: 4px; border-bottom: 2px solid #991B1B; font-weight: 800;
+  }
+  h2 .num {
+    display: inline-block; width: 18px; height: 18px; line-height: 18px;
+    text-align: center; background: #991B1B; color: #fff;
+    border-radius: 50%; margin-right: 6px; font-size: 10.5px;
+  }
+  .lead { font-size: 11.5px; color: #374151; margin: 4px 0 8px; }
+
+  /* table-based layout for PDF compatibility */
+  table.layout { width: 100%; border-collapse: separate; border-spacing: 4px; }
+  table.layout td { vertical-align: top; }
+
+  /* 페르소나 카드 */
+  .persona-card {
+    background: #fff; border: 1px solid #D6D2C7; border-radius: 5px;
+    padding: 6px 8px; height: 100%;
+  }
+  .persona-num {
+    display: inline-block; background: #FEF2F2; color: #991B1B;
+    width: 16px; height: 16px; line-height: 16px; text-align: center;
+    border-radius: 50%; font-weight: 700; font-size: 10px;
+  }
+  .persona-role { font-weight: 700; color: #1F2937; font-size: 11.5px; margin-top: 2px; }
+  .persona-bio { font-size: 10px; color: #6B7280; line-height: 1.35; margin-top: 1px; }
+
+  /* 자료 매트릭스 카드 */
+  .matrix-card {
+    background: #fff; border: 1px solid #D6D2C7; border-radius: 5px;
+    padding: 6px 8px;
+  }
+  .matrix-card.adv { background: #FEF3C7; border-color: #A16207; }
+  .matrix-code {
+    background: #991B1B; color: #fff;
+    width: 18px; height: 18px; line-height: 18px;
+    text-align: center; border-radius: 50%;
+    font-weight: 700; font-size: 10px;
+    display: inline-block; vertical-align: middle;
+  }
+  .matrix-card.adv .matrix-code { background: #A16207; }
+  .matrix-title { font-weight: 700; color: #1F2937; font-size: 11px; display: inline-block; margin-left: 6px; vertical-align: middle; }
+  .matrix-use { color: #6B7280; font-size: 10px; margin-top: 1px; padding-left: 24px; }
+
+  /* 단락 카드 */
+  .para-card {
+    background: #fff; border: 1px solid #D6D2C7;
+    border-left: 4px solid #991B1B; border-radius: 5px;
+    padding: 8px 12px;
+  }
+  .para-head { margin-bottom: 4px; }
+  .para-num {
+    font-size: 10px; font-weight: 800; color: #991B1B;
+    background: #FEF2F2; padding: 1px 6px;
+    border-radius: 3px; letter-spacing: 0.3px;
+    display: inline-block; vertical-align: middle;
+  }
+  .para-title {
+    font-size: 12px; font-weight: 700; color: #1F2937;
+    display: inline-block; margin-left: 6px; vertical-align: middle;
+  }
+  .para-pts {
+    font-size: 10.5px; color: #991B1B; font-weight: 700;
+    float: right; margin-top: 1px;
+  }
+  .para-q {
+    font-size: 10.5px; color: #374151; font-style: italic;
+    margin: 3px 0 4px; line-height: 1.4; clear: both;
+  }
+  .para-q::before { content: "💭 "; font-style: normal; }
+  .para-checklist { margin: 2px 0 0 0; padding: 0; list-style: none; }
+  .para-checklist li {
+    padding: 1px 0 1px 14px; position: relative;
+    font-size: 10.5px; color: #374151; line-height: 1.4;
+  }
+  .para-checklist li::before {
+    content: "☐"; position: absolute; left: 0;
+    color: #991B1B; font-weight: 700; font-size: 10px;
+  }
+
+  /* 단락 ④/⑤ 차이 */
+  .diff-box {
+    background: #EFF6FF; border-left: 3px solid #1E3A8A;
+    padding: 6px 10px; margin: 8px 0 0; font-size: 11px;
+    color: #374151; border-radius: 0 4px 4px 0;
+  }
+  .diff-box strong { color: #1E3A8A; }
+
+  /* 정보 박스 */
+  .info-box {
+    background: #fff; border: 1px solid #D6D2C7;
+    border-radius: 5px; padding: 8px 10px; height: 100%;
+  }
+  .info-box h4 {
+    font-size: 11.5px; margin: 0 0 5px; color: #991B1B;
+    font-weight: 700; padding-bottom: 3px;
+    border-bottom: 1px solid #E8E4D8;
+  }
+  .info-box.allow h4 { color: #166534; border-color: #166534; }
+  .info-box.deny h4 { color: #991B1B; }
+  .row {
+    font-size: 10.5px; padding: 1.5px 0;
+    border-bottom: 1px dotted #E8E4D8;
+    overflow: hidden;
+  }
+  .row:last-child { border-bottom: none; }
+  .row .l { color: #374151; float: left; }
+  .row .r { color: #991B1B; font-weight: 700; float: right; }
+  .row.total { background: #FEF2F2; margin: 3px -10px -8px; padding: 3px 10px; border-bottom: none; }
+  .row.total .l { font-weight: 700; color: #1F2937; }
+
+  .info-box ul { margin: 0; padding: 0; list-style: none; }
+  .info-box li {
+    padding: 1px 0 1px 14px; position: relative;
+    font-size: 10.5px; color: #374151; line-height: 1.45;
+  }
+  .info-box.allow li::before { content: "✓"; position: absolute; left: 0; color: #166534; font-weight: 700; }
+  .info-box.deny li::before { content: "✗"; position: absolute; left: 0; color: #991B1B; font-weight: 700; }
+
+  /* 팁 박스 */
+  .tip-box {
+    background: #F0FDF4; border-left: 3px solid #166534;
+    padding: 6px 12px; font-size: 11px;
+    color: #374151; border-radius: 0 4px 4px 0;
+  }
+  .tip-box strong { color: #166534; }
+  .tip-box ol { margin: 2px 0 0; padding-left: 18px; line-height: 1.5; }
+  .tip-box li { margin-bottom: 2px; }
+
+  footer {
+    background: #1F2937; color: #9CA3AF;
+    padding: 6px 22px; text-align: center; font-size: 10px;
+  }
+  footer .school { color: #FCA5A5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="hero-tag">2026학년도 1학기 한국사 수행평가 사전 안내</span>
+  <h1>3·1 운동과 대한민국 임시정부를 <span class="accent">연결하는 글쓰기</span></h1>
+  <p class="hero-sub">1919년의 한 인물이 되어, 3·1 운동의 의의와 임시정부 수립을 평가하는 한 편의 글을 씁니다.</p>
+  <div class="hero-meta">
+    <span><span class="l">시기</span><span class="v">5월 5주</span></span>
+    <span><span class="l">시간</span><span class="v">45분 · 한 차시</span></span>
+    <span><span class="l">총점</span><span class="v">25점 (기본 10점)</span></span>
+    <span><span class="l">형태</span><span class="v">논술형 · 개별</span></span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 섹션 1: 준비 -->
+<section>
+  <h2><span class="num">1</span>준비 — 인물 선택과 자료</h2>
+  <p class="lead">먼저 1919년을 살았던 인물 한 명을 고릅니다. <strong>처음 고른 인물로 단락 ①~⑤ 끝까지 유지</strong>해야 합니다. 답안지에는 글의 큰 틀이 인쇄되어 있어 빈칸을 채우면 됩니다.</p>
+
+  <!-- 페르소나 5명 가로 -->
+  <table class="layout">
+    <tr>
+      <td style="width:20%;"><div class="persona-card"><span class="persona-num">①</span><div class="persona-role">학생</div><div class="persona-bio">친구들과 만세 시위 참여한 학생</div></div></td>
+      <td style="width:20%;"><div class="persona-card"><span class="persona-num">②</span><div class="persona-role">상인</div><div class="persona-bio">가게 닫고 시위 행렬 동참한 상인</div></div></td>
+      <td style="width:20%;"><div class="persona-card"><span class="persona-num">③</span><div class="persona-role">종교인</div><div class="persona-bio">독립선언 준비를 도운 종교인</div></div></td>
+      <td style="width:20%;"><div class="persona-card"><span class="persona-num">④</span><div class="persona-role">해외 한인</div><div class="persona-bio">해외에서 31운동 소식과 임시정부 수립을 접한 한인</div></div></td>
+      <td style="width:20%;"><div class="persona-card"><span class="persona-num">⑤</span><div class="persona-role">가족</div><div class="persona-bio">시위 나간 가족을 기다리는 사람</div></div></td>
+    </tr>
+  </table>
+
+  <p class="lead" style="margin: 8px 0 4px;"><strong>자료 A~F</strong> — 단락 ②에서 기본(A~D) 1개 + <strong>심화(E·F) 1개</strong>를 골라 활용·분석합니다.</p>
+  <table class="layout">
+    <tr>
+      <td style="width:33%;"><div class="matrix-card"><span class="matrix-code">A</span><span class="matrix-title">독립선언서</span><div class="matrix-use">정신·이념</div></div></td>
+      <td style="width:33%;"><div class="matrix-card"><span class="matrix-code">B</span><span class="matrix-title">시위 사진</span><div class="matrix-use">다양한 계층 참여</div></div></td>
+      <td style="width:34%;"><div class="matrix-card"><span class="matrix-code">C</span><span class="matrix-title">제암리 사건</span><div class="matrix-use">일제의 탄압</div></div></td>
+    </tr>
+    <tr>
+      <td><div class="matrix-card"><span class="matrix-code">D</span><span class="matrix-title">임시정부 탄생</span><div class="matrix-use">수립 의의</div></div></td>
+      <td><div class="matrix-card adv"><span class="matrix-code">E</span><span class="matrix-title">해외 동포 (심화)</span><div class="matrix-use">운동의 확산</div></div></td>
+      <td><div class="matrix-card adv"><span class="matrix-code">F</span><span class="matrix-title">이승만 편지 (심화)</span><div class="matrix-use">노선 갈등</div></div></td>
+    </tr>
+  </table>
+</section>
+
+<!-- 섹션 2: 단락 ①~⑤ 흐름 -->
+<section>
+  <h2><span class="num">2</span>글의 흐름 — 단락 ①부터 ⑤까지</h2>
+  <p class="lead">답안지에 인쇄된 연결어(이런 상황에서 / 마침내 / 이 3·1 운동의 과정에서 / 결국)를 따라 순서대로 채우면 자연스럽게 완성됩니다.</p>
+
+  <table class="layout">
+    <tr>
+      <td style="width:50%;">
+        <div class="para-card">
+          <div class="para-head"><span class="para-num">단락 ①</span><span class="para-title">내가 살던 시대 — 배경과 시작</span><span class="para-pts">2+3점</span></div>
+          <div class="para-q">왜 3·1 운동이 일어났고, 그때 나는 누구였나?</div>
+          <ul class="para-checklist">
+            <li>배경(국내·국제) + 자기소개</li>
+            <li>전개(시간·장소·계층) + 일제 탄압</li>
+          </ul>
+        </div>
+      </td>
+      <td style="width:50%;">
+        <div class="para-card">
+          <div class="para-head"><span class="para-num">단락 ②</span><span class="para-title">이런 상황에서 — 사료로 본 임시정부 필요성</span><span class="para-pts">4점</span></div>
+          <div class="para-q">왜 우리에게 대표할 정부가 필요했나?</div>
+          <ul class="para-checklist">
+            <li>기본 자료(A~D) 1개 + <strong>심화 자료(E·F) 1개</strong></li>
+            <li>두 자료를 연결해 필요성 서술</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="para-card">
+          <div class="para-head"><span class="para-num">단락 ③</span><span class="para-title">마침내 — 임시정부와 운영 규칙</span><span class="para-pts">3점</span></div>
+          <div class="para-q">임시정부 운영을 위해 어떤 규칙이 필요한가?</div>
+          <ul class="para-checklist">
+            <li>임시정부 한 줄 소개 + 외교론·무장투쟁론 갈등</li>
+            <li><strong>구체적·실현 가능한 규칙 2가지</strong> ("왜냐하면 ~")</li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        <div class="para-card">
+          <div class="para-head"><span class="para-num">단락 ④</span><span class="para-title">이 3·1 운동의 과정에서 — 의의와 내 감정</span><span class="para-pts">5점</span></div>
+          <div class="para-q">3·1 운동이 <strong>왜</strong> 의미 있었는가? 나는 무엇을 느꼈는가?</div>
+          <ul class="para-checklist">
+            <li>3·1 운동의 의의 자기 판단</li>
+            <li>자료(사실) 근거 2가지 + 페르소나 감정과 그 이유</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="para-card">
+          <div class="para-head"><span class="para-num">단락 ⑤</span><span class="para-title">결국 — 대한민국 임시정부를 사실 근거로 종합 평가하기</span><span class="para-pts">5점</span></div>
+          <div class="para-q">대한민국 임시정부 수립을 <strong>어떻게</strong> 평가할 수 있는가?</div>
+          <ul class="para-checklist">
+            <li>임시정부 한 줄 평가 + 사실 근거 2가지 (첫째 ~ / 둘째 ~)</li>
+            <li>임시정부 내 노선 갈등(외교론↔무장투쟁론) 언급 + 단락 ③ 규칙 ①·②가 잘 지켜졌다면 어땠을지 가정</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="diff-box">
+    <strong>⚠️ 단락 ④와 ⑤는 묻는 질문이 다릅니다.</strong>
+    단락 ④ = <strong>"3·1 운동이 왜 의미 있는가"</strong>(의의 + 감정) &nbsp;vs&nbsp; 단락 ⑤ = <strong>"임시정부를 어떻게 평가하는가"</strong>(사실 근거 + 규칙 가정). 두 단락이 비슷한 내용이면 점수가 깎입니다.
+  </div>
+</section>
+
+<!-- 섹션 3: 시간·점수·규칙 -->
+<section>
+  <h2><span class="num">3</span>시간 · 점수 · 평가 규칙</h2>
+  <table class="layout">
+    <tr>
+      <td style="width:30%;">
+        <div class="info-box">
+          <h4>⏱ 45분 시간 배분</h4>
+          <div class="row"><span class="l">준비·페르소나</span><span class="r">5분</span></div>
+          <div class="row"><span class="l">단락 ① 배경+기초</span><span class="r">8분</span></div>
+          <div class="row"><span class="l">단락 ② 사료 분석</span><span class="r">12분</span></div>
+          <div class="row"><span class="l">단락 ③ 규칙 2개</span><span class="r">7분</span></div>
+          <div class="row"><span class="l">단락 ④ 의의·감정</span><span class="r">7분</span></div>
+          <div class="row"><span class="l">단락 ⑤ 종합 평가</span><span class="r">6분</span></div>
+          <div class="row total"><span class="l">총 시간</span><span class="r">45분</span></div>
+        </div>
+      </td>
+      <td style="width:40%;">
+        <div class="info-box">
+          <h4>📊 평가요소 ① ~ ⑦ (25점)</h4>
+          <div class="row"><span class="l"><strong>①</strong> 페르소나 일관 유지</span><span class="r">3점</span></div>
+          <div class="row"><span class="l"><strong>②</strong> 기초 사실 (단락 ①)</span><span class="r">2점</span></div>
+          <div class="row"><span class="l"><strong>③</strong> 배경·필요성 (단락 ①·②)</span><span class="r">3점</span></div>
+          <div class="row"><span class="l"><strong>④</strong> 자료 활용 (단락 ②)</span><span class="r">4점</span></div>
+          <div class="row"><span class="l"><strong>⑤</strong> 운영 규칙 (단락 ③)</span><span class="r">3점</span></div>
+          <div class="row"><span class="l"><strong>⑥</strong> 3·1 운동 의의 (단락 ④)</span><span class="r">5점</span></div>
+          <div class="row"><span class="l"><strong>⑦</strong> 임시정부 평가 (단락 ⑤)</span><span class="r">5점</span></div>
+          <div class="row total"><span class="l">총점 (기본 10점 보장)</span><span class="r">25점</span></div>
+        </div>
+      </td>
+      <td style="width:30%;">
+        <div class="info-box deny">
+          <h4>✗ 평가 중 금지</h4>
+          <ul>
+            <li>AI · 번역기 사용</li>
+            <li>미리 써온 글 옮겨 쓰기</li>
+            <li>다른 학생 답안 참고</li>
+            <li>스마트폰 · 메모지 반입</li>
+            <li>도중에 페르소나 바꾸기</li>
+          </ul>
+        </div>
+        <div class="info-box allow" style="margin-top: 5px;">
+          <h4>✓ 허용</h4>
+          <ul>
+            <li>교과서 학습 내용 활용</li>
+            <li>답안지 자료 A~F 인용</li>
+            <li>여백에 구상 메모 및 활동지</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<!-- 섹션 4: 팁 -->
+<section style="margin-bottom: 4px;">
+  <h2><span class="num">4</span>좋은 답안을 쓰는 3가지 팁</h2>
+  <div class="tip-box">
+    <ol>
+      <li><strong>페르소나를 끝까지.</strong> "나는 17세 학생이다"로 시작했으면 단락 ⑤까지 그 입장으로 일관되게 씁니다.</li>
+      <li><strong>심화 자료 1개는 필수.</strong> 단락 ②에 해외 동포(E) 또는 이승만 편지(F) 중 페르소나와 잘 맞는 것을 골라 인용합니다.</li>
+      <li><strong>단락 ⑤는 구체적으로.</strong> "임시정부는 좋다"가 아니라 첫째·둘째 사실 근거를 명시하고, 단락 ③ 규칙 ①·②가 지켜졌다면 어땠을지 가정문을 꼭 씁니다.</li>
+    </ol>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <span class="school">문시중학교</span> · 2026학년도 1학기 3학년 한국사 · 6월 2주 수행평가 사전 안내문
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>📝 2차 정기시험 대비 — 핵심 24문항</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,8vw,96px) clamp(20px,4vw,48px) clamp(40px,6vw,72px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(48px,8vw,80px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:16px;font-size:clamp(14px,1.8vw,18px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-keywords{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.hero-keywords span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:13px;font-weight:500;backdrop-filter:blur(8px)}
+
+/* DIFF TABS */
+.diff-tabs{display:flex;justify-content:center;gap:12px;padding:20px 0}
+.diff-tab{padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent}
+.diff-tab.basic{border-color:var(--accent);color:var(--accent);background:rgba(74,123,247,.08)}
+.diff-tab.standard{border-color:var(--gold);color:#b8860b;background:rgba(212,168,83,.08)}
+.diff-tab.advanced{border-color:var(--teal);color:var(--teal);background:rgba(26,188,156,.08)}
+
+/* CORE QUESTIONS */
+.core-questions{max-width:800px;margin:0 auto 32px;padding:0 clamp(16px,3vw,32px)}
+.cq-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.cq-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cq-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cq-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.cq-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.cq-badge.basic{background:rgba(74,123,247,.1);color:var(--accent)}
+.cq-badge.standard{background:rgba(212,168,83,.12);color:#b8860b}
+.cq-badge.advanced{background:rgba(26,188,156,.1);color:#16a085}
+
+/* CONTAINER */
+.container{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 64px}
+
+/* TIMELINE */
+.timeline-bar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow);margin-bottom:40px;overflow-x:auto}
+.timeline-bar h3{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.tl-track{display:flex;align-items:center;min-width:max-content;padding:8px 0}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;box-shadow:0 2px 12px var(--accent-glow)}
+.tl-label{margin-top:8px;font-size:12px;font-weight:600;color:var(--text);text-align:center;max-width:90px;line-height:1.4}
+.tl-connector{flex:1;min-width:48px;height:3px;background:linear-gradient(90deg,var(--accent),rgba(74,123,247,.3));border-radius:2px}
+
+/* SECTION HEADER */
+.section-head{display:flex;align-items:center;gap:12px;margin:48px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--primary-pale)}
+.section-num{width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.section-head h2{font-size:clamp(18px,2.5vw,22px);font-weight:800;color:var(--primary);letter-spacing:-.02em;line-height:1.3}
+.section-head .section-emoji{font-size:24px}
+
+/* GLASS CARD */
+.glass-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow);margin-bottom:20px;backdrop-filter:blur(12px);transition:box-shadow .3s}
+.glass-card:hover{box-shadow:var(--shadow-lg)}
+.glass-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.glass-card p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.8;color:var(--text);margin-bottom:12px}
+.glass-card p:last-child{margin-bottom:0}
+
+/* HIGHLIGHT BOX */
+.highlight-box{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.75;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.highlight-box.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.highlight-box.teal{background:linear-gradient(135deg,rgba(26,188,156,.08),rgba(26,188,156,.02));border-left-color:var(--teal)}
+
+/* COMPARE */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+@media(max-width:600px){.compare-row{grid-template-columns:1fr}}
+.compare-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;text-align:center;backdrop-filter:blur(8px)}
+.compare-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.compare-card .name{font-size:18px;font-weight:800;margin-bottom:8px}
+.compare-card .desc{font-size:13px;color:var(--text-sub);line-height:1.6}
+.compare-card.blue{border-top:3px solid var(--accent)}.compare-card.blue .label{color:var(--accent)}
+.compare-card.red{border-top:3px solid var(--coral)}.compare-card.red .label{color:var(--coral)}
+
+/* THINK BOX */
+.think-box{background:var(--gold-pale);border:1px solid rgba(212,168,83,.2);border-radius:var(--radius);padding:24px 28px;margin:24px 0}
+.think-box h4{font-size:15px;font-weight:700;color:#8B6914;margin-bottom:12px}
+.think-box p{font-size:14px;color:#5a4a1e;line-height:1.8;margin-bottom:8px}
+.think-box p:last-child{margin-bottom:0}
+
+/* SUMMARY */
+.summary-box{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(24px,3vw,36px);margin:40px 0;box-shadow:var(--shadow-lg)}
+.summary-box h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.summary-box ul{list-style:none;padding:0}
+.summary-box li{padding:8px 0;font-size:14px;line-height:1.7;border-bottom:1px solid rgba(255,255,255,.1);padding-left:20px;position:relative}
+.summary-box li:last-child{border-bottom:none}
+.summary-box li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* INQUIRY */
+.inquiry-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:20px}
+.inquiry-card h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.inquiry-card .question-text{font-size:14px;color:var(--text-sub);margin-bottom:16px}
+.inquiry-textarea{width:100%;min-height:100px;padding:14px;border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;line-height:1.7;resize:vertical;transition:border-color .2s;background:rgba(255,255,255,.8)}
+.inquiry-textarea:focus{outline:none;border-color:var(--accent)}
+.inquiry-submit{margin-top:12px;padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.inquiry-submit:hover{background:#3a6be6}
+.inquiry-submit:active{transform:scale(.97)}
+.inquiry-submit:disabled{opacity:.6;cursor:default}
+.keyword-result,.model-answer{display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius-sm);font-size:13.5px;line-height:1.8}
+.keyword-result{background:rgba(74,123,247,.05);border:1px solid rgba(74,123,247,.15)}
+.keyword-result h5{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.model-answer{background:rgba(39,174,96,.05);border:1px solid rgba(39,174,96,.15)}
+.model-answer h5{font-size:13px;font-weight:700;color:var(--green);margin-bottom:8px}
+.keywords-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.keywords-tags span{padding:3px 10px;background:rgba(74,123,247,.08);border-radius:100px;font-size:11.5px;font-weight:600;color:var(--accent)}
+
+/* QUIZ */
+.quiz-container{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.quiz-progress{display:flex;gap:6px;margin-bottom:20px}
+.quiz-dot{width:28px;height:6px;border-radius:3px;background:#e0e4ed;transition:background .3s}
+.quiz-dot.active{background:var(--accent)}.quiz-dot.correct{background:var(--green)}.quiz-dot.wrong{background:var(--coral)}
+.quiz-question{display:none;animation:fadeUp .3s ease}
+.quiz-question.active{display:block}
+.quiz-question h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.7}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{width:100%;text-align:left;padding:14px 18px;background:var(--glass);border:2px solid #e0e4ed;border-radius:var(--radius-sm);font-family:var(--font);font-size:14px;cursor:pointer;transition:all .2s;line-height:1.6}
+.quiz-option:hover:not(.disabled){border-color:var(--accent);background:rgba(74,123,247,.04)}
+.quiz-option.selected-correct{border-color:var(--green);background:rgba(39,174,96,.08);color:#1a6d3a}
+.quiz-option.selected-wrong{border-color:var(--coral);background:rgba(231,76,60,.06);color:#a93226}
+.quiz-option.show-correct{border-color:var(--green);background:rgba(39,174,96,.06)}
+.quiz-explanation{display:none;margin-top:14px;padding:12px 16px;background:rgba(74,123,247,.04);border-radius:var(--radius-xs);font-size:13px;color:var(--text-sub);line-height:1.7}
+.quiz-next-btn{display:none;margin-top:16px;padding:10px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.quiz-next-btn:hover{background:#3a6be6}
+.quiz-result{display:none;text-align:center;padding:32px 0}
+.quiz-result .score{font-size:48px;font-weight:900;color:var(--accent)}
+.quiz-result .score-label{font-size:14px;color:var(--text-sub);margin-top:4px}
+.quiz-result .retry-btn{margin-top:20px;padding:12px 32px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.quiz-result .retry-btn:hover{background:var(--primary-light)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+
+.review-intro{max-width:920px;margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+.part-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin:24px 0 8px}
+.stat-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius-sm);padding:16px;text-align:center;box-shadow:var(--shadow)}
+.stat-card .num{font-size:26px;font-weight:900;color:var(--accent);line-height:1}
+.stat-card .lbl{font-size:11.5px;color:var(--text-sub);margin-top:6px;font-weight:600}
+.quiz-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:14px}
+.quiz-counter{font-size:13px;font-weight:700;color:var(--primary);white-space:nowrap}
+.quiz-counter b{color:var(--accent);font-size:16px}
+.quiz-bar{flex:1;height:8px;background:#e0e4ed;border-radius:4px;overflow:hidden}
+.quiz-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#6e98ff);border-radius:4px;width:0;transition:width .35s ease}
+.quiz-live-score{font-size:12px;font-weight:600;color:var(--text-sub);white-space:nowrap}
+.quiz-live-score b{color:var(--green)}
+.q-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.q-num-tag{display:inline-block;padding:3px 11px;background:var(--gold);color:#fff;border-radius:100px;font-size:11px;font-weight:700}
+.q-unit-tag{display:inline-block;padding:3px 12px;background:var(--primary-pale);color:var(--primary);border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:-.01em}
+.quiz-question h4{white-space:pre-line}
+.quiz-option{white-space:pre-line}
+.expl-unit{display:inline-block;margin-right:8px;padding:2px 10px;background:var(--accent);color:#fff;border-radius:100px;font-size:11px;font-weight:700;vertical-align:middle}
+.quiz-start{text-align:center;padding:8px 0 4px}
+.quiz-start p{font-size:14px;color:var(--text-sub);margin-bottom:16px;line-height:1.7}
+.quiz-start-btn{padding:13px 36px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-xs);font-family:var(--font);font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s}
+.quiz-start-btn:hover{background:#3a6be6}
+.quiz-start-btn:active{transform:scale(.97)}
+.result-breakdown{text-align:left;max-width:560px;margin:24px auto 0}
+.result-breakdown h5{font-size:13px;font-weight:700;color:var(--primary);margin-bottom:12px;text-align:center}
+.rb-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:13px}
+.rb-name{flex:1;color:var(--text-sub)}
+.rb-bar{width:120px;height:7px;background:#e0e4ed;border-radius:4px;overflow:hidden;flex-shrink:0}
+.rb-bar-fill{height:100%;background:var(--green);border-radius:4px}
+.rb-score{width:46px;text-align:right;font-weight:700;color:var(--text);flex-shrink:0}
+
+</style>
+</head>
+<body>
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">2차 정기시험 대비</span>
+<span class="page-ref">한국사 Ⅳ~Ⅵ</span>
+</nav>
+<header class="hero">
+<span class="hero-emoji">📝</span>
+<h1>2차 정기시험 대비 핵심 26문항</h1>
+<p class="subtitle">시험 안내문 26개 주제를 그대로 담았습니다.<br/>한 문제씩 풀며 약한 단원을 점검해 보세요.</p>
+<div class="hero-keywords">
+<span>유교 윤리</span><span>왜란·호란</span><span>탕평·세도</span><span>개화기</span><span>민족 운동</span><span>정부 수립</span>
+</div>
+</header>
+<div class="diff-tabs">
+<div class="diff-tab basic">🔹 개념</div>
+<div class="diff-tab standard">🔸 과정·인과</div>
+<div class="diff-tab advanced">💠 시험 실전</div>
+</div>
+<div class="core-questions fade-up">
+<div class="cq-card">
+<h3>❓ 이렇게 활용하세요</h3>
+<ul class="cq-list">
+<li><span class="cq-badge basic">기초</span> 각 문제 위에 <strong>시험범위 번호</strong>가 적혀 있어 안내문과 바로 대조됩니다.</li>
+<li><span class="cq-badge standard">표준</span> 단순 암기보다 <strong>순서·비교·옳지 않은 것 고르기</strong> 등 시험에 나오는 형태로 구성했습니다.</li>
+<li><span class="cq-badge advanced">심화</span> 끝까지 풀면 단원별 정답률이 나와 보충할 부분을 알 수 있습니다.</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<div class="part-stats fade-up">
+<div class="stat-card"><div class="num">26</div><div class="lbl">시험 주제</div></div>
+<div class="stat-card"><div class="num">5지</div><div class="lbl">선다형</div></div>
+<div class="stat-card"><div class="num">Ⅳ~Ⅵ</div><div class="lbl">교과 단원</div></div>
+<div class="stat-card"><div class="num">126~183</div><div class="lbl">교과서 쪽</div></div>
+</div>
+<div class="section-head fade-up">
+<div class="section-num">📝</div><span class="section-emoji">📚</span>
+<h2>26문항 실전 점검</h2>
+</div>
+<div class="quiz-container fade-up">
+<div class="quiz-start" id="quizStart">
+<p>시험 안내문 24개 주제를 한 문제씩 점검합니다. 문항 순서는 풀 때마다 새로 섞입니다.</p>
+<button class="quiz-start-btn" id="quizStartBtn">▶ 시험 대비 시작 (26문항)</button>
+</div>
+<div id="quizStage" style="display:none"></div>
+<div class="quiz-result" id="quizResult" style="display:none">
+<div class="score" id="quizScore">0/26</div>
+<div class="score-label">맞힌 문제 수</div>
+<div class="result-breakdown" id="resultBreakdown"></div>
+<button class="retry-btn" id="quizRetryBtn">🔄 다시 풀기 (새로 섞기)</button>
+</div>
+</div>
+</div>
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+const QUESTIONS=[{"n": 1, "topic": "유교 윤리 보급", "q": "다음 설명에 해당하는 책을 바르게 짝지은 것은?\n(가) 아동에게 유교 윤리를 가르치기 위해 보급한 입문서\n(나) 관례·혼례·상례·제례의 예법을 정리한 책", "o": ["(가) 주자가례 — (나) 소학", "(가) 삼강행실도 — (나) 국조오례의", "(가) 국조오례의 — (나) 삼강행실도", "(가) 경국대전 — (나) 향약", "(가) 소학 — (나) 주자가례"], "c": 4, "e": "(가)는 아동 대상 유교 윤리 입문서인 《소학》, (나)는 집안의 관혼상제 예법을 정리한 《주자가례》입니다. 삼강행실도는 충·효·열의 모범 사례를 글과 그림으로 엮은 책, 국조오례의는 국가·왕실의 다섯 의례를 정리한 책으로 가정 의례서가 아닙니다.", "u": "Ⅳ단원 · 유교 윤리의 보급"}, {"n": 2, "topic": "훈민정음", "q": "훈민정음 창제·반포에 대한 설명으로 옳지 “않은” 것은?", "o": ["양반 사대부의 한문 학습을 금지하기 위해 만들었다.", "한자를 모르는 백성도 자기 뜻을 표현할 수 있게 하려는 목적이 있었다.", "용비어천가는 훈민정음으로 지어 조선 건국의 정당성을 강조하였다.", "백성을 교화하고 국가 정책을 전달하는 데 활용되었다.", "국문학 발전과 민족 문화 발달에 기여하였다."], "c": 0, "e": "훈민정음은 한자를 모르는 백성의 어려움을 덜어 주려 만든 것이지, 양반의 한문 학습을 금지하려는 것이 아니었습니다. 오히려 여러 분야의 책을 훈민정음으로 펴내 정책 전달과 백성 교화에 활용했고, 용비어천가로 건국의 정당성을 드러냈습니다.", "u": "Ⅳ단원 · 훈민정음"}, {"n": 3, "topic": "천문학과 지리학", "q": "조선 전기 과학 기술에 대한 설명으로 옳은 것은?", "o": ["혼일강리역대국도지도는 세종 때 제작된 천문도이다.", "측우기는 별의 위치를 관측하기 위한 기구이다.", "칠정산은 한양을 기준으로 천체 운동을 계산한 역법이다.", "천상열차분야지도는 조선의 농업 생산량을 기록한 자료이다.", "간의는 강우량을 측정하기 위해 만든 도구이다."], "c": 2, "e": "칠정산은 원의 수시력과 아라비아 회회력을 참고하되, 한양을 기준으로 천체 운동을 정확히 계산한 역법입니다. 혼일강리역대국도지도는 태종 때의 세계 지도, 천상열차분야지도는 천문도, 측우기는 강우량 측정 기구, 간의는 천체 관측 기구로 각각 쓰임이 다릅니다.", "u": "Ⅳ단원 · 천문학과 지리학"}, {"n": 4, "topic": "임진왜란의 과정", "q": "임진왜란의 전개 과정을 순서대로 바르게 나열한 것은?\n(ㄱ) 한산도 대첩  (ㄴ) 선조의 의주 피란\n(ㄷ) 명량 대첩  (ㄹ) 행주 대첩", "o": ["ㄱ → ㄴ → ㄹ → ㄷ", "ㄴ → ㄹ → ㄱ → ㄷ", "ㄱ → ㄹ → ㄴ → ㄷ", "ㄴ → ㄱ → ㄹ → ㄷ", "ㄴ → ㄱ → ㄷ → ㄹ"], "c": 3, "e": "왜군의 한양 점령으로 선조가 의주로 피란(ㄴ)한 뒤, 이순신이 한산도 대첩(ㄱ)으로 제해권을 잡았고, 조·명 연합군과 권율의 행주 대첩(ㄹ)으로 한양을 되찾았습니다. 이후 정유재란 때 명량 대첩(ㄷ)이 일어났습니다.", "u": "Ⅳ단원 · 임진왜란"}, {"n": 5, "topic": "사명 대사의 포로 송환", "q": "임진왜란 이후 사명 대사의 활동과 그 의의로 가장 알맞은 것은?", "o": ["조총 부대를 이끌고 한산도에서 일본 수군을 격파하였다.", "후금과의 중립 외교를 주도하여 전쟁을 피하였다.", "일본에 끌려간 포로를 데려오는 데 힘써 이후 통신사 왕래의 계기가 되었다.", "북벌 운동을 추진하여 청을 정벌하려 하였다.", "대동법을 건의하여 공납의 폐단을 해결하였다."], "c": 2, "e": "사명 대사는 전쟁으로 일본에 끌려간 포로를 송환하는 데 힘썼고, 이는 끊겼던 국교가 회복되어 통신사가 오가는 계기가 되었습니다. 나머지는 이순신, 광해군, 효종, 이원익 등 다른 인물·시기의 활동입니다.", "u": "Ⅳ단원 · 임진왜란"}, {"n": 6, "topic": "광해군의 외교정책", "q": "광해군의 중립 외교에 대한 설명으로 옳은 것은?", "o": ["명을 받들고 후금을 배척하여 정묘호란을 불러왔다.", "청과 군신 관계를 맺어 조공을 바치기로 하였다.", "북벌을 내세워 청을 정벌할 군대를 양성하였다.", "일본과 국교를 끊고 통신사 파견을 중단하였다.", "강성한 후금과 쇠퇴하는 명 사이에서 실리를 추구하며 충돌을 피하였다."], "c": 4, "e": "광해군은 후금과 명 어느 쪽에도 치우치지 않는 중립 외교로 실리를 챙기며 전쟁을 피했습니다(강홍립 파견). 명을 받들고 후금을 배척한 것은 인조반정 이후의 친명배금이고, 군신 관계·북벌은 병자호란 전후 효종 대의 일입니다.", "u": "Ⅳ단원 · 광해군과 호란"}, {"n": 7, "topic": "인조반정", "q": "인조반정에 대한 설명으로 옳은 것은?", "o": ["남인이 주도하여 친청 정책으로 전환하였다.", "농민들이 삼정의 문란에 맞서 일으킨 봉기이다.", "후금의 침입을 물리치기 위해 일어난 의병 운동이다.", "탕평책에 반대한 붕당이 일으킨 정변이다.", "서인이 광해군의 중립 외교와 정통성 문제를 구실로 광해군을 몰아냈다."], "c": 4, "e": "인조반정은 서인이 광해군의 중립 외교, 영창 대군 살해와 인목 대비 폐위 등을 구실로 광해군과 북인을 몰아내고 인조를 세운 사건입니다. 이후 정권은 친명배금으로 돌아섰습니다. 나머지는 시기·주체가 모두 다릅니다.", "u": "Ⅳ단원 · 광해군과 호란"}, {"n": 8, "topic": "정묘호란 이후 사건", "q": "정묘호란 이후에 일어난 사건으로 옳은 것은?", "o": ["일본군이 부산진과 동래성을 침략하였다.", "이순신이 명량에서 일본 수군을 격파하였다.", "광해군이 강홍립을 후금에 파견하였다.", "서인이 인조반정을 일으켰다.", "후금과 조선이 형제 관계를 맺고 후금이 한반도 진출을 중단하였다."], "c": 4, "e": "정묘호란의 결과 조선과 후금은 형제 관계를 맺었고, 후금은 한반도 진출을 멈추는 대신 조선은 명과의 관계를 유지하며 세폐를 바쳤습니다. 나머지 선지는 모두 정묘호란 이전(임진왜란·강홍립 파견·인조반정)의 사건입니다.", "u": "Ⅳ단원 · 광해군과 호란"}, {"n": 9, "topic": "대동법 실시와 결과", "q": "대동법의 내용과 결과에 대한 설명으로 옳지 “않은” 것은?", "o": ["군포를 2필에서 1필로 줄여 군역 부담을 덜었다.", "집집마다 토산물을 거두던 공납을 토지 면적 기준으로 바꾸었다.", "쌀·베·면포·동전 등으로 세금을 거두었다.", "방납의 폐단을 줄여 백성의 부담을 덜었다.", "국가에 필요한 물품을 조달하는 공인이 등장하였다."], "c": 0, "e": "군포를 2필에서 1필로 줄인 것은 영조의 균역법입니다. 대동법은 토산물 공납을 토지 기준의 쌀·베·면포·동전 납부로 바꿔 방납의 폐단을 줄였고, 그 결과 공인이 등장해 상품 화폐 경제가 발달했습니다.", "u": "Ⅴ단원 · 양 난 이후 재건"}, {"n": 10, "topic": "영조의 정책", "q": "영조가 실시한 정책으로 옳은 것만을 모두 고른 것은?\n(ㄱ) 균역법  (ㄴ) 규장각 설치\n(ㄷ) 서원 정리  (ㄹ) 화성 건설", "o": ["ㄱ, ㄴ", "ㄴ, ㄹ", "ㄷ, ㄹ", "ㄱ, ㄷ", "ㄱ, ㄹ"], "c": 3, "e": "영조는 군포를 1필로 줄인 균역법(ㄱ)과 붕당의 근거지인 서원 정리(ㄷ)를 통해 민생을 안정시키고 탕평책을 폈습니다. 규장각 설치(ㄴ)와 화성 건설(ㄹ)은 모두 정조의 개혁 정치에 해당합니다.", "u": "Ⅴ단원 · 탕평 정치"}, {"n": 11, "topic": "세도 정치", "q": "세도 정치 시기의 모습으로 옳은 것은?", "o": ["왕이 탕평책으로 붕당의 균형을 잡았다.", "여러 붕당이 서로 견제하며 공론 정치를 펼쳤다.", "암행어사가 활발히 파견되어 수령의 부정을 바로잡았다.", "몇몇 외척 가문이 비변사를 중심으로 권력을 독점하였다.", "과거 합격만 하면 가문과 상관없이 고위직에 올랐다."], "c": 3, "e": "세도 정치는 안동 김씨 등 외척 가문이 비변사를 중심으로 권력을 독점한 비정상적 정치로, 매관매직이 유행하고 수탈이 심해졌습니다. 암행어사는 제 기능을 못 했고, 세도 가문이 아니면 고위직 진출이 어려웠습니다.", "u": "Ⅴ단원 · 세도 정치"}, {"n": 12, "topic": "강화도 조약", "q": "강화도 조약(1876)에 대한 설명으로 옳은 것은?", "o": ["조선이 청의 속국임을 국제적으로 인정한 조약이다.", "조선에 유리한 관세 자주권이 보장된 조약이다.", "외국과 맺은 최초의 평등 조약으로 평가된다.", "운요호 사건을 구실로 일본이 강요하여 맺은 조약이다.", "대한 제국의 외교권을 일본에 넘긴 조약이다."], "c": 3, "e": "강화도 조약은 운요호 사건을 빌미로 일본이 강요해 맺은, 조선 최초의 근대적 조약입니다. 해안 측량권과 영사 재판권을 내준 불평등 조약이었습니다. 외교권을 넘긴 것은 1905년 을사늑약입니다.", "u": "Ⅵ단원 · 문호 개방"}, {"n": 13, "topic": "개화기 순서", "q": "다음 사건을 일어난 순서대로 바르게 나열한 것은?\n(ㄱ) 동학 농민 운동  (ㄴ) 갑신정변\n(ㄷ) 대한 제국 수립 선포  (ㄹ) 갑오개혁", "o": ["ㄴ → ㄱ → ㄹ → ㄷ", "ㄱ → ㄴ → ㄹ → ㄷ", "ㄴ → ㄹ → ㄱ → ㄷ", "ㄱ → ㄹ → ㄴ → ㄷ", "ㄴ → ㄱ → ㄷ → ㄹ"], "c": 0, "e": "갑신정변(1884) → 동학 농민 운동(1894) → 갑오개혁(1894, 동학 운동 중 추진) → 대한 제국 수립 선포(1897) 순입니다. 동학 농민 운동을 계기로 청·일이 출병해 전쟁이 일어났고 그 와중에 갑오개혁이 진행되었다는 흐름을 기억하면 순서를 잡기 쉽습니다.", "u": "Ⅵ단원 · 개화기"}, {"n": 14, "topic": "갑신정변의 내용", "q": "갑신정변의 개혁 정강 내용으로 옳은 것은?", "o": ["헌병 경찰 제도를 도입하려 하였다.", "신분·문벌을 폐지하고 재정을 호조로 일원화하려 하였다.", "토지 조사 사업을 실시하려 하였다.", "신사참배와 창씨개명을 강요하려 하였다.", "산미 증식 계획을 추진하려 하였다."], "c": 1, "e": "갑신정변의 정강에는 신분·문벌 차별 폐지와 국가 재정의 호조 일원화 등이 담겼습니다. 나머지 선지는 모두 일제강점기의 식민 정책으로, 근대 국가를 세우려던 개화파의 방향과는 정반대입니다.", "u": "Ⅵ단원 · 개화기"}, {"n": 15, "topic": "독립협회의 특징", "q": "독립협회의 활동으로 옳지 “않은” 것은?", "o": ["고종을 황제로 추대하고 대한국 국제를 제정하였다.", "독립신문을 간행하여 국민을 계몽하였다.", "독립문을 세워 자주독립 의식을 높였다.", "만민 공동회를 열어 열강의 이권 침탈에 반대하였다.", "헌의 6조를 결의하여 의회 설립 등 정치 개혁을 요구하였다."], "c": 0, "e": "고종의 황제 즉위와 대한국 국제 제정은 대한 제국 수립 과정으로 독립협회의 활동이 아닙니다. 독립협회는 독립신문·독립문·만민 공동회·헌의 6조를 통해 자주독립과 민권 신장을 추구했습니다.", "u": "Ⅵ단원 · 국민 국가 수립"}, {"n": 16, "topic": "을사늑약의 내용", "q": "을사늑약(1905)의 핵심 내용으로 옳은 것은?", "o": ["대한 제국의 군대를 해산하였다.", "대한 제국의 외교권을 빼앗고 통감부를 설치하였다.", "고종을 강제로 퇴위시켰다.", "한국의 사법권과 경찰권을 빼앗았다.", "한·일 병합을 공식 선포하였다."], "c": 1, "e": "을사늑약은 대한 제국의 외교권을 강탈하고 통감부를 설치해 보호국으로 만든 조약입니다. 군대 해산·고종 강제 퇴위는 1907년, 한·일 병합은 1910년의 일로 시기가 다릅니다.", "u": "Ⅵ단원 · 국권 수호"}, {"n": 17, "topic": "정미의병의 계기", "q": "1907년 정미의병이 크게 확산된 직접적 계기로 가장 알맞은 것은?", "o": ["강화도 조약의 체결", "고종 강제 퇴위와 대한 제국 군대의 해산", "단발령의 시행", "을사늑약의 강제 체결", "동학 농민군의 봉기"], "c": 1, "e": "정미의병은 일제가 헤이그 특사를 구실로 고종을 강제 퇴위시키고 대한 제국 군대를 해산하자, 해산된 군인들이 합류하면서 크게 확산되었습니다. 단발령은 을미의병(1895), 을사늑약은 을사의병(1905)의 계기로 시기가 다릅니다.", "u": "Ⅵ단원 · 국권 수호"}, {"n": 18, "topic": "3·1 운동의 배경과 과정", "q": "3·1 운동에 대한 설명으로 옳지 “않은” 것은?", "o": ["일제의 무단 통치와 민족 자결주의가 배경이 되었다.", "외교권을 되찾기 위해 헤이그에 특사를 파견하였다.", "종교계와 학생을 중심으로 시작되어 전국으로 확산되었다.", "대한민국 임시 정부 수립의 계기가 되었다.", "일제의 통치 방식이 무단 통치에서 문화 통치로 바뀌는 계기가 되었다."], "c": 1, "e": "헤이그 특사 파견은 을사늑약(1905)의 부당함을 알리기 위한 것으로 3·1 운동과 무관합니다. 3·1 운동은 무단 통치와 민족 자결주의를 배경으로 종교계·학생이 시작해 전국으로 번졌고, 임시 정부 수립과 문화 통치 전환의 계기가 되었습니다.", "u": "Ⅵ단원 · 민족 운동"}, {"n": 19, "topic": "한인 애국단의 활동", "q": "한인 애국단에 대한 설명으로 옳은 것은?", "o": ["김원봉이 만주에서 조직하여 식민 통치 기관을 파괴하였다.", "비타협적 민족주의와 사회주의가 연합한 민족 협동 전선이다.", "물산 장려 운동을 주도한 실력 양성 단체이다.", "김구가 임시 정부의 활로를 찾기 위해 조직한 의거 단체이다.", "봉오동·청산리에서 일본군을 격파한 무장 부대이다."], "c": 3, "e": "한인 애국단은 김구가 침체된 임시 정부의 활로를 찾기 위해 조직한 의거 단체입니다. 의열단(김원봉), 신간회(민족 협동 전선), 물산 장려 운동, 봉오동·청산리 전투(무장 부대)는 각각 다른 단체·활동입니다.", "u": "Ⅵ단원 · 민족 운동"}, {"n": 20, "topic": "한국 광복군의 활동", "q": "한국 광복군에 대한 설명으로 옳은 것은?", "o": ["흥선 대원군이 통상 수교 거부를 위해 조직하였다.", "동학 농민군이 개혁을 집행하기 위해 만든 기구이다.", "대한민국 임시 정부의 정규군으로 연합군과 함께 활동하였다.", "갑오개혁으로 신설된 근대적 군대이다.", "을미개혁 때 단발령에 맞서 일어난 의병 부대이다."], "c": 2, "e": "한국 광복군은 1940년 대한민국 임시 정부 산하에 창설된 정규군으로, 연합군의 일원으로 참전하고 미국과 함께 국내 진공 작전을 준비했습니다. 나머지는 시기·성격이 전혀 다른 군대·기구입니다.", "u": "Ⅵ단원 · 무장 투쟁"}, {"n": 21, "topic": "신간회의 특징", "q": "신간회의 성격으로 가장 알맞은 것은?", "o": ["일제가 한국 통치를 위해 만든 행정 기관이다.", "임시 정부 산하의 무장 독립군 부대이다.", "비타협적 민족주의 계열과 사회주의 계열이 함께한 민족 협동 전선이다.", "토산품 애용을 내세운 실력 양성 운동 단체이다.", "대한 제국의 의회 설립을 추진한 단체이다."], "c": 2, "e": "신간회는 이념과 계층을 넘어 비타협적 민족주의와 사회주의가 연합한 민족 협동 전선 단체로, 정치·경제적 각성과 단결, 기회주의 배격을 강령으로 삼았습니다. 나머지는 성격이 다른 기관·단체·부대입니다.", "u": "Ⅵ단원 · 민족 운동"}, {"n": 22, "topic": "대한민국 정부 수립 과정", "q": "광복 이후 대한민국 정부 수립 과정을 순서대로 나열한 것은?\n(ㄱ) 5·10 총선거  (ㄴ) 8·15 광복\n(ㄷ) 모스크바 3국 외상 회의  (ㄹ) 대한민국 정부 수립 선포", "o": ["ㄴ → ㄱ → ㄷ → ㄹ", "ㄴ → ㄷ → ㄱ → ㄹ", "ㄷ → ㄴ → ㄱ → ㄹ", "ㄴ → ㄷ → ㄹ → ㄱ", "ㄱ → ㄴ → ㄷ → ㄹ"], "c": 1, "e": "8·15 광복(ㄴ, 1945.8) → 모스크바 3국 외상 회의(ㄷ, 1945.12) → 5·10 총선거(ㄱ, 1948.5) → 대한민국 정부 수립 선포(ㄹ, 1948.8.15) 순입니다. 총선거로 제헌 국회를 구성하고 헌법을 제정한 뒤 정부 수립을 선포했다는 흐름이 핵심입니다.", "u": "Ⅵ단원 · 정부 수립"}, {"n": 23, "topic": "모스크바 3국 외상 회의", "q": "모스크바 3국 외상 회의(1945)의 결정 내용으로 옳은 것은?", "o": ["임시 정부 수립, 미·소 공동 위원회 설치, 최대 5년간 신탁 통치", "남북한 동시 총선거를 통한 즉각적인 정부 수립", "일본의 무조건 항복과 한국의 즉시 독립", "38도선을 경계로 한 영구 분단 결정", "대한민국 임시 정부의 정통성 인정과 승계"], "c": 0, "e": "모스크바 3국 외상 회의는 한반도에 임시 정부를 수립하고, 이를 돕기 위해 미·소 공동 위원회를 설치하며, 최대 5년간 신탁 통치를 실시한다는 내용을 결정했습니다. 신탁 통치를 두고 찬탁·반탁으로 갈라지는 계기가 되었습니다.", "u": "Ⅵ단원 · 정부 수립"}, {"n": 24, "topic": "시기별 일제 통치 방식", "q": "일제의 식민 통치 방식을 시기순으로 바르게 연결한 것은?", "o": ["1910년대 문화 통치 → 1920년대 무단 통치 → 1930년대 이후 민족 말살 통치", "1910년대 민족 말살 통치 → 1920년대 무단 통치 → 1930년대 이후 문화 통치", "1910년대 무단 통치 → 1920년대 문화 통치 → 1930년대 이후 민족 말살 통치", "1910년대 무단 통치 → 1920년대 민족 말살 통치 → 1930년대 이후 문화 통치", "1910년대 문화 통치 → 1920년대 민족 말살 통치 → 1930년대 이후 무단 통치"], "c": 2, "e": "일제는 1910년대 헌병 경찰을 앞세운 무단 통치, 3·1 운동 이후 1920년대 문화 통치, 1930년대 이후 전쟁을 확대하며 우리말·이름까지 빼앗는 민족 말살 통치로 통치 방식을 바꿔 갔습니다. 강압 → 회유 → 말살로 이어지는 흐름입니다.", "u": "Ⅵ단원 · 일제 통치와 수탈"}, {"n": 25, "topic": "일제의 경제 수탈", "q": "시기별 일제의 경제 수탈을 바르게 연결한 것은?", "o": ["1910년대 산미 증식 계획 → 1920년대 토지 조사 사업", "1910년대 회사령 폐지 → 1920년대 토지 조사 사업", "1910년대 산미 증식 계획 → 1920년대 회사령 공포", "1910년대 토지 조사 사업 → 1920년대 회사령 폐지", "1910년대 토지 조사 사업 → 1920년대 산미 증식 계획"], "c": 4, "e": "일제는 1910년대 토지 조사 사업으로 한국인의 토지를 빼앗고, 1920년대에는 일본의 식량 부족을 메우기 위해 산미 증식 계획을 추진해 쌀을 수탈했습니다. 토지 조사 사업과 산미 증식 계획의 순서를 바꾸거나 회사령과 뒤섞은 나머지 선지는 옳지 않습니다.", "u": "Ⅵ단원 · 일제 통치와 수탈"}, {"n": 26, "topic": "항일 무장 투쟁", "q": "다음 설명에 해당하는 전투를 바르게 짝지은 것은?\n(가) 홍범도의 대한독립군 등이 일본군을 격파\n(나) 김좌진의 북로군정서군 등이 일본군을 대파", "o": ["(가) 봉오동 전투 — (나) 청산리 전투", "(가) 청산리 전투 — (나) 봉오동 전투", "(가) 행주 대첩 — (나) 한산도 대첩", "(가) 봉오동 전투 — (나) 명량 대첩", "(가) 청산리 전투 — (나) 쌍성보 전투"], "c": 0, "e": "(가)는 홍범도의 대한독립군이 활약한 봉오동 전투, (나)는 김좌진의 북로군정서군이 일본군을 크게 물리친 청산리 전투입니다. 두 전투 모두 3·1 운동 전후 만주에서 전개된 대표적 항일 무장 투쟁입니다. 행주·한산도·명량은 임진왜란의 전투입니다.", "u": "Ⅵ단원 · 무장 투쟁"}];
+const TOTAL=QUESTIONS.length;
+let order=[],pos=0,score=0,unitStat={};
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function startQuiz(){
+  order=shuffle([...Array(TOTAL).keys()]);
+  pos=0;score=0;unitStat={};
+  document.getElementById('quizStart').style.display='none';
+  document.getElementById('quizResult').style.display='none';
+  document.getElementById('quizStage').style.display='block';
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const stage=document.getElementById('quizStage');
+  const item=QUESTIONS[order[pos]];
+  const pct=Math.round((pos/TOTAL)*100);
+  const circled=['①','②','③','④','⑤'];
+  let h='';
+  h+='<div class="quiz-topbar">';
+  h+='<span class="quiz-counter"><b>'+(pos+1)+'</b> / '+TOTAL+'</span>';
+  h+='<span class="quiz-bar"><span class="quiz-bar-fill" style="width:'+pct+'%"></span></span>';
+  h+='<span class="quiz-live-score">맞힘 <b>'+score+'</b></span></div>';
+  h+='<div class="quiz-question active">';
+  h+='<div class="q-tags"><span class="q-num-tag">시험범위 '+item.n+'번</span><span class="q-unit-tag">'+esc(item.u)+'</span></div>';
+  h+='<h4>Q'+(pos+1)+'. '+esc(item.q)+'</h4>';
+  h+='<div class="quiz-options">';
+  for(let oi=0;oi<item.o.length;oi++){h+='<button class="quiz-option" data-idx="'+oi+'">'+circled[oi]+' '+esc(item.o[oi])+'</button>';}
+  h+='</div><div class="quiz-explanation"></div>';
+  h+='<button class="quiz-next-btn">'+((pos+1<TOTAL)?'다음 문제 →':'결과 보기 →')+'</button></div>';
+  stage.innerHTML=h;
+  stage.querySelectorAll('.quiz-option').forEach(b=>b.addEventListener('click',()=>selectAnswer(b,parseInt(b.dataset.idx))));
+  stage.querySelector('.quiz-next-btn').addEventListener('click',nextQuestion);
+  stage.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function selectAnswer(btn,idx){
+  const item=QUESTIONS[order[pos]];
+  const correct=item.c;
+  const stage=document.getElementById('quizStage');
+  const opts=stage.querySelectorAll('.quiz-option');
+  opts.forEach(o=>{o.classList.add('disabled');o.style.pointerEvents='none'});
+  if(!unitStat[item.u])unitStat[item.u]={correct:0,total:0};
+  unitStat[item.u].total++;
+  if(idx===correct){btn.classList.add('selected-correct');score++;unitStat[item.u].correct++;}
+  else{btn.classList.add('selected-wrong');opts[correct].classList.add('show-correct');}
+  const expl=stage.querySelector('.quiz-explanation');
+  expl.innerHTML='';
+  const badge=document.createElement('span');
+  badge.className='expl-unit';badge.textContent=item.u;
+  expl.appendChild(badge);
+  expl.appendChild(document.createTextNode(item.e));
+  expl.style.display='block';
+  const live=stage.querySelector('.quiz-live-score b');
+  if(live)live.textContent=score;
+  stage.querySelector('.quiz-next-btn').style.display='inline-block';
+}
+
+function nextQuestion(){pos++;if(pos<TOTAL)renderQuestion();else showResult();}
+
+function showResult(){
+  document.getElementById('quizStage').style.display='none';
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  document.getElementById('quizScore').textContent=score+'/'+TOTAL;
+  let bd='<h5>📊 단원별 정답률</h5>';
+  Object.keys(unitStat).forEach(u=>{
+    const s=unitStat[u];const p=Math.round((s.correct/s.total)*100);
+    bd+='<div class="rb-row"><span class="rb-name">'+esc(u)+'</span><span class="rb-bar"><span class="rb-bar-fill" style="width:'+p+'%"></span></span><span class="rb-score">'+s.correct+'/'+s.total+'</span></div>';
+  });
+  document.getElementById('resultBreakdown').innerHTML=bd;
+  res.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+document.getElementById('quizStartBtn').addEventListener('click',startQuiz);
+document.getElementById('quizRetryBtn').addEventListener('click',startQuiz);
+
+</script>
+</body>
+</html>

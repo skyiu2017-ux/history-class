@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>✍️ 수행평가 모범답안</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1B2A4A;--primary-light:#2C3E6B;--primary-pale:#E8EDF6;
+  --accent:#4A7BF7;--accent-glow:rgba(74,123,247,.25);
+  --gold:#D4A853;--gold-pale:#FFF8E7;--teal:#1ABC9C;--coral:#E74C3C;--green:#27AE60;
+  --bg:#F0F2F8;--card:rgba(255,255,255,.72);--card-border:rgba(255,255,255,.45);
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.35);
+  --text:#1a1a2e;--text-sub:#5a6178;--text-light:#8892a8;
+  --shadow:0 8px 32px rgba(27,42,74,.08);--shadow-lg:0 16px 48px rgba(27,42,74,.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --nav-h:56px;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:clamp(14px,1.6vw,16px);-webkit-font-smoothing:antialiased}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,32px);background:rgba(240,242,248,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(27,42,74,.06);font-size:13px}
+.navbar .school{color:var(--text-light);font-weight:500}
+.navbar .unit{color:var(--primary);font-weight:700;letter-spacing:-.02em}
+.navbar .page-ref{color:var(--text-light);font-weight:400}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(40px,7vw,80px) clamp(20px,4vw,48px) clamp(32px,5vw,56px);background:linear-gradient(135deg,var(--primary) 0%,#1e3a6e 40%,#2d5aa0 100%);color:#fff;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(74,123,247,.2),transparent)}
+.hero-emoji{font-size:clamp(44px,7vw,72px);margin-bottom:12px;display:block;position:relative}
+.hero h1{font-size:clamp(24px,4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.3;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero .subtitle{margin-top:14px;font-size:clamp(13.5px,1.7vw,17px);font-weight:300;opacity:.85;position:relative;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* GUIDE NOTE */
+.guide-note{max-width:880px;margin:24px auto 0;padding:0 clamp(16px,3vw,32px)}
+.guide-note .inner{background:var(--gold-pale);border:1px solid rgba(212,168,83,.25);border-radius:var(--radius-sm);padding:16px 20px;font-size:13.5px;color:#5a4a1e;line-height:1.7}
+.guide-note strong{color:#8B6914}
+
+/* TABS */
+.tab-bar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:28px clamp(16px,3vw,32px) 8px;max-width:880px;margin:0 auto}
+.tab-btn{padding:12px 24px;border-radius:100px;font-family:var(--font);font-size:14px;font-weight:700;background:var(--card);color:var(--text-sub);box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent;cursor:pointer;transition:all .2s}
+.tab-btn:hover{border-color:var(--accent);color:var(--accent)}
+.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 4px 16px var(--accent-glow)}
+
+/* CONTAINER */
+.container{max-width:880px;margin:0 auto;padding:8px clamp(16px,3vw,32px) 64px}
+
+/* TASK PANEL */
+.task-panel{display:none;animation:fadeUp .35s ease}
+.task-panel.active{display:block}
+
+/* TASK INTRO */
+.task-intro{background:linear-gradient(135deg,var(--primary) 0%,#2d5aa0 100%);color:#fff;border-radius:var(--radius);padding:clamp(22px,3vw,30px);box-shadow:var(--shadow-lg);margin:24px 0 28px}
+.task-intro h2{font-size:clamp(18px,2.4vw,22px);font-weight:800;letter-spacing:-.02em;line-height:1.35;margin-bottom:10px}
+.task-intro p{font-size:14px;line-height:1.8;opacity:.92}
+.task-meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.task-meta span{display:inline-block;padding:5px 14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:100px;font-size:12.5px;font-weight:600}
+
+/* ANSWER CARD (accordion) */
+.ans-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:16px;backdrop-filter:blur(12px);overflow:hidden;transition:box-shadow .3s}
+.ans-card:hover{box-shadow:var(--shadow-lg)}
+.ans-head{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none}
+.ans-num{flex-shrink:0;width:38px;height:38px;border-radius:11px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800}
+.ans-titles{flex:1;min-width:0}
+.ans-titles .stage{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.02em}
+.ans-titles .title{font-size:15px;font-weight:700;color:var(--primary);margin-top:2px;line-height:1.4}
+.ans-badges{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;align-items:center}
+.score-badge{flex-shrink:0;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;background:rgba(212,168,83,.14);color:#b8860b;white-space:nowrap}
+.ans-toggle{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(74,123,247,.1);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;transition:transform .3s}
+.ans-card.open .ans-toggle{transform:rotate(45deg)}
+.ans-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.ans-card.open .ans-body{max-height:2000px}
+.ans-body-inner{padding:0 24px 24px;border-top:1px solid rgba(27,42,74,.06)}
+.ans-body-inner p{font-size:clamp(13.5px,1.5vw,15px);line-height:1.95;color:var(--text);margin-top:16px}
+.ans-body-inner p:first-child{margin-top:18px}
+.ans-body-inner .rule{border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:12px 18px;margin-top:16px;font-size:14px;line-height:1.85;background:linear-gradient(135deg,rgba(74,123,247,.06),rgba(74,123,247,.02))}
+.ans-body-inner .rule.gold{background:linear-gradient(135deg,rgba(212,168,83,.08),rgba(212,168,83,.02));border-left-color:var(--gold)}
+.ans-body-inner .rule strong{color:var(--primary)}
+.ans-body-inner .note{margin-top:16px;padding:12px 18px;background:rgba(26,188,156,.06);border:1px solid rgba(26,188,156,.16);border-radius:var(--radius-sm);font-size:13.5px;color:#157a64;line-height:1.8}
+.ans-body-inner .note strong{color:#0f5c4a}
+
+/* EXPAND ALL */
+.expand-bar{display:flex;justify-content:flex-end;margin:0 0 14px}
+.expand-bar button{padding:8px 18px;background:var(--glass);border:1px solid var(--glass-border);border-radius:100px;font-family:var(--font);font-size:12.5px;font-weight:700;color:var(--text-sub);cursor:pointer;transition:all .2s}
+.expand-bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* SECTION LABEL */
+.flow-label{display:flex;align-items:center;gap:10px;margin:8px 0 16px;font-size:13px;font-weight:700;color:var(--text-light)}
+.flow-label::before,.flow-label::after{content:'';flex:1;height:1px;background:rgba(27,42,74,.1)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:32px 20px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(27,42,74,.06)}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<span class="school">📚 문시중학교</span>
+<span class="unit">수행평가 모범답안</span>
+<span class="page-ref">한국사</span>
+</nav>
+<!-- HERO -->
+<header class="hero">
+<span class="hero-emoji">✍️</span>
+<h1>수행평가 모범답안</h1>
+<p class="subtitle">서술형 수행평가, 어디까지 써야 '완성형'일까요?<br/>단락을 하나씩 펼쳐 보며 '이렇게 쓰면 만점'의 흐름을 확인해 보세요.</p>
+</header>
+<!-- GUIDE NOTE -->
+<div class="guide-note">
+<div class="inner">📌 <strong>읽는 방법</strong> — 아래 두 주제 중 하나를 고른 뒤, 각 단락 카드를 눌러 모범답안을 펼쳐 보세요. 단락 옆의 작은 배지는 그 부분이 채점에서 평가하는 핵심 요소입니다. 답안을 통째로 외우기보다, <strong>'어떤 순서로 어떤 내용을 담았는지'</strong> 그 흐름을 익히는 것이 중요합니다.</div>
+</div>
+<!-- TABS -->
+<div class="tab-bar">
+<button class="tab-btn active" onclick="switchTab('tab1',this)">3·1 운동과 임시정부</button>
+<button class="tab-btn" onclick="switchTab('tab2',this)">갑신정변과 갑오개혁</button>
+</div>
+<div class="container">
+
+<!-- ══════════ TAB 1: 3·1 운동과 임시정부 ══════════ -->
+<div class="task-panel active" id="tab1">
+<div class="task-intro">
+<h2>3·1 운동과 대한민국 임시정부를 연결하는 글쓰기</h2>
+<p>거리의 만세 함성은 어떻게 하나의 '정부'로 이어졌을까요? 1919년 경성에 살던 열일곱 살 학생이 되어, 3·1 운동의 배경부터 임시정부 수립의 의미까지를 한 편의 이야기로 이어 써 보는 활동입니다.</p>
+<div class="task-meta">
+<span>페르소나 · 17세 학생</span><span>자료 C · 제암리 학살</span><span>심화 자료 E · 해외 동포</span>
+</div>
+</div>
+
+<div class="expand-bar"><button onclick="toggleAll('tab1')">전체 펼치기 / 접기</button></div>
+
+<div class="flow-label">단락 흐름</div>
+
+<!-- 단락 1 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">①</div>
+<div class="ans-titles">
+<div class="stage">내가 살던 시대</div>
+<div class="title">3·1 운동이 일어난 배경과 그날의 풍경</div>
+</div>
+<div class="ans-badges"><span class="score-badge">기초 사실 2점</span><span class="score-badge">배경</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>3·1 운동은 일제가 헌병 경찰을 앞세워 조선을 강압적으로 다스리던 <strong>무단 통치</strong>에 대한 분노와, 윌슨의 <strong>민족 자결주의</strong>·2·8 독립 선언처럼 나라 밖에서 높아진 독립의 열기를 배경으로 터져 나왔습니다.</p>
+<p>그때 나는 1919년 경성에 살던 열일곱 살 학생이었습니다. 3월, 탑골 공원에서 시작된 만세의 함성은 평양·수원을 거쳐 전국으로 번졌고, 학생·상인·농민·종교인 등 신분을 가리지 않은 사람들이 거리로 쏟아져 나왔습니다. 일제는 이를 가혹하게 짓밟았습니다. 제암리에서는 주민들을 교회에 가둔 채 불을 지르고, 평화롭게 만세를 외치던 시위대에 총을 쏘기도 했습니다.</p>
+</div></div>
+</div>
+
+<!-- 단락 2 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">②</div>
+<div class="ans-titles">
+<div class="stage">이런 상황에서 — 사료로 본 임시정부의 필요성</div>
+<div class="title">왜 흩어진 저항을 하나로 모아야 했을까?</div>
+</div>
+<div class="ans-badges"><span class="score-badge">배경·필요성 3점</span><span class="score-badge">자료 활용 4점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>자료 C는 일본군이 제암리 주민들을 교회에 가두고 불을 질러 학살한 사건을 보여 줍니다. 평화롭게 만세를 외친 사람들에게 총을 겨눈 이 장면은, <strong>맨몸의 시위만으로는 일제의 폭력을 이겨낼 수 없으며 흩어진 저항에는 한계가 있다</strong>는 것을 말해 줍니다.</p>
+<p>한편 자료 E는 멀리 미주의 동포들이 힘들게 번 돈을 독립 자금으로 보내고, 연해주와 북간도에서도 저마다의 방식으로 독립운동을 이어 갔음을 보여 줍니다.</p>
+<p><strong>두 자료를 함께 놓고 보면</strong>, 국내에서는 잔혹한 탄압에 맞서고 해외에서는 자금·외교·무장 투쟁이 제각기 흩어진 채 진행되고 있었습니다. 바로 이 힘을 하나로 모아 체계적으로 이끌 대표 기구, 곧 <strong>대한민국 임시정부</strong>가 절실히 필요했던 것입니다.</p>
+</div></div>
+</div>
+
+<!-- 단락 3 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">③</div>
+<div class="ans-titles">
+<div class="stage">마침내 — 임시정부의 모습과 운영 규칙</div>
+<div class="title">국민이 주인인 정부, 그리고 갈등을 푸는 규칙</div>
+</div>
+<div class="ans-badges"><span class="score-badge">소통 규칙 3점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>마침내 1919년 4월, 상하이에 대한민국 임시정부가 세워졌습니다. 이 정부는 황제가 아니라 <strong>국민이 주인이 되는 민주 공화제</strong>를 지향했습니다. 하지만 외교를 앞세울지, 무장 투쟁을 앞세울지를 두고 의견이 부딪쳤습니다. 이를 풀기 위해 다음과 같은 규칙이 필요했습니다.</p>
+<div class="rule"><strong>규칙 ①</strong> &nbsp;매달 정기 회의를 열어 외교파와 무장 투쟁파가 각자의 활동 성과를 보고하고, 다음 계획을 표결로 함께 정한다. 서로의 활동을 모르면 상대의 방법을 비난하게 되어 갈등만 깊어지기 때문입니다.</div>
+<div class="rule gold"><strong>규칙 ②</strong> &nbsp;표결로 정해진 방침에는 반대했던 쪽도 따르되, 소수 의견은 기록에 남겨 다음 회의에서 다시 논의한다. 한 노선이 독단적으로 움직이면 정부가 분열되고, 의견을 묵살하면 갈등이 더 커지기 때문입니다.</div>
+</div></div>
+</div>
+
+<!-- 단락 4 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">④</div>
+<div class="ans-titles">
+<div class="stage">이 과정에서 — 역사적 의의와 내 감정</div>
+<div class="title">어린 나도 역사를 바꾸는 한 사람이 될 수 있다</div>
+</div>
+<div class="ans-badges"><span class="score-badge">의의 5점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>3·1 운동과 임시정부 수립은 온 민족의 독립 의지가 거리의 만세에서 끝나지 않고 <strong>독립운동을 대표할 정부 수립으로 이어졌다</strong>는 점에서 큰 의의가 있다고 생각합니다. 그 근거는 두 가지입니다. 첫째, 학생·상인·농민·종교인 등 다양한 계층이 신분을 넘어 함께 만세를 외쳤다는 점입니다. 둘째, 제암리 학살 같은 잔혹한 탄압이 외국인 선교사와 기자들을 통해 전 세계에 알려져, 한국의 독립 문제가 국제 사회에 드러났다는 점입니다.</p>
+<p>그래서 나는 무엇보다 <strong>자부심</strong>을 가장 강렬하게 느꼈습니다. 특히 자료 C를 떠올릴 때 그러했습니다. 나와 같은 또래까지 목숨을 잃을 수 있는 위험 앞에서도 물러서지 않고 거리로 나선 모습에서, 어린 나도 역사를 바꾸는 한 사람이 될 수 있다는 마음이 차올랐기 때문입니다.</p>
+<div class="note"><strong>다른 입장도 이해하기</strong> &nbsp;만세 시위에 나서기를 망설인 사람도 충분히 이해할 수 있습니다. 제암리 학살처럼 일제가 가족과 마을 전체를 위협하는 상황에서, 두려움 때문에 거리로 나서지 못한 선택 또한 당시 사람들에게는 너무나 현실적인 고민이었기 때문입니다.</div>
+</div></div>
+</div>
+
+<!-- 단락 5 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">⑤</div>
+<div class="ans-titles">
+<div class="stage">결국 — 임시정부 수립과 활동 평가하기</div>
+<div class="title">흩어진 독립운동을 하나로 모은 구심점</div>
+</div>
+<div class="ans-badges"><span class="score-badge">평가 5점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>결국 대한민국 임시정부의 수립과 활동은, 3·1 운동에서 드러난 독립 의지를 이어받아 흩어진 독립운동을 하나로 모으고 체계적으로 이끈 <strong>구심점</strong>이었다고 평가할 수 있습니다. 그렇게 생각한 까닭은 두 가지입니다. 첫째, 황제의 나라에서 <strong>국민이 주인인 민주 공화제</strong>로 나아가, 우리 역사상 처음으로 국민이 주권을 가진 정부를 세웠기 때문입니다. 둘째, 연해주와 서울 등에 있던 여러 정부가 1919년 9월 하나로 통합되어, 국내외 독립운동 세력을 연결하는 대표 기구가 되었기 때문입니다.</p>
+<p>물론 임시정부 안에서도 외교론과 무장 투쟁론의 노선 차이로 갈등이 생겼습니다. 만약 단락 ③에서 제안한 규칙 ①·②가 잘 지켜졌다면, 임시정부는 내부 갈등을 줄이고 외교와 무장 투쟁을 더 체계적으로 조율하면서, 더 단단한 구심점으로 오래도록 힘을 모을 수 있었을 것입니다.</p>
+</div></div>
+</div>
+</div><!-- /tab1 -->
+
+<!-- ══════════ TAB 2: 갑신정변과 갑오개혁 ══════════ -->
+<div class="task-panel" id="tab2">
+<div class="task-intro">
+<h2>갑신정변·갑오개혁 — 두 개혁을 비교하는 글쓰기</h2>
+<p>같은 '근대 국가'를 꿈꿨지만, 두 개혁의 운명은 왜 갈렸을까요? 1880년대 조선의 급진 개화파 청년이 되어, 두 개혁의 필요성·차이·한계를 따져 보고 내가 택할 개혁의 길을 제안하는 활동입니다.</p>
+<div class="task-meta">
+<span>페르소나 · 급진 개화파 청년</span><span>자료 B · 치도약론</span><span>자료 D · 갑오개혁 의안</span>
+</div>
+</div>
+
+<div class="expand-bar"><button onclick="toggleAll('tab2')">전체 펼치기 / 접기</button></div>
+
+<div class="flow-label">단락 흐름</div>
+
+<!-- 1 페르소나 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">①</div>
+<div class="ans-titles">
+<div class="stage">페르소나 — 내가 선 자리</div>
+<div class="title">자주독립의 근대 국가를 꿈꾸는 청년</div>
+</div>
+<div class="ans-badges"><span class="score-badge">페르소나 3점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>나는 1880년대 조선의 한 <strong>급진 개화파 청년</strong>입니다. 청의 간섭 아래 낡은 제도에 묶인 조선을 보며, 하루빨리 자주독립의 근대 국가로 나아가야 한다고 믿습니다.</p>
+</div></div>
+</div>
+
+<!-- 2 기초 사실 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">②</div>
+<div class="ans-titles">
+<div class="stage">기초 사실 — 세 문장 정리</div>
+<div class="title">갑신정변과 갑오개혁, 무엇이었나</div>
+</div>
+<div class="ans-badges"><span class="score-badge">기초 사실 2점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p><strong>갑신정변</strong>은 김옥균 등 급진 개화파가 청의 간섭에서 벗어나 조선을 자주독립의 근대 국가로 만들고자 일본의 지원을 받아 일으킨 정변이었으나, 청군의 개입으로 3일 만에 실패했습니다.</p>
+<p><strong>갑오개혁</strong>은 군국기무처를 중심으로 한 개화파 정부가 동학 농민군과 개화 지식인의 요구를 일부 받아들여, 신분제·과거제 폐지 같은 근대적 제도 변화를 추진한 개혁이었습니다.</p>
+<p>두 사건은 모두 낡은 제도를 고치고 조선을 근대 국가로 바꾸려 했다는 <strong>공통 목표</strong>를 가지고 있었습니다.</p>
+</div></div>
+</div>
+
+<!-- 3 개혁 필요성 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">③</div>
+<div class="ans-titles">
+<div class="stage">개혁 필요성 — 사료로 본 근거</div>
+<div class="title">낡은 관습은 자유와 발전을 막는 족쇄였다</div>
+</div>
+<div class="ans-badges"><span class="score-badge">필요성 3점</span><span class="score-badge">자료 B·D</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>자료 B(치도약론)에 따르면 김옥균은 조선이 근대 국가로 발전하려면 도로 정비, 위생 개선, 농상공업 진흥 같은 사회 기반을 먼저 마련해야 한다고 보았습니다. 이를 통해 당시 조선은 서양과 일본의 압력이 커지는 가운데 <strong>근대화를 떠받칠 제도와 기반이 크게 부족했음</strong>을 알 수 있습니다.</p>
+<p>또한 자료 D(갑오개혁 의안)에는 연좌제 금지, 조혼 금지, 노비제 폐지와 인신매매 금지 같은 개혁안이 담겨 있습니다. 급진 개화파 청년인 내가 보기에, 이런 관습은 <strong>개인의 자유와 사회 발전을 동시에 가로막는 족쇄</strong>였습니다. 그러므로 조선은 낡은 제도와 관습을 빠르게 걷어내고 자주독립의 근대 국가로 나아가야 했습니다.</p>
+</div></div>
+</div>
+
+<!-- 4 비교 분석 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">④</div>
+<div class="ans-titles">
+<div class="stage">비교·분석 — 공통점과 차이점</div>
+<div class="title">목표는 같았지만 길은 달랐다</div>
+</div>
+<div class="ans-badges"><span class="score-badge">비교·분석 4점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p><strong>공통점</strong> &nbsp;두 개혁은 모두 신분제 폐지 등 낡은 사회 제도를 고쳐 근대 국가 체제를 세우고 자주독립으로 나아가려 했다는 점에서 목표가 같았습니다.</p>
+<div class="rule"><strong>차이점 1 · 주도 세력</strong> &nbsp;갑신정변은 권력 밖의 소수 급진 개화파가 정변이라는 비공식적·급진적 방식으로 추진했지만, 갑오개혁은 군국기무처라는 정부 기구를 통해 공식적인 제도 개혁으로 추진되었습니다.</div>
+<div class="rule gold"><strong>차이점 2 · 추진 방식과 결과</strong> &nbsp;갑신정변은 일본의 지원에 기대어 단번에 정권을 잡으려다 청군 개입으로 3일 만에 무너졌고, 갑오개혁은 여러 차례에 걸쳐 제도를 바꾸며 신분제·과거제 폐지 같은 실제 변화를 법으로 남겼습니다.</div>
+</div></div>
+</div>
+
+<!-- 5 소통 규칙 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">⑤</div>
+<div class="ans-titles">
+<div class="stage">소통 규칙 — 갈등을 풀 두 규칙</div>
+<div class="title">개혁은 백성과 함께 가야 한다</div>
+</div>
+<div class="ans-badges"><span class="score-badge">소통 규칙 3점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<div class="rule"><strong>규칙 1</strong> &nbsp;개혁을 추진하기 전에 백성에게 개혁이 왜 필요한지 충분히 설명하고 공감을 얻는다. 갑신정변이 민중의 지지 없이 소수만으로 움직이다 고립되어 실패했기 때문입니다.</div>
+<div class="rule gold"><strong>규칙 2</strong> &nbsp;각계각층의 대표가 참여하는 논의의 장을 정기적으로 열어 개혁의 방향과 속도를 함께 정한다. 외세에 의존하거나 백성의 동의 없이 일방적으로 추진한 개혁은 반발과 한계를 낳을 수 있음을 두 개혁이 보여 주었기 때문입니다.</div>
+</div></div>
+</div>
+
+<!-- 6 종합 평가 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">⑥</div>
+<div class="ans-titles">
+<div class="stage">종합 평가 — 성과와 한계</div>
+<div class="title">내 신념에도 약점이 있음을 인정한다</div>
+</div>
+<div class="ans-badges"><span class="score-badge">종합 평가 5점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>갑신정변은 자주독립과 근대 국가라는 방향을 처음으로 또렷이 제시한 성과가 있었지만, 일본에 의존하고 민중의 지지를 얻지 못해 3일 만에 끝났고 오히려 개화에 대한 부정적 인식을 남긴 한계가 있었습니다. 갑오개혁은 신분제·과거제 폐지 같은 실제 제도 변화를 이뤄낸 성과가 있었으나, 일본의 간섭 아래 추진되어 자주성이 훼손되고 백성의 반발을 산 한계가 있었습니다.</p>
+<div class="note"><strong>내 선택의 한계도 인정하기</strong> &nbsp;급진 개화파 청년으로서 나는 빠른 개혁을 지지합니다. 그러나 솔직히 인정할 것이 있습니다. 내가 옳다고 믿는 급진적 방식 또한 백성의 준비와 동의를 앞질러 가면 갑신정변처럼 고립될 위험을 안고 있다는 점입니다. 속도를 향한 나의 신념에도 이런 약점이 있음을 인정합니다.</div>
+</div></div>
+</div>
+
+<!-- 7 개혁 방안 -->
+<div class="ans-card">
+<div class="ans-head" onclick="toggleCard(this)">
+<div class="ans-num">⑦</div>
+<div class="ans-titles">
+<div class="stage">개혁 방안 — 내가 택할 길</div>
+<div class="title">탄탄한 지지 위에서의 단계적 개혁</div>
+</div>
+<div class="ans-badges"><span class="score-badge">개혁 방안 5점</span><span class="ans-toggle">+</span></div>
+</div>
+<div class="ans-body"><div class="ans-body-inner">
+<p>그래서 내가 조선에 더 적합하다고 보는 길은, 자주독립과 근대 국가 수립이라는 목표는 그대로 두되 다음 두 가지 방안으로 추진하는 것입니다.</p>
+<div class="rule"><strong>방안 1</strong> &nbsp;신분제 폐지·조세 개혁처럼 백성이 곧바로 체감할 수 있는 개혁을 가장 먼저 시행한다. <strong>(기대 효과)</strong> 개혁의 이익을 직접 느낀 백성이 지지 세력이 되어, 갑신정변이 끝내 얻지 못한 민중의 동참을 확보할 수 있습니다.</div>
+<div class="rule gold"><strong>방안 2</strong> &nbsp;외세의 군사적 지원에 기대지 않고, 정부 기구와 백성의 합의를 바탕으로 단계적으로 추진한다. <strong>(부작용과 대비)</strong> 외세를 배제하면 자금과 기술 확보가 더디다는 부작용이 있는데, 농상공업 진흥으로 자체 재정을 키우고 필요한 기술만 선별적으로 들여와 보완합니다.</div>
+<div class="note"><strong>반대 의견 설득하기</strong> &nbsp;"그렇게 천천히 하면 열강에 먼저 잡아먹힌다"는 우려가 있을 수 있습니다. 그러나 갑신정변의 3일이 증명하듯, 지지 기반 없는 속도는 더 빠른 좌절로 이어집니다. 탄탄한 지지 위에서의 단계적 개혁이야말로 결국 더 빠르고 되돌릴 수 없는 근대화의 길입니다.</div>
+</div></div>
+</div>
+</div><!-- /tab2 -->
+
+</div><!-- /container -->
+<footer class="page-footer">
+  📚 하늘쌤과 함께하는 역사 기행 · 문시중학교 · 2026학년도
+</footer>
+<script>
+/* TAB SWITCH */
+function switchTab(id,btn){
+  document.querySelectorAll('.task-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ACCORDION */
+function toggleCard(head){
+  head.closest('.ans-card').classList.toggle('open');
+}
+
+/* EXPAND / COLLAPSE ALL */
+function toggleAll(panelId){
+  const panel=document.getElementById(panelId);
+  const cards=panel.querySelectorAll('.ans-card');
+  const anyClosed=Array.from(cards).some(c=>!c.classList.contains('open'));
+  cards.forEach(c=>{anyClosed?c.classList.add('open'):c.classList.remove('open')});
+}
+</script>
+</body>
+</html>

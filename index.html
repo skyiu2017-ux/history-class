@@ -50,17 +50,19 @@
 <script>
 const CONFIG = {
   thisWeek: [
-    { badge: '중3', color: '#D97706', title: '📝 2차 정기시험 대비 — 핵심 문제 풀이',
-      desc: '시험 범위 전체를 문제로 점검합니다. 1단계로 전 범위 50문항을 쭉 풀어 본 뒤, 2단계에서 시험 범위에 딱 맞춘 핵심 26문항으로 실전 점검까지 한 번에 이어집니다. (문항 순서는 풀 때마다 새로 섞여요)',
+    { badge: '2학기 진도', color: '#D97706', title: '🌍 4대 문명 마무리 → 페르시아 제국',
+      desc: '문명마다 무엇이 같고 무엇이 달랐는지 비교하며 4대 문명을 정리한 뒤, 넓은 영토를 오래 다스린 페르시아의 통치 방식으로 넘어갑니다. 두 차시 모두 학습지 1-1과 함께 보세요.',
       links: [
-        { icon: '🚀', text: '전체 복습 → 시험 실전 (50 → 26문항)', url: 'review/exam_prep_2nd.html' },
-        { icon: '🎯', text: '시험 핵심 26문항만 바로 풀기', url: 'review/exam_review_26.html' },
-        { icon: '🔔', text: '띵커벨 역사복습 학습', url: 'https://q.tkbell.co.kr/student/index.do?pinNumber=646865&roomKey=GkdOED0Apt&lang=ko', ext: true }
+        { icon: '🏺', text: '4대 문명, 무엇이 같고 무엇이 달랐을까?', url: 'world/ancient/01. four_civilizations.html' },
+        { icon: '👑', text: '페르시아 제국, 넓은 영토를 어떻게 다스렸을까?', url: 'world/ancient/02. persia_empire.html' },
+        { icon: '📄', text: '학습지 1-1 (4대 문명·페르시아)', url: 'worksheets/1-1-civilizations-persia.pdf' }
       ]},
-    { badge: '중2', color: '#7C3AED', title: '수업 자료 준비 중',
-      desc: '중2 수업 자료는 현재 준비 중입니다. 곧 업데이트될 예정이에요!',
+    { badge: '다음 차시', color: '#7C3AED', title: '⚔️ 춘추 전국 시대와 진·한 제국',
+      desc: '제자백가는 왜 하필 이 시기에 쏟아져 나왔을까? 사료를 직접 읽고 진의 통일 정책과 한의 계승까지 이어서 정리합니다. 9월 수행평가(제자백가 글쓰기)와 바로 연결되는 차시예요.',
       links: [
-        { icon: '🔜', text: 'Coming Soon', url: '#' }
+        { icon: '📜', text: '춘추 전국 시대와 진·한 제국', url: 'world/ancient/03. chunqiu_qin_han.html' },
+        { icon: '📄', text: '학습지 1-2 (진·한)', url: 'worksheets/1-2-qin-han.pdf' },
+        { icon: '🔔', text: '띵커벨 역사복습 학습', url: 'https://q.tkbell.co.kr/student/index.do?pinNumber=646865&roomKey=GkdOED0Apt&lang=ko', ext: true }
       ]}
   ],
   korean: [
@@ -89,42 +91,59 @@ const CONFIG = {
     ]}]}
   ],
   world: [
-    { era: '고대 문명', units: [{ name: '고대 문명과 제국', subunits: [{ name: '세계 4대 문명', pages: [{ name: '세계 4대 문명', url: 'world/ancient/civilizations.html' }]},{ name: '고대 그리스와 로마', pages: [{ name: '고대 그리스', url: 'world/ancient/greece.html' },{ name: '로마 제국', url: 'world/ancient/rome.html' }]},{ name: '서아시아 제국', pages: [{ name: '서아시아 제국', url: 'world/ancient/west-asia.html' }]}]}]},
+    { era: '고대 문명 · 고대 제국', units: [{ name: '문명의 발생과 고대 세계의 형성', subunits: [{ name: '고대 문명의 발생', pages: [{ name: '4대 문명, 무엇이 같고 무엇이 달랐을까?', url: 'world/ancient/01. four_civilizations.html', ws: 'worksheets/1-1-civilizations-persia.pdf' }]},{ name: '고대 제국들의 성장', pages: [{ name: '페르시아 제국, 넓은 영토를 어떻게 오래 다스렸을까?', url: 'world/ancient/02. persia_empire.html', ws: 'worksheets/1-1-civilizations-persia.pdf' },{ name: '춘추 전국 시대와 진·한 제국', url: 'world/ancient/03. chunqiu_qin_han.html', ws: 'worksheets/1-2-qin-han.pdf' }]},{ name: '고대 그리스와 로마', pages: [{ name: '고대 그리스', url: 'world/ancient/greece.html' },{ name: '로마 제국', url: 'world/ancient/rome.html' }]}]}]},
     { era: '세계 종교', units: [{ name: '세계 종교의 확산', subunits: [{ name: '크리스트교의 성립과 확산', pages: [{ name: '크리스트교', url: 'world/religion/christianity.html' }]}]}]},
     { era: '중세 유럽', units: [{ name: '유럽 세계의 형성과 변화', subunits: [{ name: '비잔티움 제국과 교황권', pages: [{ name: '비잔티움 제국', url: 'world/medieval/byzantine.html' },{ name: '교황권의 성장', url: 'world/medieval/papal-authority.html' }]},{ name: '십자군과 중세의 변화', pages: [{ name: '십자군 전쟁', url: 'world/medieval/crusades.html' }]}]}]},
     { era: '르네상스·종교 개혁', units: [{ name: '근대 의식의 성장', subunits: [{ name: '르네상스와 종교 개혁', pages: [{ name: '르네상스', url: 'world/renaissance/renaissance.html' },{ name: '종교 개혁', url: 'world/renaissance/reformation.html' }]}]}]},
     { era: '신항로·절대 왕정', units: [{ name: '교역망의 확대와 절대 왕정', subunits: [{ name: '신항로 개척과 절대 왕정', pages: [{ name: '대항해시대', url: 'world/exploration/exploration.html' },{ name: '절대 왕정과 계몽사상', url: 'world/exploration/absolutism.html' }]}]}]},
     { era: '시민 혁명·근대 사회', units: [{ name: '시민 혁명과 근대 국민 국가', subunits: [{ name: '시민 혁명', pages: [{ name: '영국 혁명', url: 'world/revolution/british.html' },{ name: '프랑스 혁명', url: 'world/revolution/french.html' },{ name: '미국 독립 혁명', url: 'world/revolution/american.html' }]},{ name: '근대 사회의 형성', pages: [{ name: '유럽의 자유주의·민족주의', url: 'world/revolution/european-liberalism.html' },{ name: '민주주의의 발전', url: 'world/revolution/democracy.html' },{ name: '자본주의 사회', url: 'world/revolution/capitalism.html' }]}]}]}
   ],
-  exam: [
-    { icon:'🚀', title:'시험 대비 문제 풀이 (전체→실전)', desc:'전 범위 50문항으로 복습한 뒤 시험 핵심 26문항으로 실전 점검까지 이어지는 단계별 문제 풀이입니다.', linkText:'문제 풀기', url:'review/exam_prep_2nd.html' },
-    { icon:'🎯', title:'시험 핵심 26문항', desc:'2차 정기시험 범위에 딱 맞춘 핵심 26문항. 순서·비교·옳지 않은 것 고르기 등 실전 형태로 점검합니다.', linkText:'바로 풀기', url:'review/exam_review_26.html' },
-    { icon:'📋', title:'시험 범위표', desc:'교과서 126~141·144~157·176~185쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대(대한민국 정부 수립까지)', linkText:'범위 상세 보기', url:'javascript:openScope()' },
-    { icon:'💡', title:'핵심 개념 정리', desc:'단원별 핵심 개념을 짧고 명확하게 정리했습니다.', linkText:'정리 보기', url:'review/review_concepts.html' },
-    { icon:'✏️', title:'빈칸 학습지', desc:'단원별 빈칸 학습지를 다운로드하여 인쇄하거나 복습할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' },
-    { icon:'📝', title:'서술형 대비', desc:'자주 나오는 서술형 문제와 답변 방향을 확인하세요.', linkText:'서술형 보기', url:'review/review_seosulhyung.html' }
+  examGroups: [
+    { label: '📗 2학기 (세계사)', items: [
+      { icon:'🗓️', title:'2학기 시험 범위표 (역사①)', desc:'Ⅰ단원 고대 문명·고대 제국, Ⅱ-4 크리스트교, Ⅲ-4 신항로 개척, Ⅳ-1·2 제국주의까지 — 2학기 정기시험 범위입니다.', linkText:'범위 상세 보기', url:"javascript:openScope('examScope2')" },
+      { icon:'✏️', title:'세계사 학습지', desc:'1-1 (4대 문명·페르시아), 1-2 (진·한) 학습지를 내려받아 인쇄하거나 복습할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' }
+    ]},
+    { label: '📘 1학기 (한국사)', items: [
+      { icon:'🗂️', title:'시험 대비 문제 풀이 (전체→실전)', desc:'1학기 한국사 전 범위 50문항으로 복습한 뒤 핵심 26문항으로 실전 점검까지 이어지는 단계별 문제 풀이입니다.', linkText:'문제 풀기', url:'review/exam_prep_2nd.html' },
+      { icon:'🎯', title:'시험 핵심 26문항', desc:'1학기 2차 정기시험 범위에 맞춘 핵심 26문항. 순서·비교·옳지 않은 것 고르기 등 실전 형태로 점검합니다.', linkText:'바로 풀기', url:'review/exam_review_26.html' },
+      { icon:'📋', title:'1학기 시험 범위표', desc:'교과서 126~141·144~157·176~185쪽 — 조선의 성립과 발전, 조선 사회의 변동, 근·현대(대한민국 정부 수립까지)', linkText:'범위 상세 보기', url:'javascript:openScope()' },
+      { icon:'💡', title:'핵심 개념 정리', desc:'1학기 한국사 단원별 핵심 개념을 짧고 명확하게 정리했습니다.', linkText:'정리 보기', url:'review/review_concepts.html' },
+      { icon:'📝', title:'서술형 대비', desc:'1학기에 자주 나온 서술형 문제와 답변 방향을 확인하세요.', linkText:'서술형 보기', url:'review/review_seosulhyung.html' }
+    ]}
   ],
   examScope: { range:'교과서 126~141 · 144~157 · 176~185쪽', note:'활동지 1~6번, 9~12번(일제 식민 통치의 변화와 수탈, 민족 운동의 전개 포함)이 함께 출제 범위입니다. 수업 중 다룬 부분까지가 시험 범위이며, 세부 사항은 시험 전 다시 안내합니다.', sections:[{title:'조선의 성립과 발전',items:[{topic:'유교 윤리를 보급하기 위해 노력하다',pages:'126~127'},{topic:'훈민정음이 창제되고 과학 기술이 발달하다',pages:'128~131'},{topic:'임진왜란을 극복하다',pages:'132~135'},{topic:'병자호란이 일어나고 동아시아 국제 질서가 바뀌다',pages:'136~139'},{topic:'대단원 마무리',pages:'140~141'}]},{title:'조선 사회의 변동',items:[{topic:'양 난 이후 국가를 재건하다',pages:'144~148'},{topic:'영조, 정조가 탕평 정치를 펼치다 / 세도 정치가 나라의 기강을 흔들다',pages:'149~153'},{topic:'향촌 사회가 흔들리다',pages:'154~155'},{topic:'농민 봉기가 일어나다',pages:'156~157'}]},{title:'근·현대 사회의 전개',items:[{topic:'국민 국가를 수립하기 위해 노력하다',pages:'176~179'},{topic:'일제에 맞서 민족 운동을 전개하다',pages:'180~181'},{topic:'대한민국 정부를 수립하다',pages:'182~185'}]}]},
-  performance: [
-    { icon:'📌', title:'수행평가 안내 (1차)', desc:'1차 수행평가 활동 목적과 과제 내용을 확인합니다.', linkText:'안내 보기', url:'performance/PA_ref_gapsin_gabo.html' },
-    { icon:'📌', title:'수행평가 안내 (2차)', desc:'3·1 운동과 대한민국 임시정부를 연결하는 글쓰기 — 2차 수행평가 사전 안내입니다.', linkText:'안내 보기', url:'performance/PA_guide_31_imsi.html' },
-    { icon:'📄', title:'2차 참고자료 — 기초 학습 활동지 (학생용)', desc:'3·1 운동과 임시정부의 관계를 이해하는 빈칸·정리형 활동지입니다. 수행평가 전 흐름을 잡아 보세요.', linkText:'활동지 받기', url:'performance/31_imsi_s_.pdf' },
-    { icon:'📑', title:'2차 참고자료 — 활동지·지도안 (교사용)', desc:'문항별 예상 답안과 지도 포인트, 학생 답안 피드백 문장이 담긴 교사용 자료입니다.', linkText:'지도안 받기', url:'performance/31_imsi_t_.pdf' },
-    { icon:'✍️', title:'수행평가 모범답안 보기', desc:'갑신정변·갑오개혁(1차)과 3·1 운동·임시정부(2차) 모범답안을 단락별로 펼쳐 볼 수 있습니다. 어떤 순서로 무엇을 담아야 하는지 흐름을 익혀 보세요.', linkText:'모범답안 보기', url:'performance/PA_model_answers.html' }
+  examScope2: { range:'역사① Ⅰ단원 전체 · Ⅱ-4 · Ⅲ-4 · Ⅳ-1~2', note:'2학기 정기시험 범위입니다. 수업 중 다룬 부분까지가 시험 범위이며, 교과서 세부 쪽수와 학습지 번호는 시험 전에 다시 안내합니다.', sections:[{title:'Ⅰ. 문명의 발생과 고대 세계의 형성 (전 범위)',items:[{topic:'고대 문명의 발생 — 4대 문명의 공통점과 차이'},{topic:'고대 제국 — 아시리아와 페르시아 제국'},{topic:'고대 제국 — 춘추 전국 시대와 진·한 제국'},{topic:'고대 제국 — 그리스와 로마'}]},{title:'Ⅱ. 세계 종교의 확산과 지역 문화의 형성',items:[{topic:'4. 크리스트교 문화의 형성과 확산'}]},{title:'Ⅲ. 지역 세계의 교류와 변화',items:[{topic:'4. 신항로 개척과 유럽 지역 질서의 변화'}]},{title:'Ⅳ. 제국주의 침략과 국민 국가 건설 운동',items:[{topic:'1. 유럽과 아메리카의 국민 국가 체제'},{topic:'2. 유럽의 산업화와 제국주의'}]}]},
+  performanceGroups: [
+    { label: '📗 2학기', items: [
+      { icon:'📢', title:'2학기 1차 — 제자백가 글쓰기 (9월 초)', desc:'춘추 전국 시대의 혼란 속에서 제자백가는 어떤 해법을 내놓았을까? 사료를 읽고 자기 관점을 세우는 글쓰기입니다. 수업 페이지의 사료 읽기 활동으로 미리 연습해 보세요.', linkText:'관련 수업 자료 보기', url:'world/ancient/03. chunqiu_qin_han.html' },
+      { icon:'⛵', title:'2학기 2차 — 신항로 개척 글쓰기 (11월 초)', desc:'신항로 개척이 유럽과 아메리카·아시아에 남긴 결과를 여러 입장에서 따져 보는 글쓰기입니다. 상세 안내문은 준비 중입니다.', linkText:'안내 준비 중', url:'#' }
+    ]},
+    { label: '📘 1학기', items: [
+      { icon:'📌', title:'수행평가 안내 (1차)', desc:'1차 수행평가 활동 목적과 과제 내용을 확인합니다.', linkText:'안내 보기', url:'performance/PA_ref_gapsin_gabo.html' },
+      { icon:'📌', title:'수행평가 안내 (2차)', desc:'3·1 운동과 대한민국 임시정부를 연결하는 글쓰기 — 2차 수행평가 사전 안내입니다.', linkText:'안내 보기', url:'performance/PA_guide_31_imsi.html' },
+      { icon:'📄', title:'2차 참고자료 — 기초 학습 활동지 (학생용)', desc:'3·1 운동과 임시정부의 관계를 이해하는 빈칸·정리형 활동지입니다. 수행평가 전 흐름을 잡아 보세요.', linkText:'활동지 받기', url:'performance/31_imsi_s_.pdf' },
+      { icon:'📑', title:'2차 참고자료 — 활동지·지도안 (교사용)', desc:'문항별 예상 답안과 지도 포인트, 학생 답안 피드백 문장이 담긴 교사용 자료입니다.', linkText:'지도안 받기', url:'performance/31_imsi_t_.pdf' },
+      { icon:'✍️', title:'수행평가 모범답안 보기', desc:'갑신정변·갑오개혁(1차)과 3·1 운동·임시정부(2차) 모범답안을 단락별로 펼쳐 볼 수 있습니다. 어떤 순서로 무엇을 담아야 하는지 흐름을 익혀 보세요.', linkText:'모범답안 보기', url:'performance/PA_model_answers.html' }
+    ]}
   ],
-  review: [
-    { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'review/review_summary.html' },
-    { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'review/review_sources.html' },
-    { icon:'✏️', title:'빈칸 학습지 모음', desc:'단원별 빈칸 학습지를 다운로드할 수 있습니다.', linkText:'학습지 보기', url:'review/review_worksheets.html' },
-    { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review/review_quiz.html' },
-    { icon:'🗺️', title:'개항기 조선 통합 정리', desc:'병인양요부터 을미사변까지 — 사건별 형성평가와 달성도 확인이 포함된 통합 정리 페이지입니다.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/gaehangi_final.html' },
-    { icon:'👑', title:'대한제국과 국권 피탈 통합 정리', desc:'대한제국 수립부터 한일 병합까지 — 사건별 형성평가와 달성도 확인이 포함된 통합 정리 페이지입니다.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/daehan_empire_annexation_page.html' },
-    { icon:'🏯', title:'일제 식민 통치와 민족 운동 통합 정리', desc:'무단·문화·민족 말살 통치의 변화와 경제 수탈, 그리고 이에 맞선 민족 운동을 통합 정리한 페이지입니다. 형성평가와 달성도 확인이 포함되어 있어요.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/japanese_colonial_rule_national_movement_final.html' },
-    { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'review/korean_history_flow.html' }
+  reviewGroups: [
+    { label: '📚 공통 복습', items: [
+      { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'review/review_summary.html' },
+      { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'review/review_sources.html' },
+      { icon:'✏️', title:'빈칸 학습지 모음', desc:'단원별 빈칸 학습지를 다운로드할 수 있습니다.', linkText:'학습지 보기', url:'review/review_worksheets.html' }
+    ]},
+    { label: '🇰🇷 한국사', items: [
+      { icon:'🗺️', title:'개항기 조선 통합 정리', desc:'병인양요부터 을미사변까지 — 사건별 형성평가와 달성도 확인이 포함된 통합 정리 페이지입니다.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/gaehangi_final.html' },
+      { icon:'👑', title:'대한제국과 국권 피탈 통합 정리', desc:'대한제국 수립부터 한일 병합까지 — 사건별 형성평가와 달성도 확인이 포함된 통합 정리 페이지입니다.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/daehan_empire_annexation_page.html' },
+      { icon:'🏯', title:'일제 식민 통치와 민족 운동 통합 정리', desc:'무단·문화·민족 말살 통치의 변화와 경제 수탈, 그리고 이에 맞선 민족 운동을 통합 정리한 페이지입니다. 형성평가와 달성도 확인이 포함되어 있어요.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/japanese_colonial_rule_national_movement_final.html' },
+      { icon:'✅', title:'확인 퀴즈', desc:'중요 개념을 간단한 문제로 점검해 보세요.', linkText:'퀴즈 풀기', url:'review/review_quiz.html' },
+      { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'review/korean_history_flow.html' }
+    ]}
   ],
-  siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
-  scheduleNotices: ['1학기 수행평가: 5~6월 실시 예정','수행평가 상세 일정 및 기준은 추후 별도 공지 예정','중간고사 시험 범위: 교과서 126~141·144~157·176~185쪽 + 활동지 1~6번·9~12번 (상세 범위는 시험 대비 > 시험 범위표 참고)'],
+  siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','2학기는 세계사(역사①)로 진행합니다. 주제별 자료에서 🌍 세계사 탭을 눌러 보세요.','1학기 한국사 자료와 시험 대비 문제는 [1학기] 표시로 그대로 남겨 두었습니다.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
+  scheduleNotices: ['2학기 1차 수행평가: 9월 초 실시 예정 — 춘추 전국 시대 제자백가 글쓰기','2학기 2차 수행평가: 11월 초 실시 예정 — 신항로 개척 글쓰기','2학기 시험 범위: 역사① Ⅰ단원 전체 + Ⅱ-4 크리스트교 + Ⅲ-4 신항로 개척 + Ⅳ-1·2 제국주의까지 (상세 범위는 시험 대비 > [2학기] 시험 범위표 참고)','수행평가 상세 기준과 채점표는 실시 2주 전 별도 공지 예정'],
   updates: [
+    { date:'8.26', text:'2학기 개편: 세계사 고대 문명·고대 제국 페이지 3종 + 학습지 1-1·1-2 추가, 2학기 시험 범위와 수행평가 일정 안내 반영' },
     { date:'5.16', text:'이번 주 수업 업데이트: 일제 식민 통치의 변화와 수탈 — 통합 정리 페이지 + 빈칸 학습지 추가 (형성평가 + 달성도 포함)' },
     { date:'4.19', text:'대한제국에서 한일 병합까지 통합 정리 페이지 추가 (형성평가 + 달성도 포함)' },
     { date:'4.15', text:'개항기 조선의 위기와 개혁 통합 정리 페이지 추가 (형성평가 + 달성도 포함)' },
@@ -184,20 +203,23 @@ const CONFIG = {
   <section class="sec" id="exam"><div class="container">
     <span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">📝 시험 대비</span>
     <h2 class="sec-title">시험 대비</h2>
-    <p class="sec-desc">시험 범위 확인부터 서술형 연습까지, 단계별로 준비하세요.</p>
-    <div class="card-grid cg-4" id="exam-grid"></div>
+    <p class="sec-desc">시험 범위 확인부터 서술형 연습까지, 단계별로 준비하세요. 학기 버튼을 눌러 자료를 골라 보세요.</p>
+    <div class="subject-tabs" id="exam-tabs"></div>
+    <div id="exam-panels"></div>
   </div></section>
   <section class="sec" id="performance"><div class="container">
     <span class="sec-label" style="background:var(--purple-bg);color:var(--purple);">📊 수행평가</span>
     <h2 class="sec-title">수행평가</h2>
-    <p class="sec-desc">수행평가 안내와 제출 관련 정보를 확인하세요.</p>
-    <div class="card-grid cg-3" id="perform-grid"></div>
+    <p class="sec-desc">수행평가 안내와 제출 관련 정보를 확인하세요. 학기 버튼을 눌러 자료를 골라 보세요.</p>
+    <div class="subject-tabs" id="perform-tabs"></div>
+    <div id="perform-panels"></div>
   </div></section>
   <section class="sec" id="review"><div class="container">
     <span class="sec-label" style="background:var(--green-bg);color:var(--green);">🔄 복습</span>
     <h2 class="sec-title">지난 수업 복습</h2>
-    <p class="sec-desc">결석 보충이나 시험 전 복습에 활용하세요.</p>
-    <div class="card-grid cg-4" id="review-grid"></div>
+    <p class="sec-desc">결석 보충이나 시험 전 복습에 활용하세요. 🇰🇷 한국사 버튼을 누르면 1학기 통합 정리와 흐름도가 나옵니다.</p>
+    <div class="subject-tabs" id="review-tabs"></div>
+    <div id="review-panels"></div>
   </div></section>
   <section class="sec"><div class="container">
     <span class="sec-label" style="background:var(--slate-bg);color:var(--slate);">🔔 공지</span>
@@ -225,16 +247,19 @@ function renderSubjects(){const t=document.getElementById('subject-tabs'),p=docu
 function renderEras(data){return data.map(era=>{const unitHtml=era.units.map(unit=>{const totalPages=unit.subunits.reduce((sum,su)=>sum+su.pages.length,0);return`<details class="unit-details"><summary class="unit-item"><span class="unit-name">${unit.name}</span><span class="unit-count">${totalPages}개</span><span class="arrow">▾</span></summary><div class="sub-list">${renderSubunits(unit.subunits)}</div></details>`;}).join('');return`<div class="era-label">${era.era}</div><div class="unit-list" style="margin-bottom:12px;">${unitHtml}</div>`;}).join('');}
 function renderSubunits(subunits){return subunits.map(su=>{if(su.pages.length===1){const pg=su.pages[0];const hlClass=pg.highlight?' page-highlight':'';if(pg.ws){return`<div class="page-item-wrap"><a class="unit-item midunit-item" href="${pg.url}" style="flex:1"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;}return`<a class="unit-item midunit-item${hlClass}" href="${pg.url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;}return`<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>{const hlClass=pg.highlight?' page-highlight':'';if(pg.ws){return`<div class="page-item-wrap"><a class="unit-item page-item${hlClass}" href="${pg.url}" style="flex:1"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;}return`<a class="unit-item page-item${hlClass}" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`;}).join('')}</div></details>`;}).join('');}
 function switchSubject(id,btn){document.querySelectorAll('.subject-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.subject-panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active')}
-function renderCards(data,id,color,bg){document.getElementById(id).innerHTML=data.map((c,i)=>{const ext=c.external?` target="_blank" rel="noopener noreferrer"`:'';return`<article class="card fade-in ${i>0?'d'+Math.min(i,4):''}"><div class="card-icon" style="background:${bg};color:${color};">${c.icon}</div><h3>${c.title}</h3><p>${c.desc}</p><a href="${c.url}" class="card-link" style="color:${color};"${ext}>${c.linkText}</a></article>`;}).join('');}
-function openScope(){const s=CONFIG.examScope,body=document.getElementById('scope-body');body.innerHTML=`<div class="scope-note">⚠️ ${s.note}</div><p style="font-size:0.85rem;font-weight:600;margin-bottom:14px;">범위: ${s.range}</p>`+s.sections.map(sec=>`<div class="scope-unit"><h3>${sec.title}</h3><ul>${sec.items.map(it=>`<li><span>${it.topic}</span><span class="scope-pages">${it.pages}쪽</span></li>`).join('')}</ul></div>`).join('');document.getElementById('scope-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function cardsHtml(data,color,bg){return data.map((c,i)=>{const ext=c.external?` target="_blank" rel="noopener noreferrer"`:'';return`<article class="card fade-in ${i>0?'d'+Math.min(i,4):''}"><div class="card-icon" style="background:${bg};color:${color};">${c.icon}</div><h3>${c.title}</h3><p>${c.desc}</p><a href="${c.url}" class="card-link" style="color:${color};"${ext}>${c.linkText}</a></article>`;}).join('');}
+function renderCards(data,id,color,bg){document.getElementById(id).innerHTML=cardsHtml(data,color,bg);}
+function renderTabbedCards(groups,key,color,bg,gridClass){const t=document.getElementById(key+'-tabs'),p=document.getElementById(key+'-panels');if(!t||!p)return;t.innerHTML=groups.map((g,i)=>`<button class="subject-tab ${i===0?'active':''}" onclick="switchGroup('${key}',${i},this)">${g.label}</button>`).join('');p.innerHTML=groups.map((g,i)=>`<div class="subject-panel ${i===0?'active':''}" id="gp-${key}-${i}"><div class="card-grid ${gridClass}">${cardsHtml(g.items,color,bg)}</div></div>`).join('');}
+function switchGroup(key,idx,btn){document.getElementById(key+'-tabs').querySelectorAll('.subject-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const p=document.getElementById(key+'-panels');p.querySelectorAll('.subject-panel').forEach(x=>x.classList.remove('active'));const target=document.getElementById('gp-'+key+'-'+idx);target.classList.add('active');target.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='running'});}
+function openScope(key){const s=CONFIG[key||'examScope'],body=document.getElementById('scope-body');body.innerHTML=`<div class="scope-note">⚠️ ${s.note}</div><p style="font-size:0.85rem;font-weight:600;margin-bottom:14px;">범위: ${s.range}</p>`+s.sections.map(sec=>`<div class="scope-unit"><h3>${sec.title}</h3><ul>${sec.items.map(it=>`<li><span>${it.topic}</span><span class="scope-pages">${it.pages?it.pages+'쪽':''}</span></li>`).join('')}</ul></div>`).join('');document.getElementById('scope-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeScope(){document.getElementById('scope-overlay').classList.remove('open');document.body.style.overflow=''}
 document.getElementById('scope-overlay').addEventListener('click',function(e){if(e.target===this)closeScope()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeScope()});
 function renderNotice(){const container=document.getElementById('notice-container');let html='';if(CONFIG.siteNotices&&CONFIG.siteNotices.length){html+=`<div class="notice-info-box fade-in"><h3>📌 페이지 이용 안내</h3><ul class="notice-info-list">${CONFIG.siteNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;}if(CONFIG.scheduleNotices&&CONFIG.scheduleNotices.length){html+=`<div class="notice-schedule-box fade-in"><h3>📅 주요 일정 안내</h3><ul class="notice-schedule-list">${CONFIG.scheduleNotices.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;}container.innerHTML=html;document.getElementById('updates-card').innerHTML=`<h3 style="font-size:0.88rem;font-weight:700;margin-bottom:10px;">🔄 최근 변경</h3>`+CONFIG.updates.map(u=>`<div class="update-item"><span class="update-date">${u.date}</span><span>${u.text}</span></div>`).join('');document.getElementById('last-update').textContent='마지막 업데이트: 2026.'+CONFIG.updates[0].date;}
 renderWeek();renderSubjects();
-renderCards(CONFIG.exam,'exam-grid','var(--orange)','var(--orange-bg)');
-renderCards(CONFIG.performance,'perform-grid','var(--purple)','var(--purple-bg)');
-renderCards(CONFIG.review,'review-grid','var(--green)','var(--green-bg)');
+renderTabbedCards(CONFIG.examGroups,'exam','var(--orange)','var(--orange-bg)','cg-4');
+renderTabbedCards(CONFIG.performanceGroups,'perform','var(--purple)','var(--purple-bg)','cg-3');
+renderTabbedCards(CONFIG.reviewGroups,'review','var(--green)','var(--green-bg)','cg-4');
 renderNotice();
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.animationPlayState='running';obs.unobserve(x.target)}})},{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
@@ -246,6 +271,14 @@ const SEARCH_DATA = [
   { title:"🏯 일제 식민 통치의 변화와 수탈 — 통합 정리 + 형성평가", url:"korean/modern/japanese_colonial_rule_national_movement_final.html", keywords:["일제","식민통치","무단통치","문화통치","민족말살통치","헌병경찰","조선태형령","토지조사사업","산미증식계획","회사령","병참기지화","국가총동원법","공출","징용","징병","위안부","수탈","민족운동","통합정리","형성평가","달성도"] },
   { title:"👑 대한제국에서 한일 병합까지 — 통합 정리 + 형성평가", url:"korean/modern/daehan_empire_annexation_page.html", keywords:["대한제국","광무개혁","독립협회","만민공동회","칙령 제41호","독도","러일전쟁","을사늑약","헤이그 특사","정미의병","군대 해산","애국계몽운동","국채보상운동","신민회","안중근","한일 병합","국권피탈","통합정리","형성평가","달성도"] },
   { title:"🗺️ 개항기 조선의 위기와 개혁 — 통합 정리 + 형성평가", url:"korean/modern/gaehangi_final.html", keywords:["개항기","병인양요","신미양요","강화도조약","개화정책","임오군란","갑신정변","동학농민운동","갑오개혁","을미개혁","을미사변","통합정리","형성평가","달성도"] },
+  { title:"🏺 4대 문명, 무엇이 같고 무엇이 달랐을까?", url:"world/ancient/01. four_civilizations.html", keywords:["세계사","고대문명","4대문명","사대문명","문명","메소포타미아","이집트","인더스","황허","큰강","청동기","문자","도시국가","함무라비법전","쐐기문자","상형문자","파라오","카스트","주나라","봉건제","세계관"] },
+  { title:"👑 페르시아 제국, 넓은 영토를 어떻게 오래 다스렸을까?", url:"world/ancient/02. persia_empire.html", keywords:["세계사","페르시아","아케메네스","다리우스1세","키루스","아시리아","총독","사트라프","감찰관","왕의눈","왕의길","화폐","도량형","표준화","중앙집권","관용정책","조로아스터교","페르세폴리스","고대제국"] },
+  { title:"⚔️ 춘추 전국 시대와 진·한 제국", url:"world/ancient/03. chunqiu_qin_han.html", keywords:["세계사","춘추전국시대","제자백가","공자","유가","맹자","노자","도가","한비자","법가","묵자","철제농기구","우경","진시황","시황제","통일","군현제","분서갱유","만리장성","문자통일","화폐통일","한","한무제","유교","비단길","실크로드","고대제국","수행평가"] },
+  { title:"📄 학습지 1-1 — 4대 문명·페르시아", url:"worksheets/1-1-civilizations-persia.pdf", keywords:["학습지","워크시트","빈칸","PDF","다운로드","세계사","4대문명","페르시아","1-1","2학기"] },
+  { title:"📄 학습지 1-2 — 진·한", url:"worksheets/1-2-qin-han.pdf", keywords:["학습지","워크시트","빈칸","PDF","다운로드","세계사","춘추전국","제자백가","진","한","1-2","2학기"] },
+  { title:"📢 [2학기 1차] 수행평가 — 제자백가 글쓰기 (9월 초)", url:"world/ancient/03. chunqiu_qin_han.html", keywords:["수행평가","2학기","1차","9월","제자백가","춘추전국","글쓰기","유가","법가","도가","묵가","사료"] },
+  { title:"⛵ [2학기 2차] 수행평가 — 신항로 개척 글쓰기 (11월 초)", url:"#", keywords:["수행평가","2학기","2차","11월","신항로개척","대항해시대","글쓰기","콜럼버스","교역망","안내준비중"] },
+  { title:"🗓️ [2학기] 시험 범위표 — 역사①", url:"javascript:openScope('examScope2')", keywords:["시험범위","2학기","시험대비","역사1","고대문명","고대제국","크리스트교","신항로개척","제국주의","정기시험"] },
   { title:"🏺 만주와 한반도에 사람이 살기 시작하다", url:"korean/prehistoric-three-kingdoms/01-people-settle-in-manchuria-and-korea.html", keywords:["선사시대","구석기","검은모루동굴","전곡리","뗀석기","이동생활"] },
   { title:"🌾 농경과 목축을 시작하다", url:"korean/prehistoric-three-kingdoms/02-beginning-of-farming-and-herding.html", keywords:["신석기","간석기","빗살무늬토기","움집","농경","목축","정착생활"] },
   { title:"🔔 청동기 문화가 발전하다", url:"korean/prehistoric-three-kingdoms/03-development-of-bronze-culture.html", keywords:["청동기","비파형동검","고인돌","민무늬토기","벼농사","계급발생"] },

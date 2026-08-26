@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>4대 문명, 무엇이 같고 무엇이 달랐을까? | 문시중 역사 클래스</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Noto Sans KR',sans-serif;background:#F0F2F8;color:#1a1a2e;line-height:1.75}
+:root{--navy:#1B2A4A;--blue:#4A7BF7;--gold:#D4A853;--teal:#1ABC9C;--green:#27AE60;--red:#E74C3C;--card:rgba(255,255,255,.78);--sub:#5a6178;--r:20px;--shadow:0 8px 32px rgba(27,42,74,.08)}
+a{text-decoration:none;color:inherit}.nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:rgba(240,242,248,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.05);font-size:13px}.nav b{color:var(--navy)}.nav a{padding:7px 11px;background:#fff;border-radius:9px;font-weight:700}
+.hero{padding:62px 18px 54px;text-align:center;color:#fff;background:linear-gradient(135deg,#172642,#234477 48%,#3867a6);position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 20%,rgba(255,255,255,.12),transparent 45%)}.hero>*{position:relative}.hero .emoji{font-size:58px}.hero h1{margin:8px 0 12px;font-size:clamp(28px,5vw,46px);line-height:1.25}.hero p{max-width:760px;margin:0 auto;opacity:.9;font-size:clamp(14px,2vw,18px)}.tags{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:20px}.tags span{padding:5px 12px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);border-radius:999px;font-size:12px}
+.wrap{max-width:940px;margin:auto;padding:20px 16px 70px}.difficulty{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:18px}.difficulty span{padding:7px 14px;background:#fff;border-radius:999px;font-size:12px;font-weight:700}.difficulty .b{color:var(--blue);border:2px solid var(--blue)}.difficulty .s{color:#9b7110;border:2px solid var(--gold)}.difficulty .a{color:#0f806a;border:2px solid var(--teal)}
+.card,.timeline,.quiz{background:var(--card);border:1px solid rgba(255,255,255,.5);border-radius:var(--r);box-shadow:var(--shadow);backdrop-filter:blur(10px)}.card{padding:24px;margin:16px 0}.card h3,.card h4{margin-top:0;color:var(--navy)}.core{max-width:820px;margin:0 auto 26px}.core ul{list-style:none;padding:0;margin:0}.core li{display:flex;gap:10px;margin:10px 0;font-size:14px}.badge{flex:none;padding:3px 9px;border-radius:6px;font-size:10px;font-weight:800}.bb{background:#edf3ff;color:var(--blue)}.bs{background:#fff7df;color:#9b7110}.ba{background:#e9faf6;color:#11866f}
+.timeline{padding:22px;margin-bottom:34px;overflow:auto}.timeline h3{margin:0 0 14px;color:var(--navy);font-size:14px}.track{display:flex;align-items:center;min-width:max-content}.node{text-align:center;width:92px;font-size:11px;font-weight:700}.dot{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:auto;background:var(--blue);color:#fff;font-size:10px;font-weight:900}.line{width:48px;height:3px;background:linear-gradient(90deg,var(--blue),#ccd8f4)}
+.sec{display:flex;align-items:center;gap:10px;margin:42px 0 16px;border-bottom:2px solid #e5eaf3;padding-bottom:10px}.sec span{width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}.sec h2{margin:0;color:var(--navy);font-size:21px}
+.hl{border-left:4px solid var(--blue);background:#f3f6ff;padding:14px 17px;margin:15px 0;border-radius:0 12px 12px 0;font-size:14px}.hl.gold{border-color:var(--gold);background:#fff9eb}.hl.red{border-color:var(--red);background:#fff4f3}.hl.teal{border-color:var(--teal);background:#eefbf8}
+.grid4,.grid3,.grid2{display:grid;gap:12px}.grid4{grid-template-columns:repeat(4,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:repeat(2,1fr)}@media(max-width:760px){.grid4{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr}}@media(max-width:560px){.grid4,.grid2{grid-template-columns:1fr}}
+.mini{background:rgba(255,255,255,.65);border:1px solid rgba(27,42,74,.07);padding:16px;border-radius:14px}.mini strong{display:block;color:var(--navy);margin-bottom:5px}.mini p{font-size:12.5px;color:var(--sub);margin:0}
+.qbox{background:#fff9e9;border:1px solid rgba(212,168,83,.22);padding:18px;border-radius:15px;margin:17px 0}.qbox b{display:block;color:#85620f;margin-bottom:7px}.qbox p{margin:0 0 10px;font-size:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:9px;padding:9px 13px;background:var(--blue);color:#fff;font-weight:800;cursor:pointer}.btn.alt{background:#fff;color:var(--navy);border:1px solid #dfe4ed}.btn.green{background:var(--green)}.feedback,.hint,.model,.result{display:none;margin-top:10px;padding:12px 14px;border-radius:10px;font-size:12.5px}.feedback,.result{background:#f0f5ff}.hint{background:#fff9e9}.model{background:#effaf3}
+textarea,select{width:100%;border:2px solid #e0e4ed;border-radius:11px;padding:12px;background:#fff;font-family:inherit;font-size:13px;resize:vertical}textarea{min-height:84px}textarea:focus,select:focus{outline:none;border-color:var(--blue)}
+.source{background:#fff;border:1px solid #e4e8ef;padding:15px;border-radius:12px;margin:10px 0;font-size:12.7px}.source em{display:block;text-align:right;color:#8991a3;margin-top:5px;font-style:normal;font-size:11px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px}th,td{padding:11px;border-bottom:1px solid #e5e8ef;vertical-align:top}th{background:var(--navy);color:#fff;text-align:left}td:first-child{font-weight:800;color:var(--navy);background:#f4f6fb}
+.summary{background:linear-gradient(135deg,var(--navy),#2d5aa0);color:#fff;padding:26px;border-radius:var(--r);margin:36px 0}.summary h3{margin-top:0}.summary li{margin:7px 0}
+.quiz{padding:24px}.quiz-q{display:none}.quiz-q.active{display:block}.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:11px 13px;border:2px solid #e0e4ed;border-radius:10px;background:#fff;cursor:pointer}.opt.ok{border-color:var(--green);background:#effaf3}.opt.no{border-color:var(--red);background:#fff2f1}.quiz-next{display:none;margin-top:10px}.score{display:none;text-align:center;font-size:22px;font-weight:900;color:var(--navy)}.footer{text-align:center;color:#8a93a7;font-size:12px;padding:24px}
+</style></head>
+<body data-page="four-civs"><div class="nav"><b>문시중학교 · 3학년 세계사</b><div><a href="../../">← 포털</a> <a href="../../worksheets/1-1-civilizations-persia.pdf" download>📄 빈 학습지</a></div></div>
+<header class="hero"><div class="emoji">🏺</div><h1>4대 문명, 무엇이 같고 무엇이 달랐을까?</h1><p>메소포타미아·이집트·인도·중국 문명을 공통점과 차이점으로 읽고, 사료를 통해 세계관과 통치 제도의 의미를 확인해 봅시다.</p><div class="tags"><span>큰 강</span><span>도시 국가</span><span>문자</span><span>현세와 내세</span><span>카스트제</span><span>갑골문</span><span>봉건제</span></div></header>
+
+<main class="wrap">
+<div class="difficulty"><span class="b">🔹 기초: 특징 찾기</span><span class="s">🔸 기본: 비교하기</span><span class="a">💠 심화: 제도와 변화 추론하기</span></div>
+<section class="card core"><h3>❓ 오늘의 핵심 질문</h3><ul>
+<li><span class="badge bb">기초</span>서로 멀리 떨어진 문명에서 반복해서 나타난 공통점은 무엇일까?</li>
+<li><span class="badge bs">기본</span>메소포타미아와 이집트 사람들은 삶과 죽음을 어떻게 다르게 생각했을까?</li>
+<li><span class="badge ba">심화</span>넓은 지역을 다스리기 위해 주나라는 왜 제후에게 땅과 백성을 맡겼고, 그 방식에는 어떤 한계가 있었을까?</li>
+</ul></section>
+
+<section class="timeline"><h3>📅 흐름 한눈에 보기</h3><div class="track">
+<div class="node"><div class="dot">큰 강</div>농업 생산</div><div class="line"></div>
+<div class="node"><div class="dot">도시</div>복잡한 사회</div><div class="line"></div>
+<div class="node"><div class="dot">계급</div>사회 분화</div><div class="line"></div>
+<div class="node"><div class="dot">청동기</div>도구·무기</div><div class="line"></div>
+<div class="node"><div class="dot">문자</div>기록·행정</div>
+</div></section>
+
+<div class="sec"><span>1</span><h2>문명이 생기면서 무엇이 달라졌을까?</h2></div>
+<section class="card">
+<h3>🌊 네 문명에서 반복되는 공통점</h3>
+<div class="grid3">
+<div class="mini"><strong>큰 강 유역</strong><p>메소포타미아·나일·인더스·황허강 유역에서 문명이 성장했습니다.</p></div>
+<div class="mini"><strong>계급 발생</strong><p>사회가 복잡해지면서 사람들의 역할과 지위가 나뉘었습니다.</p></div>
+<div class="mini"><strong>청동기 사용</strong><p>청동기 도구와 무기가 사용되었습니다.</p></div>
+<div class="mini"><strong>도시 국가 등장</strong><p>사람들이 모여 살며 복잡한 정치·사회 조직이 나타났습니다.</p></div>
+<div class="mini"><strong>문자 발명</strong><p>행정과 종교, 거래와 기억을 기록할 수 있게 되었습니다.</p></div>
+</div>
+<div class="qbox"><b>생각 1 · 복잡해진 사회에 가장 필요한 것은?</b><p>사람이 많아지고 도시가 커졌습니다. 세금, 물자, 명령을 관리하려면 무엇이 특히 필요했을까요?</p><div class="btns choice"><button class="btn alt" data-msg="문자는 세금·거래·명령·종교 내용을 기록해 복잡한 사회를 운영하는 데 유용했습니다.">문자</button><button class="btn alt" data-msg="도시가 커지며 정치 권력과 조직도 중요해졌습니다.">정치 조직</button><button class="btn alt" data-msg="둘 다 맞습니다. 문명은 여러 요소가 서로 연결되며 발전했습니다.">둘 다</button></div><div class="feedback"></div></div>
+</section>
+
+<div class="sec"><span>2</span><h2>메소포타미아 문명</h2></div>
+<section class="card"><div class="grid2"><div class="mini"><strong>발생</strong><p>기원전 3500년경 수메르인이 유프라테스강과 티그리스강 사이에서 문명을 발전시켰습니다.</p></div><div class="mini"><strong>특징</strong><p>지구라트, 신권 정치, 현세적 세계관, 태음력·60진법, 쐐기 문자</p></div></div>
+<div class="hl"><strong>바빌로니아 왕국</strong> — 함무라비왕이 메소포타미아를 통일하고 함무라비 법전을 편찬했습니다.</div>
+<div class="source"><strong>길가메시 서사시</strong><br>“신들이 인간을 만들 때 인간에게 죽음도 함께 붙여 주었습니다… 좋은 음식으로 배를 채우십시오, 밤낮으로 춤추며 즐기십시오…”<em>학습지 사료 (가)</em></div>
+<div class="qbox"><b>생각 2</b><p>이 사료에서는 인간이 영생을 얻을 수 있다고 봅니까? 그렇지 않다면 살아 있는 동안 무엇을 중시하라고 합니까?</p><textarea class="save" data-key="meso-life" placeholder="사료의 표현을 근거로 한 문장으로 써 보세요."></textarea></div>
+</section>
+
+<div class="sec"><span>3</span><h2>이집트 문명</h2></div>
+<section class="card"><div class="grid2"><div class="mini"><strong>발생</strong><p>기원전 3000년경 나일강 유역에서 발전했습니다.</p></div><div class="mini"><strong>특징</strong><p>파라오·피라미드·스핑크스, 그림 문자, 파피루스, 영혼 불멸 사상, 내세적 세계관, 태양력·10진법</p></div></div>
+<div class="source"><strong>사자의 서</strong><br>죽은 자는 사후 세계에서 신의 재판을 받으며, 도둑질·거짓말·신 모독 등을 하지 않았다고 자신의 삶을 설명합니다.<em>학습지 사료 (나)</em></div>
+<div class="qbox"><b>생각 3 · 두 문명의 차이</b><p>메소포타미아는 현재의 삶을, 이집트는 죽은 뒤의 삶을 상대적으로 더 중시했습니다. 두 사료에서 그렇게 판단할 수 있는 근거를 하나씩 찾아보세요.</p><textarea class="save" data-key="worldview" placeholder="(가)에서는 … / (나)에서는 …"></textarea></div>
+<div class="hl gold"><strong>정리:</strong> 수업에서는 자연환경의 차이가 이런 세계관의 형성에도 영향을 주었다고 보았습니다. 핵심은 ‘환경이 달랐고 → 사람들이 경험한 삶의 안정성도 달랐으며 → 세계관의 차이로 이어질 수 있었다’는 정도로 이해하면 됩니다.</div>
+</section>
+
+<div class="sec"><span>4</span><h2>인도 문명</h2></div>
+<section class="card"><div class="grid2"><div class="mini"><strong>인더스 문명</strong><p>기원전 2500년경 인더스강 유역. 하라파·모헨조다로의 계획도시, 청동기·그림 문자, 메소포타미아와 교류</p></div><div class="mini"><strong>이후 변화</strong><p>학습지에서는 기원전 1500년경 아리아인의 침입과 이후 갠지스강 진출, 철제 농기구·무기, 카스트제, 브라만교를 정리합니다.</p></div></div>
+<div class="qbox"><b>생각 4</b><p>문명 사회에서 나타난 ‘계층과 신분의 분화’가 인도에서는 어떤 제도로 구체화되었나요?</p><div class="btns choice"><button class="btn alt" data-msg="맞습니다. 인도에서는 엄격한 신분 제도인 카스트제가 형성되었습니다.">카스트제</button><button class="btn alt" data-msg="브라만교는 종교이고, 신분 질서를 나타내는 제도는 카스트제입니다.">브라만교</button></div><div class="feedback"></div></div>
+</section>
+
+<div class="sec"><span>5</span><h2>중국 문명과 주의 봉건제</h2></div>
+<section class="card"><div class="grid2"><div class="mini"><strong>상</strong><p>제정일치의 신권 정치, 갑골문, 달력 제작, 순장 풍습</p></div><div class="mini"><strong>주</strong><p>천명사상과 봉건제를 실시했고, 이후 제후의 세력이 성장하면서 왕실의 통제력이 약해졌습니다.</p></div></div>
+<div class="source"><strong>제후 임명 사료</strong><br>주의 왕이 정복한 지역을 돌아본 뒤 제후에게 토지와 마을, 그곳의 사람들을 주고 어느 지역을 다스리도록 명령합니다.<em>학습지 사료 (다)</em></div>
+<div class="qbox"><b>생각 5 · 왜 제후에게 맡겼을까?</b><p>주 왕이 모든 지방을 직접 다스리지 않고 왕족·공신을 제후로 삼아 맡긴 이유는 무엇이었을까요?</p><textarea class="save" data-key="zhou-intent" placeholder="‘넓은 영토’와 ‘직접 통치의 어려움’을 활용해 보세요."></textarea></div>
+<div class="qbox"><b>생각 6 · 시간이 흐르면?</b><p>왕과 제후 사이의 혈연관계가 점점 멀어진다면 어떤 문제가 생길까요?</p><textarea class="save" data-key="zhou-limit" placeholder="왕의 통제력 / 제후의 독립성을 넣어 생각해 보세요."></textarea></div>
+</section>
+
+<div class="sec"><span>6</span><h2>학습지 스스로 풀기</h2></div>
+<section class="card"><h3>📄 먼저 종이에 쓰고, 여기서 확인</h3><div class="btns"><a class="btn" href="../../worksheets/1-1-civilizations-persia.pdf" download>📥 빈 학습지 다운로드</a><button class="btn alt" id="saveAll">💾 답 저장</button><button class="btn alt" id="clearAll">🗑 초기화</button></div></section>
+
+<section class="card"><h4>Q1-1. 사료 (가), (나), (다)의 문명</h4><div class="grid3">
+<label>(가)<select class="q1" data-answer="메소포타미아"><option value="">선택</option><option>메소포타미아</option><option>이집트</option><option>인도</option><option>중국</option></select></label>
+<label>(나)<select class="q1" data-answer="이집트"><option value="">선택</option><option>메소포타미아</option><option>이집트</option><option>인도</option><option>중국</option></select></label>
+<label>(다)<select class="q1" data-answer="중국"><option value="">선택</option><option>메소포타미아</option><option>이집트</option><option>인도</option><option>중국</option></select></label></div><div class="btns" style="margin-top:10px"><button class="btn" id="q1check">채점</button></div><div class="result" id="q1result"></div></section>
+
+<section class="card worksheet" data-keywords="현세,죽음,내세,사후"><h4>Q2. 메소포타미아와 이집트의 삶과 죽음에 대한 생각</h4><textarea class="save answer" data-key="q2" placeholder="(가) … / (나) …"></textarea><div class="btns"><button class="btn keycheck">키워드 확인</button><button class="btn alt hintbtn" data-target="f-h2">힌트</button><button class="btn green modelbtn" data-target="f-m2">모범답안</button></div><div class="hint" id="f-h2">길가메시: 죽음은 피할 수 없음 → 현재의 삶 / 사자의 서: 사후 심판 → 내세의 삶</div><div class="result"></div><div class="model" id="f-m2"><strong>(가):</strong> 인간은 죽음을 피할 수 없고 영생할 수 없으므로 살아 있는 동안 현재의 삶을 즐기고 가족과 행복하게 지내는 것을 중시했다.<br><strong>(나):</strong> 인간은 죽은 뒤 사후 세계에서 심판을 받는다고 믿었으므로 올바르게 살아 사후 세계에서 영원한 삶을 누리는 것을 중시했다.</div></section>
+
+<section class="card worksheet" data-keywords="넓은 영토,직접,제후,통치"><h4>Q3-1. 주나라가 봉건제를 실시한 의도</h4><textarea class="save answer" data-key="q31" placeholder="주나라는 … 때문에 봉건제를 실시하였다."></textarea><div class="btns"><button class="btn keycheck">키워드 확인</button><button class="btn alt hintbtn" data-target="f-h31">힌트</button><button class="btn green modelbtn" data-target="f-m31">모범답안</button></div><div class="hint" id="f-h31">넓어진 영토를 왕이 직접 모두 통치하기 어려웠다는 점을 생각해 보세요.</div><div class="result"></div><div class="model" id="f-m31">주나라는 상을 정복한 뒤 넓어진 영토와 백성을 직접 다스리기 어려웠기 때문에, 믿을 수 있는 왕족과 공신을 제후로 삼아 지방을 맡김으로써 지방 통치력을 확보하려 했다.</div></section>
+
+<section class="card worksheet" data-keywords="혈연,통제력,제후,독립,분열"><h4>Q3-2. 봉건제의 한계</h4><textarea class="save answer" data-key="q32" placeholder="세대가 지나 혈연관계가 멀어지면 …"></textarea><div class="btns"><button class="btn keycheck">키워드 확인</button><button class="btn alt hintbtn" data-target="f-h32">힌트</button><button class="btn green modelbtn" data-target="f-m32">모범답안</button></div><div class="hint" id="f-h32">왕의 통제력은 약해지고 제후는 점점 독립적인 세력이 될 수 있습니다.</div><div class="result"></div><div class="model" id="f-m32">혈연관계가 멀어지면 주 왕실의 통제력이 약해지고 지방 제후들이 점차 독립적인 세력으로 성장하여 왕의 명령에 따르지 않게 되며, 결국 국가의 분열과 혼란으로 이어질 수 있다.</div></section>
+
+<section class="summary"><h3>📚 한눈에 정리</h3><ul>
+<li>4대 문명은 큰 강 유역, 계급, 청동기, 도시 국가, 문자 등 여러 공통점을 보였다.</li>
+<li>메소포타미아는 현세적 세계관, 이집트는 내세적 세계관이 강조되었다.</li>
+<li>인도에서는 계획도시, 이후 카스트제와 브라만교 등이 나타났다.</li>
+<li>상은 갑골문을 남겼고, 주는 봉건제를 통해 넓은 영토를 다스리려 했다.</li>
+<li>주의 봉건제는 혈연관계가 멀어질수록 왕실의 통제력이 약해지는 한계가 있었다.</li>
+</ul></section>
+
+<div class="sec"><span>7</span><h2>형성평가</h2></div>
+<section class="quiz">
+<div class="quiz-q active" data-answer="3"><h4>Q1. 문명 발생의 공통점으로 보기 어려운 것은?</h4><button class="opt">① 큰 강 유역에서 발생</button><button class="opt">② 문자 사용</button><button class="opt">③ 모든 문명에서 같은 종교 사용</button><button class="opt">④ 도시 국가 등장</button><div class="result">각 문명은 종교와 세계관이 달랐습니다.</div><button class="btn quiz-next">다음 →</button></div>
+<div class="quiz-q" data-answer="1"><h4>Q2. 현세적 세계관과 가장 관련 깊은 사료는?</h4><button class="opt">① 길가메시 서사시</button><button class="opt">② 사자의 서</button><button class="opt">③ 갑골문</button><button class="opt">④ 베다</button><div class="result">길가메시 서사시는 인간이 죽음을 피할 수 없으므로 현재의 삶을 중시하는 내용과 연결됩니다.</div><button class="btn quiz-next">다음 →</button></div>
+<div class="quiz-q" data-answer="2"><h4>Q3. 주나라 봉건제의 목적은?</h4><button class="opt">① 모든 제후를 없애기 위해</button><button class="opt">② 넓은 영토를 효과적으로 다스리기 위해</button><button class="opt">③ 문자를 통일하기 위해</button><button class="opt">④ 종교를 통일하기 위해</button><div class="result">왕이 직접 다스리기 어려운 지방을 제후에게 맡겨 통치력을 확보하려 했습니다.</div><button class="btn quiz-next">결과 →</button></div>
+<div class="score" id="score"></div></section>
+</main>
+<footer class="footer">📚 하늘쌤과 함께하는 역사 수업 · 문시중학교 · 2026학년도</footer><script>
+const $$=(s,r=document)=>[...r.querySelectorAll(s)],$=(s,r=document)=>r.querySelector(s);
+$$('.choice .btn').forEach(b=>b.onclick=()=>{let box=b.closest('.qbox'),f=$('.feedback',box);f.textContent=b.dataset.msg;f.style.display='block';});
+$$('.hintbtn').forEach(b=>b.onclick=()=>{let e=document.getElementById(b.dataset.target);e.style.display=e.style.display==='block'?'none':'block';});
+$$('.modelbtn').forEach(b=>b.onclick=()=>{let card=b.closest('.worksheet'),ta=$('textarea',card);if(ta && ta.value.trim().length<5){alert('먼저 자신의 답을 한 문장이라도 써 보세요.');ta.focus();return;}let e=document.getElementById(b.dataset.target);e.style.display=e.style.display==='block'?'none':'block';});
+$$('.keycheck').forEach(b=>b.onclick=()=>{let card=b.closest('.worksheet'),ta=$('.answer',card),keys=(card.dataset.keywords||'').split(',').filter(Boolean),found=keys.filter(k=>ta.value.includes(k)),r=$('.result',card);r.style.display='block';r.innerHTML=`현재 답에서 확인된 핵심어 <strong>${found.length}/${keys.length}</strong>: ${found.join(', ')||'아직 없음'}<br><small>모든 단어를 억지로 넣기보다 사료 근거와 의미가 연결되는지가 중요합니다.</small>`;});
+function save(){ $$('.save').forEach(e=>localStorage.setItem(document.body.dataset.page+'-'+e.dataset.key,e.value)); }
+function load(){ $$('.save').forEach(e=>{let v=localStorage.getItem(document.body.dataset.page+'-'+e.dataset.key);if(v!==null)e.value=v;}); }
+$$('.save').forEach(e=>e.oninput=save); if($('#saveAll')) $('#saveAll').onclick=()=>{save();alert('이 브라우저에 답을 저장했습니다.');}; if($('#clearAll')) $('#clearAll').onclick=()=>{if(confirm('저장한 답을 모두 지울까요?')){Object.keys(localStorage).filter(k=>k.startsWith(document.body.dataset.page+'-')).forEach(k=>localStorage.removeItem(k));$$('.save').forEach(e=>e.value='');}};load();
+if($('#q1check')) $('#q1check').onclick=()=>{let sels=$$('.q1'),n=sels.filter(s=>s.value===s.dataset.answer).length,r=$('#q1result');r.style.display='block';r.innerHTML=`<strong>${n}/${sels.length}개 정답</strong>${n===sels.length?' — 모두 정확합니다.':' — 사료의 핵심 단어를 다시 확인해 보세요.'}`;};
+let score=0,qs=$$('.quiz-q');qs.forEach((q,i)=>{$$('.opt',q).forEach((o,j)=>o.onclick=()=>{if(q.dataset.done)return;q.dataset.done=1;let a=+q.dataset.answer-1,opts=$$('.opt',q);opts[a].classList.add('ok');if(j===a)score++;else o.classList.add('no');$('.result',q).style.display='block';$('.quiz-next',q).style.display='inline-block';});$('.quiz-next',q).onclick=()=>{q.classList.remove('active');if(i<qs.length-1)qs[i+1].classList.add('active');else{$('#score').style.display='block';$('#score').innerHTML=`${score}/${qs.length} 정답<br><button class="btn" onclick="location.reload()">다시 풀기</button>`;}};});
+</script></body></html>

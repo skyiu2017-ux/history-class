@@ -50,19 +50,16 @@
 <script>
 const CONFIG = {
   thisWeek: [
-    { badge: '2학기 진도', color: '#D97706', title: '🌍 4대 문명 마무리 → 페르시아 제국',
-      desc: '문명마다 무엇이 같고 무엇이 달랐는지 비교하며 4대 문명을 정리한 뒤, 넓은 영토를 오래 다스린 페르시아의 통치 방식으로 넘어갑니다. 두 차시 모두 학습지 1-1과 함께 보세요.',
+    { badge: '현재 진도', color: '#D97706', title: '🏛️ 고대 그리스와 로마 → ⛪ 크리스트교 문화의 형성과 확산',
+      desc: '아테네 민주 정치와 헬레니즘 세계, 로마 공화정에서 제정으로의 변화와 실용 문화를 정리한 뒤, 크리스트교의 확산과 중세 서유럽 세계의 형성으로 이어갑니다.',
       links: [
-        { icon: '🏺', text: '4대 문명, 무엇이 같고 무엇이 달랐을까?', url: 'world/ancient/01. four_civilizations.html' },
-        { icon: '👑', text: '페르시아 제국, 넓은 영토를 어떻게 다스렸을까?', url: 'world/ancient/02. persia_empire.html' },
-        { icon: '📄', text: '학습지 1-1 (4대 문명·페르시아)', url: 'worksheets/1-1-civilizations-persia.pdf' }
+        { icon: '🏛️', text: '고대 그리스와 로마', url: 'world/ancient/04. greek_rome.html' },
+        { icon: '⛪', text: '크리스트교 문화의 형성과 확산', url: 'world/medieval/01. christian_europe.html' }
       ]},
-    { badge: '다음 차시', color: '#7C3AED', title: '⚔️ 춘추 전국 시대와 진·한 제국',
-      desc: '제자백가는 왜 하필 이 시기에 쏟아져 나왔을까? 사료를 직접 읽고 진의 통일 정책과 한의 계승까지 이어서 정리합니다. 9월 수행평가(제자백가 글쓰기)와 바로 연결되는 차시예요.',
+    { badge: '다음 흐름', color: '#2563EB', title: '🌍 신항로 개척과 유럽 지역 질서의 변화',
+      desc: '중세 유럽의 변화가 바다를 통한 팽창으로 어떻게 이어졌는지, 신항로 개척·세계적 교역망·가격 혁명·상업 혁명·절대 왕정의 흐름으로 연결합니다.',
       links: [
-        { icon: '📜', text: '춘추 전국 시대와 진·한 제국', url: 'world/ancient/03. chunqiu_qin_han.html' },
-        { icon: '📄', text: '학습지 1-2 (진·한)', url: 'worksheets/1-2-qin-han.pdf' },
-        { icon: '🔔', text: '띵커벨 역사복습 학습', url: 'https://q.tkbell.co.kr/student/index.do?pinNumber=646865&roomKey=GkdOED0Apt&lang=ko', ext: true }
+        { icon: '🌍', text: '신항로 개척과 유럽 지역 질서의 변화', url: 'world/modern/01. exploration_absolutism.html' }
       ]}
   ],
   korean: [
@@ -91,12 +88,50 @@ const CONFIG = {
     ]}]}
   ],
   world: [
-    { era: '고대 문명 · 고대 제국', units: [{ name: '문명의 발생과 고대 세계의 형성', subunits: [{ name: '고대 문명의 발생', pages: [{ name: '4대 문명, 무엇이 같고 무엇이 달랐을까?', url: 'world/ancient/01. four_civilizations.html', ws: 'worksheets/1-1-civilizations-persia.pdf' }]},{ name: '고대 제국들의 성장', pages: [{ name: '페르시아 제국, 넓은 영토를 어떻게 오래 다스렸을까?', url: 'world/ancient/02. persia_empire.html', ws: 'worksheets/1-1-civilizations-persia.pdf' },{ name: '춘추 전국 시대와 진·한 제국', url: 'world/ancient/03. chunqiu_qin_han.html', ws: 'worksheets/1-2-qin-han.pdf' }]},{ name: '고대 그리스와 로마', pages: [{ name: '고대 그리스', url: 'world/ancient/greece.html' },{ name: '로마 제국', url: 'world/ancient/rome.html' }]}]}]},
-    { era: '세계 종교', units: [{ name: '세계 종교의 확산', subunits: [{ name: '크리스트교의 성립과 확산', pages: [{ name: '크리스트교', url: 'world/religion/christianity.html' }]}]}]},
-    { era: '중세 유럽', units: [{ name: '유럽 세계의 형성과 변화', subunits: [{ name: '비잔티움 제국과 교황권', pages: [{ name: '비잔티움 제국', url: 'world/medieval/byzantine.html' },{ name: '교황권의 성장', url: 'world/medieval/papal-authority.html' }]},{ name: '십자군과 중세의 변화', pages: [{ name: '십자군 전쟁', url: 'world/medieval/crusades.html' }]}]}]},
-    { era: '르네상스·종교 개혁', units: [{ name: '근대 의식의 성장', subunits: [{ name: '르네상스와 종교 개혁', pages: [{ name: '르네상스', url: 'world/renaissance/renaissance.html' },{ name: '종교 개혁', url: 'world/renaissance/reformation.html' }]}]}]},
-    { era: '신항로·절대 왕정', units: [{ name: '교역망의 확대와 절대 왕정', subunits: [{ name: '신항로 개척과 절대 왕정', pages: [{ name: '대항해시대', url: 'world/exploration/exploration.html' },{ name: '절대 왕정과 계몽사상', url: 'world/exploration/absolutism.html' }]}]}]},
-    { era: '시민 혁명·근대 사회', units: [{ name: '시민 혁명과 근대 국민 국가', subunits: [{ name: '시민 혁명', pages: [{ name: '영국 혁명', url: 'world/revolution/british.html' },{ name: '프랑스 혁명', url: 'world/revolution/french.html' },{ name: '미국 독립 혁명', url: 'world/revolution/american.html' }]},{ name: '근대 사회의 형성', pages: [{ name: '유럽의 자유주의·민족주의', url: 'world/revolution/european-liberalism.html' },{ name: '민주주의의 발전', url: 'world/revolution/democracy.html' },{ name: '자본주의 사회', url: 'world/revolution/capitalism.html' }]}]}]}
+    { era: 'Ⅰ. 문명의 발생과 고대 세계의 형성', units: [
+      { name: '세계의 선사 문화와 고대 문명', subunits: [
+        { name: '세계 4대 문명', pages: [
+          { name: '4대 문명, 무엇이 같고 무엇이 달랐을까?', url: 'world/ancient/01. four_civilizations.html', ws: 'worksheets/1-1-civilizations-persia.pdf' }
+        ]}
+      ]},
+      { name: '고대 제국들의 특성과 주변 세계의 성장', subunits: [
+        { name: '페르시아 제국', pages: [
+          { name: '페르시아 제국, 넓은 영토를 어떻게 오래 다스렸을까?', url: 'world/ancient/02. persia_empire.html', ws: 'worksheets/1-1-civilizations-persia.pdf' }
+        ]},
+        { name: '춘추 전국 시대와 진·한 제국', pages: [
+          { name: '춘추 전국 시대와 진·한 제국', url: 'world/ancient/03. chunqiu_qin_han.html', ws: 'worksheets/1-2-qin-han.pdf' }
+        ]},
+        { name: '고대 그리스와 로마', pages: [
+          { name: '고대 그리스와 로마', url: 'world/ancient/04. greek_rome.html', highlight: true }
+        ]}
+      ]}
+    ]},
+    { era: 'Ⅱ. 세계 종교의 확산과 지역 문화의 형성', units: [
+      { name: '크리스트교 문화의 형성과 확산', subunits: [
+        { name: '크리스트교 문화의 형성과 확산', pages: [
+          { name: '크리스트교 문화의 형성과 확산', url: 'world/medieval/01. christian_europe.html', highlight: true }
+        ]}
+      ]}
+    ]},
+    { era: 'Ⅲ. 지역 세계의 교류와 변화', units: [
+      { name: '신항로 개척과 유럽 지역 질서의 변화', subunits: [
+        { name: '신항로 개척과 유럽 지역 질서의 변화', pages: [
+          { name: '신항로 개척과 유럽 지역 질서의 변화', url: 'world/modern/01. exploration_absolutism.html' }
+        ]}
+      ]}
+    ]},
+    { era: 'Ⅳ. 제국주의 침략과 국민 국가 건설 운동', units: [
+      { name: '유럽과 아메리카의 국민 국가 체제', subunits: [
+        { name: '유럽과 아메리카의 국민 국가 체제', pages: [
+          { name: '유럽과 아메리카의 국민 국가 체제', url: 'world/modern/02. national_states.html' }
+        ]}
+      ]},
+      { name: '유럽의 산업화와 제국주의', subunits: [
+        { name: '유럽의 산업화와 제국주의', pages: [
+          { name: '유럽의 산업화와 제국주의', url: 'world/modern/03. industrial_imperialism.html' }
+        ]}
+      ]}
+    ]}
   ],
   examGroups: [
     { label: '📗 2학기 (세계사)', items: [
@@ -116,7 +151,7 @@ const CONFIG = {
   performanceGroups: [
     { label: '📗 2학기', items: [
       { icon:'📢', title:'2학기 1차 — 제자백가 글쓰기 (9월 초)', desc:'춘추 전국 시대의 혼란 속에서 제자백가는 어떤 해법을 내놓았을까? 사료를 읽고 자기 관점을 세우는 글쓰기입니다. 수업 페이지의 사료 읽기 활동으로 미리 연습해 보세요.', linkText:'관련 수업 자료 보기', url:'world/ancient/03. chunqiu_qin_han.html' },
-      { icon:'⛵', title:'2학기 2차 — 신항로 개척 글쓰기 (11월 초)', desc:'신항로 개척이 유럽과 아메리카·아시아에 남긴 결과를 여러 입장에서 따져 보는 글쓰기입니다. 상세 안내문은 준비 중입니다.', linkText:'안내 준비 중', url:'#' }
+      { icon:'⛵', title:'2학기 2차 — 신항로 개척 글쓰기 (11월 초)', desc:'신항로 개척이 유럽과 아메리카·아시아에 남긴 결과를 여러 입장에서 따져 보는 글쓰기입니다. 수업 페이지에서 세계적 교역망과 신항로 개척의 두 얼굴을 미리 정리하세요.', linkText:'관련 수업 자료 보기', url:'world/modern/01. exploration_absolutism.html' }
     ]},
     { label: '📘 1학기', items: [
       { icon:'📌', title:'수행평가 안내 (1차)', desc:'1차 수행평가 활동 목적과 과제 내용을 확인합니다.', linkText:'안내 보기', url:'performance/PA_ref_gapsin_gabo.html' },
@@ -143,6 +178,7 @@ const CONFIG = {
   siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','2학기는 세계사(역사①)로 진행합니다. 주제별 자료에서 🌍 세계사 탭을 눌러 보세요.','1학기 한국사 자료와 시험 대비 문제는 [1학기] 표시로 그대로 남겨 두었습니다.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
   scheduleNotices: ['2학기 1차 수행평가: 9월 초 실시 예정 — 춘추 전국 시대 제자백가 글쓰기','2학기 2차 수행평가: 11월 초 실시 예정 — 신항로 개척 글쓰기','2학기 시험 범위: 역사① Ⅰ단원 전체 + Ⅱ-4 크리스트교 + Ⅲ-4 신항로 개척 + Ⅳ-1·2 제국주의까지 (상세 범위는 시험 대비 > [2학기] 시험 범위표 참고)','수행평가 상세 기준과 채점표는 실시 2주 전 별도 공지 예정'],
   updates: [
+    { date:'9.30', text:'세계사 수업 페이지 연결 정비: 고대 그리스·로마, 크리스트교 문화, 신항로 개척, 국민 국가, 산업화·제국주의 페이지를 교과서 단원명 기준으로 주제별 자료에 연결' },
     { date:'8.26', text:'2학기 개편: 세계사 고대 문명·고대 제국 페이지 3종 + 학습지 1-1·1-2 추가, 2학기 시험 범위와 수행평가 일정 안내 반영' },
     { date:'5.16', text:'이번 주 수업 업데이트: 일제 식민 통치의 변화와 수탈 — 통합 정리 페이지 + 빈칸 학습지 추가 (형성평가 + 달성도 포함)' },
     { date:'4.19', text:'대한제국에서 한일 병합까지 통합 정리 페이지 추가 (형성평가 + 달성도 포함)' },
@@ -274,10 +310,15 @@ const SEARCH_DATA = [
   { title:"🏺 4대 문명, 무엇이 같고 무엇이 달랐을까?", url:"world/ancient/01. four_civilizations.html", keywords:["세계사","고대문명","4대문명","사대문명","문명","메소포타미아","이집트","인더스","황허","큰강","청동기","문자","도시국가","함무라비법전","쐐기문자","상형문자","파라오","카스트","주나라","봉건제","세계관"] },
   { title:"👑 페르시아 제국, 넓은 영토를 어떻게 오래 다스렸을까?", url:"world/ancient/02. persia_empire.html", keywords:["세계사","페르시아","아케메네스","다리우스1세","키루스","아시리아","총독","사트라프","감찰관","왕의눈","왕의길","화폐","도량형","표준화","중앙집권","관용정책","조로아스터교","페르세폴리스","고대제국"] },
   { title:"⚔️ 춘추 전국 시대와 진·한 제국", url:"world/ancient/03. chunqiu_qin_han.html", keywords:["세계사","춘추전국시대","제자백가","공자","유가","맹자","노자","도가","한비자","법가","묵자","철제농기구","우경","진시황","시황제","통일","군현제","분서갱유","만리장성","문자통일","화폐통일","한","한무제","유교","비단길","실크로드","고대제국","수행평가"] },
+  { title:"🏛️ 고대 그리스와 로마", url:"world/ancient/04. greek_rome.html", keywords:["세계사","그리스","로마","폴리스","아테네","민주정치","페리클레스","스파르타","알렉산드로스","헬레니즘","공화정","포에니전쟁","라티푼디움","그라쿠스","카이사르","아우구스투스","제정","로마법","콜로세움","수도교"] },
+  { title:"⛪ 크리스트교 문화의 형성과 확산", url:"world/medieval/01. christian_europe.html", keywords:["세계사","크리스트교","예수","콘스탄티누스","테오도시우스","게르만족","프랑크왕국","카롤루스대제","봉건제","장원","교황권","카노사의굴욕","비잔티움","그리스정교","십자군","르네상스","종교개혁"] },
+  { title:"🌍 신항로 개척과 유럽 지역 질서의 변화", url:"world/modern/01. exploration_absolutism.html", keywords:["세계사","신항로개척","대항해시대","향신료","디아스","바스쿠다가마","콜럼버스","마젤란","아메리카","아스테카","잉카","삼각무역","노예무역","세계적교역망","가격혁명","상업혁명","절대왕정","중상주의"] },
+  { title:"🗽 유럽과 아메리카의 국민 국가 체제", url:"world/modern/02. national_states.html", keywords:["세계사","국민국가","영국혁명","청교도혁명","명예혁명","권리장전","미국독립혁명","독립선언","프랑스혁명","인권선언","나폴레옹","자유주의","민족주의","이탈리아통일","독일통일","비스마르크","라틴아메리카"] },
+  { title:"🏭 유럽의 산업화와 제국주의", url:"world/modern/03. industrial_imperialism.html", keywords:["세계사","산업혁명","증기기관","공장제기계공업","철도","자본주의","노동자","노동조합","사회주의","마르크스","제국주의","식민지","사회진화론","인종주의","아프리카분할","파쇼다"] },
   { title:"📄 학습지 1-1 — 4대 문명·페르시아", url:"worksheets/1-1-civilizations-persia.pdf", keywords:["학습지","워크시트","빈칸","PDF","다운로드","세계사","4대문명","페르시아","1-1","2학기"] },
   { title:"📄 학습지 1-2 — 진·한", url:"worksheets/1-2-qin-han.pdf", keywords:["학습지","워크시트","빈칸","PDF","다운로드","세계사","춘추전국","제자백가","진","한","1-2","2학기"] },
   { title:"📢 [2학기 1차] 수행평가 — 제자백가 글쓰기 (9월 초)", url:"world/ancient/03. chunqiu_qin_han.html", keywords:["수행평가","2학기","1차","9월","제자백가","춘추전국","글쓰기","유가","법가","도가","묵가","사료"] },
-  { title:"⛵ [2학기 2차] 수행평가 — 신항로 개척 글쓰기 (11월 초)", url:"#", keywords:["수행평가","2학기","2차","11월","신항로개척","대항해시대","글쓰기","콜럼버스","교역망","안내준비중"] },
+  { title:"⛵ [2학기 2차] 수행평가 — 신항로 개척 글쓰기 (11월 초)", url:"world/modern/01. exploration_absolutism.html", keywords:["수행평가","2학기","2차","11월","신항로개척","대항해시대","글쓰기","콜럼버스","교역망","세계적교역망","마젤란"] },
   { title:"🗓️ [2학기] 시험 범위표 — 역사①", url:"javascript:openScope('examScope2')", keywords:["시험범위","2학기","시험대비","역사1","고대문명","고대제국","크리스트교","신항로개척","제국주의","정기시험"] },
   { title:"🏺 만주와 한반도에 사람이 살기 시작하다", url:"korean/prehistoric-three-kingdoms/01-people-settle-in-manchuria-and-korea.html", keywords:["선사시대","구석기","검은모루동굴","전곡리","뗀석기","이동생활"] },
   { title:"🌾 농경과 목축을 시작하다", url:"korean/prehistoric-three-kingdoms/02-beginning-of-farming-and-herding.html", keywords:["신석기","간석기","빗살무늬토기","움집","농경","목축","정착생활"] },

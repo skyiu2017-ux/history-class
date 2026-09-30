@@ -1,0 +1,9 @@
+const $$=(s,r=document)=>[...r.querySelectorAll(s)],$=(s,r=document)=>r.querySelector(s);
+$$('.choice .btn').forEach(b=>b.onclick=()=>{let box=b.closest('.qbox'),f=$('.feedback',box);f.textContent=b.dataset.msg;f.style.display='block';});
+$$('.hintbtn').forEach(b=>b.onclick=()=>{let e=document.getElementById(b.dataset.target);if(e)e.style.display=e.style.display==='block'?'none':'block';});
+$$('.modelbtn').forEach(b=>b.onclick=()=>{let card=b.closest('.worksheet')||b.closest('.card'),ta=$('textarea',card);if(ta&&ta.value.trim().length<5){alert('먼저 자신의 답을 한 문장이라도 써 보세요.');ta.focus();return;}let e=document.getElementById(b.dataset.target);if(e)e.style.display=e.style.display==='block'?'none':'block';});
+const prefix=(document.body.dataset.key||'lesson')+'-';
+function save(){ $$('.save').forEach(e=>localStorage.setItem(prefix+e.dataset.key,e.value)); }
+function load(){ $$('.save').forEach(e=>{let v=localStorage.getItem(prefix+e.dataset.key);if(v!==null)e.value=v;}); }
+$$('.save').forEach(e=>e.oninput=save);load();
+let score=0,qs=$$('.quiz-q');qs.forEach((q,i)=>{$$('.opt',q).forEach((o,j)=>o.onclick=()=>{if(q.dataset.done)return;q.dataset.done=1;let a=+q.dataset.answer-1,opts=$$('.opt',q);opts[a].classList.add('ok');if(j===a)score++;else o.classList.add('no');let r=$('.result',q);if(r)r.style.display='block';let n=$('.quiz-next',q);if(n)n.style.display='inline-block';});let n=$('.quiz-next',q);if(n)n.onclick=()=>{q.classList.remove('active');if(i<qs.length-1)qs[i+1].classList.add('active');else{let s=$('#score');s.style.display='block';s.innerHTML=score+'/'+qs.length+' 정답<br><button class="btn" onclick="location.reload()">다시 풀기</button>';}};});

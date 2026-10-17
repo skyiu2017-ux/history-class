@@ -29,7 +29,7 @@
     .midunit-item{background:rgba(240,244,248,0.5);border-left:3px solid rgba(30,58,95,0.3)}.midunit-item .unit-name{font-size:0.85rem;padding-left:8px;color:var(--navy)}.midunit-details>summary{list-style:none;cursor:pointer}.midunit-details>summary::-webkit-details-marker{display:none}.midunit-details[open]>summary .arrow{transform:rotate(180deg)}.midunit-details .arrow{transition:transform 0.2s;display:inline-block}
     .page-item{background:rgba(240,244,248,0.9);border-left:3px solid var(--blue)}.page-item .unit-name{font-size:0.83rem;padding-left:20px;color:var(--text)}.page-item:hover{background:rgba(219,234,254,0.6)}
     .page-item.page-highlight{background:rgba(219,234,254,0.5);border-left:3px solid var(--navy)}.page-item.page-highlight .unit-name{color:var(--navy);font-weight:600}
-    .page-item-wrap{display:flex;align-items:center;gap:0}.page-item-wrap .page-item{flex:1;border-radius:var(--r-sm) 0 0 var(--r-sm)}.page-item-wrap .ws-btn{display:flex;align-items:center;justify-content:center;padding:0 14px;background:var(--orange-bg);border:1px solid rgba(217,119,6,0.15);border-left:none;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:0.72rem;font-weight:600;color:var(--orange);white-space:nowrap;gap:3px;transition:background 0.15s;text-decoration:none;min-height:100%}.page-item-wrap .ws-btn:hover{background:#FEF3C7}
+    .page-item-wrap{display:flex;align-items:center;gap:0}.page-item-wrap .page-item{flex:1;border-radius:var(--r-sm) 0 0 var(--r-sm)}.page-item-wrap .ws-btn{display:flex;align-items:center;justify-content:center;padding:0 14px;background:var(--orange-bg);border:1px solid rgba(217,119,6,0.15);border-left:none;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:0.72rem;font-weight:600;color:var(--orange);white-space:nowrap;gap:3px;transition:background 0.15s;text-decoration:none;min-height:100%}.page-item-wrap .ws-btn:hover{background:#FEF3C7}.page-item-wrap .midunit-item{min-width:0;border-radius:var(--r-sm) 0 0 var(--r-sm)}.page-item-wrap .ws-btn+.ws-btn{border-radius:0}.page-item-wrap .ws-btn:last-child{border-radius:0 var(--r-sm) var(--r-sm) 0}.page-item-wrap .ws-btn{padding:0 11px}.page-item-wrap{min-width:0}
     .notice-box{background:var(--red-bg);border:1px solid rgba(220,38,38,0.15);border-radius:var(--r-md);padding:16px;margin-bottom:12px}.notice-box h3{font-size:0.88rem;font-weight:700;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-list{display:flex;flex-direction:column;gap:4px}.notice-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-list li::before{content:'•';position:absolute;left:0;color:var(--red)}
     .notice-info-box{background:var(--blue-bg);border:1px solid rgba(37,99,235,0.12);border-radius:var(--r-md);padding:16px;margin-bottom:10px}.notice-info-box h3{font-size:0.88rem;font-weight:700;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-info-list{display:flex;flex-direction:column;gap:4px}.notice-info-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-info-list li::before{content:'•';position:absolute;left:0;color:var(--blue)}
     .notice-schedule-box{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);border-radius:var(--r-md);padding:16px;margin-bottom:10px}.notice-schedule-box h3{font-size:0.88rem;font-weight:700;color:var(--purple);margin-bottom:8px;display:flex;align-items:center;gap:5px}.notice-schedule-list{display:flex;flex-direction:column;gap:4px}.notice-schedule-list li{font-size:0.84rem;color:var(--text);padding-left:14px;position:relative}.notice-schedule-list li::before{content:'•';position:absolute;left:0;color:var(--purple)}
@@ -102,21 +102,21 @@ const CONFIG = {
           { name: '춘추 전국 시대와 진·한 제국', url: 'world/ancient/03. chunqiu_qin_han.html', ws: 'worksheets/1-2-qin-han.pdf' }
         ]},
         { name: '고대 그리스와 로마', pages: [
-          { name: '고대 그리스와 로마', url: 'world/ancient/04. greek_rome.html', highlight: true }
+          { name: '고대 그리스와 로마', url: 'world/ancient/04. greek_rome.html', highlight: true, ws: 'worksheets/1-3-greece-rome.pdf' }
         ]}
       ]}
     ]},
     { era: 'Ⅱ. 세계 종교의 확산과 지역 문화의 형성', units: [
       { name: '크리스트교 문화의 형성과 확산', subunits: [
         { name: '크리스트교 문화의 형성과 확산', pages: [
-          { name: '크리스트교 문화의 형성과 확산', url: 'world/medieval/01. christian_europe.html', highlight: true }
+          { name: '크리스트교 문화의 형성과 확산', url: 'world/medieval/01. christian_europe.html', highlight: true, wsList: [{ label: '④ 학습지', url: 'worksheets/2-4-christian-culture.pdf' }, { label: '⑤ 학습지', url: 'worksheets/2-5-papacy-reformation.pdf' }] }
         ]}
       ]}
     ]},
     { era: 'Ⅲ. 지역 세계의 교류와 변화', units: [
       { name: '신항로 개척과 유럽 지역 질서의 변화', subunits: [
         { name: '신항로 개척과 유럽 지역 질서의 변화', pages: [
-          { name: '신항로 개척과 유럽 지역 질서의 변화', url: 'world/modern/01. exploration_absolutism.html' }
+          { name: '신항로 개척과 유럽 지역 질서의 변화', url: 'world/modern/01. exploration_absolutism.html', ws: 'worksheets/3-4-exploration-europe.pdf' }
         ]}
       ]}
     ]},
@@ -136,7 +136,7 @@ const CONFIG = {
   examGroups: [
     { label: '📗 2학기 (세계사)', items: [
       { icon:'🗓️', title:'2학기 시험 범위표 (역사①)', desc:'Ⅰ단원 고대 문명·고대 제국, Ⅱ-4 크리스트교, Ⅲ-4 신항로 개척, Ⅳ-1·2 제국주의까지 — 2학기 정기시험 범위입니다.', linkText:'범위 상세 보기', url:"javascript:openScope('examScope2')" },
-      { icon:'✏️', title:'세계사 학습지', desc:'1-1 (4대 문명·페르시아), 1-2 (진·한) 학습지를 내려받아 인쇄하거나 복습할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' }
+      { icon:'✏️', title:'세계사 학습지', desc:'4대 문명·페르시아·진한부터 그리스·로마, 크리스트교 문화, 교황권의 쇠퇴, 신항로 개척까지 빈칸 학습지 6종을 확인할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' }
     ]},
     { label: '📘 1학기 (한국사)', items: [
       { icon:'🗂️', title:'시험 대비 문제 풀이 (전체→실전)', desc:'1학기 한국사 전 범위 50문항으로 복습한 뒤 핵심 26문항으로 실전 점검까지 이어지는 단계별 문제 풀이입니다.', linkText:'문제 풀기', url:'review/exam_prep_2nd.html' },
@@ -178,6 +178,7 @@ const CONFIG = {
   siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','2학기는 세계사(역사①)로 진행합니다. 주제별 자료에서 🌍 세계사 탭을 눌러 보세요.','1학기 한국사 자료와 시험 대비 문제는 [1학기] 표시로 그대로 남겨 두었습니다.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
   scheduleNotices: ['2학기 1차 수행평가: 9월 초 실시 예정 — 춘추 전국 시대 제자백가 글쓰기','2학기 2차 수행평가: 11월 초 실시 예정 — 신항로 개척 글쓰기','2학기 시험 범위: 역사① Ⅰ단원 전체 + Ⅱ-4 크리스트교 + Ⅲ-4 신항로 개척 + Ⅳ-1·2 제국주의까지 (상세 범위는 시험 대비 > [2학기] 시험 범위표 참고)','수행평가 상세 기준과 채점표는 실시 2주 전 별도 공지 예정'],
   updates: [
+    { date:'10.17', text:'세계사 빈칸 학습지 4종 추가: ③ 그리스·로마, ④ 크리스트교 문화, ⑤ 교황권 쇠퇴·종교개혁, ⑥ 신항로 개척. 수업 페이지와 PDF 버튼 연결' },
     { date:'9.30', text:'세계사 수업 페이지 연결 정비: 고대 그리스·로마, 크리스트교 문화, 신항로 개척, 국민 국가, 산업화·제국주의 페이지를 교과서 단원명 기준으로 주제별 자료에 연결' },
     { date:'8.26', text:'2학기 개편: 세계사 고대 문명·고대 제국 페이지 3종 + 학습지 1-1·1-2 추가, 2학기 시험 범위와 수행평가 일정 안내 반영' },
     { date:'5.16', text:'이번 주 수업 업데이트: 일제 식민 통치의 변화와 수탈 — 통합 정리 페이지 + 빈칸 학습지 추가 (형성평가 + 달성도 포함)' },
@@ -281,7 +282,30 @@ document.addEventListener('click',e=>{const n=document.getElementById('main-nav'
 function renderWeek(){document.getElementById('week-container').innerHTML=CONFIG.thisWeek.map((w,i)=>{const f=i===0,lBg=f?'var(--blue-bg)':'var(--purple-bg)',lC=f?'var(--blue)':'var(--purple)',hBg=f?'#DBEAFE':'#EDE9FE';return`<div class="week-card fade-in ${i>0?'d1':''}" style="border-left-color:${w.color};"><span class="week-badge" style="background:${w.color};">${w.badge}</span><h3>${w.title}</h3><p>${w.desc}</p><div class="week-links">${w.links.map(l=>`<a href="${l.url}"${l.ext?' target="_blank" rel="noopener noreferrer"':''} style="background:${lBg};color:${lC};" onmouseover="this.style.background='${hBg}'" onmouseout="this.style.background='${lBg}'">${l.icon} ${l.text}</a>`).join('')}</div></div>`;}).join('');}
 function renderSubjects(){const t=document.getElementById('subject-tabs'),p=document.getElementById('subject-panels'),s=[{id:'korean',label:'🇰🇷 한국사',data:CONFIG.korean},{id:'world',label:'🌍 세계사',data:CONFIG.world}];t.innerHTML=s.map((x,i)=>`<button class="subject-tab ${i===0?'active':''}" onclick="switchSubject('${x.id}',this)">${x.label}</button>`).join('');p.innerHTML=s.map((x,i)=>`<div class="subject-panel ${i===0?'active':''}" id="panel-${x.id}">${renderEras(x.data)}</div>`).join('');}
 function renderEras(data){return data.map(era=>{const unitHtml=era.units.map(unit=>{const totalPages=unit.subunits.reduce((sum,su)=>sum+su.pages.length,0);return`<details class="unit-details"><summary class="unit-item"><span class="unit-name">${unit.name}</span><span class="unit-count">${totalPages}개</span><span class="arrow">▾</span></summary><div class="sub-list">${renderSubunits(unit.subunits)}</div></details>`;}).join('');return`<div class="era-label">${era.era}</div><div class="unit-list" style="margin-bottom:12px;">${unitHtml}</div>`;}).join('');}
-function renderSubunits(subunits){return subunits.map(su=>{if(su.pages.length===1){const pg=su.pages[0];const hlClass=pg.highlight?' page-highlight':'';if(pg.ws){return`<div class="page-item-wrap"><a class="unit-item midunit-item" href="${pg.url}" style="flex:1"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;}return`<a class="unit-item midunit-item${hlClass}" href="${pg.url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;}return`<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>{const hlClass=pg.highlight?' page-highlight':'';if(pg.ws){return`<div class="page-item-wrap"><a class="unit-item page-item${hlClass}" href="${pg.url}" style="flex:1"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a><a class="ws-btn" href="${pg.ws}" title="빈칸 학습지 다운로드">📄</a></div>`;}return`<a class="unit-item page-item${hlClass}" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`;}).join('')}</div></details>`;}).join('');}
+function renderWorksheetButtons(pg){
+  const list=Array.isArray(pg.wsList)?pg.wsList:(pg.ws?[{label:'',url:pg.ws}]:[]);
+  return list.map(item=>{
+    const text=item.label?'📄 '+item.label:'📄';
+    const label=item.label?item.label+' PDF 열기':'빈칸 학습지 PDF 열기';
+    return `<a class="ws-btn" href="${item.url}" target="_blank" rel="noopener noreferrer" title="${label}" aria-label="${label}">${text}</a>`;
+  }).join('');
+}
+function renderSubunits(subunits){
+  return subunits.map(su=>{
+    if(su.pages.length===1){
+      const pg=su.pages[0], hlClass=pg.highlight?' page-highlight':'', buttons=renderWorksheetButtons(pg);
+      return buttons
+        ? `<div class="page-item-wrap"><a class="unit-item midunit-item${hlClass}" href="${pg.url}" style="flex:1"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>${buttons}</div>`
+        : `<a class="unit-item midunit-item${hlClass}" href="${pg.url}"><span class="unit-name">${su.name}</span><span class="arrow">→</span></a>`;
+    }
+    return `<details class="midunit-details"><summary class="unit-item midunit-item"><span class="unit-name">${su.name}</span><span class="unit-count">${su.pages.length}개</span><span class="arrow">▾</span></summary><div class="sub-list">${su.pages.map(pg=>{
+      const hlClass=pg.highlight?' page-highlight':'', buttons=renderWorksheetButtons(pg);
+      return buttons
+        ? `<div class="page-item-wrap"><a class="unit-item page-item${hlClass}" href="${pg.url}" style="flex:1"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>${buttons}</div>`
+        : `<a class="unit-item page-item${hlClass}" href="${pg.url}"><span class="unit-name">${pg.name}</span><span class="arrow">→</span></a>`;
+    }).join('')}</div></details>`;
+  }).join('');
+}
 function switchSubject(id,btn){document.querySelectorAll('.subject-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.subject-panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active')}
 function cardsHtml(data,color,bg){return data.map((c,i)=>{const ext=c.external?` target="_blank" rel="noopener noreferrer"`:'';return`<article class="card fade-in ${i>0?'d'+Math.min(i,4):''}"><div class="card-icon" style="background:${bg};color:${color};">${c.icon}</div><h3>${c.title}</h3><p>${c.desc}</p><a href="${c.url}" class="card-link" style="color:${color};"${ext}>${c.linkText}</a></article>`;}).join('');}
 function renderCards(data,id,color,bg){document.getElementById(id).innerHTML=cardsHtml(data,color,bg);}

@@ -335,5 +335,6 @@ function nextQuestion(){questions[currentQ].classList.remove('active');currentQ+
 function resetQuiz(){currentQ=0;score=0;document.getElementById('quizResult').style.display='none';questions.forEach(q=>{q.classList.remove('active');q.querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';o.style.pointerEvents=''});q.querySelector('.quiz-explanation').style.display='none';q.querySelector('.quiz-next-btn').style.display='none'});initQuiz();}
 initQuiz();
 </script>
+<script defer src="../answer-check.js"></script>
 </body>
 </html>

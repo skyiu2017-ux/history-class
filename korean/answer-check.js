@@ -48,7 +48,8 @@ function renderCheck(ta,holder,reference,choiceMode,label){
  const note=el('small','history-check-note','학번·이름 입력이나 제출 없이 확인할 수 있습니다. 실제 채점 점수와 무관합니다.');
  const out=el('div','history-check-result');out.hidden=true;out.setAttribute('role','status');out.setAttribute('aria-live','polite');
  block.append(btn,note,out);
- holder.parentNode.insertBefore(block,holder);
+ if(label==='summarySentence') ta.parentNode.insertBefore(block,ta.nextSibling);
+ else holder.parentNode.insertBefore(block,holder);
  const page=location.pathname;
  const key='history-selfcheck-draft:'+page+':'+(ta.id||ta.closest('.inquiry-card')?.id||label||'summary');
  if(!ta.value){try{const stored=localStorage.getItem(key);if(stored)ta.value=stored}catch(e){}}

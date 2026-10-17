@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 /* 한국사 서술형 자기점검: 브라우저 안에서만 실행. 정답 채점/성적 산정 아님. */
-const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[\\s\\u00b7.,，。、:;!?'"“”‘’()\[\]{}\-–—_\\/]/g,'');
+const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[^가-힣a-z0-9一-龥]/g,'');
 const CONNECT=/때문|그래서|따라서|그러므로|그러나|반면|한편|왜냐하면|이로 인해|이에 따라|그 결과|이어졌|이어지|불러왔|만들었|영향을|초래|해결|하였기|했기|하기 위|하므로|통해서|기여|가져왔|바탕으로|의미|보여 준|보여준|다르게|차이|비해|강화|약화|→|⇒/;
 const ALIASES={
  '무리 생활':['협동','함께 생활','집단 생활'], '도구 제작':['도구를 만들','돌도구','석기 제작'], '뗀석기':['돌 도구','돌도구'],
@@ -107,10 +107,12 @@ function inquiry(){
 function summary(){
  const area=document.getElementById('summarySentence');
  if(!area)return 0;
- const btn=area.closest('.summary-write')?.querySelector('.summary-save');
+ const btn=area.closest('.summary-write')?.querySelector('.summary-save, #history-summary-anchor');
  if(!btn)return 0;
  const path=location.pathname;
- const keys=path.includes('daehan_empire_annexation_page')
+ const keys=path.includes('japanese_colonial_rule_national_movement_final')
+   ?['무단 통치','문화 통치','민족 말살 통치','식민지 수탈','독립운동','민족 운동','탄압']
+   :path.includes('daehan_empire_annexation_page')
    ?['자주독립','대한제국','광무개혁','일본의 침략','을사늑약','국권 상실','한일 병합']
    :['서양의 침략','일본의 침략','개화','개혁','외세 간섭','국내 혼란','아관파천'];
  renderCheck(area,btn,keys,false,'summarySentence');return 1;

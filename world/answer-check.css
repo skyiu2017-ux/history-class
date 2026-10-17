@@ -1,0 +1,19 @@
+/* Student self-check for short history explanations */
+.answer-check-actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+.answer-check-btn{background:#244c93;color:#fff;border:none;border-radius:10px;min-height:40px;padding:10px 15px;cursor:pointer;font:700 13px 'Noto Sans KR',sans-serif}
+.answer-check-btn:hover{background:#183c7c}
+.answer-check-btn:focus-visible{outline:3px solid #d4a853;outline-offset:3px}
+.answer-check-note{display:block;color:#84652b;font-size:11.5px;line-height:1.6;margin-top:8px}
+.answer-check-feedback{margin-top:12px;padding:16px;border-radius:13px;border:1px solid #d9e4f2;background:#fff;color:#1b2a4a}
+.answer-check-feedback[hidden]{display:none!important}
+.answer-check-feedback .check-summary{display:block;font-size:14px;font-weight:800;margin:0 0 10px;color:#1b2a4a}
+.answer-check-feedback .check-label{font-size:12px;font-weight:800;margin:10px 0 5px;color:#45546e}
+.answer-check-feedback .check-pills{display:flex;gap:6px;flex-wrap:wrap}
+.answer-check-feedback .check-pill{padding:6px 9px;display:inline-block;font-size:12px;font-weight:700;border-radius:8px;line-height:1.4}
+.answer-check-feedback .check-pill.found{background:#e6f7ef;color:#116344;border:1px solid #b9e6d0}
+.answer-check-feedback .check-pill.missing{background:#fff6e7;color:#86530d;border:1px solid #f3dfb8}
+.answer-check-feedback .check-connection{padding:10px 12px;margin:12px 0 8px;background:#f2f6fc;border-radius:9px;font-size:12.5px}
+.answer-check-feedback .check-hint{font-size:12.5px;color:#765219;margin:8px 0 0}
+.answer-check-feedback .check-encourage{font-size:12.5px;color:#145e43;margin:8px 0 0}
+.answer-check-feedback .check-caveat{font-size:11px;color:#6c7381;margin:12px 0 0;line-height:1.6}
+@media(max-width:560px){.answer-check-btn{width:100%}.answer-check-feedback{padding:13px}}

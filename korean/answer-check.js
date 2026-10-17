@@ -87,18 +87,31 @@ function inquiry(){
    const question=card.querySelector('.question-text');
    const hints=[];
    if(question){
-     // 본문 끝의 (힌트: ...)에 명시된 교사 발문을 우선 사용
+     // 학습지 발문 끝의 '힌트'에 있는 실제 교과 개념만 추출한다.
      const html=question.innerHTML||'';
      const at=html.lastIndexOf('힌트:');
      if(at>=0){
-       const area=html.slice(at);
-       const tmp=document.createElement('div');tmp.innerHTML=area;
-       let sample=tmp.textContent.replace(/^힌트\s*:\s*/,'').replace(/[()]/g,'').trim();
-       sample.split(/[,，、]/).forEach(x=>{const t=x.trim();if(t.length>=2&&t.length<40)hints.push(t)});
+       const segment=html.slice(at);
+       const scratch=document.createElement('div');scratch.innerHTML=segment;
+       const bolds=[...scratch.querySelectorAll('strong')].map(x=>x.textContent.replace(/^[('"'“‘]+|[)'”’]+$/g,'').trim())
+         .filter(x=>x.length>=2&&x.length<=24);
+       if(bolds.length){
+         hints.push(...bolds);
+       }else{
+         const plain=scratch.textContent.replace(/^힌트\s*:\s*/,'').replace(/[()'"“”‘’]/g,'').trim();
+         if(!/주목하세요|생각해 보세요|참고하세요|비교해 보세요/.test(plain)){
+           plain.split(/[,，、]|\s*[=→⇒]\s*/).forEach(x=>{
+             const part=x.trim();
+             if(part.length>=2&&part.length<=23)hints.push(part);
+           });
+         }
+       }
      }
    }
    const tags=[...card.querySelectorAll('.keyword-result .keywords-tags span')].map(x=>x.textContent.trim()).filter(Boolean);
-   const list=[...new Set(hints.length?hints:tags)];
+   const modelFocus=[...card.querySelectorAll('.model-answer strong')].map(x=>x.textContent.trim())
+     .filter(x=>x.length>=2&&x.length<=23);
+   const list=[...new Set(hints.length?hints:(modelFocus.length?modelFocus.slice(0,6):tags.slice(0,6)))];
    const choice=/(가운데 하나|중 하나를 골라|하나를 선택|어느 쪽|어느 것을 선택|찬성|반대|입장을 선택)/.test(question?.textContent||'');
    renderCheck(ta,submit,list,choice,'inquiry');
    count++;

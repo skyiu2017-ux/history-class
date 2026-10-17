@@ -967,7 +967,8 @@ const RUBRICS = {
     },
     "imperialism": {
       "mode": "cause",
-      "min": 2,
+      "min": 3,
+      "required": [3],
       "items": [
         [
           "산업화·대량 생산",
@@ -1109,8 +1110,9 @@ function scoreAnswer(raw, spec){
  }));
  const found = results.filter(x=>x.hit), missing=results.filter(x=>!x.hit);
  const minimum=spec.min||results.length;
- const enough=found.length>=minimum;
- const joined=spec.mode ? connectors[spec.mode].test(String(raw||'')) : null;
+ const essential=(spec.required||[]).every(index=>results[index]&&results[index].hit);
+ const enough=found.length>=minimum && essential;
+ const joined=spec.mode && connectors[spec.mode] ? connectors[spec.mode].test(String(raw||'')) : null;
  return {found,missing,minimum,enough,joined,total:results.length};
 }
 function element(tag,className,text){
@@ -1163,7 +1165,7 @@ ques.forEach((ta,index)=>{
      return;
    }
    const r=scoreAnswer(raw,spec);
-   output.appendChild(element('div','check-summary',`핵심 요소 ${r.found.length}/${r.total}개 발견 · 이 질문의 목표는 ${r.minimum}개 이상`));
+   output.appendChild(element('div','check-summary',`핵심 요소 ${r.found.length}/${r.total}개 발견 · 목표 ${r.minimum}개 이상${spec.required&&spec.required.length?'(필수 결론 포함)':''}`));
    if(r.found.length){
      output.appendChild(element('div','check-label','찾은 핵심 요소'));
      appendPills(output,r.found,'found');

@@ -54,8 +54,8 @@
   <h1 class="fade-in d1">✏️ 빈칸 학습지 모음</h1>
   <p class="hero-desc fade-in d2">수업에서 사용한 빈칸 학습지를 다운로드하여 인쇄하거나, 태블릿에서 필기할 수 있습니다.</p>
   <div class="hero-stats fade-in d3">
-    <div class="hero-stat"><div class="num">13</div><div class="label">학습지</div></div>
-    <div class="hero-stat"><div class="num">3</div><div class="label">대단원</div></div>
+    <div class="hero-stat"><div class="num">19</div><div class="label">학습지</div></div>
+    <div class="hero-stat"><div class="num">2</div><div class="label">한국사·세계사</div></div>
     <div class="hero-stat"><div class="num">PDF</div><div class="label">다운로드</div></div>
   </div>
 </div></section>
@@ -67,7 +67,7 @@
     <div class="guide-box fade-in">
       <h3>💡 학습지 활용 팁</h3>
       <p><strong>인쇄용:</strong> PDF를 다운로드하여 인쇄 후 직접 빈칸을 채워 보세요.</p>
-      <p><strong>디지털 복습:</strong> 🖥️ 수업 페이지 버튼을 누르면 인터랙티브 자료에서 정답을 확인할 수 있습니다.</p>
+      <p><strong>디지털 복습:</strong> 🖥️ 수업 페이지 버튼을 누르면 개념 설명·자료 해설·형성평가를 확인할 수 있습니다.</p>
       <p><strong>시험 대비:</strong> 빈칸을 가리고 스스로 답을 떠올린 뒤 정답을 확인하는 방식이 가장 효과적입니다.</p>
       <p style="margin-top:10px;color:var(--navy);font-weight:600;">📌 학습지는 수업 진도에 맞춰 계속 추가됩니다.</p>
     </div>
@@ -82,7 +82,29 @@
 <script>
 const WORKSHEETS = [
   {
-    era: 'Ⅳ. 조선의 성립과 발전',
+    era:'🌍 세계사 · Ⅰ. 문명의 발생과 고대 세계의 형성',
+    items:[
+      { num:'①', title:'4대 문명과 페르시아 제국', unit:'세계의 선사 문화와 고대 문명 · 고대 제국', page:'교과서 연계', topics:'세계 4대 문명의 공통점·차이점, 페르시아의 제국 통치', pdf:'../worksheets/1-1-civilizations-persia.pdf', lessonUrl:'../world/ancient/01. four_civilizations.html' },
+      { num:'②', title:'춘추 전국 시대와 진·한 제국', unit:'고대 제국들의 특성과 주변 세계의 성장', page:'교과서 연계', topics:'춘추 전국 시대의 사상, 진의 통일 정책, 한 제국의 통치', pdf:'../worksheets/1-2-qin-han.pdf', lessonUrl:'../world/ancient/03. chunqiu_qin_han.html' },
+      { num:'③', title:'고대 그리스와 로마', unit:'고대 제국들의 특성과 주변 세계의 성장', page:'교과서 40~47쪽', pages:2, topics:'아테네 민주 정치, 그리스의 전쟁, 헬레니즘 문화, 로마 공화정과 제정, 로마의 실용 문화 및 사료 읽기', pdf:'../worksheets/1-3-greece-rome.pdf', lessonUrl:'../world/ancient/04. greek_rome.html' }
+    ]
+  },
+  {
+    era:'🌍 세계사 · Ⅱ. 세계 종교의 확산과 지역 문화의 형성',
+    items:[
+      { num:'④', title:'크리스트교 문화의 형성과 확산', unit:'게르만족의 이동 · 프랑크 왕국 · 교황권 성장 · 비잔티움', page:'교과서 80~87쪽', pages:2, topics:'봉건 사회의 성립, 로마 교회와 프랑크 왕국, 교황권 성장, 스콜라 철학, 비잔티움 제국, 카노사의 굴욕·보름스 협약 사료 읽기', pdf:'../worksheets/2-4-christian-culture.pdf', lessonUrl:'../world/medieval/01. christian_europe.html' },
+      { num:'⑤', title:'교황권의 쇠퇴와 종교개혁', unit:'크리스트교 문화의 형성과 확산 (후반)', page:'교과서 88~93쪽', pages:2, topics:'십자군 원정, 도시 성장과 장원 해체, 교황권 쇠퇴·왕권 강화, 르네상스, 종교 개혁과 종교 전쟁 및 사료 읽기', pdf:'../worksheets/2-5-papacy-reformation.pdf', lessonUrl:'../world/medieval/01. christian_europe.html' }
+    ]
+  },
+  {
+    era:'🌍 세계사 · Ⅲ. 지역 세계의 교류와 변화',
+    items:[
+      { num:'⑥', title:'신항로 개척과 유럽 지역 질서의 변화', unit:'신항로 개척 · 절대 왕정과 중상주의', page:'교과서 124~131쪽', pages:2, topics:'대항해와 아메리카 정복, 삼각 무역과 세계 교역망, 가격·상업 혁명, 절대 왕정, 과학 혁명·계몽사상 및 사료 읽기', pdf:'../worksheets/3-4-exploration-europe.pdf', lessonUrl:'../world/modern/01. exploration_absolutism.html' }
+    ]
+  },
+
+  {
+    era: '🇰🇷 한국사 · Ⅳ. 조선의 성립과 발전',
     items: [
       {
         num: '①', title: '문화의 발달과 사회 변화',
@@ -111,7 +133,7 @@ const WORKSHEETS = [
     ]
   },
   {
-    era: 'Ⅴ. 조선 사회의 변동',
+    era: '🇰🇷 한국사 · Ⅴ. 조선 사회의 변동',
     items: [
       {
         num: '④', title: '양 난 이후 국가를 재건하다',
@@ -156,7 +178,7 @@ const WORKSHEETS = [
     ]
   },
   {
-    era: 'Ⅵ. 근·현대 사회의 전개',
+    era: '🇰🇷 한국사 · Ⅵ. 근·현대 사회의 전개',
     items: [
       {
         num: '⑨', title: '문호 개방과 개화 정책',
@@ -218,7 +240,7 @@ function render() {
             <div class="ws-meta">
               <span class="ws-tag tag-unit">${ws.unit}</span>
               <span class="ws-tag tag-page">${ws.page}</span>
-              <span class="ws-tag tag-count">${ws.pages}쪽</span>
+              ${ws.pages?`<span class="ws-tag tag-count">${ws.pages}쪽</span>`:""}
             </div>
             <div class="ws-topics">${ws.topics}</div>
           </div>

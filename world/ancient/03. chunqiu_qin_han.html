@@ -110,4 +110,4 @@ $$('.save').forEach(e=>e.oninput=save); $('#saveAll').onclick=()=>{save();alert(
 let score=0,idx=0,qs=$$('.quiz-q');
 qs.forEach((q,i)=>{$$('.opt',q).forEach((o,j)=>o.onclick=()=>{if(q.dataset.done)return;q.dataset.done=1;let a=+q.dataset.answer-1,opts=$$('.opt',q);opts[a].classList.add('ok');if(j===a)score++;else o.classList.add('no');$('.result',q).style.display='block';$('.quiz-next',q).style.display='inline-block';});$('.quiz-next',q).onclick=()=>{q.classList.remove('active');if(i<qs.length-1)qs[i+1].classList.add('active');else{$('#score').style.display='block';$('#score').innerHTML=`${score}/5 정답<br><button class="btn" onclick="location.reload()">다시 풀기</button>`;}};});
 </script>
-</body></html>
+<link rel="stylesheet" href="../answer-check.css"><script src="../answer-check.js"></script></body></html>

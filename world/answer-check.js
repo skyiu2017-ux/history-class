@@ -111,6 +111,7 @@ const RUBRICS = {
     "punic": {
       "mode": "cause",
       "min": 3,
+      "required": [3],
       "items": [
         [
           "정복 전쟁·토지",
@@ -523,6 +524,8 @@ const RUBRICS = {
           [
             "대서양을 건너",
             "대서양 서쪽",
+            "서쪽 대서양",
+            "대서양을 서쪽",
             "서쪽으로",
             "서쪽 항해",
             "서인도 제도",
@@ -535,6 +538,7 @@ const RUBRICS = {
     "triangle": {
       "mode": "compare",
       "min": 2,
+      "required": [0],
       "items": [
         [
           "유럽의 경제적 이익",
@@ -1100,7 +1104,7 @@ const rubrics = RUBRICS[page];
 if (!rubrics) return;
 const normalize = s => String(s||'').normalize('NFKC').toLowerCase().replace(/[\s\u00b7,，、.():;!?'‘’“”\-–—_\/\\]/g,'');
 const connectors = {
- cause: /때문|덕분|그래서|따라서|그 결과|그로 인해|이에 따라|이어서|이어졌|이어진|그에 따라|가져왔|초래|영향|~|→|⇒|결국|그러므로|이유|발생하|낳았|커졌|약해졌|강해졌|때문에|해졌기/,
+ cause: /때문|덕분|그래서|따라서|그 결과|그로 인해|이에 따라|이어서|이어졌|이어진|이어지|그에 따라|가져왔|초래|불러왔|하게 되었|되었기|하여|하면서|하므로|때문|영향|~|→|⇒|결국|그러므로|이유|발생하|낳았|커졌|약해졌|강해졌|때문에|해졌기/,
  compare: /반면|하지만|그러나|다르게|달리|차이|비해|대조|그런데|한편|한쪽|반대로|각각|반해|↔|과 달리/
 };
 function scoreAnswer(raw, spec){
@@ -1112,7 +1116,7 @@ function scoreAnswer(raw, spec){
  const minimum=spec.min||results.length;
  const essential=(spec.required||[]).every(index=>results[index]&&results[index].hit);
  const enough=found.length>=minimum && essential;
- const joined=spec.mode && connectors[spec.mode] ? connectors[spec.mode].test(String(raw||'')) : null;
+ const joined=spec.mode && connectors[spec.mode] ? (connectors[spec.mode].test(String(raw||'')) || (spec.mode==='compare' && found.length>=2 && /[,，;；\n\/]/.test(String(raw||'')))) : null;
  return {found,missing,minimum,enough,joined,total:results.length};
 }
 function element(tag,className,text){

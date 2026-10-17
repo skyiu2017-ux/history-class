@@ -66,7 +66,7 @@ function renderCheck(ta,holder,reference,choiceMode,label){
    const clean=normalize(answer);
    const found=reference.filter(w=>matchWord(clean,w));
    const missing=reference.filter(w=>!matchWord(clean,w));
-   out.appendChild(el('div','history-check-title',`참고 핵심 표현 ${found.length}/${reference.length}개 발견`));
+   out.appendChild(el('div','history-check-title',choiceMode ? `선택한 관점을 설명할 때 참고할 표현 ${found.length}개 확인` : `참고 핵심 표현 ${found.length}/${reference.length}개 발견`));
    if(found.length){out.appendChild(el('div','history-check-sub','답에서 확인된 표현'));const wrap=el('div','history-check-list');found.forEach(w=>wrap.appendChild(el('span','history-check-tag hit','✓ '+w)));out.appendChild(wrap);}
    if(missing.length){out.appendChild(el('div','history-check-sub',choiceMode?'다른 답안에서 활용할 수 있는 표현':'추가로 검토할 표현'));const wrap=el('div','history-check-list');missing.slice(0,6).forEach(w=>wrap.appendChild(el('span','history-check-tag extra','+ '+w)));out.appendChild(wrap);}
    const linked=CONNECT.test(answer);

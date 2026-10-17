@@ -65,7 +65,8 @@
     .related-card span{display:block;font-size:.8rem;color:var(--sub)}
     .site-footer{padding:30px 0 44px;text-align:center;font-size:.78rem;color:var(--dim)}
     @media(prefers-reduced-motion:no-preference){.fade-in{opacity:0;transform:translateY(10px);animation:fadeUp .45s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}}
-  </style>
+  .topic-with-pdf{display:flex;align-items:stretch;gap:7px;min-width:0}.topic-main{flex:1;min-width:0}.topic-files{display:flex;gap:5px;align-items:stretch}.topic-pdf{display:flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:11px;background:#fff6e7;color:#9b5a0a;border:1px solid rgba(217,119,6,.17);font-size:.78rem;font-weight:700;white-space:nowrap}.topic-pdf:hover{background:#ffedc7}@media(max-width:600px){.topic-with-pdf{flex-direction:column}.topic-files{flex-wrap:wrap}.topic-pdf{flex:1;min-height:36px}}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -122,7 +123,7 @@
         <a class="link-item" href="01. four_civilizations.html"><span>세계 4대 문명</span><span class="link-arrow">→</span></a>
         <a class="link-item" href="02. persia_empire.html"><span>페르시아 제국</span><span class="link-arrow">→</span></a>
         <a class="link-item" href="03. chunqiu_qin_han.html"><span>춘추 전국 시대와 진·한 제국</span><span class="link-arrow">→</span></a>
-        <a class="link-item" href="04. greek_rome.html"><span>고대 그리스와 로마</span><span class="link-arrow">→</span></a>
+        <div class="topic-with-pdf"><a class="link-item topic-main" href="04. greek_rome.html"><span>고대 그리스와 로마</span><span class="link-arrow">→</span></a><div class="topic-files"><a class="topic-pdf" href="../../worksheets/1-3-greece-rome.pdf" target="_blank" rel="noopener noreferrer" aria-label="고대 그리스와 로마 ③ PDF 열기">📄 ③ PDF</a></div></div>
       </div>
     </div>
   </section>

@@ -16,7 +16,17 @@ const ALIASES={
  '평화 통일':['평화로운 통일','남북 통일'], '민족주의':['민족의 독립','민족의식']
 };
 function matchWord(answer,word){
- const variants=[word,...(ALIASES[word]||[])];return variants.some(w=>{const n=normalize(w);return n.length>1&&answer.includes(n)});
+ const variants=[word,...(ALIASES[word]||[])];
+ return variants.some(w=>{
+   const n=normalize(w);
+   if(n.length<2)return false;
+   if(answer.includes(n))return true;
+   // '호족 포섭' ↔ '호족을 포섭'처럼 조사·어미가 끼는 일반적 표현 인정
+   const chunks=w.trim().split(/\s+/).map(normalize).filter(x=>x.length>=2);
+   if(chunks.length<2||chunks.length>4)return false;
+   const pattern=chunks.map(x=>x.replace(/[.*+?^${}()|[\]\\]/g,'\\ const variants=[word,...(ALIASES[word]||[])];return variants.some(w=>{const n=normalize(w);return n.length>1&&answer.includes(n)});')).join('[가-힣]{0,2}');
+   return new RegExp(pattern).test(answer);
+ });
 }
 function el(tag,cls,value){const e=document.createElement(tag);if(cls)e.className=cls;if(value!=null)e.textContent=value;return e}
 function styles(){

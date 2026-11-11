@@ -62,8 +62,7 @@ const CONFIG = {
       links: [
         { icon: '🗽', text: '프랑스 혁명 수업 자료', url: 'world/modern/02. national_states.html' },
         { icon: '🏭', text: '산업화와 제국주의 수업 자료', url: 'world/modern/03. industrial_imperialism.html' },
-        { icon: '📄', text: '프랑스 혁명 학습지 (PDF)', url: 'worksheets/4-3-french-revolution-blank.pdf', ext: true },
-        { icon: '📄', text: '산업화·제국주의 학습지 (PDF)', url: 'worksheets/4-2-industrial-imperialism-blank.pdf', ext: true },
+        { icon: '📚', text: '세계사 빈칸 학습지 모음', url: 'review/review_worksheets.html' },
         { icon: '🎯', text: '퀴즈로 마무리', url: 'https://skyiu2017-ux.github.io/munsi-world-history/', ext: true }
       ]}
   ],
@@ -96,18 +95,18 @@ const CONFIG = {
     { era: 'Ⅰ. 문명의 발생과 고대 세계의 형성', units: [
       { name: '세계의 선사 문화와 고대 문명', subunits: [
         { name: '세계 4대 문명', pages: [
-          { name: '4대 문명, 무엇이 같고 무엇이 달랐을까?', url: 'world/ancient/01. four_civilizations.html', ws: 'worksheets/1-1-civilizations-persia.pdf' }
+          { name: '4대 문명, 무엇이 같고 무엇이 달랐을까?', url: 'world/ancient/01. four_civilizations.html', wsList:[{label:'① 학습지',url:'worksheets/1-1-civilizations-persia.pdf'}] }
         ]}
       ]},
       { name: '고대 제국들의 특성과 주변 세계의 성장', subunits: [
         { name: '페르시아 제국', pages: [
-          { name: '페르시아 제국, 넓은 영토를 어떻게 오래 다스렸을까?', url: 'world/ancient/02. persia_empire.html', ws: 'worksheets/1-1-civilizations-persia.pdf' }
+          { name: '페르시아 제국, 넓은 영토를 어떻게 오래 다스렸을까?', url: 'world/ancient/02. persia_empire.html', wsList:[{label:'① 학습지',url:'worksheets/1-1-civilizations-persia.pdf'}] }
         ]},
         { name: '춘추 전국 시대와 진·한 제국', pages: [
-          { name: '춘추 전국 시대와 진·한 제국', url: 'world/ancient/03. chunqiu_qin_han.html', ws: 'worksheets/1-2-qin-han.pdf' }
+          { name: '춘추 전국 시대와 진·한 제국', url: 'world/ancient/03. chunqiu_qin_han.html', wsList:[{label:'② 학습지',url:'worksheets/1-2-qin-han.pdf'}] }
         ]},
         { name: '고대 그리스와 로마', pages: [
-          { name: '고대 그리스와 로마', url: 'world/ancient/04. greek_rome.html', highlight: true, ws: 'worksheets/1-3-greece-rome.pdf' }
+          { name: '고대 그리스와 로마', url: 'world/ancient/04. greek_rome.html', highlight: true, wsList:[{label:'③ 학습지',url:'worksheets/1-3-greece-rome.pdf'}] }
         ]}
       ]}
     ]},
@@ -121,30 +120,27 @@ const CONFIG = {
     { era: 'Ⅲ. 지역 세계의 교류와 변화', units: [
       { name: '신항로 개척과 유럽 지역 질서의 변화', subunits: [
         { name: '신항로 개척과 유럽 지역 질서의 변화', pages: [
-          { name: '신항로 개척과 유럽 지역 질서의 변화', url: 'world/modern/01. exploration_absolutism.html', ws: 'worksheets/3-4-exploration-europe.pdf' }
+          { name: '신항로 개척과 유럽 지역 질서의 변화', url: 'world/modern/01. exploration_absolutism.html', wsList:[{label:'⑥ 학습지',url:'worksheets/3-4-exploration-europe.pdf'}] }
         ]}
       ]}
     ]},
     { era: 'Ⅳ. 제국주의 침략과 국민 국가 건설 운동', units: [
       { name: '유럽과 아메리카의 국민 국가 체제', subunits: [
         { name: '유럽과 아메리카의 국민 국가 체제', pages: [
-          { name: '유럽과 아메리카의 국민 국가 체제', url: 'world/modern/02. national_states.html', wsList:[{label:'⑦ 프랑스 혁명 학습지',url:'worksheets/4-3-french-revolution-blank.pdf'}] }
+          { name: '유럽과 아메리카의 국민 국가 체제', url: 'world/modern/02. national_states.html', wsList:[{label:'⑦ 학습지',url:'worksheets/4-3-french-revolution-blank.pdf'}] }
         ]}
       ]},
       { name: '유럽의 산업화와 제국주의', subunits: [
         { name: '유럽의 산업화와 제국주의', pages: [
-          { name: '유럽의 산업화와 제국주의', url: 'world/modern/03. industrial_imperialism.html', wsList:[{label:'⑧ 산업화·제국주의 학습지',url:'worksheets/4-2-industrial-imperialism-blank.pdf'}] }
+          { name: '유럽의 산업화와 제국주의', url: 'world/modern/03. industrial_imperialism.html', wsList:[{label:'⑧ 학습지',url:'worksheets/4-2-industrial-imperialism-blank.pdf'}] }
         ]}
       ]}
     ]}
   ],
   examGroups: [
     { label: '📗 2학기 (세계사)', items: [
-      { icon:'📄', title:'⑦ 프랑스 혁명 학습지', desc:'프랑스 혁명의 전개와 나폴레옹, 사료 읽기까지 정리하는 학생용 빈칸 학습지 (2쪽).', linkText:'학습지 PDF 열기', url:'worksheets/4-3-french-revolution-blank.pdf', external:true },
-      { icon:'📄', title:'⑧ 유럽의 산업화와 제국주의 학습지', desc:'산업 혁명과 제국주의의 배경·변화·사료 읽기를 정리하는 학생용 빈칸 학습지 (2쪽).', linkText:'학습지 PDF 열기', url:'worksheets/4-2-industrial-imperialism-blank.pdf', external:true },
-      { icon:'🎮', title:'세계사 퀴즈 웹앱', desc:'단원별·레벨업 퀴즈와 60초 미궁 탈출을 통해 핵심 개념을 점검하고 학급 랭킹에 도전할 수 있습니다.', linkText:'퀴즈 웹앱 열기', url:'https://skyiu2017-ux.github.io/munsi-world-history/', external:true },
+{ icon:'🎮', title:'세계사 퀴즈 웹앱', desc:'단원별·레벨업 퀴즈와 60초 미궁 탈출을 통해 핵심 개념을 점검하고 학급 랭킹에 도전할 수 있습니다.', linkText:'퀴즈 웹앱 열기', url:'https://skyiu2017-ux.github.io/munsi-world-history/', external:true },
       { icon:'🗓️', title:'2학기 시험 범위표 (역사①)', desc:'Ⅰ단원 고대 문명·고대 제국, Ⅱ-4 크리스트교, Ⅲ-4 신항로 개척, Ⅳ-1·2 제국주의까지 — 2학기 정기시험 범위입니다.', linkText:'범위 상세 보기', url:"javascript:openScope('examScope2')" },
-      { icon:'✏️', title:'세계사 학습지', desc:'4대 문명·페르시아·진한부터 그리스·로마, 크리스트교 문화, 교황권의 쇠퇴, 신항로 개척까지 빈칸 학습지 6종을 확인할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' }
     ]},
     { label: '📘 1학기 (한국사)', items: [
       { icon:'🗂️', title:'시험 대비 문제 풀이 (전체→실전)', desc:'1학기 한국사 전 범위 50문항으로 복습한 뒤 핵심 26문항으로 실전 점검까지 이어지는 단계별 문제 풀이입니다.', linkText:'문제 풀기', url:'review/exam_prep_2nd.html' },
@@ -171,9 +167,14 @@ const CONFIG = {
   ],
   reviewGroups: [
     { label: '📚 공통 복습', items: [
-      { icon:'📖', title:'지난 시간 요약', desc:'핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'review/review_summary.html' },
+      { icon:'📖', title:'지난 시간 요약', desc:'한국사와 세계사의 핵심 내용을 짧게 정리해 빠르게 복습할 수 있어요.', linkText:'요약 보기', url:'review/review_summary.html' },
       { icon:'📜', title:'사료 다시 보기', desc:'수업에서 다룬 사료와 해설을 다시 확인합니다.', linkText:'사료 보기', url:'review/review_sources.html' },
       { icon:'✏️', title:'빈칸 학습지 모음', desc:'단원별 빈칸 학습지를 다운로드할 수 있습니다.', linkText:'학습지 보기', url:'review/review_worksheets.html' }
+    ]},
+    { label: '🌍 세계사', items: [
+      { icon:'📖', title:'세계사 지난 시간 요약', desc:'고대 문명부터 프랑스 혁명·산업 혁명·제국주의까지 핵심 개념과 사건의 흐름을 정리했습니다.', linkText:'세계사 요약 보기', url:'review/review_summary.html?subject=world' },
+      { icon:'📄', title:'세계사 빈칸 학습지 모음', desc:'①~⑧ 학습지 8종을 단원별로 모았습니다. 원본 PDF를 열거나 인쇄해 복습하세요.', linkText:'세계사 학습지 보기', url:'review/review_worksheets.html?subject=world' },
+      { icon:'🎮', title:'세계사 퀴즈 웹앱', desc:'단원별 퀴즈·레벨업 퀴즈·60초 미궁 탈출로 배운 내용을 점검합니다.', linkText:'퀴즈 풀기', url:'https://skyiu2017-ux.github.io/munsi-world-history/', external:true }
     ]},
     { label: '🇰🇷 한국사', items: [
       { icon:'🗺️', title:'개항기 조선 통합 정리', desc:'병인양요부터 을미사변까지 — 사건별 형성평가와 달성도 확인이 포함된 통합 정리 페이지입니다.', linkText:'정리 · 퀴즈 풀기', url:'korean/modern/gaehangi_final.html' },
@@ -186,7 +187,7 @@ const CONFIG = {
   siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','2학기는 세계사(역사①)로 진행합니다. 주제별 자료에서 🌍 세계사 탭을 눌러 보세요.','1학기 한국사 자료와 시험 대비 문제는 [1학기] 표시로 그대로 남겨 두었습니다.','이번 주 진도는 시험 준비·마무리입니다. 세계사 퀴즈 웹앱에서 단원별 개념과 핵심 문제를 복습하세요.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
   scheduleNotices: ['2학기 1차 수행평가: 9월 초 실시 예정 — 춘추 전국 시대 제자백가 글쓰기','2학기 2차 수행평가: 11월 초 실시 예정 — 신항로 개척 글쓰기','2학기 시험 범위: 역사① Ⅰ단원 전체 + Ⅱ-4 크리스트교 + Ⅲ-4 신항로 개척 + Ⅳ-1·2 제국주의까지 (상세 범위는 시험 대비 > [2학기] 시험 범위표 참고)','수행평가 상세 기준과 채점표는 실시 2주 전 별도 공지 예정'],
   updates: [
-    { date:'11.12', text:'이번 주 진도 시험 준비·마무리로 변경, 세계사 퀴즈 웹앱 및 프랑스 혁명·산업화·제국주의 학습지 2종 연결' },
+    { date:'11.12', text:'세계사 학습지 8종을 지난 수업 복습으로 통합하고, 주제별 학습지 버튼과 세계사 요약 자료를 정비' },
     { date:'10.17', text:'세계사 빈칸 학습지 4종 추가: ③ 그리스·로마, ④ 크리스트교 문화, ⑤ 교황권 쇠퇴·종교개혁, ⑥ 신항로 개척. 수업 페이지와 PDF 버튼 연결' },
     { date:'9.30', text:'세계사 수업 페이지 연결 정비: 고대 그리스·로마, 크리스트교 문화, 신항로 개척, 국민 국가, 산업화·제국주의 페이지를 교과서 단원명 기준으로 주제별 자료에 연결' },
     { date:'8.26', text:'2학기 개편: 세계사 고대 문명·고대 제국 페이지 3종 + 학습지 1-1·1-2 추가, 2학기 시험 범위와 수행평가 일정 안내 반영' },
@@ -295,7 +296,7 @@ function renderEras(data){return data.map(era=>{const unitHtml=era.units.map(uni
 function renderWorksheetButtons(pg){
   const list=Array.isArray(pg.wsList)?pg.wsList:(pg.ws?[{label:'',url:pg.ws}]:[]);
   return list.map(item=>{
-    const text=item.label?'📄 '+item.label:'📄';
+    const text='📄 '+(item.label||'학습지');
     const label=item.label?item.label+' PDF 열기':'빈칸 학습지 PDF 열기';
     return `<a class="ws-btn" href="${item.url}" target="_blank" rel="noopener noreferrer" title="${label}" aria-label="${label}">${text}</a>`;
   }).join('');

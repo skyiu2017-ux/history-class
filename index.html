@@ -50,16 +50,19 @@
 <script>
 const CONFIG = {
   thisWeek: [
-    { badge: '현재 진도', color: '#D97706', title: '🏛️ 고대 그리스와 로마 → ⛪ 크리스트교 문화의 형성과 확산',
-      desc: '아테네 민주 정치와 헬레니즘 세계, 로마 공화정에서 제정으로의 변화와 실용 문화를 정리한 뒤, 크리스트교의 확산과 중세 서유럽 세계의 형성으로 이어갑니다.',
+    { badge: '이번 주 진도', color: '#D97706', title: '시험 준비 · 마무리',
+      desc: '이번 주에는 새 단원을 진도 나가기보다 역사①에서 배운 내용을 정리하고 시험을 준비합니다. 학습지로 개념과 사건의 흐름을 확인하고 퀴즈로 부족한 부분을 점검하세요.',
       links: [
-        { icon: '🏛️', text: '고대 그리스와 로마', url: 'world/ancient/04. greek_rome.html' },
-        { icon: '⛪', text: '크리스트교 문화의 형성과 확산', url: 'world/medieval/01. christian_europe.html' }
+        { icon: '🎮', text: '세계사 퀴즈 웹앱', url: 'https://skyiu2017-ux.github.io/munsi-world-history/', ext: true },
+        { icon: '📋', text: '시험 범위 확인', url: "javascript:openScope('examScope2')" },
+        { icon: '📚', text: '세계사 수업 자료', url: '#subjects' }
       ]},
-    { badge: '다음 흐름', color: '#2563EB', title: '🌍 신항로 개척과 유럽 지역 질서의 변화',
-      desc: '중세 유럽의 변화가 바다를 통한 팽창으로 어떻게 이어졌는지, 신항로 개척·세계적 교역망·가격 혁명·상업 혁명·절대 왕정의 흐름으로 연결합니다.',
+    { badge: '마무리 복습', color: '#2563EB', title: '프랑스 혁명 · 산업화와 제국주의 정리',
+      desc: '기존 학습지와 수업 자료를 바탕으로 프랑스 혁명과 나폴레옹, 산업 혁명과 제국주의의 핵심 개념을 확인합니다.',
       links: [
-        { icon: '🌍', text: '신항로 개척과 유럽 지역 질서의 변화', url: 'world/modern/01. exploration_absolutism.html' }
+        { icon: '🗽', text: '프랑스 혁명 수업 자료', url: 'world/modern/02. national_states.html' },
+        { icon: '🏭', text: '산업화와 제국주의 수업 자료', url: 'world/modern/03. industrial_imperialism.html' },
+        { icon: '🎯', text: '퀴즈로 마무리', url: 'https://skyiu2017-ux.github.io/munsi-world-history/', ext: true }
       ]}
   ],
   korean: [
@@ -175,9 +178,10 @@ const CONFIG = {
       { icon:'📗', title:'한국사 흐름 파악하기', desc:'한국사 전체 흐름을 한눈에 확인합니다.', linkText:'흐름도 보기', url:'review/korean_history_flow.html' }
     ]}
   ],
-  siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','2학기는 세계사(역사①)로 진행합니다. 주제별 자료에서 🌍 세계사 탭을 눌러 보세요.','1학기 한국사 자료와 시험 대비 문제는 [1학기] 표시로 그대로 남겨 두었습니다.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
+  siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','2학기는 세계사(역사①)로 진행합니다. 주제별 자료에서 🌍 세계사 탭을 눌러 보세요.','1학기 한국사 자료와 시험 대비 문제는 [1학기] 표시로 그대로 남겨 두었습니다.','이번 주 진도는 시험 준비·마무리입니다. 세계사 퀴즈 웹앱에서 단원별 개념과 핵심 문제를 복습하세요.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
   scheduleNotices: ['2학기 1차 수행평가: 9월 초 실시 예정 — 춘추 전국 시대 제자백가 글쓰기','2학기 2차 수행평가: 11월 초 실시 예정 — 신항로 개척 글쓰기','2학기 시험 범위: 역사① Ⅰ단원 전체 + Ⅱ-4 크리스트교 + Ⅲ-4 신항로 개척 + Ⅳ-1·2 제국주의까지 (상세 범위는 시험 대비 > [2학기] 시험 범위표 참고)','수행평가 상세 기준과 채점표는 실시 2주 전 별도 공지 예정'],
   updates: [
+    { date:'11.12', text:'이번 주 진도 시험 준비·마무리로 변경, 세계사 퀴즈 웹앱 바로가기 추가' },
     { date:'10.17', text:'세계사 빈칸 학습지 4종 추가: ③ 그리스·로마, ④ 크리스트교 문화, ⑤ 교황권 쇠퇴·종교개혁, ⑥ 신항로 개척. 수업 페이지와 PDF 버튼 연결' },
     { date:'9.30', text:'세계사 수업 페이지 연결 정비: 고대 그리스·로마, 크리스트교 문화, 신항로 개척, 국민 국가, 산업화·제국주의 페이지를 교과서 단원명 기준으로 주제별 자료에 연결' },
     { date:'8.26', text:'2학기 개편: 세계사 고대 문명·고대 제국 페이지 3종 + 학습지 1-1·1-2 추가, 2학기 시험 범위와 수행평가 일정 안내 반영' },
@@ -209,18 +213,19 @@ const CONFIG = {
 <section class="hero"><div class="container hero-inner">
   <p class="hero-eye fade-in">문시중학교 역사 수업 포털</p>
   <h1 class="fade-in d1">수업 자료부터 시험 대비까지,<br>한곳에서 확인하세요</h1>
-  <p class="hero-desc fade-in d2">이번 주 수업 자료, 주제별 복습, 수행평가 안내를 빠르게 찾을 수 있습니다.</p>
-  <div class="hero-actions fade-in d3"><a href="#week" class="btn btn-w">📝 시험 대비 문제</a><a href="#exam" class="btn btn-g">📋 시험 범위 · 자료</a></div>
+  <p class="hero-desc fade-in d2">이번 주는 시험 준비와 학기 학습 마무리입니다. 수업 자료와 세계사 퀴즈 웹앱으로 핵심 내용을 복습하세요.</p>
+  <div class="hero-actions fade-in d3"><a href="https://skyiu2017-ux.github.io/munsi-world-history/" class="btn btn-w" target="_blank" rel="noopener noreferrer" aria-label="세계사 퀴즈 웹앱 새 탭에서 열기">🎮 세계사 퀴즈 풀기 ↗</a><a href="#week" class="btn btn-g">📝 이번 주 시험 준비</a><a href="#exam" class="btn btn-g">📋 시험 범위 · 자료</a></div>
 </div></section>
 
 <main>
   <section class="sec" id="week"><div class="container">
     <span class="sec-label" style="background:var(--orange-bg);color:var(--orange);">📝 시험 대비</span>
-    <h2 class="sec-title">2차 정기시험 대비 <span style="font-size:0.72em;font-weight:500;color:var(--dim);">(핵심 문제 풀이)</span></h2>
-    <p class="sec-desc">시험 범위를 문제로 풀며 점검하세요. 아래에서 바로 시작할 수 있습니다.</p>
+    <h2 class="sec-title">이번 주 진도: 시험 준비 · 마무리</h2>
+    <p class="sec-desc">이번 주에는 배운 내용을 정리하고 시험 대비 퀴즈로 확인합니다.</p>
     <div id="week-container"></div>
   </div></section>
   <section class="sec" style="padding-top:0;"><div class="container"><div class="card-grid cg-2">
+    <a class="quick-card fade-in" href="https://skyiu2017-ux.github.io/munsi-world-history/" target="_blank" rel="noopener noreferrer" aria-label="세계사 퀴즈 웹앱 열기"><div class="q-icon" style="background:var(--blue-bg);color:var(--blue);">🎮</div><div class="q-text"><h3>세계사 퀴즈 웹앱 ↗</h3><p>단원별 퀴즈 · 레벨업 퀴즈 · 60초 미궁 탈출 · 학급 랭킹</p></div></a>
     <a class="quick-card fade-in" href="#exam"><div class="q-icon" style="background:var(--orange-bg);color:var(--orange);">📝</div><div class="q-text"><h3>시험 대비</h3><p>시험 범위 · 핵심 정리 · 빈칸 학습지</p></div></a>
     <a class="quick-card fade-in d1" href="#performance"><div class="q-icon" style="background:var(--purple-bg);color:var(--purple);">📊</div><div class="q-text"><h3>수행평가</h3><p>안내</p></div></a>
     <a class="quick-card fade-in d2" href="#subjects"><div class="q-icon" style="background:var(--navy-bg);color:var(--navy);">📚</div><div class="q-text"><h3>주제별 자료</h3><p>한국사 · 세계사</p></div></a>
@@ -326,6 +331,7 @@ document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='
 setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getComputedStyle(el).opacity==='0'){el.style.animationPlayState='paused';obs.observe(el)}})},100);
 
 const SEARCH_DATA = [
+  { title:"🎮 세계사 퀴즈 웹앱 — 단원별·레벨업·60초 미궁 탈출", url:"https://skyiu2017-ux.github.io/munsi-world-history/", keywords:["세계사","역사1","역사①","시험준비","마무리","퀴즈","레벨업","미궁탈출","학급랭킹","225문항"] },
   { title:"🚀 2차 시험 대비 문제 풀이 — 전체 복습 → 시험 실전 (50→26문항)", url:"review/exam_prep_2nd.html", keywords:["시험대비","2차시험","정기시험","문제풀이","복습","실전","형성평가","퀴즈","50문항","26문항","객관식","오지선다","조선전기","왜란","호란","탕평","세도","개화기","민족운동","정부수립"] },
   { title:"🎯 2차 시험 핵심 26문항", url:"review/exam_review_26.html", keywords:["시험대비","2차시험","정기시험","26문항","핵심문제","실전","형성평가","퀴즈","객관식","오지선다","순서나열","옳지않은것","시험범위"] },
   { title:"🏯 일제 식민 통치의 변화와 수탈 — 통합 정리 + 형성평가", url:"korean/modern/japanese_colonial_rule_national_movement_final.html", keywords:["일제","식민통치","무단통치","문화통치","민족말살통치","헌병경찰","조선태형령","토지조사사업","산미증식계획","회사령","병참기지화","국가총동원법","공출","징용","징병","위안부","수탈","민족운동","통합정리","형성평가","달성도"] },

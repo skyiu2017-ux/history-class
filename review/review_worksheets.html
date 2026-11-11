@@ -236,11 +236,14 @@ const WORKSHEETS = [
   }
 ];
 
+const worldOnly = new URLSearchParams(location.search).get('subject') === 'world';
 function render() {
   const container = document.getElementById('wsContainer');
-  let html = '';
+  let html = worldOnly
+    ? '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin:14px 0 20px;flex-wrap:wrap"><strong style="color:var(--navy)">🌍 세계사 빈칸 학습지 ①~⑧</strong><a href="review_worksheets.html" style="font-size:.83rem;color:var(--blue);font-weight:600">한국사·세계사 전체 보기 →</a></div>'
+    : '<div style="margin:14px 0 20px"><a href="review_worksheets.html?subject=world" style="font-size:.83rem;color:var(--blue);font-weight:600">🌍 세계사 학습지만 보기 →</a></div>';
 
-  WORKSHEETS.forEach((section, si) => {
+  WORKSHEETS.filter(section => !worldOnly || section.era.includes('세계사')).forEach((section, si) => {
     html += `<div class="sec"><div class="era-heading fade-in">${section.era}</div>`;
     section.items.forEach((ws, i) => {
       html += `

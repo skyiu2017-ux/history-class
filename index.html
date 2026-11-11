@@ -62,6 +62,8 @@ const CONFIG = {
       links: [
         { icon: '🗽', text: '프랑스 혁명 수업 자료', url: 'world/modern/02. national_states.html' },
         { icon: '🏭', text: '산업화와 제국주의 수업 자료', url: 'world/modern/03. industrial_imperialism.html' },
+        { icon: '📄', text: '프랑스 혁명 학습지 (PDF)', url: 'worksheets/4-3-french-revolution-blank.pdf', ext: true },
+        { icon: '📄', text: '산업화·제국주의 학습지 (PDF)', url: 'worksheets/4-2-industrial-imperialism-blank.pdf', ext: true },
         { icon: '🎯', text: '퀴즈로 마무리', url: 'https://skyiu2017-ux.github.io/munsi-world-history/', ext: true }
       ]}
   ],
@@ -126,18 +128,20 @@ const CONFIG = {
     { era: 'Ⅳ. 제국주의 침략과 국민 국가 건설 운동', units: [
       { name: '유럽과 아메리카의 국민 국가 체제', subunits: [
         { name: '유럽과 아메리카의 국민 국가 체제', pages: [
-          { name: '유럽과 아메리카의 국민 국가 체제', url: 'world/modern/02. national_states.html' }
+          { name: '유럽과 아메리카의 국민 국가 체제', url: 'world/modern/02. national_states.html', wsList:[{label:'⑦ 프랑스 혁명 학습지',url:'worksheets/4-3-french-revolution-blank.pdf'}] }
         ]}
       ]},
       { name: '유럽의 산업화와 제국주의', subunits: [
         { name: '유럽의 산업화와 제국주의', pages: [
-          { name: '유럽의 산업화와 제국주의', url: 'world/modern/03. industrial_imperialism.html' }
+          { name: '유럽의 산업화와 제국주의', url: 'world/modern/03. industrial_imperialism.html', wsList:[{label:'⑧ 산업화·제국주의 학습지',url:'worksheets/4-2-industrial-imperialism-blank.pdf'}] }
         ]}
       ]}
     ]}
   ],
   examGroups: [
     { label: '📗 2학기 (세계사)', items: [
+      { icon:'📄', title:'⑦ 프랑스 혁명 학습지', desc:'프랑스 혁명의 전개와 나폴레옹, 사료 읽기까지 정리하는 학생용 빈칸 학습지 (2쪽).', linkText:'학습지 PDF 열기', url:'worksheets/4-3-french-revolution-blank.pdf', external:true },
+      { icon:'📄', title:'⑧ 유럽의 산업화와 제국주의 학습지', desc:'산업 혁명과 제국주의의 배경·변화·사료 읽기를 정리하는 학생용 빈칸 학습지 (2쪽).', linkText:'학습지 PDF 열기', url:'worksheets/4-2-industrial-imperialism-blank.pdf', external:true },
       { icon:'🎮', title:'세계사 퀴즈 웹앱', desc:'단원별·레벨업 퀴즈와 60초 미궁 탈출을 통해 핵심 개념을 점검하고 학급 랭킹에 도전할 수 있습니다.', linkText:'퀴즈 웹앱 열기', url:'https://skyiu2017-ux.github.io/munsi-world-history/', external:true },
       { icon:'🗓️', title:'2학기 시험 범위표 (역사①)', desc:'Ⅰ단원 고대 문명·고대 제국, Ⅱ-4 크리스트교, Ⅲ-4 신항로 개척, Ⅳ-1·2 제국주의까지 — 2학기 정기시험 범위입니다.', linkText:'범위 상세 보기', url:"javascript:openScope('examScope2')" },
       { icon:'✏️', title:'세계사 학습지', desc:'4대 문명·페르시아·진한부터 그리스·로마, 크리스트교 문화, 교황권의 쇠퇴, 신항로 개척까지 빈칸 학습지 6종을 확인할 수 있습니다.', linkText:'학습지 모음 보기', url:'review/review_worksheets.html' }
@@ -182,7 +186,7 @@ const CONFIG = {
   siteNotices: ['이 페이지에서 수업 자료, 시험 대비, 수행평가 안내를 모두 확인할 수 있습니다.','2학기는 세계사(역사①)로 진행합니다. 주제별 자료에서 🌍 세계사 탭을 눌러 보세요.','1학기 한국사 자료와 시험 대비 문제는 [1학기] 표시로 그대로 남겨 두었습니다.','이번 주 진도는 시험 준비·마무리입니다. 세계사 퀴즈 웹앱에서 단원별 개념과 핵심 문제를 복습하세요.','자료는 수업 진도에 맞춰 계속 추가·수정됩니다.','문제가 있거나 자료가 안 열리면 선생님께 알려주세요.'],
   scheduleNotices: ['2학기 1차 수행평가: 9월 초 실시 예정 — 춘추 전국 시대 제자백가 글쓰기','2학기 2차 수행평가: 11월 초 실시 예정 — 신항로 개척 글쓰기','2학기 시험 범위: 역사① Ⅰ단원 전체 + Ⅱ-4 크리스트교 + Ⅲ-4 신항로 개척 + Ⅳ-1·2 제국주의까지 (상세 범위는 시험 대비 > [2학기] 시험 범위표 참고)','수행평가 상세 기준과 채점표는 실시 2주 전 별도 공지 예정'],
   updates: [
-    { date:'11.12', text:'이번 주 진도 시험 준비·마무리로 변경, 세계사 퀴즈 웹앱 바로가기 추가' },
+    { date:'11.12', text:'이번 주 진도 시험 준비·마무리로 변경, 세계사 퀴즈 웹앱 및 프랑스 혁명·산업화·제국주의 학습지 2종 연결' },
     { date:'10.17', text:'세계사 빈칸 학습지 4종 추가: ③ 그리스·로마, ④ 크리스트교 문화, ⑤ 교황권 쇠퇴·종교개혁, ⑥ 신항로 개척. 수업 페이지와 PDF 버튼 연결' },
     { date:'9.30', text:'세계사 수업 페이지 연결 정비: 고대 그리스·로마, 크리스트교 문화, 신항로 개척, 국민 국가, 산업화·제국주의 페이지를 교과서 단원명 기준으로 주제별 자료에 연결' },
     { date:'8.26', text:'2학기 개편: 세계사 고대 문명·고대 제국 페이지 3종 + 학습지 1-1·1-2 추가, 2학기 시험 범위와 수행평가 일정 안내 반영' },
@@ -332,6 +336,8 @@ document.querySelectorAll('.fade-in').forEach(el=>{el.style.animationPlayState='
 setTimeout(()=>{document.querySelectorAll('.fade-in').forEach(el=>{if(getComputedStyle(el).opacity==='0'){el.style.animationPlayState='paused';obs.observe(el)}})},100);
 
 const SEARCH_DATA = [
+  { title:"📄 ⑦ 프랑스 혁명 빈칸 학습지 (PDF)", url:"worksheets/4-3-french-revolution-blank.pdf", keywords:["세계사","역사1","프랑스혁명","나폴레옹","학습지","빈칸","PDF","⑦"] },
+  { title:"📄 ⑧ 유럽의 산업화와 제국주의 빈칸 학습지 (PDF)", url:"worksheets/4-2-industrial-imperialism-blank.pdf", keywords:["세계사","역사1","산업혁명","제국주의","학습지","빈칸","PDF","⑧"] },
   { title:"🎮 세계사 퀴즈 웹앱 — 단원별·레벨업·60초 미궁 탈출", url:"https://skyiu2017-ux.github.io/munsi-world-history/", keywords:["세계사","역사1","역사①","시험준비","마무리","퀴즈","레벨업","미궁탈출","학급랭킹","225문항"] },
   { title:"🚀 2차 시험 대비 문제 풀이 — 전체 복습 → 시험 실전 (50→26문항)", url:"review/exam_prep_2nd.html", keywords:["시험대비","2차시험","정기시험","문제풀이","복습","실전","형성평가","퀴즈","50문항","26문항","객관식","오지선다","조선전기","왜란","호란","탕평","세도","개화기","민족운동","정부수립"] },
   { title:"🎯 2차 시험 핵심 26문항", url:"review/exam_review_26.html", keywords:["시험대비","2차시험","정기시험","26문항","핵심문제","실전","형성평가","퀴즈","객관식","오지선다","순서나열","옳지않은것","시험범위"] },
